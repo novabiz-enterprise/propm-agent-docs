@@ -26,6 +26,19 @@ Knowledge standardizes how evidence is stored and retrieved, reducing manual eff
 - Select a project.
 - Prepare the file(s) you want to upload.
 
+## Supported file types (ingestion)
+
+By default, the system extracts and indexes content from:
+- **PDF** (best effort via Azure Document Intelligence)
+- **DOCX**
+- **XLSX** (sheets are concatenated as text)
+- **CSV**
+- **HTML/HTM**
+- **Images** (OCR via Azure Document Intelligence)
+
+Extraction can be toggled with env flags:
+- `ENABLE_EXTRACT_XLSX`, `ENABLE_EXTRACT_CSV`, `ENABLE_EXTRACT_HTML`
+
 ## Steps
 
 ### Upload a document
@@ -35,6 +48,17 @@ Knowledge standardizes how evidence is stored and retrieved, reducing manual eff
 3. Select a file.
 4. Select **Upload**.
 5. Select **Refresh** to update the list.
+
+### Importer en batch avec Azure Data Factory (ADF)
+
+Utilisez ADF si vous voulez automatiser des imports depuis des sources externes (SaaS, DB, fichiers) en respectant le flux officiel **Documents → Ingestion → Search**.
+
+1. Déployez ADF dans le tenant client et configurez les secrets Key Vault requis.
+2. Importez les artefacts ADF fournis (pipelines, datasets, linked services).
+3. Configurez les paramètres du pipeline (APIM, tenant, project, fichier, metadata).
+4. Lancez le pipeline (manuel ou trigger planifié).
+
+Référence d’implémentation : [`repo/adf/README.md`](repo/adf/README.md:1)
 
 ### Check ingestion / indexing status
 
@@ -60,9 +84,11 @@ Knowledge standardizes how evidence is stored and retrieved, reducing manual eff
 - **Document not searchable yet**: indexing can take time after upload.
 - **Upload fails**: confirm you have a role that allows uploads.
 - **Search fails**: retry, then capture the trace ID (if shown) and contact your administrator.
+- **XLSX or images not searchable**: check that Document Intelligence and the extraction flags are enabled.
 
 ## Tips
 
 - Keep categories stable to support portfolio comparability.
 - Use search results as evidence: verify important outputs by reviewing the referenced sources.
+- For ADF batch loads, keep file sizes aligned with SAS expiry and use consistent metadata for governance.
 

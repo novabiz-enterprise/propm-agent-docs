@@ -4,7 +4,7 @@ title: PM Docs (edit + export DOCX)
 
 ## Purpose
 
-**PM Docs** are project artefacts you can review, edit, and export to DOCX.
+**PM Docs** are project artefacts you can review, edit, and export to DOCX or XLSX.
 
 ## Why this matters
 
@@ -43,6 +43,11 @@ PM Docs support standardization and audit readiness by keeping key project artef
 1. Select **Download DOCX**.
 2. Save the file.
 
+### Export an XLSX
+
+1. Select **Download XLSX**.
+2. Save the file.
+
 ### Add a PM Doc to Knowledge (optional)
 
 1. Select **Add to Knowledge**.
@@ -51,7 +56,7 @@ PM Docs support standardization and audit readiness by keeping key project artef
 ## Expected results
 
 - Updates are saved.
-- DOCX exports download successfully.
+- DOCX/XLSX exports download successfully.
 - Added PM Docs can be treated as part of project Knowledge.
 
 ## Common issues
