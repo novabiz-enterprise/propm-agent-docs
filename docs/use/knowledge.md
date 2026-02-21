@@ -58,7 +58,7 @@ Utilisez ADF si vous voulez automatiser des imports depuis des sources externes 
 3. Configurez les paramètres du pipeline (APIM, tenant, project, fichier, metadata).
 4. Lancez le pipeline (manuel ou trigger planifié).
 
-Référence d’implémentation : [`repo/adf/README.md`](repo/adf/README.md:1)
+Référence d’implémentation : <https://github.com/robertsmaoui/ProPM-Agent/blob/main/repo/adf/README.md>
 
 ### Check ingestion / indexing status
 
