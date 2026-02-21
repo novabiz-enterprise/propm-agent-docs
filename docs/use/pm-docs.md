@@ -1,5 +1,5 @@
 ---
-title: PM Docs (edit + export DOCX)
+title: PM Docs (edit + export DOCX/XLSX)
 ---
 
 ## Purpose
@@ -12,7 +12,7 @@ PM Docs support standardization and audit readiness by keeping key project artef
 
 ## Who can use it
 
-- **View and download DOCX:** all project members
+- **View and download DOCX/XLSX:** all project members
 - **Edit and add to Knowledge:** Project Owner, Project Manager, Contributor
 - **Delete:** Project Owner, Project Manager
 

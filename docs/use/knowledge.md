@@ -39,6 +39,18 @@ By default, the system extracts and indexes content from:
 Extraction can be toggled with env flags:
 - `ENABLE_EXTRACT_XLSX`, `ENABLE_EXTRACT_CSV`, `ENABLE_EXTRACT_HTML`
 
+## General extraction & ingestion flow
+
+All uploads (including ADF batches) follow the same pipeline:
+
+1. **Upload** via the Documents service (SAS URL).
+2. **Blob ingestion** extracts text with the best available extractor:
+   - Azure Document Intelligence (PDF, images, scanned content)
+   - Built‑in parsers (DOCX, XLSX, CSV, HTML)
+3. **Chunking + indexing** into Azure AI Search.
+
+This means any supported file type is searchable as long as extraction is enabled.
+
 ## Steps
 
 ### Upload a document
@@ -49,16 +61,16 @@ Extraction can be toggled with env flags:
 4. Select **Upload**.
 5. Select **Refresh** to update the list.
 
-### Importer en batch avec Azure Data Factory (ADF)
+### Batch import with Azure Data Factory (ADF)
 
-Utilisez ADF si vous voulez automatiser des imports depuis des sources externes (SaaS, DB, fichiers) en respectant le flux officiel **Documents → Ingestion → Search**.
+Use ADF to automate imports from external sources (SaaS, databases, files) while respecting the official **Documents → Ingestion → Search** flow.
 
-1. Déployez ADF dans le tenant client et configurez les secrets Key Vault requis.
-2. Importez les artefacts ADF fournis (pipelines, datasets, linked services).
-3. Configurez les paramètres du pipeline (APIM, tenant, project, fichier, metadata).
-4. Lancez le pipeline (manuel ou trigger planifié).
+1. Deploy ADF in the customer tenant and configure the required Key Vault secrets.
+2. Import the provided ADF assets (pipelines, datasets, linked services).
+3. Configure pipeline parameters (APIM, tenant, project, file, metadata).
+4. Run the pipeline (manual or scheduled trigger).
 
-Référence d’implémentation : [ADF README](https://github.com/robertsmaoui/ProPM-Agent/blob/main/repo/adf/README.md)
+Implementation reference: [ADF README](https://github.com/robertsmaoui/ProPM-Agent/blob/main/repo/adf/README.md)
 
 ### Check ingestion / indexing status
 
