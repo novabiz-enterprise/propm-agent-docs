@@ -21,6 +21,7 @@ Project-scoped work ensures traceability. Decisions, outputs, document categorie
 
 - You must have access to the target project.
 - Open the project from **Projects**.
+- For the demo storyline, use project **Azure Bay Hotel & Convention Center** (`demo-hotel-001`) which includes seeded chat sessions.
 
 ## Steps
 
@@ -31,6 +32,14 @@ Project-scoped work ensures traceability. Decisions, outputs, document categorie
 3. Click **Send**.
 4. Review the generated response and token/trace metadata when available.
 5. (Optional) Click **Voice input** to use speech-to-text where supported by your browser.
+
+### Use seeded chat history (demo project)
+
+1. Open Workspace with project **Azure Bay Hotel & Convention Center**.
+2. In the **Chats** panel, select a seeded conversation (for example **Hotel kickoff governance package** or **Construction risk review**).
+3. Review the previous prompts and responses.
+4. Click **New** to create another chat and send a new prompt.
+5. Switch back to the seeded chat to demonstrate saved history.
 
 ### Configure project controls (Project Owner)
 
@@ -57,4 +66,5 @@ Project-scoped work ensures traceability. Decisions, outputs, document categorie
 - Start with **Virtual Project Manager** for multi-domain synthesis.
 - Use specialist agents (Risk, Schedule, Governance, Finance, etc.) for deeper targeted output.
 - Keep document categories curated; this improves PM Docs and Knowledge consistency.
+- During demos, use seeded hotel chat sessions first, then create one new chat live to prove persistence and continuity.
 

@@ -27,6 +27,13 @@ Every feature in ProPM Agent is project-scoped (Knowledge, Agents, PM Docs, AI L
 2. Filter by name/description.
 3. Open the target project workspace.
 
+### Open the default demo project
+
+1. In **Projects**, search for **Azure Bay Hotel & Convention Center**.
+2. Open the project workspace.
+3. Confirm project id is `demo-hotel-001` in the workspace header section.
+4. Use this project for demos of chat history, PM Docs editing/export, and Knowledge flows.
+
 ### Create a project (Project Owner)
 
 1. Click **Create project**.

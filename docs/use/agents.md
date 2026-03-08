@@ -22,6 +22,7 @@ Agents convert raw project context into structured outputs (risk summaries, plan
 
 - Select a project.
 - Recommended: upload or seed relevant documents in **Knowledge** for better context grounding.
+- For demos, choose **Azure Bay Hotel & Convention Center** (`demo-hotel-001`) to use pre-seeded conversations.
 
 ## Steps
 
@@ -37,6 +38,13 @@ Agents convert raw project context into structured outputs (risk summaries, plan
 3. Click **Send**.
 4. Review response content and references.
 
+### Demonstrate saved chat sessions (demo)
+
+1. Open the demo hotel project.
+2. Select seeded chat sessions in the history panel.
+3. Create a **New** chat, send a fresh prompt, then switch back to a seeded session.
+4. Confirm previous messages remain available.
+
 ### Manage custom agents (Project Owner)
 
 1. Click **Create agent**.
@@ -49,6 +57,7 @@ Agents convert raw project context into structured outputs (risk summaries, plan
 - Agent responses are returned successfully.
 - Runs are visible later in **AI Log**.
 - Custom agents appear/disappear according to create/delete actions.
+- Seeded demo chats are available and can be switched without losing message history.
 
 ## Common issues
 

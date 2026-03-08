@@ -22,6 +22,7 @@ PM Docs standardizes formal artifacts (charter, risk register, status output, et
 
 - Select a project.
 - Ensure PM Docs exist (seeded docs are provided in demo mode).
+- For the demo path, use **Azure Bay Hotel & Convention Center** (`demo-hotel-001`) where seeded PM Docs are preloaded.
 
 ## Steps
 
@@ -39,6 +40,13 @@ PM Docs standardizes formal artifacts (charter, risk register, status output, et
    - **Category**
    - **Source (Markdown)**
 3. Select **Save**.
+
+### Validate export payload after edit (recommended)
+
+1. Add a unique marker line in **Source (Markdown)** (for example `EXPORT_VALIDATION_TOKEN_HOTEL_42`).
+2. Save.
+3. Download **DOCX** and **XLSX**.
+4. Verify the exported file content includes the marker (engineering validation step used in demo automation).
 
 ### Export a DOCX
 
@@ -60,6 +68,7 @@ PM Docs standardizes formal artifacts (charter, risk register, status output, et
 - Updates are saved.
 - DOCX/XLSX exports download successfully.
 - Added PM Docs can be treated as part of project Knowledge.
+- Edited content is reflected in exported DOCX/XLSX artifacts.
 
 ## Common issues
 
