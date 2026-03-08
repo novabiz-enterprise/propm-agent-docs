@@ -1,25 +1,27 @@
 ---
-title: PM Docs (edit + export DOCX/XLSX)
+title: PM Docs (edit + export DOCX)
 ---
 
 ## Purpose
 
-**PM Docs** are project artefacts you can review, edit, and export to DOCX or XLSX.
+**PM Docs** is the structured output workspace for project documents created by agents and users. Documents can be edited in Markdown and exported for distribution.
+
+![PM Docs editor](../../static/img/screenshots/06-pm-doc-editor.png)
 
 ## Why this matters
 
-PM Docs support standardization and audit readiness by keeping key project artefacts in a controlled, traceable workspace.
+PM Docs standardizes formal artifacts (charter, risk register, status output, etc.) and keeps edits, status, and export actions inside the governed project context.
 
 ## Who can use it
 
-- **View and download DOCX/XLSX:** all project members
+- **View/download DOCX/XLSX:** all project members
 - **Edit and add to Knowledge:** Project Owner, Project Manager, Contributor
 - **Delete:** Project Owner, Project Manager
 
 ## Before you begin
 
 - Select a project.
-- Ensure your project has PM Docs available.
+- Ensure PM Docs exist (seeded docs are provided in demo mode).
 
 ## Steps
 

@@ -62,6 +62,42 @@ az ad sp show --id <CLIENT_ID>
 
 If `az ad app show` fails, the client ID is from another tenant. Create a new app registration in the correct tenant and update the Marketplace parameters.
 
+## AADSTS500011 (resource principal not found)
+
+If you see:
+
+> `AADSTS500011: The resource principal named api://<CLIENT_ID> was not found in the tenant ...`
+
+This means the app exists, but **Expose an API** is not configured for the requested resource scope.
+
+Fix:
+
+1. Go to **Microsoft Entra ID** → **App registrations** → your app.
+2. Open **Expose an API**.
+3. Set **Application ID URI** to `api://<CLIENT_ID>`.
+4. Click **Add a scope** and create delegated scope `user_impersonation` (Enabled).
+5. Open **API permissions**:
+   - **Add a permission** → **My APIs** → your app
+   - **Delegated permissions** → `user_impersonation` → **Add permissions**
+6. Click **Grant admin consent for `Tenant`**.
+
+## AADSTS50011 (redirect URI mismatch)
+
+If you see:
+
+> `AADSTS50011: The redirect URI 'https://...' specified in the request does not match the redirect URIs configured for the application ...`
+
+Fix:
+
+1. Go to **Microsoft Entra ID** → **App registrations** → your app → **Authentication**.
+2. Add platform **Single-page application** (if missing).
+3. Add the exact deployed frontend origin in **Redirect URIs** (no typo, no extra path), for example:
+   - `https://web-ca.<suffix>.<region>.azurecontainerapps.io`
+4. Click **Save**.
+5. Retry sign-in (preferably in a private browser window).
+
+Note: each environment URL (prod/staging/dev/local) must be listed as a separate redirect URI.
+
 ## Deployment errors: AlertsManagement provider not registered
 
 If a Marketplace deployment fails with `MissingSubscriptionRegistration` for `Microsoft.AlertsManagement`, the subscription is not registered for the Alerts Management provider. You can resolve it in one of two ways:

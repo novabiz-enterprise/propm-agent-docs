@@ -4,16 +4,13 @@ title: Portfolio Command Center
 
 ## Purpose
 
-The **Portfolio Command Center** provides a cross-project entry point.
+The **Portfolio Command Center** is the cross-project decision page. It provides at-a-glance portfolio health plus direct navigation into project-level execution areas.
 
-Depending on your deployment configuration, it may show:
-
-- A portfolio snapshot (cards and executive summary), and/or
-- A project directory you can use to open workspaces quickly
+![Portfolio Command Center](../../static/img/screenshots/02-portfolio-command-center.png)
 
 ## Why this matters
 
-Portfolio views support decision-ready visibility by reducing the time needed to locate project context and review project health at scale.
+Program and PMO leads need to identify outliers quickly (risk, schedule, governance exceptions, pending decisions) and then drill down to the relevant project with minimal clicks.
 
 ## Who can use it
 
@@ -25,22 +22,31 @@ Portfolio views support decision-ready visibility by reducing the time needed to
 
 ## Steps
 
-1. Open **Portfolio Command Center**.
-2. Review the portfolio snapshot if available.
-3. Use the **Projects** table to:
-   - Open a project workspace
-   - Jump directly to Knowledge, Agents, or AI Log for a project
+1. Open **Portfolio Command Center** from the left navigation.
+2. Review the top KPI cards, especially:
+   - On Track / At Risk / Critical
+   - Governance Exceptions
+   - Decisions Needed
+3. Read the executive summary section to understand current portfolio themes.
+4. Use project-level shortcuts to open:
+   - Workspace / Projects
+   - Knowledge
+   - Agents
+   - AI Log
+5. Continue remediation inside each project workspace.
 
 ## Expected results
 
-- You can quickly navigate across projects.
+- Portfolio-level priorities are visible in one screen.
+- User can jump from portfolio signal to project execution quickly.
 
 ## Common issues
 
-- **Snapshot not available**: some environments may only show the projects list.
-- **Projects list fails to load**: refresh and check the Health indicator.
+- **Portfolio cards not displayed**: environment may expose only directory/navigation mode.
+- **Data appears stale**: refresh the page and verify backend health.
 
 ## Tips
 
-- Use this page as a “command center” when you need to review multiple projects in a short time.
+- Treat this page as the weekly PMO cockpit before governance meetings.
+- Use it to identify which projects require deeper RAID and PM Docs review.
 

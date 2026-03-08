@@ -4,57 +4,57 @@ title: Project workspace
 
 ## Purpose
 
-The **project workspace** is the central place to work within a project.
+The **Project Workspace** is the operational center for one project. It combines conversational execution (agent chat) with project governance controls.
 
-It combines:
-
-- A project header (name, description, status)
-- A **workspace chat** (agent chat in the context of the project)
-- Project settings tabs (access control, categories, agent configuration)
+![Project workspace chat](../../static/img/screenshots/03-workspace-agent-chat.png)
 
 ## Why this matters
 
-Keeping work project-scoped supports governance and audit readiness: you can trace runs, documents, and outputs back to a specific project.
+Project-scoped work ensures traceability. Decisions, outputs, document categories, and role assignments remain attached to one project context.
 
 ## Who can use it
 
-- **View the workspace and chat:** all project members
-- **Change project settings:** **Project Owner**
+- **View workspace and run chats:** project members
+- **Modify configuration tabs:** **Project Owner**
 
 ## Before you begin
 
-- You must have access to the project.
-- Open a project workspace from **Projects**.
+- You must have access to the target project.
+- Open the project from **Projects**.
 
 ## Steps
 
-### Use workspace chat
+### Run workspace chat
 
-1. In the project workspace, find **Workspace chat**.
-2. Select an agent from the dropdown.
-3. Type your prompt and send it.
-4. (Optional) Use **voice input** if your browser supports it.
+1. In **Workspace chat**, keep or choose an agent in the selector.
+2. Enter a prompt in **Type your message…**.
+3. Click **Send**.
+4. Review the generated response and token/trace metadata when available.
+5. (Optional) Click **Voice input** to use speech-to-text where supported by your browser.
 
-### Review or manage project settings
+### Configure project controls (Project Owner)
 
-1. Use the tabs:
+1. Open tabs below chat:
    - **Agent configuration**
    - **Access control**
    - **Document categories**
-2. If you are not a Project Owner, the settings areas are read-only.
+2. Apply changes, then save.
+3. Validate changes by reopening related screens (Agents, Knowledge, PM Docs).
 
 ## Expected results
 
-- The selected agent responds in the chat.
-- Project Owners can update settings and see the changes reflected across the project.
+- Chat responses are generated in project context.
+- Configuration changes are persisted and visible across the project.
 
 ## Common issues
 
-- **Read-only warning**: only Project Owners can change settings.
-- **Voice input not available**: voice input depends on browser capabilities.
+- **Read-only state**: user does not have Project Owner role.
+- **No agent response**: check health indicator and retry with a simpler prompt.
+- **Voice button unavailable**: browser speech API is not available.
 
 ## Tips
 
-- Start with **Virtual Project Manager** when you are unsure which specialist agent to use.
-- Use **Document categories** to align the project’s taxonomy with your PMO.
+- Start with **Virtual Project Manager** for multi-domain synthesis.
+- Use specialist agents (Risk, Schedule, Governance, Finance, etc.) for deeper targeted output.
+- Keep document categories curated; this improves PM Docs and Knowledge consistency.
 

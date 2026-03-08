@@ -4,15 +4,15 @@ title: Projects
 
 ## Purpose
 
-**Projects** is where you browse project workspaces and (if allowed) create new projects.
+**Projects** is the project directory and creation entrypoint. Use it to open existing workspaces or create new projects when authorized.
 
 ## Why this matters
 
-Projects are the core unit of standardization: knowledge, agent runs, PM Docs, and activity are tracked per project.
+Every feature in ProPM Agent is project-scoped (Knowledge, Agents, PM Docs, AI Log). Choosing the correct project context is essential for correct data and governance boundaries.
 
 ## Who can use it
 
-- **Browse projects / open workspaces:** all users with project access
+- **Browse/open projects:** users with project access
 - **Create projects:** **Project Owner**
 
 ## Before you begin
@@ -21,34 +21,34 @@ Projects are the core unit of standardization: knowledge, agent runs, PM Docs, a
 
 ## Steps
 
-### Browse and open a project workspace
+### Browse/open a workspace
 
 1. Open **Projects**.
-2. Use the table search to filter by name/description.
-3. Select a project row to open its **workspace**.
+2. Filter by name/description.
+3. Open the target project workspace.
 
 ### Create a project (Project Owner)
 
-1. Open **Projects**.
-2. Select **Create project**.
-3. Fill in:
+1. Click **Create project**.
+2. Provide:
    - **Name** (required)
    - **Description** (optional)
-   - **Project ID** (optional)
-4. Select **Create**.
+   - **Project ID** (optional, if your governance standard requires one)
+3. Click **Create**.
+4. Confirm redirect to the new workspace.
 
 ## Expected results
 
-- The project appears in the list.
-- The workspace opens for the newly created project.
+- Project appears in the project list.
+- Workspace opens with selected project context saved in top switcher.
 
 ## Common issues
 
-- **You don’t see “Create project”**: your account does not have the **Project Owner** role.
-- **You can’t open a project**: you may not be a member of that project.
+- **No Create button**: missing Project Owner permissions.
+- **Cannot open project**: membership or role issue.
 
 ## Tips
 
-- Use **Export** on the Projects table to create a CSV snapshot for PMO reporting.
-- Use a consistent naming standard so projects remain comparable.
+- Apply consistent naming conventions (program prefix, geography, year).
+- For demos, use seeded project `Azure Bay Hotel & Convention Center` to showcase full PM lifecycle artifacts.
 

@@ -4,27 +4,29 @@ title: Knowledge (documents + search)
 
 ## Purpose
 
-**Knowledge** is your project’s document library and search experience.
+**Knowledge** is the project document hub and retrieval surface. It supports ingestion tracking, classification, and project-scoped search.
+
+![Knowledge page](../../static/img/screenshots/05-knowledge.png)
 
 You can:
 
 - Upload project documents
 - Track ingestion/indexing status
-- Search your project knowledge with source references
+- Search project knowledge with source references
 
 ## Why this matters
 
-Knowledge standardizes how evidence is stored and retrieved, reducing manual effort and improving audit readiness.
+Knowledge centralizes evidentiary artifacts used by agents, PM Docs, and governance reviews. It reduces information sprawl and improves auditability.
 
 ## Who can use it
 
-- **View documents and search:** Project Owner, Project Manager, Contributor, Viewer, Auditor
-- **Upload documents:** Project Owner, Project Manager, Contributor
+- **View/search documents:** Project Owner, Project Manager, Contributor, Viewer, Auditor
+- **Upload and manage documents:** Project Owner, Project Manager, Contributor
 
 ## Before you begin
 
 - Select a project.
-- Prepare the file(s) you want to upload.
+- Prepare files and naming conventions (recommended: include date/version in filenames).
 
 ## Supported file types (ingestion)
 
@@ -39,18 +41,6 @@ By default, the system extracts and indexes content from:
 Extraction can be toggled with env flags:
 - `ENABLE_EXTRACT_XLSX`, `ENABLE_EXTRACT_CSV`, `ENABLE_EXTRACT_HTML`
 
-## General extraction & ingestion flow
-
-All uploads (including ADF batches) follow the same pipeline:
-
-1. **Upload** via the Documents service (SAS URL).
-2. **Blob ingestion** extracts text with the best available extractor:
-   - Azure Document Intelligence (PDF, images, scanned content)
-   - Built‑in parsers (DOCX, XLSX, CSV, HTML)
-3. **Chunking + indexing** into Azure AI Search.
-
-This means any supported file type is searchable as long as extraction is enabled.
-
 ## Steps
 
 ### Upload a document
@@ -61,16 +51,16 @@ This means any supported file type is searchable as long as extraction is enable
 4. Select **Upload**.
 5. Select **Refresh** to update the list.
 
-### Batch import with Azure Data Factory (ADF)
+### Importer en batch avec Azure Data Factory (ADF)
 
-Use ADF to automate imports from external sources (SaaS, databases, files) while respecting the official **Documents → Ingestion → Search** flow.
+Utilisez ADF si vous voulez automatiser des imports depuis des sources externes (SaaS, DB, fichiers) en respectant le flux officiel **Documents → Ingestion → Search**.
 
-1. Deploy ADF in the customer tenant and configure the required Key Vault secrets.
-2. Import the provided ADF assets (pipelines, datasets, linked services).
-3. Configure pipeline parameters (APIM, tenant, project, file, metadata).
-4. Run the pipeline (manual or scheduled trigger).
+1. Déployez ADF dans le tenant client et configurez les secrets Key Vault requis.
+2. Importez les artefacts ADF fournis (pipelines, datasets, linked services).
+3. Configurez les paramètres du pipeline (APIM, tenant, project, fichier, metadata).
+4. Lancez le pipeline (manuel ou trigger planifié).
 
-Implementation reference: [ADF README](https://github.com/robertsmaoui/ProPM-Agent/blob/main/repo/adf/README.md)
+Référence d’implémentation (dans le dépôt source) : `repo/adf/README.md`
 
 ### Check ingestion / indexing status
 

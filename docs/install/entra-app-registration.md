@@ -64,7 +64,45 @@ az ad sp create --id $APP_ID
 - `authClientId` = `APP_ID`
 - `authAuthority` = `https://login.microsoftonline.com/<TENANT_ID>`
 - `openidConfigUrl` = `https://login.microsoftonline.com/<TENANT_ID>/v2.0/.well-known/openid-configuration`
-- `authScopes` = `openid,profile,api://<clientId>/.default`
+- `authScopes` = `openid,profile,api://<clientId>/user_impersonation`
+
+## Required API exposure (avoid AADSTS500011)
+
+For single-tenant installs, make sure your app registration exposes an API scope that matches the runtime scope request.
+
+In **App registrations** → your app → **Expose an API**:
+
+1. Set **Application ID URI** to `api://<APP_ID>`
+2. Click **Add a scope** and create:
+   - Scope name: `user_impersonation`
+   - Who can consent: `Admins only` (recommended)
+   - State: `Enabled`
+
+Then in **API permissions**:
+
+1. **Add a permission** → **My APIs** → your app
+2. **Delegated permissions** → select `user_impersonation`
+3. Click **Add permissions**
+4. Click **Grant admin consent for `Tenant`**
+
+Without this step, sign-in can fail with:
+
+`AADSTS500011: The resource principal named api://<APP_ID> was not found...`
+
+## Required redirect URI (avoid AADSTS50011)
+
+The SPA uses its current origin as redirect URI. In this project that behavior comes from runtime MSAL config and resolves to the deployed web host origin.
+
+In **App registrations** → your app → **Authentication**:
+
+1. Add platform: **Single-page application** (if not already present)
+2. Add the exact deployed frontend origin in **Redirect URIs**, for example:
+   - `https://web-ca.<your-suffix>.<region>.azurecontainerapps.io`
+3. Click **Save**
+
+If this value does not match exactly, sign-in fails with:
+
+`AADSTS50011: The redirect URI ... does not match the redirect URIs configured for the application ...`
 
 ## Common issues
 
