@@ -4,7 +4,7 @@ title: Identity prerequisite — customer-owned Entra app registration
 
 ProPM Agent uses **Microsoft Entra ID** for user sign-in.
 
-This means your organization must provide (and manage) an **Entra app registration**.
+By default, the Managed Application now performs **integrated Entra bootstrap during deployment** (recommended).
 
 ## Why this matters
 
@@ -14,11 +14,11 @@ This means your organization must provide (and manage) an **Entra app registrati
 
 ## High-level steps (admin)
 
-1. Create an **App registration** in Microsoft Entra ID.
-2. Record the **Application (client) ID**.
-3. Configure the app registration for web sign-in:
-   - Add the deployed ProPM Agent web URL as a **redirect URI**.
-4. Define and assign application roles (recommended):
+1. In Marketplace deployment, keep **Automatically create/configure Entra app during deployment** enabled.
+2. Provide/confirm your **tenant ID**.
+3. Optionally provide an existing `authClientId` if you want to reuse an existing app registration.
+4. Keep **Grant admin consent during bootstrap** enabled for immediate sign-in readiness.
+5. Define and assign application roles (recommended):
    - Tenant Admin
    - Project Owner
    - Project Manager
@@ -28,35 +28,40 @@ This means your organization must provide (and manage) an **Entra app registrati
 
 ## Notes on timing
 
-The web application URL is generated during deployment. In many organizations:
+The frontend URL is generated during deployment. Integrated bootstrap handles this timing by running a second synchronization step that updates redirect URIs after the web host is known.
 
-1. You create the app registration first (to get the **client ID** required by the Marketplace wizard).
-2. After deployment, you update the app registration to include the deployed web URL as a redirect URI.
+## Deployment-integrated bootstrap (default)
 
-## AZ CLI (single-tenant) quick start
+Integrated bootstrap is wired in infrastructure deployment via:
+- [`repo/infra/modules/entra-bootstrap.bicep`](repo/infra/modules/entra-bootstrap.bicep:1)
+- [`repo/infra/main.bicep`](repo/infra/main.bicep:58)
 
-Use these commands **in the customer tenant**.
+It performs automatically:
+- Application ID URI: `api://<clientId>`
+- delegated scope: `user_impersonation`
+- `requestedAccessTokenVersion=2`
+- delegated permission + admin consent
+- redirect URI synchronization from deployed web host
 
-> Replace placeholders: `<APP_NAME>`, `<WEB_URL>` (the deployed web URL), `<TENANT_ID>`.
+It produces effective deployment outputs:
+- `effectiveAuthClientId`
+- `effectiveAuthAuthority`
+- `effectiveOpenidConfigUrl`
+- `effectiveAuthScopes`
+- `effectiveJwtAudience`
+- `effectiveRedirectUri`
+
+## AZ CLI fallback (manual bootstrap only)
+
+Use this only when tenant policy blocks Graph automation from ARM deployment scripts.
 
 ```bash
-# Login to the customer tenant
 az login --tenant <TENANT_ID>
 
-# Create the app registration (single-tenant)
-APP_ID=$(az ad app create \
-  --display-name "<APP_NAME>" \
-  --sign-in-audience AzureADMyOrg \
-  --web-redirect-uris "<WEB_URL>" \
-  --query appId -o tsv)
-
-echo "Client ID: $APP_ID"
-
-# (Optional) Expose an API scope so you can use api://<clientId>/.default
-az ad app update --id $APP_ID --set api.requestedAccessTokenVersion=2
-
-# Create a service principal (enterprise app) for assignments
-az ad sp create --id $APP_ID
+APP_DISPLAY_NAME="<APP_NAME>" \
+WEB_REDIRECT_URI="<WEB_URL>" \
+TENANT_ID="<TENANT_ID>" \
+bash repo/scripts/entra/bootstrap_entra_app.sh
 ```
 
 ### Suggested scopes for Marketplace parameters

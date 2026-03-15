@@ -34,7 +34,7 @@
 |---|---|---|---|---|---|---|---|
 | I-01 | HVAC supplier submitted non-compliant technical datasheet | 2026-02-01 | Procurement delay | High | MEP Lead | 2026-02-18 | Open |
 | I-02 | Temporary access road permits pending municipality clarification | 2026-02-03 | Site logistics constraint | Medium | Infrastructure Lead | 2026-02-22 | Open |
-| I-03 | Design comments backlog in façade package | 2026-02-06 | Potential design freeze slip | High | Design Manager | 2026-02-20 | In Progress |
+| I-03 | Design comments backlog in faÃ§ade package | 2026-02-06 | Potential design freeze slip | High | Design Manager | 2026-02-20 | In Progress |
 | I-04 | Incomplete subcontractor HSE induction records | 2026-02-10 | Safety compliance risk | Medium | HSE Manager | 2026-02-16 | Open |
 
 ## 5. Dependencies
@@ -50,17 +50,17 @@
 
 | Metric | Value | Threshold | Status |
 |---|---:|---:|---|
-| Open high risks | 4 | <= 3 | Amber |
-| Open high-priority issues | 2 | <= 2 | Green |
+| Open high risks | 4 | &lt;= 3 | Amber |
+| Open high-priority issues | 2 | &lt;= 2 | Green |
 | Overdue issue actions | 0 | 0 | Green |
-| Dependencies in watch status | 1 | <= 1 | Green |
+| Dependencies in watch status | 1 | &lt;= 1 | Green |
 
 ## 7. Action Log
 
 | Action ID | Linked Item | Action | Owner | Due Date | Status |
 |---|---|---|---|---|---|
 | ACT-01 | I-01 | Complete compliance gap matrix and vendor resubmission | MEP Lead | 2026-02-14 | In Progress |
-| ACT-02 | I-03 | Add façade design review task force | Design Manager | 2026-02-13 | Completed |
+| ACT-02 | I-03 | Add faÃ§ade design review task force | Design Manager | 2026-02-13 | Completed |
 | ACT-03 | R-03 | Launch alternative supplier commercial benchmark | Commercial Manager | 2026-02-25 | Planned |
 | ACT-04 | D-02 | Secure manufacturing slot confirmation letter | Procurement Lead | 2026-03-05 | Planned |
 

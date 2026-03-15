@@ -117,9 +117,9 @@ Funding is released in stage gates aligned to permitting, structural completion,
 
 Authority levels:
 
-- Project Director may approve changes up to **USD 150,000** and **<= 5 calendar days** impact.
+- Project Director may approve changes up to **USD 150,000** and **&lt;= 5 calendar days** impact.
 - CCB approval required above this threshold.
-- Steering Committee approval required for baseline re-plan or reserve drawdown > USD 500,000.
+- Steering Committee approval required for baseline re-plan or reserve drawdown &gt; USD 500,000.
 
 ## 11. Success Criteria and Acceptance
 

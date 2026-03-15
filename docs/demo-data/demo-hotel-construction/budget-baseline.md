@@ -63,10 +63,10 @@
 
 | Metric | Green | Amber | Red |
 |---|---|---|---|
-| CPI (overall) | >= 0.98 | 0.95 - 0.97 | < 0.95 |
-| Forecast at Completion variance | <= 1.5% | 1.5% - 3.0% | > 3.0% |
-| Unapproved commitments | <= 250k | 250k - 500k | > 500k |
-| Contingency drawdown | <= 30% used by 50% progress | 31-50% | > 50% |
+| CPI (overall) | &gt;= 0.98 | 0.95 - 0.97 | &lt; 0.95 |
+| Forecast at Completion variance | &lt;= 1.5% | 1.5% - 3.0% | &gt; 3.0% |
+| Unapproved commitments | &lt;= 250k | 250k - 500k | &gt; 500k |
+| Contingency drawdown | &lt;= 30% used by 50% progress | 31-50% | &gt; 50% |
 
 ## 7. Contingency Drawdown Rules
 

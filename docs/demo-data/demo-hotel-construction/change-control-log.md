@@ -24,16 +24,16 @@
 
 | Threshold | Approval Authority |
 |---|---|
-| <= USD 150,000 and <= 5 days schedule impact | Project Director |
-| > USD 150,000 or > 5 days schedule impact | Change Control Board (CCB) |
-| > USD 500,000 or baseline reset required | Steering Committee |
+| &lt;= USD 150,000 and &lt;= 5 days schedule impact | Project Director |
+| &gt; USD 150,000 or &gt; 5 days schedule impact | Change Control Board (CCB) |
+| &gt; USD 500,000 or baseline reset required | Steering Committee |
 
 ## 4. Change Requests Register
 
 | CR ID | Date Raised | Requestor | Change Type | Description | WBS Impact | Cost Impact (USD) | Schedule Impact (days) | Priority | Status | Decision Date | Decision |
 |---|---|---|---|---|---|---:|---:|---|---|---|---|
 | CR-001 | 2026-02-02 | Hotel Operator | Scope/Design | Upgrade conference hall AV infrastructure to hybrid-event standard | 1.7.3, 1.9.4 | 420,000 | 6 | High | Under Review | - | - |
-| CR-002 | 2026-02-04 | Design Manager | Design | Façade material substitution for coastal durability improvement | 1.5.5 | 180,000 | 2 | Medium | Approved | 2026-02-11 | Approved by CCB |
+| CR-002 | 2026-02-04 | Design Manager | Design | FaÃ§ade material substitution for coastal durability improvement | 1.5.5 | 180,000 | 2 | Medium | Approved | 2026-02-11 | Approved by CCB |
 | CR-003 | 2026-02-06 | HSE Manager | Compliance | Add enhanced smoke extraction in back-of-house corridors | 1.6.4 | 95,000 | 1 | High | Approved | 2026-02-09 | Approved by Project Director |
 | CR-004 | 2026-02-09 | Community Liaison | Schedule | Restrict heavy vehicle movements during local event week | 1.4.1, 1.5.1 | 60,000 | 4 | Medium | Rejected | 2026-02-13 | Rejected, alternate logistics plan |
 | CR-005 | 2026-02-12 | Procurement Lead | Cost/Schedule | Early expediting package for chillers and elevators | 1.6.1, 1.6.2 | 260,000 | -8 (recovery) | High | Approved | 2026-02-14 | Approved by CCB |
@@ -42,7 +42,7 @@
 
 | Area | Net Impact from Approved Changes |
 |---|---|
-| Scope | Minor enhancement in fire safety and façade durability |
+| Scope | Minor enhancement in fire safety and faÃ§ade durability |
 | Cost Baseline | +535,000 USD (from approved CR-002, CR-003, CR-005) |
 | Schedule Baseline | Net -5 days recovery potential (mainly CR-005) |
 | Quality | Improved compliance and lifecycle resilience |

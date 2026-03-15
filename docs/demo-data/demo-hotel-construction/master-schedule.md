@@ -19,7 +19,7 @@
 | Baseline Finish | 2028-03-31 |
 | Total Duration | 811 calendar days |
 | Critical Path Length | 790 calendar days |
-| Total Float Threshold (Critical) | <= 10 days |
+| Total Float Threshold (Critical) | &lt;= 10 days |
 
 ## 3. Level-1 Phases
 
@@ -102,6 +102,6 @@ Recovery action plan is mandatory if SPI falls below 0.95 in any reporting perio
 ## 10. Assumptions
 
 - Average effective site productivity at 90% baseline plan.
-- No force majeure stoppage > 7 consecutive days.
-- Inspection lead time from authorities <= 10 business days.
+- No force majeure stoppage &gt; 7 consecutive days.
+- Inspection lead time from authorities &lt;= 10 business days.
 

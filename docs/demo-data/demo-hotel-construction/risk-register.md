@@ -14,7 +14,7 @@
 
 - Probability scale: 1 (Very Low) to 5 (Very High)
 - Impact scale: 1 (Very Low) to 5 (Very High)
-- Score = Probability × Impact
+- Score = Probability Ã— Impact
 - Thresholds:
   - 1-6 = Low
   - 8-12 = Medium
@@ -32,9 +32,9 @@
 | R-06 | Quality | Rework due to non-compliant installations | Insufficient supervision and QA checks | 3 | 4 | 12 | Medium | Mitigate | ITP hold points and QA audits | QA/QC Manager | NCR trend > threshold |
 | R-07 | Technical | Unexpected geotechnical conditions | Limited early subsurface visibility | 2 | 5 | 10 | Medium | Mitigate/Transfer | Additional boreholes; geotech advisory in contract | Civil Lead | Excavation anomalies |
 | R-08 | Safety | Major HSE incident on site | Unsafe behaviors and subcontractor non-compliance | 2 | 5 | 10 | Medium | Mitigate | Daily toolbox talks; behavioral safety program | HSE Manager | High-potential near miss |
-| R-09 | Stakeholder | Community complaints about noise/traffic | Construction logistics impact | 3 | 3 | 9 | Medium | Mitigate | Traffic plan and communication hotline | Community Liaison | >5 complaints/month |
-| R-10 | Resource | Skilled labor shortage in fit-out phase | Competing regional projects | 3 | 4 | 12 | Medium | Mitigate | Workforce planning and retention incentives | Contracts Lead | Labor attendance <90% |
-| R-11 | Financial | FX fluctuation on imported FF&E | Currency market volatility | 3 | 3 | 9 | Medium | Mitigate/Transfer | Hedging strategy and payment milestones | Finance Controller | FX movement >5% |
+| R-09 | Stakeholder | Community complaints about noise/traffic | Construction logistics impact | 3 | 3 | 9 | Medium | Mitigate | Traffic plan and communication hotline | Community Liaison | &gt;5 complaints/month |
+| R-10 | Resource | Skilled labor shortage in fit-out phase | Competing regional projects | 3 | 4 | 12 | Medium | Mitigate | Workforce planning and retention incentives | Contracts Lead | Labor attendance &lt;90% |
+| R-11 | Financial | FX fluctuation on imported FF&E | Currency market volatility | 3 | 3 | 9 | Medium | Mitigate/Transfer | Hedging strategy and payment milestones | Finance Controller | FX movement &gt;5% |
 | R-12 | Commissioning | Integrated systems fail interoperability tests | Interface specification gaps | 3 | 5 | 15 | High | Mitigate | Early interface testing and vendor integration workshops | Commissioning Lead | IST pre-tests fail |
 
 ## 4. Top Risk Heat List (Current)
