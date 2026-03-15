@@ -16,13 +16,13 @@ Agents convert raw project context into structured outputs (risk summaries, plan
 
 - **View agent roster:** all project members
 - **Run chat prompts:** Project Owner, Project Manager, Contributor
-- **Create/Delete custom agents:** Project Owner
+- **Create/Delete custom agents:** Project Owner, or any signed-in user inside the default demo project
 
 ## Before you begin
 
 - Select a project.
 - Recommended: upload or seed relevant documents in **Knowledge** for better context grounding.
-- For demos, choose **Azure Bay Hotel & Convention Center** (`demo-hotel-001`) to use pre-seeded conversations.
+- For demos, choose **Azure Bay Hotel & Convention Center** (`demo-hotel-001`) to use pre-seeded conversations, pre-seeded AI runs, and default full admin rights.
 
 ## Steps
 
@@ -52,12 +52,15 @@ Agents convert raw project context into structured outputs (risk summaries, plan
 3. Save, then validate it appears in roster.
 4. Use delete action when cleanup is needed.
 
+In the default demo project, any signed-in user can test custom-agent creation and deletion without additional role setup.
+
 ## Expected results
 
 - Agent responses are returned successfully.
 - Runs are visible later in **AI Log**.
 - Custom agents appear/disappear according to create/delete actions.
 - Seeded demo chats are available and can be switched without losing message history.
+- Seeded and newly generated runs coexist in the AI Log for a complete walkthrough storyline.
 
 ## Common issues
 

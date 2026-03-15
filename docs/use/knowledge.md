@@ -51,6 +51,21 @@ Extraction can be toggled with env flags:
 4. Select **Upload**.
 5. Select **Refresh** to update the list.
 
+### Review seeded demo documents
+
+In the default demo project (`demo-hotel-001`), the Knowledge area is preloaded with realistic documents so you can demonstrate search and ingestion immediately.
+
+Recommended demo assets include:
+
+- `ABH-SteerCo-Status-Week-42.pdf`
+- `ABH-Risk-Register-v1.2.xlsx`
+- `ABH-Procurement-Plan.docx`
+- `ABH-Communication-Plan.docx`
+- `ABH-Weekly-Status-Week-43.pdf`
+- `ABH-Scenario-Test-Matrix.xlsx`
+
+Use these seeded files to validate category coverage, ingestion states, and search behavior before uploading anything new.
+
 ### Importer en batch avec Azure Data Factory (ADF)
 
 Utilisez ADF si vous voulez automatiser des imports depuis des sources externes (SaaS, DB, fichiers) en respectant le flux officiel **Documents → Ingestion → Search**.
@@ -80,6 +95,7 @@ Référence d’implémentation (dans le dépôt source) : `repo/adf/README.md`
 
 - Uploaded documents appear in the list.
 - Search returns results with source references to support verification.
+- The default demo project starts with seeded documents and categories already ready for walkthroughs.
 
 ## Common issues
 
@@ -93,4 +109,5 @@ Référence d’implémentation (dans le dépôt source) : `repo/adf/README.md`
 - Keep categories stable to support portfolio comparability.
 - Use search results as evidence: verify important outputs by reviewing the referenced sources.
 - For ADF batch loads, keep file sizes aligned with SAS expiry and use consistent metadata for governance.
+- For demos, search terms like `chiller`, `SteerCo`, `procurement`, or `communication` to surface the seeded hotel documents quickly.
 

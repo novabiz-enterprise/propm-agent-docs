@@ -15,13 +15,14 @@ Project-scoped work ensures traceability. Decisions, outputs, document categorie
 ## Who can use it
 
 - **View workspace and run chats:** project members
-- **Modify configuration tabs:** **Project Owner**
+- **Modify configuration tabs:** project members with the required permissions
+- **Default demo project exception:** any signed-in user receives full project-admin rights in `demo-hotel-001`
 
 ## Before you begin
 
 - You must have access to the target project.
 - Open the project from **Projects**.
-- For the demo storyline, use project **Azure Bay Hotel & Convention Center** (`demo-hotel-001`) which includes seeded chat sessions.
+- For the demo storyline, use project **Azure Bay Hotel & Convention Center** (`demo-hotel-001`) which includes seeded chat sessions, seeded governance data, seeded PM Docs, seeded Knowledge documents, and seeded AI Log activity.
 
 ## Steps
 
@@ -41,7 +42,7 @@ Project-scoped work ensures traceability. Decisions, outputs, document categorie
 4. Click **New** to create another chat and send a new prompt.
 5. Switch back to the seeded chat to demonstrate saved history.
 
-### Configure project controls (Project Owner)
+### Configure project controls
 
 1. Open tabs below chat:
    - **Agent configuration**
@@ -50,14 +51,23 @@ Project-scoped work ensures traceability. Decisions, outputs, document categorie
 2. Apply changes, then save.
 3. Validate changes by reopening related screens (Agents, Knowledge, PM Docs).
 
+In the default demo project, the current signed-in user automatically receives full rights. This lets you test all three administration tabs without first creating members or elevating roles.
+
+Permission model:
+
+- **Agent configuration** requires project permission `agent:configure`
+- **Access control** uses `members:manage` and `roles:manage`
+- **Document categories** requires `settings:manage`
+
 ## Expected results
 
 - Chat responses are generated in project context.
 - Configuration changes are persisted and visible across the project.
+- The default demo project opens with full admin controls, seeded data, and ready-to-use walkthrough content.
 
 ## Common issues
 
-- **Read-only state**: user does not have Project Owner role.
+- **Read-only state**: your project role does not include the required permission for that tab.
 - **No agent response**: check health indicator and retry with a simpler prompt.
 - **Voice button unavailable**: browser speech API is not available.
 

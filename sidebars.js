@@ -54,6 +54,26 @@ const sidebars = {
 
     {
       type: 'category',
+      label: 'Demo data',
+      items: [
+        'demo-data/demo-hotel-construction/README',
+        'demo-data/demo-hotel-construction/01-project-charter',
+        'demo-data/demo-hotel-construction/02-stakeholder-register',
+        'demo-data/demo-hotel-construction/03-work-breakdown-structure',
+        'demo-data/demo-hotel-construction/04-master-schedule',
+        'demo-data/demo-hotel-construction/05-budget-baseline',
+        'demo-data/demo-hotel-construction/06-risk-register',
+        'demo-data/demo-hotel-construction/07-raid-log',
+        'demo-data/demo-hotel-construction/08-change-control-log',
+        'demo-data/demo-hotel-construction/09-communication-plan',
+        'demo-data/demo-hotel-construction/10-weekly-status-report-sample',
+        'demo-data/demo-hotel-construction/11-app-test-data-scenarios',
+        'demo-data/demo-hotel-construction/12-procurement-plan',
+      ],
+    },
+
+    {
+      type: 'category',
       label: 'Administration',
       items: [
         'administration/marketplace',
