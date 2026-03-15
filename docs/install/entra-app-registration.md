@@ -33,8 +33,8 @@ The frontend URL is generated during deployment. Integrated bootstrap handles th
 ## Deployment-integrated bootstrap (default)
 
 Integrated bootstrap is wired in infrastructure deployment via:
-- [`repo/infra/modules/entra-bootstrap.bicep`](repo/infra/modules/entra-bootstrap.bicep:1)
-- [`repo/infra/main.bicep`](repo/infra/main.bicep:58)
+- `repo/infra/modules/entra-bootstrap.bicep`
+- `repo/infra/main.bicep`
 
 It performs automatically:
 - Application ID URI: `api://<clientId>`
