@@ -32,6 +32,7 @@ const sidebars = {
         'install/prerequisites',
         'install/create-installation',
         'install/post-deployment',
+        'install/screenshot-inventory',
         'install/entra-app-registration',
       ],
     },

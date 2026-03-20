@@ -6,8 +6,9 @@ This quick start takes you from sign-in to your first contextual run, artifact r
 
 ## 1) Sign in
 
-1. Open the ProPM Agent web application URL provided after deployment.
+1. Open the ProPM Agent web application URL from the Marketplace deployment output (`webContainerFqdn`).
 2. Select **Sign In with Microsoft**.
+3. If this is the first tenant sign-in, complete the consent prompt if your tenant requires it.
 
 **Expected result:** You land on the **Dashboard**.
 
