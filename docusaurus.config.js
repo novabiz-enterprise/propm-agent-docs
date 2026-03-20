@@ -8,7 +8,7 @@ const darkCodeTheme = themes.dracula;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'ProPM Agent',
-  tagline: 'Enterprise project workspaces with knowledge and AI assistance',
+  tagline: 'Context-aware project execution with evidence, governance, and portfolio insight',
   favicon: 'img/favicon.svg',
 
   // GitHub Pages settings (adjust if you publish under a different org/repo or custom domain).

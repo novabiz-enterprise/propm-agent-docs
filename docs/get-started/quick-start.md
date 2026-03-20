@@ -2,7 +2,7 @@
 title: Quick start (10–15 minutes)
 ---
 
-This quick start takes you from sign-in to your first project knowledge upload and agent interaction.
+This quick start takes you from sign-in to your first contextual run, artifact review, and portfolio comparison.
 
 ## 1) Sign in
 
@@ -11,11 +11,12 @@ This quick start takes you from sign-in to your first project knowledge upload a
 
 **Expected result:** You land on the **Dashboard**.
 
-## 2) Create or select a project
+## 2) Open the seeded demo project or create your own
 
 1. Open **Projects**.
-2. If you are a **Project Owner**, select **Create project**.
-3. Select the project row to open its **workspace**.
+2. For the fastest walkthrough, select **Import demo project** if **Azure Bay Hotel & Convention Center** is not already present.
+3. If you prefer to start from scratch, create a project instead.
+4. Open the project row to enter its **workspace**.
 
 **Expected result:** The project workspace opens and becomes your current project context.
 
@@ -31,29 +32,57 @@ This quick start takes you from sign-in to your first project knowledge upload a
 
 1. In **Knowledge**, enter a search query.
 2. Select **Search**.
+3. Review the returned snippet, source, and any freshness cues.
 
 **Expected result:** Results appear with a snippet and a source reference.
 
-## 5) Chat with an agent
+## 5) Run an agent and inspect the structured response
 
-1. Open **Agents**.
+1. Open **Project workspace** or **Agents**.
 2. Select an agent from the roster.
 3. Ask a question related to your project.
+4. Review the structured sections such as findings, decisions needed, actions, evidence, freshness, and confidence.
 
-**Expected result:** The agent responds. When available, responses may include **Sources**.
+**Expected result:** The agent responds with contextual output. When available, responses include evidence, freshness, and follow-up guidance.
 
-## 6) Review AI Log (runs and activity)
+## 6) Turn the response into a draft artifact
+
+1. In the run response, select **Create draft**.
+2. Open the linked PM Doc / artifact review surface.
+3. Review the preview, diff, lineage, and status information.
+
+**Expected result:** A draft artifact is created and can be reviewed before approval or publication.
+
+## 7) Review signals and digest drafts
+
+1. In **Project workspace**, scroll to **Signals inbox**.
+2. Select **Refresh** if needed.
+3. Review open signals, then generate a digest draft.
+
+**Expected result:** You can see explainable proactive items and, when configured, related notification drafts.
+
+## 8) Review AI Log (runs and activity)
 
 1. Open **AI Log**.
 2. Use **Runs** to review agent executions.
 3. Use **Activity** to review recent project events.
+4. Open one run detail view and capture the trace ID, context snapshot ID, or artifact linkage.
 
 **Expected result:** You can filter and open details for transparency and traceability.
 
-## 7) Check PM Docs (project artefacts)
+## 9) Compare projects in the Portfolio Command Center
+
+1. Open **Portfolio Command Center**.
+2. Select two or more projects.
+3. Review outliers, evidence gaps, and drill-down evidence.
+
+**Expected result:** You can compare projects with configurable signals instead of relying on a fixed status dashboard.
+
+## 10) Check PM Docs or artifact outputs
 
 1. Open **PM Docs**.
-2. If PM Docs exist for your project, open one and select **Download DOCX**.
+2. Open an existing document or the draft created from the prior run.
+3. Download **DOCX** or **XLSX** if needed.
 
 **Expected result:** A DOCX file download starts.
 

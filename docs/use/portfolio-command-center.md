@@ -4,13 +4,13 @@ title: Portfolio Command Center
 
 ## Purpose
 
-The **Portfolio Command Center** is the cross-project decision page. It provides at-a-glance portfolio health plus direct navigation into project-level execution areas.
+The **Portfolio Command Center** is the cross-project decision page. It provides configurable portfolio comparison, outlier detection, evidence-backed drill-down, and direct navigation into project-level execution areas.
 
 ![Portfolio Command Center](../../static/img/screenshots/02-portfolio-command-center.png)
 
 ## Why this matters
 
-Program and PMO leads need to identify outliers quickly (risk, schedule, governance exceptions, pending decisions) and then drill down to the relevant project with minimal clicks.
+Program and PMO leads need to identify outliers quickly (risk, schedule, governance exceptions, freshness gaps, contradictions, pending decisions) and then drill down to the relevant project with minimal clicks.
 
 ## Who can use it
 
@@ -23,21 +23,23 @@ Program and PMO leads need to identify outliers quickly (risk, schedule, governa
 ## Steps
 
 1. Open **Portfolio Command Center** from the left navigation.
-2. Review the top KPI cards, especially:
-   - On Track / At Risk / Critical
-   - Governance Exceptions
-   - Decisions Needed
-3. Read the executive summary section to understand current portfolio themes.
-4. Use project-level shortcuts to open:
+2. Select a saved cohort or choose projects manually.
+3. Select the signals you want to compare and adjust weights or thresholds if needed.
+4. Review the narrative comparison section to understand the current portfolio story.
+5. Inspect outlier projects and open the drill-down view.
+6. Review evidence, recent activity, and any explicit evidence-gap banner.
+7. Use project-level shortcuts to open:
    - Workspace / Projects
    - Knowledge
    - Agents
    - AI Log
-5. Continue remediation inside each project workspace.
+8. Continue remediation inside each project workspace.
 
 ## Expected results
 
 - Portfolio-level priorities are visible in one screen.
+- Evidence-backed outliers are visible without relying on a fixed dashboard template.
+- Unavailable or stale signals remain explicit instead of being hidden.
 - User can jump from portfolio signal to project execution quickly.
 
 ## Common issues
@@ -48,5 +50,6 @@ Program and PMO leads need to identify outliers quickly (risk, schedule, governa
 ## Tips
 
 - Treat this page as the weekly PMO cockpit before governance meetings.
-- Use it to identify which projects require deeper RAID and PM Docs review.
+- Use it to identify which projects require deeper RAID, PM Docs, or signal review.
+- Save cohorts for recurring comparison groups such as steering watchlists or program review packs.
 

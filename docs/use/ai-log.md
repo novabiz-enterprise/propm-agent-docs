@@ -8,10 +8,11 @@ title: AI Log (runs + activity)
 
 - Agent runs (queued/running/completed/failed)
 - Project activity events
+- Trace, artifact, and structured-output lineage metadata
 
 ## Why this matters
 
-The AI Log improves accountability and traceability by showing what ran, when it ran, and what happened in the project workspace.
+The AI Log improves accountability and traceability by showing what ran, when it ran, what evidence state was visible, and what happened afterward in the project workspace.
 
 ## Who can use it
 
@@ -30,6 +31,7 @@ The AI Log improves accountability and traceability by showing what ran, when it
 2. Select **Runs**.
 3. Filter by agent, status, or search terms.
 4. Select **Details** to view the full run record.
+5. Review traceable fields such as context snapshot ID, structured output ID, source freshness, related artifacts, and citations when available.
 
 ### Review seeded demo history
 
@@ -43,11 +45,13 @@ The AI Log improves accountability and traceability by showing what ran, when it
 1. In **AI Log**, select **Activity**.
 2. Filter by type/kind/actor.
 3. Select **Details** to inspect the full event payload.
+4. Use event details to confirm actions such as draft creation, artifact approval, publication, notification drafting, or approval decisions.
 
 ## Expected results
 
 - You can see a list of runs and activity events.
 - Details dialogs provide trace IDs and structured data when available.
+- Related artifacts, outputs, and downstream events remain traceable to the originating run.
 - The default demo project shows enough seeded history to demonstrate filtering and auditability before any live actions are performed.
 
 ## Common issues
@@ -58,4 +62,5 @@ The AI Log improves accountability and traceability by showing what ran, when it
 ## Tips
 
 - When raising a support ticket internally, include the **trace ID** shown in details.
+- Use the AI Log to confirm whether a stakeholder-facing artifact came from a reviewed run or from a direct manual edit.
 

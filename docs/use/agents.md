@@ -10,7 +10,7 @@ title: Agents (chat)
 
 ## Why this matters
 
-Agents convert raw project context into structured outputs (risk summaries, plans, governance notes, stakeholder updates) while keeping interactions traceable.
+Agents convert project context into structured outputs (risk summaries, plans, governance notes, stakeholder updates) while keeping interactions traceable.
 
 ## Who can use it
 
@@ -36,7 +36,22 @@ Agents convert raw project context into structured outputs (risk summaries, plan
 1. Select an agent in the roster (left panel).
 2. Enter prompt text in the message box.
 3. Click **Send**.
-4. Review response content and references.
+4. Review the structured response sections and references.
+5. Note any evidence freshness, missing information, or confidence cues before reusing the output.
+
+### Review contextual response guidance
+
+After a run completes, look for:
+
+- decisions needed
+- recommended actions
+- assumptions
+- missing information
+- evidence references
+- freshness badges
+- artifact proposals
+
+This makes it easier to decide whether the answer is ready for direct use, needs clarification, or should be turned into a draft artifact for review.
 
 ### Demonstrate saved chat sessions (demo)
 
@@ -58,6 +73,7 @@ In the default demo project, any signed-in user can test custom-agent creation a
 
 - Agent responses are returned successfully.
 - Runs are visible later in **AI Log**.
+- Structured outputs make evidence, freshness, and confidence visible when available.
 - Custom agents appear/disappear according to create/delete actions.
 - Seeded demo chats are available and can be switched without losing message history.
 - Seeded and newly generated runs coexist in the AI Log for a complete walkthrough storyline.
@@ -73,4 +89,5 @@ In the default demo project, any signed-in user can test custom-agent creation a
 - Start with **Virtual Project Manager** when uncertain which specialist to invoke.
 - Use specialist agents for focused outputs (Risk, Schedule, Governance, Finance, Stakeholders).
 - Prompt with expected format (table, bullet list, decision log) to reduce manual rewriting.
+- If a response shows stale, unavailable, or conflicting evidence, review sources before approving or publishing the result.
 

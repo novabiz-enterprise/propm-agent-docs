@@ -44,6 +44,8 @@ const sidebars = {
         'use/dashboard',
         'use/projects',
         'use/project-workspace',
+        'use/contextual-outputs-and-evidence',
+        'use/proactive-signals-and-actions',
         'use/knowledge',
         'use/agents',
         'use/pm-docs',
@@ -69,6 +71,7 @@ const sidebars = {
         'demo-data/demo-hotel-construction/weekly-status-report-sample',
         'demo-data/demo-hotel-construction/app-test-data-scenarios',
         'demo-data/demo-hotel-construction/procurement-plan',
+        'demo-data/target-state-scenarios',
       ],
     },
 
@@ -81,6 +84,8 @@ const sidebars = {
         'administration/access-control',
         'administration/document-categories',
         'administration/agent-configuration',
+        'administration/connectors-and-policies',
+        'administration/rollout-guidance',
         'administration/custom-agents',
       ],
     },
@@ -116,6 +121,7 @@ const sidebars = {
       label: 'Release notes',
       items: [
         'release-notes/release-notes',
+        'release-notes/release-readiness-checklist',
         'release-notes/known-limitations',
       ],
     },

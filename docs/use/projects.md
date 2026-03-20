@@ -8,7 +8,7 @@ title: Projects
 
 ## Why this matters
 
-Every feature in ProPM Agent is project-scoped (Knowledge, Agents, PM Docs, AI Log). Choosing the correct project context is essential for correct data and governance boundaries.
+Every feature in ProPM Agent is project-scoped (Knowledge, contextual runs, PM Docs, signals, actions, AI Log). Choosing the correct project context is essential for correct data and governance boundaries.
 
 ## Who can use it
 
@@ -39,7 +39,15 @@ Every feature in ProPM Agent is project-scoped (Knowledge, Agents, PM Docs, AI L
 1. In **Projects**, search for **Azure Bay Hotel & Convention Center**.
 2. Open the project workspace.
 3. Confirm project id is `demo-hotel-001` in the workspace header section.
-4. Use this project for demos of chat history, PM Docs editing/export, Knowledge flows, AI Log history, and access-control walkthroughs.
+4. Use this project for demos of chat history, structured outputs, evidence freshness, PM Docs editing/export, Knowledge flows, AI Log history, signals, governance tabs, and approval walkthroughs.
+
+### Use the multi-project comparison pack
+
+Several synthetic projects are seeded alongside the hotel demo project so you can demonstrate portfolio comparison and evidence-backed outliers. Recommended comparison sets include:
+
+- **Azure Bay Hotel & Convention Center** + **ERP Modernization** + **Data Platform Expansion**
+- **Contact Center Upgrade** when you want a visibly higher schedule and cost pressure example
+- **Security Hardening Program** when you want a lower-risk comparator
 
 ### Delete the default demo project
 
@@ -48,6 +56,8 @@ Every feature in ProPM Agent is project-scoped (Knowledge, Agents, PM Docs, AI L
 3. Confirm the delete action.
 4. Verify the demo project disappears from the directory.
 5. Re-import it later with **Import demo project** when you need the seeded environment again.
+
+If you are running a local demo-mode build and want a fully clean reset, refresh the browser after re-importing so the latest seeded chats, documents, and PM Docs are loaded.
 
 ### Create a project
 
@@ -66,6 +76,7 @@ Every feature in ProPM Agent is project-scoped (Knowledge, Agents, PM Docs, AI L
 - Workspace opens with selected project context saved in top switcher.
 - The creator receives project-admin access automatically for the new project.
 - The default demo project can be removed and re-imported without any additional tenant setup.
+- Seeded comparison projects remain available for portfolio drill-down and outlier demonstrations.
 
 ## Common issues
 
@@ -76,6 +87,7 @@ Every feature in ProPM Agent is project-scoped (Knowledge, Agents, PM Docs, AI L
 ## Tips
 
 - Apply consistent naming conventions (program prefix, geography, year).
-- For demos, use seeded project `Azure Bay Hotel & Convention Center` to showcase full PM lifecycle artifacts.
+- For demos, use seeded project `Azure Bay Hotel & Convention Center` to showcase contextual outputs, artifacts, and approvals.
+- Use the seeded comparison projects to demonstrate portfolio outliers, freshness drift, and contradictions.
 - Use the demo-project import/delete cycle to reset walkthrough conditions before recordings or training sessions.
 

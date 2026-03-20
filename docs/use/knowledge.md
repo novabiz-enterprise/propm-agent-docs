@@ -16,7 +16,9 @@ You can:
 
 ## Why this matters
 
-Knowledge centralizes evidentiary artifacts used by agents, PM Docs, and governance reviews. It reduces information sprawl and improves auditability.
+Knowledge centralizes evidentiary artifacts used by agents, PM Docs, signals, and governance reviews. It reduces information sprawl and improves auditability.
+
+Knowledge remains the product’s **authoritative retrieval surface**. Connector-fed context can enrich a run, but it does not replace Azure AI Search-backed project knowledge.
 
 ## Who can use it
 
@@ -64,18 +66,25 @@ Recommended demo assets include:
 - `ABH-Weekly-Status-Week-43.pdf`
 - `ABH-Scenario-Test-Matrix.xlsx`
 
+Related seeded comparison projects also provide synthetic artifacts that help demonstrate:
+
+- contradictions between narrative and operational views
+- freshness drift across project evidence
+- multi-project comparison evidence
+- connector-backed status narratives
+
 Use these seeded files to validate category coverage, ingestion states, and search behavior before uploading anything new.
 
-### Importer en batch avec Azure Data Factory (ADF)
+### Batch import with Azure Data Factory (ADF)
 
-Utilisez ADF si vous voulez automatiser des imports depuis des sources externes (SaaS, DB, fichiers) en respectant le flux officiel **Documents → Ingestion → Search**.
+Use ADF if you want to automate imports from external sources (SaaS, databases, or files) while keeping the official **Documents → Ingestion → Search** flow.
 
-1. Déployez ADF dans le tenant client et configurez les secrets Key Vault requis.
-2. Importez les artefacts ADF fournis (pipelines, datasets, linked services).
-3. Configurez les paramètres du pipeline (APIM, tenant, project, fichier, metadata).
-4. Lancez le pipeline (manuel ou trigger planifié).
+1. Deploy ADF in the customer tenant and configure the required Key Vault secrets.
+2. Import the provided ADF artifacts (pipelines, datasets, linked services).
+3. Configure pipeline parameters (APIM, tenant, project, file, metadata).
+4. Run the pipeline manually or by schedule.
 
-Référence d’implémentation (dans le dépôt source) : `repo/adf/README.md`
+Implementation reference in the source repository: `repo/adf/README.md`
 
 ### Check ingestion / indexing status
 
@@ -90,11 +99,22 @@ Référence d’implémentation (dans le dépôt source) : `repo/adf/README.md`
    - The **snippet** (the matched content)
    - The **source** reference (where the snippet came from)
    - Optional page/section information (when available)
+   - Freshness or source-system metadata when available
+
+### Use Knowledge as evidence for contextual outputs
+
+When a run references Knowledge evidence:
+
+1. Open the cited document from the result list.
+2. Compare the response claim with the source snippet.
+3. Check whether the evidence is fresh, aging, stale, unavailable, or conflicting.
+4. Confirm any important claims before publishing artifacts or requesting approvals.
 
 ## Expected results
 
 - Uploaded documents appear in the list.
 - Search returns results with source references to support verification.
+- Knowledge evidence can be traced into contextual outputs, artifacts, and audit views.
 - The default demo project starts with seeded documents and categories already ready for walkthroughs.
 
 ## Common issues
@@ -110,4 +130,5 @@ Référence d’implémentation (dans le dépôt source) : `repo/adf/README.md`
 - Use search results as evidence: verify important outputs by reviewing the referenced sources.
 - For ADF batch loads, keep file sizes aligned with SAS expiry and use consistent metadata for governance.
 - For demos, search terms like `chiller`, `SteerCo`, `procurement`, or `communication` to surface the seeded hotel documents quickly.
+- Treat stale or conflicting search evidence as a review signal rather than a hidden implementation detail.
 

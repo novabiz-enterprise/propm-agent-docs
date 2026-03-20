@@ -27,6 +27,8 @@ Governance-by-design is easier when project controls (roles, categories, agent c
    - **Access control**
    - **Document categories**
    - **Agent configuration**
+   - **Governance policies**
+   - **Actions & approvals**
 
 Permission mapping:
 
@@ -36,6 +38,18 @@ Permission mapping:
   - custom role administration requires `roles:manage`
 - **Document categories** requires `settings:manage`
 - **Agent configuration** requires `agent:configure`
+- **Governance policies** requires `settings:manage`
+- **Actions & approvals** requires `agent:run` to propose actions and `project:update` to approve or execute governed actions
+
+### What governance policies can include
+
+Depending on your deployment, the governance area can expose configuration for:
+
+- connectors and latest sync posture
+- artifact destinations
+- action policies
+- rendering profiles
+- notification preferences
 
 ### Use default demo settings
 
@@ -45,6 +59,8 @@ The default demo project installs a ready-to-use settings baseline automatically
 - seeded PM Docs
 - seeded Knowledge documents
 - seeded AI Log history
+- seeded portfolio comparison projects
+- seeded governance scenarios for freshness, contradictions, and approvals
 - default full permissions for the signed-in user
 
 This makes the demo project the fastest way to validate configuration features without any manual preparation.
@@ -54,6 +70,7 @@ This makes the demo project the fastest way to validate configuration features w
 - You can view project settings.
 - Authorized project members can save changes and see them reflected across the project.
 - The default demo project starts with a complete settings baseline for walkthroughs and training.
+- Governance configuration remains separate from everyday project content and is easier to audit.
 
 ## Common issues
 
@@ -62,4 +79,5 @@ This makes the demo project the fastest way to validate configuration features w
 ## Tips
 
 - Review settings at project kickoff to align with PMO standards.
+- Roll out connectors and action policies gradually: read-first before approval-gated execution.
 

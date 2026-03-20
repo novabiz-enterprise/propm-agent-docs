@@ -4,6 +4,26 @@ title: Release notes
 
 This section is used to publish customer-facing release notes.
 
+## 2026-03-19
+
+- **Release date:** 2026-03-19
+- **Highlights:** target-state contextual execution, evidence-backed outputs, governed artifacts, proactive signals, and configurable portfolio comparison
+- **New capabilities:**
+  - contextual run outputs with evidence, freshness, confidence, assumptions, and missing-information sections
+  - governed artifact review with diff, lineage, approval, and publication posture
+  - proactive signals, digest drafting, and notification draft handling in the workspace
+  - configurable portfolio cohorts and evidence-backed outlier comparison
+  - governed connectors and action-policy administration surfaces for rollout and demo readiness
+- **Improvements:**
+  - expanded synthetic demo pack for multiple-project comparison, contradictions, staleness, and approvals
+  - updated quick-start, workspace, portfolio, PM Docs, and admin guidance for the target-state experience
+  - improved documentation for methodology-neutral rollout and trust-focused review behavior
+  - added a release-readiness checklist for rollout, demo, and operational validation
+- **Fixes:**
+  - clarified customer-facing guidance around freshness, contradictions, and artifact traceability
+  - aligned administration docs with current governance-policy and action-approval surfaces
+- **Known limitations:** see the Known limitations page
+
 ## 2026-03-15
 
 - **Release date:** 2026-03-15
