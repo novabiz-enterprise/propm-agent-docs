@@ -1,74 +1,100 @@
 ---
-title: Identity and tenant consent for Marketplace installs
+title: Identity setup — publisher-managed shared application
 ---
 
 ProPM Agent uses **Microsoft Entra ID** for user sign-in.
 
-The **current standard Marketplace deployment** uses a **publisher-managed shared Microsoft Entra application**.
-
-For most customer deployments, this means:
-
-- you do **not** create a customer-owned app registration before deployment
-- you do **not** enter a customer client ID in the standard Marketplace wizard
-- tenant restriction is still enforced for the deployed installation
+The deployment experience has been simplified by moving away from per-customer app creation during ARM deployment and toward a publisher-managed shared Microsoft Entra application.
 
 ## Why this matters
 
-- Your tenant still controls who can sign in.
-- Your security team can still review consent, tenant access, and sign-in behavior.
-- The deployment path is simpler because the standard installation no longer depends on customer-owned app bootstrap during the Marketplace wizard.
+- Your tenant controls who can sign in.
+- Your security team can review and manage the identity configuration.
+- Roles and access can be managed through Entra users and groups.
 
-## What the deployment configures automatically
+## Supported identity model
 
-The current deployment automatically wires:
+### Publisher-managed shared application
 
-- the shared **auth client ID**
-- the shared **authority** and **OpenID configuration URL**
-- the effective **redirect URI** and **post-logout redirect URI**
-- the runtime auth configuration used by the web frontend
-- tenant restriction checks in the API and frontend path
+This deployment now defaults to a shared publisher app:
 
-## What tenant admins do after deployment
+- client ID: `aa3cedbf-4bbb-4078-a25a-74978fd1f832`
+- authority: `https://login.microsoftonline.com/organizations`
+- stable callback placeholder: `https://propm-auth.novabiz.pro/auth/callback`
+- stable post-logout placeholder: `https://propm-auth.novabiz.pro/auth/logout`
 
-1. Open the deployed application URL from the Marketplace deployment outputs.
-2. Select **Sign In with Microsoft**.
-3. Complete tenant consent if your tenant prompts for admin approval.
-4. Confirm that the **Dashboard** loads successfully.
+Each customer installation is then restricted to its own tenant by:
+- APIM claim validation
+- API tenant enforcement
+- runtime auth metadata sent to the SPA
 
-## Useful deployment outputs for troubleshooting
+## Do I need to create `propm-auth.novabiz.pro`?
 
-Depending on the deployment view and support workflow, the following values may be useful:
+Yes.
 
-- `effectiveAuthClientId`
-- `effectiveAuthAuthority`
-- `effectiveOpenidConfigUrl`
-- `effectiveRedirectUri`
-- `effectivePostLogoutRedirectUri`
-- `effectiveJwtAudience`
+To make the shared-auth strategy work in production, you need a real publisher-controlled domain for the callback/logout endpoints.
 
-## When a customer-owned app registration is still needed
+At minimum:
+1. create DNS for `propm-auth.novabiz.pro`
+2. serve `/auth/callback` and `/auth/logout`
+3. add those exact URIs to the shared Entra app registration
 
-Most customers should **not** use a customer-owned app registration path.
+## What the deployment automates
 
-Treat it as an exception only when:
+Deployment automatically:
+- injects shared auth settings into API, APIM, and frontend runtime config
+- injects the allowed tenant ID for the installation
+- configures a stable callback placeholder instead of using the dynamic customer frontend host as redirect URI
 
-- tenant policy explicitly blocks the shared publisher application model
-- your organization requires a customer-owned identity app for procurement or governance reasons
-- the deployment is being handled as a publisher-guided exception rather than the standard Marketplace wizard flow
+## What is still useful to verify manually
 
-If that exception path applies, handle it with your identity team and publisher support. It is **not** the normal install path documented in this section.
+Security teams should verify the shared Entra application configuration:
+
+- **Authentication** → correct stable publisher callback/logout URIs
+- **Expose an API** → `api://<clientId>` and `user_impersonation`
+- **API permissions** → delegated permission and admin consent
+
+## Required API exposure (avoid AADSTS500011)
+
+For single-tenant installs, make sure your app registration exposes an API scope that matches the runtime scope request.
+
+In **App registrations** → your app → **Expose an API**:
+
+1. Set **Application ID URI** to `api://<APP_ID>`
+2. Click **Add a scope** and create:
+   - Scope name: `user_impersonation`
+   - Who can consent: `Admins only` (recommended)
+   - State: `Enabled`
+
+Then in **API permissions**:
+
+1. **Add a permission** → **My APIs** → your app
+2. **Delegated permissions** → select `user_impersonation`
+3. Click **Add permissions**
+4. Click **Grant admin consent for `Tenant`**
+
+Without this step, sign-in can fail with:
+
+`AADSTS500011: The resource principal named api://<APP_ID> was not found...`
+
+## Required redirect URI (avoid AADSTS50011)
+
+The SPA no longer relies on the dynamic per-customer web host as the redirect URI. It now expects a stable publisher callback URI from runtime config.
+
+In **App registrations** → your app → **Authentication**:
+
+1. Add platform: **Single-page application** (if not already present)
+2. Add the exact deployed frontend origin in **Redirect URIs**, for example:
+   - `https://propm-auth.novabiz.pro/auth/callback`
+3. Click **Save**
+
+If this value does not match exactly, sign-in fails with:
+
+`AADSTS50011: The redirect URI ... does not match the redirect URIs configured for the application ...`
 
 ## Common issues
 
-- **The consent prompt appears but cannot be completed**: the signed-in user may not have the required tenant admin or application admin rights.
-- **Sign-in succeeds but you see “Access denied”**: your identity is valid, but your account is missing the required application or workspace access.
-- **Sign-in fails with a redirect or consent error**: capture the deployment outputs above and route the issue through the support path, because the standard deployment uses publisher-managed auth values.
-
-## Screenshot planning for this page
-
-Planned screenshots tied to this page:
-
-- `marketplace-deployment-outputs.png` — Deployment outputs showing the values used after installation.
-- `app-first-sign-in-consent.png` — First-use Microsoft sign-in or admin-consent screen.
-- `app-dashboard-after-sign-in.png` — Successful post-authentication landing on the Dashboard.
+- **Sign-in succeeds but you see “Access denied”**: your user is authenticated, but you are missing required application role assignments.
+- **Sign-in fails with a redirect error**: the redirect URI configured in Entra does not match the actual deployed web URL.
+- **Sign-in fails with redirect mismatch**: confirm the shared app contains `https://propm-auth.novabiz.pro/auth/callback`.
 

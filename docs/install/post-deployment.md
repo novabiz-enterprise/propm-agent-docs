@@ -2,7 +2,7 @@
 title: Post-deployment — find the app URL and sign in
 ---
 
-Once the Marketplace deployment finishes, you can access ProPM Agent.
+Once the Marketplace deployment finishes, you can access ProPM Agent and verify the effective deployment outputs.
 
 ## Who can do this
 
@@ -12,44 +12,68 @@ Once the Marketplace deployment finishes, you can access ProPM Agent.
 ## Steps
 
 1. In Azure Portal, open the **Managed Application** resource created by the deployment.
-2. Locate the **outputs** or **deployment outputs** section.
-3. Record these values if they are shown:
-   - `webContainerFqdn`
-   - `apiGatewayUrl`
-   - `apimGatewayUrl`
-4. Open `webContainerFqdn` in a browser.
-5. Select **Sign In with Microsoft**.
-6. If this is the first sign-in for your tenant, complete the tenant consent step if prompted.
+2. In the left navigation, open **Settings → Parameters and Outputs**.
+3. Review the deployed parameters and outputs.
+
+![Managed Application Parameters and Outputs view](../../static/img/screenshots/install-06-application-config.png)
+
+4. Locate the web entry point:
+   - use **webContainerFqdn** if the portal shows a hostname only
+   - use **apiGatewayUrl** or **apimGatewayUrl** when you need to confirm the backend endpoints
+5. Open the web application in a browser. If you copied **webContainerFqdn**, open it as `https://<webContainerFqdn>`.
+6. If you are the tenant admin, first select **Tenant Admin: Grant Microsoft consent**.
+7. Then select **Sign In with Microsoft**.
+
+## Outputs to verify after deployment
+
+The outputs page provides the quickest way to confirm that installation values were applied correctly.
+
+![Deployment outputs showing runtime auth and endpoint values](../../static/img/screenshots/install-07-review-create.png)
+
+Check these outputs in particular:
+
+- **webContainerFqdn** — frontend hostname to open in the browser
+- **apiGatewayUrl** / **apimGatewayUrl** — backend endpoint values exposed by the deployment
+- **effectiveAuthClientId** — the client ID injected into the frontend runtime configuration
+- **effectiveAuthAuthority** — the Microsoft identity authority used by the deployment
+- **effectiveAuthScopes** — scopes requested during sign-in
+- **effectiveAllowedTenantId** — the tenant restriction enforced by the installation
+- **effectiveRedirectUri** — redirect URI expected by the shared publisher-managed authentication flow
+- **effectivePostLogoutRedirectUri** — post-logout URI expected by the shared publisher-managed authentication flow
+- **effectiveLlmProvider** — the effective LLM provider selected for the environment
+
+If any of these values do not match your intended deployment, stop and investigate before onboarding users.
+
+## What should already be configured automatically
+
+In the current deployment flow, the following should already be aligned by deployment time:
+
+- frontend runtime auth configuration
+- API and APIM auth settings
+- effective client ID, authority, and scopes
+- stable publisher callback URI placeholder and allowed tenant restriction
+
+That means a normal installation should not require the customer to create an app registration manually.
 
 ## Expected results
 
 - You can sign in successfully.
 - You land on the **Dashboard**.
-- The frontend is already wired to the correct runtime API configuration for the deployed environment.
+- The Managed Application outputs reflect the tenant, redirect URI, LLM provider, and endpoint values selected during deployment.
 
 ## Verify access quickly
 
 After sign-in, try one simple action:
 
 1. Open **Projects**.
-2. Confirm you can see at least one project, or import the demo project, or (if you are a Project Owner) create one.
-
-## Save these values for validation and support
-
-- Keep the deployment output values noted above.
-- If you plan to capture live screenshots later, keep the exact **authenticated application URL** after sign-in. That URL can be reused for the manual-login Playwright capture flow.
+2. Confirm you can see at least one project or (if you are a Project Owner) that you can create one.
+3. Optionally confirm the frontend can reach the API by opening a normal working page such as **Dashboard**, **Projects**, or **Knowledge**.
 
 ## Common issues
 
-- **The outputs are hard to find**: open the Managed Application resource first, then inspect the deployment outputs from the deployment history.
-- **You can’t sign in**: confirm the deployment completed successfully and escalate with the deployment output values if the problem looks identity-related.
-- **Access denied after sign-in**: confirm your account has been granted the appropriate application or workspace access.
-
-## Screenshot planning for this page
-
-Planned screenshots tied to this page:
-
-- `marketplace-deployment-outputs.png` — Managed Application outputs showing the web and API endpoints.
-- `app-dashboard-after-sign-in.png` — Dashboard landing page immediately after successful sign-in.
-- `app-projects-first-view.png` — Projects page used as the first quick validation step.
+- **You can’t sign in**: confirm the shared Entra app contains `https://propm-auth.novabiz.pro/auth/callback` and that the callback domain is live.
+- **The portal shows only a hostname and not a clickable URL**: use `https://<webContainerFqdn>` in the browser.
+- **The runtime values look wrong in Azure Portal**: compare **effectiveAuthClientId**, **effectiveRedirectUri**, **effectiveAllowedTenantId**, and **effectiveLlmProvider** against the values you intended to deploy.
+- **Access denied after sign-in**: confirm your account has been assigned the appropriate ProPM Agent role in Entra ID.
+- **You are blocked after successful sign-in**: confirm you are signing in from the tenant that purchased the installation; tenant ID is enforced by APIM and the API.
 

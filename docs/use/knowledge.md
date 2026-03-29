@@ -4,131 +4,172 @@ title: Knowledge (documents + search)
 
 ## Purpose
 
-**Knowledge** is the project document hub and retrieval surface. It supports ingestion tracking, classification, and project-scoped search.
+**Knowledge** is the project-scoped document hub for uploads, ingestion tracking, retrieval, and evidence-backed search.
 
 ![Knowledge page](../../static/img/screenshots/05-knowledge.png)
 
-You can:
+Use it to:
 
-- Upload project documents
-- Track ingestion/indexing status
-- Search project knowledge with source references
-
-## Why this matters
-
-Knowledge centralizes evidentiary artifacts used by agents, PM Docs, signals, and governance reviews. It reduces information sprawl and improves auditability.
-
-Knowledge remains the product’s **authoritative retrieval surface**. Connector-fed context can enrich a run, but it does not replace Azure AI Search-backed project knowledge.
-
-## Who can use it
-
-- **View/search documents:** Project Owner, Project Manager, Contributor, Viewer, Auditor
-- **Upload and manage documents:** Project Owner, Project Manager, Contributor
+- upload documents into the current project boundary
+- review ingestion and indexing status
+- search the project knowledge base with snippets and source references
+- confirm what evidence is fresh enough to reuse in PM Docs, workspace outputs, and approvals
 
 ## Before you begin
 
-- Select a project.
-- Prepare files and naming conventions (recommended: include date/version in filenames).
+1. Open or select the project you want to work in.
+2. Confirm you are on the correct project before uploading or searching.
+3. If your team uses a category taxonomy, review the configured categories first.
 
-## Supported file types (ingestion)
+## What you can do in Knowledge
 
-By default, the system extracts and indexes content from:
-- **PDF** (best effort via Azure Document Intelligence)
-- **DOCX**
-- **XLSX** (sheets are concatenated as text)
-- **CSV**
-- **HTML/HTM**
-- **Images** (OCR via Azure Document Intelligence)
-
-Extraction can be toggled with env flags:
-- `ENABLE_EXTRACT_XLSX`, `ENABLE_EXTRACT_CSV`, `ENABLE_EXTRACT_HTML`
-
-## Steps
-
-### Upload a document
+### 1. Upload a document
 
 1. Open **Knowledge**.
-2. Select a **category**.
-3. Select a file.
-4. Select **Upload**.
-5. Select **Refresh** to update the list.
+2. Confirm the project shown at the top of the page.
+3. Choose an **Upload category**.
+4. Select a file from your computer.
+5. Select **Upload**.
+6. Select **Refresh** if you need to re-check the latest ingestion status.
 
-### Review seeded demo documents
+The document list refreshes inside the current project only.
 
-In the default demo project (`demo-hotel-001`), the Knowledge area is preloaded with realistic documents so you can demonstrate search and ingestion immediately.
+### 2. Review ingestion status
 
-Recommended demo assets include:
+Each document row shows the most useful operational metadata the UI can surface, including:
 
-- `ABH-SteerCo-Status-Week-42.pdf`
-- `ABH-Risk-Register-v1.2.xlsx`
-- `ABH-Procurement-Plan.docx`
-- `ABH-Communication-Plan.docx`
-- `ABH-Weekly-Status-Week-43.pdf`
-- `ABH-Scenario-Test-Matrix.xlsx`
+- filename
+- category
+- file type
+- size
+- ingestion status
+- latest visible timestamp
 
-Related seeded comparison projects also provide synthetic artifacts that help demonstrate:
+Typical statuses are:
 
-- contradictions between narrative and operational views
-- freshness drift across project evidence
-- multi-project comparison evidence
-- connector-backed status narratives
+- **Indexed**: ready for search
+- **Ingesting**: uploaded, but not yet fully indexed
+- **Failed**: ingestion or indexing did not finish successfully
 
-Use these seeded files to validate category coverage, ingestion states, and search behavior before uploading anything new.
+If a document is not yet searchable, wait for it to progress to an indexed or ready-style status.
 
-### Batch import with Azure Data Factory (ADF)
+### 3. Search project knowledge
 
-Use ADF if you want to automate imports from external sources (SaaS, databases, or files) while keeping the official **Documents → Ingestion → Search** flow.
-
-1. Deploy ADF in the customer tenant and configure the required Key Vault secrets.
-2. Import the provided ADF artifacts (pipelines, datasets, linked services).
-3. Configure pipeline parameters (APIM, tenant, project, file, metadata).
-4. Run the pipeline manually or by schedule.
-
-Implementation reference in the source repository: `repo/adf/README.md`
-
-### Check ingestion / indexing status
-
-1. In **Knowledge**, review the **Status** column.
-2. Wait until the document moves to an “indexed” or “ready” type status before expecting it to appear in search.
-
-### Search project knowledge
-
-1. In **Search**, enter a question or keywords.
+1. Enter a keyword, phrase, or question in **Search**.
 2. Select **Search**.
-3. Review results:
-   - The **snippet** (the matched content)
-   - The **source** reference (where the snippet came from)
-   - Optional page/section information (when available)
-   - Freshness or source-system metadata when available
+3. Review the returned evidence:
+   - snippet text
+   - source link into Knowledge or the connected source
+   - optional page or section metadata
+   - freshness badge when available
+   - source-system metadata when available
 
-### Use Knowledge as evidence for contextual outputs
+![Knowledge search results](../../static/img/screenshots/05-knowledge-search-results.png)
 
-When a run references Knowledge evidence:
+Use the source link before reusing the evidence in stakeholder outputs.
 
-1. Open the cited document from the result list.
-2. Compare the response claim with the source snippet.
-3. Check whether the evidence is fresh, aging, stale, unavailable, or conflicting.
-4. Confirm any important claims before publishing artifacts or requesting approvals.
+### 4. Validate seeded demo knowledge
 
-## Expected results
+In the default demo project `demo-hotel-001`, Knowledge starts with seeded documents so you can test the flow immediately.
 
-- Uploaded documents appear in the list.
-- Search returns results with source references to support verification.
-- Knowledge evidence can be traced into contextual outputs, artifacts, and audit views.
-- The default demo project starts with seeded documents and categories already ready for walkthroughs.
+Recommended demo searches include:
+
+- `SteerCo`
+- `procurement`
+- `communication`
+- `chiller`
+
+The seeded demo flow is useful for validating:
+
+- search result structure
+- ingestion-state rendering
+- category coverage
+- freshness and evidence cues
+
+## Document categories and propagation
+
+Knowledge upload categories come from the project-level **Document categories** settings in the Workspace.
+
+When a project owner updates the category list:
+
+- the **Knowledge** upload category picker updates
+- PM Docs category selectors and filters update where the category taxonomy is used
+
+See the admin guide: [Document categories](../administration/document-categories.md)
+
+## Supported file types
+
+By default, the system can extract and index content from:
+
+- **PDF**
+- **DOCX**
+- **XLSX**
+- **CSV**
+- **HTML / HTM**
+- **Images** through OCR when the extraction services are enabled
+
+Extraction can also depend on deployment flags such as:
+
+- `ENABLE_EXTRACT_XLSX`
+- `ENABLE_EXTRACT_CSV`
+- `ENABLE_EXTRACT_HTML`
+
+## Azure Data Factory (ADF) batch import
+
+Use ADF when an operator needs to move documents from an external system into the standard product ingestion path.
+
+High-level flow:
+
+1. Source system or file feed
+2. Staging blob
+3. Documents API handoff
+4. Ingestion and indexing
+5. Searchable result inside **Knowledge**
+
+Operator runbook: [ADF batch-ingestion runbook](https://github.com/robertsmaoui/ProPM-Agent/blob/main/repo/adf/README.md)
+
+After an ADF run, validate the user-visible outcome in the product:
+
+1. Open the target project in **Knowledge**.
+2. Confirm the imported document appears in the list.
+3. Wait until the document reaches an indexed or ready state.
+4. Search for a unique keyword from that file.
+5. Confirm the search result shows a snippet and a source reference.
+
+![ADF-imported document visible in Knowledge](../../static/img/screenshots/05-knowledge-adf-imported-document.png)
+
+If direct ADF execution is not available in your environment, stage an equivalent imported document through the documented ingestion path and still verify the same downstream user-facing behavior in Knowledge.
+
+## Evidence review checklist
+
+Before using Knowledge evidence in a stakeholder output:
+
+1. Open the cited source.
+2. Confirm the snippet matches the claim.
+3. Check freshness badges and timestamps.
+4. Treat stale, conflicting, or unavailable evidence as a review signal.
+5. Re-run search after the document reaches an indexed state if needed.
+
+## Permissions and read-only behavior
+
+Depending on your project role:
+
+- some users can view and search only
+- some users can upload and refresh
+- restricted users may see read-only guidance for upload or search actions
+
+If a control is disabled, your role may not allow that action in the current project.
 
 ## Common issues
 
-- **Document not searchable yet**: indexing can take time after upload.
-- **Upload fails**: confirm you have a role that allows uploads.
-- **Search fails**: retry, then capture the trace ID (if shown) and contact your administrator.
-- **XLSX or images not searchable**: check that Document Intelligence and the extraction flags are enabled.
+- **Document not searchable yet**: the document may still be ingesting or indexing.
+- **Upload is disabled**: your role may not have upload rights in the current project.
+- **Search is disabled or fails**: retry, then capture the trace ID if one is shown.
+- **Source link is internal instead of external**: use the in-app source shortcut to jump to the document row inside the app when the source system does not expose a direct file URL.
 
 ## Tips
 
-- Keep categories stable to support portfolio comparability.
-- Use search results as evidence: verify important outputs by reviewing the referenced sources.
-- For ADF batch loads, keep file sizes aligned with SAS expiry and use consistent metadata for governance.
-- For demos, search terms like `chiller`, `SteerCo`, `procurement`, or `communication` to surface the seeded hotel documents quickly.
-- Treat stale or conflicting search evidence as a review signal rather than a hidden implementation detail.
-
+- Keep category names short and stable so Knowledge and PM Docs stay aligned.
+- Use filenames with dates or versions when you want easier evidence tracing.
+- Re-check the current project before uploading to avoid putting files into the wrong project boundary.
+- Use Knowledge search as a verification step, not just a retrieval shortcut.

@@ -13,6 +13,18 @@ ProPM Agent helps project teams, PMOs, and tenant administrators run **project w
 
 These docs are written for **business users** and **tenant administrators** who deploy ProPM Agent from **Azure Marketplace**.
 
+![Shell and dashboard overview](../static/img/screenshots/01-dashboard.png)
+
+## Start here
+
+If you are new to ProPM Agent, use this order:
+
+1. Sign in and let the root URL redirect you to **Dashboard**.
+2. Confirm your current context in the **top bar** and **shell project context** panel.
+3. Open **Projects** to choose or create the project you want to work in.
+4. Return to **Dashboard** to review readiness, recent activity, and recommended next steps.
+5. Move into **Workspace**, **Knowledge**, **Agents**, **PM Docs**, or **AI Log** from the left navigation once the correct project is active.
+
 ## What you can do with ProPM Agent
 
 - Create and browse projects
@@ -34,6 +46,11 @@ ProPM Agent is **project-scoped**:
 2. You upload knowledge and run agents in that project context.
 3. The platform keeps evidence, freshness, actions, approvals, and outputs attached to that project.
 4. Portfolio comparison works by selecting multiple projects explicitly; it does not bypass normal project visibility.
+
+The application shell has two navigation layers:
+
+- The **left sidebar** is your persistent route map for Dashboard, Projects, Workspace, Knowledge, Agents, PM Docs, AI Log, Portfolio Command Center, and Marketplace when your role allows it.
+- The **top bar** keeps your active project, command palette entry point, notifications, health diagnostics, language, theme, and help controls visible without leaving the page you are on.
 
 ## What is different in the target-state experience
 

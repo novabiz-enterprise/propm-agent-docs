@@ -4,50 +4,74 @@ title: Document categories
 
 ## Purpose
 
-Document categories define the taxonomy used across the project for:
+Document categories define the shared project taxonomy used across:
 
-- Knowledge uploads
-- PM Docs categories
+- **Knowledge** upload controls
+- PM Docs category selectors and filters
+
+![Document categories](../../static/img/screenshots/13-document-categories.png)
 
 ## Why this matters
 
-Standard categories improve portfolio comparability and reduce reporting friction.
+A stable category list makes it easier to:
 
-## Who can use it
+- keep document filing consistent
+- improve search and review habits
+- keep PM Docs aligned with the same project taxonomy
+- support portfolio-level comparability
+
+## Who can change categories
 
 - **View categories:** all project members
-- **Modify categories:** **Project Owner**
+- **Modify categories:** users with project settings permissions, typically the **Project Owner**
 
-## Before you begin
+If you do not have edit rights, the page stays read-only.
 
-- Open the project workspace.
+## Where to find it
 
-## Steps
+1. Open the target project workspace.
+2. Open the **Document categories** tab.
 
-### Add a category
+## Add a category
 
-1. In the project workspace, open **Document categories**.
-2. Enter a category name.
-3. Select **Add**.
+1. Enter a new category name.
+2. Select **Add** or press **Enter**.
+3. Confirm the new category appears in the category list.
+4. Open **Knowledge** or **PM Docs** to verify the category is available there.
 
-### Remove a category
+If the category already exists, the UI blocks the duplicate entry.
 
-1. In **Document categories**, find the category pill.
+## Remove a category
+
+1. Find the category pill you want to remove.
 2. Select **×**.
+3. Re-open **Knowledge** or **PM Docs** if needed and confirm the category is no longer offered.
 
-### Reset categories to defaults
+## Reset categories to defaults
 
 1. Select **Reset defaults**.
+2. Confirm the standard project taxonomy returns.
 
-## Expected results
+Use this when ad hoc categories have drifted too far from the intended project standard.
 
-- Updated categories appear in Knowledge and PM Docs.
+## What changes after an update
+
+When the category list is changed successfully:
+
+- **Knowledge** upload category options update
+- PM Docs category pickers and category filters update where the shared taxonomy is used
+
+This propagation is project-scoped. Changing categories in one project does not change other projects.
+
+## Recommended category practices
+
+- keep names short and specific
+- avoid duplicates with different capitalization
+- prefer stable categories over one-off labels
+- use document filenames or metadata for version details instead of creating a new category for every variation
 
 ## Common issues
 
-- **Read-only**: only Project Owners can modify categories.
-
-## Tips
-
-- Keep the category list short and stable.
-
+- **Read-only state**: your role may not allow project settings changes.
+- **Category not visible elsewhere yet**: refresh the target Knowledge or PM Docs page.
+- **Duplicate category blocked**: the same category name already exists in the list.

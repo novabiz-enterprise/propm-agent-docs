@@ -2,124 +2,107 @@
 title: Prerequisites checklist
 ---
 
-Before you deploy ProPM Agent from Azure Marketplace, confirm the prerequisites for the **current Managed Application architecture** and **current Marketplace wizard fields**.
+Before you deploy ProPM Agent from Azure Marketplace, confirm you have the following.
 
-## Azure subscription and deployment permissions
+This checklist is written to match the current Azure Marketplace deployment wizard and the deployment screens used in the installation walkthrough.
+
+## Deployment experience improvements
+
+Recent deployment hardening work makes installation easier and safer:
+
+- platform-region selection for the VNet-based application stack
+- automatic runtime configuration for the frontend and API endpoints
+- publisher-managed shared Entra authentication wiring
+- fail-fast deployment guardrails so the installation cannot complete with broken sign-in settings
+
+## Azure subscription and permissions
 
 - An Azure subscription where you are allowed to deploy **Managed Applications**.
 - Permission to select or create a **resource group**.
-- Permission to deploy into the chosen **platform region**.
-- Access to a subscription administrator if your environment requires provider registration, policy exceptions, or quota review for services such as:
-  - **Azure Container Apps**
-  - **Azure API Management**
-  - **Azure SQL Database**
-  - **Azure AI Search**
-  - **Azure Storage**
-  - **Azure Cosmos DB**
-  - **Azure Key Vault**
-  - **Azure Service Bus**
-  - **Azure Event Grid**
-  - **Azure AI services** such as Azure OpenAI or Document Intelligence
+- Permission to deploy into a supported **region**.
 
-## Identity and tenant readiness
+## Identity (Microsoft Entra ID)
 
-- The standard Marketplace offer now uses a **publisher-managed shared Microsoft Entra application**.
-- You **do not** need to prepare a customer-owned Entra app registration for the standard deployment path.
-- You **do** need:
-  - the correct **Azure subscription** and **Microsoft Entra tenant** selected before deployment
-  - a **tenant admin** or **application admin** who can complete first-use consent after deployment if your organization requires admin approval
-  - the intended admin and operator users identified in advance
+The deployment now uses a publisher-managed shared Entra application.
 
-> Each installation remains tenant-restricted even though the sign-in application is shared. The deployment still runs in the customer tenant and subscription, and tenant checks are enforced in the deployed application stack.
+You do **not** need to create a customer-owned app registration before deployment.
 
-## Network and region planning
+You do need:
+- a valid purchasing tenant
+- a tenant admin who can grant consent after deployment
+- a publisher-controlled stable callback domain configured on the shared app
 
-- A **non-overlapping VNet CIDR** for the deployment.
-- Use **at least `/22`**; **`/16` is recommended** for smoother subnet carving and future growth.
-- Coordinate with your network team if your subscription already uses hub/spoke, private endpoint, or address-space standards.
-- Choose a **platform region** with capacity for Container Apps, API Management, and any AI provider you plan to use.
+## Network plan
 
-Commonly surfaced platform regions in the current Marketplace experience:
+- A **virtual network CIDR range** available for the deployment.
+  - Use a non-overlapping private CIDR range.
+  - If you are unsure, coordinate with your network team.
 
-- **East US 2**
-- **Central US**
-- **West Europe**
-- **North Europe**
-- **West US 2** (use only if your subscription has confirmed capacity)
+## AI model configuration
 
-## AI provider decision
+Choose one LLM provider model:
 
-Choose the AI provider you will use during deployment.
+### Option A — Azure OpenAI (deploy during installation)
 
-### OpenRouter (default path)
+- no pre-existing endpoint is required
+- confirm Azure OpenAI is supported and quota is available in the target region
 
-Prepare:
+### Option B — Azure OpenAI (customer-managed)
 
-- an **OpenRouter API key**
-- an approved **model ID**
+- An existing **Azure OpenAI endpoint**
+- The **deployment name** used for chat/completions
+- Optionally, a separate **embeddings deployment name**
+- Optionally, an **API key** if you are not using managed identity / Entra auth from the deployment
 
-### Azure OpenAI (deploy during installation)
+### Option C — OpenAI-compatible endpoint
 
-Prepare:
+- The **base URL** of the compatible endpoint
+- The **model name** to use
+- Optionally, an **API key** if the endpoint requires one
+- Optionally, a separate **embeddings model name**
 
-- confirmation that your chosen region supports **Azure OpenAI**
-- sufficient **Azure AI / Cognitive Services quota** in that region
+### Option D — OpenRouter
 
-### Azure OpenAI (customer-managed)
+- An **OpenRouter API key**
+- The **OpenRouter model ID** you want the deployment to use
+- Optionally, a separate **OpenRouter embeddings model**
 
-Prepare:
+The Marketplace wizard prompts you to choose the provider before it reveals the provider-specific inputs.
 
-- the **Azure OpenAI endpoint**
-- the **chat/completion deployment name**
-- the optional **embeddings deployment name** if you use a separate embeddings model
-- the **API key** only if your deployment will not use managed identity or Entra-based access
+![LLM provider selection in the Marketplace deployment wizard](../../static/img/screenshots/install-02-marketplace-basics.png)
 
-### OpenAI-compatible endpoint
-
-Prepare:
-
-- the **base URL**
-- the **model name**
-- the **API key** if required by the endpoint
-
-## Database and optional platform settings
+## Database provisioning input
 
 - A strong **Azure SQL admin password** (minimum 12 characters).
-- A decision on whether **Azure Monitor alerting** can stay enabled in your subscription.
-- Any additional **CORS allowed origins** if you plan to use a custom domain or additional web origins.
-- Whether you want to enable **Azure Data Factory (ADF)** during deployment for batch or governed ingestion scenarios.
+
+## Optional: CORS origins (only if needed)
+
+- If you plan to access the API from additional web origins (for example, custom domains), prepare the list of allowed origins.
 
 ## What you will provide during deployment
 
-In the current Marketplace wizard, you should expect to provide:
+You will be asked for these values in the Marketplace deployment wizard:
 
-- **Environment Name**
-- **Platform Region (Container Apps / APIM / VNet)**
-- **LLM Provider**
-- **Provider-specific AI settings** for the selected provider
-- **CORS Allowed Origins** (optional)
-- **Enable alerting** (optional toggle)
-- **Enable debug logging** (optional toggle)
-- **Enable Azure Data Factory** and related ADF options (optional)
-- **Azure SQL Admin Password**
-- **VNet CIDR**
+- **Basics tab**
+  - **Subscription**
+  - **Resource group**
+  - **Region**
+  - **Application Name**
+  - **Managed Resource Group**
+- **Application Settings tab**
+  - **Environment Name**
+  - **Platform Region (Container Apps / APIM / VNet)**
+  - **LLM Provider**
+  - provider-specific values such as **Azure OpenAI endpoint**, **OpenAI-compatible base URL**, or **OpenRouter API key and model**
+  - **CORS Allowed Origins** (optional)
+  - **Enable alerting (Azure Monitor)** (optional)
+  - **Enable debug logging** (optional)
+  - **Enable Azure Data Factory (ADF)** (optional)
+  - **Azure SQL Admin Password**
+  - **VNet CIDR**
+- **Identity flow**
+  - no customer-owned Entra app inputs in the default deployment model
+  - tenant admin consent after deployment on first sign-in
 
-## What you do not need to provide in the standard offer
-
-You should **not** need to enter these in the standard Azure Marketplace flow:
-
-- a customer-owned **Entra client ID**
-- a manually created **app registration**
-- container **image references**
-- a manual **redirect URI**
-- a manual **API base URL**
-
-## Screenshot planning for this page
-
-See [Installation screenshot inventory](./screenshot-inventory) for the planned capture set.
-
-Planned screenshots tied to this page:
-
-- `marketplace-prerequisites-checklist.png` — Overview of the prerequisite checklist and deployment decision points.
-- `marketplace-llm-provider-decision.png` — Reference image showing how to decide between OpenRouter, Azure OpenAI, and OpenAI-compatible deployment paths.
+If you select a provider that requires a secret, the wizard may show that secret as a masked password-style field. Prepare the correct key values before opening the form so you can complete the wizard without interruption.
 

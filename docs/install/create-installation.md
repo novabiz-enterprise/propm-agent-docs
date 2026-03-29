@@ -2,176 +2,146 @@
 title: Create an installation (step-by-step)
 ---
 
-This page walks a tenant admin through the **current standard ProPM Agent deployment flow** from Azure Marketplace.
+This page walks a tenant admin through deploying ProPM Agent from Azure Marketplace.
+
+Recent deployment work has made installation easier by automating runtime configuration, regional platform placement controls, publisher-managed Entra sign-in wiring, and optional Azure OpenAI deployment.
+
+The screenshots below reflect the current Azure Portal deployment experience for the Marketplace offer.
 
 ## Who can do this
 
-- **Azure subscription owner or contributor** for the resource deployment
-- **Tenant admin / application admin** for first-use consent if your organization requires admin approval
+- **Tenant Admin / Installer**
 
 ## Before you begin
 
-Complete the checklist in [Prerequisites checklist](./prerequisites).
-
-If you are preparing rollout media, also review the [Installation screenshot inventory](./screenshot-inventory).
+Complete the checklist in **Install via Azure Marketplace → Prerequisites**.
 
 ## Step 1 — Open the offer
 
 1. In Azure Portal, open the **ProPM Agent** offer in **Azure Marketplace**.
 2. Select **Create**.
 
-## Step 2 — Complete the Basics step
+## Step 2 — Complete the Basics tab
 
-Choose:
+In **Basics**, select or enter:
 
 - **Subscription**
 - **Resource group**
 - **Region**
+- **Application Name**
+- **Managed Resource Group**
 
-## Step 3 — Complete Application Settings
+The **Region** on this first tab is the Managed Application deployment region. Keep it aligned with your organizational standards and available quotas.
 
-### Environment Name
+![Basics tab in the Azure Marketplace deployment wizard](../../static/img/screenshots/install-01-prerequisites.png)
 
-Enter a short label to distinguish environments, for example `dev`, `test`, or `prod`.
+## Step 3 — Complete the Application Settings tab
 
-### Platform Region (Container Apps / APIM / VNet)
+The **Application Settings** tab contains the environment, platform, provider, and database inputs used by the deployment.
 
-Choose the platform region for the VNet-based application platform.
+### Core fields
 
-This controls the region for resources such as:
+- **Environment Name** — a short environment label such as `dev`, `test`, or `prod`
+- **Platform Region (Container Apps / APIM / VNet)** — the region used for the VNet-based application platform
+- **LLM Provider** — choose one of the supported providers
+- **CORS Allowed Origins** — optional; usually left empty unless you are allowing additional web origins
+- **Enable alerting (Azure Monitor)** — optional monitoring integration
+- **Enable debug logging** — optional diagnostic logging for rollout and support
+- **Enable Azure Data Factory (ADF)** — optional integration toggle
+- **Azure SQL Admin Password** — a strong password for initial SQL provisioning
+- **VNet CIDR** — an unused private address range for the deployment network
 
-- the Container Apps environment
-- API Management
-- the virtual network and private connectivity layer
+If one platform region is unavailable due to quota or temporary capacity limits, choose another supported platform region such as `eastus2`, `centralus`, `westeurope`, or `northeurope`.
 
-Choose a region that has confirmed capacity for your subscription.
+### Identity behavior during installation
 
-### Identity model (current standard deployment)
+In the default model, no customer-owned Entra application needs to be created or entered during deployment.
 
-The standard offer uses a **publisher-managed shared Microsoft Entra application**.
+The installation uses the publisher-managed shared application and then restricts sign-in to the purchasing tenant. Tenant admin consent still happens after deployment from the sign-in screen.
 
-That means:
+### Select the LLM provider
 
-- you are **not** asked to supply a customer Entra client ID in the standard flow
-- you are **not** asked to manually create an app registration during deployment
-- tenant restriction is still enforced after deployment based on the installation tenant
+Choose one of the four supported options:
 
-### LLM Provider
+- **Azure OpenAI (deploy during installation)**
+- **Azure OpenAI (customer-managed)**
+- **OpenAI-compatible endpoint**
+- **OpenRouter**
 
-Choose one of the four supported provider paths and complete only the fields relevant to that option.
+The wizard reveals different provider-specific fields depending on the option you select.
 
-#### OpenRouter
+![LLM provider dropdown in Application Settings](../../static/img/screenshots/install-02-marketplace-basics.png)
 
-- Provide the **OpenRouter API key**.
-- Confirm the **OpenRouter model**.
+### Provider-specific inputs
 
-#### Azure OpenAI (deploy during installation)
+Use the provider-specific fields shown by the wizard:
 
-- No customer endpoint fields are required in the wizard.
-- Confirm the selected region supports Azure OpenAI and has quota available.
+- **Azure OpenAI (deploy during installation)**
+  - no pre-existing endpoint is required
+  - use this when you want the Managed Application deployment to provision Azure OpenAI for you
+- **Azure OpenAI (customer-managed)**
+  - provide the **Azure OpenAI Endpoint**
+  - provide the **chat/completions deployment name**
+  - optionally provide an **embeddings deployment name**
+  - optionally provide an **API key** if you are not using managed identity / Entra auth
+- **OpenAI-compatible endpoint**
+  - provide the **base URL**
+  - provide the **model name**
+  - optionally provide an **API key**
+  - optionally provide an **embeddings model name**
+- **OpenRouter**
+  - provide the **OpenRouter API key**
+  - provide the **OpenRouter model**
+  - optionally provide an **OpenRouter embeddings model**
 
-#### Azure OpenAI (customer-managed)
+When a provider requires a secret, the current wizard may render it as a masked password-style input. Enter the prepared provider key carefully, then continue with the model and network values.
 
-- Provide the **Azure OpenAI endpoint**.
-- Provide the **chat/completion deployment name**.
-- Provide the **embeddings deployment name** only if you use a separate embeddings deployment.
-- Provide the **API key** only if your deployment will not use managed identity or Entra-based access.
+The following example shows an **OpenRouter** configuration with the provider selected, the model entered, alerting enabled, and debug logging enabled.
 
-#### OpenAI-compatible endpoint
+![Application Settings showing an OpenRouter example configuration](../../static/img/screenshots/install-03-marketplace-plan.png)
 
-- Provide the **base URL**.
-- Provide the **model name**.
-- Provide the **API key** only if your compatible endpoint requires it.
+The lower part of the same tab includes the remaining optional toggles, the SQL admin password fields, and the VNet CIDR.
 
-### CORS Allowed Origins (optional)
+![Lower section of Application Settings with SQL password and VNet CIDR](../../static/img/screenshots/install-04-deployment-basics.png)
 
-Leave this blank unless you need to allow additional web origins such as a custom domain or controlled secondary frontend.
-
-### Enable alerting
-
-Keep this enabled unless your subscription blocks the alert resources required by the deployment.
-
-### Enable debug logging
-
-Enable this only for short-term troubleshooting or guided deployment diagnostics.
-
-### Azure Data Factory (optional)
-
-Enable this only if your deployment needs ADF-based ingestion or integration scenarios.
-
-### Azure SQL Admin Password
-
-Provide the SQL admin password used for the initial Azure SQL deployment.
-
-### VNet CIDR
-
-Provide the non-overlapping private CIDR block for the deployment.
-
-### What you do not enter in the standard offer
-
-You do **not** need to provide:
-
-- a customer-owned Entra client ID
-- a customer-owned app registration
-- container image names
-- runtime API URLs
-
-## Step 4 — Review + create
+## Step 4 — Review and create
 
 1. Select **Review + create**.
-2. Wait for validation to complete.
-3. Select **Create**.
+2. Wait for Azure validation to complete.
+3. Review the effective values for the Basics and Application Settings tabs.
+4. Confirm the co-admin permission notice.
+5. Select **Create**.
 
-## Step 5 — Wait for deployment to complete
+![Review + create summary before deployment](../../static/img/screenshots/install-05-deployment-details.png)
 
-Azure will provision the Managed Application resources in your subscription.
+## Step 5 — Wait for deployment completion
+
+Wait for the Marketplace deployment to finish provisioning the Managed Application and its underlying resources.
+
+After deployment succeeds, continue with **Post-deployment — find the app URL and sign in**.
+
+## What is now handled automatically
+
+The current deployment flow automates the following tasks for you:
+
+- frontend runtime configuration (`/runtime-config.json`)
+- API base URL and runtime auth settings injection
+- publisher-managed shared auth configuration injection
+- provider-specific LLM configuration injection for Azure OpenAI (managed or customer-managed), OpenAI-compatible endpoints, or OpenRouter
+- optional Azure OpenAI account + deployments when `azure-openai-managed` is selected
+- tenant restriction enforcement in APIM and API
+- deployment guardrails that stop the installation if sign-in would otherwise be broken
 
 ## Expected results
 
-After deployment completes, you should be able to open the Managed Application resource and find outputs such as:
+After deployment completes, you can open the Managed Application resource and find the web application URL and effective runtime outputs.
 
-- `webContainerFqdn`
-- `apiGatewayUrl`
-- `apimGatewayUrl`
-
-## What the deployment creates
-
-The current deployment model typically creates:
-
-- a **public web frontend** hosted as a containerized web application
-- a **single public API entry point** through Azure API Management
-- **private backend services** on Azure Container Apps
-- **private connectivity** to supporting data and messaging services
-- runtime configuration injected into the web frontend after deployment
-
-The backend service set includes the current runtime architecture:
-
-- API gateway
-- orchestrator
-- retrieval
-- documents
-- decision
-- notification
-- audit
-- marketplace
-- reporting
-- artifacts
-- history
+In the supported identity flow, sign-in should work after the tenant admin grants consent to the shared publisher app.
 
 ## Common issues
 
-- **The platform region fails validation or deploys slowly**: choose a region with confirmed Container Apps and API Management capacity for your subscription.
-- **The AI provider settings fail validation**: re-check the endpoint, deployment names, model name, or API key for the selected provider.
-- **Deployment fails due to networking**: confirm the **VNet CIDR** does not overlap with existing address ranges and is large enough for the deployment.
-- **Alert resources fail**: retry with alerting disabled if your subscription blocks the required alert providers or policies.
-
-## Screenshot planning for this page
-
-Planned screenshots tied to this page:
-
-- `marketplace-offer-overview.png` — Azure Marketplace offer entry page before deployment begins.
-- `marketplace-basics-subscription-region.png` — Basics step with subscription, resource group, and region selection.
-- `marketplace-application-settings-core.png` — Application Settings page showing environment name, platform region, and LLM provider.
-- `marketplace-application-settings-network-and-sql.png` — Lower portion of Application Settings covering allowed origins, alerts, SQL password, and VNet CIDR.
-- `marketplace-review-create-summary.png` — Review + create summary before deployment is submitted.
+- **Deployment fails due to networking**: confirm the **VNet CIDR** does not overlap with existing address ranges.
+- **You are unsure which password fields belong to which service**: provider secrets appear with the selected LLM provider, while the lower password fields are used for Azure SQL provisioning.
+- **Tenant admin cannot complete sign-in**: confirm the shared app contains the configured callback URI and that the consent button is used at least once.
+- **Deployment fails because of regional quota/capacity**: redeploy with a different **Platform Region (Container Apps / APIM / VNet)**.
 

@@ -23,9 +23,9 @@ Before broad rollout, confirm that:
 
 ## 2. Marketplace packaging and licensing checks
 
-- [ ] Managed App package is generated at `repo/marketplace/dist/propm-agent-managedapp-package.zip`.
-- [ ] Managed App manifest is generated at `repo/marketplace/dist/propm-agent-managedapp-package.manifest.json`.
-- [ ] Publisher auth package is generated at `repo/marketplace/dist/propm-agent-publisher-auth-site.zip`.
+- [ ] Managed App package is generated at `repo/marketplace/package.zip`.
+- [ ] Managed App manifest is generated at `repo/marketplace/propm-agent-managedapp-package.manifest.json`.
+- [ ] Publisher auth package is generated at `repo/marketplace/propm-agent-publisher-auth-site.zip`.
 - [ ] ARM-TTK validation passes before package upload.
 - [ ] The `dev` plan is confirmed seatless and does not require seat assignment.
 - [ ] Non-dev plans still require explicit seat assignment and enforce capacity correctly.
@@ -71,5 +71,6 @@ Do not promote broadly until the following are understood:
 ## Related guidance
 
 - [Known limitations](./known-limitations.md)
+- [Marketplace administration guidance](../administration/marketplace.md)
 - [Connectors and policies](../administration/connectors-and-policies.md)
 - [Rollout guidance](../administration/rollout-guidance.md)
