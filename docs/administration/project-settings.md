@@ -4,11 +4,11 @@ title: Project settings overview
 
 ## Purpose
 
-Project settings let you manage governance controls at the project level.
+Project settings let you manage project-scoped controls without taking ownership of tenant-scoped technical setup.
 
 ## Why this matters
 
-Governance-by-design is easier when project controls such as roles, document categories, agent settings, and governed integrations are explicit and consistently applied.
+Governance-by-design is easier when project controls such as roles, document categories, agent settings, and approved integration bindings are explicit and consistently applied.
 
 ## Who can use it
 
@@ -21,13 +21,15 @@ Governance-by-design is easier when project controls such as roles, document cat
 
 ## Workspace tabs
 
-Inside the project workspace, the settings area is split into these tabs:
+Inside the project workspace, the settings area is split into project-scoped tabs such as:
 
 - **Access control**
 - **Document categories**
 - **Agent configuration**
-- **Governance policies**
+- **Project integrations**
 - **Actions & approvals**
+
+Some deployments may still expose adjacent governance or policy objects during the migration, but raw connector or provider setup belongs in **Platform Administration**.
 
 ## Permission mapping
 
@@ -37,25 +39,33 @@ Inside the project workspace, the settings area is split into these tabs:
   - custom role administration requires `roles:manage`
 - **Document categories** requires `settings:manage`
 - **Agent configuration** requires `agent:configure`
-- **Governance policies** requires `settings:manage`
+- **Project integrations** requires project-level integration binding permissions exposed by the deployment
 - **Actions & approvals** requires `agent:run` to propose actions and `project:update` to approve or execute governed actions
 
-## Governance policies expectations
+## Project integrations expectations
 
-Inside **Governance policies**, expect the page to expose project-level administration for:
+Inside **Project integrations**, expect the page to expose project-level administration for:
 
-- connectors and their execution mode, freshness posture, scopes, and configuration JSON
-- artifact destinations and default publication targets
-- action policies that control who can propose, approve, or execute governed actions
-- rendering profiles for publication output
-- notification preferences for digests and alerts
+- approved **Execution Connectors** that can be used by governed actions
+- approved **Ingestion Providers** that can be used by **Knowledge** imports
+- project bindings, aliases, safe overrides, filters, mappings, or destination choices where policy allows
+- health, validation state, last import, and last execution visibility
 
-The current production-ready behavior is:
+Project settings should not expose:
 
-- each governance object saves independently
-- malformed JSON blocks saving until corrected
-- save feedback appears per object
-- users without edit permission can still see the tab in read-only mode when the deployment exposes view access
+- tenant-scoped credentials
+- secret management
+- subscription-wide AI provider changes
+- marketplace administration
+
+Adjacent project-level controls may still include:
+
+- artifact destinations
+- action policies
+- rendering profiles
+- notification preferences
+
+Those controls remain project-facing, but they do not replace **Platform Administration** as the source of truth for technical integration setup.
 
 ## Agent configuration expectations
 
@@ -94,16 +104,17 @@ When you administer project membership, expect the UI to protect the most danger
 
 - You can view project settings from the workspace.
 - Authorized project members can save changes and see them reflected across the project.
-- Governance settings remain separated from day-to-day content and are easier to audit.
+- Tenant-wide technical setup stays in **Platform Administration**, while project settings focus on bindings and safe project-level controls.
 - The default demo project starts with a complete settings baseline for walkthroughs and training.
 
 ## Common issues
 
 - **Read-only**: your current project role does not include the required permission for the selected settings area.
-- **Governance save disabled**: one of the JSON fields or numeric validation fields is invalid and must be corrected before saving.
+- **Project integration action is disabled**: the current role may not allow binding changes, or the selected integration is blocked by entitlement, health, or validation state.
 
 ## Tips
 
 - Review settings at project kickoff to align with PMO standards.
-- Roll out connectors and action policies gradually: read-first before approval-gated execution.
+- Bind only approved integrations to projects; do not duplicate tenant-wide setup.
+- Roll out actions and imports gradually: validate first, then enable live operational use.
 - Treat project settings changes as governed operational decisions, not hidden technical tweaks.

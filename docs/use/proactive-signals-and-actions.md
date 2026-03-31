@@ -124,32 +124,35 @@ Examples include:
 
 Before an action is executed, the platform evaluates:
 
-- connector compatibility
+- execution-option compatibility
 - policy scope
 - freshness thresholds
 - destination constraints
 - approval requirements
+- entitlement or plan restrictions
 
 ### Recommended actions flow
 
 Use this order for governed follow-up:
 
 1. Open **Actions & approvals** from the project workspace.
-2. Select the **action type** first so the connector list is filtered to compatible options.
-3. Choose a healthy connector and complete only the fields required for that action type.
+2. Select the **action type** first so the page can resolve compatible **Execution Connectors** for that action.
+3. Choose a healthy, allowed execution option if more than one compatible option is available.
 4. Add a short rationale so approvers can understand why the request exists.
 5. Submit the request and confirm it appears in the queue with a trace ID and payload details.
 6. Review the queue state change from **Pending approval** to **Approved**, **Rejected**, or **Executed**.
 
+Users should not need to understand raw technical connector setup. The flow should present business-friendly choices such as **Create Jira issue** or **Publish to SharePoint** rather than tenant-scoped integration configuration.
+
 ### Required fields by action type
 
-- **Publish artifact to SharePoint** — title, connector, artifact ID, destination, and optional rendering details
-- **Send Teams message** — title, connector, and message body
-- **Send Outlook message** — title, connector, message body, and either recipients or a related notification draft
-- **Create Jira or Azure DevOps ticket** — title, connector, and ticket description
-- **Create calendar follow-up** — title, connector, attendees, and start date/time
+- **Publish artifact to SharePoint** — title, execution option, artifact ID, destination, and optional rendering details
+- **Send Teams message** — title, execution option, and message body
+- **Send Outlook message** — title, execution option, message body, and either recipients or a related notification draft
+- **Create Jira or Azure DevOps ticket** — title, execution option, and ticket description
+- **Create calendar follow-up** — title, execution option, attendees, and start date/time
 
-If a supported action type has no compatible connector, the form stays visible but prevents submission until governance configuration or connector health is corrected.
+If a supported action type has no compatible execution option, the form should remain understandable and explain whether the blocker comes from entitlement, permission, policy, or health.
 
 ### Approval queue and audit review
 
@@ -158,7 +161,7 @@ If a supported action type has no compatible connector, the form stays visible b
 For every queued action, review:
 
 - request status and action level
-- connector status
+- execution option status
 - requested, approved, and executed timestamps
 - related artifact or notification references
 - trace ID for audit follow-up
@@ -181,3 +184,4 @@ Only users with approval rights can approve, reject, or execute queue entries. O
 - Dismiss only when the signal is understood and intentionally suppressed.
 - Treat **Send in-app** as a governed action, not as a shortcut; verify permissions and audience first.
 - Treat approval as a control point, not as an inconvenience: it preserves trust and traceability.
+- If an action is blocked, check the explanation before assuming the route is broken; the issue may be plan, permission, health, or validation posture.

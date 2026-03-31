@@ -1,59 +1,109 @@
 ---
-title: Connectors and policies
+title: Platform integrations and policies
 ---
-
-![Governance policies overview](../../static/img/screenshots/14-governance-policies.png)
 
 ## Purpose
 
-Use the **Governance policies** tab to decide which external systems the project can use, where governed outputs can be published, how actions are constrained, how artifacts are rendered, and which notification defaults apply.
+Use **Platform Administration** to manage tenant-wide technical setup for external systems.
 
-This page is written for project administrators who need to review or change governance settings without guessing what each JSON object or field is for.
+The migration introduces two explicit integration families:
+
+- **Execution Connectors** — outbound systems used for governed actions such as Jira, Azure DevOps, Teams, Outlook, SharePoint publication, or webhooks
+- **Ingestion Providers** — inbound systems used to bring knowledge into the platform such as SharePoint import, Azure Data Factory, Blob Storage, Confluence, or other approved sources
+
+This page explains how those platform-managed integrations relate to adjacent policy objects that may still appear in project-facing administration.
+
+## Who can use it
+
+- **Subscription Administrator** — full tenant-wide edit access by default
+- **Delegated Platform Administrator** — edit access only for explicitly granted admin capabilities
+- **Project Administrator** — bind approved integrations to projects and review health when the deployment exposes project binding controls
+- **Read-only viewers** — metadata visibility only when admin surfaces are exposed to them
 
 ## Before you begin
 
-- Open the relevant project workspace.
-- Select the **Governance policies** tab.
-- Confirm you have project settings permission. If you do not, the page stays visible in read-only mode and save controls are disabled.
+- Open **Platform Administration** for tenant-wide setup.
+- Use **Project settings** only for project bindings and safe overrides.
+- Confirm whether you are expected to manage tenant-wide definitions or only attach approved integrations to a project.
 
-## What each governance object controls
+## Understand the operating model
 
-### Connectors
+### Platform definitions live in Platform Administration
 
-Connectors represent the governed external systems the project can read from or write to.
+Tenant-scoped technical definitions belong in **Platform Administration**.
 
-Use a connector to define:
+Use a platform definition to control:
 
-- the external system type, such as Jira or SharePoint-backed Microsoft Graph
-- whether the connector is enabled, degraded, disabled, or in error
-- whether the project should treat the connector as **mock** or **live**
-- the environment and fixture reference used during validation
-- the scopes and authority ranking that describe how trusted the connector is
-- the JSON configuration required to connect safely
+- integration type and display name
+- environment and connection or execution mode
+- enabled state, health, and validation status
+- approved scopes and credential-reference status
+- connector- or provider-specific settings stored safely on the backend
+
+Technical setup does **not** belong on day-to-day user-facing pages such as **Knowledge**, **Workspace**, or **Actions & approvals**.
+
+### Execution Connectors
+
+Use **Execution Connectors** for governed outbound or operational actions.
+
+Typical examples:
+
+- Jira issue creation or update
+- Azure DevOps work item updates
+- Teams or Outlook notifications
+- SharePoint publication
+- webhook delivery
+
+Execution Connectors are selected operationally by action compatibility, but they are configured technically only in **Platform Administration**.
+
+### Ingestion Providers
+
+Use **Ingestion Providers** for inbound knowledge, documents, or records.
+
+Typical examples:
+
+- SharePoint library import
+- Azure Data Factory handoff
+- Blob or Data Lake import
+- Confluence import
+- approved project-management source imports
+
+Ingestion Providers feed **Knowledge**, search, and evidence-backed workflows without exposing raw technical configuration to end users.
+
+### Project bindings live in project settings
+
+Project administrators do **not** create raw technical definitions.
+
+Instead, they attach approved integrations to a project and manage safe overrides such as:
+
+- action-type subsets
+- destination choices
+- import filters
+- category mappings
+- project-friendly labels
+- project-specific health or usage review
 
 ### Artifact destinations
 
-Destinations define where a governed action can publish or store an artifact.
+Artifact destinations remain adjacent to integrations, but they are not ingestion sources.
 
-Typical examples include:
+Use them to define where governed outputs can be published or stored, for example:
 
 - an internal blob store for safe default publication
 - a SharePoint library for controlled business sharing
 
-Each destination can optionally point to a connector, stay active or inactive, and be marked as the default publication target.
+Destinations may reference approved execution connectors where relevant.
 
 ### Action policies
 
-Policies define what a role may do with governed actions.
+Action policies define what a role may do with governed actions after compatible execution options have been resolved.
 
 Use them to control:
 
-- which role the policy applies to
-- whether it applies to one connector or all connectors
-- whether the user may only observe, draft, propose, or execute
+- whether a user may observe, draft, propose, approve, or execute
 - whether the effect is **allow**, **require approval**, or **deny**
-- which scopes are permitted
-- any JSON conditions, such as minimum freshness or action-type restrictions
+- which scopes, destinations, or action types are permitted
+- any safe conditions that should block risky execution
 
 ### Rendering profiles
 
@@ -63,11 +113,11 @@ Use them to standardize:
 
 - output format such as Markdown, DOCX, PDF, or HTML
 - default output style for the project
-- JSON styling options used by downstream publication flows
+- styling options used by downstream publication flows
 
 ### Notification preferences
 
-Notification preferences define the default routing and cadence for governed alerts and digests.
+Notification preferences define default routing and cadence for governed alerts and digests.
 
 Use them to control:
 
@@ -75,59 +125,46 @@ Use them to control:
 - the notification kind
 - digest cadence
 - minimum severity threshold
-- any extra routing or delivery JSON configuration
+- any approved routing or delivery configuration exposed by the deployment
 
-## Recommended review flow
+## Recommended admin flow
 
-1. Review the **supported action types** chips at the top of the page to understand what governed actions the project can use.
-2. Confirm connector status, execution mode, environment, and freshness posture.
-3. Review destinations to make sure publication only targets approved locations.
-4. Check policies for the most sensitive action levels first, especially anything that can publish externally or execute.
-5. Confirm the correct rendering profile is marked as the default.
-6. Review notification defaults so escalation routes and digest cadence match the operating model.
-
-## JSON validation and save behavior
-
-The governance screen validates JSON fields before save.
-
-Expect the UI to:
-
-- keep invalid JSON fields highlighted
-- show an inline validation message next to the affected field
-- disable the save button for that object until the JSON is valid
-- save one object at a time so changes stay easy to audit
-
-If a save fails after validation passes, the screen shows an error toast so you can retry or capture the issue for triage.
-
-## Example administrator workflow
-
-1. Add or update a connector.
-2. Add a destination that points to that connector.
-3. Add an action policy that requires approval for sensitive actions.
-4. Add or update a rendering profile for publication output.
-5. Add a notification preference so the right channel receives governed alerts.
-
-![Connector and destination editing](../../static/img/screenshots/14-connectors-and-destinations.png)
-
-## Safe rollout pattern
-
-For new projects, a practical rollout pattern is:
-
-1. configure connectors in **mock** mode first
-2. validate scopes, environment, and JSON configuration
-3. add internal destinations before external ones
-4. require approval for sensitive actions
-5. switch the connector or destination to live only after the team understands the audit trail
+1. Create or review tenant-wide **Execution Connectors** and **Ingestion Providers** in **Platform Administration**.
+2. Validate health, environment, and approved scopes before enabling live use.
+3. Bind approved integrations to projects.
+4. Review artifact destinations, action policies, rendering profiles, and notification defaults.
+5. Confirm user-facing pages show business-friendly operational actions such as **Import from source** or **Create Jira issue** rather than raw technical setup.
 
 ## Read-only behavior
 
-Users without governance edit permission should still be able to inspect current settings when the deployment exposes them, but they should not be able to change or save any record.
+Read-only viewers may inspect non-secret metadata such as:
 
-This is expected behavior, not a defect.
+- names and integration types
+- environment labels
+- enabled state
+- health and validation timestamps
+- project usage and entitlement state
+
+They must not be able to:
+
+- create, edit, validate, enable, disable, or retire platform definitions
+- change credentials or secret references
+- change AI providers or subscription settings
+- widen project bindings beyond approved limits
+
+## Safe rollout pattern
+
+For new integrations, a practical rollout pattern is:
+
+1. create the integration in **test** or **mock** mode first
+2. validate connectivity and scope metadata
+3. bind it to a non-production project
+4. confirm **Knowledge** or **Actions & approvals** can consume it without setup leakage
+5. switch to live only after audit, approval, and entitlement behavior are understood
 
 ## Tips
 
-- Keep connector and destination names business-readable so audit reviews are easier.
-- Use the description field to explain why a rendering profile or connector exists.
-- Treat severity thresholds and freshness constraints as trust controls, not cosmetic labels.
-- Review policy changes alongside RBAC and approval responsibilities.
+- Keep integration names business-readable so audit reviews are easier.
+- Use **Execution Connector** and **Ingestion Provider** consistently instead of using **connector** as a catch-all label.
+- Treat validation state, health, and entitlement posture as operational safety controls, not cosmetic badges.
+- Keep technical setup in **Platform Administration** and keep project pages focused on safe consumption.

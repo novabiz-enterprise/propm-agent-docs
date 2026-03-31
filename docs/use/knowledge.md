@@ -34,7 +34,26 @@ Use it to:
 
 The document list refreshes inside the current project only.
 
-### 2. Review ingestion status
+### 2. Import from an approved source
+
+If your project has approved **Ingestion Providers**, **Knowledge** can import from them without exposing technical setup.
+
+1. Open **Knowledge**.
+2. Select **Import from source**.
+3. Review the available sources.
+4. Choose the source you want to use.
+5. If prompted, enter only safe operational inputs such as category, date range, or import scope already allowed for that project binding.
+6. Start the import and review the resulting history entry.
+
+The import picker should show business-friendly information such as:
+
+- source name
+- source label such as `sharepoint`, `adf`, `blob`, or `confluence`
+- last import time
+- freshness or health state
+- a blocker explanation when the source is not currently usable
+
+### 3. Review ingestion status
 
 Each document row shows the most useful operational metadata the UI can surface, including:
 
@@ -44,6 +63,7 @@ Each document row shows the most useful operational metadata the UI can surface,
 - size
 - ingestion status
 - latest visible timestamp
+- source label when the document came from an approved imported source
 
 Typical statuses are:
 
@@ -53,7 +73,18 @@ Typical statuses are:
 
 If a document is not yet searchable, wait for it to progress to an indexed or ready-style status.
 
-### 3. Search project knowledge
+### 4. Review import history
+
+When the deployment exposes import history, use it to confirm:
+
+- provider display name
+- started and completed time
+- import mode
+- discovered, imported, skipped, and failed counts
+- freshness summary
+- sanitized failure summary when applicable
+
+### 5. Search project knowledge
 
 1. Enter a keyword, phrase, or question in **Search**.
 2. Select **Search**.
@@ -63,12 +94,13 @@ If a document is not yet searchable, wait for it to progress to an indexed or re
    - optional page or section metadata
    - freshness badge when available
    - source-system metadata when available
+   - provenance labels that identify whether the evidence came from a managed imported source or a manual upload
 
 ![Knowledge search results](../../static/img/screenshots/05-knowledge-search-results.png)
 
 Use the source link before reusing the evidence in stakeholder outputs.
 
-### 4. Validate seeded demo knowledge
+### 6. Validate seeded demo knowledge
 
 In the default demo project `demo-hotel-001`, Knowledge starts with seeded documents so you can test the flow immediately.
 
@@ -114,6 +146,24 @@ Extraction can also depend on deployment flags such as:
 - `ENABLE_EXTRACT_CSV`
 - `ENABLE_EXTRACT_HTML`
 
+## Supported source labels
+
+Imported and manually uploaded content should use clear provenance labels such as:
+
+- `manual`
+- `adf`
+- `sharepoint`
+- `blob`
+- `confluence`
+- `jira`
+- `sftp`
+- `ms_project`
+- `smartsheet`
+- `wrike`
+- `asta_powerproject`
+
+These labels help users understand where evidence came from without reading backend configuration.
+
 ## Azure Data Factory (ADF) batch import
 
 Use ADF when an operator needs to move documents from an external system into the standard product ingestion path.
@@ -156,6 +206,7 @@ Depending on your project role:
 
 - some users can view and search only
 - some users can upload and refresh
+- some users can review import history but not trigger imports
 - restricted users may see read-only guidance for upload or search actions
 
 If a control is disabled, your role may not allow that action in the current project.
@@ -164,6 +215,7 @@ If a control is disabled, your role may not allow that action in the current pro
 
 - **Document not searchable yet**: the document may still be ingesting or indexing.
 - **Upload is disabled**: your role may not have upload rights in the current project.
+- **Import from source is unavailable**: the project may not have an approved ingestion provider, the provider may be unhealthy, or your role may not allow running imports.
 - **Search is disabled or fails**: retry, then capture the trace ID if one is shown.
 - **Source link is internal instead of external**: use the in-app source shortcut to jump to the document row inside the app when the source system does not expose a direct file URL.
 
@@ -172,4 +224,5 @@ If a control is disabled, your role may not allow that action in the current pro
 - Keep category names short and stable so Knowledge and PM Docs stay aligned.
 - Use filenames with dates or versions when you want easier evidence tracing.
 - Re-check the current project before uploading to avoid putting files into the wrong project boundary.
+- Use import history to confirm managed source freshness before relying on evidence for a stakeholder decision.
 - Use Knowledge search as a verification step, not just a retrieval shortcut.

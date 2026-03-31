@@ -9,7 +9,9 @@ ProPM Agent helps project teams, PMOs, and tenant administrators run **project w
 - **Governed artifacts** with draft, diff, approval, publication, and lineage across reports and PM Docs
 - **Proactive signals** for staleness, contradictions, follow-up gaps, and connector health
 - **Portfolio comparison** across selected projects using configurable signals instead of fixed dashboards
-- **Governed connectors** that can enrich context from external systems while keeping actions approval-gated and auditable
+- **Platform Administration** for tenant-wide technical setup, AI provider governance, and subscription controls
+- **Execution Connectors** for governed outbound actions such as Jira, Teams, Outlook, SharePoint publication, and webhooks
+- **Ingestion Providers** for bringing external knowledge into **Knowledge** from managed sources such as SharePoint, ADF, Blob, or Confluence
 
 These docs are written for **business users** and **tenant administrators** who deploy ProPM Agent from **Azure Marketplace**.
 
@@ -35,8 +37,9 @@ If you are new to ProPM Agent, use this order:
 - Review proactive signals, generate digest drafts, and keep follow-up actions traceable
 - Compare selected projects with configurable portfolio signals and evidence-backed drill-down
 - Review AI runs, artifact lineage, and project activity for audit-friendly visibility
+- Manage tenant-wide integrations, AI provider settings, and subscription entitlements from **Platform Administration** when your role allows it
 - Manage project membership and roles (Project Owner)
-- Configure project document categories, agent settings, connectors, policies, and notification preferences (Project Owner / admin)
+- Configure project document categories, agent settings, approved project integration bindings, and related project controls (Project Owner / admin)
 
 ## How the product is organized
 
@@ -49,7 +52,7 @@ ProPM Agent is **project-scoped**:
 
 The application shell has two navigation layers:
 
-- The **left sidebar** is your persistent route map for Dashboard, Projects, Workspace, Knowledge, Agents, PM Docs, AI Log, Portfolio Command Center, and Marketplace when your role allows it.
+- The **left sidebar** is your persistent route map for Dashboard, Projects, Workspace, Knowledge, Agents, PM Docs, AI Log, Portfolio Command Center, and tenant-wide administration routes such as Marketplace or Platform Administration when your role allows them.
 - The **top bar** keeps your active project, command palette entry point, notifications, health diagnostics, language, theme, and help controls visible without leaving the page you are on.
 
 ## What is different in the target-state experience

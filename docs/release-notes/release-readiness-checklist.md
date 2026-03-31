@@ -12,6 +12,7 @@ Before broad rollout, confirm that:
 - Marketplace packaging is reproducible and produces uploadable ZIP artifacts
 - the `dev` plan remains seatless for internal validation while non-dev plans keep seat assignment
 - deployed-environment validation can resume from a manual-login handoff and capture screenshot evidence
+- Platform Administration, operational consumption flows, and user documentation all reflect the same integration model
 
 ## 1. Workflow automation checks
 
@@ -48,18 +49,38 @@ Before broad rollout, confirm that:
 
 - [ ] Retrieval remains Azure AI Search-only for project knowledge.
 - [ ] External writes remain governed and approval-gated.
-- [ ] Connector execution mode is visible and correctly configured for the environment.
+- [ ] Execution Connector and Ingestion Provider terminology is used consistently in the UI and docs.
+- [ ] Technical integration setup is available only in Platform Administration or project binding screens, not in end-user operational flows.
+- [ ] Subscription-admin editability and read-only fallback behavior have been validated in staging.
+- [ ] Deployment-selected and effective AI provider values are visible and correct.
+- [ ] Marketplace entitlements correctly affect integration and AI-provider availability.
 - [ ] Feature flags and rollout phases are documented before enablement.
 - [ ] Trace IDs and audit views are available for operational support.
 
-## 6. Operator prerequisites and environment hygiene
+## 6. Platform Administration migration checks
+
+- [ ] Platform Administration overview, Platform Integrations, AI Provider Settings, and Marketplace & Subscription routes are present and permission-aware.
+- [ ] Non-admin users remain read-only across exposed admin surfaces.
+- [ ] Validation, import, execution, and provider-change actions produce audit history.
+- [ ] Knowledge shows approved import sources without raw technical setup.
+- [ ] Actions & approvals resolves compatible execution options without exposing tenant-scoped connector editing.
+- [ ] Workspace shows project bindings and operational readiness rather than tenant-scoped technical setup.
+
+## 7. Operator prerequisites and environment hygiene
 
 - [ ] The deployed application URL is reachable from the operator workstation or self-hosted runner.
 - [ ] Manual login is completed before the live validation run is resumed.
 - [ ] Captured storage-state files are treated as sensitive ephemeral artifacts and are not committed.
 - [ ] Mock or fixture-backed connectors remain clearly identified in non-production environments.
 
-## 7. Go / no-go review
+## 8. Documentation and support readiness
+
+- [ ] Administration docs explain Platform Administration, Platform Integrations, AI Provider Settings, and Marketplace & Subscription.
+- [ ] Use docs explain Knowledge imports, action-first execution flows, and Workspace operational readiness.
+- [ ] Troubleshooting docs explain read-only versus access denied and blocked-by-entitlement or blocked-by-health states.
+- [ ] Screenshots and labels match the current navigation and terminology.
+
+## 9. Go / no-go review
 
 Do not promote broadly until the following are understood:
 
@@ -67,6 +88,7 @@ Do not promote broadly until the following are understood:
 - any gap between the Marketplace package contents and the deployed runtime image set
 - any live validation run that cannot resume from the operator-provided authenticated URL
 - any limitation that requires customer-facing explanation before enablement
+- any mismatch between user docs and the shipped Platform Administration or operational UI
 
 ## Related guidance
 

@@ -23,6 +23,7 @@ Once the Marketplace deployment finishes, you can access ProPM Agent and verify 
 5. Open the web application in a browser. If you copied **webContainerFqdn**, open it as `https://<webContainerFqdn>`.
 6. If you are the tenant admin, first select **Tenant Admin: Grant Microsoft consent**.
 7. Then select **Sign In with Microsoft**.
+8. After sign-in, review **Platform Administration** if your role allows it to confirm the deployment-selected AI provider and current subscription administration state.
 
 ## Outputs to verify after deployment
 
@@ -40,9 +41,19 @@ Check these outputs in particular:
 - **effectiveAllowedTenantId** — the tenant restriction enforced by the installation
 - **effectiveRedirectUri** — redirect URI expected by the shared publisher-managed authentication flow
 - **effectivePostLogoutRedirectUri** — post-logout URI expected by the shared publisher-managed authentication flow
-- **effectiveLlmProvider** — the effective LLM provider selected for the environment
+- **effectiveLlmProvider** — the deployment-selected AI provider selected for the environment
 
 If any of these values do not match your intended deployment, stop and investigate before onboarding users.
+
+## Deployment-selected versus effective AI provider
+
+The deployment output shows the provider selected during installation.
+
+After deployment:
+
+- that provider should appear in **AI Provider Settings** as the deployment-selected value
+- the current effective provider should also be visible in admin
+- an authorized admin may be able to change the effective provider later if policy allows
 
 ## What should already be configured automatically
 
@@ -59,7 +70,8 @@ That means a normal installation should not require the customer to create an ap
 
 - You can sign in successfully.
 - You land on the **Dashboard**.
-- The Managed Application outputs reflect the tenant, redirect URI, LLM provider, and endpoint values selected during deployment.
+- The Managed Application outputs reflect the tenant, redirect URI, AI provider, and endpoint values selected during deployment.
+- Authorized admins can later verify that the deployment-selected provider is surfaced correctly in **Platform Administration**.
 
 ## Verify access quickly
 

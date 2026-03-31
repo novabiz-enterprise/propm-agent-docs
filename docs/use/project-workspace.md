@@ -4,11 +4,11 @@ title: Project workspace
 
 ## Purpose
 
-The **Project Workspace** is the project operations hub. It keeps project context, quick links, signals, and administration tabs together, while the dedicated **Agents** page handles live chat runs and saved chat continuity.
+The **Project Workspace** is the project operations hub. It keeps project context, quick links, signals, operational readiness, and project-scoped administration together, while the dedicated **Agents** page handles live chat runs and saved chat continuity.
 
 ## Why this matters
 
-Project-scoped work stays traceable without overloading one screen. Workspace keeps the project-level controls in one place, and the **Agents** page stays focused on conversations, structured outputs, draft creation, and follow-up review.
+Project-scoped work stays traceable without overloading one screen. Workspace keeps project-level controls and operational visibility in one place, while tenant-scoped technical setup lives in **Platform Administration**.
 
 ## Who can use it
 
@@ -149,20 +149,34 @@ If your role can review but not send notifications, the Workspace panel still sh
    - **Agent configuration**
    - **Access control**
    - **Document categories**
-   - **Governance policies**
-   - **Actions & approvals**
+    - **Project integrations**
+    - **Actions & approvals**
 2. Apply changes, then save.
 3. Validate changes by reopening related screens (Agents, Knowledge, PM Docs, signals, or action queue).
 
-In the default demo project, the current signed-in user automatically receives full rights. This lets you test all three administration tabs without first creating members or elevating roles.
+Workspace should focus on project bindings and operational readiness, not raw tenant-scoped connector or provider setup. When technical remediation is needed, the page should deep-link to **Platform Administration** or the relevant project binding screen.
+
+In the default demo project, the current signed-in user automatically receives full rights. This lets you test project-level administration tabs without first creating members or elevating roles.
 
 Permission model:
 
 - **Agent configuration** requires project permission `agent:configure`
 - **Access control** uses `members:manage` and `roles:manage`
 - **Document categories** requires `settings:manage`
-- **Governance policies** requires `settings:manage`
+- **Project integrations** uses project-level integration binding permissions exposed by the deployment
 - **Actions & approvals** uses `agent:run` for proposal and `project:update` for approval / execution
+
+### Review operational readiness
+
+Workspace should expose project-facing readiness cues such as:
+
+- bound execution connectors
+- bound ingestion providers
+- last import and last execution summaries
+- freshness or health warnings
+- AI runtime transparency such as the effective provider and deployment-selected provider when exposed
+
+This gives project users visibility without turning Workspace into a tenant administration screen.
 
 ## Expected results
 
@@ -173,6 +187,7 @@ Permission model:
 - PM Docs and AI Log shortcuts open with the same project context.
 - Voice entry works when supported and degrades cleanly when unsupported.
 - Signals and configuration tabs remain available inside the same operational surface.
+- Tenant-scoped technical setup stays out of Workspace and is replaced by project bindings, status, and deep links.
 
 ## Common issues
 
@@ -191,4 +206,5 @@ Permission model:
 - Use **View lineage** when you need a fast bridge from chat output to run IDs, structured output IDs, and draft IDs.
 - Keep document categories curated; this improves PM Docs and Knowledge consistency.
 - Use the signals and actions panels after the first run to show how the platform moves from insight to governed follow-up.
+- If a blocker points to tenant administration, follow the deep link instead of trying to fix the issue from Workspace.
 

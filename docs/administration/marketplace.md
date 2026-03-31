@@ -1,38 +1,39 @@
 ---
-title: Marketplace (subscriptions and seats)
+title: Marketplace & subscription administration
 ---
 
 ## Purpose
 
-**Marketplace** is the tenant-level subscription administration page for ProPM Agent.
+**Marketplace & Subscription** is the tenant-level commercial and entitlement administration area inside **Platform Administration**.
 
 It helps authorized admins answer four practical questions quickly:
 
 1. Which subscriptions currently exist?
 2. Which plans are capped, unlimited, or intentionally seatless?
 3. Are payment or fulfillment states healthy?
-4. Do we have enough available seats for the users we expect to onboard?
-
-![Marketplace subscriptions overview](../../static/img/screenshots/10-marketplace.png)
+4. Which integrations, AI providers, and premium capabilities are enabled by the current subscription state?
 
 ## Who can use it
 
-- **Tenant Admin**
-- **Project Owner**
+- **Subscription Administrator** — default editable owner for tenant-wide subscription administration
+- **Delegated Platform Administrator** — editable only when explicitly granted marketplace administration rights
+- **Project Administrator** — read-only only when the deployment exposes subscription context to project-facing users
+- **Authenticated read-only viewer** — read-only only when exposed by the deployment
 
-Users without one of those roles should not see Marketplace in the main navigation, or should receive an access-denied page if they try to open the route directly.
+Non-admin viewers may be allowed to inspect plan, seat, and entitlement metadata, but they must not be able to change subscription settings.
 
 ## Before you begin
 
-- Sign in with an account that has Marketplace access.
-- Remember that Marketplace is a **global administration surface**, not a project-scoped page.
+- Sign in with an account that has tenant-level admin visibility.
+- Remember that this is a **global administration surface**, not a project-scoped page.
 - In most Azure Marketplace purchase flows, subscriptions are provisioned automatically. Manual creation is primarily for operator-guided recovery, local validation, or controlled test scenarios.
 
-## What you can do on the Marketplace page
+## What you can do on the page
 
 - Review subscription inventory and high-level health
 - Understand whether each plan is **capped**, **unlimited**, or **seatless**
 - Review payment and billing labels
+- Review entitlement flags that control premium integrations or AI provider availability
 - Refresh the page data without leaving the route
 - Search the current subscription table
 - Export the current table view to CSV when the export action is enabled
@@ -40,12 +41,23 @@ Users without one of those roles should not see Marketplace in the main navigati
 
 ## Read the page layout
 
-The Marketplace page now highlights the information most admins need first:
+The page should highlight the information most admins need first:
 
 - **Summary cards** for subscription count, capped-plan seat usage, unlimited/seatless-plan count, and subscriptions that need attention
 - A **refresh action** for reloading current Marketplace data
 - A **Create subscription** action when manual creation is available
-- A **searchable, exportable table** that shows subscription, plan, seats, status, payment, and billing information together
+- A **searchable, exportable table** that shows subscription, plan, seats, entitlement, status, payment, and billing information together
+
+## Why entitlements matter
+
+Marketplace and subscription state affects more than billing.
+
+It also determines whether the tenant can use:
+
+- premium **Execution Connectors**
+- premium **Ingestion Providers**
+- premium ingestion modes such as scheduled or pipeline-driven import where applicable
+- AI provider options that are not available on the current plan
 
 ## Understand plan semantics
 
@@ -88,7 +100,7 @@ These plans are useful for internal validation and controlled preview scenarios.
 
 ### Review current subscriptions
 
-1. Open **Marketplace**.
+1. Open **Platform Administration → Marketplace & Subscription**.
 2. Review the summary cards at the top of the page:
    - **Subscriptions in view**
    - **Seat usage across capped plans**
@@ -98,6 +110,7 @@ These plans are useful for internal validation and controlled preview scenarios.
    - **Subscription**: friendly name plus tenant and Marketplace subscription identifier
    - **Plan**: plan name, plan description, and semantic badges such as capped, unlimited, legacy, free, or seatless
    - **Seats**: current usage and availability for managed-seat plans, or a note when seats are not required
+   - **Entitlements**: premium capability flags that affect integrations or AI provider availability
    - **Status**: subscription lifecycle state such as Active, Pending, Suspended, or Cancelled
    - **Payment**: payment or billing health such as Paid, Pending, Past due, or Not applicable
    - **Billing**: current billing cycle and effective monthly price label
@@ -122,6 +135,17 @@ Use this after an operator changes plan data, after a fulfillment sync completes
 
 CSV export is useful for procurement reconciliation, audit preparation, and seat-planning reviews.
 
+### Review entitlement impact
+
+When an integration or AI provider is unavailable, review the subscription row and entitlement summary before assuming the feature is broken.
+
+Check whether the current plan:
+
+- blocks premium execution connectors
+- blocks premium ingestion providers
+- blocks certain AI providers
+- is degraded because of payment or fulfillment state
+
 ### Create a subscription manually
 
 Only do this when your deployment or operator runbook explicitly instructs you to.
@@ -139,12 +163,23 @@ Only do this when your deployment or operator runbook explicitly instructs you t
 
 ![Create subscription dialog](../../static/img/screenshots/10-marketplace-create-subscription.png)
 
+## Read-only behavior
+
+Users who are not authorized to manage marketplace administration may still be allowed to inspect:
+
+- subscription name and plan
+- seat semantics and current usage
+- entitlement flags
+- plan and billing status
+
+This is expected behavior. Read-only visibility does not imply edit rights.
+
 ## Expected results
 
-- Marketplace is visible only to allowed admin roles.
+- Marketplace & Subscription is editable only for the detected subscription administrator or an explicitly delegated admin role.
 - Summary cards make subscription health and capacity easier to scan.
 - The subscription table clearly distinguishes capped, unlimited, and seatless plan behavior.
-- Payment, status, and billing labels are understandable without backend knowledge.
+- Payment, status, billing, and entitlement labels are understandable without backend knowledge.
 - Manual subscription creation validates correctly and adds a new row when successful.
 - CSV export downloads the current table view when the action is enabled.
 
@@ -157,15 +192,17 @@ Only do this when your deployment or operator runbook explicitly instructs you t
 
 ## Common issues
 
-- **Marketplace is missing from the navigation**: your current account probably lacks Tenant Admin or Project Owner access.
-- **The route opens but shows Access Denied**: the current session is authenticated, but the role does not allow Marketplace administration.
+- **Marketplace is missing from the navigation**: your current account probably lacks tenant-level admin visibility.
+- **The route opens in read-only mode**: this is expected when the current user can inspect subscription state but cannot administer it.
+- **The route opens but shows Access Denied**: the current session is authenticated, but the deployment does not expose marketplace visibility to your role.
 - **Create subscription fails**: verify tenant ID, plan selection, and subscription name, then retry.
 - **Seat count input is disabled**: this is expected for capped, unlimited, or seatless plans whose behavior is derived from the selected plan.
 - **The list looks stale after a plan or fulfillment update**: use **Refresh** and then reload the table view.
 
 ## Tips
 
-- Treat Marketplace as the source of truth for subscription semantics, not the project switcher or project-scoped pages.
+- Treat Marketplace & Subscription as the source of truth for subscription semantics and entitlement posture.
 - Use the summary cards first when you need a fast health check before a customer review.
 - Use CSV export before procurement or billing meetings so the current state is preserved outside the app.
 - If a plan is labeled seatless or unlimited, do not expect the same seat-management behavior as a capped plan.
+- If an integration or AI provider is blocked, verify plan and entitlement state before opening a support incident.
