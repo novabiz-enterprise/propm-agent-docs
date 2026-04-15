@@ -1,16 +1,20 @@
 ---
 title: Démarrage
-slug: /fr/demarrage
+slug: /demarrage
 description: Prérequis, accès, authentification et première configuration.
 ---
 
-[Accueil FR](./index.md) · [Interface et navigation](./interface-et-navigation.md) · [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
+[Accueil](./index.md) · [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md) · [Interface et navigation](./interface-et-navigation.md)
 
 ![Répertoire des projets](/img/screenshots/fr-02-projets.png)
 
 ## Objectif
 
 Cette page explique comment préparer l’accès à ProPM Agent, se connecter, choisir le bon projet et comprendre les prérequis techniques du premier démarrage.
+
+## Si vous n’avez pas encore d’URL d’application
+
+Si votre instance n’est pas encore déployée, commencez par [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md). Cette étape permet d’obtenir l’URL web, l’API et les paramètres runtime nécessaires avant toute connexion utilisateur.
 
 ## Prérequis côté utilisateur
 
@@ -120,7 +124,7 @@ Le code distingue clairement :
 - un **mode réel**, utilisé pour l’authentification Microsoft ;
 - un **mode mock/démo**, réservé au développement et aux tests.
 
-Pour une documentation utilisateur publique, il faut retenir que le **mode normal** repose sur Entra ID et sur le déploiement publié.
+Pour une documentation publique, il faut retenir que le **mode normal** repose sur Entra ID et sur le déploiement publié.
 
 ## Bonnes pratiques dès le départ
 
@@ -131,6 +135,6 @@ Pour une documentation utilisateur publique, il faut retenir que le **mode norma
 
 ## Suite
 
+- [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md)
 - [Interface et navigation](./interface-et-navigation.md)
 - [Projets et espace de travail](./projets-et-espace-de-travail.md)
-- [Maintenance, support et FAQ](./maintenance-support-faq.md)

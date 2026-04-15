@@ -1,10 +1,10 @@
 ---
 title: Portefeuille et administration technique
-slug: /fr/portefeuille-et-administration-technique
+slug: /portefeuille-et-administration-technique
 description: Comparer plusieurs projets, administrer la plateforme, gérer les intégrations, le fournisseur IA et les sièges.
 ---
 
-[Accueil FR](./index.md) · [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) · [Maintenance, support et FAQ](./maintenance-support-faq.md)
+[Accueil](./index.md) · [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) · [Maintenance, support et FAQ](./maintenance-support-faq.md)
 
 ![Centre de commande portefeuille](/img/screenshots/fr-10-portefeuille.png)
 

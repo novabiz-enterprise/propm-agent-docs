@@ -1,10 +1,10 @@
 ---
 title: Projets et espace de travail
-slug: /fr/projets-et-espace-de-travail
+slug: /projets-et-espace-de-travail
 description: Créer un projet, changer de contexte et utiliser l’espace de travail comme centre de pilotage.
 ---
 
-[Accueil FR](./index.md) · [Interface et navigation](./interface-et-navigation.md) · [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md)
+[Accueil](./index.md) · [Interface et navigation](./interface-et-navigation.md) · [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md)
 
 ![Espace de travail projet](/img/screenshots/fr-03-espace-travail.png)
 

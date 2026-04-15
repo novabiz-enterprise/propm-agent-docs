@@ -1,10 +1,10 @@
 ---
 title: Maintenance, support et FAQ
-slug: /fr/maintenance-support-faq
+slug: /maintenance-support-faq
 description: Bonnes pratiques opérationnelles, diagnostic courant, alertes visibles et réponses aux questions fréquentes.
 ---
 
-[Accueil FR](./index.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) · [Glossaire](./glossaire.md)
+[Accueil](./index.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) · [Glossaire](./glossaire.md)
 
 ## Surfaces utiles pour le support
 

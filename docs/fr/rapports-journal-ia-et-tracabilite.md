@@ -1,10 +1,10 @@
 ---
 title: Rapports, Journal IA et traçabilité
-slug: /fr/rapports-journal-ia-et-tracabilite
+slug: /rapports-journal-ia-et-tracabilite
 description: Réviser les PM Docs, publier des livrables et suivre la traçabilité complète des runs IA.
 ---
 
-[Accueil FR](./index.md) · [Connaissance et agents](./connaissance-et-agents.md) · [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
+[Accueil](./index.md) · [Connaissance et agents](./connaissance-et-agents.md) · [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
 
 ![Rapports et artefacts](/img/screenshots/fr-08-rapports-artefacts.png)
 

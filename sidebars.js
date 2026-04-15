@@ -1,151 +1,42 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  docs: [
+  guide: [
     {
       type: 'doc',
       id: 'index',
-      label: 'Home',
+      label: 'Accueil',
     },
     {
       type: 'category',
-      label: 'Overview',
+      label: 'Prise en main',
       items: [
-        'overview/what-is-propm-agent',
-        'overview/key-benefits',
-        'overview/how-it-fits-your-pmo',
+        'demarrage',
+        'deploiement-azure-marketplace',
+        'interface-et-navigation',
       ],
     },
     {
       type: 'category',
-      label: 'Get started',
+      label: 'Travail projet',
       items: [
-        'get-started/concepts',
-        'get-started/quick-start',
+        'projets-et-espace-de-travail',
+        'connaissance-et-agents',
+        'gouvernance-decisions-et-actions',
+        'rapports-journal-ia-et-tracabilite',
       ],
     },
-
     {
       type: 'category',
-      label: 'Install via Azure Marketplace',
+      label: 'Pilotage et administration',
       items: [
-        'install/why-managed-applications',
-        'install/prerequisites',
-        'install/create-installation',
-        'install/post-deployment',
-        'install/screenshot-inventory',
-        'install/entra-app-registration',
+        'portefeuille-et-administration-technique',
+        'maintenance-support-faq',
       ],
     },
-
     {
-      type: 'category',
-      label: 'Use ProPM Agent',
-      items: [
-        'use/navigation-tour',
-        'use/dashboard',
-        'use/projects',
-        'use/project-workspace',
-        'use/contextual-outputs-and-evidence',
-        'use/proactive-signals-and-actions',
-        'use/knowledge',
-        'use/agents',
-        'use/pm-docs',
-        'use/ai-log',
-        'use/portfolio-command-center',
-      ],
-    },
-
-    {
-      type: 'category',
-      label: 'Demo data',
-      items: [
-        'demo-data/demo-hotel-construction/README',
-        'demo-data/demo-hotel-construction/project-charter',
-        'demo-data/demo-hotel-construction/stakeholder-register',
-        'demo-data/demo-hotel-construction/work-breakdown-structure',
-        'demo-data/demo-hotel-construction/master-schedule',
-        'demo-data/demo-hotel-construction/budget-baseline',
-        'demo-data/demo-hotel-construction/risk-register',
-        'demo-data/demo-hotel-construction/raid-log',
-        'demo-data/demo-hotel-construction/change-control-log',
-        'demo-data/demo-hotel-construction/communication-plan',
-        'demo-data/demo-hotel-construction/weekly-status-report-sample',
-        'demo-data/demo-hotel-construction/app-test-data-scenarios',
-        'demo-data/demo-hotel-construction/procurement-plan',
-        'demo-data/target-state-scenarios',
-      ],
-    },
-
-    {
-      type: 'category',
-      label: 'Administration',
-      items: [
-        'administration/marketplace',
-        'administration/project-settings',
-        'administration/access-control',
-        'administration/document-categories',
-        'administration/agent-configuration',
-        'administration/connectors-and-policies',
-        'administration/rollout-guidance',
-        'administration/custom-agents',
-      ],
-    },
-
-    {
-      type: 'category',
-      label: 'Security',
-      items: [
-        'security/identity-and-access',
-        'security/network-posture',
-        'security/data-protection',
-        'security/auditability',
-        'security/responsible-ai',
-        'security/azure-services',
-      ],
-    },
-
-    {
-      type: 'category',
-      label: 'Troubleshooting & FAQ',
-      items: [
-        'troubleshooting/sign-in-issues',
-        'troubleshooting/access-denied',
-        'troubleshooting/knowledge-not-searchable-yet',
-        'troubleshooting/common-ui-issues',
-        'troubleshooting/faq',
-        'troubleshooting/glossary',
-      ],
-    },
-
-    {
-      type: 'category',
-      label: 'Release notes',
-      items: [
-        'release-notes/release-notes',
-        'release-notes/release-readiness-checklist',
-        'release-notes/known-limitations',
-      ],
-    },
-
-    {
-      type: 'category',
-      label: 'Documentation française',
-      items: [
-        {
-          type: 'doc',
-          id: 'fr/index',
-          label: 'Accueil FR',
-        },
-        'fr/demarrage',
-        'fr/interface-et-navigation',
-        'fr/projets-et-espace-de-travail',
-        'fr/connaissance-et-agents',
-        'fr/gouvernance-decisions-et-actions',
-        'fr/rapports-journal-ia-et-tracabilite',
-        'fr/portefeuille-et-administration-technique',
-        'fr/maintenance-support-faq',
-        'fr/glossaire',
-      ],
+      type: 'doc',
+      id: 'glossaire',
+      label: 'Glossaire',
     },
   ],
 };

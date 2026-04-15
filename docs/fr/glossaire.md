@@ -1,10 +1,10 @@
 ---
 title: Glossaire
-slug: /fr/glossaire
+slug: /glossaire
 description: Définitions cohérentes des principaux termes utilisés dans ProPM Agent.
 ---
 
-[Accueil FR](./index.md) · [Maintenance, support et FAQ](./maintenance-support-faq.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
+[Accueil](./index.md) · [Maintenance, support et FAQ](./maintenance-support-faq.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
 
 ## A
 
@@ -124,5 +124,5 @@ Identifiant technique d’un run ou d’un événement, indispensable pour l’i
 ## Suite
 
 - [Maintenance, support et FAQ](./maintenance-support-faq.md)
-- [Accueil FR](./index.md)
+- [Accueil](./index.md)
 - [Démarrage](./demarrage.md)

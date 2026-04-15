@@ -1,10 +1,10 @@
 ---
-title: Documentation utilisateur ProPM Agent
-slug: /fr
-description: Documentation utilisateur et administrateur en français pour ProPM Agent.
+title: Guide utilisateur ProPM Agent
+slug: /
+description: Documentation utilisateur et administrateur pour ProPM Agent.
 ---
 
-Cette documentation française décrit **uniquement** les fonctions observées dans l’application, le code, la configuration de déploiement et les tests automatisés de ProPM Agent.
+Cette documentation décrit **uniquement** les fonctions observées dans l’application, le code, la configuration de déploiement et les tests automatisés de ProPM Agent.
 
 Elle a été préparée pour deux publics :
 
@@ -17,6 +17,7 @@ Elle a été préparée pour deux publics :
 
 | Si vous cherchez… | Commencez ici |
 | --- | --- |
+| Déployer une nouvelle instance dans Azure | [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md) |
 | Vous connecter, accéder à l’application et créer votre premier projet | [Démarrage](./demarrage.md) |
 | Comprendre les écrans et la navigation | [Interface et navigation](./interface-et-navigation.md) |
 | Gérer les projets et l’espace de travail | [Projets et espace de travail](./projets-et-espace-de-travail.md) |
@@ -70,14 +71,14 @@ Les éléments suivants sont explicitement visibles dans l’interface ou les te
 | Chef de projet / PMO | Contexte projet, agents, livrables, signaux, décisions, traçabilité |
 | Contributeur | Consultation, génération de contenu, recherche dans la connaissance, suivi des runs |
 | Propriétaire de projet | Paramétrage projet, rôles, catégories de documents, actions et gouvernance projet |
-| Administrateur technique / abonnement | Authentification, intégrations, fournisseur IA, abonnement, sièges, journaux et supervision |
+| Administrateur technique / abonnement | Déploiement, authentification, intégrations, fournisseur IA, abonnement, sièges, journaux et supervision |
 
 ## Captures d’écran
 
-Les captures insérées dans les pages de cette section ont été **générées par Playwright** sur l’application observée, puis cadrées sur les surfaces utiles à la lecture.
+Les captures de l’application ont été générées sur l’environnement observé, puis cadrées sur les surfaces utiles à la lecture. La page de déploiement utilise en plus les captures Azure Portal fournies pour illustrer l’installation.
 
 ## Suite
 
 - [Démarrage](./demarrage.md)
-- [Interface et navigation](./interface-et-navigation.md)
+- [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md)
 - [Glossaire](./glossaire.md)

@@ -1,10 +1,10 @@
 ---
 title: Gouvernance, décisions et actions
-slug: /fr/gouvernance-decisions-et-actions
+slug: /gouvernance-decisions-et-actions
 description: Exploiter les signaux, appliquer les règles de gouvernance et encadrer les actions nécessitant une approbation.
 ---
 
-[Accueil FR](./index.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
+[Accueil](./index.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
 
 ![Boîte de réception des signaux](/img/screenshots/fr-04-signaux.png)
 
