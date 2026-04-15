@@ -7,7 +7,7 @@ const darkCodeTheme = themes.dracula;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'ProPM Agent',
-  tagline: 'Pilotage de projet contextuel avec preuves, gouvernance et vision portefeuille',
+  tagline: 'Context-aware project execution with evidence, governance, and portfolio insight',
   favicon: 'img/favicon.svg',
 
   url: 'https://robertsmaoui.github.io',
@@ -24,8 +24,8 @@ const config = {
   },
 
   i18n: {
-    defaultLocale: 'fr',
-    locales: ['fr'],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   presets: [
@@ -34,7 +34,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          path: 'docs/fr',
+          path: 'docs',
+          exclude: ['fr/**'],
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
         },
@@ -46,14 +47,26 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'fr',
+        path: 'docs-fr',
+        routeBasePath: 'fr',
+        sidebarPath: require.resolve('./sidebars.fr.js'),
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
         title: 'ProPM Agent',
         items: [
-          { to: '/demarrage', label: 'Démarrage', position: 'left' },
-          { to: '/deploiement-azure-marketplace', label: 'Déploiement', position: 'left' },
+          { to: '/fr/', label: 'FR', position: 'right' },
+          { to: '/', label: 'EN', position: 'right' },
         ],
       },
       footer: {
