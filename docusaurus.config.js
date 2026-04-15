@@ -54,6 +54,7 @@ const config = {
         title: 'ProPM Agent',
         items: [
           { to: '/', label: 'Docs', position: 'left' },
+          { to: '/fr', label: 'Documentation FR', position: 'left' },
         ],
       },
       footer: {
@@ -68,4 +69,3 @@ const config = {
 };
 
 module.exports = config;
-

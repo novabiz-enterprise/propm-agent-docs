@@ -9,6 +9,7 @@ ProPM Agent is designed for enterprise identity and access control.
 - Users sign in using **Microsoft Entra ID**.
 - Your organization manages sign-in eligibility using Entra users and groups.
 - Tenant-wide administration rights should be resolved from authoritative tenant or subscription context during login.
+- In local development, the app may optionally use the current Azure CLI subscription context as a fallback for tenant-wide admin detection when the deployment enables it.
 
 ## Roles
 
@@ -31,6 +32,16 @@ Tenant-wide administration may include:
 - **Marketplace & Subscription**
 
 If the platform cannot determine tenant-scoped edit authority reliably at login, the admin experience should fail closed to read-only mode.
+
+### Current admin resolution sources
+
+Depending on deployment mode, tenant-wide admin resolution may use one or more of these signals:
+
+1. app or tenant admin roles carried in token claims
+2. Microsoft Entra `wids` role template identifiers for recognized tenant admins
+3. local Azure CLI subscription ownership fallback for development-only environments
+
+The development fallback is intended to help local Microsoft sign-in behave more like the real tenant context when the signed-in user is the Azure subscription **Owner**, but it should not be treated as a replacement for production-grade claim or tenant resolution.
 
 ### Project roles
 

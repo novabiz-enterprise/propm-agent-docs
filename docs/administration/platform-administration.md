@@ -28,6 +28,16 @@ The product now separates tenant-scoped technical setup from project-scoped oper
 - **Project Administrator** — read-only only when the deployment exposes admin visibility to project-facing roles
 - **Read-only Admin Viewer** — inspect non-secret metadata only
 
+### How subscription-admin detection works
+
+The product resolves tenant-wide editability during sign-in and request handling.
+
+- In deployed environments, the preferred signal is a tenant or app role claim that maps to **Subscription Administrator**.
+- The current implementation also recognizes Microsoft Entra directory admin template IDs such as **Global Administrator** when those IDs appear in token `wids` claims.
+- For local development only, the gateway can optionally use the machine's signed-in Azure CLI context as a fallback. When `ENABLE_LOCAL_AZURE_SUBSCRIPTION_ADMIN_FALLBACK` is enabled, the gateway compares the signed-in application user with the current Azure CLI user and checks whether that same user has the Azure subscription **Owner** role for the active CLI subscription.
+
+If no trusted signal is found, **Platform Administration** remains read-only.
+
 ## Main sections
 
 ### Overview
@@ -119,6 +129,16 @@ Read-only users must not be able to:
 - validate or rotate credentials
 - change the AI provider
 - change subscription administration settings
+
+## Local development note
+
+When you run the app locally with Microsoft sign-in, being the real Azure subscription owner is not enough by itself unless the app can resolve that ownership from one of these sources:
+
+1. an Entra admin claim in the access token
+2. a recognized `wids` directory admin claim
+3. the optional Azure CLI fallback running on the same machine and signed into the same tenant and user
+
+If you switch Azure CLI accounts locally, restart the local gateway before retesting Platform Administration so the current local Azure context is refreshed consistently.
 
 ## Expected results
 

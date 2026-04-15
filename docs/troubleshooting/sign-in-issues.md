@@ -7,6 +7,7 @@ title: Sign-in issues
 - You cannot sign in.
 - Sign-in works, but you see an error page.
 - You see an error indicating your account does not exist in the tenant (guest user required).
+- Sign-in works, but **Platform Administration** stays read-only even though you are the Azure subscription owner.
 
 ## What to check
 
@@ -31,6 +32,40 @@ Do the following:
 
 - Capture any displayed **trace ID**.
 - Contact your tenant administrator.
+
+## Local sign-in works, but Platform Administration is still read-only
+
+If you are using Microsoft sign-in locally and you know that your Azure account owns the subscription, check the following:
+
+1. Confirm the app token really belongs to the expected tenant.
+2. Confirm the token includes tenant admin claims or `wids` values when your environment expects claim-based admin resolution.
+3. If you rely on local Azure fallback, confirm the local Azure CLI is signed into the same tenant and same user as the browser session.
+
+### Recommended local checks
+
+```bash
+# Verify the CLI tenant and subscription currently active on your machine
+az account show
+
+# Verify which Entra user the Azure CLI is using
+az ad signed-in-user show
+
+# Verify that this same user is Owner on the active subscription
+az role assignment list --assignee <OBJECT_ID> --scope /subscriptions/<SUBSCRIPTION_ID>
+```
+
+For the local fallback to grant editable Platform Administration, all of the following must line up:
+
+- the browser user and Azure CLI user must be the same person
+- the tenant in the token and the tenant in Azure CLI must match
+- the local Azure CLI user must have subscription role **Owner** on the active subscription
+- the local gateway must have development fallback enabled
+
+If you changed Azure CLI login recently, restart the local gateway before testing again.
+
+### Deployment note
+
+In deployed environments, the preferred solution is still claim-based or tenant-authoritative admin resolution. Local Azure CLI fallback is a development convenience, not the primary production trust path.
 
 ## Unauthorized client error
 

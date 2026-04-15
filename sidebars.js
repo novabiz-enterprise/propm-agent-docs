@@ -126,8 +126,28 @@ const sidebars = {
         'release-notes/known-limitations',
       ],
     },
+
+    {
+      type: 'category',
+      label: 'Documentation française',
+      items: [
+        {
+          type: 'doc',
+          id: 'fr/index',
+          label: 'Accueil FR',
+        },
+        'fr/demarrage',
+        'fr/interface-et-navigation',
+        'fr/projets-et-espace-de-travail',
+        'fr/connaissance-et-agents',
+        'fr/gouvernance-decisions-et-actions',
+        'fr/rapports-journal-ia-et-tracabilite',
+        'fr/portefeuille-et-administration-technique',
+        'fr/maintenance-support-faq',
+        'fr/glossaire',
+      ],
+    },
   ],
 };
 
 module.exports = sidebars;
-

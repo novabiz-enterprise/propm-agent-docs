@@ -59,6 +59,18 @@ It also determines whether the tenant can use:
 - premium ingestion modes such as scheduled or pipeline-driven import where applicable
 - AI provider options that are not available on the current plan
 
+## How the plan is resolved
+
+The active Marketplace plan is not read from the Microsoft sign-in token.
+
+Instead, the backend resolves the plan from the tenant's Marketplace licensing record and subscription state. This means:
+
+- sign-in proves identity and tenant context
+- the Marketplace licensing repository resolves the active plan, seat posture, and entitlement flags
+- a tenant can authenticate successfully and still see read-only or restricted capabilities if the Marketplace subscription is missing, incomplete, or on a lower plan
+
+For local development, if the signed-in tenant does not yet have a synchronized Marketplace subscription record, plan-aware capabilities may fall back to the tenant's stored licensing state or deployment defaults until Marketplace sync completes.
+
 ## Understand plan semantics
 
 Current plans may include a mix of the following behaviors.
