@@ -16,119 +16,182 @@ Les points d’observation suivants sont confirmés dans l’application :
 - **Journal IA** pour les runs et l’activité ;
 - **Audit / activity** dans l’administration de plateforme.
 
-En pratique, ces surfaces forment le socle du diagnostic avant d’ouvrir un ticket de support interne.
-
-## Vérifications de routine
-
-| Fréquence | Utilisateur métier | Administrateur technique |
-| --- | --- | --- |
-| Quotidienne | Vérifier le projet actif, les signaux ouverts et les livrables en revue | Vérifier l’activité plateforme, les intégrations critiques et l’état des accès |
-| Hebdomadaire | Revoir la fraîcheur des sources et les actions en attente | Contrôler les connecteurs, les sièges et les paramètres IA |
-| Après incident | Conserver le trace ID, les captures et le contexte projet | Relire les journaux, l’audit et la configuration runtime/auth |
-
-## Alertes et signaux d’attention
-
-Dans le comportement observé, les alertes peuvent prendre plusieurs formes :
-
-- un signal dans l’espace de travail ;
-- un élément visible dans le flux de notifications ;
-- une anomalie déduite de l’indicateur de santé ;
-- une activité inhabituelle dans le Journal IA ou l’audit plateforme.
-
-Certaines diffusions préparées par l’application peuvent aussi cibler des canaux tels que l’app, l’e-mail, Teams ou un webhook, selon la configuration disponible.
-
 ## Procédure de diagnostic rapide
 
-1. vérifier que le bon **projet** est actif ;
-2. relire l’écran concerné pour distinguer **état vide**, **lecture seule** ou **erreur** ;
-3. ouvrir le **Journal IA** si l’incident concerne un agent, un résultat ou un artefact ;
-4. conserver le **trace ID** si un run est impliqué ;
-5. vérifier les **droits**, les **intégrations** et les **sièges** si l’accès ou l’exécution est bloqué.
+1. vérifiez que le bon **projet** est actif ;
+2. distinguez **état vide**, **lecture seule**, **accès refusé** ou **erreur** ;
+3. ouvrez le **Journal IA** si l’incident concerne un agent, un résultat ou un artefact ;
+4. conservez le **Trace ID** et, si visible, le `Context snapshot ID` ou le `Structured output ID` ;
+5. vérifiez droits, intégrations, entitlements et sièges si l’accès ou l’exécution est bloqué.
 
-## Bonnes pratiques opérationnelles
+## Arbre de décision court par symptôme
 
-- ne publiez pas un livrable sans relire sa lignée et ses preuves ;
-- chargez d’abord les documents utiles dans la Connaissance avant de demander une analyse complexe ;
-- tenez les catégories documentaires et les rôles projet à jour ;
-- utilisez les signaux comme une file d’action, pas comme un simple historique ;
-- conservez les trace IDs importants dans vos échanges de support.
+| Symptôme | Surface de premier niveau | Escalade suivante |
+| --- | --- | --- |
+| Connexion ou retour Microsoft anormal | [Démarrage](./demarrage.md) | vérifier Entra, tenant, `redirectUri` et sièges |
+| Aucun projet visible après connexion | **Projets** / sélecteur de projet | **Contrôle d’accès** ou ajout du compte au projet |
+| Réponse agent, artefact ou publication douteuse | **Journal IA** → `Runs` | **Activity**, puis **Rapports & artefacts** |
+| Import ou recherche incohérente | **Connaissance** et historique d’import | **Project integrations**, puis **Administration de la plateforme** |
+| Action externe visible mais bloquée | **Actions & approvals** | **Project integrations**, puis **Administration de la plateforme** |
 
-## Dépannage par thème
+## Fiches de dépannage rapide
 
-### Sécurité et accès
+### Problème de connexion
 
-| Symptôme | Vérification prioritaire |
-| --- | --- |
-| Impossible de se connecter | Vérifier le compte Entra, le tenant autorisé et la configuration d’authentification |
-| Page visible mais non modifiable | Vérifier si vous êtes en lecture seule plutôt qu’en erreur |
-| Accès refusé à une zone | Vérifier le rôle projet ou les droits d’administration plateforme |
-| Connexion réussie mais accès bloqué | Vérifier la disponibilité des sièges si votre déploiement en consomme |
+Vérifiez l’URL, le tenant, le compte invité si usage guest, la `redirectUri` réellement configurée et la disponibilité d’un siège si le plan en consomme un.
 
-### Performance et fraîcheur
+### Page visible mais non modifiable
 
-| Symptôme | Vérification prioritaire |
-| --- | --- |
-| Résultat jugé ancien | Contrôler la fraîcheur des sources et des citations |
-| Document introuvable dans la Connaissance | Vérifier l’import, l’historique et le rafraîchissement |
-| Comparaison portefeuille incohérente | Rafraîchir la cohorte et vérifier les seuils actifs |
+Vous êtes probablement en **lecture seule**. Vérifiez votre rôle avant de conclure à un incident.
 
-### Usage
+### Document visible mais non searchable
 
-| Symptôme | Vérification prioritaire |
-| --- | --- |
-| L’agent répond hors sujet | Vérifier le projet actif et la qualité des sources disponibles |
-| Un livrable ne reflète pas la dernière décision | Utiliser le diff, relire la lignée et republier la bonne version |
-| Une action n’apparaît pas | Vérifier les droits et la disponibilité du connecteur nécessaire |
+Commencez par vérifier le statut du document (`Indexed`, `Ingesting`, `Failed`), l’historique d’import, le rafraîchissement de la page et le `Trace ID` de recherche si un appel a échoué.
 
-### Support
+### Import depuis une source grisé ou absent
 
-| Élément à transmettre | Pourquoi c’est utile |
+Les causes les plus fréquentes sont : provider non validé, binding projet absent, entitlement bloquant, permission insuffisante ou health dégradée.
+
+### Action visible mais non exécutable
+
+Vérifiez le connecteur compatible, le binding projet, l’approbation requise, le rôle utilisateur et la politique applicable.
+
+### Voix indisponible
+
+La voix dépend du navigateur. Essayez un autre navigateur, vérifiez les permissions micro et utilisez la saisie texte si la reconnaissance vocale n’est pas supportée.
+
+## Données à transmettre au support
+
+| Élément | Pourquoi c’est utile |
 | --- | --- |
 | URL du déploiement | Identifier l’environnement concerné |
 | Projet concerné | Rejouer le contexte |
 | Trace ID | Retrouver précisément le run ou l’événement |
+| Context snapshot ID / Structured output ID | Rapprocher un run, une sortie et un artefact |
 | Capture d’écran | Comprendre l’état visible au moment de l’incident |
 | Heure approximative | Croiser l’événement avec les journaux |
 
-## FAQ — sécurité
+## FAQ — accès et sécurité
 
-### Comment distinguer un problème d’authentification d’un problème de licence ?
+### Pourquoi puis-je voir une page d’administration sans pouvoir la modifier ?
 
-Si la connexion Entra aboutit mais que l’accès reste bloqué, vérifiez le modèle de sièges et la disponibilité de licence avant d’incriminer l’authentification.
+Parce que le produit distingue **lecture seule** et **accès refusé**. Une page peut être exposée pour inspection sans autoriser la modification.
 
-### Pourquoi puis-je ouvrir une page sans pouvoir l’enregistrer ?
+### Pourquoi ma connexion Microsoft réussit-elle mais l’application reste bloquée ?
 
-Parce que l’application distingue les surfaces **consultables** de celles **modifiables**. Une page peut être lisible mais protégée en écriture selon votre rôle.
+Vérifiez le tenant, l’autorisation du compte, l’existence d’un projet accessible et la disponibilité d’un siège si le plan en impose un.
 
-## FAQ — performance et données
+### Pourquoi ma connexion réussit-elle mais aucun projet n’apparaît ?
 
-### Pourquoi un document importé n’apparaît-il pas immédiatement dans la recherche ?
+Ce symptôme n’indique pas forcément un problème d’authentification. Vérifiez d’abord le **sélecteur de projet**, puis la page **Projets**. Si la liste reste vide, le compte n’a probablement pas encore été ajouté au bon projet ou ne dispose pas du droit de création.
 
-Commencez par vérifier l’historique d’import et l’état de rafraîchissement. Un contenu absent de la vue courante n’indique pas forcément un échec définitif.
+### Quand faut-il inviter un compte externe comme utilisateur `guest` ?
 
-### Pourquoi deux résultats d’agent semblent-ils différents ?
+Lorsque le compte appartient à un autre tenant que celui qui héberge l’application. Le compte doit alors être invité dans le tenant cible, puis autorisé sur l’application ou via le groupe attendu.
 
-Comparez les preuves, la fraîcheur, la confiance et le contexte du run dans le Journal IA. Deux résultats proches en apparence peuvent s’appuyer sur des contextes ou états différents.
+### Comment distinguer rapidement un problème de tenant, de `redirect URI`, de client Entra ou de siège ?
 
-## FAQ — usage
+Suivez cet ordre :
 
-### Quel est le meilleur ordre d’utilisation des écrans ?
+1. si Microsoft échoue **avant** le retour dans l’application, suspectez d’abord tenant, `clientId` ou `redirect URI` ;
+2. si la connexion réussit mais que l’application reste bloquée, vérifiez ensuite les **sièges** et l’accès à un projet ;
+3. si seule une surface précise reste verrouillée, le sujet est souvent côté **rôle** ou **permission** plutôt que côté authentification.
 
-Projet actif, Tableau de bord, Espace de travail, Connaissance, Agents, Rapports & artefacts, puis Journal IA pour la vérification.
+## FAQ — projet, espace de travail et agents
 
-### Quand faut-il ajouter un document à la Connaissance depuis Rapports & artefacts ?
+### Quand faut-il utiliser Espace de travail plutôt qu’Agents ?
 
-Après relecture, lorsque le livrable doit devenir une source réutilisable et traçable pour les futurs échanges et analyses.
+Utilisez **Espace de travail** pour régler et piloter le projet ; utilisez **Agents** pour converser avec un agent et produire une sortie structurée.
 
-## FAQ — support
+### Où est stocké l’historique de chat ?
 
-### Que faut-il fournir au support pour un problème sur un agent ?
+L’historique visible est local au navigateur. Il n’est pas une archive partagée centrale.
 
-Le projet concerné, la demande effectuée, le moment de l’incident, une capture d’écran et surtout le **trace ID** si le run figure dans le Journal IA.
+### Pourquoi un agent personnalisé n’apparaît-il pas dans un autre projet ?
 
-### Où vérifier si un connecteur est en cause ?
+Vérifiez d’abord son **scope**. Un agent `Project only` reste limité au projet courant. Si l’environnement expose un agent `All projects`, il doit en plus être consulté avec le **même compte** dans un projet auquel ce compte a accès.
 
-Dans **Administration de la plateforme**, puis dans la section des intégrations concernées. Au niveau projet, vérifiez ensuite que l’intégration a bien été rendue disponible et activée.
+### L’historique de chat est-il conservé par projet, par agent ou seulement par navigateur ?
+
+La continuité observée est **locale au navigateur** et rattachée au couple **projet + agent**. Elle n’est donc ni globale à tout le tenant ni partagée automatiquement entre navigateurs.
+
+### Quels navigateurs ou permissions faut-il vérifier en priorité pour la voix ?
+
+Commencez par la prise en charge navigateur de `SpeechRecognition` / `webkitSpeechRecognition`, puis contrôlez l’autorisation d’accès au micro. Si le bouton reste indisponible ou si la reconnaissance échoue, revenez à la saisie texte sans bloquer le parcours projet.
+
+## FAQ — connaissance et recherche
+
+### Pourquoi un document est-il visible dans la liste mais pas encore retrouvable dans la recherche ?
+
+Parce qu’il peut encore être en état **Ingesting** ou en attente de fin de pipeline d’indexation.
+
+### Que signifient `source label` et `source system` ?
+
+Ce sont des indicateurs de provenance. Ils aident à savoir d’où vient une preuve sans lire toute la configuration backend.
+
+### Pourquoi un import peut-il sembler terminé alors que certains documents ne sont pas encore retrouvables ?
+
+Parce que l’ingestion visible ne signifie pas toujours que toute l’indexation est terminée. Contrôlez le statut documentaire (`Indexed`, `Ingesting`, `Failed`), puis relancez la recherche quand le document est réellement indexé.
+
+### Que signifient les badges de fraîcheur dans la recherche et dans les preuves ?
+
+Ils indiquent l’état de confiance temporelle de la source : `fresh`, `aging`, `stale`, `conflicting` ou `unavailable`. Utilisez-les comme un signal de relecture avant publication, pas comme un détail cosmétique.
+
+### Quelle différence entre `Trace ID`, `Context snapshot ID` et `Structured output ID` ?
+
+- **Trace ID** : identifiant de suivi principal pour retrouver un run ou un événement ;
+- **Context snapshot ID** : capture du contexte documentaire/projet utilisé pendant le run ;
+- **Structured output ID** : identifiant de la sortie structurée réellement produite.
+
+## FAQ — sorties IA et Journal IA
+
+### Quelle différence entre Runs et Activity ?
+
+**Runs** montre les exécutions d’agent et leurs métadonnées ; **Activity** montre une timeline d’événements projet et le payload brut associé.
+
+### Comment savoir quel fournisseur IA a réellement été utilisé ?
+
+Ouvrez le détail du run dans **Journal IA** et lisez **Effective AI Provider**. C’est la valeur de référence pour ce run.
+
+## FAQ — rapports, artefacts et gouvernance
+
+### Quelle différence entre PM Doc, artefact et version d’artefact ?
+
+L’artefact est l’objet gouverné, la version d’artefact est son état historisé, et le PM Doc est le document projet revu, édité ou publié à partir de cet objet.
+
+### Pourquoi une action est-elle visible mais non exécutable ?
+
+Vérifiez droits, connecteur, binding projet, politique de gouvernance et approbation requise.
+
+### Quand faut-il **Approve**, **Publish** ou **Add to knowledge** ?
+
+- **Approve** valide une version d’artefact encore en `draft` ;
+- **Publish** déclenche la diffusion gouvernée vers une destination ou un format cible ;
+- **Add to knowledge** réinjecte un document relu dans la recherche projet.
+
+Ces trois actions ne sont pas interchangeables.
+
+### Comment arbitrer une preuve `conflicting` avant publication ?
+
+Rouvrez les sources contradictoires, comparez le snippet, la date, la provenance et la fraîcheur, puis documentez l’arbitrage dans l’artefact, la note de revue ou le flux de gouvernance. Si besoin, rapprochez ensuite le tout du **Journal IA**.
+
+### Pourquoi une intégration est-elle disponible en plateforme mais verrouillée dans mon projet ?
+
+Parce qu’une définition technique plateforme ne suffit pas. Il faut encore un **binding projet** valide, des permissions adéquates, une policy compatible, un état de santé acceptable et, selon les cas, l’entitlement correspondant.
+
+### Pourquoi le fournisseur IA est-il visible mais non modifiable ou non utilisable ?
+
+Le fournisseur peut être visible en lecture alors que sa modification reste réservée à un rôle admin. Son usage peut aussi être limité par le plan, les `allowed providers`, l’entitlement ou la résolution runtime du fournisseur effectif.
+
+## FAQ — portefeuille et administration
+
+### Pourquoi le portefeuille ne remonte-t-il aucun projet ou aucun outlier ?
+
+Vérifiez les projets sélectionnés, les signaux actifs, les poids, les seuils et la sévérité minimale appliquée à la cohorte.
+
+### Comment libérer ou réattribuer un siège ?
+
+Cela se fait depuis **Administration de la plateforme** par un profil autorisé. Le retrait libère la capacité pour une réattribution ultérieure, sous réserve de la posture et de la fenêtre de retrait du plan.
 
 ## Suite
 

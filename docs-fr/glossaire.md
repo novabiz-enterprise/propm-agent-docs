@@ -18,7 +18,12 @@ Composant conversationnel spécialisé qui travaille dans le contexte du projet 
 Étape de validation utilisée pour accepter, rejeter ou encadrer une action avant son exécution.
 
 **Artefact**  
-Résultat de travail intermédiaire ou final exploitable dans la page **Rapports & artefacts**.
+Objet gouverné intermédiaire ou final exploitable dans **Rapports & artefacts**.
+
+## B
+
+**Binding projet**  
+Lien de niveau projet qui rend une intégration plateforme réellement utilisable dans un projet donné.
 
 ## C
 
@@ -28,24 +33,42 @@ Surface de comparaison multi-projets basée sur des signaux, des poids, des seui
 **Citations**  
 Références affichées avec certains résultats d’agents ou runs pour montrer les preuves ou sources utilisées.
 
+**Cohorte**  
+Ensemble sauvegardé de projets et de paramètres de comparaison portefeuille.
+
 **Confiance**  
-Indication qualitative ou quantitative attachée à une sortie structurée afin d’aider à juger la solidité du résultat.
+Indication attachée à une sortie structurée afin d’aider à juger la solidité du résultat.
 
 **Connaissance**  
 Espace où sont recherchés, téléversés, importés et filtrés les documents de référence du projet.
 
-**Connecteur d’exécution**  
-Intégration utilisée pour envoyer une action vers un outil externe, par exemple Jira, Teams, Outlook ou SharePoint publish.
-
 **Context snapshot**  
-Capture du contexte associée à un run dans le Journal IA, utile pour comprendre les conditions exactes d’exécution.
+Capture du contexte associée à un run dans le Journal IA.
 
 ## D
 
+**Deployment-selected AI Provider / fournisseur IA sélectionné au déploiement**  
+Fournisseur choisi lors de l’installation ou du déploiement de l’environnement.
+
+**Diff**  
+Comparaison entre deux versions d’artefact pour relire les écarts avant approbation ou publication.
+
+**Digest**  
+Synthèse gouvernée de plusieurs signaux, visible dans l’Espace de travail et pouvant servir de base à un brouillon de notification.
+
 **Document categories / catégories documentaires**  
-Classification utilisée pour organiser les contenus du projet et améliorer leur exploitation par les utilisateurs et les agents.
+Classification utilisée pour organiser les contenus du projet et améliorer leur exploitation.
 
 ## E
+
+**Effective AI Provider / fournisseur IA effectif**  
+Fournisseur réellement utilisé pour un run donné. C’est la valeur de référence dans le Journal IA.
+
+**Entitlement**  
+Capacité commerciale ou technique autorisée par le plan, pouvant débloquer ou bloquer un connecteur, un provider ou une fonctionnalité premium.
+
+**Événement d’activité**  
+Entrée de la timeline **Activity** dans le Journal IA, avec type, kind, acteur et payload brut.
 
 **Espace de travail**  
 Page centrale du projet regroupant résumé, transparence opérationnelle, signaux et réglages de niveau projet.
@@ -55,27 +78,23 @@ Page centrale du projet regroupant résumé, transparence opérationnelle, signa
 **Famille de modèle**  
 Information de transparence visible dans le Journal IA pour indiquer le type de modèle réellement utilisé.
 
+**Fresh / aging / stale / conflicting / unavailable**  
+États de fraîcheur utilisés pour qualifier une preuve ou une source : fraîche, vieillissante, périmée, contradictoire ou indisponible.
+
 **Fournisseur d’ingestion**  
-Source technique permettant d’importer du contenu vers la Connaissance, par exemple SharePoint, Confluence ou Google Drive.
+Source technique permettant d’importer du contenu vers la Connaissance.
 
-**Fournisseur IA**  
-Service configuré au niveau plateforme pour exécuter les traitements IA. Les familles observées incluent OpenRouter, OpenAI et Anthropic.
+## H
 
-**Fraîcheur**  
-Indication visible dans certains résultats et dans le Journal IA pour aider à juger si une preuve ou source est récente ou vieillissante.
+**Health / état de santé**  
+Indication de disponibilité ou de dégradation appliquée à un connecteur, un provider ou au panneau de santé global.
 
 ## J
 
 **Journal IA**  
-Page qui expose les runs et l’activité associés aux traitements IA, avec trace ID, citations, contexte et artefacts liés.
+Page qui expose les runs et l’activité associés aux traitements IA, avec trace ID, contexte, citations et artefacts liés.
 
 ## L
-
-**Langue de données projet**  
-Langue choisie au niveau projet pour structurer les données et réglages liés au projet. Elle est distincte de la langue de l’interface.
-
-**Langue de l’interface**  
-Langue utilisée pour afficher les libellés, aides et menus du frontend.
 
 **Lecture seule**  
 État dans lequel une page ou un onglet reste visible mais non modifiable.
@@ -89,15 +108,18 @@ Chaîne de traçabilité reliant un run, une sortie structurée, un artefact, un
 Mécanisme d’accès rapide aux pages et actions courantes depuis la barre supérieure.
 
 **PM Doc**  
-Document de gestion de projet révisé, édité, téléchargé, publié ou réinjecté dans la connaissance depuis la page **Rapports & artefacts**.
+Document de gestion de projet révisé, édité, téléchargé, publié ou réinjecté dans la connaissance depuis **Rapports & artefacts**.
 
-**Politique de gouvernance**  
-Règle de niveau projet qui encadre les actions, validations et comportements autorisés.
+**Profil de rendu**  
+Paramètre utilisé pour déterminer le format ou le comportement de rendu d’un document généré.
 
 ## R
 
 **Rapports & artefacts**  
 Surface utilisée pour réviser, comparer, éditer, publier et télécharger les livrables projet.
+
+**Readiness**  
+Niveau de préparation d’un projet, d’une intégration ou d’un flux gouverné pour fonctionner sans blocage opérationnel.
 
 **Run**  
 Exécution enregistrée d’un traitement IA ou d’un échange agent, consultable ensuite dans le Journal IA.
@@ -110,6 +132,12 @@ Unité de licence consommée par un utilisateur dans les déploiements où l’a
 **Signal**  
 Élément proactif remontant un sujet d’attention, par exemple une contradiction, un blocage, une faible fraîcheur ou une suite à donner.
 
+**Source label**  
+Libellé de provenance qui aide à identifier de manière lisible d’où vient un document ou un import.
+
+**Source system**  
+Système source affiché avec une preuve ou un résultat de recherche.
+
 **Structured output / sortie structurée**  
 Résultat formaté d’un agent ou d’un run, pouvant inclure résumé, décisions, citations, confiance et métadonnées.
 
@@ -120,6 +148,16 @@ Page d’orientation qui expose l’état général, les métriques et les proch
 
 **Trace ID**  
 Identifiant technique d’un run ou d’un événement, indispensable pour l’investigation et le support.
+
+## V
+
+**Version d’artefact**  
+État historisé d’un artefact, utilisé pour le diff, la lignée, l’approbation et la publication.
+
+## W
+
+**Watchpoint**  
+Point d’attention explicite dans une sortie structurée, souvent utilisé pour signaler un risque, une contradiction ou une zone à surveiller.
 
 ## Suite
 

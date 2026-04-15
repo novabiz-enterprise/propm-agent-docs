@@ -4,135 +4,230 @@ slug: /rapports-journal-ia-et-tracabilite
 description: Réviser les PM Docs, publier des livrables et suivre la traçabilité complète des runs IA.
 ---
 
-[Accueil](./index.md) · [Connaissance et agents](./connaissance-et-agents.md) · [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
+[Accueil](./index.md) · [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md) · [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
 
 ![Rapports et artefacts](/img/screenshots/fr-08-rapports-artefacts.png)
 
-## Rapports & artefacts : rôle de la page
+## Objectif
 
-La page **Rapports & artefacts** sert à transformer un résultat de travail en livrable exploitable.
+Cette page explique la différence entre **artefact**, **version d’artefact** et **PM Doc**, puis détaille le rôle du **Journal IA** pour l’audit et le support.
 
-Les fonctions observées couvrent :
+## Trois notions à distinguer
 
-- les métriques de synthèse ;
-- les filtres et la table de documents ;
-- la revue d’artefact ;
-- la comparaison (**diff**) ;
-- la **lignée** entre éléments ;
-- l’édition ;
-- le téléchargement **DOCX** ou **XLSX** ;
-- l’ajout à la **Connaissance** ;
-- la publication ;
-- la suppression.
+| Terme | Rôle |
+| --- | --- |
+| Artefact | Objet gouverné issu d’un run ou d’un travail de revue |
+| Version d’artefact | État précis d’un artefact, avec historique, diff et lignée |
+| PM Doc | Document projet revu, édité, téléchargé, publié ou réinjecté dans la connaissance |
 
-## PM Docs : cycle de travail typique
+## Cycle de vie observé
 
-Un usage réaliste suit généralement cette séquence :
+Le flux le plus courant est :
 
-1. un agent produit un résultat ou une recommandation ;
-2. ce résultat devient un **artefact** ou un brouillon de PM Doc ;
+1. un agent produit une **sortie structurée** ;
+2. cette sortie devient un **draft artifact** ;
 3. l’utilisateur ouvre **Rapports & artefacts** ;
-4. il relit, compare, corrige ou enrichit le contenu ;
-5. il télécharge, publie ou rattache le document à la Connaissance.
+4. il relit le contenu, consulte le **diff** et la **lignée** ;
+5. il approuve, publie, télécharge ou ajoute le document à la **Connaissance**.
 
-## Revue et comparaison
+## Statuts visibles
 
-Les vues de **review** et de **diff** sont importantes lorsque vous devez :
+### Artefact
 
-- comparer deux versions d’un même livrable ;
-- contrôler les écarts avant publication ;
-- distinguer une proposition d’agent d’une version réellement validée.
+Les statuts confirmés au niveau artefact/version sont :
 
-## Édition
+- `draft`
+- `approved`
+- `published`
+- `superseded`
 
-Le produit embarque des surfaces d’édition adaptées à plusieurs formats observés :
+### PM Doc
 
-- un éditeur riche orienté texte/markdown ;
-- un éditeur de type grille pour les documents tabulaires.
+Les PM Docs exposent au moins les états de compatibilité suivants :
 
-Cette combinaison permet de couvrir à la fois les comptes rendus, notes, synthèses et tableaux structurés.
+- `draft`
+- `final`
 
-## Export et réutilisation
+## Actions disponibles dans Rapports & artefacts
 
-Une fois le document revu, l’application permet selon le cas de :
+Le hub expose des actions telles que :
 
-- télécharger le livrable en **DOCX** ;
-- télécharger le livrable en **XLSX** ;
-- l’ajouter à la **Connaissance** pour qu’il redevienne une preuve exploitable ;
-- le publier vers une destination gouvernée ;
-- le supprimer lorsqu’il ne doit pas être conservé.
+- **review / preview** ;
+- **diff** ;
+- **lineage** ;
+- **edit** ;
+- **download** ;
+- **add to knowledge** ;
+- **publish** ;
+- **delete**.
 
-## Lignée et traçabilité
+## Diff, lignée et versioning
 
-La **lignée** est l’un des éléments distinctifs de ProPM Agent.
+### Diff
 
-Elle permet de relier entre eux :
+Le **diff** compare des versions d’artefact. Il est surtout utile pour :
 
-- un run d’agent ;
-- une sortie structurée ;
-- un artefact ;
-- un PM Doc ;
-- des citations ou preuves associées.
+- relire les écarts avant publication ;
+- distinguer une proposition d’agent d’une version réellement validée ;
+- comprendre pourquoi un document final diffère d’un brouillon précédent.
 
-Cette continuité réduit le risque de republier un contenu sans savoir d’où il vient.
+### Lignée
+
+La **lignée** relie entre eux :
+
+- le `source run ID` ;
+- le `context snapshot ID` ;
+- le `structured output ID` ;
+- l’artefact et sa version ;
+- les publications et preuves liées.
+
+### Versioning
+
+L’interface permet aussi de sélectionner une version par numéro et d’identifier la version précédente, la base de comparaison ou une version remplacée.
+
+## Approbation et publication
+
+Les comportements observés montrent que :
+
+- **Approve** est disponible sur une version en `draft` ;
+- **Publish** devient disponible quand la version est `approved` ou déjà `published` ;
+- la publication envoie des formats et destinations gouvernés ;
+- l’ajout à la connaissance reste une action distincte du téléchargement et de la publication.
+
+## Éditeurs disponibles
+
+Le produit embarque plusieurs surfaces d’édition :
+
+- un éditeur riche / markdown pour les sorties orientées document ;
+- un éditeur de type grille pour les sorties orientées tableur ;
+- un mode de revue / source en lecture si le format n’est pas éditable de la même manière.
+
+Téléchargements confirmés : **DOCX** et **XLSX**.
 
 ![Journal IA](/img/screenshots/fr-09-journal-ia.png)
 
-## Journal IA : rôle de la page
+## Journal IA : ce que couvre la page
 
-La page **Journal IA** expose un journal détaillé des traitements observés.
-
-Les onglets confirmés sont :
+Le **Journal IA** a deux onglets distincts :
 
 - **Runs** ;
 - **Activity**.
 
-## Ce que vous pouvez y vérifier
+## Runs vs Activity
 
-Les détails de run et d’activité permettent de consulter notamment :
-
-- le **trace ID** ;
-- le **context snapshot** ;
-- la **structured output** ;
-- les **citations** ;
-- le fournisseur IA **effectif** ;
-- le fournisseur sélectionné par le déploiement ;
-- la **model family** ;
-- le niveau de **confiance** ;
-- la **fraîcheur** des sources ;
-- les **artefacts liés**.
-
-## Quand ouvrir le Journal IA
-
-| Besoin | Ce qu’il faut vérifier |
+| Onglet | À quoi il sert |
 | --- | --- |
-| Comprendre pourquoi un résultat a été produit | Le run, la structured output et le context snapshot |
-| Justifier une recommandation | Les citations, la fraîcheur et la confiance |
-| Diagnostiquer un incident ou un écart | Le trace ID, l’activité associée et les artefacts liés |
-| Contrôler le fournisseur réellement utilisé | Les champs de transparence fournisseur et famille de modèle |
+| Runs | Revoir une exécution d’agent, ses métadonnées de traçabilité et ses artefacts liés |
+| Activity | Revoir une timeline d’événements projet et inspecter le payload brut d’un événement |
 
-## Différence entre page Agents et Journal IA
+### Quand ouvrir Runs
 
-La page **Agents** sert à travailler avec l’agent en cours.
+Ouvrez **Runs** pour :
 
-Le **Journal IA** sert à :
+- comprendre pourquoi un résultat a été produit ;
+- retrouver le fournisseur réellement utilisé ;
+- relire la fraîcheur, la confiance et les citations ;
+- rattacher un run à un artefact ou à un PM Doc.
 
-- retrouver un run après coup ;
-- relire le contexte exact ;
-- documenter un audit ;
-- investiguer un comportement ;
-- fournir des références techniques au support.
+### Quand ouvrir Activity
+
+Ouvrez **Activity** pour :
+
+- reconstituer une chronologie ;
+- vérifier qu’un brouillon, une approbation ou une publication a bien laissé un événement ;
+- inspecter le payload brut quand vous faites du support ou de l’audit.
+
+### Exemples d’événements utiles à confirmer dans Activity
+
+Selon le flux, **Activity** peut vous aider à confirmer qu’un événement aval a bien été enregistré, par exemple :
+
+- création d’un brouillon ;
+- approbation d’un artefact ;
+- publication ;
+- préparation d’une notification ;
+- décision d’approbation, de rejet ou d’exécution gouvernée.
+
+### Exemples concrets de `Type` / `Kind`
+
+Les valeurs ci-dessous sont des exemples observés dans les flux seedés et démonstrations. Elles donnent un bon repère de lecture, sans prétendre couvrir tous les futurs événements.
+
+| Type | Kind | Lecture pratique |
+| --- | --- | --- |
+| `agent_execution` | `completed` / `failed` | un run d’agent s’est terminé correctement ou en échec |
+| `document_upload` | `started` / `completed` / `failed` | un document a commencé son ingestion, l’a terminée ou a échoué |
+| `report_generated` | `completed` | un PM Doc ou rapport a été généré et journalisé |
+| `marketplace_update` | `completed` | une notification ou mise à jour système a été enregistrée dans l’historique |
+
+## Filtres et colonnes visibles
+
+### Runs
+
+Filtres observés :
+
+- recherche sur agent / statut / run ID ;
+- filtre agent ;
+- filtre statut.
+
+Colonnes visibles : **Created**, **Agent**, **Status**, **Cost**, **Run ID**, **Actions**.
+
+Le champ **Cost** expose au moins les **tokens** et le nombre de **calls** quand ces informations sont disponibles.
+
+### Activity
+
+Filtres observés :
+
+- recherche sur type / kind / actor ;
+- filtre type ;
+- filtre kind.
+
+Colonnes visibles : **Created**, **Type**, **Kind**, **Actor**, **ID**, **Actions**.
+
+## Détails techniques visibles dans un run
+
+Le détail d’un run peut exposer :
+
+- `Trace ID` ;
+- `Context snapshot ID` ;
+- `Structured output ID` ;
+- citations ;
+- `Effective AI Provider` ;
+- `Deployment-selected AI Provider` ;
+- `Model family` ;
+- `Confidence` ;
+- `Source freshness` ;
+- artefacts liés.
+
+## Transparence runtime IA
+
+La distinction suivante est importante :
+
+- **fournisseur IA sélectionné au déploiement** : choix initial de l’environnement ;
+- **fournisseur IA effectif** : fournisseur réellement utilisé pour ce run.
+
+Ces deux valeurs peuvent différer. En cas de doute, le **Journal IA** fait foi pour le run observé.
+
+## Workflow d’enquête recommandé
+
+Quand un livrable, une publication ou une notification paraît douteuse, partez du plus visible vers le plus technique :
+
+1. ouvrez le **PM Doc** ou l’artefact concerné ;
+2. consultez le **diff** pour voir ce qui a réellement changé ;
+3. ouvrez la **lignée** pour relever `source run ID`, `Context snapshot ID` et `Structured output ID` ;
+4. basculez dans **Runs** pour revoir fraîcheur, confiance, citations, fournisseur IA effectif et artefacts liés ;
+5. utilisez **Activity** pour confirmer la suite du flux : brouillon, approbation, publication, notification ou action gouvernée ;
+6. conservez enfin le **Trace ID** si l’enquête doit être reprise par le support ou l’audit.
 
 ## Bonnes pratiques de traçabilité
 
-- conservez le **trace ID** lorsqu’un résultat a de l’importance ;
+- conservez le **Trace ID** lorsqu’un résultat a de l’importance ;
 - avant de publier, vérifiez la lignée entre le livrable et la preuve ;
-- relisez la fraîcheur des sources sur les sujets sensibles ;
-- en cas d’écart entre deux versions, utilisez le **diff** avant tout arbitrage ;
-- ajoutez à la Connaissance seulement les livrables réellement relus.
+- en cas d’écart entre deux versions, utilisez le **diff** avant arbitrage ;
+- ajoutez à la **Connaissance** seulement les livrables réellement relus ;
+- utilisez **Activity** pour compléter l’enquête quand **Runs** ne suffit pas.
 
 ## Suite
 
+- [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
 - [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
 - [Maintenance, support et FAQ](./maintenance-support-faq.md)
 - [Glossaire](./glossaire.md)

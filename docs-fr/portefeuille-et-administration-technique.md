@@ -4,100 +4,112 @@ slug: /portefeuille-et-administration-technique
 description: Comparer plusieurs projets, administrer la plateforme, gérer les intégrations, le fournisseur IA et les sièges.
 ---
 
-[Accueil](./index.md) · [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) · [Maintenance, support et FAQ](./maintenance-support-faq.md)
+[Accueil](./index.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) · [Maintenance, support et FAQ](./maintenance-support-faq.md)
 
 ![Centre de commande portefeuille](/img/screenshots/fr-10-portefeuille.png)
 
-## Deux niveaux de pilotage
+## Objectif
 
-Cette partie couvre deux surfaces différentes :
-
-- le **Centre de commande portefeuille**, orienté comparaison de projets ;
-- l’**Administration de la plateforme**, orientée configuration technique et gouvernance tenant.
+Cette page couvre deux surfaces distinctes : le **Centre de commande portefeuille** pour la comparaison multi-projets et **Administration de la plateforme** pour la configuration technique tenant-wide.
 
 ## Centre de commande portefeuille
 
 La page portefeuille permet de comparer plusieurs projets à partir de signaux communs.
 
-Les capacités confirmées sont :
+### Capacités confirmées
 
 - sélection de plusieurs projets ;
-- signaux configurables ;
+- catalogue de signaux configurables ;
 - gestion de **poids** et de **seuils** ;
+- filtre de **sévérité minimale** ;
 - cohortes sauvegardées ;
 - rafraîchissement de la comparaison.
 
-### Cas d’usage typiques
+### Signaux observés
 
-| Besoin PMO | Usage portefeuille |
-| --- | --- |
-| Comparer les projets les plus exposés | Sélectionner une cohorte et relire les signaux actifs |
-| Ajuster la sensibilité de comparaison | Modifier les poids et seuils |
-| Rejouer une vue de pilotage | Réutiliser une cohorte sauvegardée |
-| Vérifier l’évolution après action | Rafraîchir la comparaison |
+Le catalogue visible inclut notamment :
 
-### Ce que cette page n’est pas
+- `activity_change`
+- `blocker_density`
+- `freshness_issues`
+- `contradiction_count`
+- `failed_runs`
+- `schedule_pressure`
+- `cost_pressure`
 
-Le portefeuille n’est pas un remplacement du travail projet détaillé. Il sert à :
+### Ce que retient une cohorte
 
-- comparer ;
-- prioriser ;
-- repérer les écarts ;
-- décider où approfondir ensuite.
+Une cohorte sauvegardée mémorise au minimum :
+
+- les projets choisis ;
+- les signaux activés ;
+- les poids ;
+- les seuils ;
+- la sévérité minimale.
+
+### Bon usage portefeuille
+
+Utilisez cette page pour comparer, prioriser et repérer les projets qui méritent une enquête plus profonde. Elle ne remplace pas le travail détaillé dans chaque projet.
 
 ![Administration de la plateforme](/img/screenshots/fr-11-administration-plateforme.png)
 
 ## Administration de la plateforme
 
-Les sections confirmées de cette page sont les suivantes :
+Les sections confirmées sont les suivantes :
 
 | Section | Rôle |
 | --- | --- |
-| Overview | Vue d’ensemble des règles et du niveau de préparation |
-| Platform integrations | Gestion des connecteurs et fournisseurs d’ingestion |
+| Overview | Vue d’ensemble des règles, de la préparation et des points d’attention |
+| Platform integrations | Définitions techniques des connecteurs et fournisseurs d’ingestion |
 | AI provider settings | Choix du fournisseur IA et paramètres associés |
-| Marketplace / subscription | Gestion de l’abonnement et des sièges |
+| Marketplace / subscription | Gestion de l’abonnement, des entitlements et des sièges |
 | Audit / activity | Historique d’activité et suivi d’administration |
 
-## Intégrations de plateforme
+## Intégrations plateforme vs intégrations projet
 
-La page d’administration distingue deux familles :
+Une règle importante ressort du produit :
 
-- les **connecteurs d’exécution** qui envoient des actions vers d’autres outils ;
-- les **fournisseurs d’ingestion** qui alimentent la connaissance.
+- le **niveau plateforme** possède les définitions techniques globales ;
+- le **niveau projet** ne consomme que des bindings approuvés et sûrs.
 
-### Connecteurs d’exécution confirmés
+### Deux familles de plateforme
 
-| Type | Connecteurs observés |
-| --- | --- |
-| Outils de livraison et tickets | Jira, Azure DevOps, GitHub, GitLab, ServiceNow, Monday.com, Asana, ClickUp, Wrike, Trello |
-| Communication et collaboration | Microsoft Teams, Slack, Outlook |
-| Publication et sorties gouvernées | SharePoint publish, Notion, Webhook |
+- **connecteurs d’exécution** pour les actions externes ;
+- **fournisseurs d’ingestion** pour alimenter la connaissance.
 
-### Fournisseurs d’ingestion confirmés
+### Exemples de connecteurs observés
 
-| Type | Sources observées |
-| --- | --- |
-| Référentiels Microsoft et wiki | SharePoint, OneDrive, Confluence |
-| Delivery et suivi | Jira, Azure DevOps |
-| Stockage documentaire | Google Drive, Box, Dropbox, Amazon S3 |
-| Espaces de travail | Notion |
-| Flux contrôlés | Manual upload, Webhook |
+- Jira, Azure DevOps, GitHub, GitLab, ServiceNow ;
+- Teams, Slack, Outlook ;
+- SharePoint publish, Notion, webhook.
 
-## Ce qu’un administrateur peut faire
+### Exemples de fournisseurs d’ingestion observés
 
-Les APIs et l’interface observées confirment des opérations telles que :
+- SharePoint, OneDrive, Confluence ;
+- Jira, Azure DevOps ;
+- Google Drive, Box, Dropbox, Amazon S3 ;
+- Notion ;
+- upload manuel et webhook.
 
-- lister une intégration ;
-- consulter son détail ;
-- la valider ;
-- la désactiver ;
-- la modifier ;
-- la rendre disponible pour les projets quand elle est prête.
+## Readiness et causes de blocage
+
+Une intégration projet ou une option d’import peut être bloquée pour cause de :
+
+- entitlement ;
+- policy ;
+- permission ;
+- health dégradée ;
+- définition plateforme manquante ou désactivée ;
+- binding projet désactivé ou non configuré.
+
+Circuit de remédiation recommandé :
+
+1. relire le blocage dans la page projet ;
+2. ouvrir **Administration de la plateforme** pour vérifier la définition technique ;
+3. valider la readiness ou la santé du connecteur/provider ;
+4. revenir dans le projet pour confirmer le binding et l’usage autorisé.
 
 ## Réglages du fournisseur IA
-
-L’administration de la plateforme expose des réglages dédiés au fournisseur IA.
 
 Les familles de fournisseurs explicitement visibles dans le produit comprennent :
 
@@ -105,45 +117,55 @@ Les familles de fournisseurs explicitement visibles dans le produit comprennent 
 - **OpenAI** ;
 - **Anthropic**.
 
-Au niveau utilisateur, le **Journal IA** permet ensuite de vérifier le fournisseur réellement utilisé et la famille de modèle associée.
+### Deux notions à distinguer
 
-## Abonnement et sièges
+| Notion | Signification |
+| --- | --- |
+| Fournisseur IA sélectionné au déploiement | Choix initial de l’environnement lors de l’installation |
+| Fournisseur IA effectif | Fournisseur réellement utilisé pour les nouveaux runs |
 
-Le produit gère un modèle de licence avec consommation de sièges.
+Ces deux valeurs peuvent différer. Pour un run donné, la valeur de référence reste le détail visible dans **Journal IA**.
 
-Les comportements vérifiés sont les suivants :
+## Abonnement, entitlement et sièges
+
+Le produit gère un modèle de licence avec consommation de sièges selon le plan.
+
+### Comportements observés
 
 - un siège peut être consommé lors de la connexion ;
-- l’accès peut être bloqué si tous les sièges sont déjà utilisés ;
-- un administrateur peut libérer ou réattribuer des sièges.
+- l’accès peut être bloqué s’il n’y a plus de siège disponible ;
+- l’interface admin expose le plan, les sièges achetés et les utilisateurs licenciés ;
+- un administrateur peut retirer un utilisateur licencié, puis libérer la capacité pour une réattribution ultérieure ;
+- une fenêtre de retrait sur 24 h est suivie pour éviter les rotations abusives ;
+- l’état commercial peut aussi exposer `billing state`, `payment state`, `subscription status` et des `entitlement flags`.
 
-### Conséquence pratique
+### Pourquoi c’est important
 
-Un incident d’accès n’est pas toujours un problème d’authentification. Il peut aussi venir d’un manque de sièges disponibles.
+Un incident d’accès n’est pas toujours un problème d’authentification. Il peut aussi venir d’un manque de sièges ou d’un entitlement qui bloque une intégration premium ou un fournisseur IA.
 
 ## Repères techniques de plateforme
 
 L’infrastructure Azure observée s’appuie sur les briques suivantes :
 
-| Service Azure | Rôle dans la plateforme |
-| --- | --- |
-| Azure Container Apps | Hébergement des composants applicatifs |
-| Storage | Stockage des données et fichiers nécessaires au fonctionnement |
-| Azure AI Search | Recherche et récupération de contenu |
-| Key Vault | Gestion des secrets et paramètres sensibles |
-| Log Analytics | Collecte et interrogation des journaux |
-| Application Insights | Supervision applicative |
-| Document Intelligence | Traitement documentaire dans les flux concernés |
+- Azure Container Apps ;
+- Storage ;
+- Azure AI Search ;
+- Key Vault ;
+- Log Analytics ;
+- Application Insights ;
+- Document Intelligence.
 
 ## À retenir pour les publics techniques
 
-- le niveau **plateforme** contrôle ce qui est disponible globalement ;
+- le niveau **plateforme** contrôle ce qui existe globalement ;
 - le niveau **projet** choisit ce qui est réellement utilisé localement ;
 - les intégrations doivent être validées avant exposition aux équipes ;
-- l’authentification, le runtime config et la disponibilité des sièges font partie du diagnostic de base.
+- l’abonnement et les entitlements influencent l’accès, les connecteurs et le fournisseur IA ;
+- le **Journal IA** reste la référence pour le fournisseur réellement utilisé sur un run.
 
 ## Suite
 
+- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
 - [Maintenance, support et FAQ](./maintenance-support-faq.md)
-- [Glossaire](./glossaire.md)
 - [Démarrage](./demarrage.md)
+- [Glossaire](./glossaire.md)

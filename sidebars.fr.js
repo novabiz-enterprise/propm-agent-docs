@@ -20,7 +20,9 @@ const sidebars = {
       label: 'Travail projet',
       items: [
         'projets-et-espace-de-travail',
+        'controle-acces-et-roles',
         'connaissance-et-agents',
+        'sorties-contextuelles-preuves-et-fraicheur',
         'gouvernance-decisions-et-actions',
         'rapports-journal-ia-et-tracabilite',
       ],

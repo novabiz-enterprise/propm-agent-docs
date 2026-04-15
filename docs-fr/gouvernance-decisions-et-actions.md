@@ -8,113 +8,228 @@ description: Exploiter les signaux, appliquer les règles de gouvernance et enca
 
 ![Boîte de réception des signaux](/img/screenshots/fr-04-signaux.png)
 
+## Objectif
+
+Cette page explique comment traiter les **signaux**, utiliser les règles de gouvernance du projet et comprendre pourquoi une action peut être visible mais non exécutable.
+
 ## Vue d’ensemble
 
-Dans ProPM Agent, la gouvernance ne se limite pas à un règlement statique. Elle se manifeste dans plusieurs surfaces :
+Dans ProPM Agent, la gouvernance se manifeste dans plusieurs surfaces :
 
 - les **signaux** qui attirent l’attention ;
 - les **politiques de gouvernance** de niveau projet ;
 - les **contrôles d’accès** ;
-- les **actions & approbations** avant impact externe ;
+- les **actions & approvals** avant impact externe ;
 - la **traçabilité** visible dans les artefacts et le Journal IA.
 
 ## Signaux : ce qu’ils représentent
 
 Les signaux observés servent à faire remonter des sujets qui méritent un traitement explicite, par exemple :
 
-- une **fraîcheur** insuffisante de la preuve ;
-- une **contradiction** entre éléments ;
-- un **blocage** ou une tension opérationnelle ;
-- une **suite à donner** nécessitant décision ou notification.
-
-L’objectif n’est pas d’automatiser aveuglément, mais de rendre les écarts visibles et explicables.
+- une **fraîcheur** insuffisante ;
+- une **contradiction** entre preuves ;
+- un **blocage** opérationnel ;
+- une **suite à donner** nécessitant décision ou diffusion.
 
 ## Comment traiter les signaux
 
-La boîte de réception des signaux permet, selon le comportement observé dans le code et l’interface, de :
+La boîte de réception des signaux permet de :
 
 - relire les signaux ouverts ;
 - rafraîchir leur état ;
 - préparer un **digest** ;
-- générer un brouillon de notification interne ;
-- mettre certains éléments en pause temporaire ;
+- générer un brouillon de notification ;
+- mettre un signal en pause ;
 - écarter un élément lorsqu’il n’est plus pertinent.
+
+### Pas-à-pas de triage recommandé
+
+Pour éviter de traiter un signal uniquement « au feeling », gardez cet ordre simple :
+
+1. lisez d’abord le **résumé** ;
+2. confirmez ensuite l’**explication** et les indices de **fraîcheur** ;
+3. vérifiez si le signal est **récurrent** ou s’il s’appuie sur plusieurs preuves ;
+4. choisissez enfin entre **Create draft**, **Snooze 24h** ou **Dismiss** selon le niveau d’action réellement utile.
+
+Ce triage évite de transformer trop vite un simple rappel en action gouvernée, tout en gardant une trace claire des sujets réellement prioritaires.
+
+## États, modes et informations visibles sur un signal
+
+### Statuts utiles
+
+| Statut | Signification pratique | Action typique |
+| --- | --- | --- |
+| `open` | Le signal reste actif dans la file courante | traiter, créer un brouillon, snoozer ou écarter |
+| `snoozed` | Le sujet est temporairement mis en pause | revenir après `snoozedUntil` ou après le prochain point de contrôle |
+| `dismissed` | Le signal est retiré de la vue active tant qu’aucune nouvelle condition ne le rouvre | conserver la trace, sans laisser l’élément encombrer la file |
+| `resolved` | Le sujet est considéré comme traité | garder l’historique pour audit, sans nouvelle action immédiate |
+
+### Modes visibles
+
+| Mode | Lecture utile |
+| --- | --- |
+| `inform` | information à relire sans action immédiate obligatoire |
+| `suggest` | sujet assorti de prochaines étapes proposées |
+| `draft` | sujet déjà orienté vers un brouillon ou une formulation préparatoire |
+| `request_approval` | sujet qui appelle une étape d’approbation explicite |
+
+### Ce que montre une carte de signal
+
+Une carte de signal peut afficher :
+
+- la **sévérité**, le **statut** et le **mode** ;
+- un **titre**, un **résumé** et une **explication** du déclenchement ;
+- un nombre de **preuves** et de **re-déclenchements** ;
+- des badges de **source freshness** ;
+- `last detected` et, si besoin, `snoozed until` ;
+- des actions comme **Create draft**, **Snooze 24h** et **Dismiss** quand le rôle l’autorise.
 
 ## Quand agir sur un signal
 
 | Situation | Action recommandée |
 | --- | --- |
-| Information simplement vieillissante | Vérifier la source, rafraîchir ou mettre à jour la connaissance |
-| Contradiction entre preuves | Relire les citations, arbitrer, puis documenter la décision |
+| Information vieillissante | Vérifier la source, relancer l’import ou mettre à jour la connaissance |
+| Contradiction entre preuves | Relire les citations, arbitrer et documenter la décision |
 | Blocage projet | Transformer le constat en action gouvernée ou en suivi formalisé |
 | Sujet à diffuser | Préparer un digest ou une notification adaptée |
 
-## Contrôles de gouvernance au niveau projet
+## Digest et brouillons de notification
 
-Les onglets de l’espace de travail forment le socle de la gouvernance projet.
+### Générer un digest (`Generate digest draft`)
 
-### Access control
+La génération d’un digest produit une vue synthétique réutilisable depuis l’**Espace de travail**. La carte **`Latest digest`** peut afficher :
 
-Définit qui peut consulter, contribuer, configurer ou administrer le projet.
+- un **headline** ;
+- une **narrative** ;
+- la date **generated at** ;
+- le nombre total de signaux résumés ;
+- le nombre de brouillons de notification générés ;
+- le détail des signaux inclus dans le digest.
 
-### Document categories
+### Relire un brouillon de notification
 
-Cadre la manière de classer les sources et facilite la réutilisation correcte des preuves.
+Les **Notification drafts** exposent au minimum :
 
-### Governance policies
+- le **statut** ;
+- le **canal** ;
+- le **type** de notification ;
+- l’explication ou rationale ;
+- un éventuel besoin d’**approval** ;
+- le nombre de **destinataires** ;
+- une date `sendAfter` si elle existe ;
+- le lien vers le **signal** ou le **digest** d’origine ;
+- un éventuel état `snoozed`.
 
-Rassemble les règles qui encadrent les comportements autorisés, les validations attendues et les choix de publication.
+Dans le panneau projet actuellement observé, l’envoi direct est surtout prévu pour `in_app`. Les canaux externes comme `email`, `teams` ou `webhook` peuvent rester en posture **held / draft** tant que le chemin de diffusion gouvernée n’est pas disponible. Les utilisateurs sans droit d’envoi peuvent quand même relire ces brouillons en lecture seule.
 
-### Project integrations
+### Flux de revue recommandé pour un brouillon de notification
 
-Sépare les intégrations simplement disponibles au niveau plateforme de celles qui sont réellement utilisables par le projet.
+1. confirmez que le **titre** et le **message** sont compréhensibles sans contexte caché ;
+2. vérifiez le **signal** ou le **digest** lié ;
+3. relisez les métadonnées d’**approval**, de **destinataires** et de `sendAfter` ;
+4. n’envoyez que si le **canal** et votre **rôle** autorisent réellement cette diffusion ;
+5. utilisez **snooze** ou **dismiss** quand le brouillon ne doit pas rester actif dans la file.
+
+## Gouvernance de niveau projet
+
+Les onglets de l’espace de travail forment le socle de la gouvernance projet :
+
+- **Access control** détermine qui peut agir ;
+- **Document categories** structure les preuves ;
+- **Governance policies** encadre validations et publication ;
+- **Project integrations** détermine quelles actions externes sont réellement faisables.
 
 ## Actions & approvals
 
 L’écran **Actions & approvals** transforme une recommandation en opération contrôlée.
 
-Les comportements observés montrent un cycle de vie explicite :
+### Cycle de vie observé
 
 1. proposition d’une action ;
-2. rattachement au projet, à un signal ou à un artefact selon le cas ;
+2. rattachement au projet, à un signal ou à un artefact ;
 3. approbation ou rejet ;
 4. exécution lorsque les conditions sont réunies ;
-5. traçabilité de l’événement.
+5. traçabilité de l’événement dans le produit.
 
 ![Actions et approbations](/img/screenshots/fr-05-actions-approbations.png)
 
-## Exemples d’actions gouvernées confirmées dans le produit
+### Pas-à-pas opératoire pour une action gouvernée
 
-Les types d’action visibles dans le code incluent notamment :
+Utilisez cet ordre quand une suite externe devient nécessaire :
 
-- publier un artefact vers **SharePoint** ;
-- envoyer un message **Teams** ;
-- envoyer un message **Outlook** ;
-- créer un ticket **Jira** ;
-- créer un ticket **Azure DevOps** ;
-- utiliser un **webhook** gouverné.
+1. ouvrez **Actions & approvals** depuis l’**Espace de travail** ;
+2. choisissez d’abord le **type d’action** afin que l’interface résolve les **Execution connectors** compatibles ;
+3. sélectionnez une option d’exécution **saine** et **autorisée** si plusieurs options existent ;
+4. ajoutez une justification courte pour faciliter l’approbation ;
+5. soumettez la demande et vérifiez qu’elle apparaît en file avec **Trace ID** et détails de payload ;
+6. suivez ensuite le passage de la file vers **approved**, **rejected** ou **executed**.
 
-Ces actions n’ont de sens que si les connecteurs correspondants ont été configurés et validés.
+Si aucune option compatible n’est proposée, cherchez d’abord l’explication côté **entitlement**, **permission**, **policy** ou **health** avant de conclure à une panne technique.
 
-## Principes de décision à conserver
+## Exemples d’actions gouvernées confirmées
 
-- une recommandation d’agent n’est pas automatiquement une décision validée ;
-- une action externe doit rester **gouvernée** ;
-- toute diffusion importante doit pouvoir être reliée à une preuve, à un artefact ou à un run ;
-- le projet doit distinguer ce qui relève du **jugement humain** et ce qui relève de l’**automatisation contrôlée**.
+Les types d’action visibles dans le produit incluent notamment :
 
-## Séparer niveau projet et niveau plateforme
+- publication vers **SharePoint** ;
+- message **Teams** ;
+- message **Outlook** ;
+- ticket **Jira** ;
+- ticket **Azure DevOps** ;
+- **webhook** gouverné.
+
+### Champs qui varient selon le type d’action
+
+| Type d’action | Champs typiques à fournir |
+| --- | --- |
+| Publication vers SharePoint | titre, option d’exécution, `artifact ID`, destination, profil de rendu ou format |
+| Message Teams / Outlook | titre, option d’exécution, corps du message, destinataires ou brouillon lié |
+| Ticket Jira / Azure DevOps | titre, option d’exécution et description du ticket |
+| Calendar follow-up | titre, option d’exécution, participants et date / heure de départ |
+
+### États et détails de la file d’approbation
+
+La file d’actions gouvernées permet de suivre un passage typique de **draft** à **pending approval**, puis vers **approved**, **executed** ou **rejected**.
+
+Chaque carte de file peut aussi exposer :
+
+- le type d’action et le connecteur sélectionné ;
+- le **status** et l’**action level** ;
+- `requested at`, `requested by`, `approved by`, `approved at`, `executed at` ;
+- le **Trace ID** ;
+- un `relatedArtifactId` ou `relatedNotificationId` ;
+- le **payload audit detail**, les notes d’approbation et le résultat d’exécution.
+
+## Pourquoi une action peut être visible mais non exécutable
+
+Une action peut apparaître dans l’interface mais rester bloquée si :
+
+- vous n’avez pas le droit requis ;
+- le connecteur compatible n’est pas prêt ;
+- le binding projet limite l’action ;
+- le plan ou l’entitlement bloque la capacité ;
+- une approbation est encore attendue.
+
+## Lien avec les intégrations
 
 Une règle importante ressort de l’application :
 
-- le **niveau projet** décide comment un projet travaille ;
+- le **niveau projet** décide comment le projet travaille ;
 - le **niveau plateforme** décide quels outils, fournisseurs et intégrations existent réellement.
 
-En pratique, un chef de projet peut avoir la main sur les règles projet sans pouvoir activer un nouveau fournisseur IA ou un nouveau connecteur pour tout le tenant.
+En pratique, si une action ou une notification est bloquée, vérifiez d’abord le **binding projet**, puis la définition technique dans **Administration de la plateforme**.
+
+## Exemple de scénario complet
+
+1. un signal `open` remonte un écart de fraîcheur ou un suivi en retard ;
+2. l’équipe relit l’explication, les preuves et les prochaines étapes suggérées ;
+3. elle crée un **draft** ou génère un **digest** pour préparer la synthèse ;
+4. un brouillon de notification est revu, envoyé en `in_app` ou laissé en attente si le canal externe reste gouverné ;
+5. si une suite externe est nécessaire, une action est proposée dans **Actions & approvals** ;
+6. la file d’approbation, le **Trace ID**, les artefacts liés et le **Journal IA** servent ensuite de trace commune.
 
 ## Bonnes pratiques de gouvernance
 
-- traitez les signaux comme une file de priorisation, pas comme une simple liste passive ;
+- traitez les signaux comme une file de priorisation, pas comme une simple liste ;
 - n’exécutez pas d’action externe sans vérifier l’artefact ou la preuve source ;
 - utilisez les catégories documentaires pour réduire l’ambiguïté des sources ;
 - gardez la politique de gouvernance cohérente avec les rôles réellement attribués ;

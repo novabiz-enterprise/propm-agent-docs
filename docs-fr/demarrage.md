@@ -10,50 +10,55 @@ description: Prérequis, accès, authentification et première configuration.
 
 ## Objectif
 
-Cette page explique comment préparer l’accès à ProPM Agent, se connecter, choisir le bon projet et comprendre les prérequis techniques du premier démarrage.
+Cette page explique comment préparer l’accès à ProPM Agent, réussir la première connexion, choisir le bon projet et vérifier les points techniques indispensables juste après un déploiement.
+
+## Qui peut utiliser cette page
+
+- **utilisateur métier** qui reçoit une URL et doit se connecter sans assistance lourde ;
+- **propriétaire de projet** qui doit créer ou sélectionner le premier contexte projet ;
+- **administrateur technique** qui doit valider l’authentification, le runtime et l’accès initial.
 
 ## Si vous n’avez pas encore d’URL d’application
 
 Si votre instance n’est pas encore déployée, commencez par [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md). Cette étape permet d’obtenir l’URL web, l’API et les paramètres runtime nécessaires avant toute connexion utilisateur.
 
-## Prérequis côté utilisateur
+## Avant de commencer
+
+### Prérequis côté utilisateur
 
 Pour un usage normal, il faut disposer de :
 
-- l’**URL de votre déploiement** ProPM Agent ;
+- l’**URL du déploiement** ProPM Agent ;
 - un compte **Microsoft Entra ID** autorisé sur le tenant concerné ;
 - l’accès à au moins un projet, ou le droit d’en créer un ;
 - un navigateur moderne prenant en charge les applications web récentes ;
-- si vous utilisez la voix, un navigateur et un poste compatibles avec les API de reconnaissance vocale.
+- si vous utilisez la voix, un navigateur compatible avec les API de reconnaissance vocale.
 
-## Prérequis côté administrateur technique
+### Prérequis côté administrateur technique
 
 Les éléments suivants sont explicitement prévus par la configuration observée :
 
 | Élément | Rôle |
 | --- | --- |
-| `clientId` d’authentification | Identifie l’application Entra utilisée côté web |
+| `clientId` | Identifie l’application Entra utilisée côté web |
 | `authority` | Définit l’autorité Microsoft Entra de connexion |
 | `scopes` | Définit les permissions demandées au moment de l’authentification |
 | `redirectUri` et `postLogoutRedirectUri` | Contrôlent les retours après connexion et déconnexion |
 | `allowedTenantId` | Restreint, si configuré, le tenant autorisé |
 | `/runtime-config.json` | Surcharge dynamique des URLs et paramètres d’authentification au runtime |
+| URL API et URL WebSocket | Permettent au frontend de joindre les services backend et le temps réel |
 | Abonnement / sièges | Conditionne l’accès dans les déploiements qui imposent une licence par utilisateur |
 
-## Connexion
+## Parcours de première connexion
 
-### Ce que fait l’application
+1. ouvrez l’URL publiée de votre déploiement ;
+2. laissez l’application vous rediriger vers la page de connexion Microsoft ;
+3. connectez-vous avec le compte autorisé ;
+4. revenez sur l’application, généralement sur le **Tableau de bord** ;
+5. vérifiez la langue d’interface, le projet courant et les éventuels messages visibles dans la barre supérieure ;
+6. ouvrez **Projets** pour sélectionner ou créer votre premier projet.
 
-L’interface observée utilise **Microsoft Entra ID** pour l’authentification.
-
-Au premier accès :
-
-1. ouvrez l’URL du déploiement ;
-2. laissez l’application rediriger vers la page de connexion Microsoft ;
-3. authentifiez-vous avec le compte autorisé ;
-4. revenez sur l’application, généralement sur le **Tableau de bord**.
-
-### États d’accès à connaître
+## États d’accès à connaître
 
 Deux états différents existent dans l’interface :
 
@@ -62,17 +67,16 @@ Deux états différents existent dans l’interface :
 
 Cette distinction est importante pour les zones d’administration : on peut parfois ouvrir une page technique en consultation sans pouvoir enregistrer de changement.
 
-## Première ouverture recommandée
+## Résultat attendu après la première connexion
 
-Après la connexion :
+Si tout est correctement configuré, vous devez pouvoir :
 
-1. vérifiez la langue d’interface et le projet courant dans la barre supérieure ;
-2. ouvrez **Projets** ;
-3. sélectionnez un projet existant ou créez-en un ;
-4. revenez au **Tableau de bord** pour lire les indicateurs et les étapes suggérées ;
-5. continuez vers **Espace de travail**, **Connaissance**, **Agents**, **Rapports & artefacts** ou **Journal IA**.
+- atteindre le **Tableau de bord** sans erreur bloquante ;
+- ouvrir **Projets** ;
+- sélectionner ou créer un projet ;
+- accéder ensuite à **Espace de travail**, **Connaissance**, **Agents**, **Rapports & artefacts** et **Journal IA** selon vos droits.
 
-## Créer un projet
+## Créer un premier projet
 
 Le formulaire observé dans l’application propose les champs suivants :
 
@@ -92,49 +96,78 @@ La langue de données influence notamment :
 - certains réglages ou invites système côté agents ;
 - les valeurs initiales propres au projet.
 
-## Si aucun projet n’est encore actif
+## Si aucun projet n’apparaît
 
 Plusieurs écrans affichent un état vide explicite lorsqu’aucun projet n’est sélectionné. C’est normal.
 
 Pour poursuivre :
 
-- utilisez le sélecteur de projet ;
-- ouvrez **Projets** ;
-- ou revenez au projet récemment mémorisé par l’application.
+1. utilisez le **sélecteur de projet** de la barre supérieure ;
+2. ouvrez **Projets** pour choisir un projet accessible ;
+3. si vous avez le droit de création, créez un projet ;
+4. si la liste reste vide, vérifiez avec votre administrateur que votre compte a bien été ajouté au bon projet.
 
-## Points techniques utiles pour l’installation initiale
+## Checklist post-déploiement pour l’administrateur technique
 
-### Authentification et runtime
+Après un nouveau déploiement, vérifiez au minimum :
 
-Le frontend observé sait charger une configuration au runtime, puis compléter au besoin les informations d’authentification via l’API de bootstrap.
+1. l’**URL web** réellement publiée ;
+2. la disponibilité du fichier **`/runtime-config.json`** ;
+3. la cohérence entre l’URL publiée et les **redirect URIs** configurées dans Entra ;
+4. la présence d’un **client ID** valide ;
+5. la bonne valeur d’**authority** et, si utilisé, d’**allowedTenantId** ;
+6. les **scopes** attendus par le frontend et l’API ;
+7. l’URL **API** et, si exposée, l’URL **WebSocket** ;
+8. la consommation ou disponibilité des **sièges** si le plan l’impose ;
+9. un premier test de connexion avec un compte utilisateur standard et un compte administrateur.
 
-Concrètement, un administrateur technique doit vérifier :
+## Incidents fréquents de première connexion
 
-- la cohérence entre l’URL publiée et les **redirect URIs** ;
-- la présence d’un **client ID** valide ;
-- la bonne autorité Entra ;
-- les scopes attendus par le frontend et l’API ;
-- le tenant autorisé si le déploiement l’impose ;
-- l’URL API et, si utilisée, l’URL WebSocket.
+### Le compte Microsoft s’authentifie, mais l’application reste bloquée
 
-### Mode réel vs mode de démonstration
+Vérifiez dans cet ordre :
 
-Le code distingue clairement :
+1. le **tenant** utilisé pendant la connexion ;
+2. le fait que le compte soit bien autorisé dans ce tenant ;
+3. la disponibilité d’un **siège** si le plan applique une licence par utilisateur ;
+4. l’existence d’au moins un projet accessible pour ce compte.
 
-- un **mode réel**, utilisé pour l’authentification Microsoft ;
-- un **mode mock/démo**, réservé au développement et aux tests.
+### Erreur de tenant ou compte externe / guest
 
-Pour une documentation publique, il faut retenir que le **mode normal** repose sur Entra ID et sur le déploiement publié.
+Si Microsoft indique que votre compte n’existe pas dans le tenant cible, cela signifie généralement qu’il doit être invité comme **utilisateur externe / guest** dans le tenant qui héberge l’application, puis autorisé sur l’application d’entreprise ou via un groupe.
+
+### `redirect URI mismatch`
+
+Si la connexion renvoie une erreur de redirection, comparez l’URL réellement publiée avec les **Redirect URIs** de l’inscription d’application Entra. Chaque environnement publié doit être listé exactement, sans faute de frappe.
+
+### `unauthorized_client` ou client dans le mauvais tenant
+
+Ce symptôme indique généralement que l’inscription d’application ne se trouve pas dans le bon tenant, ou que le déploiement utilise une autorité incompatible avec une application **single-tenant**.
+
+### Accès réussi, mais écran admin en lecture seule
+
+Cela signifie souvent que le compte est authentifié mais n’a pas été résolu comme administrateur plateforme modifiable. Vérifiez les groupes d’administration, le tenant du jeton et la méthode de résolution d’admin utilisée par votre environnement.
+
+## Arbre de décision rapide — accès bloqué
+
+| Symptôme initial | Vérifiez d’abord | Puis |
+| --- | --- | --- |
+| Microsoft renvoie une erreur avant le retour dans l’application | `authority`, tenant utilisé, `clientId`, `redirectUri`, `postLogoutRedirectUri`, `allowedTenantId` | comparez la configuration runtime et l’inscription Entra, puis refaites un test avec le bon compte |
+| La connexion Microsoft réussit mais l’application reste bloquée | disponibilité d’un **siège**, indicateur de santé, URLs API / WebSocket | vérifiez ensuite l’accès à un projet et les droits réels du compte |
+| L’application s’ouvre mais aucun projet n’apparaît | sélecteur de projet, liste **Projets**, appartenance au projet, droit de création | demandez au **Project Owner** d’ajouter le compte au bon projet si nécessaire |
+| Une page est visible mais non modifiable | rôle projet ou rôle admin, état **lecture seule** vs **accès refusé** | contrôlez ensuite le groupe d’administration ou les permissions projet concernées |
 
 ## Bonnes pratiques dès le départ
 
-- choisissez immédiatement le bon projet avant de lancer des agents ;
+- choisissez le bon projet **avant** de lancer des agents ;
 - définissez correctement la langue de données du projet à la création ;
-- vérifiez votre niveau de droit avant de chercher à modifier la gouvernance ou l’administration technique ;
-- si votre déploiement utilise un modèle à sièges, contrôlez que votre accès a bien été attribué.
+- vérifiez votre niveau de droit avant de modifier la gouvernance ou l’administration technique ;
+- si votre déploiement utilise un modèle à sièges, contrôlez que votre accès a bien été attribué ;
+- gardez l’URL du déploiement et, si nécessaire, le **trace ID** de l’erreur pour le support.
 
 ## Suite
 
 - [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md)
 - [Interface et navigation](./interface-et-navigation.md)
 - [Projets et espace de travail](./projets-et-espace-de-travail.md)
+- [Maintenance, support et FAQ](./maintenance-support-faq.md)
