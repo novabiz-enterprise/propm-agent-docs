@@ -1,7 +1,7 @@
 ---
 title: Guía de usuario de ProPM Agent
 slug: /
-description: Documentación de usuario y administrador para ProPM Agent.
+description: "Documentaci\u00f3n multiling\u00fce de ProPM Agent sobre ejecuci\u00f3n de proyectos con IA, flujos gobernados, resultados respaldados por evidencias y despliegue desde Azure Marketplace."
 ---
 
 Esta documentación describe **únicamente** las funciones observadas en la aplicación, en el código, en la configuración de despliegue y en las pruebas automatizadas de ProPM Agent.

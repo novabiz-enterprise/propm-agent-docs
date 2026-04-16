@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /propm-agent-docs/search
+Disallow: /propm-agent-docs/fr/search
+Disallow: /propm-agent-docs/de/search
+Disallow: /propm-agent-docs/es/search
+Disallow: /propm-agent-docs/hi/search
+
+Sitemap: https://robertsmaoui.github.io/propm-agent-docs/sitemap.xml

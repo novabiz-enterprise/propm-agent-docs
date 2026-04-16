@@ -1,7 +1,7 @@
 ---
 title: ProPM Agent Benutzerhandbuch
 slug: /
-description: Benutzer- und Administrator-Dokumentation für ProPM Agent.
+description: "Mehrsprachige Dokumentation f\u00fcr ProPM Agent mit KI-gest\u00fctzter Projektausf\u00fchrung, Governance-Workflows, nachweisgest\u00fctzten Ergebnissen und Bereitstellung \u00fcber Azure Marketplace."
 ---
 
 Diese Dokumentation beschreibt **ausschließlich** die Funktionen, die in der Anwendung, im Code, in der Bereitstellungskonfiguration und in den automatisierten Tests von ProPM Agent beobachtet wurden.

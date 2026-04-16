@@ -1,7 +1,7 @@
 ---
 title: ProPM Agent User Guide
 slug: /
-description: User and administrator documentation for ProPM Agent.
+description: Multilingual user and administrator documentation for ProPM Agent, covering AI-powered project execution, governed workflows, evidence-backed outputs, and Azure Marketplace deployment.
 ---
 
 This documentation describes **only** the functions observed in the application, in the code, in the deployment configuration, and in the automated tests of ProPM Agent.
