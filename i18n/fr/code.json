@@ -1,0 +1,32 @@
+{
+  "theme.SearchBar.label": {
+    "message": "Rechercher"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Voir tous les r\u00e9sultats"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "Aucun r\u00e9sultat"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "Voir tous les r\u00e9sultats dans \"{context}\""
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Voir tous les r\u00e9sultats hors de \"{context}\""
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "R\u00e9sultats de recherche pour \"{query}\""
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Rechercher dans la documentation"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "1 document trouv\u00e9|{count} documents trouv\u00e9s"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "Aucun document n\u2019a \u00e9t\u00e9 trouv\u00e9"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "Partout"
+  }
+}

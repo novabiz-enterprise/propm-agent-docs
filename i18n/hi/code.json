@@ -1,0 +1,32 @@
+{
+  "theme.SearchBar.label": {
+    "message": "\u0916\u094b\u091c\u0947\u0902"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "\u0938\u092d\u0940 \u092a\u0930\u093f\u0923\u093e\u092e \u0926\u0947\u0916\u0947\u0902"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "\u0915\u094b\u0908 \u092a\u0930\u093f\u0923\u093e\u092e \u0928\u0939\u0940\u0902 \u092e\u093f\u0932\u093e"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "\"{context}\" \u0915\u0947 \u092d\u0940\u0924\u0930 \u0938\u092d\u0940 \u092a\u0930\u093f\u0923\u093e\u092e \u0926\u0947\u0916\u0947\u0902"
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "\"{context}\" \u0915\u0947 \u092c\u093e\u0939\u0930 \u0938\u092d\u0940 \u092a\u0930\u093f\u0923\u093e\u092e \u0926\u0947\u0916\u0947\u0902"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "\"{query}\" \u0915\u0947 \u0932\u093f\u090f \u0916\u094b\u091c \u092a\u0930\u093f\u0923\u093e\u092e"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "\u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c\u094b\u0902 \u092e\u0947\u0902 \u0916\u094b\u091c\u0947\u0902"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "1 \u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c \u092e\u093f\u0932\u093e|{count} \u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c \u092e\u093f\u0932\u0947"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "\u0915\u094b\u0908 \u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c \u0928\u0939\u0940\u0902 \u092e\u093f\u0932\u093e"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "\u0939\u0930 \u091c\u0917\u0939"
+  }
+}

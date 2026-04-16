@@ -6,14 +6,15 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "serve": "docusaurus serve",
-    "clear": "docusaurus clear"
+    "clear": "docusaurus clear",
+    "postinstall": "node scripts/patch-lunr-wordcut.js"
   },
   "dependencies": {
     "@docusaurus/core": "^3.6.0",
     "@docusaurus/preset-classic": "^3.6.0",
+    "@easyops-cn/docusaurus-search-local": "^0.55.1",
     "prism-react-renderer": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
 }
-

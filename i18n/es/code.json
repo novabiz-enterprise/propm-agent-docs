@@ -1,0 +1,32 @@
+{
+  "theme.SearchBar.label": {
+    "message": "Buscar"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Ver todos los resultados"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "Sin resultados"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "Ver todos los resultados dentro de \"{context}\""
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Ver todos los resultados fuera de \"{context}\""
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Resultados de b\u00fasqueda para \"{query}\""
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Buscar en la documentaci\u00f3n"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "1 documento encontrado|{count} documentos encontrados"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "No se encontr\u00f3 ning\u00fan documento"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "En todas partes"
+  }
+}
