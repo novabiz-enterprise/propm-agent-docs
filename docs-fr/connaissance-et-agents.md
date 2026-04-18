@@ -1,7 +1,7 @@
 ---
 title: Connaissance et agents
 slug: /connaissance-et-agents
-description: Alimenter la base de connaissance projet, lancer des échanges avec les agents et exploiter les résultats.
+description: Alimenter la base de connaissance projet, comprendre la proactivité des agents et exploiter les résultats jusqu’aux Documents PM.
 ---
 
 [Accueil](./index.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md) · [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
@@ -38,7 +38,7 @@ Les types explicitement acceptés dans l’interface couvrent notamment :
 
 ## Import depuis des sources approuvées
 
-Le mécanisme d’import dépend des **Ingestion Providers** validés au niveau plateforme, puis rendus disponibles au projet.
+Le mécanisme d’import dépend des **fournisseurs d’ingestion** validés au niveau plateforme, puis rendus disponibles au projet.
 
 ### Ce que montre le sélecteur d’import
 
@@ -57,18 +57,18 @@ Une option d’import peut être indisponible pour cause de :
 - entitlement ;
 - permission ;
 - policy ;
-- état de santé dégradé ;
+- état de disponibilité à vérifier ;
 - binding projet absent ou non prêt.
 
 ## Historique d’import
 
 L’historique d’import permet de vérifier au minimum :
 
-- le nom affiché du provider ;
+- le nom affiché du fournisseur ;
 - le statut du run ;
 - la fraîcheur après import ;
-- le `trace ID` ;
-- les volumes découverts, importés, ignorés ou en échec ;
+- le `Trace ID` ;
+- les volumes découverts, importés, ignorés ou signalés comme non aboutis ;
 - la date de fin quand elle est disponible.
 
 ## Lire la liste documentaire et la recherche
@@ -114,7 +114,38 @@ Fonctions confirmées :
 - sorties structurées et éléments de preuve ;
 - sessions sauvegardées dans le navigateur ;
 - création et suppression d’agents personnalisés selon les droits ;
-- mode voix si le navigateur le permet.
+- saisie vocale dans **Agents** si l’environnement la prend encore en charge.
+
+## Proactivité de ProPM Agent
+
+La proactivité dans ProPM Agent ne signifie pas qu’un agent agit seul à l’extérieur du projet. Le comportement observé est plus encadré : la plateforme détecte des situations à surveiller, les remonte en **signaux**, peut préparer un **digest**, proposer un **brouillon** ou une **action gouvernée**, puis laisse l’utilisateur ou l’approbateur décider de la suite.
+
+![Proactivité, digests et actions gouvernées](/img/diagrams/fr/proactivite-et-gouvernance.svg)
+
+### Déclencheurs observés
+
+La proactivité peut être alimentée par :
+
+- une **fraîcheur** insuffisante ;
+- une **contradiction** entre preuves ;
+- un **blocage** opérationnel ;
+- une **pression planning** ou **coûts** visible dans le portefeuille ;
+- des **exécutions non abouties** ;
+- une suite à donner nécessitant diffusion, validation ou relance.
+
+### Où la proactivité devient visible
+
+- **Espace de travail** : file de signaux et éléments à revoir ;
+- **Gouvernance, décisions et actions** : digests, brouillons de notification, demandes d’action ;
+- **Centre de commande portefeuille** : comparaison des projets par indicateurs ;
+- **Journal IA** : traçabilité de la chaîne de décision.
+
+### Ce que la proactivité ne fait pas seule
+
+- elle ne contourne pas les rôles ;
+- elle ne contourne pas les politiques ;
+- elle ne publie pas automatiquement hors de l’application sans chemin gouverné ;
+- elle reste explicable par preuves, fraîcheur et statuts visibles.
 
 ## Comment choisir un agent rapidement
 
@@ -137,6 +168,16 @@ En pratique, choisissez d’abord un **agent standard** si vous cherchez un parc
 4. relisez la **sortie structurée** avant toute réutilisation.
 
 L’interface permet aussi de rechercher dans le roster d’agents pour atteindre plus vite le bon spécialiste.
+
+## Des agents vers les Documents PM, DOCX et XLSX
+
+Les agents ne sautent pas directement vers un fichier final diffusé. Le flux observé est plus progressif :
+
+1. un agent produit une **sortie structurée** ;
+2. cette sortie peut alimenter un **artefact** ou un **Document PM** ;
+3. les contenus narratifs vont plutôt vers un rendu **DOCX** ;
+4. les contenus tabulaires ou matriciels vont plutôt vers un rendu **XLSX** ;
+5. la relecture, l’approbation, le téléchargement et la publication se font ensuite dans [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md).
 
 ## Sessions et mémoire locale
 
@@ -172,20 +213,19 @@ La création d’agents personnalisés dépend du niveau de droit. Les points à
 
 ![Création d’un agent personnalisé](/img/screenshots/localized/fr/04-custom-agent-create.png)
 
-## Voix et compatibilité navigateur
+## Saisie vocale dans Agents
 
-La voix est exposée dans l’expérience **Agents**. Elle dépend explicitement de la prise en charge navigateur des API de reconnaissance vocale.
+Cette documentation ne décrit plus de point d’entrée **voix** séparé dans l’**Espace de travail**. Lorsqu’une saisie vocale reste disponible, elle est limitée à l’expérience **Agents** et dépend explicitement de la prise en charge navigateur des API de reconnaissance vocale.
 
-Si la voix n’est pas disponible :
+Si la saisie vocale n’est pas disponible :
 
 - utilisez la saisie texte ;
 - vérifiez les permissions micro du navigateur ;
-- distinguez une limitation du navigateur d’un problème applicatif ;
-- la reconnaissance vocale ajoute le texte dans le composeur : relisez-le avant **Send** ;
-- si le bouton micro est indisponible ou si un message d’incompatibilité apparaît, passez immédiatement à la saisie texte ;
-- si le problème persiste, vérifiez d’abord la prise en charge `SpeechRecognition` / `webkitSpeechRecognition`, puis la permission micro.
+- distinguez une limitation du navigateur d’une contrainte locale de l’environnement ;
+- relisez toujours le texte ajouté dans le composeur avant **Send** ;
+- si le bouton micro est indisponible ou si un message d’incompatibilité apparaît, passez immédiatement à la saisie texte.
 
-### Repères pratiques pour la voix
+### Repères pratiques pour la saisie vocale
 
 | Symptôme | Vérifier d’abord | Réflexe utile |
 | --- | --- | --- |
@@ -194,7 +234,7 @@ Si la voix n’est pas disponible :
 | Transcription incomplète | texte ajouté dans le composeur | relisez, corrigez et complétez avant **Send** |
 | Erreur ponctuelle pendant l’écoute | état navigateur ou session courante | arrêtez la capture, reprenez au clavier, puis réessayez plus tard |
 
-La saisie texte reste le chemin nominal de secours. Elle permet de poursuivre le travail sans bloquer le run sur un problème navigateur local.
+La saisie texte reste le chemin nominal de secours. Elle permet de poursuivre le travail sans interrompre le run à cause d’une contrainte de navigateur local.
 
 ## Bonnes pratiques
 

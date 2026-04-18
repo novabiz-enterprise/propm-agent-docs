@@ -25,6 +25,7 @@ const sidebars = {
         'sorties-contextuelles-preuves-et-fraicheur',
         'gouvernance-decisions-et-actions',
         'rapports-journal-ia-et-tracabilite',
+        'connecteurs-jira-et-sharepoint',
       ],
     },
     {

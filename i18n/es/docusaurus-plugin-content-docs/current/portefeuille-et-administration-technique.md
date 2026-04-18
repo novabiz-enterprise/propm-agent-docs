@@ -1,33 +1,181 @@
 ---
 title: Portafolio y administración técnica
 slug: /portefeuille-et-administration-technique
-description: Comparar múltiples proyectos, administrar la plataforma, gestionar integraciones, el proveedor de IA, la elección del modelo Azure OpenAI y las licencias.
+description: Comprender la página Portfolio paso a paso, leer las cohortes y outliers, y luego administrar la plataforma, las integraciones y los proveedores IA.
 ---
 
-[Inicio](./index.md) · [Informes, registro de IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md) · [Mantenimiento, soporte y preguntas frecuentes](./maintenance-support-faq.md)
+[Inicio](./index.md) · [Informes, Diario IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md) · [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md)
 
-![Centro de control del portafolio](/img/screenshots/localized/es/02-portfolio-command-center.png)
+![Centro de comando de portafolio](/img/screenshots/localized/fr/02-portfolio-command-center.png)
 
 ## Objetivo
 
-Esta página cubre dos áreas distintas: el **Centro de control del portafolio** para la comparación multi-proyecto y la **Administración de la plataforma** para la configuración técnica a nivel de inquilino.
+Esta página cubre dos superficies diferentes del producto:
 
-## Centro de control del portafolio
+1. la página **Portfolio** o **Centro de comando de portafolio**, utilizada para comparar varios proyectos;
+2. **Administración de la plataforma**, utilizada para preparar las integraciones, los proveedores IA, la suscripción y la auditoría.
 
-La página del portafolio permite comparar varios proyectos a partir de señales comunes.
+Para un usuario principiante, es útil recordar esto:
 
-### Capacidades confirmadas
+- la página **Portfolio** ayuda a responder la pregunta **« ¿qué proyectos merecen mi atención en prioridad? »**;
+- la **Administración de la plataforma** ayuda a responder la pregunta **« ¿la plataforma está correctamente preparada para la organización? »**.
 
-- selección de múltiples proyectos;
-- catálogo de señales configurables;
-- gestión de **pesos** y **umbrales**;
-- filtro de **severidad mínima**;
-- cohortes guardadas;
-- actualización de la comparación.
+## Parte 1 — Entender la página Portfolio paso a paso
 
-### Señales observadas
+## ¿Para qué sirve la página Portfolio?
 
-El catálogo visible incluye, entre otras:
+La página **Portfolio** sirve para comparar varios proyectos con **señales configurables** en lugar de un simple cuadro rojo / naranja / verde fijo.
+
+Permite, entre otras cosas:
+
+- seleccionar varios proyectos;
+- elegir las señales a comparar;
+- definir un **peso** y un **umbral** para cada señal;
+- filtrar la **severidad mínima**;
+- registrar una **cohorte** reutilizable;
+- identificar los **outliers** o **valores atípicos**;
+- abrir luego el detalle de un proyecto para comprender por qué destaca.
+
+## Lo que el usuario ve al llegar a la página
+
+Al llegar a la página Portfolio, el usuario suele ver cinco zonas.
+
+| Zona | Lo que se hace allí |
+| --- | --- |
+| **Selección de proyectos** | elegir qué proyectos entran en la comparación |
+| **Perfil de señales** | elegir las señales, sus pesos, sus umbrales y la severidad mínima |
+| **Cohortes** | registrar o recargar una configuración de comparación reutilizable |
+| **Resultados de comparación** | leer el resumen, los outliers y las diferencias entre proyectos |
+| **Desglose de proyecto** | abrir las pruebas, la actividad reciente y el detalle por señal para un proyecto |
+
+## Las palabras a comprender antes de comenzar
+
+| Palabra | Explicación simple |
+| --- | --- |
+| **Proyecto** | un proyecto incluido en la comparación |
+| **Señal** | un indicador comparativo, por ejemplo bloqueos, frescura o presión de planificación |
+| **Peso** | la importancia dada a una señal en la puntuación global |
+| **Umbral** | el nivel a partir del cual una señal comienza a destacarse como notable |
+| **Severidad mínima** | un filtro que oculta las señales demasiado débiles |
+| **Cohorte** | un grupo de proyectos registrado con su perfil de comparación |
+| **Outlier / valor atípico** | un proyecto que destaca más que los demás según la configuración activa |
+| **Comparación narrativa** | un resumen textual de la comparación en curso |
+| **Desglose de proyecto** | el detalle proyecto por proyecto con pruebas y actividad |
+
+## Ejemplo guiado — comparar tres proyectos para una revisión semanal
+
+Imaginemos que un PMO quiere comparar tres proyectos:
+
+- Proyecto A;
+- Proyecto B;
+- Proyecto C.
+
+El objetivo es identificar rápidamente cuál requiere atención prioritaria antes del comité semanal.
+
+### Paso 1 — Elegir los proyectos
+
+En la zona **Projects**, marca los proyectos que quieres comparar.
+
+### Buen reflejo
+
+Prefiere comparar proyectos que pertenezcan a una **misma conversación de pilotaje**. Por ejemplo:
+
+- tres proyectos de un mismo portafolio;
+- tres proyectos de un mismo comité;
+- o tres proyectos de una misma dirección.
+
+### Paso 2 — Elegir las señales útiles
+
+En el **Perfil de señales**, activa las señales que realmente importan para tu revisión.
+
+Ejemplo para una revisión semanal:
+
+- **blocker_density**;
+- **freshness_issues**;
+- **failed_runs**;
+- **schedule_pressure**.
+
+### Paso 3 — Ajustar los pesos
+
+El **peso** indica la importancia dada a una señal.
+
+- si asignas un peso alto a **blocker_density**, los proyectos con muchos bloqueos destacarán más;
+- si asignas un peso bajo a **activity_change**, esa señal influirá menos en la clasificación final.
+
+### Paso 4 — Ajustar los umbrales
+
+El **umbral** indica a partir de cuándo una señal debe realmente llamar la atención.
+
+- un umbral bajo hace la comparación más sensible;
+- un umbral alto hace la comparación más selectiva.
+
+### Paso 5 — Elegir la severidad mínima
+
+La **severidad mínima** filtra lo que quieres ver en los resultados.
+
+Ejemplo:
+
+- **low and above** = ves casi todo;
+- **medium and above** = ya filtras las señales débiles;
+- **high and above** = te concentras solo en los temas más graves.
+
+### Paso 6 — Ajustar el umbral global de outlier
+
+El **Umbral global de outlier** determina a partir de qué nivel combinado un proyecto debe ser señalado como **valor atípico**.
+
+- umbral más bajo = más proyectos destacan;
+- umbral más alto = solo los casos más marcados destacan.
+
+### Paso 7 — Registrar una cohorte si es necesario
+
+Si haces a menudo la misma comparación, regístrala como **cohorte**.
+
+Una cohorte recuerda:
+
+- los proyectos elegidos;
+- las señales activadas;
+- los pesos;
+- los umbrales;
+- la severidad mínima.
+
+![Editor de cohorte de portafolio](/img/screenshots/localized/fr/02-portfolio-cohort-editor.png)
+
+### Paso 8 — Iniciar o refrescar la comparación
+
+Haz clic en **Refresh comparison** para recalcular la vista con los parámetros activos.
+
+### Paso 9 — Leer el resumen narrativo
+
+La zona **Narrative comparison** da un texto de síntesis.
+
+Generalmente responde a la pregunta:
+
+**« ¿Qué destaca más ahora, en este grupo de proyectos? »**
+
+### Paso 10 — Leer los outliers
+
+La zona **Outliers** lista los proyectos que superan el perfil activo de pesos y umbrales.
+
+Un outlier no es necesariamente un « proyecto en dificultades ». Simplemente significa:
+
+- que destaca más que los demás;
+- que merece una lectura más atenta;
+- que hay que entender **por qué** destaca.
+
+### Paso 11 — Abrir el detalle del proyecto
+
+En **Desglose de proyecto**, puedes consultar:
+
+- las señales del proyecto;
+- las pruebas;
+- la actividad reciente;
+- los enlaces a **Workspace**, **Knowledge**, **Reports** o **AI Log**.
+
+Esta es la etapa que transforma una alerta de portafolio en comprensión concreta.
+
+## Entender las señales visibles en Portfolio
+
+Las señales observadas en el producto incluyen:
 
 - `activity_change`
 - `blocker_density`
@@ -37,253 +185,266 @@ El catálogo visible incluye, entre otras:
 - `schedule_pressure`
 - `cost_pressure`
 
-### Qué guarda una cohorte
+### Definición simple de cada señal
 
-Una cohorte guardada memoriza como mínimo:
+| Señal | Pregunta a la que responde | Cómo interpretarla |
+| --- | --- | --- |
+| `activity_change` | ¿la actividad reciente es muy diferente del período anterior? | alto = variación inusual que explicar |
+| `blocker_density` | ¿el proyecto muestra muchos bloqueos o escaladas? | alto = bloqueos frecuentes o concentrados |
+| `freshness_issues` | ¿las pruebas y fuentes son demasiado antiguas o no disponibles? | alto = la vista del proyecto se vuelve menos fiable |
+| `contradiction_count` | ¿las fuentes se contradicen? | alto = arbitraje o aclaración necesaria |
+| `failed_runs` | ¿las automatizaciones o ejecuciones fallan a menudo? | alto = fricción técnica u operativa |
+| `schedule_pressure` | ¿el plan muestra signos de tensión? | alto = presión de planificación o desviación de calendario |
+| `cost_pressure` | ¿el presupuesto o el consumo muestran tensión? | alto = riesgo de presupuesto / costos |
 
+## Cómo leer pesos, umbrales y severidad con un ejemplo simple
+
+Tomemos un ejemplo muy concreto.
+
+### Caso 1 — Quieres ver principalmente los proyectos bloqueados
+
+- aumenta el **peso** de `blocker_density`;
+- mantén un **umbral** medio;
+- pon la **severidad mínima** en `medium`.
+
+Resultado esperado: los proyectos con bloqueos recurrentes destacan más.
+
+### Caso 2 — Quieres controlar principalmente la calidad de las pruebas
+
+- aumenta el peso de `freshness_issues` y `contradiction_count`;
+- mantén un umbral más sensible;
+- luego lee las pruebas no disponibles o contradictorias.
+
+Resultado esperado: los proyectos cuya lectura se vuelve poco fiable suben más rápido.
+
+### Caso 3 — Quieres un comité muy selectivo
+
+- mantén pocos señales;
+- aumenta los umbrales;
+- aumenta la severidad mínima;
+- aumenta el umbral global de outlier.
+
+Resultado esperado: solo los casos más marcados permanecerán visibles.
+
+## Cómo leer un outlier correctamente
+
+Un **outlier** no es una nota mágica ni un juicio definitivo.
+
+En los flujos observados, un proyecto destaca como outlier cuando:
+
+- una o varias señales son altas;
+- esas señales tienen un peso significativo;
+- los umbrales activos se superan;
+- la puntuación combinada supera el umbral global de outlier.
+
+### Lectura correcta
+
+- **outlier** = « este proyecto destaca más que los demás según las reglas actuales »;
+- **no outlier** = « este proyecto permanece en la banda normal del grupo actual ».
+
+## Por qué una señal puede estar indisponible
+
+Una señal puede estar **indisponible** cuando falta la prueba necesaria.
+
+Ejemplo:
+
+- si el proyecto no tiene las fuentes de planificación correctas, `schedule_pressure` puede quedar indisponible;
+- si las fuentes de presupuesto no están presentes, `cost_pressure` puede quedar indisponible.
+
+### Punto muy importante
+
+Una señal **indisponible** no significa **cero riesgo**.
+
+Esto significa:
+
+**« el portafolio no tiene suficiente prueba fiable para calcular este indicador »**
+
+## Qué contiene una cohorte
+
+Una cohorte es un **perfil de comparación registrado**.
+
+Recuerda en memoria:
+
+- el nombre de la cohorte;
+- su descripción;
 - los proyectos elegidos;
 - las señales activadas;
 - los pesos;
 - los umbrales;
 - la severidad mínima.
 
-![Editor de cohorte del portafolio](/img/screenshots/localized/es/02-portfolio-cohort-editor.png)
+### Por qué usar una cohorte
 
-### Buen uso del portafolio
+Usa una cohorte cuando quieras repetir regularmente la misma comparación, por ejemplo:
 
-Utilice esta página para comparar, priorizar y detectar los proyectos que merecen una investigación más profunda. No reemplaza el trabajo detallado dentro de cada proyecto.
+- revisión semanal de entrega;
+- seguimiento mensual de portafolio;
+- comité de riesgos;
+- revisión ejecutiva restringida.
 
-### Cómo leer una cohorte sin outlier aparente
+## Cómo leer la zona Desglose de proyecto
 
-Si una cohorte no muestra **ningún outlier** ni desviación marcada, no concluya inmediatamente que es un error. Verifique primero:
+La zona **Desglose de proyecto** permite explicar el resultado.
 
-1. los proyectos realmente seleccionados;
-2. las señales activadas;
-3. los **pesos** y **umbrales** aplicados;
-4. la **severidad mínima** establecida.
+Puede mostrar:
 
-Una cohorte vacía puede simplemente indicar que sus filtros son demasiado estrictos o que ningún proyecto supera actualmente los umbrales elegidos.
+- el **score ponderado** del proyecto;
+- la lista de señales visibles;
+- **pruebas** o extractos documentales;
+- la **actividad reciente**;
+- enlaces a **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts** y **AI Log**.
 
-![Administración de la plataforma](/img/screenshots/localized/es/18-platform-administration-overview.png)
+### Lectura práctica
 
-## Administración de la plataforma
+- si un proyecto destaca, comienza por el **resumen narrativo**;
+- abre luego la **señal concerniente**;
+- relee las **pruebas**;
+- controla finalmente la **actividad reciente** para entender si la situación sigue activa.
 
-Las secciones confirmadas son las siguientes:
+## Buen uso de la página Portfolio
+
+Usa la página Portfolio para:
+
+- comparar;
+- priorizar;
+- identificar las diferencias;
+- decidir qué proyecto debe estudiarse en detalle.
+
+No uses la página Portfolio como reemplazo completo del **Workspace** del proyecto.
+
+## Parte 2 — Administración de la plataforma
+
+## ¿Para qué sirve esta parte?
+
+**Administración de la plataforma** sirve para preparar la plataforma a escala de la organización.
+
+Aquí es donde se configuran principalmente:
+
+- las **integraciones de la plataforma**;
+- los **proveedores IA**;
+- la **suscripción** y los **asientos**;
+- la **auditoría de actividad**.
+
+![Administración de la plataforma](/img/screenshots/localized/fr/18-platform-administration-overview.png)
+
+## Secciones visibles
 
 | Sección | Rol |
 | --- | --- |
-| Overview | Vista general de las reglas, preparación y puntos de atención |
-| Platform integrations | Definiciones técnicas de los conectores y proveedores de ingesta |
-| AI provider settings | Elección del proveedor de IA y parámetros asociados |
-| Marketplace / subscription | Gestión de la suscripción, entitlements y licencias |
-| Audit / activity | Historial de actividad y seguimiento de administración |
+| Visión general | resumen del estado general de preparación |
+| Integraciones de la plataforma | definiciones técnicas de los conectores y proveedores de ingestión |
+| Parámetros del proveedor IA | configuración, validación, prueba y activación del proveedor IA |
+| Marketplace & suscripción | plan, derechos, asientos y estado comercial |
+| Auditoría / actividad | historial de acciones administrativas |
 
-## Integraciones de plataforma vs integraciones de proyecto
+## Integraciones de la plataforma vs Integraciones del proyecto
 
-Una regla importante se desprende del producto:
+Una regla importante sale del producto:
 
-- el **nivel de plataforma** posee las definiciones técnicas globales;
-- el **nivel de proyecto** solo consume bindings aprobados y seguros.
+- el **nivel plataforma** decide lo que existe técnicamente;
+- el **nivel proyecto** decide lo que realmente se usa en un proyecto dado.
 
-### Dos familias de plataforma
+### Lectura simple
 
-- **conectores de ejecución** para acciones externas;
-- **proveedores de ingesta** para alimentar el conocimiento.
+- **plataforma** = se prepara la herramienta;
+- **proyecto** = se autoriza al proyecto a usarla;
+- **gobernanza** = se decide quién puede realmente actuar con esta herramienta.
 
-### Ejemplos de conectores observados
+Para el detalle completo por familia de conectores, ver [Conectores e integraciones](./connecteurs-jira-et-sharepoint).
 
-- Jira, Azure DevOps, GitHub, GitLab, ServiceNow;
-- Teams, Slack, Outlook;
-- SharePoint publish, Notion, webhook.
+## Preparación y causas de bloqueo
 
-### Ejemplos de proveedores de ingesta observados
+Una integración puede estar bloqueada por:
 
-- SharePoint, OneDrive, Confluence;
-- Jira, Azure DevOps;
-- Google Drive, Box, Dropbox, Amazon S3;
-- Notion;
-- carga manual y webhook.
+- **entitlement**;
+- **policy**;
+- **permission**;
+- **health** a verificar;
+- definición plataforma faltante;
+- binding proyecto no abierto.
 
-## Readiness y causas de bloqueo
+### Circuito de verificación recomendado
 
-Una integración de proyecto o una opción de importación puede estar bloqueada por:
-
-- entitlement;
-- policy;
-- permiso;
-- health degradada;
-- definición de plataforma faltante o desactivada;
-- binding del proyecto desactivado o no configurado.
-
-Circuito de remediación recomendado:
-
-1. releer el bloqueo en la página del proyecto;
-2. abrir **Administración de la plataforma** para verificar la definición técnica;
-3. validar la readiness o la salud del conector/proveedor;
+1. releer el bloqueo del lado del proyecto;
+2. abrir **Administración de la plataforma**;
+3. verificar la definición técnica del conector o proveedor;
 4. volver al proyecto para confirmar el binding y el uso autorizado.
 
-### Caso frecuente — integración definida en plataforma pero no disponible en el proyecto
+## Parámetros del proveedor IA
 
-Este caso no significa necesariamente que la plataforma esté mal configurada. Puede simplemente indicar que:
-
-- la definición técnica existe pero aún no está **bindeada** al proyecto;
-- el proyecto no tiene la **policy** o el **rol** correcto;
-- el **entitlement** cubre la plataforma pero no el uso realmente esperado;
-- la **health** del conector está degradada.
-
-Para este escenario, mantenga el siguiente ir y venir: **Proyectos y espacio de trabajo** para leer el bloqueo visible, luego **Administración de la plataforma** para confirmar la definición global, luego vuelta al proyecto para activar o corregir el binding. Ver también [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md).
-
-## Ajustes del proveedor de IA
-
-Las familias de proveedores visibles según el contexto de configuración incluyen, entre otras:
+Las familias de proveedores visibles en el producto incluyen:
 
 - **OpenRouter**;
-- **OpenAI / Azure OpenAI**;
+- **OpenAI-compatible**;
+- **OpenAI**;
+- **Azure OpenAI**;
 - **Anthropic**.
 
-### Cómo leer los estados de administración
+### Cuando elegir cada proveedor
 
-Las referencias **Configuration**, **Validation**, **Test** y **Operational** no sirven solo para Azure OpenAI. Forman el marco de lectura común de los proveedores expuestos en la UI de administración.
-
-| Estado | Lo que significa | Lo que aún no garantiza |
+| Proveedor | Cuándo elegirlo | Qué se debe completar generalmente |
 | --- | --- | --- |
-| Configuration | los campos han sido registrados | ni la validez técnica, ni la conectividad real |
-| Validation | la configuración ha pasado los controles administrativos esperados | no necesariamente la prueba de conectividad completa |
-| Test | se ha lanzado una prueba de conectividad con éxito | aún no la activación para los usuarios finales |
-| Operational | el proveedor puede considerarse explotable | no que todos los proyectos lo usen ya efectivamente |
+| **OpenRouter** | cuando se necesita comparar varias familias de modelos a través de un solo conector | Base URL, clave, modelo por defecto |
+| **OpenAI-compatible** | cuando el cliente usa una puerta de enlace o un endpoint compatible | endpoint exacto, auth, clave o secreto, modelo esperado |
+| **OpenAI** | cuando el cliente usa directamente OpenAI | URL, clave o secreto, modelo por defecto |
+| **Azure OpenAI** | cuando el cliente está centrado en Azure y quiere elegir sus despliegues Azure OpenAI | endpoint, versión API, modo de autenticación, nombre de despliegue LLM |
+| **Anthropic** | cuando el cliente prefiere los modelos Claude | conexión, secreto, modelo por defecto |
 
-### Árbol de decisión rápido — `Validate`, `Test`, `Operational`
+### Cómo leer los estados de un proveedor IA
 
-| Síntoma | Verifique primero | Luego |
-| --- | --- | --- |
-| `Validate` falla | endpoint, modo de auth, secreto eventual, campos obligatorios, nombres de despliegue | corrija la configuración antes de cualquier prueba |
-| `Validate` tiene éxito pero `Test` falla | conectividad real, secreto/clave API, accesibilidad del proveedor, recurso remoto | relance la prueba después de la corrección, luego controle la actividad asociada |
-| el proveedor sigue visible pero no activable / no `Operational` | validación, prueba, allowed providers, entitlement, readiness general | no cambie a los usuarios antes del paso completo al estado explotable |
-
-### Dos nociones a distinguir
-
-| Noción | Significado |
+| Estado | Qué significa |
 | --- | --- |
-| Proveedor de IA seleccionado en el despliegue | Elección inicial del entorno durante la instalación |
-| Proveedor de IA efectivo | Proveedor realmente utilizado para los nuevos runs |
+| **Configuration** | los campos están registrados |
+| **Validation** | la configuración ha pasado los controles esperados |
+| **Test** | la conectividad real ha sido verificada |
+| **Operational** | el proveedor puede considerarse operativo |
 
-Estos dos valores pueden diferir, especialmente cuando un despliegue Marketplace prepara **Azure OpenAI** y luego el administrador elige el despliegue LLM en **AI provider settings**. Para un run dado, el valor de referencia sigue siendo el detalle visible en **Registro de IA**.
+### Pas a paso muy simple para preparar un proveedor IA
 
-### Marco común para todos los proveedores
+1. abre **Parámetros del proveedor IA**;
+2. selecciona el proveedor deseado;
+3. completa los campos solicitados;
+4. haz clic en **Save**;
+5. haz clic en **Validate**;
+6. haz clic en **Test**;
+7. haz clic en **Activate**;
+8. verifica el resultado en **Journal IA**.
 
-Cualquiera que sea el proveedor visible en la interfaz, mantenga el mismo marco de lectura:
+### Caso particular Azure OpenAI
 
-1. complete los campos críticos del proveedor;
-2. guarde la configuración;
-3. lance la validación;
-4. lance la prueba de conectividad;
-5. active luego solo el proveedor si la plataforma debe realmente cambiar a él;
-6. confirme finalmente el proveedor efectivo en **Registro de IA** en un run real.
+Con **Azure OpenAI**, a menudo se debe completar en la administración:
 
-### OpenRouter
+- el **Endpoint**;
+- la **versión API**;
+- el **modo de autenticación**;
+- el **nombre de despliegue LLM**;
+- opcionalmente el **nombre de despliegue Embeddings**.
 
-Para **OpenRouter**, supervise sobre todo el endpoint, la clave o el secreto, la familia de modelo elegida y el paso completo por **Configuration → Validation → Test → Operational** antes de la activación.
+Para el detalle de la elección de proveedor IA durante el despliegue Marketplace, ver [Despliegue Azure Marketplace](./deploiement-azure-marketplace.md).
 
-### OpenAI-compatible / OpenAI
+## Suscripción, entitlement y asientos
 
-Para los proveedores **OpenAI-compatible**, verifique sobre todo la coherencia entre endpoint, auth, versión o modelo/deployment esperado y prueba de conectividad real. Una configuración guardada no basta para garantizar el uso efectivo por los runs.
+El producto gestiona un modelo de licencia con asientos y capacidades.
 
-### Anthropic
+### Qué puede ver un administrador
 
-Para **Anthropic**, el reflejo sigue siendo el mismo: configuración guardada, validación, prueba, activación, luego confirmación en **Registro de IA**. Si el proveedor sigue visible pero no operacional, verifique primero auth, entitlement y allowed providers antes de escalar.
-
-### Caso **Azure OpenAI** después de un despliegue Marketplace
-
-Cuando el despliegue Marketplace se lanzó con **Azure OpenAI**, la instalación prepara la integración Azure pero no fija automáticamente el despliegue LLM exacto en el momento del formulario Marketplace.
-
-Después de la instalación, un administrador debe abrir **Administración de la plataforma** > **AI provider settings** para seleccionar el despliegue Azure OpenAI realmente visible en el recurso Azure OpenAI del cliente.
-
-![Ajustes de Azure OpenAI en la administración de la plataforma](/img/screenshots/localized/fr/18-platform-administration-azure-openai-settings.png)
-
-#### Lo que significa la elección del modelo
-
-En esta página, el campo **LLM deployment name** espera el **nombre exacto de un despliegue Azure OpenAI** existente en el recurso del cliente. No es solo un nombre genérico de familia de modelo. En el ejemplo visible, `gpt-4.1-mini` es el despliegue LLM principal y `text-embedding-3-small` el despliegue de embeddings opcional.
-
-Este desacoplamiento es voluntario: permite al cliente cambiar de despliegue o modelo después de la instalación Marketplace, sin redesplegar la aplicación.
-
-#### Campos de Azure OpenAI visibles
-
-| Campo | Rol |
-| --- | --- |
-| Endpoint | Endpoint Azure OpenAI objetivo, usado para el descubrimiento de despliegues y las pruebas de conectividad |
-| API version | Versión de la API Azure OpenAI usada por la administración |
-| Authentication mode | Modo de autenticación soportado por la plataforma: `managed_identity` o `api_key` |
-| LLM deployment name | Nombre exacto del despliegue LLM usado para los runs generativos |
-| Embeddings deployment name (optional) | Nombre exacto del despliegue embeddings, si su configuración usa uno |
-
-#### Estados y orden operativo
-
-La pantalla muestra cuatro referencias de estado:
-
-- **Configuration**: la configuración ha sido guardada o no;
-- **Validation**: la verificación administrativa ha sido ejecutada o no;
-- **Test**: la prueba de conectividad ha sido ejecutada o no;
-- **Operational**: síntesis del estado de explotación de este proveedor.
-
-El recorrido esperado en la interfaz es **Save → Validate → Test → Activate**. Según la interfaz observada, **Validate** y **Test** guardan primero las modificaciones pendientes antes de ejecutar su control.
-
-#### Lo que verifica el backend
-
-Según el código existente, la verificación backend del proveedor **Azure OpenAI** controla como mínimo:
-
-- la presencia del **endpoint** y su formato en **URL absoluta**;
-- la presencia de la **API version**;
-- la validez del **modo de autenticación** (`managed_identity` o `api_key`);
-- la presencia de una **clave API** o una **referencia de secreto** si se elige el modo `api_key`;
-- la presencia del **LLM deployment name**;
-- la ausencia de espacios en los nombres de despliegue LLM y embeddings.
-
-El backend también intenta descubrir los despliegues visibles llamando al endpoint Azure OpenAI **`/openai/deployments`** con la versión de API configurada. Si el descubrimiento tiene éxito, la validación verifica que el **LLM deployment name** elegido — y, si se completa, el despliegue de embeddings — esté bien visible en el recurso Azure OpenAI configurado.
-
-Consecuencias prácticas:
-
-- si ningún despliegue es aún visible, el administrador debe crear o activar el despliegue en Azure, luego actualizar **Administración de la plataforma**;
-- si el nombre ingresado no existe en el recurso objetivo, la validación falla y puede listar los despliegues visibles del lado de Azure;
-- si la configuración sigue incompleta, la **prueba de conectividad** no puede completarse;
-- la activación del proveedor sigue bloqueada mientras la configuración, la validación y la prueba no sean conformes.
-
-#### Control recomendado
-
-1. abra **Administración de la plataforma**;
-2. vaya a **AI provider settings**;
-3. complete el **endpoint**, la **API version** y el **modo de autenticación** adaptados a su recurso Azure OpenAI;
-4. elija el **LLM deployment name** exacto visible en el recurso Azure OpenAI del cliente;
-5. agregue si es necesario el **Embeddings deployment name**;
-6. guarde la configuración;
-7. lance **Validate** para verificar la configuración y la visibilidad de los despliegues;
-8. lance **Test** para confirmar la conectividad;
-9. active luego el proveedor si el inquilino debe realmente cambiar a esta configuración;
-10. controle finalmente **Registro de IA** en un run real.
-
-Mientras esta etapa no esté finalizada, la elección **Azure OpenAI** en el despliegue describe bien el proveedor objetivo, pero aún no el despliegue LLM exacto usado en explotación.
-
-Ver también [Despliegue en Azure Marketplace](./deploiement-azure-marketplace.md).
-
-## Suscripción, entitlement y licencias
-
-El producto gestiona un modelo de licencia con consumo de licencias según el plan.
-
-### Comportamientos observados
-
-- una licencia puede consumirse durante la conexión;
-- el acceso puede bloquearse si no hay más licencias disponibles;
-- la interfaz de administración expone el plan, las licencias compradas y los usuarios licenciados;
-- un administrador puede retirar un usuario licenciado, luego liberar la capacidad para una reasignación posterior;
-- se sigue una ventana de retiro de 24 h para evitar rotaciones abusivas;
-- el estado comercial también puede exponer `billing state`, `payment state`, `subscription status` y `entitlement flags`.
+- el **plan** activo;
+- el número de **asientos comprados**;
+- el número de **asientos disponibles**;
+- los usuarios ya licenciados;
+- el estado comercial, por ejemplo `billing state`, `payment state` o `subscription status`.
 
 ### Por qué es importante
 
-Un incidente de acceso no siempre es un problema de autenticación. También puede venir de una falta de licencias o de un entitlement que bloquea una integración premium o un proveedor de IA.
+Un usuario bloqueado no necesariamente tiene un problema de conexión. El bloqueo puede venir:
 
-## Referencias técnicas de plataforma
+- de una falta de asientos;
+- de un entitlement faltante;
+- de una funcionalidad no incluida en el plan.
 
-La infraestructura Azure observada se basa en los siguientes componentes:
+## Referencias técnicas de la plataforma
+
+La infraestructura Azure observada se basa en:
 
 - Azure Container Apps;
 - Storage;
@@ -293,19 +454,28 @@ La infraestructura Azure observada se basa en los siguientes componentes:
 - Application Insights;
 - Document Intelligence.
 
-## Para recordar para los públicos técnicos
+## A retener
 
-- el nivel **plataforma** controla lo que existe globalmente;
-- el nivel **proyecto** elige lo que realmente se usa localmente;
-- las integraciones deben validarse antes de exponerse a los equipos;
-- la suscripción y los entitlements influyen en el acceso, los conectores y el proveedor de IA;
-- para **Azure OpenAI**, la elección Marketplace debe completarse en **AI provider settings** con el nombre exacto de un despliegue LLM visible en el recurso Azure OpenAI;
-- antes de la activación, la secuencia **Save → Validate → Test** debe confirmar la configuración, la visibilidad de los despliegues y la conectividad;
-- el **Registro de IA** sigue siendo la referencia para el proveedor realmente usado en un run.
+### Para la página Portfolio
+
+- comienza por elegir los buenos proyectos;
+- activa solo las señales útiles para tu revisión;
+- ajusta pesos, umbrales y severidad con intención;
+- usa los **outliers** como punto de partida de investigación, no como veredicto final;
+- abre luego el **Desglose de proyecto** para entender el resultado.
+
+### Para la administración técnica
+
+- el nivel plataforma prepara los conectores y proveedores;
+- el nivel proyecto abre su uso real;
+- la gobernanza decide quién puede actuar;
+- un proveedor IA solo está listo cuando está **registrado, validado, probado y activado**;
+- el **Journal IA** sigue siendo la referencia para confirmar el proveedor realmente usado.
 
 ## Continuación
 
-- [Informes, registro de IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md)
-- [Mantenimiento, soporte y preguntas frecuentes](./maintenance-support-faq.md)
-- [Primeros pasos](./demarrage.md)
+- [Conectores e integraciones](./connecteurs-jira-et-sharepoint)
+- [Despliegue Azure Marketplace](./deploiement-azure-marketplace.md)
+- [Informes, Diario IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md)
+- [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md)
 - [Glosario](./glossaire.md)

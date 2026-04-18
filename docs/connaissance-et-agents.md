@@ -1,18 +1,18 @@
 ---
 title: Knowledge and Agents
 slug: /connaissance-et-agents
-description: Feed the project knowledge base, launch exchanges with agents, and leverage the results.
+description: Feed the project knowledge base, understand agent proactivity, and leverage results up to PM Documents.
 ---
 
-[Home](./index.md) · [Projects and Workspace](./projets-et-espace-de-travail.md) · [Structured Outputs, Evidence, and Freshness](./sorties-contextuelles-preuves-et-fraicheur.md)
+[Home](./index.md) · [Projects and workspace](./projets-et-espace-de-travail.md) · [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md)
 
-![Project Knowledge](/img/screenshots/localized/en/05-knowledge.png)
+![Project knowledge](/img/screenshots/localized/fr/05-knowledge.png)
 
-## Objective
+## Goal
 
 This page explains how to upload or import documents, review the metadata visible in **Knowledge**, and then use the project context in **Agents**.
 
-## Knowledge: What You Can Do
+## Knowledge: what you can do
 
 Observed capabilities:
 
@@ -20,12 +20,12 @@ Observed capabilities:
 - manual upload;
 - data refresh;
 - import from approved sources;
-- review of import history;
-- sorting, filtering, and pagination of results.
+- view import history;
+- sort, filter and paginate results.
 
-## Supported File Types
+## Supported file types
 
-The types explicitly accepted in the interface include:
+The explicitly accepted types in the interface include:
 
 - **PDF**;
 - **DOCX**, **ODT**, **RTF**, **TXT**, **Markdown**;
@@ -36,11 +36,11 @@ The types explicitly accepted in the interface include:
 - **EML**, **EPUB**;
 - **PNG**, **JPG**, **JPEG**, **BMP**, **TIFF**, **HEIF**.
 
-## Import from Approved Sources
+## Import from approved sources
 
-The import mechanism depends on the **Ingestion Providers** validated at the platform level, then made available to the project.
+The import mechanism depends on **ingestion providers** validated at the platform level, then made available to the project.
 
-### What the Import Selector Shows
+### What the import selector shows
 
 Depending on the source, the interface may display:
 
@@ -48,32 +48,32 @@ Depending on the source, the interface may display:
 - a readable **source label**;
 - the date of the last import;
 - a freshness or health status;
-- an explanation of blockage when the source is not usable.
+- an explanation of blockage when the source is unusable.
 
-### When an Import is Blocked
+### When an import is blocked
 
 An import option may be unavailable due to:
 
 - entitlement;
 - permission;
 - policy;
-- degraded health status;
-- project binding absent or not ready.
+- availability status to check;
+- missing or not ready project binding.
 
-## Import History
+## Import history
 
 The import history allows you to verify at minimum:
 
 - the displayed provider name;
 - the run status;
-- the freshness after import;
-- the `trace ID`;
-- volumes discovered, imported, ignored, or failed;
+- freshness after import;
+- the `Trace ID`;
+- volumes discovered, imported, ignored or marked as incomplete;
 - the end date when available.
 
-## Reading the Document List and Search
+## Reading the document list and search
 
-### Visible Document States
+### Visible document states
 
 The document table exposes at least the following states:
 
@@ -81,9 +81,9 @@ The document table exposes at least the following states:
 - **Ingesting**;
 - **Failed**.
 
-A document visible but not yet retrievable in search is often still in the **Ingesting** phase.
+A visible document that is not yet searchable is often still in the **Ingesting** phase.
 
-### Metadata Visible in Search Results
+### Metadata visible in search results
 
 Search results may display:
 
@@ -94,118 +94,158 @@ Search results may display:
 - freshness badge;
 - **source system** badge;
 - **Open source** link;
-- `Trace ID` of the search.
+- search `Trace ID`.
 
-These elements help quickly judge the provenance, quality, and reusability of evidence.
+These elements help quickly judge provenance, quality and reusability of evidence.
 
-![Search Results in Knowledge](/img/screenshots/localized/en/05-knowledge-search-results.png)
+![Search results in knowledge](/img/screenshots/localized/fr/05-knowledge-search-results.png)
 
-![Agents View](/img/screenshots/localized/en/04-agents.png)
+![Agents view](/img/screenshots/localized/fr/04-agents.png)
 
-## Agents: Role of the Page
+## Agents: page role
 
-The **Agents** page leverages the project context in guided conversation.
+The **Agents** page leverages the project context in a guided conversation.
 
 Confirmed functions:
 
 - list of available agents;
-- summary card of the selected agent with **kind**, **scope**, **status**, and covered domains;
+- summary card of the selected agent with **kind**, **scope**, **status** and covered domains;
 - conversation area;
-- structured outputs and evidence elements;
+- structured outputs and evidence items;
 - sessions saved in the browser;
 - creation and deletion of custom agents according to rights;
-- voice mode if the browser supports it.
+- voice input in **Agents** if the environment still supports it.
 
-## How to Quickly Choose an Agent
+## ProPM Agent proactivity
+
+Proactivity in ProPM Agent does not mean an agent acts alone outside the project. The observed behavior is more controlled: the platform detects situations to monitor, surfaces them as **signals**, can prepare a **digest**, propose a **draft** or a **governed action**, then leaves the user or approver to decide the next step.
+
+![Proactivity, digests and governed actions](/img/diagrams/fr/proactivite-et-gouvernance.svg)
+
+### Observed triggers
+
+Proactivity can be fueled by:
+
+- insufficient **freshness**;
+- a **contradiction** between evidence;
+- an operational **blockage**;
+- a **planning pressure** or **costs** visible in the portfolio;
+- **unfinished executions**;
+- a follow‑up requiring dissemination, validation or relaunch.
+
+### Where proactivity becomes visible
+
+- **Workspace**: signal feed and items to review;
+- **Governance, decisions and actions**: digests, notification drafts, action requests;
+- **Portfolio command center**: project comparison by indicators;
+- **AI Journal**: traceability of the decision chain.
+
+### What proactivity does not do alone
+
+- it does not bypass roles;
+- it does not bypass policies;
+- it does not automatically publish outside the application without a governed path;
+- it remains explainable by evidence, freshness and visible statuses.
+
+## How to pick an agent quickly
 
 When multiple cards are visible, read them in this order:
 
-| Field | What to Look at First | Useful Reflex |
+| Field | What to look at first | Useful reflex |
 | --- | --- | --- |
 | `kind` | agent type or business specialization | start with the agent whose role directly matches the expected task |
 | `scope` | agent visibility scope | check if the agent is limited to the current project or visible more broadly |
-| `status` | practical availability of the agent | if the status doesn't inspire confidence, switch to a standard agent before escalating |
-| covered domains | topics announced on the card | use them to avoid assigning a planning request to an agent focused on governance or documents |
+| `status` | practical availability of the agent | if the status does not inspire confidence, move to a standard agent before escalating |
+| covered domains | topics announced on the card | use them to avoid assigning a planning request to an agent oriented to governance or documents |
 
-In practice, first choose a **standard agent** if you are looking for a well-known nominal path. Switch to a **custom agent** when the team needs more specialized instructions, tone, or work scope.
+In practice, first choose a **standard agent** if you want a well‑known nominal path. Switch to a **custom agent** when the team needs instructions, tone or a more specialized work scope.
 
-## How to Work with Agents
+## How to work with agents
 
-1. **verify the active project**;
+1. **check the active project**;
 2. **choose the appropriate agent**;
-3. formulate an actionable request with objective, scope, and expected format;
+3. formulate a usable request with objective, scope and expected format;
 4. review the **structured output** before any reuse.
 
-The interface also allows searching within the agent roster to reach the right specialist faster.
+The interface also allows searching the agent roster to reach the right specialist faster.
 
-## Sessions and Local Memory
+## Agents to PM Documents, DOCX and XLSX
+
+Agents do not jump directly to a final distributed file. The observed flow is more progressive:
+
+1. an agent produces a **structured output**;
+2. this output can feed an **artifact** or a **PM Document**;
+3. narrative content goes to a **DOCX** rendering;
+4. tabular or matrix content goes to an **XLSX** rendering;
+5. review, approval, download and publication then occur in [Reports, AI Journal and traceability](./rapports-journal-ia-et-tracabilite.md).
+
+## Sessions and local memory
 
 Chat history is local to the browser. In practice:
 
-- saved continuity is attached to the **project + agent** pair in the current browser;
-- a session is memorized locally on the workstation used;
-- changing browsers or machines may cause a saved thread to disappear;
-- the first prompt generally serves as the session title, facilitating resumption;
-- the browser should not be treated as a central shared archive.
+- continuity saved is tied to the **project + agent** pair in the current browser;
+- a session is stored locally on the machine used;
+- changing browser or machine can cause a saved thread to disappear;
+- the first prompt usually serves as the session title, which aids resume;
+- do not treat the browser as a shared central archive.
 
-## Custom Agents
+## Custom agents
 
-Creating custom agents depends on the level of rights. Key points to remember are:
+Creating custom agents depends on the level of rights. Key points to remember:
 
 - not all users can create an agent;
-- the creation dialog reminds you of the **project context** active before saving;
-- visible fields include at minimum **Name**, **Role / instructions**, and **Scope**;
-- choose **Project only** by default, unless the environment explicitly exposes a broader scope;
-- if the **All projects** option is available, the agent is created from the current project but may remain visible in other projects for the same account;
-- if a multi-project agent does not appear elsewhere, first verify the same account and access to the target project;
+- the creation dialog recalls the active **project context** before saving;
+- visible fields cover at minimum **Name**, **Role / instructions** and **Scope**;
+- choose **Project only** by default, unless the environment explicitly exposes a wider scope;
+- if the **All projects** option is available, the agent is created from the current project but can remain visible in other projects for the same account;
+- if a multi‑project agent does not appear elsewhere, first check the same account and access to the target project;
 - deletion of a custom agent remains controlled;
-- a custom agent remains governed by project and platform rules.
+- a custom agent remains governed by the project and platform rules.
 
-### Quick Example of Choice
+### Quick choice example
 
-| Need | Recommended Choice |
+| Need | Recommended choice |
 | --- | --- |
-| nominal usage, broad team, predictable behavior | standard agent |
+| nominal usage, large team, predictable behavior | standard agent |
 | specific instructions, team tone, specialized workflow | custom agent |
 | usage limited to a single project context | **Project only** |
-| same agent reusable in multiple projects of the same account | **All projects** if the option is actually exposed |
+| same agent reusable in multiple projects of the same account | **All projects** if the option is truly exposed |
 
-![Custom Agent Creation](/img/screenshots/localized/en/04-custom-agent-create.png)
+![Creating a custom agent](/img/screenshots/localized/fr/04-custom-agent-create.png)
 
-## Voice and Browser Compatibility
+## Voice input in Agents
 
-Voice is exposed in the **Agents** experience. It explicitly depends on browser support for speech recognition APIs.
+This documentation no longer describes a separate **voice** entry point in the **Workspace**. When voice input is still available, it is limited to the **Agents** experience and depends explicitly on browser support for speech recognition APIs.
 
-If voice is not available:
+If voice input is not available:
 
 - use text input;
 - check browser microphone permissions;
-- distinguish a browser limitation from an application problem;
-- speech recognition adds text to the composer: review it before **Send**;
-- if the microphone button is unavailable or an incompatibility message appears, immediately switch to text input;
-- if the problem persists, first check support for `SpeechRecognition` / `webkitSpeechRecognition`, then microphone permission.
+- distinguish a browser limitation from a local environment constraint;
+- always review the text added in the composer before **Send**;
+- if the mic button is unavailable or an incompatibility message appears, switch immediately to text input.
 
-### Practical Guidelines for Voice
+### Practical voice input cues
 
-| Symptom | Check First | Useful Reflex |
+| Symptom | First check | Useful reflex |
 | --- | --- | --- |
-| Microphone button missing or inactive | support for `SpeechRecognition` / `webkitSpeechRecognition` | immediately switch to text input |
-| Microphone authorization denied | browser or OS microphone permission | reauthorize the microphone then restart listening |
-| Incomplete transcription | text added to the composer | review, correct, and complete before **Send** |
-| Occasional error during listening | browser state or current session | stop capture, resume with keyboard, then try again later |
+| mic button missing or inactive | support for `SpeechRecognition` / `webkitSpeechRecognition` | switch immediately to text input |
+| mic permission denied | browser or OS mic permission | re‑authorize mic then restart listening |
+| incomplete transcription | text added in the composer | review, correct and complete before **Send** |
+| occasional error during listening | browser or current session state | stop capture, resume with keyboard, then try again later |
 
-Text input remains the nominal fallback path. It allows work to continue without blocking the run on a local browser issue.
+Text input remains the default fallback path. It allows work to continue without interrupting the run due to a local browser constraint.
 
-## Best Practices
+## Best practices
 
 - load reliable and recent sources into **Knowledge** before a major analysis;
-- review import history when a managed source seems absent;
+- review import history when a managed source seems missing;
 - explicitly request **evidence** or **citations** if the decision must be justified;
-- if a response contains `stale`, `conflicting`, or `unavailable` states, open the page [Structured Outputs, Evidence, and Freshness](./sorties-contextuelles-preuves-et-fraicheur.md) before publication.
+- if a response contains `stale`, `conflicting` or `unavailable` states, open the page [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md) before publishing.
 
 ## Next
 
-- [Structured Outputs, Evidence, and Freshness](./sorties-contextuelles-preuves-et-fraicheur.md)
-- [Governance, Decisions, and Actions](./gouvernance-decisions-et-actions.md)
-- [Reports, AI Log, and Traceability](./rapports-journal-ia-et-tracabilite.md)
-- [Maintenance, Support, and FAQ](./maintenance-support-faq.md)
+- [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md)
+- [Governance, decisions and actions](./gouvernance-decisions-et-actions.md)
+- [Reports, AI Journal and traceability](./rapports-journal-ia-et-tracabilite.md)
+- [Maintenance, support and FAQ](./maintenance-support-faq.md)

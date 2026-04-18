@@ -1,189 +1,377 @@
 ---
 title: Azure Marketplace Deployment
 slug: /deploiement-azure-marketplace
-description: Launch a ProPM Agent deployment from Azure Marketplace, fill in the current fields in the wizard, and finalize Azure OpenAI after installation.
+description: Deploy ProPM Agent from Azure Marketplace, choose the AI provider during installation, and finalize the onboarding in the administration.
 ---
 
-[Home](./index.md) · [Getting Started](./demarrage.md) · [Portfolio and Technical Administration](./portefeuille-et-administration-technique.md)
+[Home](./index.md) · [Getting Started](./demarrage.md) · [Portfolio and technical administration](./portefeuille-et-administration-technique.md)
 
 ## Objective
 
-This page documents the deployment journey observed in the Azure Portal wizard for the Marketplace ProPM Agent offer, based on the provided screenshots and the parameters confirmed in the repository.
+This page explains how to deploy **ProPM Agent** from **Azure Marketplace**, then how to properly finish the onboarding on the client side.
 
-## Before Launching the Deployment
+The essential point to remember is simple:
 
-Prepare at a minimum:
+- **Azure Marketplace installs the platform**;
+- the **LLM Provider** field allows selecting the **AI provider family** used by the environment;
+- the final onboarding of the AI provider is then completed in **Platform Administration > AI Provider Settings**.
 
-- The target **Azure subscription**;
-- The **resource group** and **Azure region** strategy;
-- The **Group Object IDs** for the platform administrators in Entra ID;
-- The bootstrap users if you plan to use them;
-- The choice of **LLM Provider**;
-- If you select **Azure OpenAI**, the administrator who will finalize the LLM deployment later in **Platform Administration**;
-- Additional **CORS** origins if needed;
-- A compatible addressing plan for the **VNet CIDR**;
-- The post-deployment steps for Entra ID authentication and the first connection test.
+In other words, deployment alone does not make the AI provider immediately usable for end users.
 
-## Step 1 — **Basics** Tab
+## What an administrator decides during deployment
 
-The first step is to define the Azure scope of the deployment.
+During the Marketplace wizard, the administrator decides on:
 
-![Basics tab of the Azure Marketplace deployment](/img/deploiement/deploiement-01-onglet-base.png)
+- which **Azure subscription** to deploy the solution into;
+- which **resource group** and which **region**;
+- which **Entra groups** will administer the platform;
+- which **primary AI provider** the environment will use;
+- what initial rules for **CORS**, **logging**, **monitoring** and **network** to apply.
 
-### Visible Fields
+## What follows after deployment
 
-| Field | Usage |
+After installation, the platform administrator must still:
+
+1. open **Platform Administration**;
+2. go to **AI Provider Settings**;
+3. complete the fields specific to the chosen provider;
+4. save the configuration;
+5. launch **Validate**;
+6. launch **Test**;
+7. launch **Activate**;
+8. then confirm the actually used provider in the **AI Log**.
+
+## Before launching the deployment
+
+Prepare at minimum:
+
+- the target **Azure subscription**;
+- the main **resource group** and **region**;
+- the **Entra Group Object IDs** of platform administrators;
+- any **bootstrap users**;
+- the choice of **AI provider** to use at launch;
+- if you choose **Azure OpenAI**, the administrator who will later finalize the **LLM deployment name** in the administration;
+- any additional **CORS origins** if the application must be called from other domains;
+- a compatible addressing plan for the **VNet CIDR**;
+- preparation of the first connection test and **Entra redirect URIs**.
+
+## Step 1 — Basic tab
+
+The first step defines the Azure scope of the deployment.
+
+![Basic tab of Azure Marketplace deployment](/img/deploiement/deploiement-01-onglet-base.png)
+
+### Visible fields
+
+| Field | What it is for |
 | --- | --- |
-| Subscription | Selects the Azure subscription that will host the deployment |
-| Resource Group | Defines the main resource group for the deployment |
-| Region | Defines the deployment region for the managed application |
-| Application Name | Defines the name of the published instance |
-| Managed Resource Group | Defines the managed group created for the solution's internal resources |
+| Subscription | Selects the Azure subscription that will host the installation |
+| Resource group | Defines the main resource group of the deployment |
+| Region | Defines the Azure region of the Marketplace instance |
+| Application name | Gives the instance name of ProPM Agent |
+| Managed resource group | Defines the managed group that will receive the solution’s internal resources |
 
-The screenshot also shows the **Create new** dialog for the resource group.
+## Step 2 — Application Settings tab
 
-## Step 2 — **Application Settings** Tab
+This screen groups identity, AI provider, initial security, monitoring and network settings.
 
-The currently observed version of the **Application Settings** tab no longer shows a **Platform Region** field. This screen now groups identity, AI provider, initial security, monitoring, and network parameters.
+![Current application settings of the deployment](/img/deploiement/fr/deploiement-02-application-settings-actuel.png)
 
-![Current application settings for the deployment](/img/deploiement/fr/deploiement-02-application-settings-actuel.png)
+### Visible fields in the screenshot
 
-### Visible Fields in the Screenshot
-
-| Field | Observed Usage |
+| Field | Simple reading |
 | --- | --- |
-| Environment Name | Short environment name, e.g., `dev`, `test`, or `prod` |
-| Platform Administration Entra Group Object IDs | Entra ID group(s) used for platform administration |
-| Platform Administration Bootstrap Users (optional) | Optional bootstrap users |
-| Allow Azure RBAC admin recovery | Enables admin recovery based on Azure RBAC |
-| LLM Provider | Chooses the AI provider used by the platform; if Azure OpenAI is selected, the final LLM selection is made later in administration |
-| CORS Allowed Origins | Defines additional allowed web origins |
-| Enable alerting (Azure Monitor) | Enables Azure Monitor alerting supervision |
-| Enable debug logging | Enables more detailed diagnostic logs |
-| Password / Confirm Password | Sets the initial password required by the wizard |
-| VNet CIDR | Defines the private network range for the platform |
+| Environment Name | Short environment name, e.g. `dev`, `test` or `prod` |
+| Platform Administration Entra Group Object IDs | Entra groups authorized to administer the platform |
+| Platform Administration Bootstrap Users (optional) | Backup or bootstrap users if you use them |
+| Allow Azure RBAC admin recovery | Allows an Azure RBAC‑based admin recovery |
+| LLM Provider | Chooses the AI provider family used by the environment |
+| CORS Allowed Origins | Lists additional web domains allowed |
+| Enable alerting (Azure Monitor) | Enables Azure Monitor alerting |
+| Enable debug logging | Enables more detailed logs for in‑depth technical reading |
+| Password / Confirm password | Sets the initial password requested by the wizard |
+| VNet CIDR | Defines the private network range reserved for the platform |
 
-Important points: In the current version of the form, the region choice is no longer made in this tab. The deployment region remains defined in the **Basics** tab. The Entra ID groups must be prepared before deployment, and the **VNet CIDR** must not conflict with your existing addressing plan.
+### Important point
 
-The **LLM Provider** field remains the point for choosing the AI provider; the **Azure OpenAI** case adds a post-deployment administration step.
+In the current form version, the **region** is no longer selected in this tab. It remains defined in the **Basic** tab.
 
-## Step 3 — **Azure OpenAI** Case During Deployment
+## Step 3 — Choose the AI provider during deployment
 
-The following screenshot shows the observed behavior when **LLM Provider** is set to **Azure OpenAI (marketplace-managed account)**.
+The **LLM Provider** field is not only for Azure OpenAI. It allows choosing one of the AI providers visible in the product.
 
-![Azure OpenAI selection with indication of later configuration in administration](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed.png)
+### The 5 cases to know
 
-The help text visible under the field confirms two important points:
+| AI Provider | When to choose | Main advantage | What you decide during deployment | What you finish in the administration |
+| --- | --- | --- | --- | --- |
+| **Azure OpenAI** | if the client’s environment is already centered on Azure, Entra, private network and Microsoft governance | natural integration into the Azure ecosystem | you choose Azure OpenAI as the target provider | you provide the endpoint, API version, authentication mode and especially the **LLM deployment name** |
+| **OpenAI** | if the client wants to use the OpenAI platform directly | simple, direct configuration | you choose OpenAI as the target provider | you complete the URL used, the API key or secret reference, the default model, then validate and activate |
+| **Anthropic** | if the client wants to use Claude models for document or synthesis use cases | good choice for text‑centric workflows | you choose Anthropic as the target provider | you complete the connection, secret reference and default model, then validate and activate |
+| **OpenRouter** | if the client wants to compare several model families via a single entry point | one connection for multiple models and routing scenarios | you choose OpenRouter as the target provider | you complete the Base URL, API key and default model, then validate and activate |
+| **OpenAI‑compatible** | if the client uses a partner gateway, a corporate endpoint or a self‑hosted runtime | allows connecting a compatible implementation without changing the product | you choose OpenAI‑compatible as the target provider | you complete the exact endpoint, authentication and expected model or deployment |
 
-- The Azure OpenAI account / endpoint preparation is done during deployment;
-- The final **LLM / deployment** selection is completed later in **Platform Administration > AI Provider Settings**.
+### Simple rule to remember
 
-### What This Implies
+Deployment **designates** the provider. Administration **makes the provider operational**.
 
-| Timing | Decision Made |
+## What the end user actually perceives
+
+For the end user, the chosen provider influences:
+
+- the **models** actually used;
+- the level of **technical governance** imposed by the organization;
+- how the admin team manages **keys**, **secrets** and **deployments**;
+- sometimes the **speed of onboarding** or the **flexibility of model change**.
+
+But the end user does not need to understand the whole installation mechanism. Their need is simply that the provider is:
+
+- configured;
+- validated;
+- tested;
+- activated;
+- traceable in the **AI Log**.
+
+## Case 1 — Azure OpenAI
+
+The screenshot below shows the observed behavior when **LLM Provider** is set to **Azure OpenAI**.
+
+![Azure OpenAI selection with indication of subsequent configuration in the administration](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed.png)
+
+### When this choice is relevant
+
+Choose **Azure OpenAI** when the client:
+
+- already works mainly in Azure;
+- wants a strong framework around **Entra**, the network and Microsoft governance;
+- wants to select specific deployments in their Azure OpenAI resource.
+
+### What this implies during deployment
+
+During Marketplace:
+
+- you choose **Azure OpenAI** as the provider;
+- the installation may prepare the associated Azure connection;
+- the selection of the exact **LLM deployment** is not finished here.
+
+### What still needs to be done after installation
+
+After deployment, open **Platform Administration > AI Provider Settings** and confirm or fill in:
+
+- **Endpoint** of the Azure OpenAI resource;
+- **API version**;
+- **Authentication mode** (`managed_identity` or `api_key`);
+- exact **LLM deployment name**;
+- optionally **Embeddings deployment name**.
+
+### Important specificity
+
+If the deployment has already installed a secret or key for Azure OpenAI, the interface may indicate that no **API key visible to the user** is required in this form. In that case, the administrator focuses mainly on the deployment name and connectivity tests.
+
+## Case 2 — OpenAI
+
+### When this choice is relevant
+
+Choose **OpenAI** when the client wants to use the OpenAI APIs directly, without going through Azure OpenAI or an intermediate gateway.
+
+### Practical advantages
+
+- configuration is generally more direct;
+- simple reading for a team already standardizing on OpenAI;
+- no need to manage an Azure deployment name.
+
+### What you decide during deployment
+
+During Marketplace, you simply decide that the environment will use **OpenAI** as the main provider.
+
+### What still needs to be done after installation
+
+In **AI Provider Settings**, then complete:
+
+- the **Base URL** or endpoint used by the product;
+- the **default model**;
+- the **API key** or **secret reference**;
+- the **Save → Validate → Test → Activate** sequence.
+
+### Impact on the client
+
+The end user does not need to see these settings. What matters is that the administrator has confirmed connectivity and the actually used model.
+
+## Case 3 — Anthropic
+
+### When this choice is relevant
+
+Choose **Anthropic** when the client prefers Claude models, especially for synthesis, context reading and document work.
+
+### Practical advantages
+
+- good positioning for text‑centric workflows;
+- clear administration when the organization already knows it wants this model family.
+
+### What you decide during deployment
+
+During Marketplace, you indicate that **Anthropic** is the target provider.
+
+### What still needs to be done after installation
+
+In **AI Provider Settings**, complete:
+
+- the **connection** to the provider;
+- the **secret** or secret reference;
+- the **default model**;
+- then launch **Save → Validate → Test → Activate**.
+
+## Case 4 — OpenRouter
+
+### When this choice is relevant
+
+Choose **OpenRouter** when the client wants to access several model families via a single entry point, e.g. to compare results or adjust routing more easily.
+
+### Practical advantages
+
+- one connection on the platform side;
+- useful for comparing multiple models;
+- handy when the organization wants to keep routing flexibility.
+
+### What you decide during deployment
+
+During Marketplace, you indicate that the environment will use **OpenRouter** as the main provider.
+
+### What still needs to be done after installation
+
+In **AI Provider Settings**, then complete:
+
+- the **Base URL**;
+- the **API key** or secret reference;
+- the default model;
+- then launch **Save → Validate → Test → Activate**.
+
+### Simple example
+
+A client wants to start quickly, compare several models and then stabilize their choice later. **OpenRouter** is then a good candidate for an initial framing phase.
+
+## Case 5 — OpenAI‑compatible
+
+### When this choice is relevant
+
+Choose **OpenAI‑compatible** when the client does not use direct OpenAI or Azure OpenAI, but a **compatible endpoint**, e.g.:
+
+- a corporate gateway;
+- a partner solution;
+- a self‑hosted compatible runtime.
+
+### Practical advantages
+
+- allows connecting a compatible provider without changing ProPM Agent;
+- useful when the client’s architecture requires a specific IA entry point;
+- good choice for a tenant that wants to keep an internal control or routing layer.
+
+### What you decide during deployment
+
+During Marketplace, you indicate that the environment will use an **OpenAI‑compatible** provider.
+
+### What still needs to be done after installation
+
+In **AI Provider Settings**, then complete:
+
+- the exact **Base URL** or endpoint;
+- the expected **authentication mode**;
+- the **key** or **secret reference**;
+- the **model** or expected deployment;
+- then launch **Save → Validate → Test → Activate**.
+
+### Point of caution
+
+Here, the main issue is the **real compatibility** of the endpoint. A recorded configuration is not enough: the **Validate + Test** pair is essential.
+
+## Common path after installation for all AI providers
+
+Regardless of the provider chosen at deployment, always follow this path:
+
+1. open **Platform Administration**;
+2. go to **AI Provider Settings**;
+3. select the provider to prepare;
+4. fill in the required fields;
+5. click **Save** to record;
+6. click **Validate** to check consistency;
+7. click **Test** to verify real connectivity;
+8. click **Activate** to make the provider effective for end users;
+9. then open **AI Log** to confirm the provider actually used on a real run.
+
+### How to read the admin buttons
+
+| Button | What it means |
 | --- | --- |
-| Marketplace Deployment | Azure OpenAI is selected as the target provider and the associated Azure integration is prepared |
-| Platform Administration > AI provider settings | The administrator chooses the actual Azure OpenAI deployment visible in the customer's Azure OpenAI resource |
-| AI Log | The effective provider and actual model family used are then verified |
+| Save | records the entered configuration |
+| Validate | checks that the expected fields are coherent |
+| Test | verifies real connectivity with the provider |
+| Activate | makes the provider operational for end users |
 
-### What the Deployment Does Not Complete on Its Own
+## Pre‑check before Verify + create
 
-Selecting **Azure OpenAI** in the Marketplace is not enough to make the provider directly usable for end users. After installation, you still need to:
+Before launching creation:
 
-1. Open **Platform Administration**;
-2. Fill in or confirm the provider parameters in **AI provider settings**;
-3. Choose the actual **LLM deployment name** visible on the Azure OpenAI side;
-4. Run **Save → Validate → Test → Activate** before considering the provider as operational;
-5. Finally confirm the result on a real run in the **AI Log**.
+1. verify the subscription, region and resource groups;
+2. reread the Entra groups and any bootstrap users;
+3. confirm the chosen AI provider;
+4. if **Azure OpenAI** is selected, clearly identify who will finalize the **LLM deployment name** after installation;
+5. check network, monitoring and password settings.
 
-| Case | What is decided at deployment | What is finalized later in administration |
-| --- | --- | --- |
-| Azure OpenAI (`marketplace-managed account`) | Target provider and preparation of Azure integration | Selection of LLM deployment, validation, test, and activation |
-| Other provider chosen in `LLM Provider` | Target provider choice during installation | Final checks, any secrets, validation, and activation according to the provider |
+## After deployment
 
-### Recommended Journey After Installation
+### Minimum technical checks
 
-1. Complete the Marketplace deployment;
-2. Open **Platform Administration**;
-3. Go to **AI provider settings**;
-4. Select the Azure OpenAI deployment / LLM to use from those visible in the customer's Azure OpenAI resource;
-5. Save the configuration;
-6. Run a test run and check the result in the **AI Log**.
+1. note the actual published **web URL**;
+2. verify the **API URL** and, if exposed, the **WebSocket URL**;
+3. verify the availability of `/runtime-config.json`;
+4. validate consistency between the published URL and the **Entra redirect URIs**;
+5. open **Platform Administration > AI Provider Settings** and confirm the chosen provider is properly prepared;
+6. then verify that the expected state passes through **Configuration → Validation → Test → Operational**.
 
-For the detailed validation and admin operation sequence, see also [Portfolio and Technical Administration](./portefeuille-et-administration-technique.md).
+### Entra authentication
 
-## Verification Before **Review + create**
-
-Before validating:
-
-1. Check the subscription, region, and resource groups;
-2. Review the Entra ID groups and bootstrap users;
-3. Confirm the chosen LLM provider;
-4. If **Azure OpenAI** is selected, identify who will finalize the LLM deployment in administration after installation;
-5. Check the network, monitoring, and password values.
-
-## After Deployment
-
-### Minimum Technical Checks
-
-1. Note the actual published **web URL**;
-2. Check the **API** URL and, if exposed, the **WebSocket** URL;
-3. Check the availability of **`/runtime-config.json`**;
-4. Validate consistency between the published URL and the Entra ID **redirect URIs**;
-5. If **Azure OpenAI** was selected, open **Platform Administration > AI provider settings** and verify that the expected deployment / LLM is selected.
-
-### Entra ID Authentication
-
-Depending on your deployment mode, verify or finalize the Entra ID application registration:
+Depending on your deployment mode, verify or finalize the Entra application registration:
 
 - `clientId`;
-- `authority` / tenant;
+- `authority` or tenant;
 - `scopes`;
 - `redirectUri` and `postLogoutRedirectUri`;
-- If necessary, the exposed API and its scopes.
+- if needed, the exposed API and its scopes.
 
-### First Functional Test
+### First functional test
 
 After publication, perform at least:
 
-- A connection with a standard user account;
-- A connection with an expected admin account;
-- Opening **Projects**;
-- Opening the **Dashboard**;
-- A quick check of **Platform Administration > AI provider settings** if Azure OpenAI was selected;
-- A check of the **AI Log** to confirm the effective provider and model family used.
+- a login with a standard user account;
+- a login with an expected admin account;
+- opening **Projects**;
+- opening the **Dashboard**;
+- opening **Platform Administration > AI Provider Settings**;
+- a **Save → Validate → Test → Activate** on the chosen provider if not already done;
+- a check of the **AI Log** to confirm the provider actually used and the model family.
 
-## Handover to the First Test User
+### Information to pass to the client team
 
-Once the deployment is technically validated, formalize a brief handover to the acceptance tester or the first project owner:
+Once the platform is technically validated, provide at minimum:
 
-1. Provide the actual usable **published URL**;
-2. Confirm the expected **tenant** and, if necessary, the invitation rule for **guest** accounts;
-3. Ask the tester to follow the [Getting Started](./demarrage.md) page for the first connection and project creation or selection;
-4. If **Azure OpenAI** was selected, confirm that the LLM has been specified in **Platform Administration** before the first run;
-5. If the first test fails, immediately retrieve the test time, the exact symptom, and, when available, the first useful **Trace ID** for support.
+1. the actual **published URL**;
+2. the expected tenant and, if needed, the rule for inviting **guest** accounts;
+3. the first test account or group;
+4. the AI provider actually ready for use;
+5. the [Getting Started](./demarrage.md) page to follow for the first login.
 
-This handover reduces false diagnostics between a technically successful deployment and user access that is still incomplete.
+### Useful checkpoints after installation
 
-## Frequent Incidents After Installation
+| Point to check | Why it matters |
+| --- | --- |
+| Published URL and Entra redirect URIs | avoids first access blocked despite a successful deployment |
+| Administration groups and bootstrap users | ensures initial entry into administration |
+| Chosen AI provider | avoids confusing a declared provider with an actually operational one |
+| Validation and Test | confirms the configuration is not just recorded but usable |
+| AI Log | confirms the actually used provider on a run |
+| Azure monitoring | ensures the requested observability is active |
 
-- **`redirect URI mismatch`**: The published URL does not match the Entra ID Redirect URIs;
-- **`unauthorized_client`**: Client ID in the wrong tenant or incompatible authority;
-- **resource principal not found**: The API or its scope exposure is not fully configured;
-- **no more seats available**: Entra ID connection succeeds but product access remains blocked;
-- **incomplete Azure OpenAI configuration**: The provider was chosen at deployment but no LLM deployment has been confirmed yet in **AI provider settings**;
-- **Azure provider not registered for alerting**: Some Azure Monitor resources may fail if the required provider is not registered.
-
-## Quality of Integrated Screenshots
-
-The three screenshots integrated on this page show **no visible error messages** or failure banners.
-
-- The first screenshot shows a resource group creation dialog with an empty field, no error displayed;
-- The second screenshot shows the current version of the **Application Settings** tab, with no **Platform Region** field visible;
-- The third screenshot shows **Azure OpenAI (marketplace-managed account)** selected, with help text that explicitly refers to the final LLM choice in administration.
-
-## Next Steps
+## Next
 
 - [Getting Started](./demarrage.md)
-- [Portfolio and Technical Administration](./portefeuille-et-administration-technique.md)
-- [Maintenance, Support, and FAQ](./maintenance-support-faq.md)
+- [Portfolio and technical administration](./portefeuille-et-administration-technique.md)
+- [Maintenance, support and FAQ](./maintenance-support-faq.md)

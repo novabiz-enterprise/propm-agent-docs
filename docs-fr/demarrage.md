@@ -46,7 +46,7 @@ Les éléments suivants sont explicitement prévus par la configuration observé
 | `redirectUri` et `postLogoutRedirectUri` | Contrôlent les retours après connexion et déconnexion |
 | `allowedTenantId` | Restreint, si configuré, le tenant autorisé |
 | `/runtime-config.json` | Surcharge dynamique des URLs et paramètres d’authentification au runtime |
-| URL API et URL WebSocket | Permettent au frontend de joindre les services backend et le temps réel |
+| URL API et URL WebSocket | Permettent à l’interface web de joindre les services de plateforme et le temps réel |
 | Abonnement / sièges | Conditionne l’accès dans les déploiements qui imposent une licence par utilisateur |
 
 ## Parcours de première connexion
@@ -71,7 +71,7 @@ Cette distinction est importante pour les zones d’administration : on peut par
 
 Si tout est correctement configuré, vous devez pouvoir :
 
-- atteindre le **Tableau de bord** sans erreur bloquante ;
+- atteindre le **Tableau de bord** dans de bonnes conditions ;
 - ouvrir **Projets** ;
 - sélectionner ou créer un projet ;
 - accéder ensuite à **Espace de travail**, **Connaissance**, **Agents**, **Rapports & artefacts** et **Journal IA** selon vos droits.
@@ -123,9 +123,9 @@ Après un nouveau déploiement, vérifiez au minimum :
 8. la consommation ou disponibilité des **sièges** si le plan l’impose ;
 9. un premier test de connexion avec un compte utilisateur standard et un compte administrateur.
 
-## Incidents fréquents de première connexion
+## Vérifications fréquentes lors de la première connexion
 
-### Le compte Microsoft s’authentifie, mais l’application reste bloquée
+### Le compte Microsoft s’authentifie, mais l’accès n’aboutit pas encore comme prévu
 
 Vérifiez dans cet ordre :
 
@@ -134,7 +134,7 @@ Vérifiez dans cet ordre :
 3. la disponibilité d’un **siège** si le plan applique une licence par utilisateur ;
 4. l’existence d’au moins un projet accessible pour ce compte.
 
-### Erreur de tenant ou compte externe / guest
+### Cas tenant ou compte externe / guest
 
 Si Microsoft indique que votre compte n’existe pas dans le tenant cible, cela signifie généralement qu’il doit être invité comme **utilisateur externe / guest** dans le tenant qui héberge l’application, puis autorisé sur l’application d’entreprise ou via un groupe.
 
@@ -150,31 +150,31 @@ Ce symptôme indique généralement que l’inscription d’application ne se tr
 
 Cela signifie souvent que le compte est authentifié mais n’a pas été résolu comme administrateur plateforme modifiable. Vérifiez les groupes d’administration, le tenant du jeton et la méthode de résolution d’admin utilisée par votre environnement.
 
-### Connexion OK, tableau de bord chargé, mais panneau de santé dégradé
+### Connexion OK, tableau de bord chargé, mais une vérification complémentaire est utile
 
-Ce cas indique souvent que l’authentification a réussi mais que le runtime, le temps réel ou la connectivité restent partiellement dégradés. Ouvrez l’**indicateur de santé**, relevez l’état **API**, **realtime / WebSocket**, **auth**, la **latence** et le **projet courant**, puis poursuivez vers [Interface et navigation](./interface-et-navigation.md) pour lire le panneau et vers [Maintenance, support et FAQ](./maintenance-support-faq.md) pour le circuit de remédiation.
+Ce cas indique souvent que l’authentification a réussi mais qu’une vérification complémentaire du runtime, du temps réel ou de la connectivité reste utile. Ouvrez l’**indicateur de santé**, relevez l’état **API**, **realtime / WebSocket**, **auth**, la **latence** et le **projet courant**, puis poursuivez vers [Interface et navigation](./interface-et-navigation.md) pour lire le panneau et vers [Maintenance, support et FAQ](./maintenance-support-faq.md) pour les repères de vérification.
 
-## Arbre de décision rapide — accès bloqué
+## Repères rapides — accès à confirmer
 
-| Symptôme initial | Vérifiez d’abord | Puis |
+| Situation initiale | Vérifiez d’abord | Puis |
 | --- | --- | --- |
 | Microsoft renvoie une erreur avant le retour dans l’application | `authority`, tenant utilisé, `clientId`, `redirectUri`, `postLogoutRedirectUri`, `allowedTenantId` | comparez la configuration runtime et l’inscription Entra, puis refaites un test avec le bon compte |
 | La connexion Microsoft réussit mais l’application reste bloquée | disponibilité d’un **siège**, indicateur de santé, URLs API / WebSocket | vérifiez ensuite l’accès à un projet et les droits réels du compte |
-| La connexion réussit, le tableau de bord charge, mais le panneau de santé est dégradé | états **auth**, **API**, **realtime / WebSocket**, latence et projet actif | ouvrez [Interface et navigation](./interface-et-navigation.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) pour distinguer auth, runtime et contexte projet |
+| La connexion réussit, le tableau de bord charge, mais un contrôle de disponibilité est recommandé | états **auth**, **API**, **realtime / WebSocket**, latence et projet actif | ouvrez [Interface et navigation](./interface-et-navigation.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) pour distinguer auth, runtime et contexte projet |
 | L’application s’ouvre mais aucun projet n’apparaît | sélecteur de projet, liste **Projets**, appartenance au projet, droit de création | demandez au **Project Owner** d’ajouter le compte au bon projet si nécessaire |
 | Une page est visible mais non modifiable | rôle projet ou rôle admin, état **lecture seule** vs **accès refusé** | contrôlez ensuite le groupe d’administration ou les permissions projet concernées |
 
-## Symptôme, preuve à collecter et page suivante
+## Situation, éléments à relever et page suivante
 
-| Symptôme | Preuve à collecter | Page suivante à ouvrir |
+| Situation observée | Éléments à relever | Page suivante à ouvrir |
 | --- | --- | --- |
 | Erreur Microsoft avant retour dans l’application | message exact, capture d’écran, compte utilisé, URL réellement ouverte | [Démarrage](./demarrage.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) si le doute persiste |
-| Tableau de bord chargé mais santé dégradée | états **API**, **realtime**, **auth**, latence, heure du test, projet courant | [Interface et navigation](./interface-et-navigation.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) |
+| Tableau de bord chargé mais vérification de disponibilité utile | états **API**, **realtime**, **auth**, latence, heure du test, projet courant | [Interface et navigation](./interface-et-navigation.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) |
 | Aucun projet visible | capture du sélecteur de projet, e-mail du compte, projet attendu | [Projets et espace de travail](./projets-et-espace-de-travail.md) |
 | Page visible mais contrôles grisés | nom de la page, rôle attendu, capture des boutons désactivés | [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md) ou [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) selon la surface |
 | Connexion OK mais runs qui ne démarrent pas | `Trace ID` si présent, projet actif, indicateur de santé, fournisseur IA attendu | [Maintenance, support et FAQ](./maintenance-support-faq.md), puis [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) |
 
-Pour un incident qui mélange authentification, runtime, projet, siège ou provider IA, utilisez ensuite [Maintenance, support et FAQ](./maintenance-support-faq.md) comme page de diagnostic transverse.
+Pour une situation qui mélange authentification, runtime, projet, siège ou fournisseur IA, utilisez ensuite [Maintenance, support et FAQ](./maintenance-support-faq.md) comme page de vérification transverse.
 
 ## Bonnes pratiques dès le départ
 
@@ -182,7 +182,7 @@ Pour un incident qui mélange authentification, runtime, projet, siège ou provi
 - définissez correctement la langue de données du projet à la création ;
 - vérifiez votre niveau de droit avant de modifier la gouvernance ou l’administration technique ;
 - si votre déploiement utilise un modèle à sièges, contrôlez que votre accès a bien été attribué ;
-- gardez l’URL du déploiement et, si nécessaire, le **trace ID** de l’erreur pour le support.
+- gardez l’URL du déploiement et, si nécessaire, le **Trace ID** affiché pour le support.
 
 ## Suite
 

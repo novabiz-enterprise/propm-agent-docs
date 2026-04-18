@@ -1,189 +1,377 @@
 ---
 title: Azure Marketplace-Bereitstellung
 slug: /deploiement-azure-marketplace
-description: Starten Sie eine ProPM Agent-Bereitstellung über den Azure Marketplace, füllen Sie die aktuellen Felder des Assistenten aus und schließen Sie Azure OpenAI nach der Installation ab.
+description: ProPM Agent über Azure Marketplace bereitstellen, den KI-Anbieter während der Installation auswählen und die Inbetriebnahme anschließend in der Administration abschließen.
 ---
 
-[Startseite](./index.md) · [Erste Schritte](./demarrage.md) · [Portfolio und technische Administration](./portefeuille-et-administration-technique.md)
+[Startseite](./index.md) · [Start](./demarrage.md) · [Portfolio und technische Verwaltung](./portefeuille-et-administration-technique.md)
 
 ## Ziel
 
-Diese Seite dokumentiert den im Azure Portal-Assistenten beobachteten Bereitstellungsablauf für das Marketplace-Angebot ProPM Agent, basierend auf den bereitgestellten Screenshots und den im Repository bestätigten Parametern.
+Diese Seite erklärt, wie man **ProPM Agent** aus dem **Azure Marketplace** bereitstellt und anschließend die Inbetriebnahme auf Kundenseite sauber abschließt.
+
+Der wesentliche Punkt ist einfach:
+
+- **Azure Marketplace installiert die Plattform**;  
+- das Feld **LLM Provider** ermöglicht die Auswahl der **KI-Anbieterfamilie**, die von der Umgebung verwendet wird;  
+- die endgültige Inbetriebnahme des KI-Anbieters erfolgt anschließend in **Platform Administration > KI-Anbieter-Einstellungen**.
+
+Anders ausgedrückt: Die Bereitstellung allein reicht nicht aus, um den KI-Anbieter sofort für Endbenutzer nutzbar zu machen.
+
+## Was ein Administrator während der Bereitstellung entscheidet
+
+Während des Marketplace-Assistenten entscheidet der Administrator insbesondere:
+
+- in welchem **Azure-Abonnement** die Lösung bereitgestellt wird;  
+- in welcher **Ressourcengruppe** und in welcher **Region**;  
+- welche **Entra-Gruppen** die Plattform verwalten;  
+- welcher **Haupt-KI-Anbieter** die Umgebung nutzt;  
+- welche anfänglichen Regeln für **CORS**, **Protokollierung**, **Überwachung** und **Netzwerk** gelten.
+
+## Was nach der Bereitstellung abgeschlossen wird
+
+Nach der Installation muss der Plattformadministrator noch:
+
+1. **Platform Administration** öffnen;  
+2. zu **KI-Anbieter-Einstellungen** gehen;  
+3. die spezifischen Felder des gewählten Anbieters ausfüllen;  
+4. die Konfiguration speichern;  
+5. **Validate** ausführen;  
+6. **Test** ausführen;  
+7. **Activate** ausführen;  
+8. anschließend den tatsächlich verwendeten Anbieter im **Journal IA** bestätigen.
 
 ## Vor dem Start der Bereitstellung
 
 Bereiten Sie mindestens vor:
 
-- das Ziel-**Azure-Abonnement**;
-- die Strategie für **Ressourcengruppe** und **Azure-Region**;
-- die **Group Object IDs** der Plattformadministratoren in Entra;
-- die Bootstrap-Benutzer, falls verwendet;
-- die Wahl des **LLM-Anbieters**;
-- falls Sie **Azure OpenAI** wählen, den Administrator, der anschließend die LLM-Bereitstellung in der **Plattformadministration** abschließt;
-- zusätzliche **CORS-Origins**, falls erforderlich;
-- einen kompatiblen Adressierungsplan für das **VNet CIDR**;
-- die Nachbereitstellungssequenz für die Entra-Authentifizierung und den ersten Verbindungstest.
+- das **Azure-Abonnement** Ziel;  
+- die **Haupt-Ressourcengruppe** und die **Region**;  
+- die **Group Object IDs Entra** der Plattformadministratoren;  
+- eventuelle **Bootstrap-Benutzer**;  
+- die Auswahl des **KI-Anbieters** für den Start;  
+- wenn Sie **Azure OpenAI** wählen, der Administrator, der anschließend den **LLM Deployment Name** in der Verwaltung abschließt;  
+- zusätzliche **CORS-Quellen**, falls die Anwendung von anderen Domains aufgerufen werden soll;  
+- einen kompatiblen Adressierungsplan für das **VNet CIDR**;  
+- die Vorbereitung des ersten Verbindungstests und der **Entra Redirect URIs**.
 
-## Schritt 1 — Registerkarte **Grundlagen**
+## Schritt 1 — Tab Basis
 
-Der erste Schritt dient dazu, den Azure-Bereich der Bereitstellung zu definieren.
+Der erste Schritt definiert den Azure-Bereich der Bereitstellung.
 
-![Registerkarte Grundlagen der Azure Marketplace-Bereitstellung](/img/deploiement/deploiement-01-onglet-base.png)
+![Basis-Tab der Azure Marketplace Bereitstellung](/img/deploiement/deploiement-01-onglet-base.png)
 
 ### Sichtbare Felder
 
-| Feld | Verwendung |
+| Feld | Zweck |
 | --- | --- |
-| Abonnement | Wählt das Azure-Abonnement aus, das die Bereitstellung trägt |
-| Ressourcengruppe | Definiert die Hauptressourcengruppe der Bereitstellung |
-| Region | Definiert die Bereitstellungsregion der Managed Application |
-| Anwendungsname | Definiert den Namen der veröffentlichten Instanz |
-| Verwaltete Ressourcengruppe | Definiert die verwaltete Gruppe, die für interne Ressourcen der Lösung erstellt wird |
+| Abonnement | Wählt das Azure-Abonnement, das die Installation trägt |
+| Ressourcengruppe | Definiert die Haupt-Ressourcengruppe der Bereitstellung |
+| Region | Definiert die Azure-Region der Marketplace-Instanz |
+| Name der Anwendung | Gibt den Namen der ProPM Agent-Instanz an |
+| Managed Resource Group | Definiert die verwaltete Gruppe, die interne Lösungressourcen erhält |
 
-Der Screenshot zeigt auch das Dialogfeld **Neu erstellen** für die Ressourcengruppe.
+## Schritt 2 — Tab Anwendungs-Einstellungen
 
-## Schritt 2 — Registerkarte **Anwendungseinstellungen**
+Dieser Bildschirm fasst die Identitäts-, KI-Anbieter-, Sicherheits-, Überwachungs- und Netzwerkparameter zusammen.
 
-Die aktuell beobachtete Version der Registerkarte **Anwendungseinstellungen** zeigt kein Feld **Platform Region** mehr. Dieser Bildschirm fasst nun die Parameter für Identität, KI-Anbieter, initiale Sicherheit, Überwachung und Netzwerk zusammen.
+![Aktuelle Anwendungs-Einstellungen der Bereitstellung](/img/deploiement/fr/deploiement-02-application-settings-actuel.png)
 
-![Aktuelle Anwendungseinstellungen der Bereitstellung](/img/deploiement/fr/deploiement-02-application-settings-actuel.png)
+### Sichtbare Felder in der Aufnahme
 
-### In der Aufnahme sichtbare Felder
-
-| Feld | Beobachtete Verwendung |
+| Feld | Einfaches Lesen |
 | --- | --- |
-| Environment Name | Kurzer Umgebungsname, z.B. `dev`, `test` oder `prod` |
-| Platform Administration Entra Group Object IDs | Entra-Gruppe(n), die für die Plattformadministration verwendet werden |
-| Platform Administration Bootstrap Users (optional) | Optionale Bootstrap-Benutzer |
-| Allow Azure RBAC admin recovery | Aktiviert eine Admin-Wiederherstellung basierend auf Azure RBAC |
-| LLM Provider | Wählt den von der Plattform verwendeten KI-Anbieter; wenn Azure OpenAI ausgewählt ist, erfolgt die endgültige LLM-Auswahl anschließend in der Administration |
-| CORS Allowed Origins | Definiert zusätzlich erlaubte Web-Origins |
-| Enable alerting (Azure Monitor) | Aktiviert die Azure Monitor-Alert-Überwachung |
-| Enable debug logging | Aktiviert detailliertere Diagnoseprotokolle |
-| Passwort / Passwort bestätigen | Definiert das vom Assistenten erforderliche Initialpasswort |
-| VNet CIDR | Definiert den privaten Netzwerkbereich der Plattform |
+| Environment Name | Kurzname der Umgebung, z. B. `dev`, `test` oder `prod` |
+| Platform Administration Entra Group Object IDs | Entra-Gruppen, die die Plattform verwalten |
+| Platform Administration Bootstrap Users (optional) | Backup- oder Bootstrap-Benutzer, falls verwendet |
+| Allow Azure RBAC admin recovery | Erlaubt eine RBAC-basierte Administrator-Wiederherstellung |
+| LLM Provider | Wählt die KI-Anbieterfamilie, die von der Umgebung verwendet wird |
+| CORS Allowed Origins | Listet zusätzliche Web‑Domain‑Quellen auf |
+| Enable alerting (Azure Monitor) | Aktiviert Azure Monitor‑Alarmierung |
+| Enable debug logging | Aktiviert detaillierte Protokolle für technische Analyse |
+| Mot de passe / Confirmer le mot de passe | Legt das anfängliche Passwort fest, das der Assistent verlangt |
+| VNet CIDR | Definiert die private Netzwerk‑CIDR‑Bereich, der der Plattform zugewiesen ist |
 
-Hinweise: In der aktuellen Version des Formulars erfolgt die Regionswahl nicht mehr in dieser Registerkarte. Die Bereitstellungsregion bleibt in der Registerkarte **Grundlagen** definiert. Die Entra-Gruppen müssen vor der Bereitstellung vorbereitet werden und das **VNet CIDR** darf nicht mit Ihrem bestehenden Adressierungsplan kollidieren.
+### Wichtiger Hinweis
 
-Das Feld **LLM Provider** bleibt der Auswahlpunkt für den KI-Anbieter; der Fall **Azure OpenAI** fügt anschließend einen Schritt der Administration nach der Bereitstellung hinzu.
+In der aktuellen Version des Formulars wird die **Region** nicht mehr in diesem Tab ausgewählt. Sie bleibt im Tab **Basis** definiert.
 
-## Schritt 3 — Fall **Azure OpenAI** während der Bereitstellung
+## Schritt 3 — Wählen Sie den KI-Anbieter während der Bereitstellung
 
-Die folgende Aufnahme zeigt das beobachtete Verhalten, wenn **LLM Provider** auf **Azure OpenAI (marketplace-managed account)** gesetzt ist.
+Das Feld **LLM Provider** dient nicht nur für Azure OpenAI. Es ermöglicht die Auswahl eines der KI-Anbieter, die im Produkt sichtbar sind.
 
-![Azure OpenAI-Auswahl mit Hinweis auf spätere Konfiguration in der Administration](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed.png)
+### Die 5 Fälle, die Sie kennen sollten
 
-Der unter dem Feld sichtbare Hilfetext bestätigt zwei wichtige Punkte:
+| KI-Anbieter | Wann wählen | Hauptvorteil | Was Sie während der Bereitstellung entscheiden | Was Sie anschließend in der Verwaltung abschließen |
+| --- | --- | --- | --- | --- |
+| **Azure OpenAI** | wenn die Kundengruppe bereits stark in Azure, Entra, Netzwerk und Microsoft‑Governance ist | natürliche Integration in das Azure‑Ökosystem | wählen Sie Azure OpenAI als Zielanbieter | geben Sie den Endpunkt, die API‑Version, das Authentifizierungs‑Modell und insbesondere den **LLM deployment name** ein |
+| **OpenAI** | wenn der Kunde die OpenAI-Plattform direkt nutzen möchte | einfacher, direkter Ablauf | wählen Sie OpenAI als Zielanbieter | ergänzen Sie die verwendete URL, den Schlüssel oder die Secret‑Referenz, das Standardmodell und validieren und aktivieren |
+| **Anthropic** | wenn der Kunde Claude‑Modelle für Dokumentensynthese oder Kontext‑Lesung bevorzugt | gute Wahl für text‑ und dokumentenorientierte Workflows | wählen Sie Anthropic als Zielanbieter | ergänzen Sie die Verbindung, das Secret und das Standardmodell, dann **Save → Validate → Test → Activate** |
+| **OpenRouter** | wenn der Kunde mehrere Modellfamilien über einen einzigen Einstiegspunkt vergleichen möchte | ein einziger Anschluss für mehrere Modelle und Routings | wählen Sie OpenRouter als Zielanbieter | ergänzen Sie die Basis‑URL, den API‑Schlüssel oder die Secret‑Referenz, das Standardmodell, dann **Save → Validate → Test → Activate** |
+| **OpenAI-compatible** | wenn der Kunde einen kompatiblen Endpoint nutzt, z. B. eine Unternehmens‑Gateway oder ein selbst‑gehostetes Runtime | ermöglicht die Anbindung eines kompatiblen Anbieters ohne Produktänderung | wählen Sie OpenAI-compatible als Zielanbieter | ergänzen Sie die genaue URL, die Authentifizierung und das erwartete Modell oder Deployment |
 
-- die Vorbereitung des Azure OpenAI-Kontos / Endpunkts erfolgt während der Bereitstellung;
-- die endgültige Wahl des **LLM / deployment** wird später in **Platform Administration > AI Provider Settings** vervollständigt.
+### Einfache Regel zum Behalten
 
-### Was das bedeutet
+Die Bereitstellung **weist den Anbieter** zu. Die Verwaltung **macht den Anbieter betriebsbereit**.
 
-| Zeitpunkt | Getroffene Entscheidung |
+## Was der Endbenutzer tatsächlich wahrnimmt
+
+Für den Endbenutzer beeinflusst der gewählte Anbieter:
+
+- die tatsächlich genutzten **Modelle**;  
+- das Niveau der **technischen Governance**, das die Organisation vorschreibt;  
+- die Art, wie das Verwaltungsteam **Schlüssel**, **Secrets** und **Deployments** handhabt;  
+- manchmal die **Schnelligkeit der Inbetriebnahme** oder die **Flexibilität beim Modellwechsel**.
+
+Der Endbenutzer muss jedoch nicht die gesamte Installationsmechanik verstehen. Sein Bedarf besteht hauptsächlich darin, dass der Anbieter:
+
+- konfiguriert;  
+- validiert;  
+- getestet;  
+- aktiviert;  
+- im **Journal IA** nachverfolgt wird.
+
+## Fall 1 — Azure OpenAI
+
+Die untenstehende Aufnahme zeigt das beobachtete Verhalten, wenn **LLM Provider** auf **Azure OpenAI** eingestellt ist.
+
+![Auswahl Azure OpenAI mit Hinweis auf spätere Konfiguration in der Verwaltung](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed.png)
+
+### Wann diese Wahl sinnvoll ist
+
+Wählen Sie **Azure OpenAI**, wenn der Kunde:
+
+- bereits überwiegend in Azure arbeitet;  
+- einen starken Rahmen um **Entra**, Netzwerk und Microsoft‑Governance möchte;  
+- präzise Deployments in seiner Azure OpenAI‑Ressource auswählen möchte.
+
+### Was dies während der Bereitstellung bedeutet
+
+Während Marketplace:
+
+- wählen Sie **Azure OpenAI** als Anbieter;  
+- die Installation kann die zugehörige Azure‑Verbindung vorbereiten;  
+- die Auswahl des genauen **LLM deployment name** ist hier noch nicht abgeschlossen.
+
+### Was noch nach der Installation zu erledigen ist
+
+Nach der Bereitstellung öffnen Sie **Platform Administration > KI-Anbieter-Einstellungen** und ergänzen oder bestätigen:
+
+- **Endpoint** der Azure OpenAI‑Ressource;  
+- **API‑Version**;  
+- **Authentication mode** (`managed_identity` oder `api_key`);  
+- den genauen **LLM deployment name**;  
+- ggf. den **Embeddings deployment name**.
+
+### Wichtige Besonderheit
+
+Wenn die Bereitstellung bereits ein Secret oder einen Schlüssel für Azure OpenAI installiert hat, kann die Oberfläche anzeigen, dass keine **API‑Key sichtbar für den Benutzer** erforderlich ist. In diesem Fall konzentriert sich der Administrator vor allem auf den **Deployment‑Name** und die Verbindungstests.
+
+## Fall 2 — OpenAI
+
+### Wann diese Wahl sinnvoll ist
+
+Wählen Sie **OpenAI**, wenn der Kunde die OpenAI‑APIs direkt nutzen möchte, ohne Azure OpenAI oder eine Zwischen‑Gateway zu verwenden.
+
+### Praktische Vorteile
+
+- in der Regel direktere Konfiguration;  
+- einfache Lesbarkeit für ein Team, das bereits OpenAI standardisiert;  
+- keine Verwaltung eines **Azure‑Deployment‑Namens**.
+
+### Was Sie während der Bereitstellung entscheiden
+
+Während Marketplace entscheiden Sie einfach, dass die Umgebung **OpenAI** als Hauptanbieter nutzt.
+
+### Was noch nach der Installation zu erledigen ist
+
+In **KI-Anbieter-Einstellungen** ergänzen Sie anschließend:
+
+- die **Base URL** oder den Endpunkt, der vom Produkt verwendet wird;  
+- das **Standardmodell**;  
+- den **API‑Key** oder die **Secret‑Referenz**;  
+- die Sequenz **Save → Validate → Test → Activate**.
+
+### Auswirkung auf den Client
+
+Der Endbenutzer muss diese Einstellungen nicht sehen. Was für ihn zählt, ist, dass der Administrator die Konnektivität und das tatsächlich genutzte Modell bestätigt hat.
+
+## Fall 3 — Anthropic
+
+### Wann diese Wahl sinnvoll ist
+
+Wählen Sie **Anthropic**, wenn der Kunde die Claude‑Modelle bevorzugt, insbesondere für Synthese, Kontext‑Lesung und dokumentarische Arbeit.
+
+### Praktische Vorteile
+
+- gute Positionierung für text‑ und dokumentenorientierte Workflows;  
+- klare Verwaltung, wenn die Organisation bereits weiß, dass sie diese Modellfamilie nutzen will.
+
+### Was Sie während der Bereitstellung entscheiden
+
+Während Marketplace geben Sie an, dass **Anthropic** der Zielanbieter der Umgebung ist.
+
+### Was noch nach der Installation zu erledigen ist
+
+In **KI-Anbieter-Einstellungen** ergänzen Sie:
+
+- die **Verbindung** zum Anbieter;  
+- das **Secret** oder die Secret‑Referenz;  
+- das **Standardmodell**;  
+- dann **Save → Validate → Test → Activate**.
+
+## Fall 4 — OpenRouter
+
+### Wann diese Wahl sinnvoll ist
+
+Wählen Sie **OpenRouter**, wenn der Kunde mehrere Modellfamilien über einen einzigen Einstiegspunkt vergleichen möchte, z. B. um Ergebnisse zu vergleichen oder das Routing leichter anzupassen.
+
+### Praktische Vorteile
+
+- ein einziger Anschluss auf Plattformseite;  
+- nützlich zum Vergleich mehrerer Modelle;  
+- praktisch, wenn die Organisation Flexibilität beim Routing behalten möchte.
+
+### Was Sie während der Bereitstellung entscheiden
+
+Während Marketplace geben Sie an, dass die Umgebung **OpenRouter** als Hauptanbieter nutzt.
+
+### Was noch nach der Installation zu erledigen ist
+
+In **KI-Anbieter-Einstellungen** ergänzen Sie anschließend:
+
+- die **Base URL**;  
+- den **API‑Key** oder die Secret‑Referenz;  
+- das **Standardmodell**;  
+- dann **Save → Validate → Test → Activate**.
+
+### Einfaches Beispiel
+
+Ein Kunde möchte schnell starten, mehrere Modelle vergleichen und später seine Wahl stabilisieren. **OpenRouter** ist dann ein guter Kandidat für eine erste Phase der Planung.
+
+## Fall 5 — OpenAI-compatible
+
+### Wann diese Wahl sinnvoll ist
+
+Wählen Sie **OpenAI-compatible**, wenn der Kunde weder OpenAI direkt noch Azure OpenAI nutzt, sondern einen **kompatiblen Endpoint**, z. B.:
+
+- ein Unternehmens‑Gateway;  
+- eine Partner‑Lösung;  
+- ein selbst‑gehostetes Runtime.
+
+### Praktische Vorteile
+
+- ermöglicht die Anbindung eines kompatiblen Anbieters ohne ProPM Agent zu verändern;  
+- nützlich, wenn die Client‑Architektur einen spezifischen IA‑Eingang erfordert;  
+- gute Wahl für einen Tenant, der eine interne Kontroll‑ oder Routing‑Schicht behalten möchte.
+
+### Was Sie während der Bereitstellung entscheiden
+
+Während Marketplace geben Sie an, dass die Umgebung einen **OpenAI‑compatible** Anbieter nutzt.
+
+### Was noch nach der Installation zu erledigen ist
+
+In **KI-Anbieter-Einstellungen** ergänzen Sie anschließend:
+
+- die genaue **Base URL** oder den Endpunkt;  
+- das erwartete **Authentifizierungs‑Modell**;  
+- die **Schlüssel** oder die Secret‑Referenz;  
+- das **Modell** oder das erwartete Deployment;  
+- dann **Save → Validate → Test → Activate**.
+
+### Vorsicht
+
+Hier ist das Hauptthema die reale **Kompatibilität** des Endpoints. Eine registrierte Konfiguration reicht nicht: das Paar **Validate + Test** ist unverzichtbar.
+
+## Gemeinsamer Ablauf nach der Installation für alle KI-Anbieter
+
+Unabhängig vom gewählten Anbieter während der Bereitstellung, nutzen Sie immer diesen Ablauf:
+
+1. Öffnen Sie **Platform Administration**;  
+2. Gehen Sie zu **KI-Anbieter-Einstellungen**;  
+3. Wählen Sie den Anbieter, den Sie vorbereiten möchten;  
+4. Füllen Sie die geforderten Felder aus;  
+5. Klicken Sie auf **Save** zum Speichern;  
+6. Klicken Sie auf **Validate** zur Konfigurationsprüfung;  
+7. Klicken Sie auf **Test** zur tatsächlichen Verbindung;  
+8. Klicken Sie auf **Activate** um den Anbieter für Endbenutzer wirksam zu machen;  
+9. Öffnen Sie anschließend **Journal IA** um den tatsächlich genutzten Anbieter bei einem realen Lauf zu bestätigen.
+
+### Wie man die Verwaltungsbuttons liest
+
+| Button | Was es bedeutet |
 | --- | --- |
-| Marketplace-Bereitstellung | Man wählt Azure OpenAI als Zielanbieter und bereitet die zugehörige Azure-Integration vor |
-| Administration der Plattform > AI provider settings | Der Administrator wählt das Azure OpenAI-Deployment, das tatsächlich in der Azure OpenAI-Ressource des Kunden sichtbar ist |
-| KI-Protokoll | Anschließend überprüft man den effektiven Anbieter und die tatsächlich verwendete Modellfamilie |
+| Save | speichert die eingegebene Konfiguration |
+| Validate | prüft, ob die erwarteten Felder konsistent sind |
+| Test | prüft die reale Konnektivität zum Anbieter |
+| Activate | macht den Anbieter für Endbenutzer wirksam |
 
-### Was die Bereitstellung nicht alleine abschließt
+## Überprüfung vor Überprüfen + Erstellen
 
-Die Auswahl **Azure OpenAI** im Marketplace reicht nicht aus, um den Anbieter direkt für Endbenutzer nutzbar zu machen. Nach der Installation bleibt noch:
+Bevor Sie die Erstellung starten:
 
-1. **Administration der Plattform** öffnen;
-2. die Parameter des Anbieters in **AI provider settings** ausfüllen oder bestätigen;
-3. den tatsächlich auf Azure OpenAI-Seite sichtbaren **LLM deployment name** auswählen;
-4. **Save → Validate → Test → Activate** starten, bevor der Anbieter als betriebsbereit gilt;
-5. das Ergebnis schließlich in einem echten Run im **KI-Protokoll** bestätigen.
-
-| Fall | Was bei der Bereitstellung entschieden wird | Was anschließend in der Administration abgeschlossen wird |
-| --- | --- | --- |
-| Azure OpenAI (`marketplace-managed account`) | Zielanbieter und Vorbereitung der Azure-Integration | Auswahl des LLM-Deployments, Validierung, Test und Aktivierung |
-| Anderer in `LLM Provider` gewählter Anbieter | Wahl des Zielanbieters während der Installation | Feinkontrollen, ggf. Secrets, Validierung und Aktivierung je nach Anbieter |
-
-### Empfohlener Ablauf nach der Installation
-
-1. schließen Sie die Marketplace-Bereitstellung ab;
-2. öffnen Sie **Administration der Plattform**;
-3. gehen Sie zu **AI provider settings**;
-4. wählen Sie das zu verwendende Azure OpenAI-Deployment / LLM aus den in der Azure OpenAI-Ressource des Kunden sichtbaren aus;
-5. speichern Sie die Konfiguration;
-6. starten Sie einen Test-Run und überprüfen Sie das Ergebnis im **KI-Protokoll**.
-
-Für die detaillierte Abfolge von Validierung und Admin-Operation siehe auch [Portfolio und technische Administration](./portefeuille-et-administration-technique.md).
-
-## Überprüfung vor **Überprüfen + erstellen**
-
-Vor der Validierung:
-
-1. kontrollieren Sie Abonnement, Region und Ressourcengruppen;
-2. lesen Sie die Entra-Gruppen und Bootstrap-Benutzer erneut;
-3. bestätigen Sie den gewählten LLM-Anbieter;
-4. falls **Azure OpenAI** ausgewählt ist, identifizieren Sie, wer die LLM-Bereitstellung in der Administration nach der Installation abschließt;
-5. kontrollieren Sie die Netzwerk-, Überwachungs- und Passwortwerte.
+1. Prüfen Sie das Abonnement, die Region und die Ressourcengruppen;  
+2. Lesen Sie die Entra‑Gruppen und eventuelle Bootstrap‑Benutzer erneut;  
+3. Bestätigen Sie den gewählten KI-Anbieter;  
+4. Wenn **Azure OpenAI** ausgewählt ist, identifizieren Sie klar, wer den **LLM deployment name** nach der Installation abschließen wird;  
+5. Prüfen Sie die Netzwerk‑, Überwachungs‑ und Passwort‑Parameter.
 
 ## Nach der Bereitstellung
 
 ### Minimale technische Überprüfungen
 
-1. notieren Sie die tatsächlich veröffentlichte **Web-URL**;
-2. überprüfen Sie die **API-URL** und, falls exponiert, die **WebSocket-URL**;
-3. überprüfen Sie die Verfügbarkeit von **`/runtime-config.json`**;
-4. validieren Sie die Konsistenz zwischen der veröffentlichten URL und den **Redirect URIs** in Entra;
-5. falls **Azure OpenAI** gewählt wurde, öffnen Sie **Platform Administration > AI provider settings** und vergewissern Sie sich, dass das erwartete Deployment / LLM ausgewählt ist.
+1. Ermitteln Sie die tatsächlich veröffentlichte **Web‑URL**;  
+2. Prüfen Sie die **API‑URL** und ggf. die **WebSocket‑URL**;  
+3. Prüfen Sie die Verfügbarkeit von **`/runtime-config.json`**;  
+4. Validieren Sie die Konsistenz zwischen der veröffentlichten URL und den **Entra Redirect URIs**;  
+5. Öffnen Sie **Platform Administration > KI-Anbieter-Einstellungen** und bestätigen Sie, dass der gewählte Anbieter korrekt vorbereitet ist;  
+6. Prüfen Sie anschließend, ob der erwartete Zustand durch **Configuration**, **Validation**, **Test** und **Operational** läuft.
 
-### Entra-Authentifizierung
+### Entra‑Authentifizierung
 
-Je nach Bereitstellungsmodus überprüfen oder schließen Sie die Entra-App-Registrierung ab:
+Je nach Ihrem Bereitstellungsmodus prüfen oder finalisieren Sie die Entra‑Anwendungs‑Registrierung:
 
-- `clientId`;
-- `authority` / tenant;
-- `scopes`;
-- `redirectUri` und `postLogoutRedirectUri`;
-- falls erforderlich, die exponierte API und ihre Scopes.
+- `clientId`;  
+- `authority` oder Tenant;  
+- `scopes`;  
+- `redirectUri` und `postLogoutRedirectUri`;  
+- falls nötig, die exponierte API und ihre Scopes.
 
-### Erster Funktionstest
+### Erstes funktionales Test
 
-Nach der Veröffentlichung führen Sie mindestens durch:
+Nach der Veröffentlichung führen Sie mindestens Folgendes durch:
 
-- eine Verbindung mit einem Standard-Benutzerkonto;
-- eine Verbindung mit einem erwarteten Administratorkonto;
-- das Öffnen von **Projekte**;
-- das Öffnen des **Dashboards**;
-- eine schnelle Kontrolle von **Platform Administration > AI provider settings**, falls Azure OpenAI gewählt wurde;
-- eine Kontrolle des **KI-Protokolls**, um den effektiven Anbieter und die verwendete Modellfamilie zu bestätigen.
+- eine Verbindung mit einem Standard‑Benutzerkonto;  
+- eine Verbindung mit einem erwarteten Administrator‑Konto;  
+- das Öffnen von **Projekte**;  
+- das Öffnen des **Dashboard**;  
+- das Öffnen von **Platform Administration > KI-Anbieter-Einstellungen**;  
+- ein **Save → Validate → Test → Activate** des gewählten Anbieters, falls noch nicht erledigt;  
+- eine Kontrolle des **Journal IA** um den tatsächlich genutzten Anbieter und die Modellfamilie zu bestätigen.
 
-## Übergabe an den ersten Testbenutzer
+## Informationen, die an das Kundenteam weitergegeben werden
 
-Sobald die Bereitstellung technisch validiert ist, formalisieren Sie eine kurze Übergabe an den Testbenutzer oder den ersten Projektinhaber:
+Nach technischer Validierung der Plattform übermitteln Sie mindestens:
 
-1. übermitteln Sie die tatsächlich nutzbare **veröffentlichte URL**;
-2. bestätigen Sie den erwarteten **Tenant** und, falls erforderlich, die Regel für die Einladung von **Gastkonten**;
-3. bitten Sie den Tester, der Seite [Erste Schritte](./demarrage.md) für den ersten Login und die Erstellung oder Auswahl des Projekts zu folgen;
-4. falls **Azure OpenAI** gewählt wurde, bestätigen Sie, dass der LLM vor dem ersten Run in **Administration der Plattform** präzisiert wurde;
-5. falls der erste Test fehlschlägt, erfassen Sie sofort die Testzeit, das genaue Symptom und, falls vorhanden, die erste für den Support nützliche **Trace ID**.
+1. die tatsächlich veröffentlichte **URL**;  
+2. den erwarteten **Tenant** und ggf. die Regel für **Guest‑Einladungen**;  
+3. das erste Testkonto oder die Testgruppe;  
+4. den tatsächlich bereitstehenden KI-Anbieter;  
+5. die Seite [Start](./demarrage.md) zur ersten Verbindung.
 
-Diese Übergabe reduziert Fehldiagnosen zwischen einer technisch erfolgreichen Bereitstellung und einem noch unvollständigen Benutzerzugang.
+## Nützliche Kontrollpunkte nach der Installation
 
-## Häufige Vorfälle nach der Installation
+| Punkt zu prüfen | Warum es wichtig ist |
+| --- | --- |
+| Veröffentlichtes URL und Entra Redirect URIs | verhindert einen ersten Zugriff, der blockiert ist trotz erfolgreicher Bereitstellung |
+| Gruppen der Verwaltung und Bootstrap‑Benutzer | garantiert den ersten Einstieg in die Verwaltung |
+| Gewählter KI-Anbieter | verhindert Verwechslung eines nur deklarierten Anbieters mit einem tatsächlich operativen |
+| Validierung und Test | bestätigt, dass die Konfiguration nicht nur gespeichert, sondern nutzbar ist |
+| Journal IA | bestätigt den tatsächlich genutzten Anbieter bei einem Lauf |
+| Azure‑Überwachung | garantiert, dass die gewünschte Beobachtbarkeit aktiv ist |
 
-- **`redirect URI mismatch`**: Die veröffentlichte URL stimmt nicht mit den Entra Redirect URIs überein.
-- **`unauthorized_client`**: Client-ID im falschen Tenant oder inkompatible Authority.
-- **resource principal not found**: Die API oder ihre Scope-Exposition ist nicht vollständig konfiguriert.
-- **keine verfügbaren Lizenzen mehr**: Die Entra-Verbindung gelingt, aber der Produktzugang bleibt blockiert.
-- **unvollständige Azure OpenAI-Konfiguration**: Der Anbieter wurde bei der Bereitstellung gewählt, aber noch kein LLM-Deployment wurde in **AI provider settings** bestätigt.
-- **Azure-Anbieter für Alerting nicht registriert**: Einige Azure Monitor-Ressourcen können fehlschlagen, wenn der erforderliche Anbieter nicht registriert ist.
+## Weiter
 
-## Qualität der integrierten Aufnahmen
-
-Die drei in dieser Seite integrierten Aufnahmen zeigen **keine sichtbaren Fehlermeldungen** oder Fehlerbanner.
-
-- die erste Aufnahme zeigt ein Dialogfeld zur Erstellung einer Ressourcengruppe mit einem noch leeren Feld, ohne angezeigten Fehler;
-- die zweite Aufnahme zeigt die aktuelle Version der Registerkarte **Anwendungseinstellungen**, ohne sichtbares Feld **Platform Region**;
-- die dritte Aufnahme zeigt **Azure OpenAI (marketplace-managed account)** ausgewählt, mit einem Hilfetext, der explizit auf die endgültige LLM-Wahl in der Administration verweist.
-
-## Weiterführend
-
-- [Erste Schritte](./demarrage.md)
-- [Portfolio und technische Administration](./portefeuille-et-administration-technique.md)
+- [Start](./demarrage.md)  
+- [Portfolio und technische Verwaltung](./portefeuille-et-administration-technique.md)  
 - [Wartung, Support und FAQ](./maintenance-support-faq.md)

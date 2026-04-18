@@ -10,7 +10,7 @@ description: Comprendre les écrans principaux, la barre latérale, la barre sup
 
 ## Objectif
 
-Cette page explique comment se repérer dans le shell de ProPM Agent, lire le **Tableau de bord**, utiliser la **palette de commandes**, interpréter les **notifications** et ouvrir le panneau **santé** quand un incident est suspecté.
+Cette page explique comment se repérer dans le shell de ProPM Agent, lire le **Tableau de bord**, utiliser la **palette de commandes**, interpréter les **notifications** et utiliser le panneau **santé** pour une vérification rapide lorsque nécessaire.
 
 ## Vue d’ensemble
 
@@ -30,7 +30,7 @@ L’interface observée suit une logique simple :
 | Espace de travail | Résumé projet, signaux, readiness et réglages projet |
 | Connaissance | Rechercher, téléverser et importer les documents de référence |
 | Agents | Interagir avec les agents disponibles et lire les sorties structurées |
-| Rapports & artefacts | Réviser, comparer, publier ou télécharger les PM Docs |
+| Rapports & artefacts | Réviser, comparer, publier ou télécharger les Documents PM |
 | Journal IA | Inspecter les runs, événements et métadonnées de traçabilité |
 | Centre de commande portefeuille | Comparer plusieurs projets via des signaux configurables |
 | Administration de la plateforme | Gérer intégrations, fournisseur IA, abonnement et activité plateforme |
@@ -60,15 +60,15 @@ Utilisez-le comme une **page d’orientation** : si un projet n’est pas actif,
 | Panneau **Pulse** | dernier digest, notifications récentes, activité récente et état connecteurs | vérifier ce qui vient de changer sans relire tout l’historique du projet |
 | Quick links | raccourcis vers **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts**, **AI Log** et **Portfolio** | ouvrir directement la bonne surface au lieu de naviguer écran par écran |
 
-Les scores et indicateurs du tableau de bord doivent être lus comme des **repères de priorisation**, pas comme un diagnostic exhaustif à eux seuls.
+Les scores et indicateurs du tableau de bord doivent être lus comme des **repères de priorisation**, pas comme une conclusion isolée à eux seuls.
 
 ### Que faire si le tableau de bord semble contradictoire ?
 
 1. confirmez d’abord le **projet actif** dans la barre supérieure ;
 2. traitez ensuite les cartes comme des **signaux d’orientation**, pas comme la seule source de vérité ;
 3. ouvrez l’**Espace de travail** pour vérifier signaux, readiness et blocages projet ;
-4. ouvrez le **Journal IA** si le doute porte sur un run, une sortie ou un provider réellement utilisé ;
-5. si le tableau de bord charge mais semble dégradé, ouvrez l’**indicateur de santé** avant de conclure à une incohérence de données.
+4. ouvrez le **Journal IA** si le doute porte sur un run, une sortie ou un fournisseur réellement utilisé ;
+5. si le tableau de bord charge mais appelle une vérification complémentaire, ouvrez l’**indicateur de santé** avant de conclure sur les données affichées.
 
 ![Barre supérieure et navigation globale](/img/screenshots/localized/fr/01-navigation-topbar.png)
 
@@ -79,7 +79,7 @@ Les scores et indicateurs du tableau de bord doivent être lus comme des **repè
 | Sélecteur de projet | Change le projet courant sans repasser par la liste complète |
 | Palette de commandes | Recherche rapide sur les pages et actions courantes |
 | Notifications | Affiche les éléments d’attention remontés par le produit |
-| Indicateur de santé | Ouvre un diagnostic rapide sur l’état API, temps réel et auth |
+| Indicateur de santé | Ouvre une lecture rapide de l’état API, temps réel et auth |
 | Langue | Change la langue de l’interface |
 | Thème | Bascule l’apparence claire/sombre |
 | Aide | Ouvre les messages d’aide intégrés |
@@ -109,26 +109,26 @@ Les notifications peuvent remonter notamment des statuts d’agent, des événem
 
 ## Indicateur de santé
 
-L’indicateur de santé ouvre un panneau de diagnostic rapide. Il permet de consulter :
+L’indicateur de santé ouvre un panneau de lecture rapide. Il permet de consulter :
 
 - l’état **API** ;
 - l’état **realtime / WebSocket** ;
 - l’état **auth** ;
 - la **latence** observée ;
-- un éventuel texte d’erreur ;
-- le projet courant quand le contexte compte dans le diagnostic.
+- un message affiché si l’interface en présente un ;
+- le projet courant quand le contexte compte dans la lecture de l’état.
 
-Ouvrez-le si un agent paraît **offline**, si les notifications ne se rafraîchissent plus ou si l’application semble disponible mais partiellement dégradée.
+Ouvrez-le si un agent paraît **offline**, si les notifications ne se rafraîchissent plus ou si une vérification de disponibilité est utile.
 
 Si le panneau indique un état dégradé alors que l’interface charge encore, gardez cet ordre de lecture :
 
 | Si le signal concerne surtout… | Ouvrez ensuite | Pourquoi |
 | --- | --- | --- |
 | l’**authentification** | [Démarrage](./demarrage.md) | pour distinguer tenant, compte, `redirect URI`, groupe admin ou siège |
-| le **runtime**, l’API, le WebSocket ou la connectivité | [Maintenance, support et FAQ](./maintenance-support-faq.md) | pour suivre le circuit de remédiation entre santé, provider, intégrations et exécution |
+| le **runtime**, l’API, le WebSocket ou la connectivité | [Maintenance, support et FAQ](./maintenance-support-faq.md) | pour suivre le parcours de vérification entre santé, fournisseur IA, intégrations et exécution |
 | le **contexte projet**, un écran vide ou une action absente | [Projets et espace de travail](./projets-et-espace-de-travail.md) | pour vérifier le projet actif, le binding, la readiness et les droits projet |
 
-Avant d’escalader, relevez l’état affiché pour **API**, **realtime**, **auth**, la **latence**, le **projet courant** et l’heure approximative du test. Ces éléments raccourcissent fortement le diagnostic support.
+Avant d’escalader, relevez l’état affiché pour **API**, **realtime**, **auth**, la **latence**, le **projet courant** et l’heure approximative du test. Ces éléments facilitent fortement le traitement par l’équipe en charge.
 
 ## Contexte projet et états vides
 
@@ -150,7 +150,7 @@ La langue d’interface peut être changée depuis la barre supérieure. Le chan
 - utilisez la **palette de commandes** pour retrouver rapidement une surface rarement utilisée ;
 - revenez au **Tableau de bord** lorsque vous perdez le fil du parcours ;
 - si une action semble absente, distinguez bien **lecture seule** et **accès refusé** ;
-- ouvrez l’**indicateur de santé** avant de conclure à un incident backend.
+- ouvrez l’**indicateur de santé** avant de conclure à une question de disponibilité de service.
 
 ## Suite
 

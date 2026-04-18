@@ -1,4 +1,4 @@
-/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
+﻿/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   guide: [
     {
@@ -25,6 +25,7 @@ const sidebars = {
         'sorties-contextuelles-preuves-et-fraicheur',
         'gouvernance-decisions-et-actions',
         'rapports-journal-ia-et-tracabilite',
+        'connecteurs-jira-et-sharepoint',
       ],
     },
     {
@@ -44,3 +45,4 @@ const sidebars = {
 };
 
 module.exports = sidebars;
+

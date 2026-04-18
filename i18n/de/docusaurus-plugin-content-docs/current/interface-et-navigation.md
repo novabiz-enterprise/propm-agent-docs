@@ -1,160 +1,160 @@
 ---
-title: Oberfläche und Navigation
+title: "Schnittstelle und Navigation"
 slug: /interface-et-navigation
-description: Verständnis der Hauptbildschirme, der Seitenleiste, der oberen Leiste und des Dashboards.
+description: "Verstehen Sie die Hauptbildschirme, die Seitenleiste, die obere Leiste und das Dashboard."
 ---
 
-[Startseite](./index.md) · [Erste Schritte](./demarrage.md) · [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md)
+[Startseite](./index.md) · [Start](./demarrage.md) · [Projekte und Workspace](./projets-et-espace-de-travail.md)
 
-![ProPM Agent Dashboard](/img/screenshots/localized/de/01-dashboard.png)
+![Dashboard ProPM Agent](/img/screenshots/localized/fr/01-dashboard.png)
 
 ## Ziel
 
-Diese Seite erklärt, wie man sich in der ProPM Agent-Oberfläche zurechtfindet, das **Dashboard** liest, die **Befehls-Palette** verwendet, **Benachrichtigungen** interpretiert und das **Systemstatus**-Panel öffnet, wenn ein Vorfall vermutet wird.
+Diese Seite erklärt, wie man sich im ProPM Agent Shell zurechtfindet, das **Dashboard** liest, die **Command Palette** nutzt, die **Benachrichtigungen** interpretiert und das **Health Panel** für eine schnelle Überprüfung verwendet, wenn nötig.
 
 ## Überblick
 
 Die beobachtete Oberfläche folgt einer einfachen Logik:
 
-1. Die **Seitenleiste** öffnet die großen Funktionsbereiche;
-2. Die **obere Leiste** ändert das aktuelle Projekt und öffnet Schnellzugriffswerkzeuge;
-3. Die zentrale Fläche zeigt den **aktuellen Kontext** an;
-4. Mehrere Bildschirme ändern ihren Zustand basierend auf dem **aktiven Projekt** und Ihren **Berechtigungen**.
+1. die **Sidebar** öffnet die großen Funktionsbereiche;
+2. die **Top bar** ändert das aktuelle Projekt und öffnet die Schnellwerkzeuge;
+3. die zentrale Fläche zeigt den **aktuellen Kontext**;
+4. mehrere Bildschirme ändern ihren Zustand je nach **aktivem Projekt** und Ihren **Rechten**.
 
 ## Hauptnavigation
 
 | Eintrag | Hauptverwendung |
 | --- | --- |
-| Dashboard | Allgemeinen Status und vorgeschlagene nächste Schritte lesen |
-| Projekte | Projekte erstellen, öffnen und Projektkontext wechseln |
-| Arbeitsbereich | Projektzusammenfassung, Signale, Readiness und Projekteinstellungen |
-| Wissen | Referenzdokumente suchen, hochladen und importieren |
-| Agenten | Mit verfügbaren Agenten interagieren und strukturierte Ausgaben lesen |
-| Berichte & Artefakte | PM Docs überprüfen, vergleichen, veröffentlichen oder herunterladen |
-| KI-Protokoll | Runs, Ereignisse und Nachverfolgbarkeits-Metadaten inspizieren |
-| Portfolio Command Center | Mehrere Projekte über konfigurierbare Signale vergleichen |
-| Plattformadministration | Integrationen, KI-Provider, Abonnement und Plattformaktivität verwalten |
+| Dashboard | Lesen Sie den allgemeinen Status und die empfohlenen nächsten Schritte |
+| Projects | Erstellen, öffnen und wechseln Sie den Projektkontext |
+| Workspace | Projektzusammenfassung, Signale, Readiness und Projekteinrichtungen |
+| Knowledge | Suchen, hochladen und importieren Sie Referenzdokumente |
+| Agents | Interagieren Sie mit verfügbaren Agenten und lesen Sie strukturierte Ausgaben |
+| Reports & artifacts | Überprüfen, vergleichen, veröffentlichen oder herunterladen Sie PM-Dokumente |
+| AI Log | Untersuchen Sie Runs, Ereignisse und Metadaten der Nachverfolgbarkeit |
+| Portfolio | Vergleichen Sie mehrere Projekte über konfigurierbare Signale |
+| Platform Administration | Verwalten Sie Integrationen, KI-Anbieter, Abonnement und Plattformaktivität |
 
 ## Dashboard
 
-Das **Dashboard** ist der nützlichste Bildschirm direkt nach der Anmeldung.
+Das **Dashboard** ist der nützlichste Bildschirm direkt nach dem Einloggen.
 
 Es konsolidiert:
 
-- Situationsmetriken;
-- Aufmerksamkeitselemente;
-- Empfohlene nächste Schritte;
-- Verknüpfungen zu Handlungsbereichen;
-- Eine Übersicht über offene Signale und Elemente in Überprüfung.
+- Situation-Metriken;
+- Aufmerksamkeitspunkte;
+- empfohlene nächste Schritte;
+- Shortcuts zu den Bereichen, in denen gehandelt werden muss;
+- einen Überblick über offene Signale und geprüfte Elemente.
 
-Nutzen Sie es als **Orientierungsseite**: Wenn kein Projekt aktiv ist, bleiben einige Blöcke leer; wenn ein Projekt ausgewählt ist, kontextualisieren sich die Indikatoren.
+Nutzen Sie es als **Orientierungsseite**: wenn kein Projekt aktiv ist, bleiben einige Blöcke leer; wenn ein Projekt ausgewählt ist, passen sich die Indikatoren an.
 
-### Wie man die Hauptbereiche des Dashboards liest
+### Wie man die großen Bereiche des Dashboards liest
 
-| Bereich | Was er zusammenfasst | Nützlicher Reflex |
+| Bereich | Was sie zusammenfasst | Nützlicher Reflex |
 | --- | --- | --- |
-| Übersichts-Kacheln | Zähler für Projekte, Wissen, aktive Agenten, offene Signale, Entwürfe von Benachrichtigungen und ausstehende Aktionen | Sofort erkennen, ob es um einen Mangel an Kontext, eine Überprüfungsverzögerung oder eine verwaltete Warteschlange geht |
-| Score-Karten | Allgemeiner Zustand von Delivery, Ausführungsgeschwindigkeit, Governance-Abdeckung und Wissenstiefe | Diese Karten als Orientierungspunkte lesen, bevor ein Detailbildschirm geöffnet wird |
-| Readiness-Blöcke | Wissensgrundlage, Automatisierungsabdeckung, Governance-Posture und Lieferfluss | Identifizieren, welche Säule die normale Nutzung des Projekts blockiert |
-| Panel **Aufmerksamkeit** | Signale, verwaltete Aktionen und Connector-Watchlist | Zum **Arbeitsbereich** gehen, um aktive Blockaden zu behandeln |
-| Panel **Pulse** | Letzter Digest, aktuelle Benachrichtigungen, letzte Aktivität und Connector-Status | Überprüfen, was sich gerade geändert hat, ohne die gesamte Projektchronik neu zu lesen |
-| Quicklinks | Verknüpfungen zu **Arbeitsbereich**, **Wissen**, **Agenten**, **Berichte & Artefakte**, **KI-Protokoll** und **Portfolio** | Direkt die richtige Oberfläche öffnen, anstatt Bildschirm für Bildschirm zu navigieren |
+| Summary tiles | Zähler für Projekte, Wissen, aktive Agenten, offene Signale, Entwürfe von Benachrichtigungen und ausstehende Aktionen | Erkennen Sie sofort, ob das Thema ein Kontextmangel, eine Verzögerung bei der Überprüfung oder eine verwaltete Warteschlange ist |
+| Score cards | Allgemeiner Zustand der Lieferung, des Ausführungstakt, der Governance-Abdeckung und der Wissenstiefe | Lesen Sie diese Karten als Orientierungshilfen, bevor Sie einen Detailbildschirm öffnen |
+| Readiness blocks | Wissensbasis, Automatisierungsabdeckung, Governance-Posture und Lieferfluss | Identifizieren Sie, welcher Pfeiler die normale Nutzung des Projekts blockiert |
+| Attention panel | Signale, verwaltete Aktionen und Watchlist-Connectoren | Gehen Sie zum **Workspace**, um aktive Blockaden zu behandeln |
+| Pulse panel | Letzter Digest, aktuelle Benachrichtigungen, jüngste Aktivitäten und Connector-Status | Überprüfen Sie, was sich geändert hat, ohne die gesamte Projektgeschichte erneut zu lesen |
+| Quick links | Verknüpfungen zu **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts**, **AI Log** und **Portfolio** | Öffnen Sie direkt die richtige Oberfläche anstatt Bildschirme zu navigieren |
 
-Die Scores und Indikatoren im Dashboard sollten als **Priorisierungs-Hinweise** gelesen werden, nicht als alleinige, erschöpfende Diagnose.
+Die Scores und Indikatoren des Dashboards sollten als **Priorisierungsreferenz** gelesen werden, nicht als alleinige Schlussfolgerung.
 
 ### Was tun, wenn das Dashboard widersprüchlich erscheint?
 
-1. Bestätigen Sie zuerst das **aktive Projekt** in der oberen Leiste;
-2. Betrachten Sie die Karten dann als **Orientierungssignale**, nicht als einzige Wahrheitsquelle;
-3. Öffnen Sie den **Arbeitsbereich**, um Signale, Readiness und Projektblockaden zu überprüfen;
-4. Öffnen Sie das **KI-Protokoll**, wenn der Zweifel einen Run, eine Ausgabe oder einen tatsächlich verwendeten Provider betrifft;
-5. Wenn das Dashboard lädt, aber beeinträchtigt erscheint, öffnen Sie den **Systemstatus-Indikator**, bevor Sie auf eine Dateninkonsistenz schließen.
+1. Bestätigen Sie zuerst das **aktive Projekt** in der oberen Leiste.
+2. Behandeln Sie die Karten anschließend als **Orientierungs-Signale**, nicht als einzige Wahrheit.
+3. Öffnen Sie den **Workspace**, um Signale, Readiness und Projektblockaden zu prüfen.
+4. Öffnen Sie das **AI Log**, wenn der Zweifel auf einen Run, eine Ausgabe oder einen tatsächlich genutzten Anbieter gerichtet ist.
+5. Wenn das Dashboard lädt, aber eine zusätzliche Überprüfung anfordert, öffnen Sie den **Health indicator** bevor Sie zu den angezeigten Daten schließen.
 
-![Obere Leiste und globale Navigation](/img/screenshots/localized/de/01-navigation-topbar.png)
+![Top bar and global navigation](/img/screenshots/localized/fr/01-navigation-topbar.png)
 
-## Obere Leiste
+## Top bar
 
 | Element | Funktion |
 | --- | --- |
-| Projektauswahl | Ändert das aktuelle Projekt, ohne die vollständige Liste durchgehen zu müssen |
-| Befehls-Palette | Schnellsuche auf Seiten und häufigen Aktionen |
-| Benachrichtigungen | Zeigt vom Produkt gemeldete Aufmerksamkeitselemente an |
-| Systemstatus-Indikator | Öffnet eine schnelle Diagnose zum API-, Echtzeit- und Auth-Status |
-| Sprache | Ändert die Sprache der Oberfläche |
-| Thema | Wechselt das Erscheinungsbild zwischen hell und dunkel |
-| Hilfe | Öffnet die integrierten Hilfenachrichten |
+| Project selector | Ändert das aktuelle Projekt ohne die vollständige Liste zu durchlaufen |
+| Command palette | Schnelle Suche nach Seiten und häufigen Aktionen |
+| Notifications | Zeigt die vom Produkt gemeldeten Aufmerksamkeitspunkte an |
+| Health indicator | Öffnet eine schnelle Ansicht des API-, Echtzeit- und Auth-Status |
+| Language | Ändert die Sprache der Oberfläche |
+| Theme | Schaltet zwischen hell/dunkel aus |
+| Help | Öffnet die integrierten Hilfemeldungen |
 
-## Befehls-Palette
+## Command palette
 
-Die Befehls-Palette ist für die schnelle Navigation konzipiert.
+Die Command Palette ist für die schnelle Navigation konzipiert.
 
-- **Windows / Linux**: `Strg+K`
+- **Windows / Linux**: `Ctrl+K`
 - **macOS**: `Cmd+K`
 
-Sie filtert verfügbare Seiten und Einträge nach **Name** und **Beschreibung**. Verwenden Sie sie, um schnell zum **KI-Protokoll**, zur **Plattformadministration** oder zu jeder selten geöffneten Route zurückzukehren.
+Sie filtert die verfügbaren Seiten und Einträge nach **Name** und **Beschreibung**. Verwenden Sie sie, um schnell zum **AI Log**, zur **Platform Administration** oder zu jeder selten geöffneten Route zurückzukehren.
 
 ## Benachrichtigungen
 
-Das Benachrichtigungszentrum ist über das Glockensymbol in der oberen Leiste erreichbar.
+Der Benachrichtigungsbereich ist über das Glocken-Symbol in der oberen Leiste zugänglich.
 
 Beobachtete Funktionen:
 
-- Zähler ungelesener Elemente;
-- Ausklappbares Panel;
-- **Alle als gelesen markieren**;
-- **Alle löschen**;
-- Klick auf eine Benachrichtigung, um die verknüpfte Oberfläche zu öffnen, wenn eine Navigation bereitgestellt wird.
+- Zähler für ungelesene Elemente;
+- Dropdown-Paneel;
+- **Mark all as read**;
+- **Clear all**;
+- Klick auf eine Benachrichtigung, um die zugehörige Oberfläche zu öffnen, wenn eine Navigation bereitgestellt wird.
 
-Benachrichtigungen können u.a. Agent-Status, Berichtserstellungsereignisse, Dokumenten-Uploads und Updates im Zusammenhang mit Marketplace oder Abonnement melden.
+Benachrichtigungen können insbesondere Status von Agenten, Ereignisse der Berichtserstellung, Dokumenten-Uploads und Updates zu Marketplace oder Abonnement enthalten.
 
-## Systemstatus-Indikator
+## Health indicator
 
-Der Systemstatus-Indikator öffnet ein Panel für eine schnelle Diagnose. Er ermöglicht die Überprüfung von:
+Der Health indicator öffnet ein Quick‑Read‑Panel. Es ermöglicht die Anzeige von:
 
-- dem **API**-Status;
-- dem **Echtzeit- / WebSocket**-Status;
-- dem **Auth**-Status;
-- der beobachteten **Latenz**;
-- einem eventuellen Fehlertext;
-- dem aktuellen Projekt, wenn der Kontext für die Diagnose relevant ist.
+- API‑Status;
+- realtime / WebSocket‑Status;
+- Auth‑Status;
+- beobachtete Latenz;
+- eine Meldung, falls die Oberfläche eine hat;
+- dem aktuellen Projekt, wenn der Kontext bei der Statusauswertung wichtig ist.
 
-Öffnen Sie ihn, wenn ein Agent **offline** erscheint, Benachrichtigungen nicht mehr aktualisiert werden oder die Anwendung verfügbar, aber teilweise beeinträchtigt zu sein scheint.
+Öffnen Sie ihn, wenn ein Agent offline erscheint, wenn Benachrichtigungen nicht mehr aktualisiert werden oder wenn eine Verfügbarkeitsprüfung sinnvoll ist.
 
-Wenn das Panel einen beeinträchtigten Zustand anzeigt, während die Oberfläche noch lädt, halten Sie sich an diese Lesereihenfolge:
+Wenn das Panel einen degradierenden Zustand anzeigt, während die Oberfläche noch lädt, folgen Sie dieser Lesereihenfolge:
 
-| Wenn das Signal hauptsächlich betrifft… | Öffnen Sie danach | Warum |
+| Wenn das Signal hauptsächlich betrifft… | Öffnen Sie anschließend | Warum |
 | --- | --- | --- |
-| die **Authentifizierung** | [Erste Schritte](./demarrage.md) | um Tenant, Konto, `redirect URI`, Admin-Gruppe oder Sitz zu unterscheiden |
-| die **Laufzeitumgebung**, API, WebSocket oder Konnektivität | [Wartung, Support und FAQ](./maintenance-support-faq.md) | um den Abhilfeprozess zwischen Systemstatus, Provider, Integrationen und Ausführung zu verfolgen |
-| den **Projektkontext**, einen leeren Bildschirm oder eine fehlende Aktion | [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md) | um das aktive Projekt, das Binding, die Readiness und die Projektberechtigungen zu überprüfen |
+| **authentication** | [Start](./demarrage.md) | um Tenant, Konto, `redirect URI`, Admin‑Gruppe oder Hauptsitz zu unterscheiden |
+| **runtime**, API, WebSocket oder Konnektivität | [Maintenance, support and FAQ](./maintenance-support-faq.md) | um den Prüfpfad zwischen Health, KI‑Anbieter, Integrationen und Ausführung zu verfolgen |
+| **project context**, ein leerer Bildschirm oder fehlende Aktion | [Projects and workspace](./projets-et-espace-de-travail.md) | um das aktive Projekt, Binding, Readiness und Projektrechte zu prüfen |
 
-Bevor Sie eskalieren, notieren Sie den angezeigten Status für **API**, **Echtzeit**, **Auth**, die **Latenz**, das **aktuelle Projekt** und die ungefähre Uhrzeit des Tests. Diese Elemente verkürzen die Support-Diagnose erheblich.
+Bevor Sie eskalieren, notieren Sie den angezeigten Status für **API**, **realtime**, **auth**, **latency**, **current project** und die ungefähre Testzeit. Diese Angaben erleichtern die Bearbeitung durch das zuständige Team erheblich.
 
 ## Projektkontext und leere Zustände
 
-Mehrere Bildschirme von ProPM Agent sind mit dem aktiven Projekt verknüpft. In der Praxis:
+Mehrere Bildschirme von ProPM Agent hängen vom aktiven Projekt ab. In der Praxis:
 
-- **Ohne ausgewähltes Projekt** zeigen einige Seiten einen normalen leeren Zustand an;
-- **Mit ausgewähltem Projekt** lädt dieselbe Seite die Daten und Aktionen dieses Projekts;
-- Der Projektwechsel ändert den Inhalt von **Wissen**, **Agenten**, **Berichte & Artefakte** und **KI-Protokoll**.
+- **ohne Projekt ausgewählt**, zeigen einige Seiten einen normalen leeren Zustand;
+- **mit Projekt ausgewählt**, lädt dieselbe Seite Daten und Aktionen dieses Projekts;
+- das Projektwechseln ändert den Inhalt von **Knowledge**, **Agents**, **Reports & artifacts** und **AI Log**.
 
-Diese Kontextabhängigkeit vermeidet es, Nachweise, Konversationen und Liefergegenstände mehrerer Projekte zu vermischen.
+Diese Kontextabhängigkeit verhindert das Vermischen von Beweisen, Gesprächen und Lieferungen mehrerer Projekte.
 
 ## Sprache, Thema und Hilfe
 
-Die Oberflächensprache kann über die obere Leiste geändert werden. Der Themenwechsel verbessert den Lesekomfort, ohne Auswirkungen auf die Projektdaten. Die integrierten Hilfekataloge decken die allgemeine Navigation, Projektseiten, das KI-Protokoll und Governance-Erinnerungen ab.
+Die Sprache der Oberfläche kann über die obere Leiste geändert werden. Das Thema verbessert den Lesekomfort, hat jedoch keine Auswirkungen auf Projektdaten. Die integrierten Hilfekataloge decken die allgemeine Navigation, Projektseiten, das AI Log und Governance‑Erinnerungen ab.
 
-## Navigations-Tipps
+## Navigations‑Tipps
 
-- Wechseln Sie das Projekt, **bevor** Sie einen Agenten oder Bericht öffnen;
-- Verwenden Sie die **Befehls-Palette**, um schnell eine selten genutzte Oberfläche wiederzufinden;
-- Kehren Sie zum **Dashboard** zurück, wenn Sie den Faden verlieren;
-- Wenn eine Aktion fehlt, unterscheiden Sie klar zwischen **Nur-Lesen** und **Zugriff verweigert**;
-- Öffnen Sie den **Systemstatus-Indikator**, bevor Sie auf einen Backend-Vorfall schließen.
+- Wechseln Sie das Projekt **vor** dem Öffnen eines Agenten oder eines Berichts;
+- Nutzen Sie die **Command Palette**, um schnell eine selten genutzte Oberfläche zu finden;
+- Kehren Sie zum **Dashboard** zurück, wenn Sie den Überblick verlieren;
+- Wenn eine Aktion fehlt, unterscheiden Sie klar zwischen **Read‑Only** und **Zugriff verweigert**;
+- Öffnen Sie den **Health indicator**, bevor Sie zu einer Service‑Verfügbarkeitsfrage kommen.
 
-## Nächste Schritte
+## Weiter
 
-- [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md)
-- [Wissen und Agenten](./connaissance-et-agents.md)
-- [Strukturierte Ausgaben, Nachweise und Aktualität](./sorties-contextuelles-preuves-et-fraicheur.md)
-- [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md)
+- [Projekte und Workspace](./projets-et-espace-de-travail.md)
+- [Knowledge und Agents](./connaissance-et-agents.md)
+- [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md)
+- [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md)

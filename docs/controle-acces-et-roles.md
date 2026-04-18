@@ -1,66 +1,86 @@
 ---
-title: Access Control and Project Roles
+title: Access control and project roles
 slug: /controle-acces-et-roles
-description: Administer members, standard roles, custom roles, and RBAC safeguards at the project level.
+description: Manage members, delegate project roles and understand the RBAC safeguards applied to the creator and other members.
 ---
 
-[Home](./index.md) · [Projects and Workspace](./projets-et-espace-de-travail.md) · [Maintenance, Support, and FAQ](./maintenance-support-faq.md)
+[Home](./index.md) · [Projects and workspace](./projets-et-espace-de-travail.md) · [Maintenance, support and FAQ](./maintenance-support-faq.md)
 
-## Objective
+![Creator delegation and RBAC roles](/img/diagrams/fr/delegation-createur-rbac.svg)
 
-**Access Control** is the RBAC administration area at the project level. It allows you to decide:
+## Goal
+
+The **Access control** is the project‑level RBAC administration area. It allows you to decide:
 
 - who can enter the project;
 - what role each member receives;
-- what custom roles exist in this project;
-- what permissions these roles grant.
+- which custom roles exist in this project;
+- what permissions those roles grant.
 
-## Why It's Important
+## Why it matters
 
-Rights condition a large part of the experience: creating artifacts, running agents, managing members, modifying settings, and approvals. Correctly reading roles avoids confusing an incident with a simple lack of permission.
+Rights condition a large part of the experience: agent execution, member management, deliverable generation, integration configuration, publication governance and audit reading. A correct reading of roles avoids confusing a functional block with a simple lack of authorization.
 
-## Who Can Use This Page
+## Who can use this page
 
 - **view members and roles**: any member who can access the workspace;
 - **manage members**: user with `members:manage`;
 - **manage custom roles**: user with `roles:manage`.
 
-![Project Access Control View](/img/screenshots/localized/en/11-access-control.png)
+## Project creator: initial role and delegation
 
-## Standard Roles Observed
+At project creation, the creator starts with the **Project Owner** role and all observed project permissions. They therefore serve as the initial administrative point: they open the project, control the initial configuration and then delegate useful roles to other members.
 
-Each project starts with protected built-in roles:
+### Recommended delegation
 
-| Role | Typical Usage |
+1. keep the creator as the initial administrative safeguard;
+2. assign a second **Project Owner** if the project should not depend on a single person;
+3. use **Project Manager** for daily steering;
+4. reserve custom roles for real need gaps;
+5. then check **Governance policies** and **Project integrations** so that rights match external usage.
+
+### What the observed documentation confirms
+
+- the creator cannot be removed from this screen;
+- the creator’s role remains fixed;
+- a user cannot self‑downgrade or self‑remove from this surface;
+- role delegation is confirmed;
+- free transfer of the **creator status** is not confirmed by the observed screens.
+
+## Standard roles observed
+
+Each project starts with protected built‑in roles:
+
+| Role | Typical usage |
 | --- | --- |
-| Project Owner | Complete project administration |
-| Project Manager | Daily operational management |
-| Contributor | Content contribution, use of agents and deliverables according to permissions |
-| Viewer | Read-only consultation |
-| Auditor | Audit and traceability-oriented consultation |
+| Project Owner | Full project administration |
+| Project Manager | Daily operational steering |
+| Contributor | Content contribution, agent usage and deliverables according to permissions |
+| Reader | Read‑only consultation |
+| Auditor | Audit‑oriented consultation and traceability |
 
-These built-in roles are protected server-side and cannot be deleted from the interface.
+These built‑in roles are protected server‑side and cannot be deleted from the interface.
 
-## Quick Matrix of Standard Roles
+## Quick matrix of standard roles
 
 Custom roles can extend or reduce this scheme. The table below describes the **usual behavior** of the observed standard roles.
 
-| Common Action | Project Owner | Project Manager | Contributor | Viewer | Auditor |
+| Common action | Project Owner | Project Manager | Contributor | Reader | Auditor |
 | --- | --- | --- | --- | --- | --- |
-| Access the project, Workspace, and read-only screens | Yes | Yes | Yes | Yes | Yes |
-| Search in knowledge, review PM Docs and AI Log | Yes | Yes | Yes | Yes | Yes |
-| Launch a run in **Agents** | Yes | Yes | Yes | No by default | No by default |
-| Edit work contents and draft deliverables | Yes | Yes | Yes | No | No |
-| Manage members, roles, and main project settings | Yes | No | No | No | No |
-| Audit and traceability-oriented review | Yes | Yes | Yes | General read | Yes |
+| Access project, workspace and read screens | Yes | Yes | Yes | Yes | Yes |
+| Search knowledge, re‑read PM Documents and AI Log | Yes | Yes | Yes | Yes | Yes |
+| Launch a run in **Agents** | Yes | Yes | Yes | Not by default | Not by default |
+| Modify work contents and deliverable drafts | Yes | Yes | Yes | No | No |
+| Manage members, roles and main project settings | Yes | No | No | No | No |
+| Audit‑oriented review | Yes | Yes | Yes | General read | Yes |
 
-## Custom Roles
+## Custom roles
 
-The product supports the creation, editing, and deletion of **custom roles** at the project level.
+The product supports creation, editing and deletion of **custom roles** at the project level.
 
-### Permissions Explicitly Observed
+### Permissions explicitly observed
 
-The exposed permissions include notably:
+The exposed permissions include, notably:
 
 - `project:read`
 - `project:update`
@@ -76,141 +96,141 @@ The exposed permissions include notably:
 - `roles:manage`
 - `settings:manage`
 
-### Permission → Concrete Impact
+### Permission → concrete impact
 
-| Permission | Impacted Surface | Symptom if Missing |
+| Permission | Affected surface | Symptom if missing |
 | --- | --- | --- |
-| `agent:configure` | **Agent configuration** tab in the **Workspace** | the page remains viewable or the save controls are disabled |
-| `report:generate` | creation of drafts, artifacts, and PM Docs | the user can review, but cannot generate the expected deliverable |
-| `history:read` | **AI Log** and detailed run review | traceability remains inaccessible or very limited |
-| `settings:manage` | project settings, governance, and certain integrations | settings are visible but not modifiable |
-| `members:manage` | **Members** area in **Access control** | unable to add, remove, or change a member |
-| `roles:manage` | custom roles and their permissions | unable to create, adjust, or delete a custom role |
+| `agent:configure` | **Agent configuration** tab in **Workspace** | page remains viewable or save controls are disabled |
+| `report:generate` | Creation of drafts, artifacts and PM Documents | user can read but not generate the expected deliverable |
+| `history:read` | **AI Log** and detailed run reading | traceability remains inaccessible or very limited |
+| `settings:manage` | project settings, governance and some integrations | settings visible but not modifiable |
+| `members:manage` | **Members** area in **Access control** | cannot add, remove or change a member |
+| `roles:manage` | custom roles and their permissions | cannot create, adjust or delete a custom role |
 
-This table is mainly for diagnostics: a missing or grayed-out action is not always a bug, but often the direct consequence of a permission not granted.
+This table mainly serves to read the interface behavior correctly: an absent or greyed action often indicates a missing permission.
 
-![Custom Role Editor](/img/screenshots/localized/en/11-custom-role-editor.png)
+![Custom role editor](/img/screenshots/localized/fr/11-custom-role-editor.png)
 
-## What You See on the Page
+## What you see on the page
 
 The page is divided into two work areas:
 
-1. **Roles & permissions**
-   - review of built-in roles;
+1. **Roles and permissions**
+   - review of built‑in roles;
    - creation of custom roles;
-   - inspection or modification of a custom role's permissions;
+   - inspection or modification of a custom role’s permissions;
 2. **Members**
    - add a member by email;
-   - assign a built-in or custom role;
+   - assign an integrated or custom role;
    - change a role;
-   - remove a member when still authorized.
+   - delete a member when allowed.
 
-The page may also display your current identity and, when exposed, the protected entry of the project **creator**.
+The page may also display your current identity and, when exposed, the protected entry of the **creator** of the project.
 
-## Recommended Workflow
+## Recommended flow
 
-### Review Roles Before Adding a Member
+### Review roles before adding a member
 
 1. open **Workspace**;
 2. select the **Access control** tab;
-3. review existing roles;
-4. check if a standard role is sufficient or if a custom role is necessary.
+3. reread existing roles;
+4. check if a standard role suffices or if a custom role is needed.
 
-### Create a Custom Role
+### Create a custom role
 
-1. open **Roles & permissions**;
+1. open **Roles and permissions**;
 2. enter a **name**;
 3. optionally add a **description**;
 4. create the role;
 5. enable or disable the desired permissions;
-6. verify the displayed badges or permissions before real use.
+6. verify the badges or permissions displayed before real use.
 
-### Add or Update a Member
+### Add or update a member
 
 1. open **Members**;
 2. enter the **email**;
 3. choose the desired role;
 4. save;
-5. verify that the member's row reflects the expected role.
+5. verify that the member line reflects the expected role.
 
-If the user belongs to another tenant, keep in mind that an **external / guest account** must first be invited on the identity side before project RBAC can assign them a useful role. In practice, if the email seems correct but the user remains unfound or without real effect, first check the **Entra / guest** posture and then return to the project role assignment.
+If the user belongs to another tenant, remember that an **external / guest account** must first be invited on the identity side before the project RBAC can assign a useful role.
 
-### Change the Role of an Existing Member
+### Change a member’s role
 
-1. locate the member's row in **Members**;
-2. use the role selector on that row;
+1. locate the member line in **Members**;
+2. use the role selector on that line;
 3. choose the new role;
-4. confirm that the row displays the updated role.
+4. confirm that the line shows the updated role.
 
-### Remove a Member
+### Remove a member
 
-1. locate the row of the member to remove;
+1. locate the member to remove;
 2. use the delete action if available;
-3. confirm that the member disappears from the list;
-4. if the action remains blocked, first verify that it is neither your own account nor the protected creator entry.
+3. confirm the member disappears from the list;
+4. if the action remains blocked, first check that it is not your own account or the protected creator entry.
 
-## Confirmed RBAC Safeguards
+## Confirmed RBAC safeguards
 
-The interface and backend enforce several important protections:
+The interface and platform services apply several important protections:
 
 - you cannot **delete your own access** from this screen;
 - you cannot **modify your own role** from this screen;
-- the **project creator** entry remains protected;
+- the **creator** entry remains protected;
 - a **system role** cannot be deleted;
 - a **custom role still assigned** cannot be deleted;
 - users without management rights see a **viewable** page with disabled controls.
 
-## Read-Only vs Access Denied
+## Read‑only vs access denied
 
 These two states do not mean the same thing:
 
-- **read-only**: the page remains visible, but the add, edit, or delete controls are disabled;
+- **read‑only**: the page remains visible, but add, edit or delete controls are disabled;
 - **access denied**: the route or action is not available for your account.
 
-In practice, this allows certain profiles to review the RBAC configuration without being able to modify it.
+In practice, this allows some profiles to review RBAC configuration without being able to modify it.
 
-### How to Read a Denial
+### How to read a denial
 
-| What You Observe | Most Likely Reading | Recommended Reflex |
+| What you observe | Most likely reading | Recommended reflex |
 | --- | --- | --- |
-| a visible but grayed-out control | surface exposed in **read-only** | first check if your role includes the expected permission |
-| an action missing that exists for other profiles | permission or role not granted | compare your standard or custom role with the expected action |
-| a visible action but impossible despite the UI | server-side RBAC safeguard or protection constraint | check if it's a system role, your own account, or a protected entry |
+| a visible but greyed control | surface exposed in **read‑only** | first check if your role includes the expected permission |
+| an action missing while it exists for others | permission or role not granted | compare your standard or custom role with the expected action |
+| a visible action but impossible despite the UI | server‑side RBAC safeguard or protection constraint | check if it is a system role, your own account or a protected entry |
 
-This mini-diagnosis avoids confusing a denial related to the standard role, a denial related to a custom role, and a deliberate backend safeguard.
+## What the creator delegates in practice
 
-## Expected Result
+| Need | Role to assign first | Why |
+| --- | --- | --- |
+| administrative continuity | **Project Owner** | avoid a single account concentrating all administration |
+| daily steering | **Project Manager** | manage current work without opening full administration |
+| content production and agent usage | **Contributor** | run agents and prepare deliverables |
+| broad consultation | **Reader** | read‑only access without risk of modification |
+| audit and traceability | **Auditor** | review history and evidence without acting on the project |
 
-If the configuration is correct:
+## Common problems
 
-- the member list is up to date;
-- custom roles appear in the selectors;
-- permissions change based on the assigned role;
-- dangerous actions remain blocked by safeguards.
+### Unable to delete a custom role
 
-## Common Issues
+First check if this role is still assigned to a member. As long as it is used, deletion remains blocked.
 
-### Unable to Delete a Custom Role
+### Unable to modify my own role
 
-First check if this role is still assigned to a member. As long as it is in use, deletion remains blocked.
+This behavior is intentional to avoid accidental loss of access. Ask another project administrator to perform the change.
 
-### Unable to Modify My Own Role
+### The tab is visible but everything is greyed
 
-This behavior is intentional to avoid accidental loss of access. Ask another project administrator to perform the modification.
-
-### The Tab is Visible but Everything is Grayed Out
-
-You are likely in **read-only** on this surface. Check if your role includes `members:manage` or `roles:manage`.
+You are likely in **read‑only** on this surface. Verify if your role includes `members:manage` or `roles:manage`.
 
 ## Tips
 
-- use **Project Owner** only for true project administrators;
+- use **Project Owner** only for real project administrators;
 - keep custom roles targeted and limited to a specific need;
 - review permissions before delegating member management;
 - document custom roles in team practices to avoid duplicates.
 
-## Next Steps
+## Next
 
-- [Projects and Workspace](./projets-et-espace-de-travail.md)
-- [Governance, Decisions, and Actions](./gouvernance-decisions-et-actions.md)
-- [Maintenance, Support, and FAQ](./maintenance-support-faq.md)
+- [Projects and workspace](./projets-et-espace-de-travail.md)
+- [Governance, decisions and actions](./gouvernance-decisions-et-actions.md)
+- [Connectors and integrations](./connecteurs-jira-et-sharepoint)
+- [Maintenance, support and FAQ](./maintenance-support-faq.md)

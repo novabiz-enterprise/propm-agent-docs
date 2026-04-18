@@ -1,97 +1,97 @@
 ---
-title: Interface and Navigation
+title: Interface and navigation
 slug: /interface-et-navigation
-description: Understanding the main screens, sidebar, top bar, and dashboard.
+description: Understand the main screens, the sidebar, the top bar, and the dashboard.
 ---
 
-[Home](./index.md) · [Getting Started](./demarrage.md) · [Projects and Workspace](./projets-et-espace-de-travail.md)
+[Home](./index.md) · [Getting started](./demarrage.md) · [Projects and workspace](./projets-et-espace-de-travail.md)
 
-![ProPM Agent Dashboard](/img/screenshots/localized/en/01-dashboard.png)
+![ProPM Agent Dashboard](/img/screenshots/localized/fr/01-dashboard.png)
 
-## Objective
+## Goal
 
-This page explains how to navigate the ProPM Agent shell, read the **Dashboard**, use the **command palette**, interpret **notifications**, and open the **health** panel when an incident is suspected.
+This page explains how to navigate the ProPM Agent shell, read the **Dashboard**, use the **Command Palette**, interpret **notifications**, and use the **Health panel** for a quick check when needed.
 
 ## Overview
 
-The observed interface follows a simple logic:
+The interface follows a simple logic:
 
-1. the **sidebar** opens the main functional domains;
+1. the **sidebar** opens the major functional domains;
 2. the **top bar** changes the current project and opens quick tools;
 3. the central surface displays the **current context**;
-4. several screens change state based on the **active project** and your **rights**.
+4. several screens change state depending on the **active project** and your **rights**.
 
-## Main Navigation
+## Main navigation
 
-| Entry | Main Use |
+| Entry | Primary use |
 | --- | --- |
 | Dashboard | Read the overall status and suggested next steps |
-| Projects | Create, open, and switch project context |
-| Workspace | Project summary, signals, readiness, and project settings |
-| Knowledge | Search, upload, and import reference documents |
+| Projects | Create, open and change project context |
+| Workspace | Project summary, signals, readiness and project settings |
+| Knowledge | Search, upload and import reference documents |
 | Agents | Interact with available agents and read structured outputs |
-| Reports & Artifacts | Review, compare, publish, or download PM Docs |
-| AI Log | Inspect runs, events, and traceability metadata |
-| Portfolio Command Center | Compare multiple projects via configurable signals |
-| Platform Administration | Manage integrations, AI provider, subscription, and platform activity |
+| Reports & artifacts | Review, compare, publish or download PM Documents |
+| AI Log | Inspect runs, events and traceability metadata |
+| Portfolio command center | Compare multiple projects via configurable signals |
+| Platform Administration | Manage integrations, AI provider, subscription and platform activity |
 
 ## Dashboard
 
-The **Dashboard** is the most useful screen right after login.
+The **Dashboard** is the most useful screen right after logging in.
 
 It consolidates:
 
 - situational metrics;
 - attention items;
 - recommended next steps;
-- shortcuts to areas where action is needed;
-- an overview of open signals and items under review.
+- shortcuts to action zones;
+- a preview of open signals and items under review.
 
-Use it as an **orientation page**: if a project is not active, some blocks remain empty; if a project is selected, the indicators become contextual.
+Use it as a **orientation page**: if no project is active, some blocks remain empty; if a project is selected, the indicators contextualize.
 
-### How to read the main areas of the dashboard
+### How to read the main dashboard areas
 
-| Area | What it summarizes | Useful reflex |
+| Zone | What it summarizes | Useful reflex |
 | --- | --- | --- |
-| Summary tiles | project counts, knowledge, active agents, open signals, draft notifications, and pending actions | immediately spot if the issue is a lack of context, a review delay, or a governed queue |
-| Score cards | overall delivery status, execution pace, governance coverage, and knowledge depth | read these cards as orientation markers before opening a detail screen |
-| Readiness blocks | knowledge foundation, automation coverage, governance posture, and delivery flow | identify which pillar is blocking normal project usage |
-| **Attention** panel | signals, governed actions, and connector watchlist | go to the **Workspace** to handle active blockages |
-| **Pulse** panel | latest digest, recent notifications, recent activity, and connector status | check what just changed without re-reading the entire project history |
-| Quick links | shortcuts to **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts**, **AI Log**, and **Portfolio** | open the right surface directly instead of navigating screen by screen |
+| Summary tiles | counters of projects, knowledge, active agents, open signals, notification drafts and pending actions | immediately spot if the subject is a lack of context, a review delay or a governed queue |
+| Score cards | overall delivery state, execution rhythm, governance coverage and knowledge depth | read these cards as orientation markers before opening a detail screen |
+| Readiness blocks | knowledge foundation, automation coverage, governance posture and delivery flow | identify which pillar blocks normal project use |
+| **Attention** panel | signals, governed actions and connector watchlist | go to **Workspace** to address active blockers |
+| **Pulse** panel | latest digest, recent notifications, recent activity and connector status | check what has changed without rereading the entire project history |
+| Quick links | shortcuts to **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts**, **AI Log** and **Portfolio** | open the right surface directly instead of navigating screen by screen |
 
-The scores and indicators on the dashboard should be read as **prioritization markers**, not as an exhaustive diagnosis on their own.
+Dashboard scores and indicators should be read as **prioritization cues**, not as isolated conclusions.
 
 ### What to do if the dashboard seems contradictory?
 
 1. first confirm the **active project** in the top bar;
-2. then treat the cards as **orientation signals**, not as the sole source of truth;
-3. open the **Workspace** to check project signals, readiness, and blockages;
-4. open the **AI Log** if the doubt concerns a run, an output, or the provider actually used;
-5. if the dashboard loads but seems degraded, open the **health indicator** before concluding a data inconsistency.
+2. then treat the cards as **orientation signals**, not the sole source of truth;
+3. open **Workspace** to verify signals, readiness and project blockers;
+4. open the **AI Log** if doubt concerns a run, an output or the actual provider used;
+5. if the dashboard loads but calls for additional verification, open the **Health indicator** before concluding on the displayed data.
 
-![Top bar and global navigation](/img/screenshots/localized/en/01-navigation-topbar.png)
+![Top bar and global navigation](/img/screenshots/localized/fr/01-navigation-topbar.png)
 
-## Top Bar
+## Top bar
 
 | Element | Function |
 | --- | --- |
-| Project selector | Changes the current project without going back to the full list |
-| Command palette | Quick search for common pages and actions |
-| Notifications | Displays attention items raised by the product |
-| Health indicator | Opens a quick diagnostic on API, real-time, and auth status |
-| Language | Changes the interface language |
-| Theme | Toggles light/dark appearance |
-| Help | Opens integrated help messages |
+| Project selector | Change the current project without going through the full list |
+| Command palette | Quick search on pages and common actions |
+| Notifications | Show attention items raised by the product |
+| Health indicator | Open a quick read of API, realtime and auth status |
+| Language | Change the interface language |
+| Theme | Toggle light/dark appearance |
+| Help | Open integrated help messages |
 
-## Command Palette
+## Command palette
 
 The command palette is designed for quick navigation.
 
 - **Windows / Linux**: `Ctrl+K`
 - **macOS**: `Cmd+K`
 
-It filters available pages and entries by **name** and **description**. Use it to quickly return to **AI Log**, **Platform Administration**, or any rarely opened route.
+It filters available pages and entries by **name** and **description**. Use it to quickly return to **AI Log**, **Platform Administration** or any rarely opened route.
 
 ## Notifications
 
@@ -99,62 +99,62 @@ The notification center is accessible from the bell icon in the top bar.
 
 Observed capabilities:
 
-- unread item counter;
-- drop-down panel;
+- counter of unread items;
+- dropdown panel;
 - **Mark all as read**;
 - **Clear all**;
 - click on a notification to open the linked surface when navigation is provided.
 
-Notifications can notably surface agent statuses, report generation events, document uploads, and updates related to the Marketplace or subscription.
+Notifications can surface agent statuses, report generation events, document uploads and updates related to the Marketplace or subscription.
 
-## Health Indicator
+## Health indicator
 
-The health indicator opens a quick diagnostic panel. It allows you to check:
+The health indicator opens a quick read panel. It allows you to view:
 
 - **API** status;
 - **realtime / WebSocket** status;
 - **auth** status;
 - observed **latency**;
-- any error text;
-- the current project when context matters for the diagnosis.
+- a message displayed if the interface has one;
+- the current project when context matters in the status read.
 
-Open it if an agent appears **offline**, if notifications stop refreshing, or if the application seems available but partially degraded.
+Open it if an agent appears **offline**, if notifications stop refreshing or if a availability check is useful.
 
-If the panel indicates a degraded state while the interface still loads, keep this reading order:
+If the panel indicates a degraded state while the interface is still loading, keep this reading order:
 
-| If the signal mainly concerns… | Then open | Why |
+| If the signal mainly concerns… | Open next | Why |
 | --- | --- | --- |
-| **authentication** | [Getting Started](./demarrage.md) | to distinguish tenant, account, `redirect URI`, admin group, or seat |
-| **runtime**, API, WebSocket, or connectivity | [Maintenance, Support and FAQ](./maintenance-support-faq.md) | to follow the remediation path between health, provider, integrations, and execution |
-| **project context**, an empty screen, or a missing action | [Projects and Workspace](./projets-et-espace-de-travail.md) | to verify the active project, binding, readiness, and project rights |
+| **authentication** | [Getting started](./demarrage.md) | to distinguish tenant, account, `redirect URI`, admin group or headquarters |
+| **runtime**, API, WebSocket or connectivity | [Maintenance, support and FAQ](./maintenance-support-faq.md) | to follow the verification path between health, AI provider, integrations and execution |
+| **project context**, a blank screen or missing action | [Projects and workspace](./projets-et-espace-de-travail.md) | to verify the active project, binding, readiness and project rights |
 
-Before escalating, note the displayed status for **API**, **realtime**, **auth**, **latency**, **current project**, and the approximate test time. These elements significantly shorten support diagnosis.
+Before escalating, note the displayed state for **API**, **realtime**, **auth**, **latency**, **current project** and the approximate test time. These details greatly aid the responsible team.
 
-## Project Context and Empty States
+## Project context and empty states
 
-Several ProPM Agent screens are linked to the active project. In practice:
+Several ProPM Agent screens depend on the active project. In practice:
 
-- **without a selected project**, some pages display a normal empty state;
-- **with a project selected**, the same page loads that project's data and actions;
-- changing the project modifies the content of **Knowledge**, **Agents**, **Reports & Artifacts**, and **AI Log**.
+- **without a selected project**, some pages show a normal empty state;
+- **with a selected project**, the same page loads the data and actions for that project;
+- changing the project changes the content of **Knowledge**, **Agents**, **Reports & artifacts** and **AI Log**.
 
-This context dependency prevents mixing evidence, conversations, and deliverables from multiple projects.
+This context dependency prevents mixing evidence, conversations and deliverables from multiple projects.
 
-## Language, Theme, and Help
+## Language, theme and help
 
-The interface language can be changed from the top bar. Changing the theme improves reading comfort, without affecting project data. The integrated help catalogs cover general navigation, project pages, AI Log, and governance reminders.
+The interface language can be changed from the top bar. Changing the theme improves reading comfort, with no effect on project data. The integrated help catalogs cover general navigation, project pages, the AI Log and governance reminders.
 
-## Navigation Tips
+## Navigation tips
 
 - change project **before** opening an agent or a report;
-- use the **command palette** to quickly find a rarely used surface;
-- return to the **Dashboard** when you lose track of the journey;
-- if an action seems missing, clearly distinguish **read-only** and **access denied**;
-- open the **health indicator** before concluding a backend incident.
+- use the **Command palette** to quickly find a rarely used surface;
+- return to the **Dashboard** when you lose the thread of the journey;
+- if an action seems missing, distinguish **read‑only** and **access denied**;
+- open the **Health indicator** before concluding a service availability issue.
 
 ## Next
 
-- [Projects and Workspace](./projets-et-espace-de-travail.md)
-- [Knowledge and Agents](./connaissance-et-agents.md)
-- [Structured Outputs, Evidence, and Freshness](./sorties-contextuelles-preuves-et-fraicheur.md)
-- [Reports, AI Log, and Traceability](./rapports-journal-ia-et-tracabilite.md)
+- [Projects and workspace](./projets-et-espace-de-travail.md)
+- [Knowledge and agents](./connaissance-et-agents.md)
+- [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md)
+- [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md)

@@ -1,8 +1,12 @@
 ---
 title: Guide utilisateur ProPM Agent
 slug: /
-description: "Documentation multilingue pour ProPM Agent, couvrant l\u2019ex\u00e9cution de projet assist\u00e9e par IA, les workflows gouvern\u00e9s, les sorties \u00e9tay\u00e9es par des preuves et le d\u00e9ploiement Azure Marketplace."
+description: "Documentation utilisateur française pour ProPM Agent, couvrant l’exécution de projet assistée par IA, la gouvernance, les connecteurs, la traçabilité et le déploiement Azure Marketplace."
 ---
+
+> **Lecture fortement recommandée**
+>
+> Pour réussir l’adoption de ProPM Agent dans l’entreprise et exploiter pleinement l’application, il est fortement recommandé de lire ce guide dès le démarrage du projet, puis de s’y référer pendant le déploiement, la mise en place des connecteurs, la gouvernance et l’exploitation quotidienne.
 
 Cette documentation décrit **uniquement** les fonctions observées dans l’application, dans le code, dans la configuration de déploiement et dans les tests automatisés de ProPM Agent.
 
@@ -13,16 +17,16 @@ Elle est organisée pour deux publics :
 
 ![Vue d’ensemble de l’application](/img/screenshots/localized/fr/01-dashboard.png)
 
-## Je cherche à résoudre un problème
+## Je cherche la bonne page rapidement
 
-| Symptôme | Ouvrez d’abord | Puis |
+| Situation observée | Ouvrez d’abord | Puis |
 | --- | --- | --- |
 | Je ne peux pas me connecter | [Démarrage](./demarrage.md) | [Maintenance, support et FAQ](./maintenance-support-faq.md) pour distinguer tenant, `redirect URI`, siège ou état de santé |
 | Aucun projet n’apparaît | [Démarrage](./demarrage.md) | [Projets et espace de travail](./projets-et-espace-de-travail.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) si l’ajout au projet ou le rôle restent douteux |
-| Une action est visible mais bloquée | [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) | [Maintenance, support et FAQ](./maintenance-support-faq.md), puis [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) si le blocage vient d’un connecteur, d’un binding ou d’un entitlement |
-| Le fournisseur IA ne semble pas opérationnel | [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) | [Maintenance, support et FAQ](./maintenance-support-faq.md) et [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) pour confirmer le provider effectif |
+| Une action est visible mais bloquée | [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) | [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint), puis [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) si le blocage vient d’un connecteur, d’un binding ou d’un entitlement |
+| Le fournisseur IA ne semble pas opérationnel | [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) | [Maintenance, support et FAQ](./maintenance-support-faq.md) et [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) pour confirmer le fournisseur effectif |
 
-Si vous êtes déjà en incident, ouvrez directement [Maintenance, support et FAQ](./maintenance-support-faq.md) au lieu de suivre le parcours de lecture normal.
+Si vous cherchez directement une procédure de vérification ou un repère d’exploitation, ouvrez [Maintenance, support et FAQ](./maintenance-support-faq.md).
 
 ## Parcours de lecture recommandé
 
@@ -32,13 +36,14 @@ Si vous êtes déjà en incident, ouvrez directement [Maintenance, support et FA
 | Vous connecter, vérifier l’authentification et créer votre premier projet | [Démarrage](./demarrage.md) |
 | Comprendre l’interface, la palette, les notifications et la santé | [Interface et navigation](./interface-et-navigation.md) |
 | Gérer le contexte projet et les réglages de l’espace de travail | [Projets et espace de travail](./projets-et-espace-de-travail.md) |
-| Administrer les membres, rôles et garde-fous RBAC du projet | [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md) |
+| Administrer les membres, rôles, délégations et garde-fous RBAC du projet | [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md) |
 | Importer des documents, rechercher des preuves et travailler avec les agents | [Connaissance et agents](./connaissance-et-agents.md) |
 | Lire correctement une sortie structurée, ses preuves et sa fraîcheur | [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md) |
 | Traiter les signaux, la gouvernance et les actions nécessitant approbation | [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) |
-| Réviser un artefact, publier un PM Doc et enquêter dans le Journal IA | [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) |
+| Réviser un artefact, publier un Document PM et enquêter dans le Journal IA | [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) |
+| Comprendre les connecteurs et intégrations prises en charge | [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint) |
 | Comparer les projets, gérer les intégrations, l’IA et les sièges | [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) |
-| Diagnostiquer les incidents courants et consulter les procédures support | [Maintenance, support et FAQ](./maintenance-support-faq.md) |
+| Consulter les procédures support et de vérification | [Maintenance, support et FAQ](./maintenance-support-faq.md) |
 | Clarifier les termes produit | [Glossaire](./glossaire.md) |
 
 ## Parcours rapide par profil
@@ -46,9 +51,9 @@ Si vous êtes déjà en incident, ouvrez directement [Maintenance, support et FA
 | Profil | Pages à ouvrir en priorité |
 | --- | --- |
 | Utilisateur métier / contributeur | [Démarrage](./demarrage.md) → [Interface et navigation](./interface-et-navigation.md) → [Projets et espace de travail](./projets-et-espace-de-travail.md) → [Connaissance et agents](./connaissance-et-agents.md) → [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md) |
-| Propriétaire de projet | [Démarrage](./demarrage.md) → [Projets et espace de travail](./projets-et-espace-de-travail.md) → [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md) → [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) → [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) |
-| Administrateur technique | [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md) → [Démarrage](./demarrage.md) → [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) → [Maintenance, support et FAQ](./maintenance-support-faq.md) |
-| Support / audit | [Démarrage](./demarrage.md) → [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md) → [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) → [Maintenance, support et FAQ](./maintenance-support-faq.md) → [Glossaire](./glossaire.md) |
+| Propriétaire de projet | [Démarrage](./demarrage.md) → [Projets et espace de travail](./projets-et-espace-de-travail.md) → [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md) → [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) → [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint) → [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) |
+| Administrateur technique | [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md) → [Démarrage](./demarrage.md) → [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) → [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint) → [Maintenance, support et FAQ](./maintenance-support-faq.md) |
+| Support / audit | [Démarrage](./demarrage.md) → [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md) → [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) → [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) → [Glossaire](./glossaire.md) |
 
 ## Parcours bout en bout recommandé
 
@@ -57,24 +62,30 @@ Dans un usage réel, le flux le plus fréquent est le suivant :
 1. déployer ou récupérer l’URL publiée ;
 2. se connecter avec un compte Microsoft Entra ID autorisé ;
 3. créer ou sélectionner un **projet actif** ;
-4. charger la **Connaissance** du projet ;
-5. lancer un échange dans **Agents** ;
-6. relire la **sortie structurée**, ses preuves, sa fraîcheur et sa confiance ;
-7. transformer le résultat en **artefact** ou **PM Doc** ;
-8. vérifier la lignée et les détails techniques dans le **Journal IA** ;
-9. traiter les **signaux**, les **actions gouvernées** et, si besoin, la comparaison **portefeuille** ;
+4. laisser le **créateur du projet** déléguer les premiers rôles utiles ;
+5. charger la **Connaissance** du projet ;
+6. lancer un échange dans **Agents** ;
+7. relire la **sortie structurée**, ses preuves, sa fraîcheur et sa confiance ;
+8. transformer le résultat en **artefact** ou en **Document PM**, puis le revoir avant téléchargement **DOCX / XLSX**, publication ou ajout à la connaissance ;
+9. traiter les **signaux proactifs**, les **Actions & approbations** et, si besoin, les flux d’intégrations externes ;
 10. administrer au niveau plateforme uniquement lorsque le sujet dépasse le projet.
 
 ## Convention de libellés
 
-L’interface peut afficher des libellés anglais. Dans cette documentation, les équivalences les plus utiles sont :
+Lorsque la plateforme expose une traduction française, cette documentation privilégie ce libellé :
 
-- **Espace de travail** = `Workspace`
-- **Connaissance** = `Knowledge`
-- **Rapports & artefacts** = `Reports` / `PM Docs` selon le contexte
-- **Journal IA** = `AI Log`
-- **Administration de la plateforme** = `Platform Administration`
-- **Contrôle d’accès** = `Access control`
+- **Espace de travail** ;
+- **Connaissance** ;
+- **Documents PM** ;
+- **Journal IA** ;
+- **Contrôle d’accès** ;
+- **Politiques de gouvernance** ;
+- **Intégrations du projet** ;
+- **Intégrations de la plateforme** ;
+- **Paramètres du fournisseur IA** ;
+- **Actions & approbations**.
+
+Quand un libellé anglais reste utile pour lever une ambiguïté, il est cité ponctuellement en code, par exemple `Trace ID` ou `OpenAI-compatible`.
 
 ## Ce que couvre ProPM Agent
 
@@ -84,10 +95,11 @@ L’interface peut afficher des libellés anglais. Dans cette documentation, les
 2. vous alimentez la **Connaissance** ;
 3. vous interrogez les **Agents** ;
 4. vous relisez les **sorties structurées** ;
-5. vous transformez ces résultats en **Rapports & artefacts** ;
+5. vous transformez ces résultats en **Documents PM** et en artefacts ;
 6. vous vérifiez la **traçabilité** dans le **Journal IA** ;
-7. vous traitez les **signaux** et les **actions gouvernées** ;
-8. les administrateurs pilotent la couche technique dans **Administration de la plateforme**.
+7. vous traitez les **signaux**, les **digests**, les **brouillons** et les **actions gouvernées** ;
+8. vous utilisez les **connecteurs** et les **intégrations** uniquement lorsqu’ils sont validés et bindés au projet ;
+9. les administrateurs pilotent la couche technique dans **Administration de la plateforme**.
 
 ## Architecture fonctionnelle observée
 
@@ -98,22 +110,23 @@ L’interface peut afficher des libellés anglais. Dans cette documentation, les
 | Espace de travail | Regrouper résumé projet, transparence opérationnelle, signaux, raccourcis et réglages projet |
 | Contrôle d’accès | Gérer membres, rôles standards, rôles personnalisés et permissions de projet |
 | Connaissance | Rechercher, téléverser, importer, relire les métadonnées et suivre l’historique d’ingestion |
-| Agents | Choisir un agent, lancer un échange, utiliser la voix si le navigateur le permet et gérer des agents personnalisés selon les droits |
+| Agents | Choisir un agent, lancer un échange, utiliser la saisie vocale dans **Agents** si l’environnement l’expose encore, et gérer des agents personnalisés selon les droits |
 | Sorties structurées | Lire résumé, preuves, fraîcheur, confiance, propositions d’artefacts et suites à donner |
-| Rapports & artefacts | Réviser, comparer, approuver, publier, télécharger et réinjecter des PM Docs dans la connaissance |
+| Documents PM / Rapports & artefacts | Réviser, comparer, approuver, publier, télécharger et réinjecter des livrables dans la connaissance |
 | Journal IA | Inspecter les runs, l’activité, les IDs techniques et la transparence du runtime IA |
+| Connecteurs et intégrations | Séparer définitions plateforme, bindings projet, politiques d’action et exécution gouvernée |
 | Centre de commande portefeuille | Comparer plusieurs projets avec signaux, poids, seuils et cohortes sauvegardées |
 | Administration de la plateforme | Gérer intégrations, fournisseur IA, abonnement, sièges et activité plateforme |
 
 ## Ce qui distingue l’application
 
-Les éléments suivants sont explicitement visibles dans l’interface ou les tests :
+Les éléments suivants sont explicitement visibles dans l’interface, les données seedées ou les tests :
 
 - **sorties structurées** avec sections, preuves, fraîcheur, confiance et suites à décider ;
-- **lignée** entre un run, une sortie structurée, un artefact, une version d’artefact et un PM Doc ;
-- **signaux proactifs** pour les contradictions, la fraîcheur, les blocages et les relances ;
-- **actions gouvernées** avec proposition, approbation, exécution et traçabilité ;
-- **séparation nette** entre définitions techniques de niveau plateforme et bindings d’usage au niveau projet ;
+- **lignée** entre un run, une sortie structurée, un artefact, une version d’artefact et un Document PM ;
+- **signaux proactifs** pour les contradictions, la fraîcheur, les blocages, les relances et certaines pressions portefeuille ;
+- **chaîne documentaire gouvernée** depuis un résultat d’agent vers les téléchargements **DOCX / XLSX**, la publication et la réinjection dans la connaissance ;
+- **connecteurs gouvernés** séparés entre **Intégrations de la plateforme**, **Intégrations du projet** et **Actions & approbations** ;
 - **transparence runtime IA** avec fournisseur effectif, fournisseur sélectionné au déploiement et famille de modèle.
 
 ## Publics et responsabilités
@@ -122,12 +135,12 @@ Les éléments suivants sont explicitement visibles dans l’interface ou les te
 | --- | --- |
 | Chef de projet / PMO | Contexte projet, agents, livrables, signaux, gouvernance et traçabilité |
 | Contributeur | Recherche dans la connaissance, génération de contenu, revue des sorties et suivi des runs |
-| Propriétaire de projet | Paramétrage projet, rôles, catégories de documents, intégrations projet et politiques de gouvernance |
+| Propriétaire du projet | Paramétrage projet, délégation des rôles, catégories de documents, intégrations projet et politiques de gouvernance |
 | Administrateur technique / abonnement | Déploiement, authentification, intégrations plateforme, fournisseur IA, abonnement, sièges et supervision |
 
-## Captures d’écran
+## Captures d’écran et schémas
 
-Les captures de l’application ont été générées sur l’environnement observé. La page de déploiement utilise en plus les captures Azure Portal fournies pour illustrer l’installation.
+Les captures de l’application ont été générées sur l’environnement observé. Lorsque certaines captures disponibles montraient surtout un état de chargement ou des données de démonstration incomplètes, cette version française privilégie aussi des **schémas explicatifs** pour garder une lecture exploitable avant traduction et publication finale.
 
 ## Support et contact
 
@@ -135,8 +148,8 @@ Utilisez le bon canal selon la nature de la demande :
 
 | Type de demande | À transmettre en priorité |
 | --- | --- |
-| Support technique | URL du déploiement, projet concerné, symptôme exact, heure approximative, `Trace ID` si visible |
-| Problème d’accès, de tenant ou d’identité | tenant attendu, compte utilisé, URL réellement ouverte, message Microsoft ou capture d’écran |
+| Support technique | URL du déploiement, projet concerné, situation observée, heure approximative, `Trace ID` si visible |
+| Question d’accès, de tenant ou d’identité | tenant attendu, compte utilisé, URL réellement ouverte, message Microsoft ou capture d’écran |
 | Question commerciale ou abonnement | contexte du compte, plan concerné, nombre de sièges ou besoin de capacité |
 
 Toutes ces demandes peuvent être envoyées au point de contact suivant :
@@ -149,6 +162,6 @@ Toutes ces demandes peuvent être envoyées au point de contact suivant :
 ## Suite
 
 - [Démarrage](./demarrage.md)
-- [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
-- [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md)
+- [Projets et espace de travail](./projets-et-espace-de-travail.md)
+- [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
 - [Glossaire](./glossaire.md)

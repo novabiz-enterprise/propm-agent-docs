@@ -1,189 +1,377 @@
 ---
-title: Despliegue en Azure Marketplace
+title: Despliegue Azure Marketplace
 slug: /deploiement-azure-marketplace
-description: Lanzar un despliegue de ProPM Agent desde Azure Marketplace, completar los campos actuales del asistente y finalizar Azure OpenAI después de la instalación.
+description: Desployer ProPM Agent depuis Azure Marketplace, choisir le fournisseur IA pendant l’installation et finaliser la mise en service dans l’administration.
 ---
 
-[Inicio](./index.md) · [Primeros pasos](./demarrage.md) · [Portafolio y administración técnica](./portefeuille-et-administration-technique.md)
+[Inicio](./index.md) · [Inicio rápido](./demarrage.md) · [Portafolio y administración técnica](./portefeuille-et-administration-technique.md)
 
 ## Objetivo
 
-Esta página documenta el flujo de despliegue observado en el asistente de Azure Portal para la oferta de Marketplace ProPM Agent, a partir de las capturas proporcionadas y los parámetros confirmados en el repositorio.
+Esta página explica cómo desplegar **ProPM Agent** desde **Azure Marketplace**, y luego cómo terminar correctamente la puesta en marcha en el lado del cliente.
+
+El punto esencial a recordar es simple:
+
+- **Azure Marketplace instala la plataforma** ;
+- el campo **LLM Provider** permite elegir la **familia de proveedor IA** usada por el entorno ;
+- la **puesta en marcha final** del proveedor IA se completa después en **Administration de la plateforme > Paramètres du fournisseur IA**.
+
+En otras palabras, el despliegue no basta, por sí solo, para hacer que el proveedor IA sea inmediatamente explotable por los usuarios finales.
+
+## Lo que un administrador decide durante el despliegue
+
+Durante el asistente Marketplace, el administrador decide principalmente:
+
+- en qué **suscripción Azure** desplegar la solución ;
+- en qué **grupo de recursos** y en qué **región** ;
+- qué **grupos Entra** administrarán la plataforma ;
+- qué **proveedor IA principal** usará el entorno ;
+- qué reglas iniciales de **CORS**, de **registro**, de **supervisión** y de **red** aplicar.
+
+## Lo que se termina después del despliegue
+
+Después de la instalación, el administrador de la plataforma debe todavía:
+
+1. abrir **Administration de la plateforme** ;
+2. ir a **Paramètres du fournisseur IA** ;
+3. completar los campos específicos del proveedor retenido ;
+4. guardar la configuración ;
+5. lanzar **Validate** ;
+6. lanzar **Test** ;
+7. lanzar **Activate** ;
+8. confirmar luego el proveedor realmente usado en **Journal IA**.
 
 ## Antes de lanzar el despliegue
 
 Prepare al menos:
 
-- la **suscripción de Azure** objetivo;
-- la estrategia de **grupo de recursos** y **región de Azure**;
-- los **Group Object IDs** de Entra de los administradores de la plataforma;
-- los usuarios de bootstrap si los utiliza;
-- la elección del **LLM Provider**;
-- si elige **Azure OpenAI**, el administrador que finalizará luego el despliegue LLM en **Administración de la plataforma**;
-- los orígenes **CORS** adicionales si son necesarios;
-- un plan de direccionamiento compatible para el **VNet CIDR**;
-- la secuencia post-despliegue para la autenticación Entra y la primera prueba de conexión.
+- la **suscripción Azure** objetivo ;
+- el **grupo de recursos** principal y la **región** ;
+- los **IDs de objeto Entra** de los administradores de la plataforma ;
+- los posibles **usuarios de bootstrap** ;
+- la elección del **proveedor IA** a usar al inicio ;
+- si eliges **Azure OpenAI**, el administrador que finalice luego el **nombre de despliegue LLM** en la administración ;
+- las **orígenes CORS** adicionales si la aplicación debe llamarse desde otros dominios ;
+- un plan de direccionamiento compatible para el **VNet CIDR** ;
+- la preparación del primer test de conexión y los **redirect URIs Entra**.
 
-## Paso 1 — Pestaña **Básico**
+## Paso 1 — Pestaña **De base**
 
-La primera etapa sirve para definir el ámbito Azure del despliegue.
+La primera etapa define el alcance de Azure del despliegue.
 
-![Pestaña básico del despliegue Azure Marketplace](/img/deploiement/deploiement-01-onglet-base.png)
+![Pestaña de base del despliegue Azure Marketplace](/img/deploiement/deploiement-01-onglet-base.png)
 
 ### Campos visibles
 
-| Campo | Uso |
+| Campo | Para qué sirve |
 | --- | --- |
-| Suscripción | Selecciona la suscripción de Azure que alojará el despliegue |
+| Suscripción | Selecciona la suscripción Azure que portará la instalación |
 | Grupo de recursos | Define el grupo de recursos principal del despliegue |
-| Región | Define la región de despliegue de la aplicación administrada |
-| Nombre de la aplicación | Define el nombre de la instancia publicada |
-| Grupo de recursos administrado | Define el grupo administrado creado para los recursos internos de la solución |
+| Región | Define la región Azure de la instancia Marketplace |
+| Nombre de la aplicación | Da el nombre de la instancia ProPM Agent |
+| Grupo de recursos gestionado | Define el grupo gestionado que recibirá los recursos internos de la solución |
 
-La captura también muestra el cuadro de diálogo **Crear nuevo** para el grupo de recursos.
+## Paso 2 — Pestaña **Application Settings**
 
-## Paso 2 — Pestaña **Configuración de la aplicación**
+Esta pantalla agrupa los parámetros de identidad, proveedor IA, seguridad inicial, supervisión y red.
 
-La versión actual observada de la pestaña **Configuración de la aplicación** ya no presenta el campo **Platform Region**. Esta pantalla agrupa ahora los parámetros de identidad, proveedor de IA, seguridad inicial, supervisión y red.
-
-![Parámetros de aplicación actuales del despliegue](/img/deploiement/fr/deploiement-02-application-settings-actuel.png)
+![Parámetros actuales de la aplicación del despliegue](/img/deploiement/fr/deploiement-02-application-settings-actuel.png)
 
 ### Campos visibles en la captura
 
-| Campo | Uso observado |
+| Campo | Lectura simple |
 | --- | --- |
 | Environment Name | Nombre corto del entorno, por ejemplo `dev`, `test` o `prod` |
-| Platform Administration Entra Group Object IDs | Grupo(s) Entra utilizados para la administración de la plataforma |
-| Platform Administration Bootstrap Users (optional) | Usuarios de bootstrap opcionales |
-| Allow Azure RBAC admin recovery | Activa una recuperación de administrador basada en Azure RBAC |
-| LLM Provider | Elige el proveedor de IA utilizado por la plataforma; si se selecciona Azure OpenAI, la selección final del LLM se realiza luego en la administración |
-| CORS Allowed Origins | Define los orígenes web adicionales permitidos |
-| Enable alerting (Azure Monitor) | Activa la supervisión de alertas de Azure Monitor |
-| Enable debug logging | Activa registros de diagnóstico más detallados |
-| Contraseña / Confirmar la contraseña | Define la contraseña inicial requerida por el asistente |
-| VNet CIDR | Define el rango de red privada de la plataforma |
+| Platform Administration Entra Group Object IDs | Grupos Entra autorizados a administrar la plataforma |
+| Platform Administration Bootstrap Users (optional) | Usuarios de respaldo o de bootstrap si los usas |
+| Allow Azure RBAC admin recovery | Autoriza una recuperación de administración basada en Azure RBAC |
+| LLM Provider | Elige la familia de proveedor IA usada por el entorno |
+| CORS Allowed Origins | Lista los dominios web adicionales autorizados |
+| Enable alerting (Azure Monitor) | Activa la supervisión de alertas Azure Monitor |
+| Enable debug logging | Activa registros más detallados para una lectura técnica profunda |
+| Mot de passe / Confirmer le mot de passe | Define la contraseña inicial solicitada por el asistente |
+| VNet CIDR | Define la red privada reservada a la plataforma |
 
-Puntos de atención: en la versión actual del formulario, la elección de región ya no se realiza en esta pestaña. La región de despliegue sigue definida en la pestaña **Básico**. Los grupos Entra deben prepararse antes del despliegue y el **VNet CIDR** no debe entrar en conflicto con su plan de direccionamiento existente.
+### Punto de atención importante
 
-El campo **LLM Provider** sigue siendo el punto de elección del proveedor de IA; el caso **Azure OpenAI** añade luego una etapa de administración post-despliegue.
+En la versión actual del formulario, la **región** ya no se elige en esta pestaña. Se mantiene definida en la pestaña **De base**.
 
-## Paso 3 — Caso **Azure OpenAI** durante el despliegue
+## Paso 3 — Elegir el proveedor IA durante el despliegue
 
-La siguiente captura muestra el comportamiento observado cuando **LLM Provider** se establece en **Azure OpenAI (marketplace-managed account)**.
+El campo **LLM Provider** no sirve solo a Azure OpenAI. Permite elegir uno de los proveedores IA visibles en el producto.
+
+### Los 5 casos a conocer
+
+| Proveedor IA | Cuándo elegirlo | Ventaja principal | Lo que decides durante el despliegue | Lo que terminas después en la administración |
+| --- | --- | --- | --- | --- |
+| **Azure OpenAI** | si el entorno cliente ya está centrado en Azure, Entra, red privada y gobernanza Microsoft | integración natural al ecosistema Azure | eliges Azure OpenAI como proveedor objetivo | rellenas el endpoint, la versión API, el modo de autenticación y sobre todo el **LLM deployment name** |
+| **OpenAI** | si el cliente quiere usar directamente la plataforma OpenAI | recorrido simple y directo | eliges OpenAI como proveedor objetivo | completas la URL usada, la clave o referencia de secreto, el modelo por defecto, luego validas y activas |
+| **Anthropic** | si el cliente desea usar los modelos Claude para usos documentales o de síntesis | buen opción para flujos orientados a lectura, síntesis y razonamiento documental | eliges Anthropic como proveedor objetivo | completas la conexión, el secreto y el modelo por defecto, luego validas y activas |
+| **OpenRouter** | si el cliente quiere comparar varias familias de modelos vía un punto de entrada único | un solo enlace para varios modelos y escenarios de enrutamiento | eliges OpenRouter como proveedor objetivo | completas la Base URL, la clave y el modelo por defecto, luego validas y activas |
+| **OpenAI-compatible** | si el cliente usa una gateway partner, un endpoint de empresa o un runtime compatible | permite conectar una implementación compatible sin cambiar el producto | eliges OpenAI-compatible como proveedor objetivo | completas el endpoint exacto, la autenticación y el modelo o despliegue esperado |
+
+### Regla simple a recordar
+
+El despliegue **designa el proveedor**. La administración **hace que el proveedor sea operativo**.
+
+## Lo que el usuario final percibe realmente
+
+Para el usuario final, el proveedor elegido influye:
+
+- los **modelos** realmente usados ;
+- el nivel de **gobernanza técnica** impuesto por la organización ;
+- la forma en que el equipo de administración gestiona las **claves**, **secretos** y **despliegues** ;
+- a veces la **rapidez de puesta en marcha** o la **flexibilidad de cambio de modelo**.
+
+Sin embargo, el usuario final no debe entender toda la mecánica de instalación. Su necesidad es que el proveedor esté:
+
+- configurado ;
+- validado ;
+- probado ;
+- activado ;
+- trazable en **Journal IA**.
+
+## Caso 1 — **Azure OpenAI**
+
+La captura a continuación muestra el comportamiento observado cuando **LLM Provider** está configurado en **Azure OpenAI**.
 
 ![Selección Azure OpenAI con indicación de configuración posterior en la administración](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed.png)
 
-El texto de ayuda visible bajo el campo confirma dos puntos importantes:
+### Cuando este elección es pertinente
 
-- la preparación de la cuenta / endpoint de Azure OpenAI se realiza durante el despliegue;
-- la elección final del **LLM / deployment** se completa más tarde en **Platform Administration > AI Provider Settings**.
+Elige **Azure OpenAI** cuando el cliente:
 
-### Lo que esto implica
+- trabaja ya mayormente en Azure ;
+- desea un marco fuerte alrededor de **Entra**, la red y la gobernanza Microsoft ;
+- quiere seleccionar despliegues precisos en su recurso Azure OpenAI.
 
-| Momento | Decisión tomada |
+### Lo que implica durante el despliegue
+
+Durante Marketplace:
+
+- eliges **Azure OpenAI** como proveedor ;
+- la instalación puede preparar la conexión Azure asociada ;
+- la selección del **LLM deployment exacto** no termina todavía aquí.
+
+### Lo que todavía hay que hacer después de la instalación
+
+Después del despliegue, abre **Administration de la plateforme > Paramètres du fournisseur IA** y completa o confirma:
+
+- **Endpoint** del recurso Azure OpenAI ;
+- **API version** ;
+- **Authentication mode** (`managed_identity` o `api_key`) ;
+- **LLM deployment name** exacto ;
+- posiblemente **Embeddings deployment name**.
+
+### Especificidad importante
+
+Si el despliegue ya instaló un secreto o clave para Azure OpenAI, la interfaz puede indicar que no se necesita una **API key visible al usuario** en este formulario. En ese caso, el administrador se centra principalmente en el **nombre del despliegue** y las pruebas de conectividad.
+
+## Caso 2 — **OpenAI**
+
+### Cuando este elección es pertinente
+
+Elige **OpenAI** cuando el cliente quiere usar directamente las API OpenAI, sin pasar por Azure OpenAI ni por una gateway intermedia.
+
+### Ventajas prácticas
+
+- configuración generalmente más directa ;
+- lectura simple para un equipo que ya estandariza sus usos en OpenAI ;
+- sin gestión de **nombre de despliegue Azure**.
+
+### Lo que decides durante el despliegue
+
+Durante Marketplace, decides simplemente que el entorno usará **OpenAI** como proveedor principal.
+
+### Lo que todavía hay que hacer después de la instalación
+
+En **Paramètres du fournisseur IA**, completa después:
+
+- la **Base URL** o el endpoint usado por el producto ;
+- el **modelo por defecto** ;
+- la **clave API** o la **referencia de secreto** ;
+- la secuencia **Save → Validate → Test → Activate**.
+
+### Impacto en el cliente
+
+El usuario final no necesita ver estos ajustes. Lo que importa es que el administrador haya confirmado la conectividad y el modelo realmente usado.
+
+## Caso 3 — **Anthropic**
+
+### Cuando este elección es pertinente
+
+Elige **Anthropic** cuando el cliente prefiera los modelos **Claude**, especialmente para usos de síntesis, lectura de contexto y trabajo documental.
+
+### Ventajas prácticas
+
+- buen posicionamiento para flujos de trabajo centrados en texto y documentos ;
+- administración clara cuando la organización ya sabe que quiere esta familia de modelos.
+
+### Lo que decides durante el despliegue
+
+Durante Marketplace, indicas que **Anthropic** es el proveedor objetivo del entorno.
+
+### Lo que todavía hay que hacer después de la instalación
+
+En **Paramètres du fournisseur IA**, completa:
+
+- la **conexión** al proveedor ;
+- el **secreto** o referencia de secreto ;
+- el **modelo por defecto** ;
+- luego lanza **Save → Validate → Test → Activate**.
+
+## Caso 4 — **OpenRouter**
+
+### Cuando este elección es pertinente
+
+Elige **OpenRouter** cuando el cliente quiera acceder a varias familias de modelos vía **un punto de entrada único**, por ejemplo para comparar resultados o ajustar el enrutamiento más fácilmente.
+
+### Ventajas prácticas
+
+- un solo enlace a nivel de plataforma ;
+- útil para comparar varios modelos ;
+- práctico cuando la organización quiere mantener cierta flexibilidad de enrutamiento.
+
+### Lo que decides durante el despliegue
+
+Durante Marketplace, indicas que el entorno usará **OpenRouter** como proveedor principal.
+
+### Lo que todavía hay que hacer después de la instalación
+
+En **Paramètres du fournisseur IA**, completa después:
+
+- la **Base URL** ;
+- la **clave API** o referencia de secreto ;
+- el **modelo por defecto** ;
+- luego lanza **Save → Validate → Test → Activate**.
+
+### Ejemplo simple
+
+Un cliente quiere arrancar rápido, comparar varios modelos y luego estabilizar su elección. **OpenRouter** es entonces un buen candidato para una primera fase de cadrage.
+
+## Caso 5 — **OpenAI-compatible**
+
+### Cuando este elección es pertinente
+
+Elige **OpenAI-compatible** cuando el cliente no use OpenAI directo ni Azure OpenAI, sino un **endpoint compatible**, por ejemplo:
+
+- una gateway de empresa ;
+- una solución partner ;
+- un runtime compatible auto‑hueco.
+
+### Ventajas prácticas
+
+- permite conectar un proveedor compatible sin modificar ProPM Agent ;
+- útil cuando la arquitectura del cliente exige un punto de entrada IA específico ;
+- buen opción para un tenant que quiere mantener una capa de control o enrutamiento interno.
+
+### Lo que decides durante el despliegue
+
+Durante Marketplace, indicas que el entorno usará un proveedor **OpenAI-compatible**.
+
+### Lo que todavía hay que hacer después de la instalación
+
+En **Paramètres du fournisseur IA**, completa después:
+
+- la **Base URL exacta** o el endpoint exacto ;
+- el **modo de autenticación** esperado ;
+- la **clave** o la **referencia de secreto** ;
+- el **modelo** o el **despliegue** esperado ;
+- luego lanza **Save → Validate → Test → Activate**.
+
+### Punto de vigilancia
+
+Aquí el tema principal es la **compatibilidad real** del endpoint. Una configuración registrada no basta: el par **Validate + Test** es indispensable.
+
+## Recorrido común después de la instalación para todos los proveedores IA
+
+Cualquiera que sea el proveedor elegido en el despliegue, siempre sigue este recorrido:
+
+1. abre **Administration de la plateforme** ;
+2. ve a **Paramètres du fournisseur IA** ;
+3. selecciona el proveedor a preparar ;
+4. completa los campos solicitados ;
+5. haz clic en **Save** para guardar ;
+6. haz clic en **Validate** para comprobar la configuración ;
+7. haz clic en **Test** para verificar la conectividad real ;
+8. haz clic en **Activate** para hacer efectivo este proveedor para los usuarios finales ;
+9. abre luego **Journal IA** para confirmar el proveedor realmente usado en una ejecución real.
+
+### Cómo leer los botones de administración
+
+| Botón | Qué significa |
 | --- | --- |
-| Despliegue Marketplace | Se selecciona Azure OpenAI como proveedor objetivo y se prepara la integración Azure asociada |
-| Administración de la plataforma > AI provider settings | El administrador elige el despliegue Azure OpenAI realmente visible en el recurso Azure OpenAI del cliente |
-| Registro de IA | Se verifica luego el proveedor efectivo y la familia de modelo realmente utilizados |
+| Save | guarda la configuración introducida |
+| Validate | verifica que los campos requeridos sean coherentes |
+| Test | verifica la conectividad real con el proveedor |
+| Activate | hace efectivo el proveedor para los usuarios finales |
 
-### Lo que el despliegue no termina por sí solo
+## Verificación antes de **Vérifier + crear**
 
-La elección **Azure OpenAI** en Marketplace no es suficiente para que el proveedor sea directamente utilizable por los usuarios finales. Después de la instalación, aún queda por:
+Antes de lanzar la creación:
 
-1. abrir **Administración de la plataforma**;
-2. completar o confirmar los parámetros del proveedor en **AI provider settings**;
-3. elegir el **LLM deployment name** realmente visible en el lado de Azure OpenAI;
-4. lanzar **Save → Validate → Test → Activate** antes de considerar el proveedor como operativo;
-5. confirmar finalmente el resultado en un run real en **Registro de IA**.
-
-| Caso | Lo que se decide en el despliegue | Lo que se termina luego en la administración |
-| --- | --- | --- |
-| Azure OpenAI (`marketplace-managed account`) | proveedor objetivo y preparación de la integración Azure | selección del despliegue LLM, validación, prueba y activación |
-| Otro proveedor elegido en `LLM Provider` | elección del proveedor objetivo durante la instalación | controles finales, secretos eventuales, validación y activación según el proveedor |
-
-### Flujo recomendado después de la instalación
-
-1. termine el despliegue Marketplace;
-2. abra **Administración de la plataforma**;
-3. vaya a **AI provider settings**;
-4. seleccione el despliegue / LLM de Azure OpenAI a utilizar entre los visibles en el recurso Azure OpenAI del cliente;
-5. guarde la configuración;
-6. lance un run de prueba y verifique el resultado en **Registro de IA**.
-
-Para la secuencia detallada de validación y explotación de administración, ver también [Portafolio y administración técnica](./portefeuille-et-administration-technique.md).
-
-## Verificación antes de **Revisar + crear**
-
-Antes de validar:
-
-1. controle la suscripción, la región y los grupos de recursos;
-2. revise los grupos Entra y los usuarios de bootstrap;
-3. confirme el proveedor LLM elegido;
-4. si se selecciona **Azure OpenAI**, identifique quién finalizará el despliegue LLM en la administración después de la instalación;
-5. controle los valores de red, supervisión y contraseña.
+1. controla la suscripción, la región y los grupos de recursos ;
+2. revisa los grupos Entra y los posibles usuarios de bootstrap ;
+3. confirma el proveedor IA elegido ;
+4. si **Azure OpenAI** está seleccionado, identifica claramente quién finalizará el **LLM deployment name** después de la instalación ;
+5. controla los parámetros de red, supervisión y contraseña.
 
 ## Después del despliegue
 
 ### Verificaciones técnicas mínimas
 
-1. anote la **URL web** realmente publicada;
-2. verifique la URL **API** y, si está expuesta, la URL **WebSocket**;
-3. verifique la disponibilidad de **`/runtime-config.json`**;
-4. valide la coherencia entre la URL publicada y los **redirect URIs** de Entra;
-5. si se eligió **Azure OpenAI**, abra **Platform Administration > AI provider settings** y verifique que el despliegue / LLM esperado esté seleccionado.
+1. registra la **URL web** realmente publicada ;
+2. verifica la URL **API** y, si se expone, la URL **WebSocket** ;
+3. verifica la disponibilidad de **`/runtime-config.json`** ;
+4. valida la coherencia entre la URL publicada y los **redirect URIs Entra** ;
+5. abre **Administration de la plateforme > Paramètres du fournisseur IA** y confirma que el proveedor elegido esté bien preparado ;
+6. verifica que el estado esperado pase por **Configuration**, **Validation**, **Test** y luego **Operational**.
 
 ### Autenticación Entra
 
-Según su modo de despliegue, verifique o finalice el registro de aplicación Entra:
+Según tu modo de despliegue, verifica o finaliza la inscripción de la aplicación Entra:
 
-- `clientId`;
-- `authority` / tenant;
-- `scopes`;
-- `redirectUri` y `postLogoutRedirectUri`;
+- `clientId` ;
+- `authority` o tenant ;
+- `scopes` ;
+- `redirectUri` y `postLogoutRedirectUri` ;
 - si es necesario, la API expuesta y sus scopes.
 
-### Primera prueba funcional
+### Primer test funcional
 
-Después de la publicación, realice al menos:
+Después de la publicación, realiza al menos:
 
-- una conexión con una cuenta de usuario estándar;
-- una conexión con una cuenta de administración esperada;
-- la apertura de **Proyectos**;
-- la apertura del **Panel**;
-- un control rápido de **Platform Administration > AI provider settings** si se eligió Azure OpenAI;
-- un control de **Registro de IA** para confirmar el proveedor efectivo y la familia de modelo utilizados.
+- una conexión con una cuenta de usuario estándar ;
+- una conexión con una cuenta de administración esperada ;
+- la apertura de **Projets** ;
+- la apertura del **Tableau de bord** ;
+- la apertura de **Administration de la plateforme > Paramètres du fournisseur IA** ;
+- un **Save → Validate → Test → Activate** sobre el proveedor retenido si no se ha hecho ya ;
+- un control de **Journal IA** para confirmar el proveedor efectivo y la familia de modelo usados.
 
-## Transición hacia el primer usuario de prueba
+### Información a transmitir al equipo cliente
 
-Una vez validado el despliegue técnicamente, formalice una breve transición hacia el usuario de aceptación o el primer propietario de proyecto:
+Una vez la plataforma validada técnicamente, transmite al menos:
 
-1. transmita la **URL publicada** realmente utilizable;
-2. confirme el **tenant** esperado y, si es necesario, la regla de invitación de cuentas **guest**;
-3. pida al probador que siga la página [Primeros pasos](./demarrage.md) para la primera conexión y la creación o selección del proyecto;
-4. si se eligió **Azure OpenAI**, confirme que el LLM se ha precisado en **Administración de la plataforma** antes del primer run;
-5. si la primera prueba falla, recupere inmediatamente la hora de la prueba, el síntoma exacto y, cuando exista, el primer **Trace ID** útil para el soporte.
+1. la **URL publicada** realmente usable ;
+2. el **tenant** esperado y, si es necesario, la regla de invitación de cuentas **guest** ;
+3. el primer grupo o cuenta de prueba ;
+4. el proveedor IA realmente listo para uso ;
+5. la página [Inicio rápido](./demarrage.md) a seguir para la primera conexión.
 
-Esta transición reduce los falsos diagnósticos entre un despliegue técnicamente exitoso y un acceso de usuario aún incompleto.
+## Puntos de control útiles después de la instalación
 
-## Incidentes frecuentes después de la instalación
+| Punto a verificar | Por qué es importante |
+| --- | --- |
+| URL publicada y Redirect URIs Entra | evita un primer acceso bloqueado a pesar de un despliegue exitoso |
+| Grupos de administración y usuarios bootstrap | garantiza la entrada inicial en la administración |
+| Proveedor IA elegido | evita confundir un proveedor solo declarado con uno realmente operativo |
+| Validación y Test | confirma que la configuración no solo se guardó, sino que es usable |
+| Journal IA | confirma el proveedor realmente usado en una ejecución |
+| Supervisión Azure | garantiza que la observabilidad solicitada esté activa |
 
-- **`redirect URI mismatch`**: la URL publicada no coincide con los Redirect URIs de Entra;
-- **`unauthorized_client`**: client ID en el tenant incorrecto o autoridad incompatible;
-- **resource principal not found**: la API o su exposición de scope no está completamente configurada;
-- **no hay más asientos disponibles**: la conexión Entra tiene éxito pero el acceso al producto sigue bloqueado;
-- **configuración de Azure OpenAI incompleta**: el proveedor se eligió en el despliegue pero aún no se ha confirmado ningún despliegue LLM en **AI provider settings**;
-- **provider Azure no registrado para alerting**: algunos recursos de Azure Monitor pueden fallar si el proveedor requerido no está inscrito.
+## Siguiente
 
-## Calidad de las capturas integradas
-
-Las tres capturas integradas en esta página no muestran **ningún mensaje de error visible** ni banner de fallo.
-
-- la primera captura muestra un cuadro de diálogo de creación de grupo de recursos con un campo aún vacío, sin error mostrado;
-- la segunda captura muestra la versión actual de la pestaña **Configuración de la aplicación**, sin campo **Platform Region** visible;
-- la tercera captura muestra **Azure OpenAI (marketplace-managed account)** seleccionado, con un texto de ayuda que remite explícitamente a la elección final del LLM en la administración.
-
-## Continuar
-
-- [Primeros pasos](./demarrage.md)
+- [Inicio rápido](./demarrage.md)
 - [Portafolio y administración técnica](./portefeuille-et-administration-technique.md)
-- [Mantenimiento, soporte y preguntas frecuentes](./maintenance-support-faq.md)
+- [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md)

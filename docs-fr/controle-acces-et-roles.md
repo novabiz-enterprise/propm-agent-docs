@@ -1,10 +1,12 @@
 ---
 title: Contrôle d’accès et rôles projet
 slug: /controle-acces-et-roles
-description: Administrer les membres, les rôles standards, les rôles personnalisés et les garde-fous RBAC au niveau projet.
+description: Administrer les membres, déléguer les rôles projet et comprendre les garde-fous RBAC appliqués au créateur et aux autres membres.
 ---
 
 [Accueil](./index.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md) · [Maintenance, support et FAQ](./maintenance-support-faq.md)
+
+![Délégation du créateur et rôles projet](/img/diagrams/fr/delegation-createur-rbac.svg)
 
 ## Objectif
 
@@ -17,7 +19,7 @@ Le **Contrôle d’accès** est la zone d’administration RBAC de niveau projet
 
 ## Pourquoi c’est important
 
-Les droits conditionnent une grande partie de l’expérience : création d’artefacts, exécution d’agents, gestion des membres, modifications de paramètres et approbations. Une lecture correcte des rôles évite de confondre un incident avec un simple manque d’autorisation.
+Les droits conditionnent une grande partie de l’expérience : exécution d’agents, gestion des membres, génération de livrables, paramétrage des intégrations, gouvernance des publications et lecture d’audit. Une lecture correcte des rôles évite de confondre un blocage fonctionnel avec un simple manque d’autorisation.
 
 ## Qui peut utiliser cette page
 
@@ -25,7 +27,25 @@ Les droits conditionnent une grande partie de l’expérience : création d’ar
 - **gérer les membres** : utilisateur disposant de `members:manage` ;
 - **gérer les rôles personnalisés** : utilisateur disposant de `roles:manage`.
 
-![Vue Contrôle d’accès du projet](/img/screenshots/localized/fr/11-access-control.png)
+## Créateur du projet : rôle initial et délégation
+
+À la création du projet, le créateur démarre avec le rôle **Propriétaire du projet** et l’ensemble des permissions projet observées. Il sert donc de point de départ administratif : il ouvre le projet, contrôle la configuration initiale et délègue ensuite les rôles utiles aux autres membres.
+
+### Délégation recommandée
+
+1. conservez le créateur comme garde-fou administratif initial ;
+2. attribuez un second **Propriétaire du projet** si le projet ne doit pas dépendre d’une seule personne ;
+3. utilisez **Chef de projet** pour le pilotage quotidien ;
+4. réservez les rôles personnalisés aux écarts réels de besoin ;
+5. vérifiez ensuite **Politiques de gouvernance** et **Intégrations du projet** pour que les droits correspondent aux usages externes.
+
+### Ce que la documentation observée confirme
+
+- le créateur ne peut pas être retiré depuis cet écran ;
+- le rôle du créateur reste fixe ;
+- un utilisateur ne peut pas s’auto-rétrograder ni s’auto-supprimer depuis cette surface ;
+- la délégation des rôles est confirmée ;
+- le transfert libre du **statut de créateur** n’est pas confirmé par les écrans observés.
 
 ## Rôles standards observés
 
@@ -33,11 +53,11 @@ Chaque projet démarre avec des rôles intégrés protégés :
 
 | Rôle | Usage type |
 | --- | --- |
-| Project Owner | Administration complète du projet |
-| Project Manager | Pilotage opérationnel quotidien |
-| Contributor | Contribution de contenu, usage des agents et des livrables selon permissions |
-| Viewer | Consultation en lecture seule |
-| Auditor | Consultation orientée audit et traçabilité |
+| Propriétaire du projet | Administration complète du projet |
+| Chef de projet | Pilotage opérationnel quotidien |
+| Contributeur | Contribution de contenu, usage des agents et des livrables selon permissions |
+| Lecteur | Consultation en lecture seule |
+| Auditeur | Consultation orientée audit et traçabilité |
 
 Ces rôles intégrés sont protégés côté serveur et ne peuvent pas être supprimés depuis l’interface.
 
@@ -45,10 +65,10 @@ Ces rôles intégrés sont protégés côté serveur et ne peuvent pas être sup
 
 Les rôles personnalisés peuvent étendre ou réduire ce schéma. Le tableau ci-dessous décrit le **comportement habituel** des rôles standards observés.
 
-| Action courante | Project Owner | Project Manager | Contributor | Viewer | Auditor |
+| Action courante | Propriétaire du projet | Chef de projet | Contributeur | Lecteur | Auditeur |
 | --- | --- | --- | --- | --- | --- |
 | Accéder au projet, à l’Espace de travail et aux écrans de lecture | Oui | Oui | Oui | Oui | Oui |
-| Rechercher dans la connaissance, relire les PM Docs et le Journal IA | Oui | Oui | Oui | Oui | Oui |
+| Rechercher dans la connaissance, relire les Documents PM et le Journal IA | Oui | Oui | Oui | Oui | Oui |
 | Lancer un run dans **Agents** | Oui | Oui | Oui | Non par défaut | Non par défaut |
 | Modifier contenus de travail et brouillons de livrables | Oui | Oui | Oui | Non | Non |
 | Gérer membres, rôles et principaux réglages projet | Oui | Non | Non | Non | Non |
@@ -80,14 +100,14 @@ Les permissions exposées incluent notamment :
 
 | Permission | Surface impactée | Symptôme si elle manque |
 | --- | --- | --- |
-| `agent:configure` | onglet **Agent configuration** dans l’**Espace de travail** | la page reste consultable ou les contrôles d’enregistrement sont désactivés |
-| `report:generate` | création de brouillons, d’artefacts et de PM Docs | l’utilisateur peut relire, mais pas générer le livrable attendu |
+| `agent:configure` | onglet **Configuration des agents** dans l’**Espace de travail** | la page reste consultable ou les contrôles d’enregistrement sont désactivés |
+| `report:generate` | création de brouillons, d’artefacts et de Documents PM | l’utilisateur peut relire, mais pas générer le livrable attendu |
 | `history:read` | **Journal IA** et lecture détaillée des runs | la traçabilité reste inaccessible ou très limitée |
 | `settings:manage` | réglages projet, gouvernance et certaines intégrations | les paramètres sont visibles mais non modifiables |
-| `members:manage` | zone **Members** dans **Access control** | impossible d’ajouter, de retirer ou de changer un membre |
+| `members:manage` | zone **Membres** dans **Contrôle d’accès** | impossible d’ajouter, de retirer ou de changer un membre |
 | `roles:manage` | rôles personnalisés et leurs permissions | impossible de créer, d’ajuster ou de supprimer un rôle personnalisé |
 
-Cette table sert surtout au diagnostic : une action absente ou grisée n’est pas toujours un bug, mais souvent la conséquence directe d’une permission non accordée.
+Cette table sert surtout à lire correctement le comportement de l’interface : une action absente ou grisée traduit souvent une permission non accordée.
 
 ![Éditeur de rôle personnalisé](/img/screenshots/localized/fr/11-custom-role-editor.png)
 
@@ -95,11 +115,11 @@ Cette table sert surtout au diagnostic : une action absente ou grisée n’est p
 
 La page se divise en deux zones de travail :
 
-1. **Roles & permissions**
+1. **Rôles et permissions**
    - revue des rôles intégrés ;
    - création de rôles personnalisés ;
    - inspection ou modification des permissions d’un rôle personnalisé ;
-2. **Members**
+2. **Membres**
    - ajout d’un membre par e-mail ;
    - attribution d’un rôle intégré ou personnalisé ;
    - changement de rôle ;
@@ -112,13 +132,13 @@ La page peut aussi afficher votre identité courante et, lorsqu’elle est expos
 ### Revoir les rôles avant d’ajouter un membre
 
 1. ouvrez **Espace de travail** ;
-2. sélectionnez l’onglet **Access control** ;
+2. sélectionnez l’onglet **Contrôle d’accès** ;
 3. relisez les rôles existants ;
 4. vérifiez si un rôle standard suffit ou si un rôle personnalisé est nécessaire.
 
 ### Créer un rôle personnalisé
 
-1. ouvrez **Roles & permissions** ;
+1. ouvrez **Rôles et permissions** ;
 2. saisissez un **nom** ;
 3. ajoutez éventuellement une **description** ;
 4. créez le rôle ;
@@ -127,17 +147,17 @@ La page peut aussi afficher votre identité courante et, lorsqu’elle est expos
 
 ### Ajouter ou mettre à jour un membre
 
-1. ouvrez **Members** ;
+1. ouvrez **Membres** ;
 2. saisissez l’**e-mail** ;
 3. choisissez le rôle souhaité ;
 4. enregistrez ;
 5. vérifiez que la ligne du membre reflète bien le rôle attendu.
 
-Si l’utilisateur appartient à un autre tenant, gardez en tête qu’un **compte externe / guest** doit d’abord être invité côté identité avant que le RBAC projet puisse lui attribuer un rôle utile. En pratique, si l’e-mail semble correct mais que l’utilisateur reste introuvable ou sans effet réel, vérifiez d’abord la posture **Entra / guest** puis revenez sur l’attribution du rôle projet.
+Si l’utilisateur appartient à un autre tenant, gardez en tête qu’un **compte externe / guest** doit d’abord être invité côté identité avant que le RBAC projet puisse lui attribuer un rôle utile.
 
 ### Changer le rôle d’un membre existant
 
-1. repérez la ligne du membre dans **Members** ;
+1. repérez la ligne du membre dans **Membres** ;
 2. utilisez le sélecteur de rôle de cette ligne ;
 3. choisissez le nouveau rôle ;
 4. confirmez que la ligne affiche bien le rôle mis à jour.
@@ -151,7 +171,7 @@ Si l’utilisateur appartient à un autre tenant, gardez en tête qu’un **comp
 
 ## Garde-fous RBAC confirmés
 
-L’interface et le backend appliquent plusieurs protections importantes :
+L’interface et les services de la plateforme appliquent plusieurs protections importantes :
 
 - vous ne pouvez pas **supprimer votre propre accès** depuis cet écran ;
 - vous ne pouvez pas **modifier votre propre rôle** depuis cet écran ;
@@ -177,16 +197,15 @@ En pratique, cela permet à certains profils de relire la configuration RBAC san
 | une action absente alors qu’elle existe pour d’autres profils | permission ou rôle non accordé | comparez votre rôle standard ou personnalisé avec l’action attendue |
 | une action visible mais impossible malgré l’UI | garde-fou RBAC côté serveur ou contrainte de protection | vérifiez s’il s’agit d’un rôle système, de votre propre compte ou d’une entrée protégée |
 
-Ce mini-diagnostic évite de confondre un refus lié au rôle standard, un refus lié à un rôle personnalisé et un garde-fou volontaire du backend.
+## Ce que le créateur délègue en pratique
 
-## Résultat attendu
-
-Si la configuration est correcte :
-
-- la liste des membres est à jour ;
-- les rôles personnalisés apparaissent dans les sélecteurs ;
-- les permissions changent en fonction du rôle attribué ;
-- les actions dangereuses restent bloquées par les garde-fous.
+| Besoin | Rôle à attribuer d’abord | Pourquoi |
+| --- | --- | --- |
+| continuité administrative | **Propriétaire du projet** | éviter qu’un seul compte concentre toute l’administration |
+| pilotage quotidien | **Chef de projet** | gérer le travail courant sans ouvrir toute l’administration |
+| production de contenu et usage agents | **Contributeur** | exécuter les agents et préparer les livrables |
+| consultation large | **Lecteur** | accès en lecture seule sans risque de modification |
+| audit et traçabilité | **Auditeur** | relire l’historique et les preuves sans agir sur le projet |
 
 ## Problèmes courants
 
@@ -204,7 +223,7 @@ Vous êtes probablement en **lecture seule** sur cette surface. Vérifiez si vot
 
 ## Conseils
 
-- utilisez **Project Owner** uniquement pour les vrais administrateurs projet ;
+- utilisez **Propriétaire du projet** uniquement pour les vrais administrateurs projet ;
 - gardez les rôles personnalisés ciblés et limités à un besoin précis ;
 - relisez les permissions avant de déléguer la gestion des membres ;
 - documentez les rôles personnalisés dans les pratiques d’équipe pour éviter les doublons.
@@ -213,4 +232,5 @@ Vous êtes probablement en **lecture seule** sur cette surface. Vérifiez si vot
 
 - [Projets et espace de travail](./projets-et-espace-de-travail.md)
 - [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md)
+- [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
 - [Maintenance, support et FAQ](./maintenance-support-faq.md)

@@ -1,57 +1,77 @@
 ---
-title: Control de acceso y roles del proyecto
+title: Control de acceso y roles de proyecto
 slug: /controle-acces-et-roles
-description: Administrar miembros, roles estándar, roles personalizados y salvaguardas RBAC a nivel de proyecto.
+description: Administrar los miembros, delegar los roles de proyecto y comprender los salvaguardas RBAC aplicados al creador y a los demás miembros.
 ---
 
-[Inicio](./index.md) · [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md) · [Mantenimiento, soporte y preguntas frecuentes](./maintenance-support-faq.md)
+[Inicio](./index.md) · [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md) · [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md)
+
+![Delegación del creador y roles de proyecto](/img/diagrams/fr/delegation-createur-rbac.svg)
 
 ## Objetivo
 
-El **Control de acceso** es el área de administración RBAC a nivel de proyecto. Permite decidir:
+El **Control de acceso** es la zona de administración RBAC a nivel de proyecto. Permite decidir:
 
 - quién puede entrar en el proyecto;
 - qué rol recibe cada miembro;
 - qué roles personalizados existen en este proyecto;
-- qué permisos otorgan estos roles.
+- qué permisos otorgan esos roles.
 
 ## Por qué es importante
 
-Los derechos condicionan gran parte de la experiencia: creación de artefactos, ejecución de agentes, gestión de miembros, modificaciones de parámetros y aprobaciones. Una lectura correcta de los roles evita confundir un incidente con una simple falta de autorización.
+Los derechos condicionan gran parte de la experiencia: ejecución de agentes, gestión de miembros, generación de entregables, configuración de integraciones, gobernanza de publicaciones y lectura de auditoría. Una lectura correcta de los roles evita confundir un bloqueo funcional con una simple falta de autorización.
 
 ## Quién puede usar esta página
 
 - **consultar miembros y roles**: cualquier miembro que pueda acceder al espacio de trabajo;
-- **gestionar los miembros**: usuario con `members:manage`;
-- **gestionar los roles personalizados**: usuario con `roles:manage`.
+- **gestionar miembros**: usuario con `members:manage`;
+- **gestionar roles personalizados**: usuario con `roles:manage`.
 
-![Vista Control de acceso del proyecto](/img/screenshots/localized/es/11-access-control.png)
+## Creador del proyecto: rol inicial y delegación
+
+Al crear el proyecto, el creador comienza con el rol **Propietario del proyecto** y todas las permisos de proyecto observados. Así que sirve como punto de partida administrativo: abre el proyecto, controla la configuración inicial y luego delega los roles útiles a otros miembros.
+
+### Delegación recomendada
+
+1. conserva al creador como salvaguarda administrativa inicial;
+2. asigna un segundo **Propietario del proyecto** si el proyecto no debe depender de una sola persona;
+3. usa **Jefe de proyecto** para la gestión diaria;
+4. reserva los roles personalizados a las diferencias reales de necesidad;
+5. verifica luego **Políticas de gobernanza** y **Integraciones del proyecto** para que los derechos correspondan a los usos externos.
+
+### Lo que la documentación observada confirma
+
+- el creador no puede ser retirado desde esta pantalla;
+- el rol del creador permanece fijo;
+- un usuario no puede auto-rebaixar ni auto-eliminarse desde esta superficie;
+- la delegación de roles está confirmada;
+- la transferencia libre del **estatus de creador** no está confirmada por las pantallas observadas.
 
 ## Roles estándar observados
 
 Cada proyecto comienza con roles integrados protegidos:
 
-| Rol | Uso típico |
+| Rol | Tipo de uso |
 | --- | --- |
-| Project Owner | Administración completa del proyecto |
-| Project Manager | Pilotaje operativo diario |
-| Contributor | Contribución de contenido, uso de agentes y entregables según permisos |
-| Viewer | Consulta en solo lectura |
+| Propietario del proyecto | Administración completa del proyecto |
+| Jefe de proyecto | Gestión operativa diaria |
+| Contribuyente | Contribución de contenido, uso de agentes y entregables según permisos |
+| Lector | Consulta en solo lectura |
 | Auditor | Consulta orientada a auditoría y trazabilidad |
 
-Estos roles integrados están protegidos en el servidor y no pueden eliminarse desde la interfaz.
+Estos roles integrados están protegidos del lado del servidor y no pueden ser eliminados desde la interfaz.
 
 ## Matriz rápida de roles estándar
 
-Los roles personalizados pueden extender o reducir este esquema. La tabla siguiente describe el **comportamiento habitual** de los roles estándar observados.
+Los roles personalizados pueden ampliar o reducir este esquema. La tabla a continuación describe el **comportamiento habitual** de los roles estándar observados.
 
-| Acción común | Project Owner | Project Manager | Contributor | Viewer | Auditor |
+| Acción común | Propietario del proyecto | Jefe de proyecto | Contribuyente | Lector | Auditor |
 | --- | --- | --- | --- | --- | --- |
 | Acceder al proyecto, al Espacio de trabajo y a las pantallas de lectura | Sí | Sí | Sí | Sí | Sí |
-| Buscar en el conocimiento, revisar los PM Docs y el Registro de IA | Sí | Sí | Sí | Sí | Sí |
-| Lanzar un run en **Agentes** | Sí | Sí | Sí | No por defecto | No por defecto |
+| Buscar en el conocimiento, releer los Documentos PM y el Diario IA | Sí | Sí | Sí | Sí | Sí |
+| Lanzar una ejecución en **Agentes** | Sí | Sí | Sí | No por defecto | No por defecto |
 | Modificar contenidos de trabajo y borradores de entregables | Sí | Sí | Sí | No | No |
-| Gestionar miembros, roles y principales ajustes del proyecto | Sí | No | No | No | No |
+| Gestionar miembros, roles y ajustes principales del proyecto | Sí | No | No | No | No |
 | Revisión orientada a auditoría y trazabilidad | Sí | Sí | Sí | Lectura general | Sí |
 
 ## Roles personalizados
@@ -78,139 +98,137 @@ Los permisos expuestos incluyen, entre otros:
 
 ### Permiso → impacto concreto
 
-| Permiso | Superficie impactada | Síntoma si falta |
+| Permiso | Superficie afectada | Síntoma si falta |
 | --- | --- | --- |
-| `agent:configure` | pestaña **Agent configuration** en el **Espacio de trabajo** | la página permanece consultable o los controles de registro están desactivados |
-| `report:generate` | creación de borradores, artefactos y PM Docs | el usuario puede revisar, pero no generar el entregable esperado |
-| `history:read` | **Registro de IA** y lectura detallada de los runs | la trazabilidad permanece inaccesible o muy limitada |
+| `agent:configure` | pestaña **Configuración de agentes** en el **Espacio de trabajo** | la página sigue consultable o los controles de guardado están desactivados |
+| `report:generate` | creación de borradores, artefactos y Documentos PM | el usuario puede releer, pero no generar el entregable esperado |
+| `history:read` | **Diario IA** y lectura detallada de ejecuciones | la trazabilidad permanece inaccesible o muy limitada |
 | `settings:manage` | ajustes del proyecto, gobernanza y ciertas integraciones | los parámetros son visibles pero no modificables |
-| `members:manage` | zona **Members** en **Access control** | imposible añadir, retirar o cambiar un miembro |
+| `members:manage` | zona **Miembros** en **Control de acceso** | imposible añadir, eliminar o cambiar un miembro |
 | `roles:manage` | roles personalizados y sus permisos | imposible crear, ajustar o eliminar un rol personalizado |
 
-Esta tabla sirve sobre todo para el diagnóstico: una acción ausente o atenuada no siempre es un error, sino a menudo la consecuencia directa de un permiso no concedido.
-
-![Editor de rol personalizado](/img/screenshots/localized/es/11-custom-role-editor.png)
+![Editor de rol personalizado](/img/screenshots/localized/fr/11-custom-role-editor.png)
 
 ## Lo que ves en la página
 
 La página se divide en dos zonas de trabajo:
 
-1. **Roles & permissions**
+1. **Roles y permisos**
    - revisión de los roles integrados;
    - creación de roles personalizados;
    - inspección o modificación de los permisos de un rol personalizado;
-2. **Members**
-   - adición de un miembro por correo electrónico;
-   - atribución de un rol integrado o personalizado;
-   - cambio de rol;
-   - eliminación de un miembro cuando está permitido.
+2. **Miembros**
+   - añadir un miembro por correo electrónico;
+   - asignar un rol integrado o personalizado;
+   - cambiar de rol;
+   - eliminar un miembro cuando sea autorizado.
 
-La página también puede mostrar tu identidad actual y, cuando está expuesta, la entrada protegida del **creador** del proyecto.
+La página también puede mostrar tu identidad actual y, cuando se expone, la entrada protegida del **creador** del proyecto.
 
-## Recorrido recomendado
+## Camino recomendado
 
 ### Revisar los roles antes de añadir un miembro
 
 1. abre **Espacio de trabajo**;
-2. selecciona la pestaña **Access control**;
+2. selecciona la pestaña **Control de acceso**;
 3. revisa los roles existentes;
-4. verifica si un rol estándar es suficiente o si se necesita un rol personalizado.
+4. verifica si un rol estándar basta o si se necesita un rol personalizado.
 
 ### Crear un rol personalizado
 
-1. abre **Roles & permissions**;
-2. introduce un **nombre**;
-3. añade opcionalmente una **descripción**;
+1. abre **Roles y permisos**;
+2. ingresa un **nombre**;
+3. agrega opcionalmente una **descripción**;
 4. crea el rol;
 5. activa o desactiva los permisos deseados;
-6. verifica las insignias o permisos mostrados antes del uso real.
+6. verifica las insignias o permisos mostrados antes de uso real.
 
 ### Añadir o actualizar un miembro
 
-1. abre **Members**;
-2. introduce el **correo electrónico**;
+1. abre **Miembros**;
+2. ingresa el **correo electrónico**;
 3. elige el rol deseado;
 4. guarda;
-5. verifica que la línea del miembro refleje el rol esperado.
+5. verifica que la fila del miembro refleje correctamente el rol esperado.
 
-Si el usuario pertenece a otro tenant, ten en cuenta que una **cuenta externa / invitada** debe ser invitada primero en el lado de la identidad antes de que el RBAC del proyecto pueda asignarle un rol útil. En la práctica, si el correo parece correcto pero el usuario permanece no encontrado o sin efecto real, verifica primero la postura **Entra / guest** y luego vuelve a la atribución del rol del proyecto.
+Si el usuario pertenece a otro tenant, ten en cuenta que una **cuenta externa / invitado** debe primero ser invitada en el lado de identidad antes de que el RBAC del proyecto pueda asignarle un rol útil.
 
 ### Cambiar el rol de un miembro existente
 
-1. localiza la línea del miembro en **Members**;
-2. utiliza el selector de rol de esa línea;
+1. localiza la fila del miembro en **Miembros**;
+2. usa el selector de rol de esa fila;
 3. elige el nuevo rol;
-4. confirma que la línea muestra el rol actualizado.
+4. confirma que la fila muestre correctamente el rol actualizado.
 
 ### Retirar un miembro
 
-1. localiza la línea del miembro a retirar;
-2. utiliza la acción de eliminación si está disponible;
-3. confirma que el miembro desaparece de la lista;
-4. si la acción sigue bloqueada, verifica primero que no se trate ni de tu propia cuenta ni de la entrada protegida del creador.
+1. localiza la fila del miembro a retirar;
+2. usa la acción de eliminación si está disponible;
+3. confirma que el miembro desaparezca de la lista;
+4. si la acción sigue bloqueada, verifica primero que no sea tu propia cuenta ni la entrada protegida del creador.
 
 ## Salvaguardas RBAC confirmadas
 
-La interfaz y el backend aplican varias protecciones importantes:
+La interfaz y los servicios de la plataforma aplican varias protecciones importantes:
 
 - no puedes **eliminar tu propio acceso** desde esta pantalla;
 - no puedes **modificar tu propio rol** desde esta pantalla;
 - la entrada del **creador del proyecto** permanece protegida;
-- un **rol del sistema** no puede eliminarse;
-- un **rol personalizado aún asignado** no puede eliminarse;
+- un **rol del sistema** no puede ser eliminado;
+- un **rol personalizado aún asignado** no puede ser eliminado;
 - los usuarios sin derecho de gestión ven una página **consultable** con controles desactivados.
 
-## Solo lectura vs acceso denegado
+## Lectura sola vs acceso denegado
 
 Estos dos estados no significan lo mismo:
 
-- **solo lectura**: la página permanece visible, pero los controles de adición, edición o eliminación están desactivados;
+- **lectura sola**: la página sigue visible, pero los controles de añadir, editar o eliminar están desactivados;
 - **acceso denegado**: la ruta o la acción no está disponible para tu cuenta.
 
-En la práctica, esto permite a ciertos perfiles revisar la configuración RBAC sin poder modificarla.
+En práctica, esto permite a ciertos perfiles releer la configuración RBAC sin poderla modificar.
 
-### Cómo leer una denegación
+### Cómo leer un rechazo
 
-| Lo que observas | Lectura más probable | Reflexión recomendada |
+| Lo que observas | Lectura más probable | Reflejo recomendado |
 | --- | --- | --- |
-| un control visible pero atenuado | superficie expuesta en **solo lectura** | verifica primero si tu rol incluye el permiso esperado |
-| una acción ausente cuando existe para otros perfiles | permiso o rol no concedido | compara tu rol estándar o personalizado con la acción esperada |
+| un control visible pero gris | superficie expuesta en **lectura sola** | verifica primero si tu rol incluye la permiso esperado |
+| una acción ausente aunque exista para otros perfiles | permiso o rol no concedido | compara tu rol estándar o personalizado con la acción esperada |
 | una acción visible pero imposible a pesar de la UI | salvaguarda RBAC del lado del servidor o restricción de protección | verifica si se trata de un rol del sistema, de tu propia cuenta o de una entrada protegida |
 
-Este mini-diagnóstico evita confundir una denegación ligada al rol estándar, una denegación ligada a un rol personalizado y una salvaguarda voluntaria del backend.
+## Lo que el creador delega en práctica
 
-## Resultado esperado
-
-Si la configuración es correcta:
-
-- la lista de miembros está actualizada;
-- los roles personalizados aparecen en los selectores;
-- los permisos cambian en función del rol asignado;
-- las acciones peligrosas permanecen bloqueadas por las salvaguardas.
+| Necesidad | Rol a asignar primero | Por qué |
+| --- | --- | --- |
+| continuidad administrativa | **Propietario del proyecto** | evitar que una sola cuenta concentre toda la administración |
+| gestión diaria | **Jefe de proyecto** | gestionar el trabajo corriente sin abrir toda la administración |
+| producción de contenido y uso de agentes | **Contribuyente** | ejecutar los agentes y preparar los entregables |
+| consulta amplia | **Lector** | acceso en solo lectura sin riesgo de modificación |
+| auditoría y trazabilidad | **Auditor** | releer el historial y las pruebas sin actuar sobre el proyecto |
 
 ## Problemas comunes
 
 ### Imposible eliminar un rol personalizado
 
-Verifica primero si este rol sigue asignado a un miembro. Mientras esté en uso, la eliminación permanece bloqueada.
+Verifica primero si ese rol todavía está asignado a un miembro. Mientras esté en uso, la eliminación permanece bloqueada.
 
 ### Imposible modificar mi propio rol
 
-Este comportamiento es voluntario para evitar una pérdida de acceso accidental. Pide a otro administrador del proyecto que realice la modificación.
+Este comportamiento es intencional para evitar una pérdida de acceso accidental. Pide a otro administrador del proyecto que realice la modificación.
 
-### La pestaña es visible pero todo está atenuado
+### La pestaña es visible pero todo está gris
 
-Probablemente estás en **solo lectura** en esta superficie. Verifica si tu rol incluye `members:manage` o `roles:manage`.
+Probablemente estás en **lectura sola** en esta superficie. Verifica si tu rol incluye `members:manage` o `roles:manage`.
 
 ## Consejos
 
-- utiliza **Project Owner** únicamente para los verdaderos administradores del proyecto;
-- mantén los roles personalizados enfocados y limitados a una necesidad precisa;
-- revisa los permisos antes de delegar la gestión de miembros;
+- usa **Propietario del proyecto** solo para los verdaderos administradores del proyecto;
+- mantén los roles personalizados enfocados y limitados a una necesidad específica;
+- revisa las permisos antes de delegar la gestión de miembros;
 - documenta los roles personalizados en las prácticas del equipo para evitar duplicados.
 
-## Continuar
+## Siguiente
 
 - [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md)
 - [Gobernanza, decisiones y acciones](./gouvernance-decisions-et-actions.md)
-- [Mantenimiento, soporte y preguntas frecuentes](./maintenance-support-faq.md)
+- [Conectores y integraciones](./connecteurs-jira-et-sharepoint)
+- [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md)

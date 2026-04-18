@@ -1,245 +1,245 @@
 ---
 title: Glossar
 slug: /glossaire
-description: Konsistente Definitionen der wichtigsten in ProPM Agent verwendeten Begriffe.
+description: "Konsistente Definitionen der wichtigsten Begriffe, die in ProPM Agent verwendet werden."
 ---
 
-[Startseite](./index.md) · [Wartung, Support und FAQ](./maintenance-support-faq.md) · [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md)
+[Startseite](./index.md) · [Wartung, Support und FAQ](./maintenance-support-faq.md) · [Berichte, KI-Journal und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md)
 
 ## A
 
-**Gesteuerte Aktion**
+**Verwaltete Aktion**
 
-Eine in der Anwendung vorbereitete Operation, die vor der Ausführung einer Genehmigung unterzogen wird, z. B. eine SharePoint-Veröffentlichung oder die Erstellung eines Tickets.
+Operation, die in der Anwendung vorbereitet und dann zur Genehmigung vor Ausführung eingereicht wird, z. B. eine SharePoint-Veröffentlichung oder die Erstellung eines Tickets.
 
 **Agent**
 
-Eine spezialisierte, konversationelle Komponente, die im Kontext des aktuellen Projekts arbeitet und strukturierte Ausgaben, Zitate und Empfehlungen produzieren kann.
+Spezialisierte konversationelle Komponente, die im Kontext des aktuellen Projekts arbeitet und strukturierte Ausgaben, Zitate und Empfehlungen erzeugen kann.
 
-**Approvals / Genehmigungen**
+**Genehmigungen / approvals**
 
-Ein Validierungsschritt, der verwendet wird, um eine Aktion vor ihrer Ausführung anzunehmen, abzulehnen oder zu steuern.
+Validierungsschritt, der verwendet wird, um eine Aktion vor ihrer Ausführung zu akzeptieren, abzulehnen oder zu rahmen.
 
 **Artefakt**
 
-Ein verwaltetes Zwischen- oder Endobjekt, das in **Berichte & Artefakte** nutzbar ist.
+Zwischen- oder Endprodukt, das in **Rapports & artefacts** nutzbar ist.
 
-**Artifact destination / Artefaktziel**
+**Artefaktziel / destination d’artefact**
 
-Ein gesteuertes Ziel, das bei einer Veröffentlichung oder Dokumentenverteilung verwendet wird, z. B. SharePoint.
+Verwaltetes Ziel, das bei einer Veröffentlichung oder Dokumentenverbreitung verwendet wird, z. B. SharePoint.
 
 ## B
 
-**Projekt-Binding**
+**Projektbindung**
 
-Eine Projekt-Level-Verbindung, die eine Plattformintegration in einem bestimmten Projekt tatsächlich nutzbar macht.
+Projektbezogener Bindeglied, das eine Plattformintegration tatsächlich in einem bestimmten Projekt nutzbar macht.
 
 ## C
 
-**Portfolio-Kommandozentrale**
+**Portfolio-Befehlszentrum**
 
-Eine Multi-Projekt-Vergleichsoberfläche basierend auf Signalen, Gewichtungen, Schwellenwerten und gespeicherten Kohorten.
+Mehrprojektvergleichsfläche, basierend auf Signalen, Gewichten, Schwellenwerten und gespeicherten Kohorten.
 
 **Zitate**
 
-Referenzen, die mit bestimmten Agentenergebnissen oder Runs angezeigt werden, um die verwendeten Nachweise oder Quellen zu zeigen.
+Referenzen, die mit bestimmten Agenten- oder Lauf-Ergebnissen angezeigt werden, um die verwendeten Beweise oder Quellen zu zeigen.
 
 **Kohorte**
 
-Ein gespeicherter Satz von Projekten und Portfolio-Vergleichsparametern.
+Gespeicherte Gruppe von Projekten und Portfolioberechnungsparametern.
 
 **Vertrauen**
 
-Eine Angabe, die an eine strukturierte Ausgabe angehängt ist, um die Beurteilung der Robustheit des Ergebnisses zu unterstützen.
+Indikator, der einer strukturierten Ausgabe beigefügt ist, um die Zuverlässigkeit des Ergebnisses zu beurteilen.
 
 **Wissen**
 
-Der Bereich, in dem Referenzdokumente des Projekts gesucht, hochgeladen, importiert und gefiltert werden.
+Bereich, in dem Referenzdokumente des Projekts gesucht, hochgeladen, importiert und gefiltert werden.
 
-**Context snapshot**
+**Kontext-Snapshot**
 
-Eine Momentaufnahme des Kontexts, die einem Run im KI-Protokoll zugeordnet ist.
+Erfassung des Kontexts, die einem Lauf im Journal IA zugeordnet ist.
 
 ## D
 
-**Deployment-selected AI Provider / Beim Deployment ausgewählter KI-Anbieter**
+**Deployment-selected AI Provider / ausgewählter KI-Anbieter bei der Bereitstellung**
 
-Der Anbieter, der bei der Installation oder Bereitstellung der Umgebung gewählt wurde.
+Anbieter, der bei der Installation oder Bereitstellung der Umgebung ausgewählt wird.
 
 **Diff**
 
-Ein Vergleich zwischen zwei Versionen eines Artefakts, um Unterschiede vor Genehmigung oder Veröffentlichung zu überprüfen.
+Vergleich zweier Artefaktversionen, um Abweichungen vor Genehmigung oder Veröffentlichung zu überprüfen.
 
 **Digest**
 
-Eine gesteuerte Zusammenfassung mehrerer Signale, sichtbar im Arbeitsbereich und nutzbar als Grundlage für einen Entwurf einer Benachrichtigung. Siehe auch die Seite [Governance, Entscheidungen und Aktionen](./gouvernance-decisions-et-actions.md).
+Geleitete Zusammenfassung mehrerer Signale, sichtbar im Arbeitsbereich und als Grundlage für einen Benachrichtigungsentwurf nutzbar. Siehe auch die Seite [Governance, Entscheidungen und Aktionen](./gouvernance-decisions-et-actions.md).
 
-**Document categories / Dokumentenkategorien**
+**Dokumentkategorien / catégories documentaires**
 
-Eine Klassifizierung, die verwendet wird, um Projektinhalte zu organisieren und ihre Nutzung zu verbessern.
+Klassifizierung, die verwendet wird, um die Inhalte des Projekts zu organisieren und deren Nutzung zu verbessern.
 
 ## E
 
-**Effective AI Provider / Effektiver KI-Anbieter**
+**Effective AI Provider / tatsächlich genutzter KI-Anbieter**
 
-Der tatsächlich für einen bestimmten Run verwendete Anbieter. Dies ist der Referenzwert im KI-Protokoll.
+Anbieter, der tatsächlich für einen bestimmten Lauf verwendet wird. Dies ist der Referenzwert im Journal IA.
 
-**Entitlement**
+**Berechtigung**
 
-Eine kommerzielle oder technische Berechtigung, die durch den Plan autorisiert ist und einen Connector, einen Provider oder eine Premium-Funktion freischalten oder blockieren kann.
+Geschäftliche oder technische Berechtigung, die durch den Plan autorisiert ist und einen Connector, einen Anbieter oder eine Premium-Funktion freischalten oder blockieren kann.
 
 **Aktivitätsereignis**
 
-Ein Eintrag in der **Activity**-Timeline im KI-Protokoll, mit Typ, Art, Akteur und Rohdaten.
+Eintrag in der **Activity**-Zeitleiste im Journal IA, mit Typ, Art, Akteur und rohem Payload.
 
 **Arbeitsbereich**
 
-Die zentrale Projektseite, die Zusammenfassung, operative Transparenz, Signale und Projekt-Level-Einstellungen bündelt.
+Zentrale Projektseite, die Zusammenfassung, operative Transparenz, Signale und Projekteinstellungen bündelt.
 
 **Execution connector / Ausführungs-Connector**
 
-Ein gesteuerter Connector, der verwendet wird, um eine externe Aktion zu starten, z. B. Teams, Jira oder SharePoint-Veröffentlichung.
+Verwalteter Connector, der verwendet wird, um eine externe Aktion zu starten, z. B. Teams, Jira oder SharePoint-Veröffentlichung.
 
-**Executed / Ausgeführt**
+**Executed / ausgeführt**
 
-Ein Status, der anzeigt, dass eine gesteuerte Aktion tatsächlich gestartet und protokolliert wurde, über die bloße Genehmigung hinaus.
+Status, der anzeigt, dass eine verwaltete Aktion tatsächlich gestartet und protokolliert wurde, über die reine Genehmigung hinaus.
 
 ## F
 
 **Modellfamilie**
 
-Eine Transparenzinformation, die im KI-Protokoll sichtbar ist, um den tatsächlich verwendeten Modelltyp anzuzeigen.
+Transparenzinformation, die im Journal IA sichtbar ist und den tatsächlich verwendeten Modellentyp angibt.
 
-**Fresh / aging / stale / conflicting / unavailable**
+**Frisch / alternd / veraltet / widersprüchlich / nicht verfügbar**
 
-Aktualitätszustände, die verwendet werden, um einen Nachweis oder eine Quelle zu qualifizieren: frisch, alternd, veraltet, widersprüchlich oder nicht verfügbar.
+Frischezustände, die verwendet werden, um einen Beweis oder eine Quelle zu qualifizieren: frisch, alternd, veraltet, widersprüchlich oder nicht verfügbar.
 
-**Ingestion-Provider**
+**Ingest-Anbieter**
 
-Eine technische Quelle, die es ermöglicht, Inhalte in das Wissen zu importieren.
+Technische Quelle, die das Importieren von Inhalten in das Wissenssystem ermöglicht.
 
 ## H
 
 **Health / Gesundheitszustand**
 
-Eine Angabe zur Verfügbarkeit oder Beeinträchtigung, die auf einen Connector, einen Provider oder das globale Gesundheitspanel angewendet wird.
+Indikator für Verfügbarkeit oder zu prüfenden Zustand, der auf einen Connector, einen Anbieter oder das globale Gesundheitsdashboard angewendet wird.
 
 **Held**
 
-Ein Zurückhaltestatus für einen Entwurf oder einen Verteilungsfluss, der noch nicht an seinen Zielkanal gesendet werden soll.
+Status, der einen Entwurf oder einen Veröffentlichungsfluss zurückhält, der noch nicht an seinen Zielkanal gesendet werden soll.
 
 ## J
 
-**KI-Protokoll**
+**Journal IA**
 
-Die Seite, die Runs und Aktivitäten im Zusammenhang mit KI-Verarbeitungen anzeigt, mit Trace-ID, Kontext, Zitaten und verknüpften Artefakten.
+Seite, die die Läufe und die damit verbundenen Aktivitäten der KI-Verarbeitung anzeigt, mit Trace ID, Kontext, Zitate und zugehörigen Artefakten.
 
 ## L
 
-**Schreibgeschützt**
+**Nur-Lesezugriff**
 
-Ein Zustand, in dem eine Seite oder ein Tab sichtbar, aber nicht bearbeitbar bleibt.
+Status, in dem eine Seite oder ein Tab sichtbar, aber nicht bearbeitbar bleibt.
 
-**Linie**
+**Nachverfolgung**
 
-Eine Nachverfolgungskette, die einen Run, eine strukturierte Ausgabe, ein Artefakt, ein PM Doc und die zugehörigen Nachweise verbindet.
+Verfolgungskette, die einen Lauf, eine strukturierte Ausgabe, ein Artefakt, ein PM Doc und die zugehörigen Beweise verbindet.
 
 **LLM deployment name**
 
-Der genaue Name des LLM-Deployments, das von bestimmten Providern, insbesondere Azure OpenAI, in der Plattformadministration erwartet wird.
+Genauer Name der LLM-Bereitstellung, die von bestimmten Anbietern, insbesondere Azure OpenAI, in der Plattformverwaltung erwartet wird.
 
 ## O
 
 **Operational**
 
-Ein Status, der anzeigt, dass ein Provider nach erfolgreicher Konfiguration, Validierung und Tests als einsatzfähig betrachtet werden kann.
+Status, der anzeigt, dass ein Anbieter nach erfolgreicher Konfiguration, Validierung und Test als betriebsbereit gilt.
 
 ## P
 
-**Befehls-Palette**
+**Palette de commandes**
 
-Ein Mechanismus für den schnellen Zugriff auf häufig genutzte Seiten und Aktionen über die obere Leiste.
+Mechanismus für schnellen Zugriff auf häufige Seiten und Aktionen über die obere Leiste.
 
-**Pending approval / Ausstehende Genehmigung**
+**Pending approval**
 
-Der Status einer Anfrage oder gesteuerten Aktion, die noch auf eine menschliche Validierung vor der Ausführung wartet.
+Status eines Antrags oder einer verwalteten Aktion, die noch eine menschliche Genehmigung vor Ausführung erfordert.
 
 **PM Doc**
 
-Ein überarbeitetes, bearbeitetes, heruntergeladenes, veröffentlichtes oder zurück in das Wissen injiziertes Projektmanagement-Dokument aus **Berichte & Artefakte**.
+Überarbeitete Projektmanagementdokumentation, die bearbeitet, hochgeladen, veröffentlicht oder aus **Rapports & artefacts** wieder in das Wissen injiziert wurde.
 
-**Rendering-Profil**
+**Renderprofil**
 
-Ein Parameter, der verwendet wird, um das Format oder das Rendering-Verhalten eines generierten Dokuments zu bestimmen.
+Parameter, der verwendet wird, um das Format oder das Renderverhalten eines generierten Dokuments zu bestimmen.
 
 ## R
 
-**Berichte & Artefakte**
+**Rapports & artefacts**
 
-Die Oberfläche, die verwendet wird, um Projektliefergegenstände zu überprüfen, zu vergleichen, zu bearbeiten, zu veröffentlichen und herunterzuladen.
+Bereich, der verwendet wird, um Projektlieferungen zu überprüfen, zu vergleichen, zu bearbeiten, zu veröffentlichen und herunterzuladen.
 
-**Readiness / Bereitschaft**
+**Readiness**
 
-Der Vorbereitungsgrad eines Projekts, einer Integration oder eines gesteuerten Flusses, um ohne operative Blockaden zu funktionieren. Siehe auch [Portfolio und technische Administration](./portefeuille-et-administration-technique.md).
+Bereitschaftsgrad eines Projekts, einer Integration oder eines verwalteten Flows, um ohne operative Blockierung zu funktionieren. Siehe auch [Portfolio und technische Administration](./portefeuille-et-administration-technique.md).
 
 **Run**
 
-Eine aufgezeichnete Ausführung einer KI-Verarbeitung oder eines Agentenaustauschs, die später im KI-Protokoll eingesehen werden kann.
+Aufgezeichnete Ausführung eines KI-Processing oder Agentenaustauschs, die anschließend im Journal IA einsehbar ist.
 
 ## S
 
-**Sitzplatz**
+**Lizenzstelle**
 
-Eine Lizenz-Einheit, die von einem Benutzer in Bereitstellungen verbraucht wird, bei denen der Zugriff durch Abonnement begrenzt ist.
+Lizenzeinheit, die von einem Benutzer in Deployments verbraucht wird, bei denen der Zugriff durch ein Abonnement begrenzt ist.
 
 **Signal**
 
-Ein proaktives Element, das ein Aufmerksamkeitsthema meldet, z. B. einen Widerspruch, eine Blockade, geringe Aktualität oder eine erforderliche Folgeaktion.
+Proaktives Element, das ein Thema zur Aufmerksamkeit hervorhebt, z. B. eine Widerspruch, ein Block, geringe Frische oder eine weitere Handlung.
 
-**Source label / Quellenbezeichnung**
+**Source label**
 
-Eine lesbare Herkunftsbezeichnung, die hilft zu identifizieren, woher ein Dokument oder Import stammt.
+Quellenlabel, das hilft, lesbar zu identifizieren, woher ein Dokument oder ein Import stammt.
 
-**Source system / Quellsystem**
+**Source system**
 
-Das Quellsystem, das mit einem Nachweis oder einem Suchergebnis angezeigt wird.
+Quellsystem, das zusammen mit einem Beweis oder Suchergebnis angezeigt wird.
 
-**Structured output / Strukturierte Ausgabe**
+**Structured output / strukturierte Ausgabe**
 
-Ein formatiertes Ergebnis eines Agents oder Runs, das Zusammenfassung, Entscheidungen, Zitate, Vertrauen und Metadaten enthalten kann.
+Formatierte Ausgabe eines Agenten oder eines Laufs, die Zusammenfassung, Entscheidungen, Zitate, Vertrauen und Metadaten enthalten kann.
 
 ## T
 
 **Dashboard**
 
-Die Orientierungsseite, die den allgemeinen Status, Metriken und vorgeschlagene nächste Aktionen anzeigt.
+Orientierungsseite, die den allgemeinen Zustand, Metriken und vorgeschlagene nächste Aktionen anzeigt.
 
 **Test**
 
-Ein Konnektivitätstest, der nach der Validierung eines Providers ausgeführt wird, um zu bestätigen, dass die Plattform ihn tatsächlich nutzen kann.
+Verbindungsprüfung, die nach der Validierung eines Anbieters ausgeführt wird, um zu bestätigen, dass die Plattform ihn tatsächlich nutzen kann.
 
 **Trace ID**
 
-Eine technische ID für einen Run oder ein Ereignis, unerlässlich für Untersuchungen und Support.
+Technische Kennung eines Laufs oder Ereignisses, unverzichtbar für Untersuchung und Support.
 
 ## V
 
-**Validate / Validierung**
+**Validate / validation**
 
-Ein administrativer Schritt, der die Konsistenz einer Konfiguration vor dem Konnektivitätstest oder der Aktivierung eines Providers überprüft.
+Administrative Phase, die die Konsistenz einer Konfiguration vor der Verbindungsprüfung oder der Aktivierung eines Anbieters überprüft.
 
-**Artefaktversion**
+**Version d’artefact**
 
-Ein historisierter Zustand eines Artefakts, verwendet für Diff, Linie, Genehmigung und Veröffentlichung. Siehe auch [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md).
+Historisierte Version eines Artefakts, die für Diff, Nachverfolgung, Genehmigung und Veröffentlichung verwendet wird. Siehe auch [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md).
 
 ## W
 
 **Watchpoint**
 
-Ein expliziter Aufmerksamkeitspunkt in einer strukturierten Ausgabe, oft verwendet, um ein Risiko, einen Widerspruch oder einen zu überwachenden Bereich zu signalisieren.
+Expliziter Aufmerksamkeitspunkt in einer strukturierten Ausgabe, der häufig verwendet wird, um ein Risiko, einen Widerspruch oder einen zu beobachtenden Bereich anzuzeigen.
 
-## Weiter
+## Suite
 
 - [Wartung, Support und FAQ](./maintenance-support-faq.md)
 - [Startseite](./index.md)
-- [Erste Schritte](./demarrage.md)
+- [Einführung](./demarrage.md)

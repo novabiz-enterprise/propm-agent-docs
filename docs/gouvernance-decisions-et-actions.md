@@ -1,301 +1,529 @@
 ---
-title: Governance, Decisions, and Actions
+title: Governance, decisions and actions
 slug: /gouvernance-decisions-et-actions
-description: Leverage signals, apply governance rules, and manage actions requiring approval.
+description: Understand signals, configure governance policies, and use Actions & approvals step-by-step with beginner-friendly examples.
 ---
 
-[Home](./index.md) · [Projects and Workspace](./projets-et-espace-de-travail.md) · [Reports, AI Log, and Traceability](./rapports-journal-ia-et-tracabilite.md)
+[Home](./index.md) · [Projects and workspace](./projets-et-espace-de-travail.md) · [Reports, AI Journal and traceability](./rapports-journal-ia-et-tracabilite.md)
 
-![Signals Inbox](/img/screenshots/localized/en/15-workspace-signals.png)
+![Proactivity, digests and governed actions](/img/diagrams/fr/proactivite-et-gouvernance.svg)
 
 ## Objective
 
-This page explains how to process **signals**, use project governance rules, and understand why an action may be visible but not executable.
+This page explains, in a simple way, how ProPM Agent moves from:
 
-## Overview
+1. a **signal** detected;
+2. to a **decision**;
+3. then to a **governed action**;
+4. possibly subject to **approval**;
+5. before it is **executed** and **traced**.
 
-In ProPM Agent, governance manifests across several surfaces:
+The goal is for a beginner user to clearly understand:
 
-- **signals** that draw attention;
-- project-level **governance policies**;
-- **access controls**;
-- **actions & approvals** before external impact;
-- **traceability** visible in artifacts and the AI Log.
+- what a **governance policy** is;
+- what `allow`, `require_approval` and `deny` mean;
+- what `observe`, `draft`, `propose` and `execute` mean;
+- how to use Actions & approvals step-by-step;
+- why an action can be visible but blocked.
 
-## Signals: What They Represent
+## Very simple view of the flow
 
-Observed signals serve to surface topics that merit explicit handling, for example:
+In ProPM Agent, the normal path is:
 
-- insufficient **freshness**;
-- a **contradiction** between pieces of evidence;
-- an operational **blockage**;
-- a **follow-up** requiring a decision or dissemination.
+1. a **signal** grabs attention;
+2. the team reads it;
+3. **governance** decides what each role is allowed to do;
+4. if an external output is required, an **action** is created;
+5. if the project requires it, the action goes into **approval**;
+6. the action is then **executed** or **rejected**;
+7. the trace remains visible in **activity** and the **AI Journal**.
 
-## How to Process Signals
+## Part 1 — Understanding signals
 
-The signals inbox allows you to:
+A **signal** is a structured alert that says: **“this topic deserves attention.”**
 
-- review open signals;
-- refresh their status;
-- prepare a **digest**;
-- generate a notification draft;
-- snooze a signal;
-- dismiss an item when it is no longer relevant.
+### Signal examples
 
-### Recommended Triage Step-by-Step
+A signal can surface:
 
-To avoid processing a signal based solely on "gut feeling," keep this simple order:
+- a **freshness** of sources that is insufficient;
+- a **contradiction** between multiple pieces of evidence;
+- a **project blockage**;
+- a follow‑up that deserves a **notification**, a **decision** or an **external action**.
 
-1. first read the **summary**;
-2. then confirm the **explanation** and **freshness** indicators;
-3. check if the signal is **recurrent** or relies on multiple pieces of evidence;
-4. finally choose between **Create draft**, **Snooze 24h**, or **Dismiss** based on the actual level of useful action.
-
-This triage avoids turning a simple reminder into a governed action too quickly, while keeping a clear record of truly priority topics.
-
-## States, Modes, and Information Visible on a Signal
-
-### Useful Statuses
-
-| Status | Practical Meaning | Typical Action |
-| --- | --- | --- |
-| `open` | The signal remains active in the current queue | process, create a draft, snooze, or dismiss |
-| `snoozed` | The topic is temporarily paused | return after `snoozedUntil` or after the next checkpoint |
-| `dismissed` | The signal is removed from the active view as long as no new condition reopens it | keep the trace, without letting the item clutter the queue |
-| `resolved` | The topic is considered handled | keep the history for audit, without immediate new action |
-
-### Visible Modes
-
-| Mode | Useful Reading |
-| --- | --- |
-| `inform` | information to review without mandatory immediate action |
-| `suggest` | topic accompanied by suggested next steps |
-| `draft` | topic already oriented towards a draft or preparatory formulation |
-| `request_approval` | topic that calls for an explicit approval step |
-
-### What a Signal Card Shows
+### What the user usually sees on a signal card
 
 A signal card can display:
 
-- **severity**, **status**, and **mode**;
-- a **title**, **summary**, and **explanation** of the trigger;
-- a count of **evidence** and **re-triggers**;
-- **source freshness** badges;
-- `last detected` and, if applicable, `snoozed until`;
-- actions like **Create draft**, **Snooze 24h**, and **Dismiss** when the role permits.
+- a **title**;
+- a **summary**;
+- an **explanation**;
+- a **severity**;
+- a **status**;
+- a **mode**;
+- a number of **evidence** or retriggers;
+- actions such as **Create draft**, **Snooze 24h** or **Dismiss** depending on the role.
 
-### If You See… / Do…
+### Recommended step‑by‑step to handle a signal
 
-| If You See… | Do… |
+When you open a signal, keep this order:
+
+1. read the **summary**;
+2. then reread the **explanation**;
+3. check the **evidence** and **freshness**;
+4. decide if the topic only needs monitoring, a draft or a real action;
+5. if an external output becomes necessary, move to **Actions & approvals**.
+
+### Useful signal statuses
+
+| Status | What it means |
 | --- | --- |
-| an `open` signal in `inform` mode | review the evidence and decide if you simply need to monitor or prepare a digest |
-| an `open` signal in `suggest` mode | turn it into a clear next step or a draft if the follow-up needs to be tracked |
-| a `draft` signal | check if it is already feeding a digest, a draft, or an action request |
-| a `request_approval` signal | switch to the governed review and confirm the approval conditions |
-| a `snoozed` signal | do not reopen it automatically; first check `snoozedUntil` and the actual evolution of the context |
-| a `dismissed` signal | keep the trace, but do not clutter the active queue as long as no new evidence appears |
-| a `resolved` signal | use it as history, not as a new action order |
+| `open` | the topic remains active and still needs attention |
+| `snoozed` | the topic is temporarily paused |
+| `dismissed` | the topic is removed from the active queue |
+| `resolved` | the topic is considered handled |
 
-## When to Act on a Signal
+### Useful signal modes
 
-| Situation | Recommended Action |
+| Mode | Simple reading |
 | --- | --- |
-| Aging information | Check the source, restart the import, or update the knowledge |
-| Contradiction between evidence | Review the citations, arbitrate, and document the decision |
-| Project blockage | Turn the observation into a governed action or formalized follow-up |
-| Topic to disseminate | Prepare a digest or an appropriate notification |
+| `inform` | the signal informs, without requiring immediate action |
+| `suggest` | the signal suggests a next step |
+| `draft` | the signal is already oriented toward a draft or preparation |
+| `request_approval` | the signal calls for a governed review or approval |
 
-## Digest and Notification Drafts
+## Part 2 — Governance policies
 
-### Generate a Digest (`Generate digest draft`)
+### What is a governance policy?
 
-Generating a digest produces a reusable synthetic view from the **Workspace**. The **`Latest digest`** card can display:
+A **governance policy** is a rule that answers the question:
 
-- a **headline**;
-- a **narrative**;
-- the **generated at** date;
-- the total number of summarized signals;
-- the number of generated notification drafts;
-- the detail of signals included in the digest.
+**“Who is allowed to do what, on which connector, and with what level of control?”**
 
-### Review a Notification Draft
+In other words, governance prevents an external action from leaving without a clear framework.
 
-**Notification drafts** expose at minimum:
+### What a policy decides
 
-- the **status**;
-- the **channel**;
-- the notification **type**;
-- the explanation or rationale;
-- a potential need for **approval**;
-- the number of **recipients**;
-- a `sendAfter` date if it exists;
-- the link to the original **signal** or **digest**;
-- a potential `snoozed` state.
+A policy generally answers four questions:
 
-In the currently observed project panel, direct sending is primarily planned for `in_app`. External channels like `email`, `teams`, or `webhook` may remain in a **held / draft** posture as long as the governed distribution path is not available. Users without sending rights can still review these drafts in read-only mode.
+1. **Who?** — which role is concerned;
+2. **On what?** — which connector, action type or destination is concerned;
+3. **How far?** — simple observation, draft, proposal or execution;
+4. **With what effect?** — allowed, allowed with approval, or denied.
 
-![Notification Drafts to Review](/img/screenshots/localized/en/16-notification-drafts.png)
+### Very simple example
 
-### Recommended Review Flow for a Notification Draft
+A policy might say:
 
-1. confirm that the **title** and **message** are understandable without hidden context;
-2. check the linked **signal** or **digest**;
-3. review the **approval**, **recipients**, and `sendAfter` metadata;
-4. only send if the **channel** and your **role** actually authorize this distribution;
-5. use **snooze** or **dismiss** when the draft should not remain active in the queue.
+- the **Contributor** can prepare a Teams draft;
+- the **Project Manager** can propose a SharePoint publication;
+- the **Project Owner** must approve before execution;
+- no one else can directly execute that publication.
 
-## Four Objects Not to Confuse
+### Understanding levels: `observe`, `draft`, `propose`, `execute`
 
-| Object | Role in the Flow | When to Use It |
+The **level** describes how far a role can go in the flow.
+
+| Level | What the user can do | What they cannot yet do | Simple example |
+| --- | --- | --- | --- |
+| `observe` | see information, follow the topic, consult the queue | create an action or draft | a reader follows signals without preparing an output |
+| `draft` | prepare a draft, a text, an intention to act | officially submit the action to the queue | a contributor prepares a Teams message but does not propose it |
+| `propose` | submit a real action request in the governed queue | execute the action directly | a project manager proposes a Jira ticket |
+| `execute` | launch the real execution if other conditions are met | bypass the policy or imposed approvals | a project owner publishes an artifact to SharePoint |
+
+### Very simple reading
+
+- **`observe`** = I look;
+- **`draft`** = I prepare;
+- **`propose`** = I officially request;
+- **`execute`** = I actually launch.
+
+### Understanding effects: `allow`, `require_approval`, `deny`
+
+The **effect** describes what the platform does when a role reaches this level.
+
+| Effect | What it means | Practical consequence |
 | --- | --- | --- |
-| `digest` | synthesis of multiple signals | when the team needs a grouped view before distribution or arbitration |
-| `notification draft` | draft message intended for a channel | when the topic needs to be reviewed before sending, especially outside `in_app` |
-| `action request` | request for a governed operation sometimes requiring approval and execution | when an external follow-up or concrete change must be launched |
-| `artifact` | deliverable or governed object with history | when content must be preserved, compared, approved, published, or reinjected |
+| `allow` | the action is permitted at this level | the flow can advance without an extra approval step if everything else is ready |
+| `require_approval` | the action is possible but must be approved | the approval queue becomes mandatory before execution |
+| `deny` | the action is forbidden for this role or scope | the user cannot go further on this flow |
 
-This distinction reduces frequent confusion between a topic **to summarize**, a message **to review**, an operation **to execute**, and a document **to govern**.
+### Very simple reading
 
-## Project-Level Governance
+- **`allow`** = yes;
+- **`require_approval`** = yes, but after human validation;
+- **`deny`** = no.
 
-The workspace tabs form the foundation of project governance:
+### How to read a policy line
 
-- **Access control** determines who can act;
-- **Document categories** structure evidence;
-- **Governance policies** frame validations and publication;
-- **Project integrations** determine which external actions are actually feasible.
+Take this reading:
 
-### How to Read Policy Effects
+- **Role**: Project Manager
+- **Connector**: SharePoint publish
+- **Level**: `execute`
+- **Effect**: `require_approval`
 
-| Pair or Field | Practical Reading | Real Effect for the User |
-| --- | --- | --- |
-| `allow` + `observe` | the subject can be seen and tracked | reading and monitoring without launching execution |
-| `allow` + `draft` | preparation is authorized | the user can create a draft or prepare the flow |
-| `allow` + `propose` | formal proposal is permitted | a request can be submitted to the governed queue |
-| `allow` + `execute` | direct execution is authorized | the action can proceed without an additional step if everything else is ready |
-| `require_approval` + `execute` | execution remains possible but not immediate | the approval queue becomes mandatory before execution |
-| `deny` | the flow is forbidden for the role or scope | the action may disappear or remain non-executable despite its principle visibility |
+This means:
 
-These pairs help understand why a user can **see**, **prepare**, **propose**, or **execute** an action, without assuming that all surfaces automatically authorize the same depth of action.
+- the Project Manager can go as far as an execution request;
+- but the publication does not leave immediately;
+- approval is required before the real execution.
 
-![Project Governance Policies](/img/screenshots/localized/en/14-governance-policies.png)
+### Concrete policy examples
 
-## Actions & Approvals
+| Business case | Role | Recommended level | Recommended effect | Why |
+| --- | --- | --- | --- | --- |
+| Publishing a report to SharePoint | Project Manager | `execute` | `require_approval` | the output is external and must be reviewed |
+| Creating a Jira ticket from a blockage | Project Manager | `propose` | `allow` or `require_approval` | the project can request a ticket without necessarily opening it automatically |
+| Low‑risk internal Teams message | Contributor | `execute` or `propose` | `allow` | quick communication with low impact |
+| Outlook email to sponsors | Contributor | `propose` | `require_approval` | more sensitive and formal communication |
+| Webhook to a third‑party tool | Project Owner | `execute` | `require_approval` | technical output that must remain tightly controlled |
+| Connector not ready or not authorized | all except admin | `observe` or no usage | `deny` | we avoid any accidental departure |
 
-The **Actions & approvals** screen transforms a recommendation into a controlled operation.
+### Step‑by‑step to configure a governance policy
 
-### Observed Lifecycle
+Follow this simple order.
 
-1. proposal of an action;
-2. attachment to a project, signal, or artifact;
-3. approval or rejection;
-4. execution when conditions are met;
-5. traceability of the event in the product.
+#### Step 1 — Open the right surface
 
-![Actions and Approvals](/img/screenshots/localized/en/17-actions-approvals.png)
+From the project **Workspace**, open **Governance policies**.
 
-### Operational Step-by-Step for a Governed Action
+#### Step 2 — Choose the flow to control
 
-Use this order when an external follow-up becomes necessary:
+First ask yourself:
 
-1. open **Actions & approvals** from the **Workspace**;
-2. first choose the **action type** so the interface resolves compatible **Execution connectors**;
-3. select a **healthy** and **authorized** execution option if multiple exist;
-4. add a short justification to facilitate approval;
-5. submit the request and verify it appears in the queue with **Trace ID** and payload details;
-6. then follow its passage through the queue to **approved**, **rejected**, or **executed**.
+- is it a **publication**;
+- a **ticket**;
+- a **message**;
+- a **webhook**;
+- or another external action?
 
-### If No Execution Option Appears
+#### Step 3 — Choose the concerned role
 
-Keep this strict remediation order:
+Then define which role can act:
 
-1. check **Execution connectors** in **Governance policies**;
-2. then check **Project integrations** to confirm the binding is actually ready;
-3. open **Platform Administration** if the technical definition seems missing or degraded;
-4. finally check **entitlement**, **policy**, and your **permission** before concluding it's a failure.
+- **Contributor**;
+- **Project Manager**;
+- **Project Owner**;
+- or another role present in your configuration.
 
-This circuit avoids treating as a technical incident a blockage that actually comes from a role, policy, or definition not yet exposed to the project.
+#### Step 4 — Choose the action level
 
-## Examples of Confirmed Governed Actions
+Decide if this role should only:
 
-Action types visible in the product include notably:
+- observe;
+- prepare a draft;
+- propose;
+- or execute.
 
-- publication to **SharePoint**;
-- **Teams** message;
-- **Outlook** message;
-- **Jira** ticket;
-- **Azure DevOps** ticket;
-- governed **webhook**.
+#### Step 5 — Choose the effect
 
-### Fields That Vary by Action Type
+Decide if this level should be:
 
-| Action Type | Typical Fields to Provide |
+- allowed directly (`allow`);
+- allowed with approval (`require_approval`);
+- or denied (`deny`).
+
+#### Step 6 — Verify the connector or destination concerned
+
+A good policy is not enough if the connector:
+
+- is not technically ready;
+- is not open to the project;
+- or does not have the correct artifact destination.
+
+#### Step 7 — Test with a non‑admin role
+
+The best control is practical:
+
+1. log in with a realistic business role;
+2. open **Actions & approvals**;
+3. check what is visible, allowed or blocked;
+4. adjust the policy if the behavior is not as expected.
+
+![Project governance policies](/img/screenshots/localized/fr/14-governance-policies.png)
+
+### Simple rules for good governance configuration
+
+- use `allow` on `execute` only for low‑risk flows;
+- use `require_approval` whenever content leaves the project or modifies an external system;
+- use `deny` when the connector is not ready, not authorized or too sensitive;
+- keep rules consistent with the roles actually assigned;
+- always test a real case before considering the policy ready.
+
+### Common mistakes to avoid
+
+| Mistake | Correct reading |
 | --- | --- |
-| Publication to SharePoint | title, execution option, `artifact ID`, destination, rendering profile or format |
-| Teams / Outlook Message | title, execution option, message body, recipients or linked draft |
-| Jira / Azure DevOps Ticket | title, execution option, and ticket description |
-| Calendar follow-up | title, execution option, participants, and start date / time |
+| “I see the connector, so I can use it” | wrong: visibility does not guarantee authorization or technical health |
+| “`propose` means the action leaves” | wrong: `propose` means the request enters the governed queue |
+| “`execute` means no control” | wrong: `execute` can still be combined with `require_approval` |
+| “`deny` means a failure” | wrong: `deny` is often a normal governance decision |
 
-### States and Details of the Approval Queue
+## Part 3 — Actions & approvals
 
-The governed actions queue allows tracking a typical passage from **draft** to **pending approval**, then to **approved**, **executed**, or **rejected**.
+The **Actions & approvals** screen is used to turn an intention into a real **governed action**.
 
-| Status | Practical Reading |
+### What the user sees in this screen
+
+A user typically finds:
+
+- a **Propose a governed action** form;
+- the choice of **action type**;
+- the choice of **execution connector** or **execution option**;
+- a **readiness summary** indicating what is available or blocked;
+- fields such as **title**, **rationale**, **destination**, **message**, **ticket description**;
+- an **approval and execution queue** with already submitted requests.
+
+### Step‑by‑step — create a governed action
+
+#### Step 1 — Open the screen
+
+In the **Workspace**, open **Actions & approvals**.
+
+#### Step 2 — Choose the action type
+
+First select the business intention. Visible action types include:
+
+- **Publish artifact to SharePoint**;
+- **Send Teams message**;
+- **Send Outlook message**;
+- **Create Jira ticket**;
+- **Create Azure DevOps ticket**;
+- **Webhook** depending on tenant configuration.
+
+#### Step 3 — Verify the compatible execution option
+
+The interface then searches for **compatible execution options**.
+
+Choose an option:
+
+- **healthy**;
+- **authorized**;
+- actually open to your project.
+
+If no healthy option appears, the check usually concerns:
+
+- the connector itself;
+- its health status;
+- the project binding;
+- the policy;
+- or your permission.
+
+#### Step 4 — Read the readiness
+
+The **Execution readiness** area is to verify you are not just preparing a theoretical action.
+
+In practice:
+
+- **available / healthy** = option usable;
+- **blocked by health** = connector to check on the platform side;
+- **blocked by entitlement** = capacity not included in the plan or not open;
+- **blocked by policy** = restrictive project governance;
+- **blocked by permission** = your role is insufficient.
+
+#### Step 5 — Fill in the title and justification
+
+Then complete:
+
+- a **clear title**;
+- a short but useful **justification**;
+- fields specific to the chosen action type.
+
+The justification should answer two questions:
+
+1. **Why is this action necessary?**
+2. **On what evidence or decisions does it rely?**
+
+#### Step 6 — Complete the business fields
+
+Fields change according to the action type.
+
+| Action type | Frequently expected fields |
 | --- | --- |
-| `draft` | still preparatory request, not yet sent to the full flow |
-| `pending approval` | approval awaited before real follow-up |
-| `approved` | agreement obtained, but actual execution still needs to be confirmed |
-| `executed` | action sent and logged as executed |
-| `rejected` | the request was refused and should not be considered as launched |
+| SharePoint publication | title, justification, `artifact ID`, destination, rendering profile, format |
+| Teams message | title, justification, message body |
+| Outlook message | title, justification, recipients, subject, message body |
+| Jira ticket | title, justification, ticket description, optionally project / board key |
+| Azure DevOps ticket | title, justification, description, ticket type per connector |
+| Webhook | title, justification and data useful to the target system |
 
-Each queue card can also expose:
+#### Step 7 — Propose the action
 
-- the action type and selected connector;
-- the **status** and **action level**;
-- `requested at`, `requested by`, `approved by`, `approved at`, `executed at`;
-- the **Trace ID**;
-- a `relatedArtifactId` or `relatedNotificationId`;
-- the **payload audit detail**, approval notes, and execution result.
+Once fields are filled, submit the request.
 
-![Governed Actions Queue and Audit Details](/img/screenshots/localized/en/17-action-queue.png)
+At this stage, the action may not yet have left. It can first enter the **approval queue**.
 
-## Why an Action May Be Visible But Not Executable
+#### Step 8 — Review by the approver
 
-An action may appear in the interface but remain blocked if:
+If the policy requires `require_approval`, an approver must review:
 
-- you do not have the required right;
-- the compatible connector is not ready;
-- the project binding limits the action;
-- the plan or entitlement blocks the capability;
-- an approval is still pending.
+- the title;
+- the justification;
+- the connector used;
+- the payload or business detail;
+- any related artifact or draft.
 
-## Link with Integrations
+#### Step 9 — Approval, rejection or execution
 
-An important rule emerges from the application:
+Depending on the policy and the approver’s role, the request can be:
 
-- the **project level** decides how the project works;
-- the **platform level** decides which tools, providers, and integrations actually exist.
+- **approved**;
+- **rejected**;
+- then **executed** if everything is ready.
 
-In practice, if an action or notification is blocked, first check the **project binding**, then the technical definition in **Platform Administration**.
+#### Step 10 — Verify the final trace
 
-## Example of a Complete Scenario
+After execution, check:
 
-1. an `open` signal surfaces a freshness gap or a delayed follow-up;
-2. the team reviews the explanation, evidence, and suggested next steps;
-3. they create a **draft** or generate a **digest** to prepare the synthesis;
-4. a notification draft is reviewed, sent via `in_app`, or left pending if the external channel remains governed;
-5. if an external follow-up is needed, an action is proposed in **Actions & approvals**;
-6. the approval queue, **Trace ID**, linked artifacts, and **AI Log** then serve as a common trace.
+- the action queue;
+- project activity;
+- the **Trace ID** if displayed;
+- the **AI Journal** if the flow is reflected there;
+- the presence of the artifact, ticket or message in the target tool.
 
-## Governance Best Practices
+### How to read action statuses
 
-- treat signals as a prioritization queue, not just a simple list;
-- do not execute external action without checking the artifact or source evidence;
-- use document categories to reduce source ambiguity;
-- keep governance policy consistent with actually assigned roles;
-- document important arbitrations in deliverables or in the associated validation flow.
+| Status | What it means |
+| --- | --- |
+| `draft` | the request is still preparatory |
+| `pending approval` | approval is awaited before real follow‑up |
+| `approved` | the request has been accepted |
+| `executed` | the action has actually been launched |
+| `rejected` | the request was denied |
+| `failed` | the action was launched but did not complete correctly |
+| `cancelled` | the request was cancelled |
+
+### Step‑by‑step example — publishing an artifact to SharePoint
+
+#### Situation
+
+The team has reviewed a **weekly brief** and wants to publish it in SharePoint.
+
+#### Path
+
+1. open **Actions & approvals**;
+2. choose **Publish artifact to SharePoint**;
+3. select a healthy **SharePoint publish** option;
+4. fill in the **title** of the action;
+5. add a **justification**, e.g. “reviewed and approved version for weekly distribution”;
+6. enter the **artifact ID**;
+7. choose the **SharePoint destination**;
+8. choose the **rendering profile** or **format** if requested;
+9. propose the action;
+10. if the policy requires it, wait for approval;
+11. execute;
+12. verify that the artifact is indeed published in SharePoint and traced in ProPM Agent.
+
+### Step‑by‑step example — create a Jira ticket
+
+#### Situation
+
+A signal reports a recurring blockage with planning impact.
+
+#### Path
+
+1. open **Actions & approvals**;
+2. choose **Create Jira ticket**;
+3. select an available Jira connector;
+4. enter a clear title, e.g. “Supplier blockage on critical batch”;
+5. complete the **ticket description**;
+6. add the **justification** and useful evidence;
+7. propose the request;
+8. let the approver review if the policy requires `require_approval`;
+9. execute;
+10. then verify the external reference or created ticket.
+
+### Step‑by‑step example — send a Teams or Outlook message
+
+#### Situation
+
+The project must inform an internal group or a sponsor that a review is finished.
+
+#### Teams path
+
+1. choose **Send Teams message**;
+2. select the authorized Teams connector;
+3. draft a short, understandable message;
+4. add the justification if the flow is governed;
+5. propose, get approved if needed, then execute.
+
+#### Outlook path
+
+1. choose **Send Outlook message**;
+2. select the Outlook connector;
+3. fill in the **recipients**;
+4. complete the **subject** and **message body**;
+5. propose, get approved if needed, then execute.
+
+#### Practical difference
+
+- **Teams** is well suited for collaborative internal communication;
+- **Outlook** is better for more formal and targeted communication.
+
+### Step‑by‑step example — webhook to a third‑party tool
+
+#### Situation
+
+The company wants to trigger an internal flow to a custom tool.
+
+#### Path
+
+1. choose the action type or flow related to **Webhook**;
+2. select a compatible webhook execution option;
+3. fill in the title and justification;
+4. complete the data useful to the target system;
+5. propose the request;
+6. get approval if the policy requires it;
+7. execute;
+8. check the result on the target system and in ProPM Agent audit.
+
+### Why an action may be visible but not executable
+
+An action can be visible in the interface but remain blocked if:
+
+- the compatible connector is not healthy;
+- the project does not have the correct binding;
+- the project policy forbids this level of action;
+- your role does not allow proposing or executing;
+- an approval is still pending;
+- the entitlement or plan capacity blocks the flow.
+
+### What to do if no execution option appears
+
+Follow this order:
+
+1. first check **Governance policies**;
+2. then check **Project integrations**;
+3. open **Platform administration**;
+4. finally check **entitlement**, **permission** and connector health.
+
+### Full scenario — from signal to executed action
+
+#### Simple case
+
+1. an `open` signal reports a blockage;
+2. the team reads the summary, explanation and evidence;
+3. they decide a Jira ticket is needed;
+4. the policy allows the **Project Manager** to `propose` but requires `require_approval`;
+5. the Project Manager creates the request in **Actions & approvals**;
+6. the **Project Owner** approves;
+7. the action moves to **executed**;
+8. the external ticket and internal trace remain aligned.
+
+This scenario summarizes the product logic: **see, decide, control, execute, trace**.
+
+### Best practices
+
+- never confuse **draft** and **real execution**;
+- use policies to limit sensitive outputs;
+- request approval whenever content leaves the project or changes an external system;
+- always verify evidence before proposing an action;
+- use the **AI Journal** and the action queue as a common audit reference.
 
 ## Next
 
-- [Reports, AI Log, and Traceability](./rapports-journal-ia-et-tracabilite.md)
-- [Portfolio and Technical Administration](./portefeuille-et-administration-technique.md)
-- [Maintenance, Support, and FAQ](./maintenance-support-faq.md)
+- [Connectors and integrations](./connecteurs-jira-et-sharepoint)
+- [Reports, AI Journal and traceability](./rapports-journal-ia-et-tracabilite.md)
+- [Portfolio and technical administration](./portefeuille-et-administration-technique.md)
+- [Maintenance, support and FAQ](./maintenance-support-faq.md)

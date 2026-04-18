@@ -4,45 +4,45 @@ slug: /glossaire
 description: Consistent definitions of the main terms used in ProPM Agent.
 ---
 
-[Home](./index.md) · [Maintenance, Support, and FAQ](./maintenance-support-faq.md) · [Reports, AI Log, and Traceability](./rapports-journal-ia-et-tracabilite.md)
+[Home](./index.md) · [Maintenance, support and FAQ](./maintenance-support-faq.md) · [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md)
 
 ## A
 
-**Governed Action**
+**Governed action**
 
-Operation prepared in the application and then submitted for approval before execution, for example a SharePoint publication or ticket creation.
+Operation prepared in the application then submitted for approval before execution, e.g., a SharePoint publication or ticket creation.
 
 **Agent**
 
-Specialized conversational component that works within the context of the current project and can produce structured output, citations, and recommendations.
+Specialized conversational component that works in the context of the current project and can produce a structured output, citations and recommendations.
 
-**Approvals / approbations**
+**Approvals / approvals**
 
-Validation step used to accept, reject, or frame an action before its execution.
+Validation step used to accept, reject or frame an action before its execution.
 
 **Artifact**
 
-Intermediate or final governed object usable in **Reports & Artifacts**.
+Intermediary or final governed object usable in **Reports & artifacts**.
 
-**Artifact destination / destination d’artefact**
+**Artifact destination / destination of artifact**
 
-Governed target used during a publication or document distribution, for example SharePoint.
+Governed target used during publication or document distribution, e.g., SharePoint.
 
 ## B
 
-**Project Binding**
+**Project binding**
 
-Project-level link that makes a platform integration actually usable in a given project.
+Project‑level link that makes a platform integration actually usable in a given project.
 
 ## C
 
-**Portfolio Command Center**
+**Portfolio command center**
 
-Multi-project comparison surface based on signals, weights, thresholds, and saved cohorts.
+Multi‑project comparison surface based on signals, weights, thresholds and saved cohorts.
 
 **Citations**
 
-References displayed with certain agent results or runs to show the evidence or sources used.
+References displayed with certain agent results or runs to show evidence or sources used.
 
 **Cohort**
 
@@ -50,141 +50,141 @@ Saved set of projects and portfolio comparison parameters.
 
 **Confidence**
 
-Indicator attached to a structured output to help judge the robustness of the result.
+Indication attached to a structured output to help judge the solidity of the result.
 
 **Knowledge**
 
-Space where project reference documents are searched, uploaded, imported, and filtered.
+Space where reference documents are searched, uploaded, imported and filtered for the project.
 
 **Context snapshot**
 
-Context capture associated with a run in the AI Log.
+Capture of the context associated with a run in the AI Log.
 
 ## D
 
-**Deployment-selected AI Provider / fournisseur IA sélectionné au déploiement**
+**Deployment‑selected AI Provider / AI provider selected at deployment**
 
-Provider chosen during environment installation or deployment.
+Provider chosen during installation or deployment of the environment.
 
 **Diff**
 
-Comparison between two versions of an artifact to review differences before approval or publication.
+Comparison between two artifact versions to review differences before approval or publication.
 
 **Digest**
 
-Governed synthesis of multiple signals, visible in the Workspace and usable as a basis for a notification draft. See also the page [Governance, Decisions, and Actions](./gouvernance-decisions-et-actions.md).
+Governed summary of several signals, visible in Workspace and can serve as a basis for a notification draft. See also the page **Governance, decisions and actions**.
 
-**Document categories / catégories documentaires**
+**Document categories / documentary categories**
 
-Classification used to organize project contents and improve their utilization.
+Classification used to organize project contents and improve their exploitation.
 
 ## E
 
-**Effective AI Provider / fournisseur IA effectif**
+**Effective AI Provider / effective AI provider**
 
 Provider actually used for a given run. This is the reference value in the AI Log.
 
 **Entitlement**
 
-Commercial or technical capability authorized by the plan, which can unlock or block a connector, provider, or premium feature.
+Commercial or technical capacity authorized by the plan, can unlock or block a connector, provider or premium feature.
 
-**Activity Event**
+**Activity event**
 
-Entry in the **Activity** timeline in the AI Log, with type, kind, actor, and raw payload.
+Entry in the **Activity** timeline in the AI Log, with type, kind, actor and raw payload.
 
 **Workspace**
 
-Central project page grouping summary, operational transparency, signals, and project-level settings.
+Central page of the project gathering summary, operational transparency, signals and project‑level settings.
 
-**Execution connector / connecteur d’exécution**
+**Execution connector / execution connector**
 
-Governed connector used to launch an external action, for example Teams, Jira, or SharePoint publish.
+Governed connector used to launch an external action, e.g., Teams, Jira or SharePoint publish.
 
-**Executed / exécuté**
+**Executed**
 
 State indicating that a governed action has actually been launched and logged, beyond just approval.
 
 ## F
 
-**Model Family**
+**Model family**
 
 Transparency information visible in the AI Log to indicate the type of model actually used.
 
 **Fresh / aging / stale / conflicting / unavailable**
 
-Freshness states used to qualify evidence or a source: fresh, aging, stale, conflicting, or unavailable.
+Freshness states used to qualify evidence or source: fresh, aging, stale, conflicting or unavailable.
 
-**Ingestion Provider**
+**Ingestion provider**
 
-Technical source allowing content to be imported into the Knowledge.
+Technical source allowing content import into Knowledge.
 
 ## H
 
-**Health / état de santé**
+**Health / health status**
 
-Indication of availability or degradation applied to a connector, provider, or the overall health panel.
+Availability or state to check applied to a connector, provider or global health panel.
 
 **Held**
 
-Hold state of a draft or distribution flow that should not yet be sent to its target channel.
+State of holding a draft or distribution flow that should not yet leave its target channel.
 
 ## J
 
 **AI Log**
 
-Page that exposes runs and activity associated with AI processing, with trace ID, context, citations, and linked artifacts.
+Page that exposes runs and associated activity for AI treatments, with trace ID, context, citations and related artifacts.
 
 ## L
 
-**Read-only**
+**Read‑only**
 
-State in which a page or tab remains visible but not editable.
+State where a page or tab remains visible but not editable.
 
 **Lineage**
 
-Traceability chain linking a run, a structured output, an artifact, a PM Doc, and associated evidence.
+Traceability chain linking a run, structured output, artifact, PM Doc and associated evidence.
 
 **LLM deployment name**
 
-Exact name of the LLM deployment expected by certain providers, notably Azure OpenAI, in the platform administration.
+Exact name of LLM deployment expected by some providers, especially Azure OpenAI, in platform administration.
 
 ## O
 
 **Operational**
 
-Status indicating that a provider can be considered usable after successful configuration, validation, and test.
+Status indicating that a provider can be considered exploitable after configuration, validation and successful test.
 
 ## P
 
-**Command Palette**
+**Command palette**
 
-Quick access mechanism to common pages and actions from the top bar.
+Quick access mechanism to pages and common actions from the top bar.
 
 **Pending approval**
 
-State of a request or governed action still awaiting human validation before execution.
+State of a governed request or action awaiting human approval before execution.
 
 **PM Doc**
 
-Revised, edited, downloaded, published, or reinjected project management document from **Reports & Artifacts**.
+Project management document revised, edited, downloaded, published or re‑injected into knowledge from **Reports & artifacts**.
 
-**Rendering Profile**
+**Render profile**
 
-Parameter used to determine the format or rendering behavior of a generated document.
+Parameter used to determine the format or rendering behavior of generated document.
 
 ## R
 
-**Reports & Artifacts**
+**Reports & artifacts**
 
-Surface used to review, compare, edit, publish, and download project deliverables.
+Surface used to review, compare, edit, publish and download deliverables.
 
 **Readiness**
 
-Level of preparation of a project, integration, or governed flow to function without operational blockage. See also [Portfolio and Technical Administration](./portefeuille-et-administration-technique.md).
+Level of readiness of a project, integration or governance flow to work without operational blockage. See also **Portfolio and technical administration**.
 
 **Run**
 
-Recorded execution of an AI process or agent exchange, consultable later in the AI Log.
+Recorded execution of an AI or agent exchange, accessible later in the AI Log.
 
 ## S
 
@@ -194,52 +194,56 @@ License unit consumed by a user in deployments where access is limited by subscr
 
 **Signal**
 
-Proactive element raising a topic of attention, for example a contradiction, blockage, low freshness, or follow-up needed.
+Proactive element that raises attention, e.g., contradiction, blockage, low freshness or follow‑up.
 
 **Source label**
 
-Provenance label that helps identify in a readable manner where a document or import comes from.
+Label of provenance that helps identify a readable source.
 
 **Source system**
 
-Source system displayed with evidence or a search result.
+Source system displayed with evidence or result.
 
-**Structured output / sortie structurée**
+**Structured output**
 
-Formatted result of an agent or run, which can include summary, decisions, citations, confidence, and metadata.
+Formatted result of an agent or run, possibly including summary, decisions, citations, confidence and metadata.
 
 ## T
 
 **Dashboard**
 
-Orientation page that exposes overall status, metrics, and suggested next actions.
+Orientation page that exposes general state, metrics and next suggested actions.
 
 **Test**
 
-Connectivity check executed after validating a provider to confirm that the platform can actually use it.
+Connectivity test executed after validation of a provider.
 
 **Trace ID**
 
-Technical identifier of a run or event, essential for investigation and support.
+Technical identifier of a run or event, indispensable for investigation and support.
+
+**Validate**
+
+Administrative step that verifies consistency before the test of connectivity or activation of a provider.
 
 ## V
 
 **Validate / validation**
 
-Administrative step that verifies the consistency of a configuration before the connectivity test or activation of a provider.
+Administrative step that checks consistency.
 
-**Artifact Version**
+**Artifact version**
 
-Historized state of an artifact, used for diff, lineage, approval, and publication. See also [Reports, AI Log, and Traceability](./rapports-journal-ia-et-tracabilite.md).
+Historical state of an artifact, used for diff, lineage, approval and publication. See also **Reports, AI Log and traceability**.
 
 ## W
 
 **Watchpoint**
 
-Explicit point of attention in a structured output, often used to signal a risk, contradiction, or area to monitor.
+Explicit point of attention in a structured output, often used to signal a risk, contradiction or zone to monitor.
 
 ## Next
 
-- [Maintenance, Support, and FAQ](./maintenance-support-faq.md)
+- [Maintenance, support and FAQ](./maintenance-support-faq.md)
 - [Home](./index.md)
 - [Getting Started](./demarrage.md)

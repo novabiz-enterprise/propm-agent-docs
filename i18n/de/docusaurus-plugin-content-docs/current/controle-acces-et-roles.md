@@ -1,66 +1,86 @@
 ---
 title: Zugriffskontrolle und Projektrollen
 slug: /controle-acces-et-roles
-description: Mitglieder, Standardrollen, benutzerdefinierte Rollen und RBAC-Schutzmaßnahmen auf Projektlevel administrieren.
+description: Verwalten Sie Mitglieder, delegieren Sie Projektrollen und verstehen Sie die RBAC‑Sicherheitsmechanismen für Ersteller und andere Mitglieder.
 ---
 
 [Startseite](./index.md) · [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md) · [Wartung, Support und FAQ](./maintenance-support-faq.md)
 
+![Delegation des Erstellers und Projektrollen](/img/diagrams/fr/delegation-createur-rbac.svg)
+
 ## Ziel
 
-Die **Zugriffskontrolle** ist die RBAC-Administrationszone auf Projektlevel. Sie ermöglicht, zu entscheiden:
+Die **Zugriffskontrolle** ist der RBAC‑Bereich auf Projektebene. Sie ermöglicht es, zu entscheiden:
 
-- wer das Projekt betreten kann;
-- welche Rolle jedes Mitglied erhalten soll;
+- wer in das Projekt eintritt;
+- welche Rolle jedes Mitglied erhält;
 - welche benutzerdefinierten Rollen in diesem Projekt existieren;
 - welche Berechtigungen diese Rollen gewähren.
 
-## Warum dies wichtig ist
+## Warum ist das wichtig
 
-Die Berechtigungen bestimmen einen großen Teil der Erfahrung: Erstellung von Artefakten, Ausführung von Agenten, Verwaltung von Mitgliedern, Änderungen von Einstellungen und Genehmigungen. Eine korrekte Lesart der Rollen verhindert, dass ein Incident mit einem einfachen Fehlen von Berechtigungen verwechselt wird.
+Die Rechte bestimmen einen großen Teil der Erfahrung: Ausführung von Agenten, Verwaltung von Mitgliedern, Generierung von Lieferobjekten, Konfiguration von Integrationen, Governance von Veröffentlichungen und Audit‑Lesen. Eine korrekte Rollen‑Lesung verhindert, dass ein funktionaler Block als fehlende Autorisierung missverstanden wird.
 
-## Wer diese Seite verwenden kann
+## Wer kann diese Seite nutzen
 
-- **Mitglieder und Rollen konsultieren**: jedes Mitglied, das Zugang zum Arbeitsbereich hat;
+- **Mitglieder und Rollen einsehen**: jedes Mitglied, das auf den Arbeitsbereich zugreifen kann;
 - **Mitglieder verwalten**: Benutzer mit `members:manage`;
 - **Benutzerdefinierte Rollen verwalten**: Benutzer mit `roles:manage`.
 
-![Projekt-Zugriffskontrolle-Ansicht](/img/screenshots/localized/de/11-access-control.png)
+## Ersteller des Projekts: Anfangsrolle und Delegation
+
+Bei der Projekterstellung startet der Ersteller mit der Rolle **Projektinhaber** und allen beobachteten Projekt‑Berechtigungen. Er dient somit als administrativer Ausgangspunkt: Er öffnet das Projekt, prüft die Anfangskonfiguration und delegiert anschließend die nützlichen Rollen an andere Mitglieder.
+
+### Empfohlene Delegation
+
+1. behalten Sie den Ersteller als ersten administrativen Wächter;
+2. vergeben Sie einen zweiten **Projektinhaber**, falls das Projekt nicht von einer einzigen Person abhängig sein soll;
+3. nutzen Sie **Projektleiter** für die tägliche Steuerung;
+4. reservieren Sie benutzerdefinierte Rollen für echte Bedarfsschwankungen;
+5. prüfen Sie anschließend **Governance‑Politiken** und **Projekt‑Integrationen**, damit die Rechte den externen Nutzungen entsprechen.
+
+### Was die beobachtete Dokumentation bestätigt
+
+- der Ersteller kann nicht von diesem Bildschirm entfernt werden;
+- die Rolle des Erstellers bleibt fest;
+- ein Benutzer kann sich nicht selbst zurückstufen oder selbst löschen von dieser Oberfläche;
+- die Rollen‑Delegation ist bestätigt;
+- der freie Transfer des **Ersteller‑Status** ist von den beobachteten Bildschirmen nicht bestätigt.
 
 ## Beobachtete Standardrollen
 
-Jedes Projekt startet mit geschützten, integrierten Rollen:
+Jedes Projekt startet mit integrierten, geschützten Rollen:
 
 | Rolle | Typische Nutzung |
 | --- | --- |
-| Project Owner | Vollständige Projektadministration |
-| Project Manager | Operative tägliche Steuerung |
-| Contributor | Beitrag von Inhalten, Nutzung von Agenten und Deliverables gemäß Berechtigungen |
-| Viewer | Nur-Lesen-Konsultation |
-| Auditor | Audit- und Nachverfolgbarkeit-orientierte Konsultation |
+| Projektinhaber | Vollständige Projekt‑Administration |
+| Projektleiter | Tägliche operative Steuerung |
+| Mitwirkender | Inhaltserstellung, Nutzung von Agenten und Lieferobjekten je nach Berechtigungen |
+| Leser | Nur‑Lesen‑Zugriff |
+| Auditor | Audit‑orientierter Zugriff und Nachverfolgbarkeit |
 
-Diese integrierten Rollen sind serverseitig geschützt und können nicht über die Oberfläche entfernt werden.
+Diese integrierten Rollen sind serverseitig geschützt und können von der Oberfläche nicht gelöscht werden.
 
-## Schnellmatrix der Standardrollen
+## Schnelle Rollen‑Matrix
 
-Benutzerdefinierte Rollen können dieses Schema erweitern oder reduzieren. Die folgende Tabelle beschreibt das **übliche Verhalten** der beobachteten Standardrollen.
+Benutzerdefinierte Rollen können dieses Schema erweitern oder reduzieren. Die folgende Tabelle beschreibt das **typische Verhalten** der beobachteten Standardrollen.
 
-| Häufige Aktion | Project Owner | Project Manager | Contributor | Viewer | Auditor |
+| Häufige Aktion | Projektinhaber | Projektleiter | Mitwirkender | Leser | Auditor |
 | --- | --- | --- | --- | --- | --- |
-| Zugang zum Projekt, zum Arbeitsbereich und zu Leseseiten | Ja | Ja | Ja | Ja | Ja |
-| In Wissen suchen, PM Docs und KI-Protokoll durchsehen | Ja | Ja | Ja | Ja | Ja |
-| Run in **Agenten** starten | Ja | Ja | Ja | Nicht standardmäßig | Nicht standardmäßig |
-| Arbeitsinhalte und Deliverable-Vorlagen bearbeiten | Ja | Ja | Ja | Nein | Nein |
-| Mitglieder, Rollen und grundlegende Projekt-Einstellungen verwalten | Ja | Nein | Nein | Nein | Nein |
-| Audit- und Nachverfolgbarkeit-orientierte Durchsicht | Ja | Ja | Ja | Allgemeines Lesen | Ja |
+| Zugriff auf Projekt, Arbeitsbereich und Leseseiten | Ja | Ja | Ja | Ja | Ja |
+| Suchen in Wissen, PM‑Dokumente und KI‑Journal erneut lesen | Ja | Ja | Ja | Ja | Ja |
+| Einen Run in **Agenten** starten | Ja | Ja | Ja | Standardmäßig nein | Standardmäßig nein |
+| Arbeitsinhalte und Entwürfe von Lieferobjekten ändern | Ja | Ja | Ja | Nein | Nein |
+| Mitglieder, Rollen und Hauptprojekt‑Einstellungen verwalten | Ja | Nein | Nein | Nein | Nein |
+| Audit‑orientierte Durchsicht | Ja | Ja | Ja | Nur‑Lesen | Ja |
 
 ## Benutzerdefinierte Rollen
 
-Das Produkt unterstützt die Erstellung, Bearbeitung und Löschung von **benutzerdefinierten Rollen** auf Projektlevel.
+Das Produkt unterstützt die Erstellung, Bearbeitung und Löschung von **benutzerdefinierten Rollen** auf Projektebene.
 
 ### Explizit beobachtete Berechtigungen
 
-Die verfügbar gemachten Berechtigungen umfassen insbesondere:
+Die exponierten Berechtigungen umfassen unter anderem:
 
 - `project:read`
 - `project:update`
@@ -76,141 +96,141 @@ Die verfügbar gemachten Berechtigungen umfassen insbesondere:
 - `roles:manage`
 - `settings:manage`
 
-### Berechtigung → konkrete Wirkung
+### Berechtigung → konkreter Einfluss
 
-| Berechtigung | Betroffene Oberfläche | Symptom, wenn sie fehlt |
+| Berechtigung | Betroffene Oberfläche | Symptom bei fehlender Berechtigung |
 | --- | --- | --- |
-| `agent:configure` | Tab **Agent configuration** im **Arbeitsbereich** | die Seite bleibt konsultierbar oder die Registrierungssteuerungen sind deaktiviert |
-| `report:generate` | Erstellung von Vorlagen, Artefakten und PM Docs | der Benutzer kann durchsehen, aber nicht das erwartete Deliverable generieren |
-| `history:read` | **KI-Protokoll** und detaillierte Lesung von Runs | die Nachverfolgbarkeit bleibt unzugänglich oder sehr limitiert |
-| `settings:manage` | Projekt-Einstellungen, Governance und bestimmte Integrationen | die Parameter sind sichtbar, aber nicht modifizierbar |
-| `members:manage` | Zone **Members** in **Access control** | unmöglich, ein Mitglied hinzuzufügen, zu entfernen oder zu ändern |
-| `roles:manage` | Benutzerdefinierte Rollen und ihre Berechtigungen | unmöglich, eine benutzerdefinierte Rolle zu erstellen, anzupassen oder zu löschen |
+| `agent:configure` | Tab **Agenten‑Konfiguration** im **Arbeitsbereich** | Die Seite bleibt nur lesbar oder die Speichern‑Kontrollen sind deaktiviert |
+| `report:generate` | Erstellung von Entwürfen, Artefakten und PM‑Dokumenten | Der Benutzer kann lesen, aber nicht das erwartete Lieferobjekt generieren |
+| `history:read` | **KI‑Journal** und detaillierte Run‑Lesung | Die Nachverfolgbarkeit bleibt unzugänglich oder stark eingeschränkt |
+| `settings:manage` | Projekt‑Einstellungen, Governance und einige Integrationen | Die Parameter sind sichtbar, aber nicht veränderbar |
+| `members:manage` | Bereich **Mitglieder** in **Zugriffskontrolle** | Hinzufügen, Entfernen oder Ändern eines Mitglieds ist unmöglich |
+| `roles:manage` | Benutzerdefinierte Rollen und deren Berechtigungen | Erstellen, Anpassen oder Löschen einer benutzerdefinierten Rolle ist unmöglich |
 
-Diese Tabelle dient vor allem zur Diagnose: eine fehlende oder ausgegraute Aktion ist nicht immer ein Bug, sondern oft die direkte Folge einer nicht gewährten Berechtigung.
+Diese Tabelle dient vor allem dazu, das Verhalten der Oberfläche korrekt zu lesen: Eine fehlende oder ausgegraute Aktion deutet oft auf eine nicht gewährte Berechtigung hin.
 
-![Benutzerdefinierte Rolle Editor](/img/screenshots/localized/de/11-custom-role-editor.png)
+![Editor für benutzerdefinierte Rollen](/img/screenshots/localized/fr/11-custom-role-editor.png)
 
 ## Was Sie auf der Seite sehen
 
-Die Seite teilt sich in zwei Arbeitszonen:
+Die Seite ist in zwei Arbeitsbereiche unterteilt:
 
-1. **Roles & permissions**
-   - Durchsicht der integrierten Rollen;
-   - Erstellung benutzerdefinierter Rollen;
-   - Inspektion oder Modifikation der Berechtigungen einer benutzerdefinierten Rolle;
-2. **Members**
-   - Hinzufügen eines Mitglieds per E-Mail;
+1. **Rollen und Berechtigungen**
+   - Überprüfung der integrierten Rollen;
+   - Erstellung von benutzerdefinierten Rollen;
+   - Inspektion oder Bearbeitung der Berechtigungen einer benutzerdefinierten Rolle;
+2. **Mitglieder**
+   - Hinzufügen eines Mitglieds per E‑Mail;
    - Zuweisung einer integrierten oder benutzerdefinierten Rolle;
-   - Änderung einer Rolle;
-   - Löschung eines Mitglieds, wenn dies noch autorisiert ist.
+   - Rollenwechsel;
+   - Löschen eines Mitglieds, wenn dies noch erlaubt ist.
 
-Die Seite kann auch Ihre aktuelle Identität und, wenn verfügbar gemacht, den geschützten Eintrag des **Erstellers** des Projekts zeigen.
+Die Seite kann auch Ihre aktuelle Identität anzeigen und, wenn sie exponiert ist, den geschützten Eintrag des **Erstellers** des Projekts.
 
-## Empfohlener Weg
+## Empfohlener Ablauf
 
-### Rollen durchsehen, bevor ein Mitglied hinzugefügt wird
+### Rollen vor dem Hinzufügen eines Mitglieds prüfen
 
 1. öffnen Sie **Arbeitsbereich**;
-2. wählen Sie den Tab **Access control**;
-3. durchsehen Sie die existierenden Rollen;
-4. prüfen Sie, ob eine Standardrolle ausreichend ist oder eine benutzerdefinierte Rolle notwendig ist.
+2. wählen Sie den Tab **Zugriffskontrolle**;
+3. lesen Sie die vorhandenen Rollen erneut;
+4. prüfen Sie, ob eine Standard‑Rolle ausreicht oder ob eine benutzerdefinierte Rolle nötig ist.
 
 ### Eine benutzerdefinierte Rolle erstellen
 
-1. öffnen Sie **Roles & permissions**;
+1. öffnen Sie **Rollen und Berechtigungen**;
 2. geben Sie einen **Namen** ein;
-3. fügen Sie optional eine **Beschreibung** hinzu;
+3. fügen Sie ggf. eine **Beschreibung** hinzu;
 4. erstellen Sie die Rolle;
 5. aktivieren oder deaktivieren Sie die gewünschten Berechtigungen;
-6. prüfen Sie die angezeigten Badges oder Berechtigungen vor realem Einsatz.
+6. prüfen Sie die angezeigten Badges oder Berechtigungen vor echter Nutzung.
 
 ### Ein Mitglied hinzufügen oder aktualisieren
 
-1. öffnen Sie **Members**;
-2. geben Sie die **E-Mail** ein;
+1. öffnen Sie **Mitglieder**;
+2. geben Sie die **E‑Mail** ein;
 3. wählen Sie die gewünschte Rolle;
-4. speichern Sie;
-5. prüfen Sie, dass die Zeile des Mitglieds die erwartete Rolle korrekt wiederspiegelt.
+4. speichern;
+5. prüfen Sie, ob die Zeile des Mitglieds die erwartete Rolle widerspiegelt.
 
-Wenn der Benutzer einem anderen Tenant gehört, halten Sie im Kopf, dass ein **externer Account / Gast** zunächst auf der Identitätsseite eingeladen werden muss, bevor das Projekt-RBAC ihm eine nutzbare Rolle zuweisen kann. In der Praxis, wenn die E-Mail korrekt scheint, aber der Benutzer bleibt unauffindbar oder ohne realen Effekt, prüfen Sie zunächst die **Entra / Gast**-Posture und kommen Sie dann zurück auf die Zuweisung der Projektrolle.
+Wenn der Benutzer zu einem anderen Mandanten gehört, denken Sie daran, dass ein **externer / Gast‑Benutzer** zuerst in der Identität eingeladen werden muss, bevor das Projekt‑RBAC ihm eine nützliche Rolle zuweisen kann.
 
-### Die Rolle eines existierenden Mitglieds ändern
+### Die Rolle eines bestehenden Mitglieds ändern
 
-1. finden Sie die Zeile des Mitglieds in **Members**;
-2. nutzen Sie den Rollen-Selektor dieser Zeile;
+1. finden Sie die Zeile des Mitglieds in **Mitglieder**;
+2. benutzen Sie den Rollen‑Auswahl‑Filter dieser Zeile;
 3. wählen Sie die neue Rolle;
-4. bestätigen Sie, dass die Zeile die aktualisierte Rolle korrekt zeigt.
+4. bestätigen Sie, dass die Zeile die aktualisierte Rolle anzeigt.
 
 ### Ein Mitglied entfernen
 
-1. finden Sie die Zeile des zu entfernenenden Mitglieds in **Members**;
-2. nutzen Sie die Lösch-Aktion, wenn sie verfügbar ist;
+1. finden Sie die Zeile des zu entfernenden Mitglieds;
+2. benutzen Sie die Lösch‑Aktion, falls verfügbar;
 3. bestätigen Sie, dass das Mitglied aus der Liste verschwindet;
-4. wenn die Aktion blockiert bleibt, prüfen Sie zunächst, dass es nicht Ihr eigener Account oder der geschützte Eintrag des Erstellers ist.
+4. wenn die Aktion weiterhin blockiert, prüfen Sie zuerst, ob es sich nicht um Ihr eigenes Konto oder um den geschützten Eintrag des Erstellers handelt.
 
-## Bestätigte RBAC-Schutzmaßnahmen
+## Bestätigte RBAC‑Sicherheitsmechanismen
 
-Die Oberfläche und das Backend implementieren mehrere wichtige Schutzmaßnahmen:
+Die Oberfläche und die Plattform‑Services setzen mehrere wichtige Schutzmaßnahmen um:
 
-- Sie können **Ihren eigenen Zugang** nicht von diesem Screen löschen;
-- Sie können **Ihre eigene Rolle** nicht von diesem Screen ändern;
-- der Eintrag des **Erstellers des Projekts** bleibt geschützt;
-- eine **Systemrolle** kann nicht gelöscht werden;
-- eine **benutzerdefinierte Rolle, die noch zugewiesen ist**, kann nicht gelöscht werden;
-- Benutzer ohne Verwaltungsrecht sehen eine **konsultierbare** Seite mit deaktivierten Steuerungen.
+- Sie können **nicht** Ihr eigenes Zugangs‑Token von diesem Bildschirm entfernen;
+- Sie können **nicht** Ihre eigene Rolle von diesem Bildschirm ändern;
+- Der Eintrag des **Erstellers** des Projekts bleibt geschützt;
+- Eine **System‑Rolle** kann nicht gelöscht werden;
+- Eine **benutzerdefinierte Rolle**, die noch zugewiesen ist, kann nicht gelöscht werden;
+- Benutzer ohne Verwaltungsrechte sehen eine **lesbare** Seite mit deaktivierten Kontrollen.
 
-## Nur-Lesen vs. Zugang verweigert
+## Nur‑Lesen vs Zugriff verweigert
 
-Diese beiden Zustände bedeuten nicht das Gleiche:
+Diese beiden Zustände bedeuten nicht dasselbe:
 
-- **Nur-Lesen**: die Seite bleibt sichtbar, aber die Steuerungen für Hinzufügen, Bearbeiten oder Löschen sind deaktiviert;
-- **Zugang verweigert**: die Route oder die Aktion ist für Ihren Account nicht verfügbar.
+- **Nur‑Lesen**: Die Seite bleibt sichtbar, aber die Kontrollen zum Hinzufügen, Bearbeiten oder Löschen sind deaktiviert;
+- **Zugriff verweigert**: Die Route oder Aktion ist für Ihr Konto nicht verfügbar.
 
-In der Praxis ermöglicht dies bestimmten Profilen, die RBAC-Konfiguration zu durchsehen, ohne sie modifizieren zu können.
+In der Praxis ermöglicht dies, dass einige Profile die RBAC‑Konfiguration erneut lesen können, ohne sie zu ändern.
 
-### Wie ein Verweigern zu lesen ist
+### Wie ein Verweis gelesen wird
 
-| Was Sie beobachten | Wahrscheinlichste Lesart | Empfohlene Reflexion |
+| Was Sie beobachten | Wahrscheinlichste Interpretation | Empfohlene Reaktion |
 | --- | --- | --- |
-| eine sichtbare, aber ausgegraute Steuerung | Oberfläche verfügbar gemacht als **Nur-Lesen** | prüfen Sie zunächst, ob Ihre Rolle die erwartete Berechtigung umfasst |
-| eine fehlende Aktion, während sie für andere Profile existiert | Berechtigung oder Rolle nicht gewährt | vergleichen Sie Ihre Standard- oder benutzerdefinierte Rolle mit der erwarteten Aktion |
-| eine sichtbare, aber unmögliche Aktion trotz UI | RBAC-Schutzmaßnahme serverseitig oder Schutz-Constraint | prüfen Sie, ob es eine Systemrolle, Ihr eigener Account oder ein geschützter Eintrag ist |
+| ein sichtbarer, aber ausgegrauter Kontroll | Oberfläche in **Nur‑Lesen** | Prüfen Sie zuerst, ob Ihre Rolle die erwartete Berechtigung enthält |
+| eine Aktion fehlt, obwohl sie für andere vorhanden ist | Berechtigung oder Rolle fehlt | Vergleichen Sie Ihre Standard‑ oder benutzerdefinierte Rolle mit der erwarteten Aktion |
+| eine Aktion ist sichtbar, aber unmöglich trotz UI | RBAC‑Sicherheit auf Server‑Seite oder Schutz‑Beschränkung | Prüfen Sie, ob es sich um eine System‑Rolle, Ihr eigenes Konto oder einen geschützten Eintrag handelt |
 
-Dieses Mini-Diagnose verhindert, dass eine Verweigerung aufgrund einer Standardrolle, eine Verweigerung aufgrund einer benutzerdefinierten Rolle und eine bewusste Schutzmaßnahme des Backends verwechselt werden.
+## Was der Ersteller praktisch delegiert
 
-## Erwartetes Ergebnis
-
-Wenn die Konfiguration korrekt ist:
-
-- die Liste der Mitglieder ist aktuell;
-- die benutzerdefinierten Rollen erscheinen in den Selektoren;
-- die Berechtigungen ändern sich basierend auf der zugewiesenen Rolle;
-- gefährliche Aktionen bleiben durch die Schutzmaßnahmen blockiert.
+| Bedarf | Rolle zuerst zu vergeben | Warum |
+| --- | --- | --- |
+| administrative Kontinuität | **Projektinhaber** | Vermeiden, dass ein einzelner Account die gesamte Administration konzentriert |
+| tägliche Steuerung | **Projektleiter** | Verwalten der laufenden Arbeit ohne die gesamte Administration zu öffnen |
+| Inhaltserstellung und Agenten‑Nutzung | **Mitwirkender** | Ausführen von Agenten und Vorbereitung von Lieferobjekten |
+| breite Lesbarkeit | **Leser** | Nur‑Lesen‑Zugriff ohne Änderungsrisiko |
+| Audit und Nachverfolgbarkeit | **Auditor** | Historie und Beweise erneut lesen ohne das Projekt zu beeinflussen |
 
 ## Häufige Probleme
 
-### Unmöglich, eine benutzerdefinierte Rolle zu löschen
+### Nicht möglich, eine benutzerdefinierte Rolle zu löschen
 
-Prüfen Sie zunächst, ob diese Rolle noch einem Mitglied zugewiesen ist. Solange sie verwendet wird, bleibt die Löschung blockiert.
+Prüfen Sie zuerst, ob diese Rolle noch einem Mitglied zugewiesen ist. Solange sie verwendet wird, bleibt die Löschung blockiert.
 
-### Unmöglich, meine eigene Rolle zu ändern
+### Nicht möglich, meine eigene Rolle zu ändern
 
-Dieses Verhalten ist bewusst, um einen versehentlichen Zugangsloss zu vermeiden. Fordern Sie einen anderen Projektadministrator an, die Modifikation zu durchführen.
+Dieses Verhalten ist beabsichtigt, um einen versehentlichen Zugriffverlust zu verhindern. Bitten Sie einen anderen Projekt‑Administrator, die Änderung durchzuführen.
 
-### Der Tab ist sichtbar, aber alles ist ausgegraut
+### Tab ist sichtbar, aber alles ausgegraut
 
-Sie sind wahrscheinlich im **Nur-Lesen**-Modus auf dieser Oberfläche. Prüfen Sie, ob Ihre Rolle `members:manage` oder `roles:manage` umfasst.
+Sie befinden sich wahrscheinlich in **Nur‑Lesen** auf dieser Oberfläche. Prüfen Sie, ob Ihre Rolle `members:manage` oder `roles:manage` enthält.
 
-## Hinweise
+## Tipps
 
-- nutzen Sie **Project Owner** nur für die realen Projektadministratoren;
-- halten Sie benutzerdefinierte Rollen gezielt und limitiert auf einen präzisen Bedarf;
-- durchsehen Sie die Berechtigungen vor der Delegation der Mitglieder-Verwaltung;
-- dokumentieren Sie benutzerdefinierte Rollen in den Team-Praktiken, um Duplikate zu vermeiden.
+- nutzen Sie **Projektinhaber** nur für echte Projekt‑Administratoren;
+- halten Sie benutzerdefinierte Rollen gezielt und begrenzt auf einen konkreten Bedarf;
+- lesen Sie die Berechtigungen vor der Delegierung von Mitglieder‑Verwaltung;
+- dokumentieren Sie benutzerdefinierte Rollen in den Team‑Praktiken, um Duplikate zu vermeiden.
 
 ## Weiter
 
 - [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md)
 - [Governance, Entscheidungen und Aktionen](./gouvernance-decisions-et-actions.md)
+- [Connectoren und Integrationen](./connecteurs-jira-et-sharepoint)
 - [Wartung, Support und FAQ](./maintenance-support-faq.md)

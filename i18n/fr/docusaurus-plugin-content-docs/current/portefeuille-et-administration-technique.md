@@ -1,7 +1,7 @@
 ---
 title: Portefeuille et administration technique
 slug: /portefeuille-et-administration-technique
-description: Comparer plusieurs projets, administrer la plateforme, gérer les intégrations, le fournisseur IA, le choix de modèle Azure OpenAI et les sièges.
+description: Comprendre la page Portfolio pas à pas, lire les cohortes et outliers, puis administrer la plateforme, les intégrations et les fournisseurs IA.
 ---
 
 [Accueil](./index.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) · [Maintenance, support et FAQ](./maintenance-support-faq.md)
@@ -10,36 +10,129 @@ description: Comparer plusieurs projets, administrer la plateforme, gérer les i
 
 ## Objectif
 
-Cette page couvre deux surfaces distinctes : le **Centre de commande portefeuille** pour la comparaison multi-projets et **Administration de la plateforme** pour la configuration technique tenant-wide.
+Cette page couvre deux surfaces différentes du produit :
 
-## Centre de commande portefeuille
+1. la page **Portfolio** ou **Centre de commande portefeuille**, utilisée pour comparer plusieurs projets ;
+2. **Administration de la plateforme**, utilisée pour préparer les intégrations, les fournisseurs IA, l’abonnement et l’audit.
 
-La page portefeuille permet de comparer plusieurs projets à partir de signaux communs.
+Pour un utilisateur débutant, il est utile de retenir ceci :
 
-### Capacités confirmées
+- la page **Portfolio** aide à répondre à la question **« quels projets méritent mon attention en priorité ? »** ;
+- l’**Administration de la plateforme** aide à répondre à la question **« la plateforme est-elle correctement préparée pour l’organisation ? »**.
 
-- sélection de plusieurs projets ;
-- catalogue de signaux configurables ;
-- gestion de **poids** et de **seuils** ;
-- filtre de **sévérité minimale** ;
-- cohortes sauvegardées ;
-- rafraîchissement de la comparaison.
+---
 
-### Signaux observés
+## Partie 1 — Comprendre la page Portfolio pas à pas
 
-Le catalogue visible inclut notamment :
+## À quoi sert la page Portfolio ?
 
-- `activity_change`
-- `blocker_density`
-- `freshness_issues`
-- `contradiction_count`
-- `failed_runs`
-- `schedule_pressure`
-- `cost_pressure`
+La page **Portfolio** sert à comparer plusieurs projets avec des **signaux configurables** au lieu d’un simple tableau rouge / orange / vert figé.
 
-### Ce que retient une cohorte
+Elle permet notamment de :
 
-Une cohorte sauvegardée mémorise au minimum :
+- sélectionner plusieurs projets ;
+- choisir les signaux à comparer ;
+- définir un **poids** et un **seuil** pour chaque signal ;
+- filtrer la **sévérité minimale** ;
+- enregistrer une **cohorte** réutilisable ;
+- repérer les **outliers** ou **valeurs aberrantes** ;
+- ouvrir ensuite le détail d’un projet pour comprendre pourquoi il ressort.
+
+## Ce que l’utilisateur voit en arrivant sur la page
+
+En arrivant sur la page Portfolio, l’utilisateur voit généralement cinq zones.
+
+| Zone | Ce que l’on y fait |
+| --- | --- |
+| **Sélection des projets** | choisir quels projets entrent dans la comparaison |
+| **Profil de signaux** | choisir les signaux, leurs poids, leurs seuils et la sévérité minimale |
+| **Cohortes** | enregistrer ou recharger une configuration de comparaison réutilisable |
+| **Résultats de comparaison** | lire le résumé, les outliers et les écarts entre projets |
+| **Project drill-down** | ouvrir les preuves, l’activité récente et le détail par signal pour un projet |
+
+## Les mots à comprendre avant de commencer
+
+| Mot | Explication simple |
+| --- | --- |
+| **Projet** | un projet inclus dans la comparaison |
+| **Signal** | un indicateur comparatif, par exemple blocages, fraîcheur ou pression planning |
+| **Poids** | l’importance donnée à un signal dans le score global |
+| **Seuil** | le niveau à partir duquel un signal commence à ressortir comme notable |
+| **Sévérité minimale** | un filtre qui masque les signaux trop faibles |
+| **Cohorte** | un groupe de projets enregistré avec son profil de comparaison |
+| **Outlier / valeur aberrante** | un projet qui ressort plus fortement que les autres selon la configuration active |
+| **Narrative comparison** | un résumé textuel de la comparaison en cours |
+| **Project drill-down** | le détail projet par projet avec preuves et activité |
+
+## Exemple guidé — comparer trois projets pour une revue hebdomadaire
+
+Imaginons qu’un PMO veut comparer trois projets :
+
+- Projet A ;
+- Projet B ;
+- Projet C.
+
+Le but est de repérer rapidement celui qui demande une attention prioritaire avant le comité hebdomadaire.
+
+### Étape 1 — Choisir les projets
+
+Dans la zone **Projects**, cochez les projets que vous voulez comparer.
+
+### Bon réflexe
+
+Comparez de préférence des projets qui appartiennent à une **même conversation de pilotage**. Par exemple :
+
+- trois projets d’un même portefeuille ;
+- trois projets d’un même comité ;
+- ou trois projets d’une même direction.
+
+### Étape 2 — Choisir les signaux utiles
+
+Dans le **Signal profile**, activez les signaux qui comptent réellement pour votre revue.
+
+Exemple pour une revue hebdomadaire :
+
+- **blocker_density** ;
+- **freshness_issues** ;
+- **failed_runs** ;
+- **schedule_pressure**.
+
+### Étape 3 — Régler les poids
+
+Le **poids** indique l’importance donnée à un signal.
+
+- si vous mettez un poids élevé sur **blocker_density**, les projets avec beaucoup de blocages ressortiront davantage ;
+- si vous mettez un poids faible sur **activity_change**, ce signal influencera moins le classement final.
+
+### Étape 4 — Régler les seuils
+
+Le **seuil** indique à partir de quand un signal doit vraiment attirer l’attention.
+
+- un seuil bas rend la comparaison plus sensible ;
+- un seuil élevé rend la comparaison plus sélective.
+
+### Étape 5 — Choisir la sévérité minimale
+
+La **sévérité minimale** filtre ce que vous voulez voir dans les résultats.
+
+Exemple :
+
+- **low and above** = vous voyez presque tout ;
+- **medium and above** = vous filtrez déjà les signaux faibles ;
+- **high and above** = vous vous concentrez uniquement sur les sujets plus sérieux.
+
+### Étape 6 — Régler le seuil global d’outlier
+
+Le **Overall outlier threshold** détermine à partir de quel niveau combiné un projet doit être signalé comme **valeur aberrante**.
+
+- seuil plus bas = plus de projets ressortent ;
+- seuil plus haut = seuls les cas les plus marqués ressortent.
+
+### Étape 7 — Enregistrer une cohorte si besoin
+
+Si vous faites souvent la même comparaison, enregistrez-la comme **cohorte**.
+
+Une cohorte mémorise :
 
 - les projets choisis ;
 - les signaux activés ;
@@ -49,241 +142,313 @@ Une cohorte sauvegardée mémorise au minimum :
 
 ![Éditeur de cohorte portefeuille](/img/screenshots/localized/fr/02-portfolio-cohort-editor.png)
 
-### Bon usage portefeuille
+### Étape 8 — Lancer ou rafraîchir la comparaison
 
-Utilisez cette page pour comparer, prioriser et repérer les projets qui méritent une enquête plus profonde. Elle ne remplace pas le travail détaillé dans chaque projet.
+Cliquez sur **Refresh comparison** pour recalculer la vue avec les paramètres actifs.
 
-### Comment lire une cohorte sans outlier apparent
+### Étape 9 — Lire le résumé narratif
 
-Si une cohorte n’affiche **aucun outlier** ni écart marqué, ne concluez pas immédiatement à un bug. Vérifiez d’abord :
+La zone **Narrative comparison** donne un texte de synthèse.
 
-1. les projets réellement sélectionnés ;
-2. les signaux activés ;
-3. les **poids** et **seuils** appliqués ;
-4. la **sévérité minimale** retenue.
+Elle répond généralement à la question :
 
-Une cohorte vide peut simplement indiquer que vos filtres sont trop stricts ou qu’aucun projet ne dépasse actuellement les seuils choisis.
+**« Qu’est-ce qui ressort le plus, maintenant, dans ce groupe de projets ? »**
+
+### Étape 10 — Lire les outliers
+
+La zone **Outliers** liste les projets qui dépassent le profil actif de poids et de seuils.
+
+Un outlier n’est pas forcément un « projet en difficulté ». Cela veut simplement dire :
+
+- qu’il ressort plus que les autres ;
+- qu’il mérite une lecture plus attentive ;
+- qu’il faut comprendre **pourquoi** il ressort.
+
+### Étape 11 — Ouvrir le détail du projet
+
+Dans **Project drill-down**, vous pouvez consulter :
+
+- les signaux du projet ;
+- les preuves ;
+- l’activité récente ;
+- les liens vers l’**Espace de travail**, la **Connaissance**, les **Rapports** ou le **Journal IA**.
+
+C’est cette étape qui transforme une alerte portefeuille en compréhension concrète.
+
+## Comprendre les signaux visibles dans Portfolio
+
+Les signaux observés dans le produit incluent notamment :
+
+- `activity_change`
+- `blocker_density`
+- `freshness_issues`
+- `contradiction_count`
+- `failed_runs`
+- `schedule_pressure`
+- `cost_pressure`
+
+### Définition simple de chaque signal
+
+| Signal | Question à laquelle il répond | Comment l’interpréter |
+| --- | --- | --- |
+| `activity_change` | l’activité récente est-elle très différente de la période précédente ? | élevé = variation inhabituelle à expliquer |
+| `blocker_density` | le projet montre-t-il beaucoup de blocages ou d’escalades ? | élevé = blocages fréquents ou concentrés |
+| `freshness_issues` | les preuves et sources sont-elles trop anciennes ou indisponibles ? | élevé = la vue projet devient moins fiable |
+| `contradiction_count` | les sources se contredisent-elles ? | élevé = arbitrage ou clarification nécessaire |
+| `failed_runs` | les automatisations ou runs échouent-ils souvent ? | élevé = friction technique ou opérationnelle |
+| `schedule_pressure` | le planning montre-t-il des signes de tension ? | élevé = pression planning ou dérive calendrier |
+| `cost_pressure` | le budget ou la consommation montrent-ils une tension ? | élevé = risque budget / coûts |
+
+## Comment lire poids, seuils et sévérité avec un exemple simple
+
+Prenons un exemple très concret.
+
+### Cas 1 — Vous voulez surtout voir les projets bloqués
+
+- augmentez le **poids** de `blocker_density` ;
+- gardez un **seuil** moyen ;
+- mettez la **sévérité minimale** sur `medium`.
+
+Résultat attendu : les projets avec blocages récurrents ressortent davantage.
+
+### Cas 2 — Vous voulez surtout contrôler la qualité des preuves
+
+- augmentez le poids de `freshness_issues` et `contradiction_count` ;
+- gardez un seuil plus sensible ;
+- lisez ensuite les preuves indisponibles ou contradictoires.
+
+Résultat attendu : les projets dont la lecture devient peu fiable remontent plus vite.
+
+### Cas 3 — Vous voulez un comité très sélectif
+
+- gardez peu de signaux ;
+- montez les seuils ;
+- augmentez la sévérité minimale ;
+- montez le seuil global d’outlier.
+
+Résultat attendu : seuls les cas les plus marqués resteront visibles.
+
+## Comment lire un outlier correctement
+
+Un **outlier** n’est pas une note magique ni un jugement définitif.
+
+Dans les flux observés, un projet ressort comme outlier lorsque :
+
+- un ou plusieurs signaux sont élevés ;
+- ces signaux portent un poids significatif ;
+- les seuils actifs sont dépassés ;
+- le score combiné dépasse le seuil global d’outlier.
+
+### Lecture correcte
+
+- **outlier** = « ce projet ressort plus que les autres selon les règles actuelles » ;
+- **pas outlier** = « ce projet reste dans la bande normale du groupe actuel ».
+
+## Pourquoi un signal peut être indisponible
+
+Un signal peut être **indisponible** quand la preuve nécessaire manque.
+
+Exemple :
+
+- si le projet n’a pas les bonnes sources planning, `schedule_pressure` peut rester indisponible ;
+- si les sources budget ne sont pas présentes, `cost_pressure` peut rester indisponible.
+
+### Point très important
+
+Un signal **indisponible** ne veut pas dire **zéro risque**.
+
+Cela veut dire :
+
+**« le portefeuille n’a pas assez de preuve fiable pour calculer cet indicateur »**.
+
+## Ce que contient une cohorte
+
+Une cohorte est un **profil de comparaison enregistré**.
+
+Elle garde en mémoire :
+
+- le nom de la cohorte ;
+- sa description ;
+- les projets choisis ;
+- les signaux activés ;
+- les poids ;
+- les seuils ;
+- la sévérité minimale.
+
+### Pourquoi utiliser une cohorte
+
+Utilisez une cohorte quand vous voulez refaire régulièrement la même comparaison, par exemple :
+
+- revue hebdomadaire de livraison ;
+- suivi mensuel de portefeuille ;
+- comité de risques ;
+- revue exécutive restreinte.
+
+## Comment lire la zone Project drill-down
+
+La zone **Project drill-down** permet d’expliquer le résultat.
+
+Elle peut afficher :
+
+- le **score pondéré** du projet ;
+- la liste des signaux visibles ;
+- des **preuves** ou extraits documentaires ;
+- l’**activité récente** ;
+- des liens vers **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts** et **AI Log**.
+
+### Lecture pratique
+
+- si un projet ressort, commencez par le **résumé narratif** ;
+- ouvrez ensuite le **signal concerné** ;
+- relisez les **preuves** ;
+- contrôlez enfin l’**activité récente** pour comprendre si la situation est encore active.
+
+## Bon usage de la page Portfolio
+
+Utilisez la page Portfolio pour :
+
+- comparer ;
+- prioriser ;
+- repérer les écarts ;
+- décider quel projet doit être étudié en détail.
+
+N’utilisez pas la page Portfolio comme remplacement complet de l’**Espace de travail** projet.
+
+---
+
+## Partie 2 — Administration de la plateforme
+
+## À quoi sert cette partie
+
+**Administration de la plateforme** sert à préparer la plateforme à l’échelle de l’organisation.
+
+C’est ici que l’on configure notamment :
+
+- les **intégrations de la plateforme** ;
+- les **fournisseurs IA** ;
+- l’**abonnement** et les **sièges** ;
+- l’**audit d’activité**.
 
 ![Administration de la plateforme](/img/screenshots/localized/fr/18-platform-administration-overview.png)
 
-## Administration de la plateforme
-
-Les sections confirmées sont les suivantes :
+## Sections visibles
 
 | Section | Rôle |
 | --- | --- |
-| Overview | Vue d’ensemble des règles, de la préparation et des points d’attention |
-| Platform integrations | Définitions techniques des connecteurs et fournisseurs d’ingestion |
-| AI provider settings | Choix du fournisseur IA et paramètres associés |
-| Marketplace / subscription | Gestion de l’abonnement, des entitlements et des sièges |
-| Audit / activity | Historique d’activité et suivi d’administration |
+| Vue d’ensemble | résumé de l’état général de préparation |
+| Intégrations de la plateforme | définitions techniques des connecteurs et fournisseurs d’ingestion |
+| Paramètres du fournisseur IA | configuration, validation, test et activation du fournisseur IA |
+| Marketplace & abonnement | plan, entitlements, sièges et état commercial |
+| Audit / activité | historique des actions administratives |
 
-## Intégrations plateforme vs intégrations projet
+## Intégrations de la plateforme vs Intégrations du projet
 
 Une règle importante ressort du produit :
 
-- le **niveau plateforme** possède les définitions techniques globales ;
-- le **niveau projet** ne consomme que des bindings approuvés et sûrs.
+- le **niveau plateforme** décide ce qui existe techniquement ;
+- le **niveau projet** décide ce qui est réellement utilisé dans un projet donné.
 
-### Deux familles de plateforme
+### Lecture simple
 
-- **connecteurs d’exécution** pour les actions externes ;
-- **fournisseurs d’ingestion** pour alimenter la connaissance.
+- **plateforme** = on prépare l’outil ;
+- **projet** = on autorise le projet à s’en servir ;
+- **gouvernance** = on décide qui peut vraiment agir avec cet outil.
 
-### Exemples de connecteurs observés
+Pour le détail complet par famille de connecteurs, voir [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint).
 
-- Jira, Azure DevOps, GitHub, GitLab, ServiceNow ;
-- Teams, Slack, Outlook ;
-- SharePoint publish, Notion, webhook.
+## Préparation et causes de blocage
 
-### Exemples de fournisseurs d’ingestion observés
+Une intégration peut être bloquée pour cause de :
 
-- SharePoint, OneDrive, Confluence ;
-- Jira, Azure DevOps ;
-- Google Drive, Box, Dropbox, Amazon S3 ;
-- Notion ;
-- upload manuel et webhook.
+- **entitlement** ;
+- **policy** ;
+- **permission** ;
+- **health** à vérifier ;
+- définition plateforme manquante ;
+- binding projet non ouvert.
 
-## Readiness et causes de blocage
+### Circuit de vérification recommandé
 
-Une intégration projet ou une option d’import peut être bloquée pour cause de :
-
-- entitlement ;
-- policy ;
-- permission ;
-- health dégradée ;
-- définition plateforme manquante ou désactivée ;
-- binding projet désactivé ou non configuré.
-
-Circuit de remédiation recommandé :
-
-1. relire le blocage dans la page projet ;
-2. ouvrir **Administration de la plateforme** pour vérifier la définition technique ;
-3. valider la readiness ou la santé du connecteur/provider ;
+1. relire le blocage côté projet ;
+2. ouvrir **Administration de la plateforme** ;
+3. vérifier la définition technique du connecteur ou fournisseur ;
 4. revenir dans le projet pour confirmer le binding et l’usage autorisé.
 
-### Cas fréquent — intégration définie en plateforme mais indisponible dans le projet
+## Paramètres du fournisseur IA
 
-Ce cas ne signifie pas forcément que la plateforme est mal configurée. Il peut simplement indiquer que :
-
-- la définition technique existe mais n’est pas encore **bindée** au projet ;
-- le projet n’a pas la bonne **policy** ou le bon **rôle** ;
-- l’**entitlement** couvre la plateforme mais pas l’usage réellement attendu ;
-- la **health** du connecteur est dégradée.
-
-Pour ce scénario, gardez le va-et-vient suivant : **Projets et espace de travail** pour lire le blocage visible, puis **Administration de la plateforme** pour confirmer la définition globale, puis retour au projet pour activer ou corriger le binding. Voir aussi [Projets et espace de travail](./projets-et-espace-de-travail.md).
-
-## Réglages du fournisseur IA
-
-Les familles de fournisseurs visibles selon le contexte de configuration comprennent notamment :
+Les familles de fournisseurs visibles dans le produit comprennent notamment :
 
 - **OpenRouter** ;
-- **OpenAI / Azure OpenAI** ;
+- **OpenAI-compatible** ;
+- **OpenAI** ;
+- **Azure OpenAI** ;
 - **Anthropic**.
 
-### Comment lire les statuts admin
+### Quand choisir chaque fournisseur
 
-Les repères **Configuration**, **Validation**, **Test** et **Operational** ne servent pas seulement à Azure OpenAI. Ils forment le cadre de lecture commun des providers exposés dans l’UI admin.
-
-| Statut | Ce qu’il signifie | Ce qu’il ne garantit pas encore |
+| Fournisseur | Quand le choisir | Ce qu’il faut généralement compléter |
 | --- | --- | --- |
-| Configuration | les champs ont été enregistrés | ni la validité technique, ni la connectivité réelle |
-| Validation | la configuration a passé les contrôles administratifs attendus | pas forcément le test de connectivité complet |
-| Test | un test de connectivité a été lancé avec succès | pas encore l’activation pour les utilisateurs finaux |
-| Operational | le provider peut être considéré comme exploitable | pas que tous les projets l’utilisent déjà effectivement |
+| **OpenRouter** | quand il faut comparer plusieurs familles de modèles via un seul raccordement | Base URL, clé, modèle par défaut |
+| **OpenAI-compatible** | quand le client utilise une gateway ou un endpoint compatible | endpoint exact, auth, clé ou secret, modèle attendu |
+| **OpenAI** | quand le client utilise directement OpenAI | URL, clé ou secret, modèle par défaut |
+| **Azure OpenAI** | quand le client est centré sur Azure et veut choisir ses déploiements Azure OpenAI | endpoint, version API, auth mode, nom de déploiement LLM |
+| **Anthropic** | quand le client préfère les modèles Claude | connexion, secret, modèle par défaut |
 
-### Arbre de décision rapide — `Validate`, `Test`, `Operational`
+### Comment lire les statuts d’un fournisseur IA
 
-| Symptôme | Vérifiez d’abord | Puis |
-| --- | --- | --- |
-| `Validate` échoue | endpoint, auth mode, secret éventuel, champs obligatoires, noms de déploiement | corrigez la configuration avant tout test |
-| `Validate` réussit mais `Test` échoue | connectivité réelle, secret/API key, accessibilité du provider, ressource distante | relancez le test après correction, puis contrôlez l’activité associée |
-| le provider reste visible mais non activable / non `Operational` | validation, test, allowed providers, entitlement, readiness générale | ne basculez pas les utilisateurs avant passage complet à l’état exploitable |
-
-### Deux notions à distinguer
-
-| Notion | Signification |
+| Statut | Ce que cela veut dire |
 | --- | --- |
-| Fournisseur IA sélectionné au déploiement | Choix initial de l’environnement lors de l’installation |
-| Fournisseur IA effectif | Fournisseur réellement utilisé pour les nouveaux runs |
+| **Configuration** | les champs sont enregistrés |
+| **Validation** | la configuration a passé les contrôles attendus |
+| **Test** | la connectivité réelle a été vérifiée |
+| **Operational** | le fournisseur peut être considéré comme exploitable |
 
-Ces deux valeurs peuvent différer, notamment quand un déploiement Marketplace prépare **Azure OpenAI** puis que l’administrateur choisit ensuite le déploiement LLM dans **AI provider settings**. Pour un run donné, la valeur de référence reste le détail visible dans **Journal IA**.
+### Pas à pas très simple pour préparer un fournisseur IA
 
-### Cadre commun pour tous les providers
+1. ouvrez **Paramètres du fournisseur IA** ;
+2. sélectionnez le fournisseur voulu ;
+3. complétez les champs demandés ;
+4. cliquez sur **Save** ;
+5. cliquez sur **Validate** ;
+6. cliquez sur **Test** ;
+7. cliquez sur **Activate** ;
+8. contrôlez ensuite le résultat dans **Journal IA**.
 
-Quel que soit le provider visible dans l’interface, gardez le même cadre de lecture :
+### Cas particulier Azure OpenAI
 
-1. renseignez les champs critiques du provider ;
-2. enregistrez la configuration ;
-3. lancez la validation ;
-4. lancez le test de connectivité ;
-5. activez ensuite seulement le provider si la plateforme doit réellement basculer dessus ;
-6. confirmez enfin le provider effectif dans **Journal IA** sur un run réel.
+Avec **Azure OpenAI**, il faut souvent compléter dans l’administration :
 
-### OpenRouter
+- l’**Endpoint** ;
+- la **version API** ;
+- le **mode d’authentification** ;
+- le **LLM deployment name** ;
+- éventuellement l’**Embeddings deployment name**.
 
-Pour **OpenRouter**, surveillez surtout l’endpoint, la clé ou le secret, la famille de modèle choisie et le passage complet par **Configuration → Validation → Test → Operational** avant activation.
-
-### OpenAI-compatible / OpenAI
-
-Pour les providers **OpenAI-compatible**, vérifiez surtout la cohérence entre endpoint, auth, version ou modèle/deployment attendu et test de connectivité réel. Une configuration enregistrée ne suffit pas à garantir l’usage effectif par les runs.
-
-### Anthropic
-
-Pour **Anthropic**, le réflexe reste le même : configuration enregistrée, validation, test, activation, puis confirmation dans **Journal IA**. Si le provider reste visible mais non opérationnel, vérifiez d’abord auth, entitlement et allowed providers avant d’escalader.
-
-### Cas **Azure OpenAI** après un déploiement Marketplace
-
-Quand le déploiement Marketplace a été lancé avec **Azure OpenAI**, l’installation prépare l’intégration Azure mais ne fige pas automatiquement le déploiement LLM exact au moment du formulaire Marketplace.
-
-Après installation, un administrateur doit ouvrir **Administration de la plateforme** > **AI provider settings** pour sélectionner le déploiement Azure OpenAI réellement visible dans la ressource Azure OpenAI du client.
-
-![Réglages Azure OpenAI dans l’administration de la plateforme](/img/screenshots/localized/fr/18-platform-administration-azure-openai-settings.png)
-
-#### Ce que signifie le choix du modèle
-
-Dans cette page, le champ **LLM deployment name** attend le **nom exact d’un déploiement Azure OpenAI** existant dans la ressource du client. Ce n’est pas uniquement un nom générique de famille de modèle. Dans l’exemple visible, `gpt-4.1-mini` est le déploiement LLM principal et `text-embedding-3-small` le déploiement d’embeddings facultatif.
-
-Ce découplage est volontaire : il permet au client de changer de déploiement ou de modèle après l’installation Marketplace, sans redéployer l’application.
-
-#### Champs Azure OpenAI visibles
-
-| Champ | Rôle |
-| --- | --- |
-| Endpoint | Endpoint Azure OpenAI cible, utilisé pour la découverte des déploiements et les tests de connectivité |
-| API version | Version de l’API Azure OpenAI utilisée par l’administration |
-| Authentication mode | Mode d’authentification supporté par la plateforme : `managed_identity` ou `api_key` |
-| LLM deployment name | Nom exact du déploiement LLM utilisé pour les runs génératifs |
-| Embeddings deployment name (optional) | Nom exact du déploiement embeddings, si votre configuration en utilise un |
-
-#### Statuts et ordre opératoire
-
-L’écran affiche quatre repères de statut :
-
-- **Configuration** : la configuration a été enregistrée ou non ;
-- **Validation** : la vérification administrative a été exécutée ou non ;
-- **Test** : le test de connectivité a été exécuté ou non ;
-- **Operational** : synthèse de l’état d’exploitation de ce provider.
-
-Le parcours attendu dans l’interface est **Save → Validate → Test → Activate**. D’après l’interface observée, **Validate** et **Test** enregistrent d’abord les modifications en attente avant d’exécuter leur contrôle.
-
-#### Ce que vérifie le backend
-
-D’après le code existant, la vérification backend du provider **Azure OpenAI** contrôle au minimum :
-
-- la présence de l’**endpoint** et son format en **URL absolue** ;
-- la présence de l’**API version** ;
-- la validité du **mode d’authentification** (`managed_identity` ou `api_key`) ;
-- la présence d’une **clé API** ou d’une **référence de secret** si le mode `api_key` est choisi ;
-- la présence du **LLM deployment name** ;
-- l’absence d’espaces dans les noms de déploiement LLM et embeddings.
-
-Le backend tente aussi de découvrir les déploiements visibles en appelant l’endpoint Azure OpenAI **`/openai/deployments`** avec la version d’API configurée. Si la découverte réussit, la validation vérifie que le **LLM deployment name** choisi — et, si renseigné, le déploiement d’embeddings — est bien visible dans la ressource Azure OpenAI configurée.
-
-Conséquences pratiques :
-
-- si aucun déploiement n’est encore visible, l’administrateur doit créer ou activer le déploiement dans Azure, puis actualiser **Administration de la plateforme** ;
-- si le nom saisi n’existe pas dans la ressource cible, la validation échoue et peut lister les déploiements visibles côté Azure ;
-- si la configuration reste incomplète, le **test de connectivité** ne peut pas aboutir ;
-- l’activation du provider reste bloquée tant que la configuration, la validation et le test ne sont pas conformes.
-
-#### Contrôle recommandé
-
-1. ouvrez **Administration de la plateforme** ;
-2. allez dans **AI provider settings** ;
-3. renseignez l’**endpoint**, l’**API version** et le **mode d’authentification** adaptés à votre ressource Azure OpenAI ;
-4. choisissez le **LLM deployment name** exact visible dans la ressource Azure OpenAI du client ;
-5. ajoutez si besoin le **Embeddings deployment name** ;
-6. enregistrez la configuration ;
-7. lancez **Validate** pour vérifier la configuration et la visibilité des déploiements ;
-8. lancez **Test** pour confirmer la connectivité ;
-9. activez ensuite le provider si le tenant doit réellement basculer sur cette configuration ;
-10. contrôlez enfin **Journal IA** sur un run réel.
-
-Tant que cette étape n’est pas finalisée, le choix **Azure OpenAI** au déploiement décrit bien le fournisseur visé, mais pas encore le déploiement LLM exact utilisé en exploitation.
-
-Voir aussi [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md).
+Pour le détail du choix de fournisseur IA pendant le déploiement Marketplace, voir [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md).
 
 ## Abonnement, entitlement et sièges
 
-Le produit gère un modèle de licence avec consommation de sièges selon le plan.
+Le produit gère un modèle de licence avec sièges et capacités.
 
-### Comportements observés
+### Ce qu’un administrateur peut voir
 
-- un siège peut être consommé lors de la connexion ;
-- l’accès peut être bloqué s’il n’y a plus de siège disponible ;
-- l’interface admin expose le plan, les sièges achetés et les utilisateurs licenciés ;
-- un administrateur peut retirer un utilisateur licencié, puis libérer la capacité pour une réattribution ultérieure ;
-- une fenêtre de retrait sur 24 h est suivie pour éviter les rotations abusives ;
-- l’état commercial peut aussi exposer `billing state`, `payment state`, `subscription status` et des `entitlement flags`.
+- le **plan** actif ;
+- le nombre de **sièges achetés** ;
+- le nombre de **sièges disponibles** ;
+- les utilisateurs déjà licenciés ;
+- l’état commercial, par exemple `billing state`, `payment state` ou `subscription status`.
 
 ### Pourquoi c’est important
 
-Un incident d’accès n’est pas toujours un problème d’authentification. Il peut aussi venir d’un manque de sièges ou d’un entitlement qui bloque une intégration premium ou un fournisseur IA.
+Un utilisateur bloqué n’a pas forcément une question de connexion. Le blocage peut venir :
+
+- d’un manque de sièges ;
+- d’un entitlement manquant ;
+- d’une fonctionnalité non incluse dans le plan.
 
 ## Repères techniques de plateforme
 
-L’infrastructure Azure observée s’appuie sur les briques suivantes :
+L’infrastructure Azure observée s’appuie notamment sur :
 
 - Azure Container Apps ;
 - Storage ;
@@ -293,19 +458,28 @@ L’infrastructure Azure observée s’appuie sur les briques suivantes :
 - Application Insights ;
 - Document Intelligence.
 
-## À retenir pour les publics techniques
+## À retenir
 
-- le niveau **plateforme** contrôle ce qui existe globalement ;
-- le niveau **projet** choisit ce qui est réellement utilisé localement ;
-- les intégrations doivent être validées avant exposition aux équipes ;
-- l’abonnement et les entitlements influencent l’accès, les connecteurs et le fournisseur IA ;
-- pour **Azure OpenAI**, le choix Marketplace doit être complété dans **AI provider settings** avec le nom exact d’un déploiement LLM visible dans la ressource Azure OpenAI ;
-- avant activation, la séquence **Save → Validate → Test** doit confirmer la configuration, la visibilité des déploiements et la connectivité ;
-- le **Journal IA** reste la référence pour le fournisseur réellement utilisé sur un run.
+### Pour la page Portfolio
+
+- commencez par choisir les bons projets ;
+- activez seulement les signaux utiles à votre revue ;
+- réglez poids, seuils et sévérité avec intention ;
+- utilisez les **outliers** comme point de départ d’investigation, pas comme verdict final ;
+- ouvrez ensuite le **Project drill-down** pour comprendre le résultat.
+
+### Pour l’administration technique
+
+- le niveau plateforme prépare les connecteurs et fournisseurs ;
+- le niveau projet ouvre leur usage réel ;
+- la gouvernance décide qui peut agir ;
+- un fournisseur IA n’est prêt que lorsqu’il est **enregistré, validé, testé et activé** ;
+- le **Journal IA** reste la référence pour confirmer le fournisseur réellement utilisé.
 
 ## Suite
 
+- [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
+- [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md)
 - [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
 - [Maintenance, support et FAQ](./maintenance-support-faq.md)
-- [Démarrage](./demarrage.md)
 - [Glossaire](./glossaire.md)

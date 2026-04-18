@@ -1,301 +1,529 @@
 ---
 title: Gobernanza, decisiones y acciones
 slug: /gouvernance-decisions-et-actions
-description: Aprovechar las señales, aplicar las reglas de gobernanza y gestionar las acciones que requieren aprobación.
+description: Comprender las señales, configurar las políticas de gobernanza y usar Acciones y aprobaciones paso a paso con ejemplos amigables para principiantes.
 ---
 
 [Inicio](./index.md) · [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md) · [Informes, registro de IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md)
 
-![Bandeja de entrada de señales](/img/screenshots/localized/es/15-workspace-signals.png)
+![Proactividad, resúmenes y acciones gobernadas](/img/diagrams/fr/proactivite-et-gouvernance.svg)
 
 ## Objetivo
 
-Esta página explica cómo procesar las **señales**, utilizar las reglas de gobernanza del proyecto y comprender por qué una acción puede ser visible pero no ejecutable.
+Esta página explica, de manera simple, cómo ProPM Agent pasa:
 
-## Vista general
+1. de una **señal** detectada ;
+2. a una **decisión** ;
+3. luego a una **acción gobernada** ;
+4. eventualmente sometida a **aprobación** ;
+5. antes de ser **ejecutada** y **trazada**.
 
-En ProPM Agent, la gobernanza se manifiesta en varias superficies:
+El objetivo es que un usuario principiante comprenda claramente:
 
-- las **señales** que llaman la atención;
-- las **políticas de gobernanza** a nivel de proyecto;
-- los **controles de acceso**;
-- las **acciones y aprobaciones** antes del impacto externo;
-- la **trazabilidad** visible en los artefactos y el Registro de IA.
+- qué es una **política de gobernanza** ;
+- qué significan **`allow`**, **`require_approval`** y **`deny`** ;
+- qué significan **`observe`**, **`draft`**, **`propose`** y **`execute`** ;
+- cómo usar **Acciones y aprobaciones** paso a paso ;
+- por qué una acción puede ser visible pero bloqueada.
 
-## Señales: qué representan
+## Vista muy simple del flujo
 
-Las señales observadas sirven para elevar temas que merecen un tratamiento explícito, por ejemplo:
+En ProPM Agent, el camino normal es el siguiente:
 
-- una **actualidad** insuficiente;
-- una **contradicción** entre evidencias;
-- un **bloqueo** operativo;
-- un **seguimiento** que requiere decisión o difusión.
+1. una **señal** llama la atención ;
+2. el equipo la lee ;
+3. la **gobernanza** decide qué puede hacer cada rol ;
+4. si se necesita una salida externa, se crea una **acción** ;
+5. si el proyecto lo exige, la acción pasa a **aprobación** ;
+6. la acción luego es **ejecutada** o **rechazada** ;
+7. la traza permanece visible en la **actividad** y el **Journal IA**.
 
-## Cómo procesar las señales
+## Parte 1 — Comprender las señales
 
-La bandeja de entrada de señales permite:
+Una **señal** es una alerta estructurada que dice: **« este asunto merece ser visto »**.
 
-- releer las señales abiertas;
-- actualizar su estado;
-- preparar un **resumen**;
-- generar un borrador de notificación;
-- pausar una señal;
-- descartar un elemento cuando ya no es pertinente.
+### Ejemplos de señales
 
-### Paso a paso de triaje recomendado
+Una señal puede surgir:
 
-Para evitar procesar una señal únicamente "por intuición", mantenga este orden simple:
+- una **frescura** de las fuentes insuficiente ;
+- una **contradicción** entre varias pruebas ;
+- un **bloqueo** de proyecto ;
+- una secuencia a dar que merece una **notificación**, una **decisión** o una **acción externa**.
 
-1. lea primero el **resumen**;
-2. confirme luego la **explicación** y los indicios de **actualidad**;
-3. verifique si la señal es **recurrente** o si se basa en múltiples evidencias;
-4. elija finalmente entre **Create draft**, **Snooze 24h** o **Dismiss** según el nivel de acción realmente útil.
-
-Este triaje evita transformar demasiado rápido un simple recordatorio en una acción gobernada, manteniendo al mismo tiempo un registro claro de los temas realmente prioritarios.
-
-## Estados, modos e información visible en una señal
-
-### Estados útiles
-
-| Estado | Significado práctico | Acción típica |
-| --- | --- | --- |
-| `open` | La señal permanece activa en la cola actual | procesar, crear un borrador, pausar o descartar |
-| `snoozed` | El tema se pausa temporalmente | volver después de `snoozedUntil` o después del próximo punto de control |
-| `dismissed` | La señal se retira de la vista activa mientras ninguna nueva condición la reabra | conservar el rastro, sin dejar que el elemento abarrota la cola |
-| `resolved` | El tema se considera procesado | guardar el historial para auditoría, sin nueva acción inmediata |
-
-### Modos visibles
-
-| Modo | Lectura útil |
-| --- | --- |
-| `inform` | información para releer sin acción inmediata obligatoria |
-| `suggest` | tema acompañado de próximos pasos propuestos |
-| `draft` | tema ya orientado hacia un borrador o una formulación preparatoria |
-| `request_approval` | tema que requiere una etapa de aprobación explícita |
-
-### Qué muestra una tarjeta de señal
+### Lo que el usuario suele ver en una tarjeta de señal
 
 Una tarjeta de señal puede mostrar:
 
-- la **severidad**, el **estado** y el **modo**;
-- un **título**, un **resumen** y una **explicación** del desencadenamiento;
-- un número de **evidencias** y de **redesencadenamientos**;
-- insignias de **actualidad de la fuente**;
-- `last detected` y, si es necesario, `snoozed until`;
-- acciones como **Create draft**, **Snooze 24h** y **Dismiss** cuando el rol lo autoriza.
+- un **título** ;
+- un **resumen** ;
+- una **explicación** ;
+- una **severidad** ;
+- un **estado** ;
+- un **modo** ;
+- un número de **pruebas** o de reactivaciones ;
+- acciones como **Create draft**, **Snooze 24h** o **Dismiss** según el rol.
 
-### Si usted ve… / haga…
+### Pasos recomendados para tratar una señal
 
-| Si usted ve… | Haga… |
+Cuando abres una señal, sigue este orden:
+
+1. lee el **resumen** ;
+2. vuelve a leer la **explicación** ;
+3. verifica las **pruebas** y la **frescura** ;
+4. decide si el asunto requiere solo vigilancia, un borrador o una acción real ;
+5. si una salida externa se vuelve necesaria, pasa a **Acciones y aprobaciones**.
+
+### Estados útiles de una señal
+
+| Estado | Qué significa |
 | --- | --- |
-| una señal `open` en modo `inform` | relea las evidencias y decida si solo hay que supervisar o preparar un resumen |
-| una señal `open` en modo `suggest` | transfórmela en un próximo paso claro o en un borrador si el seguimiento debe ser trazado |
-| una señal `draft` | verifique si ya está alimentando un resumen, un borrador o una solicitud de acción |
-| una señal `request_approval` | cambie a la revisión gobernada y confirme las condiciones de aprobación |
-| una señal `snoozed` | no la reabra automáticamente; controle primero `snoozedUntil` y la evolución real del contexto |
-| una señal `dismissed` | guarde el rastro, pero no abarrota la cola activa mientras no aparezca nueva evidencia |
-| una señal `resolved` | utilícela como historial, no como nueva orden de acción |
+| `open` | el asunto sigue activo y necesita atención |
+| `snoozed` | el asunto está en pausa temporalmente |
+| `dismissed` | el asunto se retira de la cola activa |
+| `resolved` | el asunto se considera tratado |
 
-## Cuándo actuar sobre una señal
+### Modos útiles de una señal
 
-| Situación | Acción recomendada |
+| Modo | Lectura simple |
 | --- | --- |
-| Información que envejece | Verificar la fuente, reactivar la importación o actualizar el conocimiento |
-| Contradicción entre evidencias | Releer las citas, arbitrar y documentar la decisión |
-| Bloqueo del proyecto | Transformar la constatación en acción gobernada o en seguimiento formalizado |
-| Tema a difundir | Preparar un resumen o una notificación adaptada |
+| `inform` | la señal informa, sin exigir acción inmediata |
+| `suggest` | la señal sugiere un próximo paso |
+| `draft` | la señal ya está orientada a un borrador o preparación |
+| `request_approval` | la señal llama a una revisión gobernada o aprobación |
 
-## Resumen y borradores de notificación
+## Parte 2 — Políticas de gobernanza
 
-### Generar un resumen (`Generate digest draft`)
+## ¿Qué es una política de gobernanza?
 
-La generación de un resumen produce una vista sintética reutilizable desde el **Espacio de trabajo**. La tarjeta **`Latest digest`** puede mostrar:
+Una **política de gobernanza** es una regla que responde a la pregunta:
 
-- un **titular**;
-- una **narrativa**;
-- la fecha **generated at**;
-- el número total de señales resumidas;
-- el número de borradores de notificación generados;
-- el detalle de las señales incluidas en el resumen.
+**« ¿Quién tiene derecho a hacer qué, sobre qué conector, y con qué nivel de control? »**
 
-### Releer un borrador de notificación
+En otras palabras, la gobernanza evita que una acción externa salga sin un marco claro.
 
-Los **Notification drafts** exponen como mínimo:
+### Lo que una política decide
 
-- el **estado**;
-- el **canal**;
-- el **tipo** de notificación;
-- la explicación o justificación;
-- una posible necesidad de **aprobación**;
-- el número de **destinatarios**;
-- una fecha `sendAfter` si existe;
-- el enlace hacia la **señal** o el **resumen** de origen;
-- un posible estado `snoozed`.
+Una política responde en general a cuatro preguntas:
 
-En el panel del proyecto actualmente observado, el envío directo está principalmente previsto para `in_app`. Los canales externos como `email`, `teams` o `webhook` pueden permanecer en postura **held / draft** mientras la ruta de difusión gobernada no esté disponible. Los usuarios sin derecho de envío pueden igualmente releer estos borradores en modo de solo lectura.
+1. **¿Quién?** — qué rol está involucrado ;
+2. **¿Sobre qué?** — qué conector, qué tipo de acción o destino está involucrado ;
+3. **¿Hasta dónde?** — simple observación, borrador, propuesta o ejecución ;
+4. **¿Con qué efecto?** — autorizado, autorizado con aprobación, o rechazado.
 
-![Borradores de notificación para releer](/img/screenshots/localized/es/16-notification-drafts.png)
+### Ejemplo muy simple
 
-### Flujo de revisión recomendado para un borrador de notificación
+Una política puede significar:
 
-1. confirme que el **título** y el **mensaje** son comprensibles sin contexto oculto;
-2. verifique la **señal** o el **resumen** vinculado;
-3. relea los metadatos de **aprobación**, de **destinatarios** y de `sendAfter`;
-4. envíe solo si el **canal** y su **rol** autorizan realmente esta difusión;
-5. utilice **snooze** o **dismiss** cuando el borrador no deba permanecer activo en la cola.
+- el **Contribuyente** puede preparar un borrador en Teams ;
+- el **Jefe de proyecto** puede proponer una publicación en SharePoint ;
+- el **Propietario del proyecto** debe aprobar antes de la ejecución ;
+- nadie más puede ejecutar directamente esa publicación.
 
-## Cuatro objetos que no deben confundirse
+## Entender los niveles: `observe`, `draft`, `propose`, `execute`
 
-| Objeto | Rol en el flujo | Cuándo utilizarlo |
+El **nivel** describe hasta dónde puede ir un rol en el flujo.
+
+| Nivel | Qué puede hacer el usuario | Qué no puede hacer todavía | Ejemplo simple |
+| --- | --- | --- | --- |
+| `observe` | ver la información, seguir el asunto, consultar la cola | crear una acción o un borrador | un lector sigue las señales sin preparar salida |
+| `draft` | preparar un borrador, un texto, una intención de acción | enviar oficialmente la acción a la cola | un contribuyente prepara un mensaje Teams pero no lo propone |
+| `propose` | enviar una verdadera solicitud de acción en la cola gobernada | ejecutar directamente la acción | un jefe de proyecto propone un ticket Jira |
+| `execute` | lanzar la ejecución real si las demás condiciones se cumplen | eludir la política o aprobaciones impuestas | un propietario de proyecto publica un artefacto en SharePoint |
+
+### Lectura muy simple
+
+- **`observe`** = observo ;
+- **`draft`** = preparo ;
+- **`propose`** = solicito oficialmente ;
+- **`execute`** = lanzo realmente.
+
+## Entender los efectos: `allow`, `require_approval`, `deny`
+
+El **efecto** describe lo que la plataforma hace cuando un rol alcanza ese nivel.
+
+| Efecto | Qué significa | Consecuencia práctica |
 | --- | --- | --- |
-| `digest` | síntesis de varias señales | cuando el equipo necesita una vista agrupada antes de la difusión o arbitraje |
-| `notification draft` | borrador de mensaje destinado a un canal | cuando el tema debe ser releído antes del envío, especialmente fuera de `in_app` |
-| `action request` | solicitud de operación gobernada que a veces requiere aprobación y ejecución | cuando un seguimiento externo o un cambio concreto debe ser lanzado |
-| `artifact` | entregable u objeto gobernado historizado | cuando el contenido debe ser conservado, comparado, aprobado, publicado o reinyectado |
+| `allow` | la acción está autorizada a ese nivel | el flujo puede avanzar sin paso de aprobación adicional, si el resto está listo |
+| `require_approval` | la acción es posible, pero debe aprobarse | la cola de aprobación se vuelve obligatoria antes de la ejecución |
+| `deny` | la acción está prohibida para ese rol o alcance | el usuario no puede avanzar más en ese flujo |
 
-Esta distinción reduce las confusiones frecuentes entre un tema **a resumir**, un mensaje **a releer**, una operación **a ejecutar** y un documento **a gobernar**.
+### Lectura muy simple
 
-## Gobernanza a nivel de proyecto
+- **`allow`** = sí ;
+- **`require_approval`** = sí, pero después de validación humana ;
+- **`deny`** = no.
 
-Las pestañas del espacio de trabajo forman la base de la gobernanza del proyecto:
+## Cómo leer una línea de política
 
-- **Access control** determina quién puede actuar;
-- **Document categories** estructura las evidencias;
-- **Governance policies** enmarca las validaciones y publicación;
-- **Project integrations** determina qué acciones externas son realmente factibles.
+Tomemos esta lectura:
 
-### Cómo leer los efectos de la política
+- **Rol** : Jefe de proyecto
+- **Conector** : SharePoint publish
+- **Nivel** : `execute`
+- **Efecto** : `require_approval`
 
-| Par o campo | Lectura práctica | Efecto real para el usuario |
-| --- | --- | --- |
-| `allow` + `observe` | el tema puede ser visto y seguido | lectura y supervisión sin lanzar ejecución |
-| `allow` + `draft` | la preparación está autorizada | el usuario puede crear un borrador o preparar el flujo |
-| `allow` + `propose` | la propuesta formal está permitida | una solicitud puede ser enviada en la cola gobernada |
-| `allow` + `execute` | la ejecución directa está autorizada | la acción puede partir sin etapa adicional si el resto está listo |
-| `require_approval` + `execute` | la ejecución sigue siendo posible pero no inmediata | la cola de aprobación se vuelve obligatoria antes de la ejecución |
-| `deny` | el flujo está prohibido para el rol o el alcance | la acción puede desaparecer o permanecer no ejecutable a pesar de su visibilidad de principio |
+Esto significa:
 
-Estos pares ayudan a comprender por qué un usuario puede **ver**, **preparar**, **proponer** o **ejecutar** una acción, sin suponer que todas las superficies autorizan automáticamente la misma profundidad de acción.
+- el Jefe de proyecto puede llegar hasta la solicitud de ejecución ;
+- pero la publicación no sale inmediatamente ;
+- se necesita aprobación antes de la ejecución real.
 
-![Políticas de gobernanza del proyecto](/img/screenshots/localized/es/14-governance-policies.png)
+## Ejemplos concretos de políticas
 
-## Acciones y aprobaciones
+| Caso de negocio | Rol | Nivel recomendado | Efecto recomendado | Por qué |
+| --- | --- | --- | --- | --- |
+| publicación de un informe a SharePoint | Jefe de proyecto | `execute` | `require_approval` | la salida es externa y debe revisarse |
+| creación de un ticket Jira desde un bloqueo | Jefe de proyecto | `propose` | `allow` o `require_approval` | el proyecto puede solicitar un ticket sin necesariamente abrirlo automáticamente |
+| mensaje Teams interno de bajo riesgo | Contribuyente | `execute` o `propose` | `allow` | comunicación rápida a bajo impacto |
+| correo Outlook a patrocinadores | Contribuyente | `propose` | `require_approval` | comunicación más sensible y formal |
+| webhook a una herramienta externa | Propietario del proyecto | `execute` | `require_approval` | salida técnica a mantener muy controlada |
+| conector no listo o no autorizado | todos salvo admin | `observe` o ningún uso | `deny` | evitamos cualquier salida accidental |
 
-La pantalla **Actions & approvals** transforma una recomendación en una operación controlada.
+## Pasos para configurar una política de gobernanza
 
-### Ciclo de vida observado
+Sigue este orden simple.
 
-1. propuesta de una acción;
-2. vinculación al proyecto, a una señal o a un artefacto;
-3. aprobación o rechazo;
-4. ejecución cuando se reúnen las condiciones;
-5. trazabilidad del evento en el producto.
+### Paso 1 — Abrir la superficie correcta
 
-![Acciones y aprobaciones](/img/screenshots/localized/es/17-actions-approvals.png)
+Desde el **Espacio de trabajo** del proyecto, abre **Políticas de gobernanza**.
 
-### Paso a paso operativo para una acción gobernada
+### Paso 2 — Elegir el flujo a controlar
 
-Utilice este orden cuando un seguimiento externo se vuelve necesario:
+Pregúntate primero:
 
-1. abra **Actions & approvals** desde el **Espacio de trabajo**;
-2. elija primero el **tipo de acción** para que la interfaz resuelva los **Execution connectors** compatibles;
-3. seleccione una opción de ejecución **sana** y **autorizada** si existen varias opciones;
-4. agregue una justificación breve para facilitar la aprobación;
-5. envíe la solicitud y verifique que aparezca en la cola con **Trace ID** y detalles del payload;
-6. siga luego el paso de la cola hacia **approved**, **rejected** o **executed**.
+- ¿se trata de una **publicación** ;
+- de un **ticket** ;
+- de un **mensaje** ;
+- de un **webhook** ;
+- de otra acción externa ?
 
-### Si no aparece ninguna opción de ejecución
+### Paso 3 — Elegir el rol involucrado
 
-Mantenga este orden estricto de remediación:
+Define luego qué rol puede actuar:
 
-1. verifique los **Execution connectors** en **Governance policies**;
-2. verifique luego **Project integrations** para confirmar el enlace realmente listo;
-3. abra **Administración de la plataforma** si la definición técnica parece faltar o degradada;
-4. controle finalmente el **entitlement**, la **policy** y su **permission** antes de concluir una falla.
+- **Contribuyente** ;
+- **Jefe de proyecto** ;
+- **Propietario del proyecto** ;
+- o cualquier otro rol presente en tu configuración.
 
-Este circuito evita tratar como incidente técnico un bloqueo que proviene en realidad de un rol, una política o una definición aún no expuesta al proyecto.
+### Paso 4 — Elegir el nivel de acción
 
-## Ejemplos de acciones gobernadas confirmadas
+Decide si ese rol debe solo:
 
-Los tipos de acción visibles en el producto incluyen notablemente:
+- observar ;
+- preparar un borrador ;
+- proponer ;
+- o ejecutar.
 
-- publicación hacia **SharePoint**;
-- mensaje **Teams**;
-- mensaje **Outlook**;
-- ticket **Jira**;
-- ticket **Azure DevOps**;
-- **webhook** gobernado.
+### Paso 5 — Elegir el efecto
 
-### Campos que varían según el tipo de acción
+Decide si ese nivel debe:
 
-| Tipo de acción | Campos típicos a proporcionar |
+- autorizado directamente (`allow`) ;
+- autorizado con aprobación (`require_approval`) ;
+- o rechazado (`deny`).
+
+### Paso 6 — Verificar el conector o destino involucrado
+
+Una buena política no basta si el conector:
+
+- no está listo técnicamente ;
+- no está abierto al proyecto ;
+- o no tiene el destino correcto de artefacto.
+
+### Paso 7 — Probar con un rol no administrador
+
+El mejor control es práctico:
+
+1. conéctate con un rol de negocio realista ;
+2. abre **Acciones y aprobaciones** ;
+3. verifica lo que es visible, autorizado o bloqueado ;
+4. ajusta la política si el comportamiento no es el esperado.
+
+![Políticas de gobernanza del proyecto](/img/screenshots/localized/fr/14-governance-policies.png)
+
+## Reglas simples para configurar bien la gobernanza
+
+- usa **`allow`** en **`execute`** solo para flujos de bajo riesgo ;
+- usa **`require_approval`** tan pronto como un contenido salga del proyecto o modifique un sistema externo ;
+- usa **`deny`** cuando el conector no esté listo, no autorizado o sea demasiado sensible ;
+- mantén las reglas coherentes con los roles realmente asignados ;
+- prueba siempre un caso real antes de considerar la política lista.
+
+## Errores frecuentes a evitar
+
+| Error | Lectura correcta |
 | --- | --- |
-| Publicación hacia SharePoint | título, opción de ejecución, `artifact ID`, destino, perfil de renderizado o formato |
-| Mensaje Teams / Outlook | título, opción de ejecución, cuerpo del mensaje, destinatarios o borrador vinculado |
-| Ticket Jira / Azure DevOps | título, opción de ejecución y descripción del ticket |
-| Calendar follow-up | título, opción de ejecución, participantes y fecha / hora de inicio |
+| « Veo el conector, así que puedo usarlo » | falso : la visibilidad no garantiza autorización ni salud técnica |
+| « `propose` significa que la acción sale » | falso : `propose` significa que la solicitud entra en la cola gobernada |
+| « `execute` significa sin control » | falso : `execute` puede combinarse aún con `require_approval` |
+| « `deny` significa fallo » | falso : `deny` suele ser una decisión de gobernanza normal |
 
-### Estados y detalles de la cola de aprobación
+## Parte 3 — Acciones y aprobaciones
 
-La cola de acciones gobernadas permite seguir un paso típico de **draft** a **pending approval**, luego hacia **approved**, **executed** o **rejected**.
+La pantalla **Acciones y aprobaciones** sirve para transformar una intención en **acción gobernada real**.
 
-| Estado | Lectura práctica |
+## Lo que el usuario ve en esta pantalla
+
+Un usuario suele encontrar:
+
+- un formulario **Proponer una acción gobernada** ;
+- la elección del **tipo de acción** ;
+- la elección del **conector de ejecución** o de la **opción de ejecución** ;
+- un resumen de **readiness** indicando lo que está disponible o bloqueado ;
+- campos como **título**, **justificación**, **destino**, **mensaje**, **descripción del ticket** ;
+- una **cola de aprobación y ejecución** con las solicitudes ya enviadas.
+
+## Pasos — crear una acción gobernada
+
+### Paso 1 — Abrir la pantalla
+
+En el **Espacio de trabajo**, abre **Acciones y aprobaciones**.
+
+### Paso 2 — Elegir el tipo de acción
+
+Selecciona primero la intención de negocio. Los tipos de acción visibles incluyen:
+
+- **Publish artifact to SharePoint** ;
+- **Send Teams message** ;
+- **Send Outlook message** ;
+- **Create Jira ticket** ;
+- **Create Azure DevOps ticket** ;
+- **Webhook** según la configuración del tenant.
+
+### Paso 3 — Verificar la opción de ejecución compatible
+
+La interfaz busca luego las **opciones de ejecución compatibles**.
+
+Elige una opción:
+
+- **saludable** ;
+- **autorizada** ;
+- realmente abierta a tu proyecto.
+
+Si no aparece ninguna opción saludable, la verificación suele referirse a:
+
+- el conector mismo ;
+- su estado de salud ;
+- el binding del proyecto ;
+- la política ;
+- o tu permiso.
+
+### Paso 4 — Leer la readiness
+
+La zona **Execution readiness** sirve para verificar que no estás preparando solo una acción teórica.
+
+En práctica:
+
+- **available / healthy** = opción explotable ;
+- **blocked by health** = conector a verificar en la plataforma ;
+- **blocked by entitlement** = capacidad no incluida en el plan o no abierta ;
+- **blocked by policy** = gobernanza del proyecto restrictiva ;
+- **blocked by permission** = tu rol no es suficiente.
+
+### Paso 5 — Rellenar el título y la justificación
+
+Completa luego:
+
+- un **título claro** ;
+- una **justificación corta pero útil** ;
+- los campos específicos al tipo de acción elegido.
+
+La justificación debe responder a dos preguntas:
+
+1. **¿Por qué es necesaria esta acción?**
+2. **¿En qué pruebas o decisiones se basa?**
+
+### Paso 6 — Completar los campos de negocio
+
+Los campos cambian según el tipo de acción.
+
+| Tipo de acción | Campos frecuentemente requeridos |
 | --- | --- |
-| `draft` | solicitud aún preparatoria, aún no enviada al flujo completo |
-| `pending approval` | aprobación esperada antes del seguimiento real |
-| `approved` | acuerdo obtenido, pero la ejecución efectiva aún debe ser confirmada |
-| `executed` | acción enviada y registrada como ejecutada |
-| `rejected` | la solicitud fue rechazada y no debe considerarse como lanzada |
+| Publicación SharePoint | título, justificación, `artifact ID`, destino, perfil de renderizado, formato |
+| Mensaje Teams | título, justificación, cuerpo del mensaje |
+| Mensaje Outlook | título, justificación, destinatarios, asunto, cuerpo del mensaje |
+| Ticket Jira | título, justificación, descripción del ticket, posiblemente clave de proyecto / tablero |
+| Ticket Azure DevOps | título, justificación, descripción, tipo de ticket según el conector |
+| Webhook | título, justificación y datos útiles al sistema objetivo |
 
-Cada tarjeta de cola también puede exponer:
+### Paso 7 — Proponer la acción
 
-- el tipo de acción y el conector seleccionado;
-- el **status** y el **action level**;
-- `requested at`, `requested by`, `approved by`, `approved at`, `executed at`;
-- el **Trace ID**;
-- un `relatedArtifactId` o `relatedNotificationId`;
-- el **payload audit detail**, las notas de aprobación y el resultado de ejecución.
+Una vez completados los campos, envía la solicitud.
 
-![Cola de acciones gobernadas y detalles de auditoría](/img/screenshots/localized/es/17-action-queue.png)
+En este punto, la acción no necesariamente ya salió. Puede entrar primero en la **cola de aprobación**.
+
+### Paso 8 — Revisión por el aprobador
+
+Si la política exige `require_approval`, un aprobador debe revisar:
+
+- el título ;
+- la justificación ;
+- el conector usado ;
+- la carga útil o detalle de negocio ;
+- el posible artefacto o borrador vinculado.
+
+### Paso 9 — Aprobación, rechazo o ejecución
+
+Según la política y el rol del aprobador, la solicitud puede ser:
+
+- **aprobada** ;
+- **rechazada** ;
+- luego **ejecutada** si todo está listo.
+
+### Paso 10 — Verificar la traza final
+
+Después de la ejecución, verifica:
+
+- la cola de acciones ;
+- la actividad del proyecto ;
+- el **Trace ID** si se muestra ;
+- el **Journal IA** si el flujo se refleja allí ;
+- la presencia del artefacto, ticket o mensaje en la herramienta objetivo.
+
+## Cómo leer los estados de acción
+
+| Estado | Qué significa |
+| --- | --- |
+| `draft` | la solicitud aún es preparatoria |
+| `pending approval` | la aprobación se espera antes de la continuación real |
+| `approved` | la solicitud fue aceptada |
+| `executed` | la acción se lanzó realmente |
+| `rejected` | la solicitud fue rechazada |
+| `failed` | la acción se lanzó pero no tuvo éxito |
+| `cancelled` | la solicitud fue cancelada |
+
+## Ejemplo paso a paso — publicación de un artefacto a SharePoint
+
+### Situación
+
+El equipo revisó un **brief semanal** y quiere publicarlo en SharePoint.
+
+### Camino
+
+1. abrir **Acciones y aprobaciones** ;
+2. elegir **Publish artifact to SharePoint** ;
+3. seleccionar una opción **SharePoint publish** saludable ;
+4. rellenar el **título** de la acción ;
+5. añadir una **justificación**, por ejemplo: « versión revisada y aprobada para difusión semanal » ;
+6. rellenar el **artifact ID** ;
+7. elegir el **destino SharePoint** ;
+8. elegir el **perfil de renderizado** o el **formato** si se solicita ;
+9. proponer la acción ;
+10. si la política lo exige, esperar la aprobación ;
+11. ejecutar ;
+12. comprobar que el artefacto esté publicado en SharePoint y trazado en ProPM Agent.
+
+## Ejemplo paso a paso — crear un ticket Jira
+
+### Situación
+
+Una señal indica un bloqueo recurrente con impacto en la planificación.
+
+### Camino
+
+1. abrir **Acciones y aprobaciones** ;
+2. elegir **Create Jira ticket** ;
+3. seleccionar un conector Jira disponible ;
+4. introducir un título claro, por ejemplo: « Bloqueo del proveedor en lote crítico » ;
+5. completar la **descripción** del ticket ;
+6. añadir la **justificación** y las pruebas útiles ;
+7. proponer la solicitud ;
+8. dejar que el aprobador revise si la política exige `require_approval` ;
+9. ejecutar ;
+10. verificar luego la referencia externa o el ticket creado.
+
+## Ejemplo paso a paso — enviar un mensaje Teams o Outlook
+
+### Situación
+
+El proyecto debe informar a un grupo interno o a un patrocinador de una revisión terminada.
+
+### Camino Teams
+
+1. elegir **Send Teams message** ;
+2. seleccionar el conector Teams autorizado ;
+3. redactar un mensaje corto y comprensible ;
+4. añadir la justificación si el flujo está gobernado ;
+5. proponer, aprobar si es necesario, luego ejecutar.
+
+### Camino Outlook
+
+1. elegir **Send Outlook message** ;
+2. seleccionar el conector Outlook ;
+3. rellenar los **destinatarios** ;
+4. completar el **asunto** y el **cuerpo** del mensaje ;
+5. proponer, aprobar si es necesario, luego ejecutar.
+
+### Diferencia práctica
+
+- **Teams** es adecuado para una comunicación colaborativa interna ;
+- **Outlook** es más apropiado para una comunicación formal y dirigida.
+
+## Ejemplo paso a paso — webhook a una herramienta externa
+
+### Situación
+
+La empresa quiere disparar un flujo interno a una herramienta propia.
+
+### Camino
+
+1. elegir el tipo de acción o flujo relacionado con el **Webhook** ;
+2. seleccionar la opción de ejecución webhook compatible ;
+3. rellenar el título y la justificación ;
+4. completar los datos útiles al sistema objetivo ;
+5. proponer la solicitud ;
+6. aprobar si la política lo exige ;
+7. ejecutar ;
+8. controlar el resultado en el sistema objetivo y en el audit de ProPM Agent.
 
 ## Por qué una acción puede ser visible pero no ejecutable
 
-Una acción puede aparecer en la interfaz pero permanecer bloqueada si:
+Una acción puede ser visible en la interfaz pero permanecer bloqueada si:
 
-- usted no tiene el derecho requerido;
-- el conector compatible no está listo;
-- el enlace del proyecto limita la acción;
-- el plan o el entitlement bloquea la capacidad;
-- aún se espera una aprobación.
+- el conector compatible no está saludable ;
+- el proyecto no dispone del binding correcto ;
+- la política del proyecto prohíbe ese nivel de acción ;
+- tu rol no permite proponer o ejecutar ;
+- una aprobación aún está pendiente ;
+- la capacidad o el plan bloquea el flujo.
 
-## Vínculo con las integraciones
+## Qué hacer si no aparece ninguna opción de ejecución
 
-Una regla importante surge de la aplicación:
+Sigue este orden:
 
-- el **nivel proyecto** decide cómo trabaja el proyecto;
-- el **nivel plataforma** decide qué herramientas, proveedores e integraciones existen realmente.
+1. verifica primero **Políticas de gobernanza** ;
+2. verifica luego **Integraciones del proyecto** ;
+3. abre después **Administración de la plataforma** ;
+4. controla finalmente la **entitlement**, la **permission** y el estado de salud del conector.
 
-En la práctica, si una acción o notificación está bloqueada, verifique primero el **enlace del proyecto**, luego la definición técnica en **Administración de la plataforma**.
+## Escenario completo — de la señal a la acción ejecutada
 
-## Ejemplo de escenario completo
+### Caso simple
 
-1. una señal `open` eleva una discrepancia de actualidad o un seguimiento atrasado;
-2. el equipo relee la explicación, las evidencias y los próximos pasos sugeridos;
-3. crea un **draft** o genera un **digest** para preparar la síntesis;
-4. un borrador de notificación es revisado, enviado en `in_app` o dejado en espera si el canal externo permanece gobernado;
-5. si un seguimiento externo es necesario, se propone una acción en **Actions & approvals**;
-6. la cola de aprobación, el **Trace ID**, los artefactos vinculados y el **Registro de IA** sirven luego como rastro común.
+1. una señal `open` indica un bloqueo ;
+2. el equipo lee el resumen, la explicación y las pruebas ;
+3. decide que se necesita un ticket Jira ;
+4. la política permite al **Jefe de proyecto** `propose` pero exige `require_approval` ;
+5. el Jefe de proyecto crea la solicitud en **Acciones y aprobaciones** ;
+6. el **Propietario del proyecto** aprueba ;
+7. la acción pasa a **executed** ;
+8. el ticket externo y la traza interna permanecen alineados.
 
-## Buenas prácticas de gobernanza
+Este escenario resume bien la lógica del producto: **ver, decidir, controlar, ejecutar, trazar**.
 
-- trate las señales como una cola de priorización, no como una simple lista;
-- no ejecute una acción externa sin verificar el artefacto o la evidencia fuente;
-- utilice las categorías documentales para reducir la ambigüedad de las fuentes;
-- mantenga la política de gobernanza coherente con los roles realmente asignados;
-- documente los arbitrajes importantes en los entregables o en el flujo de validación asociado.
+## Buenas prácticas
 
-## Continuación
+- nunca confundas **borrador** y **ejecución real** ;
+- usa las políticas para limitar salidas sensibles ;
+- solicita aprobación tan pronto como un contenido salga del proyecto o modifique un sistema externo ;
+- verifica siempre las pruebas antes de proponer una acción ;
+- usa el **Journal IA** y la cola de acciones como referencia común de auditoría.
 
+## Siguiente
+
+- [Conectores y integraciones](./connecteurs-jira-et-sharepoint)
 - [Informes, registro de IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md)
 - [Portafolio y administración técnica](./portefeuille-et-administration-technique.md)
-- [Mantenimiento, soporte y preguntas frecuentes](./maintenance-support-faq.md)
+- [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md)

@@ -86,7 +86,7 @@ Fournisseur réellement utilisé pour un run donné. C’est la valeur de réfé
 
 **Entitlement**
 
-Capacité commerciale ou technique autorisée par le plan, pouvant débloquer ou bloquer un connecteur, un provider ou une fonctionnalité premium.
+Capacité commerciale ou technique autorisée par le plan, pouvant débloquer ou bloquer un connecteur, un fournisseur ou une fonctionnalité premium.
 
 **Événement d’activité**
 
@@ -122,7 +122,7 @@ Source technique permettant d’importer du contenu vers la Connaissance.
 
 **Health / état de santé**
 
-Indication de disponibilité ou de dégradation appliquée à un connecteur, un provider ou au panneau de santé global.
+Indication de disponibilité ou d’état à vérifier appliquée à un connecteur, un fournisseur ou au panneau de santé global.
 
 **Held**
 
@@ -146,13 +146,13 @@ Chaîne de traçabilité reliant un run, une sortie structurée, un artefact, un
 
 **LLM deployment name**
 
-Nom exact du déploiement LLM attendu par certains providers, notamment Azure OpenAI, dans l’administration de la plateforme.
+Nom exact du déploiement LLM attendu par certains fournisseurs, notamment Azure OpenAI, dans l’administration de la plateforme.
 
 ## O
 
 **Operational**
 
-Statut indiquant qu’un provider peut être considéré comme exploitable après configuration, validation et test réussis.
+Statut indiquant qu’un fournisseur peut être considéré comme exploitable après configuration, validation et test réussis.
 
 ## P
 
@@ -216,7 +216,7 @@ Page d’orientation qui expose l’état général, les métriques et les proch
 
 **Test**
 
-Contrôle de connectivité exécuté après validation d’un provider afin de confirmer que la plateforme peut réellement l’utiliser.
+Contrôle de connectivité exécuté après validation d’un fournisseur afin de confirmer que la plateforme peut réellement l’utiliser.
 
 **Trace ID**
 
@@ -226,7 +226,7 @@ Identifiant technique d’un run ou d’un événement, indispensable pour l’i
 
 **Validate / validation**
 
-Étape administrative qui vérifie la cohérence d’une configuration avant le test de connectivité ou l’activation d’un provider.
+Étape administrative qui vérifie la cohérence d’une configuration avant le test de connectivité ou l’activation d’un fournisseur.
 
 **Version d’artefact**
 
