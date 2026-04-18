@@ -1,5 +1,6 @@
 ---
 title: Guide utilisateur ProPM Agent
+pagination_label: Accueil
 slug: /
 description: "Documentation utilisateur française pour ProPM Agent, couvrant l’exécution de projet assistée par IA, la gouvernance, les connecteurs, la traçabilité et le déploiement Azure Marketplace."
 ---

@@ -6,7 +6,7 @@ description: Voraussetzungen, Zugriff, Authentifizierung und erste Konfiguration
 
 [Startseite](./index.md) · [Azure Marketplace‑Bereitstellung](./deploiement-azure-marketplace.md) · [Benutzeroberfläche und Navigation](./interface-et-navigation.md)
 
-![Projektverzeichnis](/img/screenshots/localized/fr/07-projects-directory.png)
+![Projektverzeichnis](/img/screenshots/localized/de/07-projects-directory.png)
 
 ## Ziel
 
@@ -86,7 +86,7 @@ Das in der Anwendung beobachtete Formular bietet die folgenden Felder:
 - **Standard‑Daten­sprache**;
 - **Zusätzliche Daten­sprachen**.
 
-![Projekt-Erstellungsfenster](/img/screenshots/localized/fr/07-project-create-modal.png)
+![Projekt-Erstellungsfenster](/img/screenshots/localized/de/07-project-create-modal.png)
 
 ### Wichtiger Punkt
 

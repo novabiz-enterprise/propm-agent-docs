@@ -1,0 +1,50 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Jira SharePoint वर्कफ़्लो</title>
+  <desc id="desc">प्लेटफ़ॉर्म प्रशासन से प्रोजेक्ट इंटीग्रेशन, गवर्नेंस और एक्शन तक।</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/></marker>
+  </defs>
+  <style>
+    .bg { fill: #f8fafc; }
+    .box1 { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2; }
+    .box2 { fill: #e0e7ff; stroke: #4338ca; stroke-width: 2; }
+    .box3 { fill: #dcfce7; stroke: #15803d; stroke-width: 2; }
+    .box4 { fill: #fef3c7; stroke: #b45309; stroke-width: 2; }
+    .text { font: 700 20px "Noto Sans Devanagari", Arial, sans-serif; fill: #0f172a; }
+    .sub { font: 400 15px "Noto Sans Devanagari", Arial, sans-serif; fill: #334155; }
+    .line { stroke: #0f172a; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+  </style>
+  <rect class="bg" x="0" y="0" width="1200" height="520"/>
+  <rect class="box1" x="40" y="190" width="240" height="120" rx="18"/>
+  <text class="text" x="160" y="228" text-anchor="middle">प्लेटफ़ॉर्म</text>
+  <text class="text" x="160" y="258" text-anchor="middle">प्रशासन</text>
+  <text class="sub" x="160" y="288" text-anchor="middle">परिभाषा, सत्यापन, स्वास्थ्य</text>
+
+  <rect class="box2" x="350" y="90" width="220" height="110" rx="18"/>
+  <text class="text" x="460" y="132" text-anchor="middle">Jira</text>
+  <text class="sub" x="460" y="162" text-anchor="middle">आयात या टिकट</text>
+
+  <rect class="box3" x="350" y="320" width="220" height="110" rx="18"/>
+  <text class="text" x="460" y="362" text-anchor="middle">SharePoint</text>
+  <text class="sub" x="460" y="392" text-anchor="middle">आयात या प्रकाशन</text>
+
+  <rect class="box1" x="650" y="190" width="230" height="120" rx="18"/>
+  <text class="text" x="765" y="228" text-anchor="middle">प्रोजेक्ट</text>
+  <text class="text" x="765" y="258" text-anchor="middle">इंटीग्रेशन</text>
+  <text class="sub" x="765" y="288" text-anchor="middle">binding, entitlement, health</text>
+
+  <rect class="box4" x="950" y="110" width="210" height="110" rx="18"/>
+  <text class="text" x="1055" y="152" text-anchor="middle">गवर्नेंस</text>
+  <text class="text" x="1055" y="182" text-anchor="middle">नीतियाँ</text>
+
+  <rect class="box4" x="950" y="300" width="210" height="110" rx="18"/>
+  <text class="text" x="1055" y="342" text-anchor="middle">एक्शन और</text>
+  <text class="text" x="1055" y="372" text-anchor="middle">अनुमोदन</text>
+
+  <path class="line" d="M280 250 L350 145"/>
+  <path class="line" d="M280 250 L350 375"/>
+  <path class="line" d="M570 145 L650 225"/>
+  <path class="line" d="M570 375 L650 275"/>
+  <path class="line" d="M880 225 L950 165"/>
+  <path class="line" d="M880 275 L950 355"/>
+</svg>

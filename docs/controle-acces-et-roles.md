@@ -6,7 +6,7 @@ description: Manage members, delegate project roles and understand the RBAC safe
 
 [Home](./index.md) · [Projects and workspace](./projets-et-espace-de-travail.md) · [Maintenance, support and FAQ](./maintenance-support-faq.md)
 
-![Creator delegation and RBAC roles](/img/diagrams/fr/delegation-createur-rbac.svg)
+![Creator delegation and RBAC roles](/img/diagrams/en/delegation-createur-rbac.svg)
 
 ## Goal
 
@@ -109,7 +109,7 @@ The exposed permissions include, notably:
 
 This table mainly serves to read the interface behavior correctly: an absent or greyed action often indicates a missing permission.
 
-![Custom role editor](/img/screenshots/localized/fr/11-custom-role-editor.png)
+![Custom role editor](/img/screenshots/localized/en/11-custom-role-editor.png)
 
 ## What you see on the page
 

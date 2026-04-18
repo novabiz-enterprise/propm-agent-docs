@@ -100,13 +100,12 @@ In the current form version, the **region** is no longer selected in this tab. I
 
 The **LLM Provider** field is not only for Azure OpenAI. It allows choosing one of the AI providers visible in the product.
 
-### The 5 cases to know
+### The 4 cases to know
 
 | AI Provider | When to choose | Main advantage | What you decide during deployment | What you finish in the administration |
 | --- | --- | --- | --- | --- |
 | **Azure OpenAI** | if the client’s environment is already centered on Azure, Entra, private network and Microsoft governance | natural integration into the Azure ecosystem | you choose Azure OpenAI as the target provider | you provide the endpoint, API version, authentication mode and especially the **LLM deployment name** |
 | **OpenAI** | if the client wants to use the OpenAI platform directly | simple, direct configuration | you choose OpenAI as the target provider | you complete the URL used, the API key or secret reference, the default model, then validate and activate |
-| **Anthropic** | if the client wants to use Claude models for document or synthesis use cases | good choice for text‑centric workflows | you choose Anthropic as the target provider | you complete the connection, secret reference and default model, then validate and activate |
 | **OpenRouter** | if the client wants to compare several model families via a single entry point | one connection for multiple models and routing scenarios | you choose OpenRouter as the target provider | you complete the Base URL, API key and default model, then validate and activate |
 | **OpenAI‑compatible** | if the client uses a partner gateway, a corporate endpoint or a self‑hosted runtime | allows connecting a compatible implementation without changing the product | you choose OpenAI‑compatible as the target provider | you complete the exact endpoint, authentication and expected model or deployment |
 
@@ -196,31 +195,7 @@ In **AI Provider Settings**, then complete:
 
 The end user does not need to see these settings. What matters is that the administrator has confirmed connectivity and the actually used model.
 
-## Case 3 — Anthropic
-
-### When this choice is relevant
-
-Choose **Anthropic** when the client prefers Claude models, especially for synthesis, context reading and document work.
-
-### Practical advantages
-
-- good positioning for text‑centric workflows;
-- clear administration when the organization already knows it wants this model family.
-
-### What you decide during deployment
-
-During Marketplace, you indicate that **Anthropic** is the target provider.
-
-### What still needs to be done after installation
-
-In **AI Provider Settings**, complete:
-
-- the **connection** to the provider;
-- the **secret** or secret reference;
-- the **default model**;
-- then launch **Save → Validate → Test → Activate**.
-
-## Case 4 — OpenRouter
+## Case 3 — OpenRouter
 
 ### When this choice is relevant
 
@@ -249,7 +224,7 @@ In **AI Provider Settings**, then complete:
 
 A client wants to start quickly, compare several models and then stabilize their choice later. **OpenRouter** is then a good candidate for an initial framing phase.
 
-## Case 5 — OpenAI‑compatible
+## Case 4 — OpenAI‑compatible
 
 ### When this choice is relevant
 

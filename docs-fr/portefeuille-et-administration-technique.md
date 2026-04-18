@@ -382,7 +382,6 @@ Les familles de fournisseurs visibles dans le produit comprennent notamment :
 - **OpenAI-compatible** ;
 - **OpenAI** ;
 - **Azure OpenAI** ;
-- **Anthropic**.
 
 ### Quand choisir chaque fournisseur
 
@@ -392,7 +391,6 @@ Les familles de fournisseurs visibles dans le produit comprennent notamment :
 | **OpenAI-compatible** | quand le client utilise une gateway ou un endpoint compatible | endpoint exact, auth, clé ou secret, modèle attendu |
 | **OpenAI** | quand le client utilise directement OpenAI | URL, clé ou secret, modèle par défaut |
 | **Azure OpenAI** | quand le client est centré sur Azure et veut choisir ses déploiements Azure OpenAI | endpoint, version API, auth mode, nom de déploiement LLM |
-| **Anthropic** | quand le client préfère les modèles Claude | connexion, secret, modèle par défaut |
 
 ### Comment lire les statuts d’un fournisseur IA
 

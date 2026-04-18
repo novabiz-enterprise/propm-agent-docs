@@ -6,7 +6,7 @@ description: Verstehen Sie die Portfolio-Seite Schritt für Schritt, lesen Sie d
 
 [Startseite](./index.md) · [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md) · [Wartung, Support und FAQ](./maintenance-support-faq.md)
 
-![Portfolio-Befehlszentrale](/img/screenshots/localized/fr/02-portfolio-command-center.png)
+![Portfolio-Befehlszentrale](/img/screenshots/localized/de/02-portfolio-command-center.png)
 
 ## Ziel
 
@@ -140,7 +140,7 @@ Eine Kohorte speichert:
 - die Schwellenwerte;
 - die minimale Schwere.
 
-![Portfolio-Kohorteneditor](/img/screenshots/localized/fr/02-portfolio-cohort-editor.png)
+![Portfolio-Kohorteneditor](/img/screenshots/localized/de/02-portfolio-cohort-editor.png)
 
 ### Schritt 8 – Vergleich starten oder aktualisieren
 
@@ -329,7 +329,7 @@ Hier konfigurieren Sie insbesondere:
 - das **Abonnement** und die **Sitze**;
 - das **Aktivitätsaudit**.
 
-![Plattformverwaltung](/img/screenshots/localized/fr/18-platform-administration-overview.png)
+![Plattformverwaltung](/img/screenshots/localized/de/18-platform-administration-overview.png)
 
 ## Sichtbare Abschnitte
 
@@ -382,7 +382,6 @@ Die sichtbaren Anbieterfamilien im Produkt umfassen unter anderem:
 - **OpenAI-compatible**;
 - **OpenAI**;
 - **Azure OpenAI**;
-- **Anthropic**.
 
 ### Wann welcher Anbieter gewählt wird
 
@@ -392,7 +391,6 @@ Die sichtbaren Anbieterfamilien im Produkt umfassen unter anderem:
 | **OpenAI-compatible** | wenn der Kunde eine Gateway‑ oder kompatible Endpoint nutzt | exakter Endpoint, Auth, Schlüssel oder Secret, erwartetes Modell |
 | **OpenAI** | wenn der Kunde direkt OpenAI nutzt | URL, Schlüssel oder Secret, Standardmodell |
 | **Azure OpenAI** | wenn der Kunde Azure‑zentriert ist und Azure OpenAI‑Deployments wählen möchte | Endpoint, API‑Version, Auth‑Modus, LLM‑Deployment‑Name |
-| **Anthropic** | wenn der Kunde die Claude‑Modelle bevorzugt | Verbindung, Secret, Standardmodell |
 
 ### Status eines KI‑Anbieters lesen
 

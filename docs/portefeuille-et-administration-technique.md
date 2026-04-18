@@ -6,7 +6,7 @@ description: Understand the Portfolio page step by step, read cohorts and outlie
 
 [Home](./index.md) · [Reports, AI Log and Traceability](./rapports-journal-ia-et-tracabilite.md) · [Maintenance, Support and FAQ](./maintenance-support-faq.md)
 
-![Portfolio command center](/img/screenshots/localized/fr/02-portfolio-command-center.png)
+![Portfolio command center](/img/screenshots/localized/en/02-portfolio-command-center.png)
 
 ## Objective
 
@@ -140,7 +140,7 @@ A cohort remembers:
 - the thresholds;
 - the minimum severity.
 
-![Portfolio cohort editor](/img/screenshots/localized/fr/02-portfolio-cohort-editor.png)
+![Portfolio cohort editor](/img/screenshots/localized/en/02-portfolio-cohort-editor.png)
 
 ### Step 8 — Run or refresh the comparison
 
@@ -329,7 +329,7 @@ Here you configure, in particular:
 - the **subscription** and **seats**;
 - the **activity audit**.
 
-![Platform administration](/img/screenshots/localized/fr/18-platform-administration-overview.png)
+![Platform administration](/img/screenshots/localized/en/18-platform-administration-overview.png)
 
 ## Visible sections
 
@@ -382,7 +382,6 @@ The provider families visible in the product include, among others:
 - **OpenAI-compatible**;
 - **OpenAI**;
 - **Azure OpenAI**;
-- **Anthropic**.
 
 ### When to choose each provider
 
@@ -392,7 +391,6 @@ The provider families visible in the product include, among others:
 | **OpenAI-compatible** | when the client uses a gateway or a compatible endpoint | exact endpoint, auth, key or secret, expected model |
 | **OpenAI** | when the client uses OpenAI directly | URL, key or secret, default model |
 | **Azure OpenAI** | when the client is centered on Azure and wants to choose its Azure OpenAI deployments | endpoint, API version, auth mode, LLM deployment name |
-| **Anthropic** | when the client prefers Claude models | connection, secret, default model |
 
 ### How to read an AI provider’s status
 

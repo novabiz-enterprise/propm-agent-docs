@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "अगला",
+    "description": "The label for version current"
+  },
+  "sidebar.guide.category.Getting Started": {
+    "message": "शुरुआत",
+    "description": "The label for category 'Getting Started' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Project Work": {
+    "message": "प्रोजेक्ट कार्य",
+    "description": "The label for category 'Project Work' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Portfolio and Administration": {
+    "message": "पोर्टफोलियो और प्रशासन",
+    "description": "The label for category 'Portfolio and Administration' in sidebar 'guide'"
+  },
+  "sidebar.guide.doc.Home": {
+    "message": "मुखपृष्ठ",
+    "description": "The label for the doc item 'Home' in sidebar 'guide', linking to the doc index"
+  },
+  "sidebar.guide.doc.Glossary": {
+    "message": "शब्दकोश",
+    "description": "The label for the doc item 'Glossary' in sidebar 'guide', linking to the doc glossaire"
+  }
+}

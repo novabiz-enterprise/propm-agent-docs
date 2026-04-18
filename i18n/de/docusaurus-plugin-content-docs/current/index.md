@@ -1,5 +1,6 @@
 ---
 title: Benutzerhandbuch ProPM Agent
+pagination_label: Startseite
 slug: /
 description: "Benutzerhandbuch für ProPM Agent, das die KI-gestützte Projektumsetzung, Governance, Connectoren, Nachvollziehbarkeit und Azure Marketplace-Deployment abdeckt."
 ---
@@ -15,7 +16,7 @@ Sie ist für zwei Zielgruppen strukturiert:
 - **Geschäftsanwender**, die in einem Projekt arbeiten;
 - **Technische Administratoren**, die Zugriff, Integrationen, den KI-Anbieter, das Abonnement und die Überwachung verwalten.
 
-![Übersicht der Anwendung](/img/screenshots/localized/fr/01-dashboard.png)
+![Übersicht der Anwendung](/img/screenshots/localized/de/01-dashboard.png)
 
 ## Ich suche die richtige Seite schnell
 

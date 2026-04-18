@@ -100,13 +100,12 @@ In der aktuellen Version des Formulars wird die **Region** nicht mehr in diesem 
 
 Das Feld **LLM Provider** dient nicht nur für Azure OpenAI. Es ermöglicht die Auswahl eines der KI-Anbieter, die im Produkt sichtbar sind.
 
-### Die 5 Fälle, die Sie kennen sollten
+### Die 4 Fälle, die Sie kennen sollten
 
 | KI-Anbieter | Wann wählen | Hauptvorteil | Was Sie während der Bereitstellung entscheiden | Was Sie anschließend in der Verwaltung abschließen |
 | --- | --- | --- | --- | --- |
 | **Azure OpenAI** | wenn die Kundengruppe bereits stark in Azure, Entra, Netzwerk und Microsoft‑Governance ist | natürliche Integration in das Azure‑Ökosystem | wählen Sie Azure OpenAI als Zielanbieter | geben Sie den Endpunkt, die API‑Version, das Authentifizierungs‑Modell und insbesondere den **LLM deployment name** ein |
 | **OpenAI** | wenn der Kunde die OpenAI-Plattform direkt nutzen möchte | einfacher, direkter Ablauf | wählen Sie OpenAI als Zielanbieter | ergänzen Sie die verwendete URL, den Schlüssel oder die Secret‑Referenz, das Standardmodell und validieren und aktivieren |
-| **Anthropic** | wenn der Kunde Claude‑Modelle für Dokumentensynthese oder Kontext‑Lesung bevorzugt | gute Wahl für text‑ und dokumentenorientierte Workflows | wählen Sie Anthropic als Zielanbieter | ergänzen Sie die Verbindung, das Secret und das Standardmodell, dann **Save → Validate → Test → Activate** |
 | **OpenRouter** | wenn der Kunde mehrere Modellfamilien über einen einzigen Einstiegspunkt vergleichen möchte | ein einziger Anschluss für mehrere Modelle und Routings | wählen Sie OpenRouter als Zielanbieter | ergänzen Sie die Basis‑URL, den API‑Schlüssel oder die Secret‑Referenz, das Standardmodell, dann **Save → Validate → Test → Activate** |
 | **OpenAI-compatible** | wenn der Kunde einen kompatiblen Endpoint nutzt, z. B. eine Unternehmens‑Gateway oder ein selbst‑gehostetes Runtime | ermöglicht die Anbindung eines kompatiblen Anbieters ohne Produktänderung | wählen Sie OpenAI-compatible als Zielanbieter | ergänzen Sie die genaue URL, die Authentifizierung und das erwartete Modell oder Deployment |
 
@@ -196,31 +195,7 @@ In **KI-Anbieter-Einstellungen** ergänzen Sie anschließend:
 
 Der Endbenutzer muss diese Einstellungen nicht sehen. Was für ihn zählt, ist, dass der Administrator die Konnektivität und das tatsächlich genutzte Modell bestätigt hat.
 
-## Fall 3 — Anthropic
-
-### Wann diese Wahl sinnvoll ist
-
-Wählen Sie **Anthropic**, wenn der Kunde die Claude‑Modelle bevorzugt, insbesondere für Synthese, Kontext‑Lesung und dokumentarische Arbeit.
-
-### Praktische Vorteile
-
-- gute Positionierung für text‑ und dokumentenorientierte Workflows;  
-- klare Verwaltung, wenn die Organisation bereits weiß, dass sie diese Modellfamilie nutzen will.
-
-### Was Sie während der Bereitstellung entscheiden
-
-Während Marketplace geben Sie an, dass **Anthropic** der Zielanbieter der Umgebung ist.
-
-### Was noch nach der Installation zu erledigen ist
-
-In **KI-Anbieter-Einstellungen** ergänzen Sie:
-
-- die **Verbindung** zum Anbieter;  
-- das **Secret** oder die Secret‑Referenz;  
-- das **Standardmodell**;  
-- dann **Save → Validate → Test → Activate**.
-
-## Fall 4 — OpenRouter
+## Fall 3 — OpenRouter
 
 ### Wann diese Wahl sinnvoll ist
 
@@ -249,7 +224,7 @@ In **KI-Anbieter-Einstellungen** ergänzen Sie anschließend:
 
 Ein Kunde möchte schnell starten, mehrere Modelle vergleichen und später seine Wahl stabilisieren. **OpenRouter** ist dann ein guter Kandidat für eine erste Phase der Planung.
 
-## Fall 5 — OpenAI-compatible
+## Fall 4 — OpenAI-compatible
 
 ### Wann diese Wahl sinnvoll ist
 

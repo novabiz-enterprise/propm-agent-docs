@@ -1,5 +1,6 @@
 ---
 title: शब्दकोश
+pagination_label: "शब्दकोश"
 slug: /glossaire
 description: ProPM Agent में उपयोग किए जाने वाले प्रमुख शब्दों की सुसंगत परिभाषाएँ।
 ---

@@ -6,7 +6,7 @@ description: Understand the main screens, the sidebar, the top bar, and the dash
 
 [Home](./index.md) · [Getting started](./demarrage.md) · [Projects and workspace](./projets-et-espace-de-travail.md)
 
-![ProPM Agent Dashboard](/img/screenshots/localized/fr/01-dashboard.png)
+![ProPM Agent Dashboard](/img/screenshots/localized/en/01-dashboard.png)
 
 ## Goal
 
@@ -70,7 +70,7 @@ Dashboard scores and indicators should be read as **prioritization cues**, not a
 4. open the **AI Log** if doubt concerns a run, an output or the actual provider used;
 5. if the dashboard loads but calls for additional verification, open the **Health indicator** before concluding on the displayed data.
 
-![Top bar and global navigation](/img/screenshots/localized/fr/01-navigation-topbar.png)
+![Top bar and global navigation](/img/screenshots/localized/en/01-navigation-topbar.png)
 
 ## Top bar
 

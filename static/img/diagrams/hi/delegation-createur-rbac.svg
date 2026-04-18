@@ -1,0 +1,51 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">निर्माता RBAC प्रतिनिधि</title>
+  <desc id="desc">परियोजना निर्माता प्रारंभिक अधिकार पाता है और फिर भूमिकाएँ सौंपता है।</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/></marker>
+  </defs>
+  <style>
+    .bg { fill: #f8fafc; }
+    .b1 { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2; }
+    .b2 { fill: #e0e7ff; stroke: #4338ca; stroke-width: 2; }
+    .b3 { fill: #dcfce7; stroke: #15803d; stroke-width: 2; }
+    .t { font: 700 20px "Noto Sans Devanagari", Arial, sans-serif; fill: #0f172a; }
+    .s { font: 400 15px "Noto Sans Devanagari", Arial, sans-serif; fill: #334155; }
+    .l { stroke: #0f172a; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+  </style>
+  <rect class="bg" x="0" y="0" width="1200" height="500"/>
+  <rect class="b1" x="60" y="190" width="230" height="120" rx="18"/>
+  <text class="t" x="175" y="232" text-anchor="middle">परियोजना</text>
+  <text class="t" x="175" y="262" text-anchor="middle">निर्माता</text>
+  <text class="s" x="175" y="292" text-anchor="middle">पूर्ण प्रारंभिक अधिकार</text>
+
+  <rect class="b2" x="360" y="190" width="230" height="120" rx="18"/>
+  <text class="t" x="475" y="232" text-anchor="middle">एक्सेस</text>
+  <text class="t" x="475" y="262" text-anchor="middle">नियंत्रण</text>
+  <text class="s" x="475" y="292" text-anchor="middle">भूमिकाएँ और अनुमतियाँ</text>
+
+  <rect class="b3" x="670" y="70" width="220" height="100" rx="18"/>
+  <text class="t" x="780" y="112" text-anchor="middle">स्वामी</text>
+  <text class="s" x="780" y="142" text-anchor="middle">प्रशासन निरंतरता</text>
+
+  <rect class="b3" x="670" y="200" width="220" height="100" rx="18"/>
+  <text class="t" x="780" y="242" text-anchor="middle">परियोजना प्रबंधक</text>
+  <text class="s" x="780" y="272" text-anchor="middle">दैनिक संचालन</text>
+
+  <rect class="b3" x="670" y="330" width="220" height="100" rx="18"/>
+  <text class="t" x="780" y="372" text-anchor="middle">योगदानकर्ता</text>
+  <text class="s" x="780" y="402" text-anchor="middle">निर्माण और समीक्षा</text>
+
+  <rect class="b1" x="960" y="190" width="180" height="120" rx="18"/>
+  <text class="t" x="1050" y="232" text-anchor="middle">गवर्नेंस</text>
+  <text class="t" x="1050" y="262" text-anchor="middle">और प्रोजेक्ट</text>
+  <text class="s" x="1050" y="292" text-anchor="middle">संरेखित उपयोग</text>
+
+  <path class="l" d="M290 250 L360 250"/>
+  <path class="l" d="M590 250 L670 120"/>
+  <path class="l" d="M590 250 L670 250"/>
+  <path class="l" d="M590 250 L670 380"/>
+  <path class="l" d="M890 120 L960 220"/>
+  <path class="l" d="M890 250 L960 250"/>
+  <path class="l" d="M890 380 L960 280"/>
+</svg>

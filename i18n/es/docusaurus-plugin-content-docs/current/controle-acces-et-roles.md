@@ -6,7 +6,7 @@ description: Administrar los miembros, delegar los roles de proyecto y comprende
 
 [Inicio](./index.md) · [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md) · [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md)
 
-![Delegación del creador y roles de proyecto](/img/diagrams/fr/delegation-createur-rbac.svg)
+![Delegación del creador y roles de proyecto](/img/diagrams/es/delegation-createur-rbac.svg)
 
 ## Objetivo
 
@@ -107,7 +107,7 @@ Los permisos expuestos incluyen, entre otros:
 | `members:manage` | zona **Miembros** en **Control de acceso** | imposible añadir, eliminar o cambiar un miembro |
 | `roles:manage` | roles personalizados y sus permisos | imposible crear, ajustar o eliminar un rol personalizado |
 
-![Editor de rol personalizado](/img/screenshots/localized/fr/11-custom-role-editor.png)
+![Editor de rol personalizado](/img/screenshots/localized/es/11-custom-role-editor.png)
 
 ## Lo que ves en la página
 

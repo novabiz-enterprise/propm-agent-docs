@@ -6,7 +6,7 @@ description: Verwalten Sie Mitglieder, delegieren Sie Projektrollen und verstehe
 
 [Startseite](./index.md) · [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md) · [Wartung, Support und FAQ](./maintenance-support-faq.md)
 
-![Delegation des Erstellers und Projektrollen](/img/diagrams/fr/delegation-createur-rbac.svg)
+![Delegation des Erstellers und Projektrollen](/img/diagrams/de/delegation-createur-rbac.svg)
 
 ## Ziel
 
@@ -109,7 +109,7 @@ Die exponierten Berechtigungen umfassen unter anderem:
 
 Diese Tabelle dient vor allem dazu, das Verhalten der Oberfläche korrekt zu lesen: Eine fehlende oder ausgegraute Aktion deutet oft auf eine nicht gewährte Berechtigung hin.
 
-![Editor für benutzerdefinierte Rollen](/img/screenshots/localized/fr/11-custom-role-editor.png)
+![Editor für benutzerdefinierte Rollen](/img/screenshots/localized/de/11-custom-role-editor.png)
 
 ## Was Sie auf der Seite sehen
 

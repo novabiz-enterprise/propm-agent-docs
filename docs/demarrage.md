@@ -6,7 +6,7 @@ description: Prerequisites, access, authentication and first configuration.
 
 [Home](./index.md) · [Azure Marketplace Deployment](./deploiement-azure-marketplace.md) · [Interface and navigation](./interface-et-navigation.md)
 
-![Projects directory](/img/screenshots/localized/fr/07-projects-directory.png)
+![Projects directory](/img/screenshots/localized/en/07-projects-directory.png)
 
 ## Goal
 
@@ -86,7 +86,7 @@ The form observed in the application offers the following fields:
 - **Default data language**;
 - **Additional data languages**.
 
-![Project creation window](/img/screenshots/localized/fr/07-project-create-modal.png)
+![Project creation window](/img/screenshots/localized/en/07-project-create-modal.png)
 
 ### Important point
 

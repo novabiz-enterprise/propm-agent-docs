@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "ProPM Agent",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "ProPM Agent",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Marketplace": {
+    "message": "Marketplace Azure",
+    "description": "Navbar item with label Marketplace"
+  }
+}

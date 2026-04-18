@@ -6,7 +6,7 @@ description: एक परियोजना बनाना, प्रारं
 
 [होम](./index.md) · [इंटरफ़ेस और नेविगेशन](./interface-et-navigation.md) · [पहुँच नियंत्रण और परियोजना भूमिकाएँ](./controle-acces-et-roles.md)
 
-![परियोजना कार्यक्षेत्र अवलोकन](/img/screenshots/localized/fr/03-workspace-overview.png)
+![परियोजना कार्यक्षेत्र अवलोकन](/img/screenshots/localized/hi/03-workspace-overview.png)
 
 ## उद्देश्य
 
@@ -127,7 +127,7 @@ description: एक परियोजना बनाना, प्रारं
 - लेखक ;
 - संबंधित `Trace ID`.
 
-![परियोजना स्तर पर एजेंट सेटिंग्स](/img/screenshots/localized/fr/12-agent-configuration.png)
+![परियोजना स्तर पर एजेंट सेटिंग्स](/img/screenshots/localized/hi/12-agent-configuration.png)
 
 ## पहुँच नियंत्रण
 
@@ -164,7 +164,7 @@ description: एक परियोजना बनाना, प्रारं
 
 उद्देश्य दस्तावेज़ संस्करण को श्रेणी में एन्कोड करना नहीं है, बल्कि **Connaissance** और **Documents PM** के बीच पुन: उपयोग योग्य वर्गीकरण बनाए रखना है।
 
-![परियोजना दस्तावेज़ श्रेणियाँ](/img/screenshots/localized/fr/13-document-categories.png)
+![परियोजना दस्तावेज़ श्रेणियाँ](/img/screenshots/localized/hi/13-document-categories.png)
 
 ## शासन नीतियाँ
 
@@ -200,7 +200,7 @@ description: एक परियोजना बनाना, प्रारं
 
 यह संयोजन एक ड्राफ़्ट, डाइजेस्ट या क्रिया को सीधे प्रसार योग्य दिखने से रोकता है जब तक कि परियोजना अभी भी मानव अनुमोदन की प्रतीक्षा कर रही हो।
 
-![परियोजना शासन नीतियाँ](/img/screenshots/localized/fr/14-governance-policies.png)
+![परियोजना शासन नीतियाँ](/img/screenshots/localized/hi/14-governance-policies.png)
 
 ## परियोजना एकीकरण
 
@@ -232,7 +232,7 @@ description: एक परियोजना बनाना, प्रारं
 
 ### Jira, SharePoint और कनेक्टर श्रृंखला
 
-![Jira और SharePoint वर्कफ़्लो](/img/diagrams/fr/connecteurs-jira-sharepoint-workflow.svg)
+![Jira और SharePoint वर्कफ़्लो](/img/diagrams/hi/connecteurs-jira-sharepoint-workflow.svg)
 
 इस तर्क को सरल रखें :
 

@@ -1,0 +1,44 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">प्रोएक्टिविटी और गवर्नेंस</title>
+  <desc id="desc">प्रमाण, संकेत, डाइजेस्ट, अनुमोदन और ऑडिट।</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/></marker>
+  </defs>
+  <style>
+    .bg { fill: #f8fafc; }
+    .b1 { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2; }
+    .b2 { fill: #e0e7ff; stroke: #4338ca; stroke-width: 2; }
+    .b3 { fill: #dcfce7; stroke: #15803d; stroke-width: 2; }
+    .b4 { fill: #fef3c7; stroke: #b45309; stroke-width: 2; }
+    .t { font: 700 20px "Noto Sans Devanagari", Arial, sans-serif; fill: #0f172a; }
+    .s { font: 400 15px "Noto Sans Devanagari", Arial, sans-serif; fill: #334155; }
+    .l { stroke: #0f172a; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+  </style>
+  <rect class="bg" x="0" y="0" width="1200" height="500"/>
+  <rect class="b1" x="40" y="180" width="220" height="120" rx="18"/>
+  <text class="t" x="150" y="222" text-anchor="middle">ज्ञान</text>
+  <text class="s" x="150" y="252" text-anchor="middle">प्रमाण, ताजगी, रन</text>
+
+  <rect class="b2" x="330" y="180" width="220" height="120" rx="18"/>
+  <text class="t" x="440" y="222" text-anchor="middle">संकेत</text>
+  <text class="s" x="440" y="252" text-anchor="middle">विरोध, stale, अवरोध</text>
+
+  <rect class="b3" x="620" y="80" width="240" height="110" rx="18"/>
+  <text class="t" x="740" y="122" text-anchor="middle">डाइजेस्ट</text>
+  <text class="s" x="740" y="152" text-anchor="middle">सार और प्राथमिकता</text>
+
+  <rect class="b3" x="620" y="260" width="240" height="110" rx="18"/>
+  <text class="t" x="740" y="302" text-anchor="middle">मसौदा</text>
+  <text class="s" x="740" y="332" text-anchor="middle">सूचना या आर्टिफैक्ट</text>
+
+  <rect class="b4" x="930" y="180" width="230" height="120" rx="18"/>
+  <text class="t" x="1045" y="222" text-anchor="middle">अनुमोदन और</text>
+  <text class="t" x="1045" y="252" text-anchor="middle">नियंत्रित कार्रवाई</text>
+  <text class="s" x="1045" y="282" text-anchor="middle">भूमिकाएँ, नीतियाँ, ऑडिट</text>
+
+  <path class="l" d="M260 240 L330 240"/>
+  <path class="l" d="M550 240 L620 135"/>
+  <path class="l" d="M550 240 L620 315"/>
+  <path class="l" d="M860 135 L930 215"/>
+  <path class="l" d="M860 315 L930 265"/>
+</svg>

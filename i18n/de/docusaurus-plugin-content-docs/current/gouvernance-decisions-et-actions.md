@@ -6,7 +6,7 @@ description: "Verstehen Sie die Signale, konfigurieren Sie Governance-Richtlinie
 
 [Startseite](./index.md) · [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md) · [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md)
 
-![Proactivité, digests et actions gouvernées](/img/diagrams/fr/proactivite-et-gouvernance.svg)
+![Proactivité, digests et actions gouvernées](/img/diagrams/de/proactivite-et-gouvernance.svg)
 
 ## Ziel
 
@@ -241,7 +241,7 @@ Die beste Kontrolle ist praktisch:
 3. prüfen Sie, was sichtbar, erlaubt oder blockiert ist;
 4. passen Sie die Richtlinie an, wenn das Verhalten nicht das erwartete ist.
 
-![Politiques de gouvernance du projet](/img/screenshots/localized/fr/14-governance-policies.png)
+![Politiques de gouvernance du projet](/img/screenshots/localized/de/14-governance-policies.png)
 
 ## Einfache Regeln für eine gute Governance-Konfiguration
 

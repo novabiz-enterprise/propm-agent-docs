@@ -6,7 +6,7 @@ description: ProPM Agent में दिखाई देने वाले स
 
 [मुखपृष्ठ](./index.md) · [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md) · [शासन, निर्णय और क्रियाएँ](./gouvernance-decisions-et-actions.md) · [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md)
 
-![प्लेटफ़ॉर्म, प्रोजेक्ट और एक्शन के बीच Jira और SharePoint वर्कफ़्लो](/img/diagrams/fr/connecteurs-jira-sharepoint-workflow.svg)
+![प्लेटफ़ॉर्म, प्रोजेक्ट और एक्शन के बीच Jira और SharePoint वर्कफ़्लो](/img/diagrams/hi/connecteurs-jira-sharepoint-workflow.svg)
 
 ## उद्देश्य
 

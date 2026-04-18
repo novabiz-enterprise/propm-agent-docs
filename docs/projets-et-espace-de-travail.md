@@ -6,7 +6,7 @@ description: Create a project, delegate initial roles and use the workspace as a
 
 [Home](./index.md) · [Interface and navigation](./interface-et-navigation.md) · [Access control and project roles](./controle-acces-et-roles.md)
 
-![Project workspace overview](/img/screenshots/localized/fr/03-workspace-overview.png)
+![Project workspace overview](/img/screenshots/localized/en/03-workspace-overview.png)
 
 ## Goal
 
@@ -127,7 +127,7 @@ The interface also exposes a history by version with at least:
 - author;
 - associated `Trace ID`.
 
-![Agent settings at project level](/img/screenshots/localized/fr/12-agent-configuration.png)
+![Agent settings at project level](/img/screenshots/localized/en/12-agent-configuration.png)
 
 ## Access control
 
@@ -164,7 +164,7 @@ Keep a short and stable taxonomy. For example, instead of multiplying close vari
 
 The goal is not to encode the document version in the category, but to keep a reusable classification between **Knowledge** and **PM Documents**.
 
-![Project document categories](/img/screenshots/localized/fr/13-document-categories.png)
+![Project document categories](/img/screenshots/localized/en/13-document-categories.png)
 
 ## Governance policies
 
@@ -200,7 +200,7 @@ For a project where all external distribution must be controlled, a coherent set
 
 This combination prevents a draft, digest or action from appearing directly distributable while the project still awaits human approval.
 
-![Project governance policies](/img/screenshots/localized/fr/14-governance-policies.png)
+![Project governance policies](/img/screenshots/localized/en/14-governance-policies.png)
 
 ## Project integrations
 
@@ -232,7 +232,7 @@ If a block persists, open **Platform Administration** to verify the technical de
 
 ### Jira, SharePoint and connector chain
 
-![Jira and SharePoint flow between platform, project and actions](/img/diagrams/fr/connecteurs-jira-sharepoint-workflow.svg)
+![Jira and SharePoint flow between platform, project and actions](/img/diagrams/en/connecteurs-jira-sharepoint-workflow.svg)
 
 Keep this logic simple:
 

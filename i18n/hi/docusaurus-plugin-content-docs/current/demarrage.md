@@ -6,7 +6,7 @@ description: पूर्वापेक्षाएँ, पहुँच, प्
 
 [होम](./index.md) · [Azure Marketplace पर तैनाती](./deploiement-azure-marketplace.md) · [इंटरफ़ेस और नेविगेशन](./interface-et-navigation.md)
 
-![प्रोजेक्ट निर्देशिका](/img/screenshots/localized/fr/07-projects-directory.png)
+![प्रोजेक्ट निर्देशिका](/img/screenshots/localized/hi/07-projects-directory.png)
 
 ## उद्देश्य
 
@@ -86,7 +86,7 @@ description: पूर्वापेक्षाएँ, पहुँच, प्
 - **डिफ़ॉल्ट डेटा भाषा**;
 - **अतिरिक्त डेटा भाषाएँ**.
 
-![प्रोजेक्ट निर्माण विंडो](/img/screenshots/localized/fr/07-project-create-modal.png)
+![प्रोजेक्ट निर्माण विंडो](/img/screenshots/localized/hi/07-project-create-modal.png)
 
 ### महत्वपूर्ण बिंदु
 

@@ -6,7 +6,7 @@ description: Understand signals, configure governance policies, and use Actions 
 
 [Home](./index.md) · [Projects and workspace](./projets-et-espace-de-travail.md) · [Reports, AI Journal and traceability](./rapports-journal-ia-et-tracabilite.md)
 
-![Proactivity, digests and governed actions](/img/diagrams/fr/proactivite-et-gouvernance.svg)
+![Proactivity, digests and governed actions](/img/diagrams/en/proactivite-et-gouvernance.svg)
 
 ## Objective
 
@@ -241,7 +241,7 @@ The best control is practical:
 3. check what is visible, allowed or blocked;
 4. adjust the policy if the behavior is not as expected.
 
-![Project governance policies](/img/screenshots/localized/fr/14-governance-policies.png)
+![Project governance policies](/img/screenshots/localized/en/14-governance-policies.png)
 
 ### Simple rules for good governance configuration
 

@@ -1,5 +1,6 @@
 ---
 title: Glossar
+pagination_label: Glossar
 slug: /glossaire
 description: "Konsistente Definitionen der wichtigsten Begriffe, die in ProPM Agent verwendet werden."
 ---

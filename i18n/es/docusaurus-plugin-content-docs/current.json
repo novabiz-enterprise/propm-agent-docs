@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "Próxima",
+    "description": "The label for version current"
+  },
+  "sidebar.guide.category.Getting Started": {
+    "message": "Primeros pasos",
+    "description": "The label for category 'Getting Started' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Project Work": {
+    "message": "Trabajo del proyecto",
+    "description": "The label for category 'Project Work' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Portfolio and Administration": {
+    "message": "Portafolio y administración",
+    "description": "The label for category 'Portfolio and Administration' in sidebar 'guide'"
+  },
+  "sidebar.guide.doc.Home": {
+    "message": "Inicio",
+    "description": "The label for the doc item 'Home' in sidebar 'guide', linking to the doc index"
+  },
+  "sidebar.guide.doc.Glossary": {
+    "message": "Glosario",
+    "description": "The label for the doc item 'Glossary' in sidebar 'guide', linking to the doc glossaire"
+  }
+}

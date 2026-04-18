@@ -6,7 +6,7 @@ description: Erstellen Sie ein Projekt, delegieren Sie die ersten Rollen und nut
 
 [Startseite](./index.md) · [Oberfläche und Navigation](./interface-et-navigation.md) · [Zugriffskontrolle und Projektrollen](./controle-acces-et-roles.md)
 
-![Espace de travail projet](/img/screenshots/localized/fr/03-workspace-overview.png)
+![Espace de travail projet](/img/screenshots/localized/de/03-workspace-overview.png)
 
 ## Ziel
 
@@ -127,7 +127,7 @@ Die Oberfläche zeigt auch einen Versionsverlauf mit mindestens:
 - Autor;
 - zugehörige `Trace ID`.
 
-![Réglages des agents au niveau projet](/img/screenshots/localized/fr/12-agent-configuration.png)
+![Réglages des agents au niveau projet](/img/screenshots/localized/de/12-agent-configuration.png)
 
 ## Zugriffskontrolle
 
@@ -164,7 +164,7 @@ Halten Sie eine kurze und stabile Taxonomie. Zum Beispiel, anstatt Varianten zu 
 
 Das Ziel ist nicht, die Dokumentenversion in der Kategorie zu kodieren, sondern eine wiederverwendbare Klassifizierung zwischen **Wissen** und **PM-Dokumenten** zu behalten.
 
-![Catégories documentaires du projet](/img/screenshots/localized/fr/13-document-categories.png)
+![Catégories documentaires du projet](/img/screenshots/localized/de/13-document-categories.png)
 
 ## Governance-Richtlinien
 
@@ -200,7 +200,7 @@ Für ein Projekt, bei dem jede externe Veröffentlichung kontrolliert werden mus
 
 Diese Kombination verhindert, dass ein Entwurf, ein Digest oder eine Aktion als direkt veröffentlichbar erscheint, während das Projekt noch eine menschliche Genehmigung benötigt.
 
-![Politiques de gouvernance du projet](/img/screenshots/localized/fr/14-governance-policies.png)
+![Politiques de gouvernance du projet](/img/screenshots/localized/de/14-governance-policies.png)
 
 ## Projektintegrationen
 
@@ -232,7 +232,7 @@ Wenn eine Blockade anhält, öffnen Sie anschließend **Plattformadministration*
 
 ### Jira, SharePoint und Connector-Kette
 
-![Flux Jira et SharePoint entre plateforme, projet et actions](/img/diagrams/fr/connecteurs-jira-sharepoint-workflow.svg)
+![Flux Jira et SharePoint entre plateforme, projet et actions](/img/diagrams/de/connecteurs-jira-sharepoint-workflow.svg)
 
 Halten Sie diese Logik einfach:
 

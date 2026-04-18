@@ -6,7 +6,7 @@ description: पोर्टफोलियो पृष्ठ को चरण-
 
 [मुखपृष्ठ](./index.md) · [रिपोर्ट, AI लॉग और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md) · [रखरखाव, समर्थन और अक्सर पूछे जाने वाले प्रश्न](./maintenance-support-faq.md)
 
-![पोर्टफोलियो कमांड सेंटर](/img/screenshots/localized/fr/02-portfolio-command-center.png)
+![पोर्टफोलियो कमांड सेंटर](/img/screenshots/localized/hi/02-portfolio-command-center.png)
 
 ## उद्देश्य
 
@@ -140,7 +140,7 @@ description: पोर्टफोलियो पृष्ठ को चरण-
 - सीमाएँ;
 - न्यूनतम गंभीरता.
 
-![पोर्टफोलियो कोहोर्ट संपादक](/img/screenshots/localized/fr/02-portfolio-cohort-editor.png)
+![पोर्टफोलियो कोहोर्ट संपादक](/img/screenshots/localized/hi/02-portfolio-cohort-editor.png)
 
 ### चरण 8 — तुलना चलाएँ या ताज़ा करें
 
@@ -329,7 +329,7 @@ description: पोर्टफोलियो पृष्ठ को चरण-
 - **सदस्यता** और **सीटें**;
 - **गतिविधि ऑडिट**.
 
-![प्लेटफ़ॉर्म प्रशासन](/img/screenshots/localized/fr/18-platform-administration-overview.png)
+![प्लेटफ़ॉर्म प्रशासन](/img/screenshots/localized/hi/18-platform-administration-overview.png)
 
 ## दिखाई देने वाले अनुभाग
 
@@ -382,7 +382,6 @@ description: पोर्टफोलियो पृष्ठ को चरण-
 - **OpenAI-compatible**;
 - **OpenAI**;
 - **Azure OpenAI**;
-- **Anthropic**.
 
 ### प्रत्येक प्रदाता कब चुनें
 
@@ -392,7 +391,6 @@ description: पोर्टफोलियो पृष्ठ को चरण-
 | **OpenAI-compatible** | जब ग्राहक एक गेटवे या संगत एंडपॉइंट का उपयोग करता हो | सटीक एंडपॉइंट, प्रमाणीकरण, कुंजी या सीक्रेट, अपेक्षित मॉडल |
 | **OpenAI** | जब ग्राहक सीधे OpenAI का उपयोग करता हो | URL, कुंजी या सीक्रेट, डिफ़ॉल्ट मॉडल |
 | **Azure OpenAI** | जब ग्राहक Azure पर केंद्रित हो और अपने Azure OpenAI डिप्लॉयमेंट चुनना चाहता हो | एंडपॉइंट, API संस्करण, प्रमाणीकरण मोड, LLM डिप्लॉयमेंट नाम |
-| **Anthropic** | जब ग्राहक Claude मॉडल पसंद करता हो | कनेक्शन, सीक्रेट, डिफ़ॉल्ट मॉडल |
 
 ### एआई प्रदाता के स्टेटस कैसे पढ़ें
 

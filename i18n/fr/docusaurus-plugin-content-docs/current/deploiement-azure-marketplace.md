@@ -100,13 +100,12 @@ Dans la version actuelle du formulaire, la **région** ne se choisit plus dans c
 
 Le champ **LLM Provider** ne sert pas uniquement à Azure OpenAI. Il permet de choisir l’un des fournisseurs IA visibles dans le produit.
 
-### Les 5 cas à connaître
+### Les 4 cas à connaître
 
 | Fournisseur IA | Quand le choisir | Avantage principal | Ce que vous décidez pendant le déploiement | Ce que vous terminez ensuite dans l’administration |
 | --- | --- | --- | --- | --- |
 | **Azure OpenAI** | si l’environnement client est déjà centré sur Azure, Entra, réseau privé et gouvernance Microsoft | intégration naturelle à l’écosystème Azure | vous choisissez Azure OpenAI comme fournisseur cible | vous renseignez l’endpoint, la version API, le mode d’authentification et surtout le **LLM deployment name** |
 | **OpenAI** | si le client veut utiliser directement la plateforme OpenAI | parcours simple et direct | vous choisissez OpenAI comme fournisseur cible | vous complétez l’URL utilisée, la clé ou la référence de secret, le modèle par défaut, puis vous validez et activez |
-| **Anthropic** | si le client souhaite utiliser les modèles Claude pour des usages documentaires ou de synthèse | bon choix pour des flux orientés lecture, synthèse et raisonnement documentaire | vous choisissez Anthropic comme fournisseur cible | vous complétez la connexion, le secret et le modèle par défaut, puis vous validez et activez |
 | **OpenRouter** | si le client veut comparer plusieurs familles de modèles via un point d’entrée unique | un seul raccordement pour plusieurs modèles et scénarios de routage | vous choisissez OpenRouter comme fournisseur cible | vous complétez la Base URL, la clé et le modèle par défaut, puis vous validez et activez |
 | **OpenAI-compatible** | si le client utilise une gateway partenaire, un endpoint d’entreprise ou un runtime compatible | permet de raccorder une implémentation compatible sans changer le produit | vous choisissez OpenAI-compatible comme fournisseur cible | vous complétez l’endpoint exact, l’authentification et le modèle ou déploiement attendu |
 
@@ -196,31 +195,7 @@ Dans **Paramètres du fournisseur IA**, complétez ensuite :
 
 L’utilisateur final n’a pas besoin de voir ces réglages. Ce qui compte pour lui est que l’administrateur ait bien confirmé la connectivité et le modèle réellement exploité.
 
-## Cas 3 — **Anthropic**
-
-### Quand ce choix est pertinent
-
-Choisissez **Anthropic** lorsque le client préfère les modèles **Claude**, en particulier pour des usages de synthèse, de lecture de contexte et de travail documentaire.
-
-### Avantages pratiques
-
-- bon positionnement pour des flux de travail centrés sur le texte et les documents ;
-- administration claire lorsque l’organisation sait déjà qu’elle veut cette famille de modèles.
-
-### Ce que vous décidez pendant le déploiement
-
-Pendant Marketplace, vous indiquez que **Anthropic** est le fournisseur cible de l’environnement.
-
-### Ce qu’il faut encore faire après installation
-
-Dans **Paramètres du fournisseur IA**, complétez :
-
-- la **connexion** au fournisseur ;
-- le **secret** ou la référence de secret ;
-- le **modèle par défaut** ;
-- puis lancez **Save → Validate → Test → Activate**.
-
-## Cas 4 — **OpenRouter**
+## Cas 3 — **OpenRouter**
 
 ### Quand ce choix est pertinent
 
@@ -249,7 +224,7 @@ Dans **Paramètres du fournisseur IA**, complétez ensuite :
 
 Un client veut démarrer vite, comparer plusieurs modèles puis stabiliser plus tard son choix. **OpenRouter** est alors un bon candidat pour une première phase de cadrage.
 
-## Cas 5 — **OpenAI-compatible**
+## Cas 4 — **OpenAI-compatible**
 
 ### Quand ce choix est pertinent
 

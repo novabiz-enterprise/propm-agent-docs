@@ -6,7 +6,7 @@ description: Requisitos previos, acceso, autenticación y primera configuración
 
 [Inicio](./index.md) · [Despliegue Azure Marketplace](./deploiement-azure-marketplace.md) · [Interfaz y navegación](./interface-et-navigation.md)
 
-![Directorio de proyectos](/img/screenshots/localized/fr/07-projects-directory.png)
+![Directorio de proyectos](/img/screenshots/localized/es/07-projects-directory.png)
 
 ## Objetivo
 
@@ -86,7 +86,7 @@ El formulario observado en la aplicación propone los siguientes campos:
 - **Idioma de datos por defecto**;
 - **Idiomas de datos adicionales**.
 
-![Ventana de creación de proyecto](/img/screenshots/localized/fr/07-project-create-modal.png)
+![Ventana de creación de proyecto](/img/screenshots/localized/es/07-project-create-modal.png)
 
 ### Punto importante
 

@@ -6,7 +6,7 @@ description: सदस्यों का प्रबंधन, प्रोज
 
 [होम](./index.md) · [प्रोजेक्ट और वर्कस्पेस](./projets-et-espace-de-travail.md) · [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md)
 
-![निर्माता प्रतिनिधि और प्रोजेक्ट भूमिकाएँ](/img/diagrams/fr/delegation-createur-rbac.svg)
+![निर्माता प्रतिनिधि और प्रोजेक्ट भूमिकाएँ](/img/diagrams/hi/delegation-createur-rbac.svg)
 
 ## उद्देश्य
 
@@ -109,7 +109,7 @@ description: सदस्यों का प्रबंधन, प्रोज
 
 यह तालिका मुख्य रूप से इंटरफ़ेस के व्यवहार को सही ढंग से पढ़ने के लिए है: एक कार्य या ग्रे किया हुआ नियंत्रण अक्सर एक अनुमति न मिलने के कारण होता है।
 
-![कस्टम भूमिका संपादक](/img/screenshots/localized/fr/11-custom-role-editor.png)
+![कस्टम भूमिका संपादक](/img/screenshots/localized/hi/11-custom-role-editor.png)
 
 ## आप पृष्ठ पर क्या देखते हैं
 

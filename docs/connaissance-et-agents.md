@@ -6,7 +6,7 @@ description: Feed the project knowledge base, understand agent proactivity, and 
 
 [Home](./index.md) · [Projects and workspace](./projets-et-espace-de-travail.md) · [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md)
 
-![Project knowledge](/img/screenshots/localized/fr/05-knowledge.png)
+![Project knowledge](/img/screenshots/localized/en/05-knowledge.png)
 
 ## Goal
 
@@ -98,9 +98,9 @@ Search results may display:
 
 These elements help quickly judge provenance, quality and reusability of evidence.
 
-![Search results in knowledge](/img/screenshots/localized/fr/05-knowledge-search-results.png)
+![Search results in knowledge](/img/screenshots/localized/en/05-knowledge-search-results.png)
 
-![Agents view](/img/screenshots/localized/fr/04-agents.png)
+![Agents view](/img/screenshots/localized/en/04-agents.png)
 
 ## Agents: page role
 
@@ -120,7 +120,7 @@ Confirmed functions:
 
 Proactivity in ProPM Agent does not mean an agent acts alone outside the project. The observed behavior is more controlled: the platform detects situations to monitor, surfaces them as **signals**, can prepare a **digest**, propose a **draft** or a **governed action**, then leaves the user or approver to decide the next step.
 
-![Proactivity, digests and governed actions](/img/diagrams/fr/proactivite-et-gouvernance.svg)
+![Proactivity, digests and governed actions](/img/diagrams/en/proactivite-et-gouvernance.svg)
 
 ### Observed triggers
 
@@ -211,7 +211,7 @@ Creating custom agents depends on the level of rights. Key points to remember:
 | usage limited to a single project context | **Project only** |
 | same agent reusable in multiple projects of the same account | **All projects** if the option is truly exposed |
 
-![Creating a custom agent](/img/screenshots/localized/fr/04-custom-agent-create.png)
+![Creating a custom agent](/img/screenshots/localized/en/04-custom-agent-create.png)
 
 ## Voice input in Agents
 

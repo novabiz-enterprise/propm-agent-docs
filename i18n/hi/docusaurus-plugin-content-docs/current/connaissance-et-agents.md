@@ -6,7 +6,7 @@ description: परियोजना ज्ञान आधार को पो
 
 [होम](./index.md) · [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md) · [संरचित आउटपुट, साक्ष्य और ताजगी](./sorties-contextuelles-preuves-et-fraicheur.md)
 
-![ज्ञान परियोजना](/img/screenshots/localized/fr/05-knowledge.png)
+![ज्ञान परियोजना](/img/screenshots/localized/hi/05-knowledge.png)
 
 ## उद्देश्य
 
@@ -98,9 +98,9 @@ description: परियोजना ज्ञान आधार को पो
 
 ये तत्व साक्ष्य की उत्पत्ति, गुणवत्ता और पुन: उपयोगिता का त्वरित आकलन करने में मदद करते हैं।
 
-![ज्ञान में खोज परिणाम](/img/screenshots/localized/fr/05-knowledge-search-results.png)
+![ज्ञान में खोज परिणाम](/img/screenshots/localized/hi/05-knowledge-search-results.png)
 
-![एजेंट्स दृश्य](/img/screenshots/localized/fr/04-agents.png)
+![एजेंट्स दृश्य](/img/screenshots/localized/hi/04-agents.png)
 
 ## एजेंट्स : पृष्ठ का भूमिका
 
@@ -120,7 +120,7 @@ description: परियोजना ज्ञान आधार को पो
 
 ProPM एजेंट में सक्रियता का अर्थ यह नहीं है कि एक एजेंट परियोजना के बाहर अकेले कार्य करता है। अवलोकित व्यवहार अधिक नियंत्रित है : प्लेटफ़ॉर्म निगरानी योग्य स्थितियों का पता लगाता है, उन्हें **सिग्नल** के रूप में उठाता है, एक **digest** तैयार कर सकता है, एक **draft** या एक **governed action** प्रस्तावित कर सकता है, फिर उपयोगकर्ता या अनुमोदक को आगे बढ़ने का निर्णय लेने देता है।
 
-![सक्रियता, डाइजेस्ट और नियंत्रित क्रिया](/img/diagrams/fr/proactivite-et-gouvernance.svg)
+![सक्रियता, डाइजेस्ट और नियंत्रित क्रिया](/img/diagrams/hi/proactivite-et-gouvernance.svg)
 
 ### अवलोकित ट्रिगर
 
@@ -211,7 +211,7 @@ ProPM एजेंट में सक्रियता का अर्थ य
 | केवल एक परियोजना संदर्भ में सीमित उपयोग | **Project only** |
 | वही एजेंट एक ही खाते की कई परियोजनाओं में पुन: उपयोग योग्य | **All projects** यदि विकल्प वास्तव में प्रदर्शित हो |
 
-![कस्टम एजेंट बनाना](/img/screenshots/localized/fr/04-custom-agent-create.png)
+![कस्टम एजेंट बनाना](/img/screenshots/localized/hi/04-custom-agent-create.png)
 
 ## एजेंट्स में वॉइस इनपुट
 

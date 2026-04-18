@@ -6,7 +6,7 @@ description: Understand all visible connectors in ProPM Agent, their benefits, u
 
 [Home](./index.md) · [Projects and workspace](./projets-et-espace-de-travail.md) · [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) · [Portfolio and technical administration](./portefeuille-et-administration-technique.md)
 
-![Jira and SharePoint flow between platform, project and actions](/img/diagrams/fr/connecteurs-jira-sharepoint-workflow.svg)
+![Jira and SharePoint flow between platform, project and actions](/img/diagrams/en/connecteurs-jira-sharepoint-workflow.svg)
 
 ## Objective
 

@@ -6,7 +6,7 @@ description: Comprender las señales, configurar las políticas de gobernanza y 
 
 [Inicio](./index.md) · [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md) · [Informes, registro de IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md)
 
-![Proactividad, resúmenes y acciones gobernadas](/img/diagrams/fr/proactivite-et-gouvernance.svg)
+![Proactividad, resúmenes y acciones gobernadas](/img/diagrams/es/proactivite-et-gouvernance.svg)
 
 ## Objetivo
 
@@ -241,7 +241,7 @@ El mejor control es práctico:
 3. verifica lo que es visible, autorizado o bloqueado ;
 4. ajusta la política si el comportamiento no es el esperado.
 
-![Políticas de gobernanza del proyecto](/img/screenshots/localized/fr/14-governance-policies.png)
+![Políticas de gobernanza del proyecto](/img/screenshots/localized/es/14-governance-policies.png)
 
 ## Reglas simples para configurar bien la gobernanza
 

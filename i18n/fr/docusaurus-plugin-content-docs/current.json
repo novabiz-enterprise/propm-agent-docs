@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "À venir",
+    "description": "The label for version current"
+  },
+  "sidebar.guide.category.Getting Started": {
+    "message": "Prise en main",
+    "description": "The label for category 'Getting Started' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Project Work": {
+    "message": "Travail projet",
+    "description": "The label for category 'Project Work' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Portfolio and Administration": {
+    "message": "Pilotage et administration",
+    "description": "The label for category 'Portfolio and Administration' in sidebar 'guide'"
+  },
+  "sidebar.guide.doc.Home": {
+    "message": "Accueil",
+    "description": "The label for the doc item 'Home' in sidebar 'guide', linking to the doc index"
+  },
+  "sidebar.guide.doc.Glossary": {
+    "message": "Glossaire",
+    "description": "The label for the doc item 'Glossary' in sidebar 'guide', linking to the doc glossaire"
+  }
+}

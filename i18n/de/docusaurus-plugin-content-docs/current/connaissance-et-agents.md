@@ -6,7 +6,7 @@ description: Die Projekt-Wissensdatenbank füttern, die Proaktivität der Agente
 
 [Startseite](./index.md) · [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md) · [Strukturierte Ausgaben, Nachweise und Aktualität](./sorties-contextuelles-preuves-et-fraicheur.md)
 
-![Connaissance projet](/img/screenshots/localized/fr/05-knowledge.png)
+![Connaissance projet](/img/screenshots/localized/de/05-knowledge.png)
 
 ## Ziel
 
@@ -98,9 +98,9 @@ Suchergebnisse können Folgendes anzeigen:
 
 Diese Elemente helfen, Herkunft, Qualität und Wiederverwendbarkeit eines Beweises schnell zu beurteilen.
 
-![Résultats de recherche dans la connaissance](/img/screenshots/localized/fr/05-knowledge-search-results.png)
+![Résultats de recherche dans la connaissance](/img/screenshots/localized/de/05-knowledge-search-results.png)
 
-![Vue Agents](/img/screenshots/localized/fr/04-agents.png)
+![Vue Agents](/img/screenshots/localized/de/04-agents.png)
 
 ## Agenten: Rolle der Seite
 
@@ -120,7 +120,7 @@ Bestätigte Funktionen:
 
 Proaktivität in ProPM Agent bedeutet nicht, dass ein Agent außerhalb des Projekts allein handelt. Das beobachtete Verhalten ist stärker geregelt: die Plattform erkennt zu überwachende Situationen, meldet sie als **Signale**, kann einen **Digest** vorbereiten, einen **Entwurf** oder eine **gesteuerte Aktion** vorschlagen und lässt den Benutzer oder Genehmiger die weitere Vorgehensweise entscheiden.
 
-![Proactivité, digests et actions gouvernées](/img/diagrams/fr/proactivite-et-gouvernance.svg)
+![Proactivité, digests et actions gouvernées](/img/diagrams/de/proactivite-et-gouvernance.svg)
 
 ### Beobachtete Auslöser
 
@@ -211,7 +211,7 @@ Die Erstellung von benutzerdefinierten Agenten hängt vom Berechtigungsniveau ab
 | Nutzung auf ein einzelnes Projekt beschränkt | **Nur Projekt** |
 | Derselbe Agent in mehreren Projekten desselben Kontos wiederverwendbar | **Alle Projekte**, falls die Option tatsächlich exponiert ist |
 
-![Création d’un agent personnalisé](/img/screenshots/localized/fr/04-custom-agent-create.png)
+![Création d’un agent personnalisé](/img/screenshots/localized/de/04-custom-agent-create.png)
 
 ## Sprachsteuerung in Agenten
 
