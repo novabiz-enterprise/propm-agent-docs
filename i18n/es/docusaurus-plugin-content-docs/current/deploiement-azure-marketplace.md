@@ -150,21 +150,25 @@ Durante Marketplace:
 
 - eliges **Azure OpenAI** como proveedor ;
 - la instalación puede preparar la conexión Azure asociada ;
-- la selección del **LLM deployment exacto** no termina todavía aquí.
+- para la ruta Azure OpenAI gestionada, el despliegue ahora sondea varias regiones Azure OpenAI y selecciona automáticamente la mejor región disponible según la disponibilidad real de modelos ;
+- el runtime mantiene aliases estables de despliegue Azure OpenAI llamados `chat` y `embeddings` ;
+- la elección exacta del modelo de runtime ya no queda fijada globalmente en el momento del despliegue.
 
 ### Lo que todavía hay que hacer después de la instalación
 
 Después del despliegue, abre **Administration de la plateforme > Paramètres du fournisseur IA** y completa o confirma:
 
-- **Endpoint** del recurso Azure OpenAI ;
-- **API version** ;
-- **Authentication mode** (`managed_identity` o `api_key`) ;
-- **LLM deployment name** exacto ;
-- posiblemente **Embeddings deployment name**.
+- la **región** Azure OpenAI seleccionada por el despliegue ;
+- el **catálogo de modelos** descubierto realmente para esa región ;
+- el **modelo recomendado** propuesto por la plataforma ;
+- el modelo actualmente seleccionado y sincronizado detrás del alias estable `chat` ;
+- el estado de conectividad y validación.
 
 ### Especificidad importante
 
-Si el despliegue ya instaló un secreto o clave para Azure OpenAI, la interfaz puede indicar que no se necesita una **API key visible al usuario** en este formulario. En ese caso, el administrador se centra principalmente en el **nombre del despliegue** y las pruebas de conectividad.
+Si el despliegue ya instaló un secreto o clave para Azure OpenAI, la interfaz puede indicar que no se necesita una **API key visible al usuario** en este formulario. En ese caso, el administrador se centra principalmente en la selección del modelo, las pruebas de conectividad y la sincronización del despliegue.
+
+Si un administrador selecciona intencionalmente una generación GPT inferior a **GPT-5**, la interfaz debe mostrar una advertencia clara antes de guardar. Guardar un nuevo modelo Azure OpenAI debe sincronizar luego el despliegue Azure OpenAI real detrás del alias `chat`, sin pedir al usuario que renombre manualmente los despliegues.
 
 ## Caso 2 — **OpenAI**
 

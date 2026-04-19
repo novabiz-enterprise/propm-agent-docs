@@ -150,21 +150,25 @@ During Marketplace:
 
 - you choose **Azure OpenAI** as the provider;
 - the installation may prepare the associated Azure connection;
-- the selection of the exact **LLM deployment** is not finished here.
+- for the managed Azure OpenAI path, the deployment now probes several Azure OpenAI regions and automatically selects the best available region based on real model availability;
+- the runtime keeps stable Azure OpenAI deployment aliases named `chat` and `embeddings`;
+- the exact runtime model choice is no longer frozen globally at deployment time.
 
 ### What still needs to be done after installation
 
-After deployment, open **Platform Administration > AI Provider Settings** and confirm or fill in:
+After deployment, open **Platform Administration > AI Provider Settings** and confirm or review:
 
-- **Endpoint** of the Azure OpenAI resource;
-- **API version**;
-- **Authentication mode** (`managed_identity` or `api_key`);
-- exact **LLM deployment name**;
-- optionally **Embeddings deployment name**.
+- the Azure OpenAI **region** selected by the deployment;
+- the live **model catalog** discovered for that region;
+- the **recommended model** proposed by the platform;
+- the currently selected model synchronized behind the stable `chat` alias;
+- the connectivity and validation state.
 
 ### Important specificity
 
-If the deployment has already installed a secret or key for Azure OpenAI, the interface may indicate that no **API key visible to the user** is required in this form. In that case, the administrator focuses mainly on the deployment name and connectivity tests.
+If the deployment has already installed a secret or key for Azure OpenAI, the interface may indicate that no **API key visible to the user** is required in this form. In that case, the administrator focuses mainly on model selection, connectivity tests and deployment synchronization.
+
+If an administrator intentionally selects a GPT generation lower than **GPT-5**, the UI should display a clear warning before saving. Saving a new Azure OpenAI model should then synchronize the real Azure OpenAI deployment behind the `chat` alias rather than asking the user to rename deployments manually.
 
 ## Case 2 — OpenAI
 

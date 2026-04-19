@@ -150,21 +150,25 @@ Pendant Marketplace :
 
 - vous choisissez **Azure OpenAI** comme fournisseur ;
 - l’installation peut préparer la connexion Azure associée ;
-- la sélection du **déploiement LLM exact** ne se termine pas encore ici.
+- pour le cas Azure OpenAI managé, le déploiement sonde maintenant plusieurs régions Azure OpenAI et sélectionne automatiquement la meilleure région disponible selon la disponibilité réelle des modèles ;
+- le runtime conserve des aliases de déploiement Azure OpenAI stables nommés `chat` et `embeddings` ;
+- le choix exact du modèle runtime n’est plus figé globalement au moment du déploiement.
 
 ### Ce qu’il faut encore faire après installation
 
-Après le déploiement, ouvrez **Administration de la plateforme > Paramètres du fournisseur IA** puis renseignez ou confirmez :
+Après le déploiement, ouvrez **Administration de la plateforme > Paramètres du fournisseur IA** puis confirmez ou relisez :
 
-- **Endpoint** de la ressource Azure OpenAI ;
-- **API version** ;
-- **Authentication mode** (`managed_identity` ou `api_key`) ;
-- **LLM deployment name** exact ;
-- éventuellement **Embeddings deployment name**.
+- la **région** Azure OpenAI sélectionnée par le déploiement ;
+- le **catalogue de modèles** réellement découvert pour cette région ;
+- le **modèle recommandé** proposé par la plateforme ;
+- le modèle actuellement sélectionné et synchronisé derrière l’alias stable `chat` ;
+- l’état de connectivité et de validation.
 
 ### Spécificité importante
 
-Si le déploiement a déjà installé un secret ou une clé pour Azure OpenAI, l’interface peut indiquer qu’aucune **API key visible par l’utilisateur** n’est nécessaire dans ce formulaire. Dans ce cas, l’administrateur se concentre surtout sur le **nom du déploiement** et les tests de connectivité.
+Si le déploiement a déjà installé un secret ou une clé pour Azure OpenAI, l’interface peut indiquer qu’aucune **API key visible par l’utilisateur** n’est nécessaire dans ce formulaire. Dans ce cas, l’administrateur se concentre surtout sur la sélection du modèle, les tests de connectivité et la synchronisation du déploiement.
+
+Si un administrateur sélectionne volontairement une génération GPT inférieure à **GPT-5**, l’interface doit afficher un avertissement clair avant l’enregistrement. L’enregistrement d’un nouveau modèle Azure OpenAI doit ensuite synchroniser le vrai déploiement Azure OpenAI derrière l’alias `chat`, sans demander à l’utilisateur de renommer manuellement les déploiements.
 
 ## Cas 2 — **OpenAI**
 

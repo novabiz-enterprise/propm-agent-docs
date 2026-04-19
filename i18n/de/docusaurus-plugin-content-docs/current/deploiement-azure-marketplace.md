@@ -150,21 +150,25 @@ Während Marketplace:
 
 - wählen Sie **Azure OpenAI** als Anbieter;  
 - die Installation kann die zugehörige Azure‑Verbindung vorbereiten;  
-- die Auswahl des genauen **LLM deployment name** ist hier noch nicht abgeschlossen.
+- für den verwalteten Azure‑OpenAI‑Pfad prüft die Bereitstellung jetzt mehrere Azure‑OpenAI‑Regionen und wählt automatisch die beste verfügbare Region anhand der realen Modellverfügbarkeit;  
+- die Runtime behält stabile Azure‑OpenAI‑Deployment‑Aliase `chat` und `embeddings`;  
+- die exakte Runtime‑Modellwahl wird nicht mehr global zum Bereitstellungszeitpunkt fest eingefroren.
 
 ### Was noch nach der Installation zu erledigen ist
 
-Nach der Bereitstellung öffnen Sie **Platform Administration > KI-Anbieter-Einstellungen** und ergänzen oder bestätigen:
+Nach der Bereitstellung öffnen Sie **Platform Administration > KI-Anbieter-Einstellungen** und bestätigen oder prüfen:
 
-- **Endpoint** der Azure OpenAI‑Ressource;  
-- **API‑Version**;  
-- **Authentication mode** (`managed_identity` oder `api_key`);  
-- den genauen **LLM deployment name**;  
-- ggf. den **Embeddings deployment name**.
+- die vom Deployment ausgewählte Azure‑OpenAI‑**Region**;  
+- den für diese Region real entdeckten **Modellkatalog**;  
+- das von der Plattform vorgeschlagene **empfohlene Modell**;  
+- das aktuell ausgewählte Modell, das hinter dem stabilen Alias `chat` synchronisiert ist;  
+- den Verbindungs- und Validierungsstatus.
 
 ### Wichtige Besonderheit
 
-Wenn die Bereitstellung bereits ein Secret oder einen Schlüssel für Azure OpenAI installiert hat, kann die Oberfläche anzeigen, dass keine **API‑Key sichtbar für den Benutzer** erforderlich ist. In diesem Fall konzentriert sich der Administrator vor allem auf den **Deployment‑Name** und die Verbindungstests.
+Wenn die Bereitstellung bereits ein Secret oder einen Schlüssel für Azure OpenAI installiert hat, kann die Oberfläche anzeigen, dass kein für den Benutzer sichtbarer **API‑Key** erforderlich ist. In diesem Fall konzentriert sich der Administrator vor allem auf Modellauswahl, Verbindungstests und Deployment‑Synchronisierung.
+
+Wenn ein Administrator absichtlich eine GPT‑Generation unter **GPT-5** auswählt, sollte die UI vor dem Speichern eine klare Warnung anzeigen. Das Speichern eines neuen Azure‑OpenAI‑Modells sollte anschließend das reale Azure‑OpenAI‑Deployment hinter dem Alias `chat` synchronisieren, statt den Benutzer zum manuellen Umbenennen von Deployments zu zwingen.
 
 ## Fall 2 — OpenAI
 
