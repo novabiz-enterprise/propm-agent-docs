@@ -46,7 +46,7 @@ The following items are explicitly expected by the observed configuration:
 | `redirectUri` and `postLogoutRedirectUri` | Control returns after login and logout |
 | `allowedTenantId` | Restricts, if configured, the authorized tenant |
 | `/runtime-config.json` | Dynamic override of URLs and authentication parameters at runtime |
-| API URL and WebSocket URL | Allow the web interface to reach platform services and real‑time |
+| API URL | Allows the web interface to reach platform services |
 | Subscription / seats | Conditions access in deployments that require a per‑user license |
 
 ## First login flow
@@ -119,7 +119,7 @@ After a new deployment, check at minimum:
 4. the presence of a valid **client ID**;
 5. the correct value of **authority** and, if used, **allowedTenantId**;
 6. the **scopes** expected by the frontend and API;
-7. the **API URL** and, if exposed, the **WebSocket URL**;
+7. the **API URL**;
 8. consumption or availability of **seats** if the plan requires it;
 9. a first test login with a standard user account and an administrator account.
 
@@ -152,15 +152,15 @@ This often means the account is authenticated but has not been resolved as a mod
 
 ### Login OK, dashboard loaded, but additional verification is useful
 
-This case often indicates that authentication succeeded but a further check of runtime, real‑time or connectivity remains useful. Open the **health indicator**, note the **API**, **realtime / WebSocket**, **auth**, **latency** and **current project** states, then proceed to [Interface and navigation](./interface-et-navigation.md) to read the panel and to [Maintenance, support and FAQ](./maintenance-support-faq.md) for verification pointers.
+This case often indicates that authentication succeeded but a further check of runtime or connectivity remains useful. Open the **health indicator**, note the **API**, **auth**, **latency** and **current project** states, then proceed to [Interface and navigation](./interface-et-navigation.md) to read the panel and to [Maintenance, support and FAQ](./maintenance-support-faq.md) for verification pointers.
 
 ## Quick references — access to confirm
 
 | Initial situation | First check | Then |
 | --- | --- | --- |
 | Microsoft returns an error before returning to the app | `authority`, tenant used, `clientId`, `redirectUri`, `postLogoutRedirectUri`, `allowedTenantId` | compare runtime configuration and Entra registration, then retest with the correct account |
-| Microsoft login succeeds but the app remains blocked | availability of a **seat**, health indicator, API / WebSocket URLs | then check access to a project and the account’s actual rights |
-| Login succeeds, dashboard loads, but a availability check is recommended | **auth**, **API**, **realtime / WebSocket**, latency and active project states | open [Interface and navigation](./interface-et-navigation.md), then [Maintenance, support and FAQ](./maintenance-support-faq.md) to distinguish auth, runtime and project context |
+| Microsoft login succeeds but the app remains blocked | availability of a **seat**, health indicator, API URL | then check access to a project and the account’s actual rights |
+| Login succeeds, dashboard loads, but an availability check is recommended | **auth**, **API**, latency and active project states | open [Interface and navigation](./interface-et-navigation.md), then [Maintenance, support and FAQ](./maintenance-support-faq.md) to distinguish auth, runtime and project context |
 | The app opens but no project appears | project selector, **Projects** list, project membership, creation rights | ask the **Project Owner** to add the account to the correct project if necessary |
 | A page is visible but not editable | project role or admin role, **read‑only** vs **access denied** state | then check the admin group or relevant project permissions |
 

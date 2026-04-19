@@ -100,7 +100,7 @@ Siga este orden:
 
 ### ¿Cómo leer el panel de salud cuando algunas páginas siguen cargando?
 
-Porque la autenticación puede seguir válida mientras un componente API, realtime / WebSocket o un proveedor sigue solicitando una verificación de disponibilidad. Primero observe el estado mostrado en el indicador de salud, luego continúe a [Interface y navegación](./interface-et-navigation.md) para leer el panel y [Portafolio y administración técnica](./portefeuille-et-administration-technique.md) si la duda se refiere al proveedor o la integración administrativa.
+Porque la autenticación puede seguir siendo válida mientras un componente API o un proveedor siga solicitando una verificación de disponibilidad. Primero observe el estado mostrado en el indicador de salud, luego continúe a [Interface y navegación](./interface-et-navigation.md) para leer el panel y [Portafolio y administración técnica](./portefeuille-et-administration-technique.md) si la duda se refiere al proveedor o la integración administrativa.
 
 ### ¿Qué hacer si la conexión funciona, un proyecto es visible, pero los runs no se inician?
 

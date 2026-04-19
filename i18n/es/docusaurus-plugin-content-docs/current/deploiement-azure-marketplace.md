@@ -300,7 +300,7 @@ Antes de lanzar la creación:
 ### Verificaciones técnicas mínimas
 
 1. registra la **URL web** realmente publicada ;
-2. verifica la URL **API** y, si se expone, la URL **WebSocket** ;
+2. verifica la URL **API** ;
 3. verifica la disponibilidad de **`/runtime-config.json`** ;
 4. valida la coherencia entre la URL publicada y los **redirect URIs Entra** ;
 5. abre **Administration de la plateforme > Paramètres du fournisseur IA** y confirma que el proveedor elegido esté bien preparado ;

@@ -46,7 +46,7 @@ Les éléments suivants sont explicitement prévus par la configuration observé
 | `redirectUri` et `postLogoutRedirectUri` | Contrôlent les retours après connexion et déconnexion |
 | `allowedTenantId` | Restreint, si configuré, le tenant autorisé |
 | `/runtime-config.json` | Surcharge dynamique des URLs et paramètres d’authentification au runtime |
-| URL API et URL WebSocket | Permettent à l’interface web de joindre les services de plateforme et le temps réel |
+| URL API | Permet à l’interface web de joindre les services de plateforme |
 | Abonnement / sièges | Conditionne l’accès dans les déploiements qui imposent une licence par utilisateur |
 
 ## Parcours de première connexion
@@ -119,7 +119,7 @@ Après un nouveau déploiement, vérifiez au minimum :
 4. la présence d’un **client ID** valide ;
 5. la bonne valeur d’**authority** et, si utilisé, d’**allowedTenantId** ;
 6. les **scopes** attendus par le frontend et l’API ;
-7. l’URL **API** et, si exposée, l’URL **WebSocket** ;
+7. l’URL **API** ;
 8. la consommation ou disponibilité des **sièges** si le plan l’impose ;
 9. un premier test de connexion avec un compte utilisateur standard et un compte administrateur.
 
@@ -152,15 +152,15 @@ Cela signifie souvent que le compte est authentifié mais n’a pas été résol
 
 ### Connexion OK, tableau de bord chargé, mais une vérification complémentaire est utile
 
-Ce cas indique souvent que l’authentification a réussi mais qu’une vérification complémentaire du runtime, du temps réel ou de la connectivité reste utile. Ouvrez l’**indicateur de santé**, relevez l’état **API**, **realtime / WebSocket**, **auth**, la **latence** et le **projet courant**, puis poursuivez vers [Interface et navigation](./interface-et-navigation.md) pour lire le panneau et vers [Maintenance, support et FAQ](./maintenance-support-faq.md) pour les repères de vérification.
+Ce cas indique souvent que l’authentification a réussi mais qu’une vérification complémentaire du runtime ou de la connectivité reste utile. Ouvrez l’**indicateur de santé**, relevez l’état **API**, **auth**, la **latence** et le **projet courant**, puis poursuivez vers [Interface et navigation](./interface-et-navigation.md) pour lire le panneau et vers [Maintenance, support et FAQ](./maintenance-support-faq.md) pour les repères de vérification.
 
 ## Repères rapides — accès à confirmer
 
 | Situation initiale | Vérifiez d’abord | Puis |
 | --- | --- | --- |
 | Microsoft renvoie une erreur avant le retour dans l’application | `authority`, tenant utilisé, `clientId`, `redirectUri`, `postLogoutRedirectUri`, `allowedTenantId` | comparez la configuration runtime et l’inscription Entra, puis refaites un test avec le bon compte |
-| La connexion Microsoft réussit mais l’application reste bloquée | disponibilité d’un **siège**, indicateur de santé, URLs API / WebSocket | vérifiez ensuite l’accès à un projet et les droits réels du compte |
-| La connexion réussit, le tableau de bord charge, mais un contrôle de disponibilité est recommandé | états **auth**, **API**, **realtime / WebSocket**, latence et projet actif | ouvrez [Interface et navigation](./interface-et-navigation.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) pour distinguer auth, runtime et contexte projet |
+| La connexion Microsoft réussit mais l’application reste bloquée | disponibilité d’un **siège**, indicateur de santé, URL API | vérifiez ensuite l’accès à un projet et les droits réels du compte |
+| La connexion réussit, le tableau de bord charge, mais un contrôle de disponibilité est recommandé | états **auth**, **API**, latence et projet actif | ouvrez [Interface et navigation](./interface-et-navigation.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) pour distinguer auth, runtime et contexte projet |
 | L’application s’ouvre mais aucun projet n’apparaît | sélecteur de projet, liste **Projets**, appartenance au projet, droit de création | demandez au **Project Owner** d’ajouter le compte au bon projet si nécessaire |
 | Une page est visible mais non modifiable | rôle projet ou rôle admin, état **lecture seule** vs **accès refusé** | contrôlez ensuite le groupe d’administration ou les permissions projet concernées |
 

@@ -101,7 +101,7 @@ Folgen Sie dieser Reihenfolge:
 
 ### Wie lese ich das Gesundheitspanel, wenn einige Seiten noch laden?
 
-Weil die Authentifizierung weiterhin gültig sein kann, während ein **API**, **Realtime / WebSocket** oder ein Anbieter noch eine Verfügbarkeitsprüfung verlangt. Ermitteln Sie zunächst den angezeigten Status im Gesundheitsindikator, dann gehen Sie zu [Interface und Navigation](./interface-et-navigation.md) für die Panel-Lesung und zu [Portefeuille und technische Verwaltung](./portefeuille-et-administration-technique.md), falls der Verdacht auf den Anbieter oder die Admin-Integration liegt.
+Weil die Authentifizierung weiterhin gültig sein kann, während eine **API** oder ein Anbieter noch eine Verfügbarkeitsprüfung verlangt. Ermitteln Sie zunächst den angezeigten Status im Gesundheitsindikator, dann gehen Sie zu [Interface und Navigation](./interface-et-navigation.md) für die Panel-Lesung und zu [Portefeuille und technische Verwaltung](./portefeuille-et-administration-technique.md), falls der Verdacht auf den Anbieter oder die Admin-Integration liegt.
 
 ### Was tun, wenn die Anmeldung gelingt, ein Projekt sichtbar ist, aber die Runs nicht starten?
 

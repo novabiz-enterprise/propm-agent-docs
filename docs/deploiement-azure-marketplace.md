@@ -300,7 +300,7 @@ Before launching creation:
 ### Minimum technical checks
 
 1. note the actual published **web URL**;
-2. verify the **API URL** and, if exposed, the **WebSocket URL**;
+2. verify the **API URL**;
 3. verify the availability of `/runtime-config.json`;
 4. validate consistency between the published URL and the **Entra redirect URIs**;
 5. open **Platform Administration > AI Provider Settings** and confirm the chosen provider is properly prepared;

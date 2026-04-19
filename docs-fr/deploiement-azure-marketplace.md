@@ -300,7 +300,7 @@ Avant de lancer la création :
 ### Vérifications techniques minimales
 
 1. relevez l’**URL web** réellement publiée ;
-2. vérifiez l’URL **API** et, si exposée, l’URL **WebSocket** ;
+2. vérifiez l’URL **API** ;
 3. vérifiez la disponibilité de **`/runtime-config.json`** ;
 4. validez la cohérence entre l’URL publiée et les **redirect URIs Entra** ;
 5. ouvrez **Administration de la plateforme > Paramètres du fournisseur IA** et confirmez que le fournisseur choisi est bien préparé ;

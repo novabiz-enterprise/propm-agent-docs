@@ -112,7 +112,7 @@ Les notifications peuvent remonter notamment des statuts d’agent, des événem
 L’indicateur de santé ouvre un panneau de lecture rapide. Il permet de consulter :
 
 - l’état **API** ;
-- l’état **realtime / WebSocket** ;
+- l’état **API** ;
 - l’état **auth** ;
 - la **latence** observée ;
 - un message affiché si l’interface en présente un ;
@@ -125,7 +125,7 @@ Si le panneau indique un état dégradé alors que l’interface charge encore, 
 | Si le signal concerne surtout… | Ouvrez ensuite | Pourquoi |
 | --- | --- | --- |
 | l’**authentification** | [Démarrage](./demarrage.md) | pour distinguer tenant, compte, `redirect URI`, groupe admin ou siège |
-| le **runtime**, l’API, le WebSocket ou la connectivité | [Maintenance, support et FAQ](./maintenance-support-faq.md) | pour suivre le parcours de vérification entre santé, fournisseur IA, intégrations et exécution |
+| le **runtime**, l’API ou la connectivité | [Maintenance, support et FAQ](./maintenance-support-faq.md) | pour suivre le parcours de vérification entre santé, fournisseur IA, intégrations et exécution |
 | le **contexte projet**, un écran vide ou une action absente | [Projets et espace de travail](./projets-et-espace-de-travail.md) | pour vérifier le projet actif, le binding, la readiness et les droits projet |
 
 Avant d’escalader, relevez l’état affiché pour **API**, **realtime**, **auth**, la **latence**, le **projet courant** et l’heure approximative du test. Ces éléments facilitent fortement le traitement par l’équipe en charge.

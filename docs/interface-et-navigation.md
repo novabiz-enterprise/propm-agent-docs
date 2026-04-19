@@ -112,7 +112,7 @@ Notifications can surface agent statuses, report generation events, document upl
 The health indicator opens a quick read panel. It allows you to view:
 
 - **API** status;
-- **realtime / WebSocket** status;
+- **API** status;
 - **auth** status;
 - observed **latency**;
 - a message displayed if the interface has one;
@@ -125,7 +125,7 @@ If the panel indicates a degraded state while the interface is still loading, ke
 | If the signal mainly concerns… | Open next | Why |
 | --- | --- | --- |
 | **authentication** | [Getting started](./demarrage.md) | to distinguish tenant, account, `redirect URI`, admin group or headquarters |
-| **runtime**, API, WebSocket or connectivity | [Maintenance, support and FAQ](./maintenance-support-faq.md) | to follow the verification path between health, AI provider, integrations and execution |
+| **runtime**, API or connectivity | [Maintenance, support and FAQ](./maintenance-support-faq.md) | to follow the verification path between health, AI provider, integrations and execution |
 | **project context**, a blank screen or missing action | [Projects and workspace](./projets-et-espace-de-travail.md) | to verify the active project, binding, readiness and project rights |
 
 Before escalating, note the displayed state for **API**, **realtime**, **auth**, **latency**, **current project** and the approximate test time. These details greatly aid the responsible team.

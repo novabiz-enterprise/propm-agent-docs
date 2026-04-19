@@ -46,7 +46,7 @@ Die folgenden Elemente sind explizit in der beobachteten Konfiguration vorgesehe
 | `redirectUri` und `postLogoutRedirectUri` | Steuern die Rückkehr nach Anmeldung und Abmeldung |
 | `allowedTenantId` | Beschränkt, falls konfiguriert, den autorisierten Mandanten |
 | `/runtime-config.json` | Dynamisches Überschreiben von URLs und Authentifizierungsparametern zur Laufzeit |
-| URL API und URL WebSocket | Ermöglichen der Web‑Oberfläche, die Plattform‑Services und Echtzeit zu erreichen |
+| API‑URL | Ermöglicht der Web‑Oberfläche, die Plattform‑Services zu erreichen |
 | Abonnement / Sitzplätze | Bedingt den Zugriff in Bereitstellungen, die eine Lizenz pro Benutzer erzwingen |
 
 ## Erstanmelde‑Pfad
@@ -119,7 +119,7 @@ Nach einer neuen Bereitstellung prüfen Sie mindestens:
 4. das Vorhandensein eines gültigen **client ID**;
 5. den korrekten Wert von **authority** und, falls verwendet, von **allowedTenantId**;
 6. die erwarteten **scopes** für Frontend und API;
-7. die **API‑URL** und, falls exponiert, die **WebSocket‑URL**;
+7. die **API‑URL**;
 8. den Verbrauch oder die Verfügbarkeit von **Sitzplätzen**, falls der Plan dies verlangt;
 9. einen ersten Verbindungstest mit einem Standard‑Benutzerkonto und einem Administratorkonto.
 
@@ -152,15 +152,15 @@ Das bedeutet häufig, dass das Konto authentifiziert ist, aber nicht als modifiz
 
 ### Anmeldung OK, Dashboard geladen, aber zusätzliche Prüfung sinnvoll
 
-Dieses Szenario weist oft darauf hin, dass die Authentifizierung erfolgreich war, aber eine zusätzliche Prüfung der Laufzeit, Echtzeit oder Konnektivität sinnvoll ist. Öffnen Sie den **Gesundheitsindikator**, notieren Sie den Zustand **API**, **realtime / WebSocket**, **auth**, die **Latenz** und das **aktuelle Projekt**, dann fahren Sie mit [Benutzeroberfläche und Navigation](./interface-et-navigation.md) fort, um das Panel zu lesen, und mit [Wartung, Support und FAQ](./maintenance-support-faq.md) für Prüfpunkte.
+Dieses Szenario weist oft darauf hin, dass die Authentifizierung erfolgreich war, aber eine zusätzliche Prüfung der Laufzeit oder Konnektivität sinnvoll ist. Öffnen Sie den **Gesundheitsindikator**, notieren Sie den Zustand **API**, **auth**, die **Latenz** und das **aktuelle Projekt**, dann fahren Sie mit [Benutzeroberfläche und Navigation](./interface-et-navigation.md) fort, um das Panel zu lesen, und mit [Wartung, Support und FAQ](./maintenance-support-faq.md) für Prüfpunkte.
 
 ## Schnelle Referenzen – zu bestätigender Zugriff
 
 | Ausgangssituation | Zuerst prüfen | Dann |
 | --- | --- | --- |
 | Microsoft gibt einen Fehler vor der Rückkehr in die Anwendung | `authority`, verwendeter Mandant, `clientId`, `redirectUri`, `postLogoutRedirectUri`, `allowedTenantId` | Vergleichen Sie die Laufzeit‑Konfiguration und die Entra‑Registrierung, dann führen Sie einen Test mit dem richtigen Konto durch |
-| Microsoft‑Anmeldung funktioniert, aber die Anwendung bleibt blockiert | Verfügbarkeit eines **Sitzplatzes**, Gesundheitsindikator, API / WebSocket‑URLs | Prüfen Sie anschließend den Zugriff auf ein Projekt und die tatsächlichen Rechte des Kontos |
-| Anmeldung funktioniert, Dashboard lädt, aber Verfügbarkeit prüfen empfohlen | Zustände **auth**, **API**, **realtime / WebSocket**, Latenz und aktives Projekt | Öffnen Sie [Benutzeroberfläche und Navigation](./interface-et-navigation.md), dann [Wartung, Support und FAQ](./maintenance-support-faq.md), um Auth, Laufzeit und Projektkontext zu unterscheiden |
+| Microsoft‑Anmeldung funktioniert, aber die Anwendung bleibt blockiert | Verfügbarkeit eines **Sitzplatzes**, Gesundheitsindikator, API‑URL | Prüfen Sie anschließend den Zugriff auf ein Projekt und die tatsächlichen Rechte des Kontos |
+| Anmeldung funktioniert, Dashboard lädt, aber Verfügbarkeit prüfen empfohlen | Zustände **auth**, **API**, Latenz und aktives Projekt | Öffnen Sie [Benutzeroberfläche und Navigation](./interface-et-navigation.md), dann [Wartung, Support und FAQ](./maintenance-support-faq.md), um Auth, Laufzeit und Projektkontext zu unterscheiden |
 | Anwendung öffnet sich, aber kein Projekt erscheint | Projekt‑Auswahl‑Filter, Liste **Projekte**, Projektzugehörigkeit, Erstellungsrecht | Bitten Sie den **Projektinhaber**, das Konto bei Bedarf dem richtigen Projekt hinzuzufügen |
 | Eine Seite ist sichtbar, aber nicht bearbeitbar | Projekt‑Rolle oder Admin‑Rolle, Zustand **Nur‑Lesen** vs **Zugriff verweigert** | Prüfen Sie anschließend die Admin‑Gruppe oder die betreffenden Projekt‑Berechtigungen |
 

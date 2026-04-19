@@ -101,7 +101,7 @@ Follow this order:
 
 ### How to read the health panel when some pages are still loading?
 
-Because authentication may remain valid while an API component, realtime/WebSocket or provider still requires a availability check. First note the status shown in the health indicator, then proceed to **Interface and navigation** for panel reading and **Portfolio and technical administration** if the doubt concerns the provider or admin integration.
+Because authentication may remain valid while an API component or provider still requires an availability check. First note the status shown in the health indicator, then proceed to **Interface and navigation** for panel reading and **Portfolio and technical administration** if the doubt concerns the provider or admin integration.
 
 ### What to do if login succeeds, a project is visible, but runs do not start?
 

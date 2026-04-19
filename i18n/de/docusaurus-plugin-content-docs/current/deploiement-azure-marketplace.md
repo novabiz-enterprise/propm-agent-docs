@@ -300,7 +300,7 @@ Bevor Sie die Erstellung starten:
 ### Minimale technische Überprüfungen
 
 1. Ermitteln Sie die tatsächlich veröffentlichte **Web‑URL**;  
-2. Prüfen Sie die **API‑URL** und ggf. die **WebSocket‑URL**;  
+2. Prüfen Sie die **API‑URL**;  
 3. Prüfen Sie die Verfügbarkeit von **`/runtime-config.json`**;  
 4. Validieren Sie die Konsistenz zwischen der veröffentlichten URL und den **Entra Redirect URIs**;  
 5. Öffnen Sie **Platform Administration > KI-Anbieter-Einstellungen** und bestätigen Sie, dass der gewählte Anbieter korrekt vorbereitet ist;  

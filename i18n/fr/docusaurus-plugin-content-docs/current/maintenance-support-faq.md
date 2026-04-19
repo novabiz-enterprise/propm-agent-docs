@@ -101,7 +101,7 @@ Suivez cet ordre :
 
 ### Comment lire le panneau de santé lorsque certaines pages chargent encore ?
 
-Parce que l’authentification peut rester valide alors qu’un composant **API**, **realtime / WebSocket** ou un fournisseur demande encore une vérification de disponibilité. Relevez d’abord l’état affiché dans l’indicateur de santé, puis poursuivez vers [Interface et navigation](./interface-et-navigation.md) pour la lecture du panneau et [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) si le doute porte sur le fournisseur ou l’intégration admin.
+Parce que l’authentification peut rester valide alors qu’un composant **API** ou un fournisseur demande encore une vérification de disponibilité. Relevez d’abord l’état affiché dans l’indicateur de santé, puis poursuivez vers [Interface et navigation](./interface-et-navigation.md) pour la lecture du panneau et [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) si le doute porte sur le fournisseur ou l’intégration admin.
 
 ### Que faire si la connexion réussit, qu’un projet est visible, mais que les runs ne démarrent pas ?
 

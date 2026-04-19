@@ -112,7 +112,7 @@ Benachrichtigungen können insbesondere Status von Agenten, Ereignisse der Beric
 Der Health indicator öffnet ein Quick‑Read‑Panel. Es ermöglicht die Anzeige von:
 
 - API‑Status;
-- realtime / WebSocket‑Status;
+- API‑Status;
 - Auth‑Status;
 - beobachtete Latenz;
 - eine Meldung, falls die Oberfläche eine hat;
@@ -125,7 +125,7 @@ Wenn das Panel einen degradierenden Zustand anzeigt, während die Oberfläche no
 | Wenn das Signal hauptsächlich betrifft… | Öffnen Sie anschließend | Warum |
 | --- | --- | --- |
 | **authentication** | [Start](./demarrage.md) | um Tenant, Konto, `redirect URI`, Admin‑Gruppe oder Hauptsitz zu unterscheiden |
-| **runtime**, API, WebSocket oder Konnektivität | [Maintenance, support and FAQ](./maintenance-support-faq.md) | um den Prüfpfad zwischen Health, KI‑Anbieter, Integrationen und Ausführung zu verfolgen |
+| **runtime**, API oder Konnektivität | [Maintenance, support and FAQ](./maintenance-support-faq.md) | um den Prüfpfad zwischen Health, KI‑Anbieter, Integrationen und Ausführung zu verfolgen |
 | **project context**, ein leerer Bildschirm oder fehlende Aktion | [Projects and workspace](./projets-et-espace-de-travail.md) | um das aktive Projekt, Binding, Readiness und Projektrechte zu prüfen |
 
 Bevor Sie eskalieren, notieren Sie den angezeigten Status für **API**, **realtime**, **auth**, **latency**, **current project** und die ungefähre Testzeit. Diese Angaben erleichtern die Bearbeitung durch das zuständige Team erheblich.

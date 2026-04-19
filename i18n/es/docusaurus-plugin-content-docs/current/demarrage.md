@@ -46,7 +46,7 @@ Los siguientes elementos están explícitamente previstos por la configuración 
 | `redirectUri` y `postLogoutRedirectUri` | Controlan los retornos después de conexión y desconexión |
 | `allowedTenantId` | Restringe, si está configurado, el tenant autorizado |
 | `/runtime-config.json` | Sobrescribe dinámicamente las URLs y parámetros de autenticación en tiempo de ejecución |
-| URL API y URL WebSocket | Permiten que la interfaz web se conecte a los servicios de la plataforma y al tiempo real |
+| URL API | Permite que la interfaz web se conecte a los servicios de la plataforma |
 | Suscripción / asientos | Condiciona el acceso en despliegues que imponen una licencia por usuario |
 
 ## Trayectoria de primera conexión
@@ -119,7 +119,7 @@ Después de un nuevo despliegue, verifica al menos:
 4. la presencia de un **client ID** válido;
 5. el valor correcto de **authority** y, si se usa, de **allowedTenantId**;
 6. los **scopes** esperados por el frontend y la API;
-7. la URL **API** y, si se expone, la URL **WebSocket**;
+7. la URL **API**;
 8. el consumo o disponibilidad de los **asientos** si el plan lo impone;
 9. una primera prueba de conexión con una cuenta de usuario estándar y una cuenta de administrador.
 
@@ -152,15 +152,15 @@ Esto suele significar que la cuenta está autenticada pero no se ha resuelto com
 
 ### Conexión OK, tablero de control cargado, pero una verificación adicional es útil
 
-Este caso indica a menudo que la autenticación tuvo éxito pero que una verificación adicional del runtime, del tiempo real o de la conectividad sigue siendo útil. Abre el **indicador de salud**, registra el estado **API**, **realtime / WebSocket**, **auth**, la **latencia** y el **proyecto actual**, luego avanza a [Interfaz y navegación](./interface-et-navigation.md) para leer el panel y a [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) para los puntos de verificación.
+Este caso indica a menudo que la autenticación tuvo éxito pero que una verificación adicional del runtime o de la conectividad sigue siendo útil. Abre el **indicador de salud**, registra el estado **API**, **auth**, la **latencia** y el **proyecto actual**, luego avanza a [Interfaz y navegación](./interface-et-navigation.md) para leer el panel y a [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) para los puntos de verificación.
 
 ## Referencias rápidas — acceso a confirmar
 
 | Situación inicial | Verifica primero | Luego |
 | --- | --- | --- |
 | Microsoft devuelve un error antes de volver a la aplicación | `authority`, tenant usado, `clientId`, `redirectUri`, `postLogoutRedirectUri`, `allowedTenantId` | compara la configuración runtime y la inscripción Entra, luego vuelve a probar con la cuenta correcta |
-| La conexión Microsoft funciona pero la aplicación se queda bloqueada | disponibilidad de un **asiento**, indicador de salud, URLs API / WebSocket | verifica luego el acceso a un proyecto y los derechos reales de la cuenta |
-| La conexión funciona, el tablero de control carga, pero se recomienda un control de disponibilidad | estados **auth**, **API**, **realtime / WebSocket**, latencia y proyecto activo | abre [Interfaz y navegación](./interface-et-navigation.md), luego [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) para distinguir auth, runtime y contexto de proyecto |
+| La conexión Microsoft funciona pero la aplicación se queda bloqueada | disponibilidad de un **asiento**, indicador de salud, URL API | verifica luego el acceso a un proyecto y los derechos reales de la cuenta |
+| La conexión funciona, el tablero de control carga, pero se recomienda un control de disponibilidad | estados **auth**, **API**, latencia y proyecto activo | abre [Interfaz y navegación](./interface-et-navigation.md), luego [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) para distinguir auth, runtime y contexto de proyecto |
 | La aplicación se abre pero no aparece ningún proyecto | selector de proyecto, lista **Proyectos**, pertenencia al proyecto, derecho de creación | pide al **Propietario del proyecto** que añada la cuenta al proyecto correcto si es necesario |
 | Una página es visible pero no modificable | rol de proyecto o rol de administrador, estado **solo lectura** vs **acceso denegado** | controla luego el grupo de administración o los permisos de proyecto correspondientes |
 
