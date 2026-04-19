@@ -67,6 +67,16 @@ Ein Projekt kann von folgenden Orten aus geöffnet werden:
 
 Wenn Sie das Projekt wechseln, werden die folgenden Oberflächen synchronisiert: **Wissen**, **Agenten**, **PM-Dokumente / Berichte & Artefakte**, **KI-Journal**, Signale und Projekteinstellungen.
 
+### Aktiven Kontext, transversale Ansichten und Zurücksetzen klären
+
+Behalten Sie diese Regeln einfach im Blick:
+
+- **Arbeitsbereich**, **Wissen**, **Agenten**, **Berichte & Artefakte** und **KI-Journal** sind projektbezogene Oberflächen;
+- **Portfolio** ist die wichtigste projektübergreifende Vergleichsansicht;
+- `All projects` bei einem benutzerdefinierten Agenten betrifft die Sichtbarkeit und Wiederverwendung seiner Definition, nicht einen projektlosen Ausführungsmodus;
+- ein Projektwechsel in der oberen Leiste ändert den persistierten aktiven Kontext, den die projektbezogenen Oberflächen verwenden;
+- der saubere Produktweg zum Zurücksetzen eines gemerkten Projekts ist, zu **Projekte** zurückzukehren und das gewünschte Projekt ausdrücklich erneut zu öffnen, statt sich auf implizites Browserverhalten zu verlassen.
+
 ## Der Arbeitsbereich: Steuerzentrale des Projekts
 
 Der **Arbeitsbereich** bündelt in einer Oberfläche:

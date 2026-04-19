@@ -71,6 +71,16 @@ Ce changement de projet modifie donc réellement le **contexte actif** utilisé 
 
 Le dernier projet retenu peut être mémorisé localement par le navigateur pour faciliter la reprise, mais cette mémoire locale n’est pas un réglage partagé à toute la plateforme.
 
+### Clarifier contexte actif, vues transverses et réinitialisation
+
+Gardez ces règles simples :
+
+- **Espace de travail**, **Connaissance**, **Agents**, **Rapports & artefacts** et **Journal IA** sont des surfaces dépendantes du projet ;
+- **Portfolio** est la vue transverse principale entre plusieurs projets ;
+- `All projects` sur un agent personnalisé concerne la visibilité et la réutilisation de sa définition, pas un mode d’exécution sans projet ;
+- changer de projet dans la barre supérieure modifie le contexte actif persisté utilisé par les surfaces dépendantes du projet ;
+- la manière produit la plus propre de réinitialiser un projet mémorisé consiste à revenir dans **Projets** puis à rouvrir explicitement le projet voulu, plutôt qu’à s’appuyer sur un comportement implicite du navigateur.
+
 ## L’espace de travail : centre de pilotage du projet
 
 L’**Espace de travail** réunit dans une même surface :

@@ -67,6 +67,16 @@ Un proyecto puede abrirse desde:
 
 Cuando cambias de proyecto, las superficies siguientes se alinean: **Conocimiento**, **Agentes**, **Documentos PM / Reportes & artefactos**, **Journal IA**, las señales y los ajustes del proyecto.
 
+### Aclarar contexto activo, vistas transversales y reinicio
+
+Mantenga estas reglas simples:
+
+- **Espacio de trabajo**, **Conocimiento**, **Agentes**, **Reportes & artefactos** y **Journal IA** son superficies dependientes del proyecto;
+- **Portfolio** es la principal vista transversal entre varios proyectos;
+- `All projects` en un agente personalizado se refiere a la visibilidad y reutilización de la definición del agente, no a un modo de ejecución sin proyecto;
+- cambiar de proyecto en la barra superior modifica el contexto activo persistido utilizado por las superficies dependientes del proyecto;
+- la forma producto más limpia de reinicializar un proyecto memorizado es volver a **Proyectos** y reabrir explícitamente el proyecto deseado, en lugar de confiar en un comportamiento implícito del navegador.
+
 ## El espacio de trabajo: centro de pilotaje del proyecto
 
 El **Espacio de trabajo** reúne en una misma superficie:

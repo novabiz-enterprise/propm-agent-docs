@@ -67,6 +67,16 @@ description: एक परियोजना बनाना, प्रारं
 
 परिवर्तन पर, निम्न सतहें संरेखित होती हैं : **Connaissance**, **Agents**, **Documents PM / Reports & artefacts**, **AI जर्नल**, सिग्नल और परियोजना सेटिंग्स।
 
+### सक्रिय संदर्भ, transverse views और reset को स्पष्ट करना
+
+इन नियमों को सरल रूप से याद रखें:
+
+- **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts** और **AI Log** project-scoped surfaces हैं;
+- **Portfolio** कई परियोजनाओं के बीच मुख्य transverse comparison view है;
+- किसी custom agent पर `All projects` उसकी definition की visibility और reuse को दर्शाता है, project-less execution mode को नहीं;
+- top bar में project बदलने से वही persisted active context बदलता है जिसे project-scoped surfaces उपयोग करती हैं;
+- remembered project context को साफ़ तरीके से reset करने का product तरीका है **Projects** पर लौटना और इच्छित project को स्पष्ट रूप से फिर से खोलना, न कि implicit browser behavior पर निर्भर रहना।
+
 ## कार्यक्षेत्र : परियोजना नियंत्रण केंद्र
 
 **Espace de travail** एक ही सतह पर निम्न एकत्र करता है :

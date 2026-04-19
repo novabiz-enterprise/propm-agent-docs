@@ -71,6 +71,16 @@ Changing project therefore really changes the **active context** used by documen
 
 The last retained project may be remembered locally by the browser to ease resumption, but this local memory is not a platform-wide shared setting.
 
+### Clarifying active context, transverse views, and reset
+
+Keep these rules simple:
+
+- **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts**, and **AI Log** are project-scoped surfaces;
+- **Portfolio** is the main transverse view across multiple projects;
+- `All projects` on a custom agent refers to the visibility and reuse of the agent definition, not to a projectless execution mode;
+- switching project in the top bar changes the persisted active context used by the project-scoped surfaces;
+- the clean product way to reset a remembered project is to return to **Projects** and reopen the intended project rather than relying on implicit browser behavior.
+
 ## The workspace: project command center
 
 The **Workspace** brings together in a single surface:
