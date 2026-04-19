@@ -169,6 +169,15 @@ In der Praxis wählen Sie zunächst einen **Standard-Agenten**, wenn Sie einen b
 
 Die Oberfläche ermöglicht auch die Suche im Agenten-Roster, um schneller den richtigen Spezialisten zu finden.
 
+### Empfohlener Anfängerpfad
+
+Für eine erste Nutzung ohne Mehrdeutigkeit:
+
+1. stellen Sie in **Agenten** eine einfache Frage;
+2. lesen Sie zuerst die Zusammenfassung der **strukturierten Ausgabe**;
+3. prüfen Sie danach Belege, Frische und Vertrauen, falls die Antwort wiederverwendet werden soll;
+4. öffnen Sie **Berichte & Artefakte** nur dann, wenn Sie dieses Ergebnis in ein gesteuertes, prüfbares oder veröffentlichbares Dokument umwandeln möchten.
+
 ## Von Agenten zu PM-Dokumenten, DOCX und XLSX
 
 Agenten springen nicht direkt zu einer finalen, veröffentlichten Datei. Der beobachtete Ablauf ist schrittweise:

@@ -169,6 +169,15 @@ In practice, first choose a **standard agent** if you want a well‑known nomina
 
 The interface also allows searching the agent roster to reach the right specialist faster.
 
+### Recommended beginner path
+
+For a first use without ambiguity:
+
+1. ask a simple question in **Agents**;
+2. read the summary of the **structured output** first;
+3. then verify evidence, freshness and confidence if the answer will be reused;
+4. open **Reports & artifacts** only if you want to turn that result into a governed, reviewable or publishable document.
+
 ## Agents to PM Documents, DOCX and XLSX
 
 Agents do not jump directly to a final distributed file. The observed flow is more progressive:
@@ -185,9 +194,16 @@ Chat history is local to the browser. In practice:
 
 - continuity saved is tied to the **project + agent** pair in the current browser;
 - a session is stored locally on the machine used;
-- changing browser or machine can cause a saved thread to disappear;
+- changing browser, profile, machine, or clearing local storage can cause a saved thread to disappear;
 - the first prompt usually serves as the session title, which aids resume;
 - do not treat the browser as a shared central archive.
+
+### Local browser vs shared platform
+
+Keep this distinction simple:
+
+- **chat continuity** and the **remembered project** are browser-local conveniences;
+- **documents**, **imports**, **artifacts**, **approvals**, and **publications** belong to the shared platform.
 
 ## Custom agents
 
@@ -215,7 +231,7 @@ Creating custom agents depends on the level of rights. Key points to remember:
 
 ## Voice input in Agents
 
-This documentation no longer describes a separate **voice** entry point in the **Workspace**. When voice input is still available, it is limited to the **Agents** experience and depends explicitly on browser support for speech recognition APIs.
+This documentation no longer describes a separate **voice** entry point in the **Workspace**. When voice input is still available, it is limited to the **Agents** experience and depends explicitly on browser support for speech recognition APIs. Its absence does not block the nominal path, which remains text input.
 
 If voice input is not available:
 

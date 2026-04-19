@@ -117,6 +117,26 @@ Verwenden Sie **Arbeitsbereich**, um das Projekt einzustellen und zu steuern; ve
 
 Der sichtbare Verlauf ist lokal im Browser. Es ist keine zentrale, geteilte Archivierung.
 
+### Was ist lokal im Browser und was wird in der Plattform geteilt?
+
+Im aktuell beobachteten Zustand gilt:
+
+- die **Chat‑Kontinuität** wird lokal gespeichert, pro Paar **Projekt + Agent**, im aktuellen Browser;
+- das **gemerkte aktive Projekt** hängt ebenfalls vom Browser und manchmal von der lokalen Sitzung ab;
+- **Dokumente**, **Importe**, **Artefakte**, **Freigaben**, **veröffentlichte Berichte** und andere Projektobjekte gehören zur **gemeinsam genutzten Plattform**.
+
+Es ist daher normal, dass ein Chatverlauf beim Wechsel des Browsers oder Geräts verschwindet, während die gesteuerten Projektobjekte für andere berechtigte Nutzer sichtbar bleiben.
+
+### Was ist lokal im Browser und was wird in der Plattform geteilt?
+
+Im aktuell beobachteten Zustand gilt:
+
+- die **Chat‑Kontinuität** wird lokal gespeichert, pro Paar **Projekt + Agent**, im aktuellen Browser;
+- das **gemerkte aktive Projekt** hängt ebenfalls vom Browser und manchmal von der lokalen Sitzung ab;
+- **Dokumente**, **Importe**, **Artefakte**, **Freigaben**, **veröffentlichte Berichte** und andere Projektobjekte gehören zur **gemeinsam genutzten Plattform**.
+
+Es ist daher normal, dass ein Chatverlauf beim Wechsel des Browsers oder Geräts verschwindet, während die gesteuerten Projektobjekte für andere berechtigte Nutzer sichtbar bleiben.
+
 ### Warum erscheint ein benutzerdefinierter Agent nicht in einem anderen Projekt?
 
 Prüfen Sie zuerst dessen **Scope**. Ein `Project only` Agent bleibt auf das aktuelle Projekt beschränkt. Wenn die Umgebung einen `All projects` Agenten ausstellt, muss dieser zusätzlich mit dem **gleichen Konto** in einem Projekt konsultiert werden, auf das dieses Konto Zugriff hat.
@@ -130,6 +150,22 @@ Die beobachtete Kontinuität ist **lokal im Browser** und an das Paar **Projekt 
 Beginnen Sie mit der Browserunterstützung für `SpeechRecognition` / `webkitSpeechRecognition`, dann prüfen Sie die Mikrofonzugriffsberechtigung. Wenn der Button nicht verfügbar bleibt oder die Erkennung fehlschlägt, kehren Sie zur Texteingabe zurück, ohne den Projektpfad zu blockieren.
 
 ## FAQ — Wissen und Suche
+
+### Warum wirken **Arbeitsbereich**, **Wissen** oder **KI-Journal** leer?
+
+Prüfen Sie zuerst, ob ein **aktives Projekt** vorhanden ist. Im aktuell beobachteten Zustand der Anwendung können diese Oberflächen einen **normalen leeren Zustand** anzeigen, solange kein Projekt ausgewählt ist.
+
+Wenn bereits ein Projekt aktiv ist, unterscheiden Sie danach zwischen einem normalen leeren Zustand und einem tatsächlichen Fehlen von Daten: neues Projekt, kein Run, kein Dokument, kein Artefakt oder aktiver Filter.
+
+### Warum ist **Berichte & Artefakte** leer?
+
+Die häufigsten Ursachen sind:
+
+- es wurde noch kein **Artefakt** oder **PM-Dokument** erstellt;
+- der Run blieb auf der Stufe der **strukturierten Ausgabe**;
+- das falsche Projekt oder ein Filter verbirgt die Zeilen;
+- die Umgebung enthält nicht dieselben Demo-Daten wie andere Screenshots oder Tests.
+
 
 ### Warum ist ein Dokument in der Liste sichtbar, aber noch nicht auffindbar?
 

@@ -25,10 +25,12 @@ Cette page explique la différence entre **artefact**, **version d’artefact** 
 Le flux le plus courant est :
 
 1. un agent produit une **sortie structurée** ;
-2. cette sortie devient un **draft artifact** ;
-3. l’utilisateur ouvre **Rapports & artefacts / Documents PM** ;
+2. selon le flux et les droits disponibles, cette sortie peut ensuite alimenter un **artefact** ou un **Document PM** ;
+3. l’utilisateur ouvre **Rapports & artefacts / Documents PM** lorsqu’un document gouverné existe ou doit être préparé ;
 4. il relit le contenu, consulte le **diff** et la **lignée** ;
 5. il approuve, publie, télécharge ou ajoute le document à la **Connaissance**.
+
+Autrement dit, une réponse d’agent ne devient pas automatiquement un document final : la chaîne observée reste **sortie structurée → artefact / PM Doc → revue → décision aval**.
 
 ## De l’agent au DOCX ou XLSX
 
@@ -75,6 +77,17 @@ Les Documents PM exposent au moins les états de compatibilité suivants :
 - `draft`
 - `final`
 
+## Si Rapports & artefacts paraît vide
+
+Un projet peut afficher une surface vide pour plusieurs raisons normales :
+
+- aucun **artefact** ou **PM Doc** n’a encore été créé ;
+- le run est resté au stade de **sortie structurée** sans transformation aval ;
+- le mauvais projet ou un filtre masque les lignes attendues ;
+- l’environnement ne contient pas les mêmes données de démonstration seedées que d’autres captures ou tests.
+
+Dans ce cas, repartez d’abord de **Agents** ou du **Journal IA**, puis revenez dans **Rapports & artefacts** quand un objet gouverné existe réellement.
+
 ## Actions disponibles dans Rapports & artefacts
 
 Le hub expose des actions telles que :
@@ -116,10 +129,11 @@ L’interface permet aussi de sélectionner une version par numéro et d’ident
 
 Les comportements observés montrent que :
 
-- **Approve** est disponible sur une version en `draft` ;
-- **Publish** devient disponible quand la version est `approved` ou déjà `published` ;
+- **Approve** valide une version d’artefact encore en `draft` ;
+- **Publish** correspond à une diffusion gouvernée vers une destination ou un format cible quand le flux l’autorise ;
 - la publication envoie des formats et destinations gouvernés ;
-- l’ajout à la connaissance reste une action distincte du téléchargement et de la publication.
+- **Add to knowledge** réinjecte un document relu dans la recherche projet ;
+- **Download** reste distinct de l’ajout à la connaissance et de la publication.
 
 ## Éditeurs disponibles
 

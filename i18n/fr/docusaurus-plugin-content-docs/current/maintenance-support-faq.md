@@ -117,6 +117,16 @@ Utilisez **Espace de travail** pour régler et piloter le projet ; utilisez **Ag
 
 L’historique visible est local au navigateur. Il n’est pas une archive partagée centrale.
 
+### Qu’est-ce qui est local au navigateur et qu’est-ce qui est partagé dans la plateforme ?
+
+Dans l’état actuel observé :
+
+- la **continuité de chat** est sauvegardée localement, par couple **projet + agent**, dans le navigateur courant ;
+- le **projet actif mémorisé** relève aussi du navigateur et parfois de la session locale ;
+- les **documents**, **imports**, **artefacts**, **approbations**, **rapports publiés** et autres objets projet relèvent de la **plateforme partagée**.
+
+Il est donc normal qu’un historique de chat disparaisse en changeant de navigateur ou de machine alors que les documents et objets gouvernés du projet restent visibles aux autres utilisateurs autorisés.
+
 ### Pourquoi un agent personnalisé n’apparaît-il pas dans un autre projet ?
 
 Vérifiez d’abord son **scope**. Un agent `Project only` reste limité au projet courant. Si l’environnement expose un agent `All projects`, il doit en plus être consulté avec le **même compte** dans un projet auquel ce compte a accès.
@@ -129,7 +139,26 @@ La continuité observée est **locale au navigateur** et rattachée au couple **
 
 Commencez par la prise en charge navigateur de `SpeechRecognition` / `webkitSpeechRecognition`, puis contrôlez l’autorisation d’accès au micro. Si le bouton reste indisponible ou si la reconnaissance échoue, revenez à la saisie texte sans bloquer le parcours projet.
 
+### Pourquoi la voix n’apparaît-elle pas dans tous les environnements ?
+
+Parce que cette capacité dépend du navigateur et de son support de reconnaissance vocale. La saisie vocale reste optionnelle : son absence ne bloque pas le workflow nominal, qui reste la saisie texte dans **Agents**.
+
 ## FAQ — connaissance et recherche
+
+### Pourquoi **Espace de travail**, **Connaissance** ou **Journal IA** semble vide ?
+
+Commencez par vérifier s’il existe bien un **projet actif**. Dans l’état actuel de l’application, ces surfaces peuvent afficher un **état vide normal** tant qu’aucun projet n’est sélectionné.
+
+Si un projet est déjà actif, distinguez ensuite un vide normal de l’absence réelle de données : projet neuf, aucun run, aucun document, aucun artefact ou filtre actif.
+
+### Pourquoi **Rapports & artefacts** est-il vide ?
+
+Les causes les plus fréquentes sont :
+
+- aucun **artefact** ou **PM Doc** n’a encore été créé ;
+- le run est resté au stade de **sortie structurée** ;
+- le mauvais projet ou un filtre masque les lignes ;
+- l’environnement ne contient pas les mêmes données de démonstration que d’autres captures ou tests.
 
 ### Pourquoi un document est-il visible dans la liste mais pas encore retrouvable dans la recherche ?
 
@@ -166,6 +195,10 @@ Ils indiquent l’état de confiance temporelle de la source : `fresh`, `aging`,
 ### Comment savoir quel fournisseur IA a réellement été utilisé ?
 
 Ouvrez le détail du run dans **Journal IA** et lisez **Effective AI Provider**. C’est la valeur de référence pour ce run.
+
+### Pourquoi `Validate` et `Test` ne garantissent-ils pas toujours que ce fournisseur sera celui réellement utilisé ?
+
+Parce que `Validate` et `Test` contrôlent surtout la cohérence et la connectivité de la configuration administrative. Le fournisseur effectivement utilisé sur un run donné reste celui résolu au runtime et exposé dans le **Journal IA**.
 
 ### Un run est visible dans `Runs`, mais aucune suite claire n’apparaît dans `Activity`. Que faire ?
 
@@ -209,6 +242,10 @@ Confirmez ensuite l’étape aval dans **Actions & approbations**, puis dans **A
 Parce qu’une définition technique plateforme ne suffit pas. Il faut encore un **binding projet** valide, des permissions adéquates, une policy compatible, un état de santé acceptable et, selon les cas, l’entitlement correspondant.
 
 ## FAQ — portefeuille et administration
+
+### Pourquoi les données de démonstration ne correspondent-elles pas toujours exactement à la documentation ?
+
+Les environnements live peuvent varier. Certains projets n’exposent pas toujours les mêmes documents seedés, rapports seedés ou exemples de recherche que ceux montrés dans la documentation ou dans d’autres tests.
 
 ### Pourquoi le portefeuille ne remonte-t-il aucun projet ou aucun outlier ?
 

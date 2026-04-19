@@ -24,6 +24,7 @@ Sie ist für zwei Zielgruppen strukturiert:
 | --- | --- | --- |
 | Ich kann mich nicht anmelden | [Start](./demarrage.md) | [Wartung, Support und FAQ](./maintenance-support-faq.md), um Tenant, `redirect URI`, Hauptsitz oder Gesundheitszustand zu unterscheiden |
 | Kein Projekt erscheint | [Start](./demarrage.md) | [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md), dann [Wartung, Support und FAQ](./maintenance-support-faq.md), falls die Projektzuordnung oder Rolle unklar bleibt |
+| Eine Seite bleibt leer, solange kein aktives Projekt definiert ist | [Start](./demarrage.md) | [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md), um den Projektkontext zu bestätigen, dann [Wartung, Support und FAQ](./maintenance-support-faq.md), falls der leere Zustand weiter unnormal wirkt |
 | Eine Aktion ist sichtbar, aber blockiert | [Governance, Entscheidungen und Aktionen](./gouvernance-decisions-et-actions.md) | [Connectoren und Integrationen](./connecteurs-jira-et-sharepoint), dann [Portfolio und technische Administration](./portefeuille-et-administration-technique.md), falls die Blockierung von einem Connector, Binding oder Entitlement stammt |
 | Der KI-Anbieter scheint nicht funktionsfähig zu sein | [Portfolio und technische Administration](./portefeuille-et-administration-technique.md) | [Wartung, Support und FAQ](./maintenance-support-faq.md) und [Berichte, KI-Log und Nachvollziehbarkeit](./rapports-journal-ia-et-tracabilite.md), um den tatsächlich verwendeten Anbieter zu bestätigen |
 

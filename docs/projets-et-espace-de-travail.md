@@ -67,6 +67,10 @@ A project can be opened from:
 
 When you change project, the following surfaces align: **Knowledge**, **Agents**, **PM Documents / Reports & artifacts**, **AI Journal**, signals and project settings.
 
+Changing project therefore really changes the **active context** used by document search, agent conversations, reports and related traces.
+
+The last retained project may be remembered locally by the browser to ease resumption, but this local memory is not a platform-wide shared setting.
+
 ## The workspace: project command center
 
 The **Workspace** brings together in a single surface:
@@ -252,6 +256,24 @@ This tab turns a recommendation into a controlled operation. An action can be **
 - the compatible connector is not ready;
 - the project binding limits the action;
 - required approval has not yet occurred.
+
+### How to read a tab that looks empty or incomplete
+
+The tab being visible does not mean an action is already executable. When nothing concrete seems available, the most useful reading is often:
+
+1. no **compatible healthy execution connector** is ready for that action type;
+2. the **project binding** does not yet expose the option to the project;
+3. a **policy** allows review but not proposal or execution;
+4. your **permission** lets you see the queue, but not act on it;
+5. approval is required and no decision has yet been taken.
+
+When everything is correctly ready, you should expect at least:
+
+- a compatible action type;
+- at least one healthy execution option;
+- a valid project binding;
+- a coherent policy;
+- a user authorized to propose, approve or execute depending on the case.
 
 ## Read‑only or access denied
 

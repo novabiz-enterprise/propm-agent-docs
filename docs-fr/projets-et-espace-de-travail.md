@@ -67,6 +67,10 @@ Un projet peut être ouvert depuis :
 
 Lorsque vous changez de projet, les surfaces suivantes se recalent : **Connaissance**, **Agents**, **Documents PM / Rapports & artefacts**, **Journal IA**, les signaux et les réglages projet.
 
+Ce changement de projet modifie donc réellement le **contexte actif** utilisé par la recherche documentaire, les conversations agents, les rapports et les traces associées.
+
+Le dernier projet retenu peut être mémorisé localement par le navigateur pour faciliter la reprise, mais cette mémoire locale n’est pas un réglage partagé à toute la plateforme.
+
 ## L’espace de travail : centre de pilotage du projet
 
 L’**Espace de travail** réunit dans une même surface :
@@ -252,6 +256,24 @@ Cet onglet transforme une recommandation en opération contrôlée. Une action p
 - le connecteur compatible n’est pas prêt ;
 - le binding projet limite l’action ;
 - l’approbation requise n’a pas encore eu lieu.
+
+### Comment lire un onglet qui paraît vide ou incomplet
+
+La visibilité de l’onglet ne signifie pas qu’une action est déjà exécutable. Quand rien de concret ne semble disponible, la lecture la plus utile est souvent :
+
+1. aucun **connecteur d’exécution compatible et sain** n’est prêt pour ce type d’action ;
+2. le **binding projet** n’expose pas encore l’option au projet ;
+3. une **policy** autorise la consultation mais pas la proposition ou l’exécution ;
+4. votre **permission** permet de voir la file, mais pas d’agir ;
+5. une approbation est requise et aucune décision n’a encore été prise.
+
+Quand tout est correctement prêt, on s’attend au minimum à voir :
+
+- un type d’action compatible ;
+- au moins une option d’exécution saine ;
+- un binding projet valide ;
+- une policy cohérente ;
+- un utilisateur autorisé à proposer, approuver ou exécuter selon le cas.
 
 ## Lecture seule ou accès refusé
 

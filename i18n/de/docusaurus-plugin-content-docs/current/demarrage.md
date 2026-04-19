@@ -58,6 +58,19 @@ Die folgenden Elemente sind explizit in der beobachteten Konfiguration vorgesehe
 5. Prüfen Sie die Interface‑Sprache, das aktuelle Projekt und eventuelle sichtbare Nachrichten in der oberen Leiste;
 6. Öffnen Sie **Projekte**, um Ihr erstes Projekt auszuwählen oder zu erstellen.
 
+## Erste Anmeldung in 5 Minuten
+
+Für einen sehr einfachen ersten Ablauf gehen Sie in dieser Reihenfolge vor:
+
+1. melden Sie sich an;
+2. bestätigen Sie das **aktive Projekt** in der oberen Leiste oder öffnen Sie **Projekte**;
+3. erstellen oder öffnen Sie ein Projekt;
+4. öffnen Sie **Agenten**, um eine erste einfache Frage zu stellen, zum Beispiel zu Status oder Prioritätsrisiko;
+5. lesen Sie die **strukturierte Ausgabe**;
+6. öffnen Sie danach **KI‑Journal**, wenn Sie die Run‑Spur wiederfinden müssen, oder **Berichte & Artefakte**, wenn Sie das Ergebnis in ein gesteuertes Dokument umwandeln möchten.
+
+Dieser Ablauf genügt, um die Kernlogik der Anwendung zu verstehen, ohne zuerst alle Administrationsoberflächen zu öffnen.
+
 ## Zu kennende Zugriffs‑Zustände
 
 In der Oberfläche gibt es zwei Zustände:

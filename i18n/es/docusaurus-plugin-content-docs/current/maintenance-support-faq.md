@@ -116,6 +116,16 @@ Use Espacio de trabajo para configurar y dirigir el proyecto; use Agentes para c
 
 El historial visible es local al navegador. No es una archivada central compartida.
 
+### ¿Qué es local al navegador y qué se comparte en la plataforma?
+
+En el estado actualmente observado:
+
+- la **continuidad del chat** se guarda localmente, por pareja **proyecto + agente**, en el navegador actual;
+- el **proyecto activo recordado** también depende del navegador y a veces de la sesión local;
+- **documentos**, **importaciones**, **artefactos**, **aprobaciones**, **informes publicados** y otros objetos del proyecto pertenecen a la **plataforma compartida**.
+
+Por lo tanto, es normal que el historial del chat desaparezca al cambiar de navegador o de equipo mientras los objetos gobernados del proyecto sigan visibles para otros usuarios autorizados.
+
 ### ¿Por qué un agente personalizado no aparece en otro proyecto?
 
 Verifique primero su alcance. Un agente `Project only` permanece limitado al proyecto actual. Si el entorno expone un agente `All projects`, también debe consultarse con la misma cuenta en un proyecto al que esa cuenta tenga acceso.
@@ -129,6 +139,22 @@ La continuidad observada es local al navegador y vinculada al par proyecto + age
 Comience por la compatibilidad del navegador con SpeechRecognition / webkitSpeechRecognition, luego controle la autorización de acceso al micrófono. Si el botón sigue indisponible o la reconocimiento falla, vuelva a la entrada de texto sin bloquear el flujo del proyecto.
 
 ## FAQ — conocimiento y búsqueda
+
+### ¿Por qué **Espacio de trabajo**, **Conocimiento** o **Registro IA** parece vacío?
+
+Comience verificando si existe un **proyecto activo**. En el estado actual de la aplicación, estas superficies pueden mostrar un **estado vacío normal** mientras no se seleccione ningún proyecto.
+
+Si ya hay un proyecto activo, distinga luego entre un vacío normal y una ausencia real de datos: proyecto nuevo, ningún run, ningún documento, ningún artefacto o un filtro activo.
+
+### ¿Por qué **Informes & artefactos** está vacío?
+
+Las causas más frecuentes son:
+
+- todavía no se ha creado ningún **artefacto** o **Documento PM**;
+- el run se quedó en la etapa de **salida estructurada**;
+- el proyecto incorrecto o un filtro oculta las filas;
+- el entorno no contiene los mismos datos demo que otras capturas o pruebas.
+
 
 ### ¿Por qué un documento es visible en la lista pero aún no se encuentra en la búsqueda?
 

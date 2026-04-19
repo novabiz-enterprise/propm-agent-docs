@@ -24,6 +24,7 @@ Está organizada para dos públicos:
 | --- | --- | --- |
 | No puedo iniciar sesión | [Inicio](./demarrage.md) | [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) para distinguir inquilino, `redirect URI`, sede o estado de salud |
 | No aparece ningún proyecto | [Inicio](./demarrage.md) | [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md), luego [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) si la adición al proyecto o el rol siguen dudosos |
+| Una página permanece vacía mientras no se defina un proyecto activo | [Inicio](./demarrage.md) | [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md) para confirmar el contexto de proyecto, luego [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) si el estado vacío sigue pareciendo anormal |
 | Una acción es visible pero bloqueada | [Gobernanza, decisiones y acciones](./gouvernance-decisions-et-actions.md) | [Conectores e integraciones](./connecteurs-jira-et-sharepoint), luego [Portafolio y administración técnica](./portefeuille-et-administration-technique.md) si el bloqueo proviene de un conector, un binding o un entitlement |
 | El proveedor IA no parece operativo | [Portafolio y administración técnica](./portefeuille-et-administration-technique.md) | [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) y [Informes, Registro IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md) para confirmar el proveedor efectivo |
 

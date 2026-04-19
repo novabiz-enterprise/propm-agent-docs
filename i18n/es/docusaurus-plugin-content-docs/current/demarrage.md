@@ -58,6 +58,19 @@ Los siguientes elementos están explícitamente previstos por la configuración 
 5. verifica el idioma de la interfaz, el proyecto actual y los posibles mensajes visibles en la barra superior;
 6. abre **Proyectos** para seleccionar o crear tu primer proyecto.
 
+## Primera conexión en 5 minutos
+
+Para un primer recorrido muy simple, sigue este orden:
+
+1. inicia sesión;
+2. confirma el **proyecto activo** en la barra superior o abre **Proyectos**;
+3. crea o abre un proyecto;
+4. abre **Agentes** para hacer una primera pregunta simple, por ejemplo sobre estado o riesgo prioritario;
+5. revisa la **salida estructurada**;
+6. luego abre **Registro IA** si necesitas recuperar la traza del run, o **Informes & artefactos** si quieres convertir el resultado en un documento gobernado.
+
+Este recorrido basta para comprender la lógica central de la aplicación sin empezar por todas las pantallas de administración.
+
 ## Estados de acceso a conocer
 
 Dos estados diferentes existen en la interfaz:

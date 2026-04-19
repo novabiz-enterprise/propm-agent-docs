@@ -23,6 +23,7 @@ It is organized for two audiences:
 | --- | --- | --- |
 | I cannot log in | [Getting started](./demarrage.md) | [Maintenance, support and FAQ](./maintenance-support-faq.md) to distinguish tenant, `redirect URI`, seat or health status |
 | No projects appear | [Getting started](./demarrage.md) | [Projects and workspace](./projets-et-espace-de-travail.md), then [Maintenance, support and FAQ](./maintenance-support-faq.md) if adding to the project or role remains doubtful |
+| A page stays empty until an active project is defined | [Getting started](./demarrage.md) | [Projects and workspace](./projets-et-espace-de-travail.md) to confirm project context, then [Maintenance, support and FAQ](./maintenance-support-faq.md) if the empty state still seems abnormal |
 | An action is visible but blocked | [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) | [Connectors and integrations](./connecteurs-jira-et-sharepoint), then [Portfolio and technical administration](./portefeuille-et-administration-technique.md) if the block comes from a connector, a binding or an entitlement |
 | The AI provider does not seem operational | [Portfolio and technical administration](./portefeuille-et-administration-technique.md) | [Maintenance, support and FAQ](./maintenance-support-faq.md) and [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) to confirm the actual provider |
 
@@ -56,6 +57,8 @@ If you are looking for a verification procedure or an operational reference, ope
 | Support / audit | [Getting started](./demarrage.md) → [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md) → [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) → [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) → [Glossary](./glossaire.md) |
 
 ## Recommended end‑to‑end path
+
+Short chain to remember: **Active project → Agents → structured output → artifact / PM Doc → review / diff / lineage → Approve / Publish / Add to knowledge**.
 
 In real usage, the most frequent flow is:
 
@@ -141,6 +144,17 @@ The following elements are explicitly visible in the interface, seeded data or t
 ## Screenshots and diagrams
 
 Screenshots of the application were generated on the observed environment. When some available screenshots mainly showed a loading state or incomplete demo data, this French version also favours **explanatory diagrams** to keep a usable reading before final translation and publication.
+
+Demo content can also vary by environment: some projects do not always expose the same seeded documents, seeded reports or examples shown in the documentation.
+
+## What stays local to the browser and what is shared
+
+Two logics coexist in the product:
+
+- some convenience features, such as the **remembered current project** or **saved chat continuity**, stay local to the browser;
+- project data, documents, artifacts, approvals and publications belong to the **shared platform**.
+
+A visible chat history in one browser should therefore not be treated as a central archive shared by all users.
 
 ## Support and contact
 

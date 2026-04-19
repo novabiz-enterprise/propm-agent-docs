@@ -58,6 +58,19 @@ The following items are explicitly expected by the observed configuration:
 5. verify the interface language, current project and any visible messages in the top bar;
 6. open **Projects** to select or create your first project.
 
+## First login in 5 minutes
+
+For a very simple first path, follow this order:
+
+1. sign in;
+2. confirm the **active project** in the top bar or open **Projects**;
+3. create or open a project;
+4. open **Agents** to ask a first simple question, for example a status or a priority risk;
+5. review the **structured output**;
+6. then open **AI Log** if you need to find the run trace, or **Reports & artifacts** if you want to turn the result into a governed document.
+
+This path is enough to understand the core product logic without starting with every administration screen.
+
 ## Access states to know
 
 Two different states exist in the interface:
@@ -100,7 +113,9 @@ The data language influences, in particular:
 
 ## If no project appears
 
-Several screens display an explicit empty state when no project is selected. That is normal.
+Several screens display an explicit empty state when no project is selected. That is normal. This is notably the case, in the observed state, for **Workspace**, **Knowledge** and **AI Log**.
+
+In other words, a blank screen on these surfaces does not automatically mean a failure: it may simply indicate that no **active project** is currently defined.
 
 To proceed:
 
@@ -108,6 +123,16 @@ To proceed:
 2. open **Projects** to choose an accessible project;
 3. if you have creation rights, create a project;
 4. if the list remains empty, verify with your administrator that your account has been added to the correct project.
+
+## Locally remembered project context
+
+The current project can be **remembered in the browser** to make it easier to resume work on the same device. This memory is a local convenience:
+
+- it depends on the browser and sometimes on the current session;
+- it is not a shared tenant-wide preference;
+- changing browser, profile or machine can make this remembered context disappear.
+
+If doubt remains, always return to **Projects** or the top-bar **project selector** to confirm the context that is actually active.
 
 ## Post‑deployment checklist for the technical administrator
 

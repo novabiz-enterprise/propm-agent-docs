@@ -25,10 +25,12 @@ This page explains the difference between **artifact**, **artifact version**, an
 The most common flow is:
 
 1. an agent produces a **structured output**;
-2. this output becomes a **draft artifact**;
-3. the user opens **Reports & Artifacts**;
+2. depending on the flow and available rights, that output can then feed an **artifact** or a **PM Document**;
+3. the user opens **Reports & Artifacts** when a governed document exists or must be prepared;
 4. they review the content, consult the **diff** and **lineage**;
 5. they approve, publish, download, or add the document to the **Knowledge**.
+
+In other words, an agent answer does not automatically become a final document: the observed chain remains **structured output → artifact / PM Doc → review → downstream decision**.
 
 ## Visible Statuses
 
@@ -47,6 +49,17 @@ PM Docs expose at least the following compatibility states:
 
 - `draft`
 - `final`
+
+## If Reports & Artifacts looks empty
+
+A project can display an empty surface for several normal reasons:
+
+- no **artifact** or **PM Doc** has been created yet;
+- the run stayed at the **structured output** stage without downstream transformation;
+- the wrong project or a filter hides the expected rows;
+- the environment does not contain the same seeded demo data as other screenshots or tests.
+
+In that case, start again from **Agents** or **AI Log**, then return to **Reports & Artifacts** when a governed object actually exists.
 
 ## Actions Available in Reports & Artifacts
 
@@ -89,10 +102,11 @@ The interface also allows selecting a version by number and identifying the prev
 
 Observed behaviors show that:
 
-- **Approve** is available on a version in `draft`;
-- **Publish** becomes available when the version is `approved` or already `published`;
+- **Approve** validates an artifact version still in `draft`;
+- **Publish** corresponds to governed distribution to a target destination or output format when the flow allows it;
 - publication sends governed formats and destinations;
-- adding to the Knowledge remains a distinct action from downloading and publishing.
+- **Add to knowledge** reinjects a reviewed document into project search;
+- **Download** remains separate from both publication and add to knowledge.
 
 ## Available Editors
 

@@ -264,6 +264,18 @@ The best control is practical:
 
 The **Actions & approvals** screen is used to turn an intention into a real **governed action**.
 
+### When everything is correctly ready, what should I see?
+
+In a nominal case, the authorized user usually finds:
+
+- at least one relevant **action type**;
+- a **compatible healthy execution option**;
+- a truly active **project binding**;
+- a **policy** that either allows proposal or routes to approval;
+- a queue where requests then move through **pending approval**, **approved**, **executed** or **rejected** depending on the case.
+
+If one of these links is missing, the screen can look empty, incomplete or purely informational without this necessarily being a failure.
+
 ### What the user sees in this screen
 
 A user typically finds:
@@ -320,7 +332,21 @@ In practice:
 - **blocked by health** = connector to check on the platform side;
 - **blocked by entitlement** = capacity not included in the plan or not open;
 - **blocked by policy** = restrictive project governance;
-- **blocked by permission** = your role is insufficient.
+- **blocked by permission** = your role is insufficient;
+- no visible option = compatible connector missing, missing project binding or option not opened to your role.
+
+### Pedagogical reading of a screen that seems empty
+
+If `Actions & approvals` offers nothing executable, start with this simple table:
+
+| What you see | Likely dominant reason | Useful reflex |
+| --- | --- | --- |
+| no selectable connector | no compatible healthy connector is ready | check **Project integrations** then **Platform Administration** |
+| visible action but blocked button | permission, policy or approval required | check the role, then governance |
+| visible queue but nothing goes out | the request is still waiting for approval or downstream execution | reread the actual queue status |
+| connector present but unusable | insufficient binding, health or entitlement | verify the full platform → project → policy chain |
+
+Also remember that **approved** does not mean **executed**: approval exists, but real execution may still be pending.
 
 #### Step 5 — Fill in the title and justification
 

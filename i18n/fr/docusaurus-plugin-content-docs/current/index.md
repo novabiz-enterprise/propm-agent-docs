@@ -1,6 +1,5 @@
 ---
 title: Guide utilisateur ProPM Agent
-pagination_label: Accueil
 slug: /
 description: "Documentation utilisateur française pour ProPM Agent, couvrant l’exécution de projet assistée par IA, la gouvernance, les connecteurs, la traçabilité et le déploiement Azure Marketplace."
 ---
@@ -24,6 +23,7 @@ Elle est organisée pour deux publics :
 | --- | --- | --- |
 | Je ne peux pas me connecter | [Démarrage](./demarrage.md) | [Maintenance, support et FAQ](./maintenance-support-faq.md) pour distinguer tenant, `redirect URI`, siège ou état de santé |
 | Aucun projet n’apparaît | [Démarrage](./demarrage.md) | [Projets et espace de travail](./projets-et-espace-de-travail.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) si l’ajout au projet ou le rôle restent douteux |
+| Une page reste vide tant qu’aucun projet actif n’est défini | [Démarrage](./demarrage.md) | [Projets et espace de travail](./projets-et-espace-de-travail.md) pour confirmer le contexte projet, puis [Maintenance, support et FAQ](./maintenance-support-faq.md) si l’état vide paraît anormal |
 | Une action est visible mais bloquée | [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) | [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint), puis [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) si le blocage vient d’un connecteur, d’un binding ou d’un entitlement |
 | Le fournisseur IA ne semble pas opérationnel | [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) | [Maintenance, support et FAQ](./maintenance-support-faq.md) et [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) pour confirmer le fournisseur effectif |
 
@@ -57,6 +57,8 @@ Si vous cherchez directement une procédure de vérification ou un repère d’e
 | Support / audit | [Démarrage](./demarrage.md) → [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md) → [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) → [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) → [Glossaire](./glossaire.md) |
 
 ## Parcours bout en bout recommandé
+
+Chaîne courte à retenir : **Projet actif → Agents → sortie structurée → artefact / PM Doc → review / diff / lignée → Approve / Publish / Add to knowledge**.
 
 Dans un usage réel, le flux le plus fréquent est le suivant :
 
@@ -142,6 +144,17 @@ Les éléments suivants sont explicitement visibles dans l’interface, les donn
 ## Captures d’écran et schémas
 
 Les captures de l’application ont été générées sur l’environnement observé. Lorsque certaines captures disponibles montraient surtout un état de chargement ou des données de démonstration incomplètes, cette version française privilégie aussi des **schémas explicatifs** pour garder une lecture exploitable avant traduction et publication finale.
+
+Le contenu de démonstration peut aussi varier selon l’environnement : certains projets n’exposent pas toujours les mêmes documents seedés, rapports seedés ou exemples visibles dans la documentation.
+
+## Ce qui reste local au navigateur et ce qui est partagé
+
+Deux logiques coexistent dans le produit :
+
+- certaines aides de confort, comme le **projet courant mémorisé** ou la **continuité de chat sauvegardée**, restent locales au navigateur ;
+- les données projet, documents, artefacts, approbations et publications relèvent de la **plateforme partagée**.
+
+Il ne faut donc pas interpréter un historique de chat visible dans un navigateur comme une archive centrale commune à tous les utilisateurs.
 
 ## Support et contact
 

@@ -169,6 +169,15 @@ En pratique, choisissez d’abord un **agent standard** si vous cherchez un parc
 
 L’interface permet aussi de rechercher dans le roster d’agents pour atteindre plus vite le bon spécialiste.
 
+### Parcours débutant recommandé
+
+Pour une première utilisation sans ambiguïté :
+
+1. posez une question simple dans **Agents** ;
+2. lisez d’abord la synthèse de la **sortie structurée** ;
+3. vérifiez ensuite les preuves, la fraîcheur et la confiance si la réponse doit être réutilisée ;
+4. n’ouvrez **Rapports & artefacts** que si vous souhaitez transformer ce résultat en document gouverné, révisable ou publiable.
+
 ## Des agents vers les Documents PM, DOCX et XLSX
 
 Les agents ne sautent pas directement vers un fichier final diffusé. Le flux observé est plus progressif :
@@ -185,9 +194,16 @@ L’historique de chat est local au navigateur. En pratique :
 
 - la continuité sauvegardée est rattachée au couple **projet + agent** dans le navigateur courant ;
 - une session est mémorisée localement sur le poste utilisé ;
-- changer de navigateur ou de machine peut faire disparaître un fil sauvegardé ;
+- changer de navigateur, de profil, de machine ou vider le stockage local peut faire disparaître un fil sauvegardé ;
 - le premier prompt sert généralement de titre de session, ce qui facilite la reprise ;
 - il ne faut pas traiter le navigateur comme une archive centrale partagée.
+
+### Local navigateur vs plateforme partagée
+
+Gardez cette distinction simple :
+
+- la **continuité de chat** et le **projet mémorisé** sont des commodités locales au navigateur ;
+- les **documents**, **imports**, **artefacts**, **approbations** et **publications** relèvent de la plateforme partagée.
 
 ## Agents personnalisés
 
@@ -215,7 +231,7 @@ La création d’agents personnalisés dépend du niveau de droit. Les points à
 
 ## Saisie vocale dans Agents
 
-Cette documentation ne décrit plus de point d’entrée **voix** séparé dans l’**Espace de travail**. Lorsqu’une saisie vocale reste disponible, elle est limitée à l’expérience **Agents** et dépend explicitement de la prise en charge navigateur des API de reconnaissance vocale.
+Cette documentation ne décrit plus de point d’entrée **voix** séparé dans l’**Espace de travail**. Lorsqu’une saisie vocale reste disponible, elle est limitée à l’expérience **Agents** et dépend explicitement de la prise en charge navigateur des API de reconnaissance vocale. Son absence n’empêche pas le parcours nominal, qui reste la saisie texte.
 
 Si la saisie vocale n’est pas disponible :
 

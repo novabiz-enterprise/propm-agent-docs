@@ -58,6 +58,19 @@ Les éléments suivants sont explicitement prévus par la configuration observé
 5. vérifiez la langue d’interface, le projet courant et les éventuels messages visibles dans la barre supérieure ;
 6. ouvrez **Projets** pour sélectionner ou créer votre premier projet.
 
+## Première connexion en 5 minutes
+
+Pour un premier parcours très simple, suivez cet ordre :
+
+1. connectez-vous ;
+2. confirmez le **projet actif** dans la barre supérieure ou ouvrez **Projets** ;
+3. créez ou ouvrez un projet ;
+4. ouvrez **Agents** pour poser une première question simple, par exemple un statut ou un risque prioritaire ;
+5. relisez la **sortie structurée** ;
+6. ouvrez ensuite **Journal IA** si vous devez retrouver la trace du run, ou **Rapports & artefacts** si vous voulez transformer le résultat en document gouverné.
+
+Ce parcours suffit pour comprendre la logique centrale de l’application sans passer d’abord par tous les écrans d’administration.
+
 ## États d’accès à connaître
 
 Deux états différents existent dans l’interface :
@@ -100,7 +113,9 @@ La langue de données influence notamment :
 
 ## Si aucun projet n’apparaît
 
-Plusieurs écrans affichent un état vide explicite lorsqu’aucun projet n’est sélectionné. C’est normal.
+Plusieurs écrans affichent un état vide explicite lorsqu’aucun projet n’est sélectionné. C’est normal. C’est notamment le cas, dans l’état observé, pour **Espace de travail**, **Connaissance** et **Journal IA**.
+
+Autrement dit, un écran vide sur ces surfaces ne signifie pas automatiquement une panne : cela peut simplement indiquer qu’aucun **projet actif** n’est encore défini.
 
 Pour poursuivre :
 
@@ -108,6 +123,16 @@ Pour poursuivre :
 2. ouvrez **Projets** pour choisir un projet accessible ;
 3. si vous avez le droit de création, créez un projet ;
 4. si la liste reste vide, vérifiez avec votre administrateur que votre compte a bien été ajouté au bon projet.
+
+## Contexte projet mémorisé localement
+
+Le projet courant peut être **mémorisé dans le navigateur** pour faciliter la reprise sur le même poste. Cette mémorisation est une commodité locale :
+
+- elle dépend du navigateur et parfois de la session courante ;
+- elle n’est pas une préférence partagée à l’échelle du tenant ;
+- changer de navigateur, de profil ou de machine peut faire disparaître ce contexte mémorisé.
+
+Si un doute persiste, revenez toujours à **Projets** ou au **sélecteur de projet** de la barre supérieure pour confirmer le contexte réellement actif.
 
 ## Checklist post-déploiement pour l’administrateur technique
 

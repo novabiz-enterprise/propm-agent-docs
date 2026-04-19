@@ -117,6 +117,16 @@ Use **Workspace** to configure and drive the project; use **Agents** to converse
 
 The visible history is local to the browser. It is not a shared central archive.
 
+### What is local to the browser and what is shared in the platform?
+
+In the currently observed state:
+
+- **chat continuity** is saved locally, per **project + agent** pair, in the current browser;
+- the **remembered active project** also depends on the browser and sometimes the local session;
+- **documents**, **imports**, **artifacts**, **approvals**, **published reports** and other project objects belong to the **shared platform**.
+
+It is therefore normal for chat history to disappear when changing browser or machine while governed project objects remain visible to other authorized users.
+
 ### Why does a custom agent not appear in another project?
 
 First check its scope. A **Project‑only** agent remains limited to the current project. If the environment exposes an **All‑projects** agent, it must also be consulted with the same account in a project that account has access to.
@@ -129,7 +139,26 @@ The observed continuity is local to the browser and tied to the project + ag
 
 Start with browser support for `SpeechRecognition` / `webkitSpeechRecognition`, then check microphone access permission. If the button remains unavailable or recognition fails, revert to text input without blocking the project flow.
 
+### Why does voice not appear in every environment?
+
+Because this capability depends on the browser and its support for speech recognition. Voice input is optional: its absence does not block the nominal workflow, which remains text input in **Agents**.
+
 ## FAQ — knowledge and search
+
+### Why do **Workspace**, **Knowledge** or **AI Log** look empty?
+
+Start by checking whether an **active project** exists. In the current application state, these surfaces can show a **normal empty state** as long as no project is selected.
+
+If a project is already active, then distinguish a normal empty state from a real lack of data: new project, no run, no document, no artifact or an active filter.
+
+### Why is **Reports & artifacts** empty?
+
+The most frequent causes are:
+
+- no **artifact** or **PM Doc** has been created yet;
+- the run stayed at the **structured output** stage;
+- the wrong project or a filter hides the rows;
+- the environment does not contain the same demo data as other screenshots or tests.
 
 ### Why is a document visible in the list but not yet searchable?
 
@@ -166,6 +195,10 @@ They indicate the temporal confidence state of the source: `fresh`, `aging`, `st
 ### How to know which AI provider was actually used?
 
 Open the run details in **AI Log** and read **Effective AI Provider**. This is the reference value for that run.
+
+### Why do `Validate` and `Test` not always guarantee this provider will actually be used?
+
+Because `Validate` and `Test` mostly check administrative consistency and connectivity of the configuration. The provider actually used on a given run remains the one resolved at runtime and exposed in the **AI Log**.
 
 ### A run is visible in Runs, but no clear follow‑up appears in Activity. What to do?
 
@@ -209,6 +242,10 @@ Confirm the downstream step in **Actions & approvals**, then in **Activity**. If
 Because a platform technical definition alone is not enough. You still need a valid project binding, adequate permissions, a compatible policy, acceptable health status and, if applicable, the corresponding entitlement.
 
 ## FAQ — portfolio and administration
+
+### Why does demo data not always match the documentation exactly?
+
+Live environments can vary. Some projects do not always expose the same seeded documents, seeded reports or search examples shown in the documentation or in other tests.
 
 ### Why does the portfolio not return any project or outlier?
 

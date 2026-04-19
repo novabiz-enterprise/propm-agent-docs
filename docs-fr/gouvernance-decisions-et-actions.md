@@ -264,6 +264,18 @@ Le meilleur contrôle est pratique :
 
 L’écran **Actions & approbations** sert à transformer une intention en **action gouvernée réelle**.
 
+### Quand tout est correctement prêt, que devrait-on voir ?
+
+Dans un cas nominal, l’utilisateur autorisé retrouve en général :
+
+- au moins un **type d’action** pertinent ;
+- une **option d’exécution compatible et saine** ;
+- un **binding projet** réellement actif ;
+- une **policy** qui autorise la proposition ou route vers l’approbation ;
+- une file où les demandes passent ensuite en **pending approval**, **approved**, **executed** ou **rejected** selon le cas.
+
+Si un de ces maillons manque, l’écran peut paraître vide, incomplet ou purement informatif sans qu’il s’agisse forcément d’une panne.
+
 ## Ce que l’utilisateur voit dans cet écran
 
 Un utilisateur y retrouve généralement :
@@ -318,6 +330,22 @@ En pratique :
 
 - **available / healthy** = option exploitable ;
 - **blocked by health** = connecteur à vérifier côté plateforme ;
+- **blocked by policy** = le cadre de gouvernance bloque encore le passage ;
+- **blocked by entitlement** = le plan ou la capacité autorisée ne couvre pas ce flux ;
+- aucune option visible = connecteur compatible absent, binding projet manquant ou option non ouverte à votre rôle.
+
+### Lecture pédagogique d’un écran qui semble vide
+
+Si `Actions & approbations` ne propose rien d’exécutable, commencez par cette table très simple :
+
+| Ce que vous voyez | Raison dominante possible | Réflexe utile |
+| --- | --- | --- |
+| aucun connecteur sélectionnable | aucun connecteur compatible et sain n’est prêt | vérifier **Intégrations du projet** puis **Administration de la plateforme** |
+| action visible mais bouton bloqué | permission, policy ou approbation requise | contrôler le rôle puis la gouvernance |
+| file visible mais rien ne part | la demande reste en attente d’approbation ou d’exécution aval | relire le statut réel de la file |
+| connecteur présent mais inutilisable | binding projet, health ou entitlement insuffisant | vérifier la chaîne complète plateforme → projet → policy |
+
+Rappelez-vous enfin qu’un statut **approved** ne veut pas dire **executed** : l’accord existe, mais l’exécution réelle peut encore rester en attente.
 - **blocked by entitlement** = capacité non incluse dans le plan ou non ouverte ;
 - **blocked by policy** = gouvernance du projet restrictive ;
 - **blocked by permission** = votre rôle ne suffit pas.

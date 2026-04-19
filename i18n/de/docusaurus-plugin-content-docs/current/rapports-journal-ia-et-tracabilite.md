@@ -48,6 +48,17 @@ PM Docs zeigen mindestens die folgenden Kompatibilitätszustände:
 - `draft`
 - `final`
 
+## Wenn **Berichte & Artefakte** leer wirken
+
+Ein Projekt kann aus mehreren normalen Gründen eine leere Oberfläche zeigen:
+
+- es wurde noch kein **Artefakt** oder **PM-Dokument** erstellt;
+- der Run blieb auf der Stufe der **strukturierten Ausgabe** ohne nachgelagerte Umwandlung;
+- das falsche Projekt oder ein Filter verbirgt die erwarteten Zeilen;
+- die Umgebung enthält nicht dieselben Demo-Seed-Daten wie andere Screenshots oder Tests.
+
+Beginnen Sie in diesem Fall wieder bei **Agenten** oder **KI-Log** und kehren Sie zu **Berichte & Artefakte** zurück, wenn ein gesteuertes Objekt tatsächlich existiert.
+
 ## Verfügbare Aktionen in Berichte & Artefakte
 
 Der Hub bietet Aktionen wie:
