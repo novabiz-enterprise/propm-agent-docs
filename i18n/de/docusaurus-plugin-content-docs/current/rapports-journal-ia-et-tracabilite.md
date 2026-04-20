@@ -1,288 +1,338 @@
 ---
-title: Berichte, KI-Protokoll und Nachverfolgbarkeit
+title: Rapports, Journal IA et traçabilité
 slug: /rapports-journal-ia-et-tracabilite
-description: PM Docs überprüfen, Liefergegenstände veröffentlichen und die vollständige Nachverfolgbarkeit von KI-Runs verfolgen.
+description: Réviser les Documents PM, générer des sorties DOCX/XLSX et suivre la traçabilité complète des runs IA.
 ---
 
-[Startseite](./index.md) · [Strukturierte Ausgaben, Nachweise und Aktualität](./sorties-contextuelles-preuves-et-fraicheur.md) · [Portfolio und technische Administration](./portefeuille-et-administration-technique.md)
+[Accueil](./index.md) · [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md) · [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
 
-![Berichte und Artefakte](/img/screenshots/localized/de/08-reports-overview.png)
+![Flux Documents PM, DOCX et XLSX](/img/diagrams/fr/documents-pm-docx-xlsx-workflow.svg)
 
-## Ziel
+## Objectif
 
-Diese Seite erklärt den Unterschied zwischen **Artefakt**, **Artefaktversion** und **PM Doc** und erläutert dann die Rolle des **KI-Protokolls** für Audit und Support.
+Cette page explique la différence entre **artefact**, **version d’artefact** et **Document PM**, puis détaille le rôle du **Journal IA** pour l’audit et le support.
 
-## Drei zu unterscheidende Begriffe
+## Trois notions à distinguer
 
-| Begriff | Rolle |
+| Terme | Rôle |
 | --- | --- |
-| Artefakt | Verwaltetes Objekt, das aus einem Run oder einer Überprüfungsarbeit hervorgeht |
-| Artefaktversion | Genaues Stadium eines Artefakts, mit Historie, Diff und Linie |
-| PM Doc | Überprüftes, bearbeitetes, heruntergeladenes, veröffentlichtes oder in das Wissen zurückinjiziertes Projektdokument |
+| Artefact | Objet gouverné issu d’un run ou d’un travail de revue |
+| Version d’artefact | État précis d’un artefact, avec historique, diff et lignée |
+| Document PM | Document projet revu, édité, téléchargé, publié ou réinjecté dans la connaissance |
 
-## Beobachteter Lebenszyklus
+## Cycle de vie observé
 
-Der häufigste Fluss ist:
+Le flux le plus courant est :
 
-1. ein Agent erzeugt eine **strukturierte Ausgabe**;
-2. diese Ausgabe wird zu einem **draft artifact**;
-3. der Benutzer öffnet **Berichte & Artefakte**;
-4. er liest den Inhalt erneut, prüft den **Diff** und die **Linie**;
-5. er genehmigt, veröffentlicht, lädt herunter oder fügt das Dokument dem **Wissen** hinzu.
+1. un chat d’agent lance un **run** ;
+2. ce run produit une **sortie structurée** ;
+3. selon le flux et les droits disponibles, cette sortie peut ensuite alimenter un **artefact** ou un **Document PM** ;
+4. l’utilisateur ouvre **Rapports & artefacts / Documents PM** lorsqu’un document gouverné existe ou doit être préparé ;
+5. il relit le contenu, consulte le **diff** et la **lignée** ;
+6. il décide d’**Approve**, **Publish**, **Download** ou **Add to knowledge**.
 
-## Sichtbare Status
+Autrement dit, une réponse d’agent ne devient pas automatiquement un document final : la chaîne observée reste **run → structured output → artifact / PM Doc → revue → décision aval**.
 
-### Artefakt
+## De l’agent au DOCX ou XLSX
 
-Die auf Artefakt-/Versionsebene bestätigten Status sind:
+Les flux observés montrent que les agents peuvent préparer des contenus destinés à un rendu documentaire ou tabulaire, mais toujours via une chaîne de revue explicite.
+
+### Quand le résultat devient un DOCX
+
+Le rendu **DOCX** correspond surtout aux sorties orientées document : brief, rapport de statut, note de synthèse, compte rendu ou livrable narratif. Le chemin reste généralement :
+
+1. run d’agent ;
+2. sortie structurée ;
+3. artefact ;
+4. revue dans **Documents PM** ;
+5. téléchargement **DOCX** ou publication selon la gouvernance.
+
+### Quand le résultat devient un XLSX
+
+Le rendu **XLSX** correspond surtout aux sorties orientées tableau : registres, matrices, plans de suivi, inventaires ou comparatifs structurés. Le flux reste le même, mais la surface de revue privilégie l’éditeur de type grille avant export.
+
+### Ce qui reste gouverné avant diffusion
+
+Même lorsqu’un agent produit un contenu déjà très exploitable :
+
+- l’utilisateur relit encore le brouillon ;
+- l’approbation peut rester obligatoire ;
+- la publication dépend d’une destination et d’un profil de rendu ;
+- le **Journal IA** garde la trace du run source.
+
+## Statuts visibles
+
+### Artefact
+
+Les statuts confirmés au niveau artefact/version sont :
 
 - `draft`
 - `approved`
 - `published`
 - `superseded`
 
-### PM Doc
+### Document PM
 
-PM Docs zeigen mindestens die folgenden Kompatibilitätszustände:
+Les Documents PM exposent au moins les états de compatibilité suivants :
 
 - `draft`
 - `final`
 
-## Wenn **Berichte & Artefakte** leer wirken
+## Si Rapports & artefacts paraît vide
 
-Ein Projekt kann aus mehreren normalen Gründen eine leere Oberfläche zeigen:
+Un projet peut afficher une surface vide pour plusieurs raisons normales :
 
-- es wurde noch kein **Artefakt** oder **PM-Dokument** erstellt;
-- der Run blieb auf der Stufe der **strukturierten Ausgabe** ohne nachgelagerte Umwandlung;
-- das falsche Projekt oder ein Filter verbirgt die erwarteten Zeilen;
-- die Umgebung enthält nicht dieselben Demo-Seed-Daten wie andere Screenshots oder Tests.
+- aucun **artefact** ou **PM Doc** n’a encore été créé ;
+- le run est resté au stade de **sortie structurée** sans transformation aval ;
+- le mauvais projet ou un filtre masque les lignes attendues ;
+- l’environnement ne contient pas les mêmes données de démonstration seedées que d’autres captures ou tests.
 
-Beginnen Sie in diesem Fall wieder bei **Agenten** oder **KI-Log** und kehren Sie zu **Berichte & Artefakte** zurück, wenn ein gesteuertes Objekt tatsächlich existiert.
+Dans ce cas, repartez d’abord de **Agents** ou du **Journal IA**, puis revenez dans **Rapports & artefacts** quand un objet gouverné existe réellement.
 
-## Verfügbare Aktionen in Berichte & Artefakte
+## Actions disponibles dans Rapports & artefacts
 
-Der Hub bietet Aktionen wie:
+Le hub expose des actions telles que :
 
-- **review / preview**;
-- **diff**;
-- **lineage**;
-- **edit**;
-- **download**;
-- **add to knowledge**;
-- **publish**;
+- **review / preview** ;
+- **diff** ;
+- **lineage** ;
+- **edit** ;
+- **download** ;
+- **add to knowledge** ;
+- **publish** ;
 - **delete**.
 
-## Diff, Linie und Versionierung
+## Diff, lignée et versioning
 
 ### Diff
 
-Der **Diff** vergleicht Artefaktversionen. Er ist besonders nützlich für:
+Le **diff** compare des versions d’artefact. Il est surtout utile pour :
 
-- das erneute Prüfen von Abweichungen vor der Veröffentlichung;
-- das Unterscheiden eines Agentenvorschlags von einer tatsächlich validierten Version;
-- das Verstehen, warum sich ein finales Dokument von einem vorherigen Entwurf unterscheidet.
+- relire les écarts avant publication ;
+- distinguer une proposition d’agent d’une version réellement validée ;
+- comprendre pourquoi un document final diffère d’un brouillon précédent.
 
-### Linie
+### Lignée
 
-Die **Linie** verbindet:
+La **lignée** relie entre eux :
 
-- die `source run ID`;
-- die `context snapshot ID`;
-- die `structured output ID`;
-- das Artefakt und seine Version;
-- die verknüpften Veröffentlichungen und Nachweise.
+- le `source run ID` ;
+- le `context snapshot ID` ;
+- le `structured output ID` ;
+- l’artefact et sa version ;
+- les publications et preuves liées.
 
-### Versionierung
+### Comment lire `context snapshot`
 
-Die Oberfläche ermöglicht auch die Auswahl einer Version anhand ihrer Nummer und die Identifizierung der vorherigen Version, der Vergleichsbasis oder einer ersetzten Version.
+Le **context snapshot** est la capture du contexte effectivement utilisé pendant le run : sources, contexte projet et état documentaire au moment de l’exécution.
 
-## Genehmigung und Veröffentlichung
+Il aide à répondre à la question : **« sur quelle base contextuelle cette sortie a-t-elle été produite ? »**
 
-Die beobachteten Verhaltensweisen zeigen, dass:
+### Versioning
 
-- **Approve** für eine Version im Status `draft` verfügbar ist;
-- **Publish** verfügbar wird, wenn die Version `approved` oder bereits `published` ist;
-- die Veröffentlichung verwaltete Formate und Ziele versendet;
-- das Hinzufügen zum Wissen eine vom Herunterladen und Veröffentlichen getrennte Aktion bleibt.
+L’interface permet aussi de sélectionner une version par numéro et d’identifier la version précédente, la base de comparaison ou une version remplacée.
 
-## Verfügbare Editoren
+## Approbation et publication
 
-Das Produkt enthält mehrere Bearbeitungsoberflächen:
+Les comportements observés montrent que :
 
-- einen Rich-/Markdown-Editor für dokumentorientierte Ausgaben;
-- einen Tabellen-/Grid-Editor für tabellenorientierte Ausgaben;
-- einen Review-/Source-Modus im Lesemodus, wenn das Format nicht auf gleiche Weise bearbeitbar ist.
+- **Approve** valide une version d’artefact encore en `draft` ;
+- **Publish** correspond à une diffusion gouvernée vers une destination ou un format cible quand le flux l’autorise ;
+- la publication envoie des formats et destinations gouvernés ;
+- **Add to knowledge** réinjecte un document relu dans la recherche projet ;
+- **Download** reste distinct de l’ajout à la connaissance et de la publication.
 
-Bestätigte Downloads: **DOCX** und **XLSX**.
+## Éditeurs disponibles
 
-### Praktische Grenzen, die zu beachten sind
+Le produit embarque plusieurs surfaces d’édition :
 
-| Fall | Nützliche Lektüre |
+- un éditeur riche / markdown pour les sorties orientées document ;
+- un éditeur de type grille pour les sorties orientées tableur ;
+- un mode de revue / source en lecture si le format n’est pas éditable de la même manière.
+
+Téléchargements confirmés : **DOCX** et **XLSX**.
+
+### Quel type de sortie mène à quel format
+
+| Type de contenu | Surface la plus probable | Format de sortie le plus naturel |
+| --- | --- | --- |
+| brief, note, synthèse, rapport de statut | éditeur riche | DOCX |
+| registre, matrice, tableau de suivi, comparatif | éditeur grille | XLSX |
+| format non éditable ou spécialisé | revue / source | téléchargement ou publication selon profil |
+
+### Limites pratiques à garder en tête
+
+| Cas | Lecture utile |
 | --- | --- |
-| tatsächlich bearbeitbarer Inhalt | Verwenden Sie den Editor für die Überprüfung und kontrollierten Anpassungen vor der Genehmigung |
-| Inhalt hauptsächlich im Review-Modus | Behandeln Sie den Bildschirm als Validierungsoberfläche, nicht als Hauptort für Neufassungen |
-| Bedarf an einer Referenzdarstellung zur Weitergabe | Der verwaltete Download bleibt die zuverlässigste Ausgabe für die Weitergabe außerhalb der Anwendung |
+| contenu réellement éditable | utilisez l’éditeur pour la relecture et les ajustements contrôlés avant approbation |
+| contenu surtout en mode revue | traitez l’écran comme une surface de validation, pas comme l’endroit principal de réécriture |
+| besoin d’un rendu de référence à transmettre | le téléchargement gouverné reste la sortie la plus fiable à partager hors de l’application |
 
-![PM Doc-Editor und Dokumentenüberprüfung](/img/screenshots/localized/de/06-pm-doc-editor.png)
+![Journal IA](/img/screenshots/localized/fr/09-ai-log-runs.png)
 
-![KI-Protokoll](/img/screenshots/localized/de/09-ai-log-runs.png)
+## Journal IA : ce que couvre la page
 
-## KI-Protokoll: Was die Seite abdeckt
+Le **Journal IA** a deux onglets distincts :
 
-Das **KI-Protokoll** hat zwei separate Tabs:
-
-- **Runs**;
+- **Runs** ;
 - **Activity**.
 
-## Runs vs. Activity
+## Runs vs Activity
 
-| Tab | Wozu er dient |
+| Onglet | À quoi il sert |
 | --- | --- |
-| Runs | Eine Agentenausführung, ihre Nachverfolgungs-Metadaten und ihre verknüpften Artefakte überprüfen |
-| Activity | Eine Projekt-Zeitleiste überprüfen und die Rohdaten eines Ereignisses inspizieren |
+| Runs | Revoir une exécution d’agent, ses métadonnées de traçabilité et ses artefacts liés |
+| Activity | Revoir une timeline d’événements projet et inspecter le payload brut d’un événement |
 
-### Wann Runs öffnen
+### Quand ouvrir Runs
 
-Öffnen Sie **Runs**, um:
+Ouvrez **Runs** pour :
 
-- zu verstehen, warum ein Ergebnis erzeugt wurde;
-- den tatsächlich verwendeten Provider wiederzufinden;
-- Aktualität, Vertrauen und Zitate erneut zu prüfen;
-- einen Run mit einem Artefakt oder einem PM Doc zu verknüpfen.
+- comprendre pourquoi un résultat a été produit ;
+- retrouver le fournisseur réellement utilisé ;
+- relire la fraîcheur, la confiance et les citations ;
+- rattacher un run à un artefact ou à un Document PM.
 
-### Wann Activity öffnen
+### Quand ouvrir Activity
 
-Öffnen Sie **Activity**, um:
+Ouvrez **Activity** pour :
 
-- eine Chronologie zu rekonstruieren;
-- zu überprüfen, ob ein Entwurf, eine Genehmigung oder eine Veröffentlichung ein Ereignis hinterlassen hat;
-- die Rohdaten zu inspizieren, wenn Sie Support oder Audit durchführen.
+- reconstituer une chronologie ;
+- vérifier qu’un brouillon, une approbation ou une publication a bien laissé un événement ;
+- inspecter le payload brut quand vous faites du support ou de l’audit.
 
-### Beispiele nützlicher Ereignisse, die in Activity zu bestätigen sind
+### Exemples d’événements utiles à confirmer dans Activity
 
-Je nach Fluss kann **Activity** Ihnen helfen zu bestätigen, dass ein nachgelagertes Ereignis aufgezeichnet wurde, z.B.:
+Selon le flux, **Activity** peut vous aider à confirmer qu’un événement aval a bien été enregistré, par exemple :
 
-- Erstellung eines Entwurfs;
-- Genehmigung eines Artefakts;
-- Veröffentlichung;
-- Vorbereitung einer Benachrichtigung;
-- Entscheidung über Genehmigung, Ablehnung oder verwaltete Ausführung.
+- création d’un brouillon ;
+- approbation d’un artefact ;
+- publication ;
+- préparation d’une notification ;
+- décision d’approbation, de rejet ou d’exécution gouvernée.
 
-### Konkrete Beispiele für `Type` / `Kind`
+### Exemples concrets de `Type` / `Kind`
 
-Die folgenden Werte sind Beispiele, die in den gesäten und Demonstrations-Flüssen beobachtet wurden. Sie geben eine gute Leserichtung, ohne Anspruch auf Vollständigkeit aller zukünftigen Ereignisse.
+Les valeurs ci-dessous sont des exemples observés dans les flux seedés et démonstrations. Elles donnent un bon repère de lecture, sans prétendre couvrir tous les futurs événements.
 
-| Type | Kind | Praktische Lesart |
+| Type | Kind | Lecture pratique |
 | --- | --- | --- |
-| `agent_execution` | `completed` / `failed` | ein Agenten-Run wurde erfolgreich oder mit Fehler beendet |
-| `document_upload` | `started` / `completed` / `failed` | ein Dokument begann seine Verarbeitung, beendete sie oder schlug fehl |
-| `report_generated` | `completed` | ein PM Doc oder Bericht wurde generiert und protokolliert |
-| `marketplace_update` | `completed` | eine Systembenachrichtigung oder -aktualisierung wurde im Verlauf aufgezeichnet |
+| `agent_execution` | `completed` / `failed` | un run d’agent s’est terminé correctement ou en échec |
+| `document_upload` | `started` / `completed` / `failed` | un document a commencé son ingestion, l’a terminée ou a échoué |
+| `report_generated` | `completed` | un Document PM ou rapport a été généré et journalisé |
+| `marketplace_update` | `completed` | une notification ou mise à jour système a été enregistrée dans l’historique |
 
-## Sichtbare Filter und Spalten
+## Filtres et colonnes visibles
 
 ### Runs
 
-Beobachtete Filter:
+Filtres observés :
 
-- Suche nach Agent / Status / Run ID;
-- Agentenfilter;
-- Statusfilter.
+- recherche sur agent / statut / run ID ;
+- filtre agent ;
+- filtre statut.
 
-Sichtbare Spalten: **Created**, **Agent**, **Status**, **Cost**, **Run ID**, **Actions**.
+Colonnes visibles : **Created**, **Agent**, **Status**, **Cost**, **Run ID**, **Actions**.
 
-Das Feld **Cost** zeigt mindestens die **Tokens** und die Anzahl der **Calls** an, wenn diese Informationen verfügbar sind.
+Le champ **Cost** expose au moins les **tokens** et le nombre de **calls** quand ces informations sont disponibles.
 
 ### Activity
 
-Beobachtete Filter:
+Filtres observés :
 
-- Suche nach Type / Kind / Actor;
-- Type-Filter;
-- Kind-Filter.
+- recherche sur type / kind / actor ;
+- filtre type ;
+- filtre kind.
 
-Sichtbare Spalten: **Created**, **Type**, **Kind**, **Actor**, **ID**, **Actions**.
+Colonnes visibles : **Created**, **Type**, **Kind**, **Actor**, **ID**, **Actions**.
 
-## In einem Run sichtbare technische Details
+## Détails techniques visibles dans un run
 
-Die Detailansicht eines Runs kann zeigen:
+Le détail d’un run peut exposer :
 
-- `Trace ID`;
-- `Context snapshot ID`;
-- `Structured output ID`;
-- Zitate;
-- `Effective AI Provider`;
-- `Deployment-selected AI Provider`;
-- `Model family`;
-- `Confidence`;
-- `Source freshness`;
-- verknüpfte Artefakte.
+- `Trace ID` ;
+- `Context snapshot ID` ;
+- `Structured output ID` ;
+- citations ;
+- `Effective AI Provider` ;
+- `Deployment-selected AI Provider` ;
+- `Model family` ;
+- `Confidence` ;
+- `Source freshness` ;
+- artefacts liés.
 
-## Laufzeit-Transparenz der KI
+## Transparence runtime IA
 
-Die folgende Unterscheidung ist wichtig:
+La distinction suivante est importante :
 
-- **für die Bereitstellung ausgewählter KI-Provider**: anfängliche Wahl der Umgebung;
-- **effektiver KI-Provider**: tatsächlich für diesen Run verwendeter Provider.
+- **fournisseur IA sélectionné au déploiement** : choix initial de l’environnement ;
+- **fournisseur IA effectif** : fournisseur réellement utilisé pour ce run.
 
-Diese beiden Werte können abweichen. Im Zweifelsfall ist das **KI-Protokoll** für den beobachteten Run maßgeblich.
+Ces deux valeurs peuvent différer. En cas de doute, le **Journal IA** fait foi pour le run observé.
 
-## Je nach Symptom zuerst zu öffnende Oberfläche
+### Lecture simple de `Effective AI Provider`
 
-| Symptom | Zuerst zu öffnende Oberfläche | Warum |
+`Effective AI Provider` répond à la question : **« quel fournisseur a réellement servi ce run précis ? »**
+
+Cette valeur est plus fiable pour l’enquête qu’une supposition basée uniquement sur la configuration admin, car la valeur runtime observée peut différer du fournisseur sélectionné au déploiement.
+
+## Surface à ouvrir d’abord selon le symptôme
+
+| Symptôme | Surface à ouvrir en premier | Pourquoi |
 | --- | --- | --- |
-| Inhaltsabweichung zwischen Entwurf und finaler Version | **Diff** | um zu sehen, was sich tatsächlich geändert hat |
-| Zweifel am Nachweis oder der Herkunft | **Linie** | um Run, strukturierte Ausgabe, Artefakt und Quellen zu verknüpfen |
-| Zweifel an der Laufzeit, dem Provider oder der KI-Ausführung | **Runs** | um `Trace ID`, effektiven Provider, Aktualität und Vertrauen erneut zu prüfen |
-| Zweifel an der Veröffentlichung, Genehmigung oder nachgelagerten Folge | **Activity** | um die Chronologie und die Rohdaten zu bestätigen |
+| divergence de contenu entre brouillon et version finale | **Diff** | pour voir ce qui a réellement changé |
+| doute sur la preuve ou la provenance | **Lignée** | pour relier run, sortie structurée, artefact et sources |
+| doute sur le runtime, le fournisseur ou l’exécution IA | **Runs** | pour relire `Trace ID`, fournisseur effectif, fraîcheur et confiance |
+| doute sur la publication, l’approbation ou la suite aval | **Activity** | pour confirmer la chronologie et le payload brut |
 
-## Empfohlener Untersuchungs-Workflow
+## Workflow d’enquête recommandé
 
-Wenn ein Liefergegenstand, eine Veröffentlichung oder eine Benachrichtigung zweifelhaft erscheint, gehen Sie vom Sichtbarsten zum Technischsten:
+Quand un livrable, une publication ou une notification paraît douteuse, partez du plus visible vers le plus technique :
 
-1. öffnen Sie das betreffende **PM Doc** oder Artefakt;
-2. prüfen Sie den **Diff**, um zu sehen, was sich tatsächlich geändert hat;
-3. öffnen Sie die **Linie**, um `source run ID`, `Context snapshot ID` und `Structured output ID` zu notieren;
-4. wechseln Sie zu **Runs**, um Aktualität, Vertrauen, Zitate, effektiven KI-Provider und verknüpfte Artefakte erneut zu prüfen;
-5. verwenden Sie **Activity**, um den weiteren Fluss zu bestätigen: Entwurf, Genehmigung, Veröffentlichung, Benachrichtigung oder verwaltete Aktion;
-6. behalten Sie schließlich die **Trace ID**, falls die Untersuchung vom Support oder Audit wiederaufgenommen werden muss.
+1. ouvrez le **Document PM** ou l’artefact concerné ;
+2. consultez le **diff** pour voir ce qui a réellement changé ;
+3. ouvrez la **lignée** pour relever `source run ID`, `Context snapshot ID` et `Structured output ID` ;
+4. basculez dans **Runs** pour revoir fraîcheur, confiance, citations, fournisseur IA effectif et artefacts liés ;
+5. utilisez **Activity** pour confirmer la suite du flux : brouillon, approbation, publication, notification ou action gouvernée ;
+6. conservez enfin le **Trace ID** si l’enquête doit être reprise par le support ou l’audit.
 
-### Fall 1 — ein finales PM Doc scheint falsch
+### Cas 1 — un Document PM final semble faux
 
-1. öffnen Sie das finale **PM Doc** und bestätigen Sie die tatsächlich veröffentlichte Version;
-2. verwenden Sie **Diff**, um zu erkennen, was hinzugefügt, entfernt oder umformuliert wurde;
-3. öffnen Sie **Linie**, um die `source run ID` und `Structured output ID` wiederzufinden;
-4. prüfen Sie in **Runs** die Nachweise, die Aktualität und den effektiven Provider;
-5. wenn der finale Inhalt nicht den erwarteten Fluss widerspiegelt, beenden Sie in **Activity**, um die Genehmigung, Veröffentlichung und den Akteur zu überprüfen, der die Version vorangetrieben hat.
+1. ouvrez le **Document PM** final et confirmez la version réellement publiée ;
+2. utilisez **Diff** pour repérer ce qui a été ajouté, retiré ou reformulé ;
+3. ouvrez **Lignée** pour retrouver le `source run ID` et le `Structured output ID` ;
+4. dans **Runs**, contrôlez les preuves, la fraîcheur et le fournisseur effectif ;
+5. si le contenu final ne reflète pas le flux attendu, terminez dans **Activity** pour vérifier l’approbation, la publication et l’acteur ayant poussé la version.
 
-### Fall 2 — eine vorbereitete Aktion oder Benachrichtigung ist nicht erfolgt
+### Cas 2 — une action ou notification préparée n’a pas abouti
 
-1. gehen Sie vom sichtbaren Entwurf, der Aktionswarteschlange oder der Benachrichtigung aus;
-2. notieren Sie `relatedArtifactId` oder `relatedNotificationId`, falls vorhanden;
-3. verwenden Sie **Activity**, um zu bestätigen, ob eine Genehmigung, Ablehnung oder Ausführung protokolliert wurde;
-4. wenn die Folge unklar bleibt, kehren Sie zu **Runs** zurück, um den Quell-Run und die Logik zu überprüfen, die die Empfehlung erzeugt hat;
-5. dokumentieren Sie schließlich die **Trace ID** und die verknüpften IDs, bevor Sie eskalieren.
+1. partez du brouillon, de la file d’action ou de la notification visible ;
+2. relevez `relatedArtifactId` ou `relatedNotificationId` quand ils existent ;
+3. utilisez **Activity** pour confirmer si une approbation, un rejet ou une exécution a été journalisée ;
+4. si la suite reste floue, revenez dans **Runs** pour vérifier le run source et la logique ayant produit la recommandation ;
+5. documentez enfin le **Trace ID** et les identifiants liés avant d’escalader.
 
-## Welche IDs vorrangig zu behalten sind
+## Quels IDs conserver en priorité
 
-| Art des Vorfalls | Vorrangig zu behaltende IDs |
+| Situation | IDs à conserver en priorité |
 | --- | --- |
-| zweifelhaftes Run-Ergebnis | `Trace ID`, `Context snapshot ID`, `Structured output ID` |
-| verdächtiges finales Artefakt oder PM Doc | `source run ID`, `Structured output ID`, betreffende Artefaktversion |
-| Aktion oder Benachrichtigung ohne klare Folge | `Trace ID`, `relatedArtifactId`, `relatedNotificationId` |
-| übergreifende Support-Untersuchung | alle oben genannten IDs, plus ungefähre Uhrzeit und betreffendes Projekt |
+| résultat de run douteux | `Trace ID`, `Context snapshot ID`, `Structured output ID` |
+| artefact ou Document PM final suspect | `source run ID`, `Structured output ID`, version d’artefact concernée |
+| action ou notification sans suite claire | `Trace ID`, `relatedArtifactId`, `relatedNotificationId` |
+| enquête support transverse | tous les IDs ci-dessus, plus l’heure approximative et le projet concerné |
 
-## Best Practices für Nachverfolgbarkeit
+## Bonnes pratiques de traçabilité
 
-- behalten Sie die **Trace ID**, wenn ein Ergebnis wichtig ist;
-- prüfen Sie vor der Veröffentlichung die Linie zwischen Liefergegenstand und Nachweis;
-- verwenden Sie bei Abweichungen zwischen zwei Versionen den **Diff** vor der Entscheidung;
-- fügen Sie dem **Wissen** nur tatsächlich überprüfte Liefergegenstände hinzu;
-- verwenden Sie **Activity**, um die Untersuchung zu vervollständigen, wenn **Runs** nicht ausreicht.
+- conservez le **Trace ID** lorsqu’un résultat a de l’importance ;
+- avant de publier, vérifiez la lignée entre le livrable et la preuve ;
+- en cas d’écart entre deux versions, utilisez le **diff** avant arbitrage ;
+- ajoutez à la **Connaissance** seulement les livrables réellement relus ;
+- utilisez **Activity** pour compléter l’enquête quand **Runs** ne suffit pas.
 
-## Weiterführend
+## Suite
 
-- [Strukturierte Ausgaben, Nachweise und Aktualität](./sorties-contextuelles-preuves-et-fraicheur.md)
-- [Portfolio und technische Administration](./portefeuille-et-administration-technique.md)
-- [Wartung, Support und FAQ](./maintenance-support-faq.md)
-- [Glossar](./glossaire.md)
+- [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
+- [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
+- [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
+- [Maintenance, support et FAQ](./maintenance-support-faq.md)
+- [Glossaire](./glossaire.md)

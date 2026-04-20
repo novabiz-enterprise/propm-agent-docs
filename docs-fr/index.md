@@ -58,7 +58,7 @@ Si vous cherchez directement une procédure de vérification ou un repère d’e
 
 ## Parcours bout en bout recommandé
 
-Chaîne courte à retenir : **Projet actif → Agents → sortie structurée → artefact / PM Doc → review / diff / lignée → Approve / Publish / Add to knowledge**.
+Chaîne courte à retenir : **chat local navigateur → run → structured output → artifact → PM Doc → review / diff / lineage → Add to knowledge / Publish**.
 
 Dans un usage réel, le flux le plus fréquent est le suivant :
 
@@ -69,9 +69,25 @@ Dans un usage réel, le flux le plus fréquent est le suivant :
 5. charger la **Connaissance** du projet ;
 6. lancer un échange dans **Agents** ;
 7. relire la **sortie structurée**, ses preuves, sa fraîcheur et sa confiance ;
-8. transformer le résultat en **artefact** ou en **Document PM**, puis le revoir avant téléchargement **DOCX / XLSX**, publication ou ajout à la connaissance ;
-9. traiter les **signaux proactifs**, les **Actions & approbations** et, si besoin, les flux d’intégrations externes ;
-10. administrer au niveau plateforme uniquement lorsque le sujet dépasse le projet.
+8. lorsqu’un objet gouverné existe, ouvrir **Rapports & artefacts / Documents PM** pour relire le brouillon, le diff et la lignée ;
+9. décider ensuite de **Approve**, **Add to knowledge**, **Download** ou **Publish** selon le besoin et la gouvernance ;
+10. traiter les **signaux proactifs**, les **Actions & approbations** et, si besoin, les flux d’intégrations externes ;
+11. administrer au niveau plateforme uniquement lorsque le sujet dépasse le projet.
+
+> Une conversation d’agent ne crée pas à elle seule un document final partagé. Le passage vers **artifact** puis **PM Doc** dépend du flux réellement produit et des droits disponibles.
+
+## Définitions rapides à retenir
+
+| Terme | Lecture pratique |
+| --- | --- |
+| **Projet actif** | projet actuellement appliqué aux pages projet, à la recherche, aux runs et aux revues |
+| **All projects** | portée d’un agent personnalisé visible dans tous les projets accessibles par **le même compte** ; ce n’est ni un super-projet ni un portefeuille fusionné |
+| **Binding** | rattachement opérationnel entre une définition plateforme et un projet donné |
+| **Entitlement** | capacité réellement couverte par le plan / l’abonnement pour utiliser un connecteur, un fournisseur ou un flux |
+| **Structured output** | sortie structurée produite par un run d’agent, distincte d’un document final publié |
+| **Lineage / lignée** | liens de traçabilité entre run, context snapshot, structured output, artefact, version et PM Doc |
+| **Context snapshot** | capture du contexte projet / documentaire utilisé pendant le run |
+| **Effective AI provider** | fournisseur réellement utilisé au runtime pour un run donné |
 
 ## Convention de libellés
 
@@ -88,7 +104,7 @@ Lorsque la plateforme expose une traduction française, cette documentation priv
 - **Paramètres du fournisseur IA** ;
 - **Actions & approbations**.
 
-Quand un libellé anglais reste utile pour lever une ambiguïté, il est cité ponctuellement en code, par exemple `Trace ID` ou `OpenAI-compatible`.
+Quand un libellé anglais reste utile pour lever une ambiguïté, il est cité ponctuellement en code, par exemple `Trace ID`, `All projects` ou `OpenAI-compatible`.
 
 ## Ce que couvre ProPM Agent
 
@@ -98,7 +114,7 @@ Quand un libellé anglais reste utile pour lever une ambiguïté, il est cité p
 2. vous alimentez la **Connaissance** ;
 3. vous interrogez les **Agents** ;
 4. vous relisez les **sorties structurées** ;
-5. vous transformez ces résultats en **Documents PM** et en artefacts ;
+5. vous transformez certains résultats en **Documents PM** et en artefacts ;
 6. vous vérifiez la **traçabilité** dans le **Journal IA** ;
 7. vous traitez les **signaux**, les **digests**, les **brouillons** et les **actions gouvernées** ;
 8. vous utilisez les **connecteurs** et les **intégrations** uniquement lorsqu’ils sont validés et bindés au projet ;

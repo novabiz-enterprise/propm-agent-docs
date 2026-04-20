@@ -1,527 +1,557 @@
 ---
-title: "शासन, निर्णय और क्रियाएँ"
+title: Gouvernance, décisions et actions
 slug: /gouvernance-decisions-et-actions
-description: "सिग्नल को समझें, शासन नीतियों को कॉन्फ़िगर करें और चरण-दर-चरण Actions & approbations का उपयोग करें, शुरुआती-अनुकूल उदाहरणों के साथ।"
+description: Comprendre les signaux, configurer les politiques de gouvernance et utiliser Actions & approbations pas à pas avec des exemples débutant-friendly.
 ---
 
-[मुख्य पृष्ठ](./index.md) · [प्रोजेक्ट्स और कार्यक्षेत्र](./projets-et-espace-de-travail.md) · [रिपोर्ट्स, जर्नल IA और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md)
+[Accueil](./index.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
 
-![प्रोएक्टिविटी, डाइजेस्ट और शासनित क्रियाएँ](/img/diagrams/hi/proactivite-et-gouvernance.svg)
+![Proactivité, digests et actions gouvernées](/img/diagrams/fr/proactivite-et-gouvernance.svg)
 
-## उद्देश्य
+## Objectif
 
-यह पृष्ठ सरल तरीके से बताता है कि ProPM Agent कैसे काम करता है:
+Cette page explique, de manière simple, comment ProPM Agent passe :
 
-1. एक **सिग्नल** का पता चलना ;
-2. एक **निर्णय** ;
-3. फिर एक **शासनित क्रिया** ;
-4. संभवतः **अनुमोदन** के अधीन ;
-5. इसके बाद **निष्पादित** और **ट्रेस** किया जाता है।
+1. d’un **signal** détecté ;
+2. à une **décision** ;
+3. puis à une **action gouvernée** ;
+4. éventuellement soumise à **approbation** ;
+5. avant d’être **exécutée** et **tracée**.
 
-उद्देश्य यह है कि एक शुरुआती उपयोगकर्ता स्पष्ट रूप से समझे:
+Le but est qu’un utilisateur débutant comprenne clairement :
 
-- क्या है एक **शासन नीति** ;
-- `allow`, `require_approval` और `deny` का क्या अर्थ है ;
-- `observe`, `draft`, `propose` और `execute` का क्या अर्थ है ;
-- **Actions & approbations** का चरण-दर-चरण उपयोग कैसे करें ;
-- क्यों एक क्रिया दिखाई दे सकती है लेकिन अवरुद्ध हो सकती है।
+- ce qu’est une **politique de gouvernance** ;
+- ce que signifient **`allow`**, **`require_approval`** et **`deny`** ;
+- ce que signifient **`observe`**, **`draft`**, **`propose`** et **`execute`** ;
+- comment utiliser **Actions & approbations** pas à pas ;
+- pourquoi une action peut être visible mais bloquée.
 
-## प्रवाह का बहुत सरल दृश्य
+## Vue très simple du flux
 
-ProPM Agent में सामान्य मार्ग इस प्रकार है:
+Dans ProPM Agent, le chemin normal est le suivant :
 
-1. एक **सिग्नल** ध्यान आकर्षित करता है ;
-2. टीम इसे पुनः पढ़ती है ;
-3. **शासन** तय करता है कि प्रत्येक भूमिका क्या कर सकती है ;
-4. यदि बाहरी आउटपुट आवश्यक है, तो एक **क्रिया** बनाई जाती है ;
-5. यदि प्रोजेक्ट इसकी मांग करता है, तो क्रिया **अनुमोदन** में जाती है ;
-6. क्रिया फिर **निष्पादित** या **अस्वीकृत** की जाती है ;
-7. ट्रेस **गतिविधि** और **Journal IA** में दिखाई देता रहता है।
+1. un **signal** attire l’attention ;
+2. l’équipe le relit ;
+3. la **gouvernance** décide ce que chaque rôle a le droit de faire ;
+4. si une sortie externe est nécessaire, une **action** est créée ;
+5. si le projet l’exige, l’action passe en **approbation** ;
+6. l’action est ensuite **exécutée** ou **rejetée** ;
+7. la trace reste visible dans l’**activité** et le **Journal IA**.
 
-## भाग 1 — सिग्नल को समझना
+## Partie 1 — Comprendre les signaux
 
-एक **सिग्नल** एक संरचित अलर्ट है जो कहता है: **« यह विषय देखने योग्य है »**.
+Un **signal** est une alerte structurée qui dit : **« ce sujet mérite d’être regardé »**.
 
-### सिग्नल के उदाहरण
+### Exemples de signaux
 
-एक सिग्नल निम्नलिखित हो सकता है:
+Un signal peut remonter :
 
-- स्रोतों की **ताज़गी** अपर्याप्त ;
-- कई साक्ष्यों के बीच **विरोधाभास** ;
-- प्रोजेक्ट **ब्लॉक** ;
-- एक अनुक्रम जिसे **सूचना**, **निर्णय** या **बाहरी क्रिया** की आवश्यकता है।
+- une **fraîcheur** des sources insuffisante ;
+- une **contradiction** entre plusieurs preuves ;
+- un **blocage** projet ;
+- une suite à donner qui mérite une **notification**, une **décision** ou une **action externe**.
 
-### उपयोगकर्ता आम तौर पर सिग्नल कार्ड पर क्या देखते हैं
+### Ce que l’utilisateur voit généralement sur une carte de signal
 
-एक सिग्नल कार्ड निम्न दिखा सकता है:
+Une carte de signal peut afficher :
 
-- एक **शीर्षक** ;
-- एक **सारांश** ;
-- एक **व्याख्या** ;
-- एक **गंभीरता** ;
-- एक **स्थिति** ;
-- एक **मोड** ;
-- साक्ष्यों या पुनः ट्रिगर की संख्या ;
-- भूमिका के अनुसार **Create draft**, **Snooze 24h** या **Dismiss** जैसी क्रियाएँ।
+- un **titre** ;
+- un **résumé** ;
+- une **explication** ;
+- une **sévérité** ;
+- un **statut** ;
+- un **mode** ;
+- un nombre de **preuves** ou de redéclenchements ;
+- des actions comme **Create draft**, **Snooze 24h** ou **Dismiss** selon le rôle.
 
-### सिग्नल को संभालने के लिए अनुशंसित चरण-दर-चरण
+### Pas à pas conseillé pour traiter un signal
 
-जब आप एक सिग्नल खोलते हैं, इस क्रम को रखें:
+Quand vous ouvrez un signal, gardez cet ordre :
 
-1. **सारांश** पढ़ें ;
-2. फिर **व्याख्या** पढ़ें ;
-3. **साक्ष्य** और **ताज़गी** जांचें ;
-4. तय करें कि विषय केवल निगरानी, ड्राफ्ट या वास्तविक क्रिया चाहता है ;
-5. यदि बाहरी आउटपुट आवश्यक हो जाए, तो **Actions & approbations** पर जाएँ।
+1. lisez le **résumé** ;
+2. relisez ensuite l’**explication** ;
+3. vérifiez les **preuves** et la **fraîcheur** ;
+4. décidez si le sujet demande seulement une surveillance, un brouillon ou une action réelle ;
+5. si une sortie externe devient nécessaire, passez à **Actions & approbations**.
 
-### सिग्नल के उपयोगी स्टेटस
+### Statuts utiles d’un signal
 
-| Statut | इसका अर्थ |
+| Statut | Ce que cela veut dire |
 | --- | --- |
-| `open` | विषय सक्रिय रहता है और अभी भी ध्यान की आवश्यकता है |
-| `snoozed` | विषय अस्थायी रूप से रोक दिया गया है |
-| `dismissed` | विषय सक्रिय कतार से हटाया गया है |
-| `resolved` | विषय को हल माना गया है |
+| `open` | le sujet reste actif et demande encore de l’attention |
+| `snoozed` | le sujet est mis en pause temporairement |
+| `dismissed` | le sujet est retiré de la file active |
+| `resolved` | le sujet est considéré comme traité |
 
-### सिग्नल के उपयोगी मोड
+### Modes utiles d’un signal
 
-| Mode | सरल व्याख्या |
+| Mode | Lecture simple |
 | --- | --- |
-| `inform` | सिग्नल सूचित करता है, बिना तत्काल कार्रवाई के |
-| `suggest` | सिग्नल अगला कदम सुझाता है |
-| `draft` | सिग्नल पहले से ही ड्राफ्ट या तैयारी की ओर निर्देशित है |
-| `request_approval` | सिग्नल शासनित समीक्षा या अनुमोदन का अनुरोध करता है |
+| `inform` | le signal informe, sans exiger d’action immédiate |
+| `suggest` | le signal suggère une prochaine étape |
+| `draft` | le signal est déjà orienté vers un brouillon ou une préparation |
+| `request_approval` | le signal appelle une revue gouvernée ou une approbation |
 
-## भाग 2 — शासन नीतियाँ
+## Partie 2 — Politiques de gouvernance
 
-### शासन नीति क्या है?
+## Qu’est-ce qu’une politique de gouvernance ?
 
-एक **शासन नीति** एक नियम है जो इस प्रश्न का उत्तर देती है:
+Une **politique de gouvernance** est une règle qui répond à la question :
 
-**« कौन क्या करने का अधिकार रखता है, किस कनेक्टर पर, और किस नियंत्रण स्तर के साथ? »**
+**« Qui a le droit de faire quoi, sur quel connecteur, et avec quel niveau de contrôle ? »**
 
-अन्य शब्दों में, शासन यह रोकता है कि कोई बाहरी क्रिया स्पष्ट ढाँचे के बिना जाए।
+Autrement dit, la gouvernance empêche qu’une action externe parte sans cadre clair.
 
-#### नीति क्या तय करती है
+### Ce qu’une politique décide
 
-एक नीति सामान्यतः चार प्रश्नों का उत्तर देती है:
+Une politique répond en général à quatre questions :
 
-1. **कौन?** — कौन सी भूमिका प्रभावित है ;
-2. **किस पर?** — कौन सा कनेक्टर, किस प्रकार की क्रिया या गंतव्य प्रभावित है ;
-3. **कितना?** — केवल अवलोकन, ड्राफ्ट, प्रस्ताव या निष्पादन ;
-4. **किस प्रभाव के साथ?** — अनुमत, अनुमत साथ अनुमोदन, या अस्वीकृत।
+1. **Qui ?** — quel rôle est concerné ;
+2. **Sur quoi ?** — quel connecteur, quel type d’action ou quelle destination est concerné ;
+3. **Jusqu’où ?** — simple observation, brouillon, proposition ou exécution ;
+4. **Avec quel effet ?** — autorisé, autorisé avec approbation, ou refusé.
 
-#### बहुत सरल उदाहरण
+### Exemple très simple
 
-एक नीति का मतलब हो सकता है:
+Une politique peut vouloir dire :
 
-- **योगदानकर्ता** एक Teams ड्राफ्ट तैयार कर सकता है ;
-- **प्रोजेक्ट मैनेजर** SharePoint प्रकाशन का प्रस्ताव दे सकता है ;
-- **प्रोजेक्ट मालिक** को निष्पादन से पहले अनुमोदन करना चाहिए ;
-- कोई अन्य सीधे इस प्रकाशन को निष्पादित नहीं कर सकता।
+- le **Contributeur** peut préparer un brouillon Teams ;
+- le **Chef de projet** peut proposer une publication SharePoint ;
+- le **Propriétaire du projet** doit approuver avant exécution ;
+- personne d’autre ne peut exécuter directement cette publication.
 
-### स्तरों को समझना: `observe`, `draft`, `propose`, `execute`
+## Comprendre les niveaux : `observe`, `draft`, `propose`, `execute`
 
-स्तर वर्णन करता है कि एक भूमिका प्रवाह में कितनी आगे जा सकती है।
+Le **niveau** décrit jusqu’où un rôle peut aller dans le flux.
 
-| स्तर | उपयोगकर्ता क्या कर सकता है | उपयोगकर्ता अभी क्या नहीं कर सकता | सरल उदाहरण |
+| Niveau | Ce que l’utilisateur peut faire | Ce qu’il ne peut pas encore faire | Exemple simple |
 | --- | --- | --- | --- |
-| `observe` | जानकारी देखें, विषय का पालन करें, कतार देखें | एक क्रिया या ड्राफ्ट बनाना | एक पाठक सिग्नल का पालन करता है बिना आउटपुट तैयार किए |
-| `draft` | ड्राफ्ट, पाठ, या क्रिया का इरादा तैयार करना | क्रिया को आधिकारिक तौर पर कतार में जमा करना | एक योगदानकर्ता Teams संदेश तैयार करता है लेकिन प्रस्ताव नहीं करता |
-| `propose` | शासनित कतार में वास्तविक क्रिया अनुरोध जमा करना | सीधे क्रिया को निष्पादित करना | एक प्रोजेक्ट मैनेजर Jira टिकट का प्रस्ताव देता है |
-| `execute` | वास्तविक निष्पादन शुरू करना यदि अन्य शर्तें पूरी हों | नीति या अनुमोदन को बायपास करना | प्रोजेक्ट मालिक SharePoint पर एक आर्टिफैक्ट प्रकाशित करता है |
+| `observe` | voir l’information, suivre le sujet, consulter la file | créer une action ou un brouillon | un lecteur suit les signaux sans préparer de sortie |
+| `draft` | préparer un brouillon, un texte, une intention d’action | soumettre officiellement l’action à la file | un contributeur prépare un message Teams mais ne le propose pas |
+| `propose` | soumettre une vraie demande d’action dans la file gouvernée | exécuter directement l’action | un chef de projet propose un ticket Jira |
+| `execute` | lancer l’exécution réelle si les autres conditions sont remplies | contourner la politique ou les approbations imposées | un propriétaire de projet publie un artefact vers SharePoint |
 
-#### बहुत सरल व्याख्या
+### Lecture très simple
 
-- **`observe`** = मैं देखता हूँ ;
-- **`draft`** = मैं तैयार करता हूँ ;
-- **`propose`** = मैं आधिकारिक रूप से अनुरोध करता हूँ ;
-- **`execute`** = मैं वास्तव में लॉन्च करता हूँ।
+- **`observe`** = je regarde ;
+- **`draft`** = je prépare ;
+- **`propose`** = je demande officiellement ;
+- **`execute`** = je lance réellement.
 
-### प्रभाव को समझना: `allow`, `require_approval`, `deny`
+## Comprendre les effets : `allow`, `require_approval`, `deny`
 
-प्रभाव वर्णन करता है कि प्लेटफ़ॉर्म क्या करता है जब एक भूमिका इस स्तर पर पहुँचती है।
+L’**effet** décrit ce que la plateforme fait quand un rôle atteint ce niveau.
 
-| प्रभाव | इसका अर्थ | व्यावहारिक परिणाम |
+| Effet | Ce que cela veut dire | Conséquence pratique |
 | --- | --- | --- |
-| `allow` | क्रिया इस स्तर पर अनुमत है | यदि अन्य शर्तें पूरी हैं तो प्रवाह अतिरिक्त अनुमोदन चरण के बिना आगे बढ़ सकता है |
-| `require_approval` | क्रिया संभव है, लेकिन अनुमोदन आवश्यक है | अनुमोदन कतार अनिवार्य हो जाती है इससे पहले कि निष्पादन हो |
-| `deny` | क्रिया इस भूमिका या दायरे के लिए निषिद्ध है | उपयोगकर्ता इस प्रवाह में आगे नहीं बढ़ सकता |
+| `allow` | l’action est autorisée à ce niveau | le flux peut avancer sans étape d’approbation supplémentaire, si le reste est prêt |
+| `require_approval` | l’action est possible, mais doit être approuvée | la file d’approbation devient obligatoire avant exécution |
+| `deny` | l’action est interdite pour ce rôle ou ce périmètre | l’utilisateur ne peut pas aller plus loin sur ce flux |
 
-#### बहुत सरल व्याख्या
+### Lecture très simple
 
-- **`allow`** = हाँ ;
-- **`require_approval`** = हाँ, लेकिन मानवीय सत्यापन के बाद ;
-- **`deny`** = नहीं।
+- **`allow`** = oui ;
+- **`require_approval`** = oui, mais après validation humaine ;
+- **`deny`** = non.
 
-### नीति पंक्ति को कैसे पढ़ें
+## Comment lire une ligne de politique
 
-उदाहरण के लिए:
+Prenons cette lecture :
 
-- **भूमिका** : प्रोजेक्ट मैनेजर
-- **कनेक्टर** : SharePoint publish
-- **स्तर** : `execute`
-- **प्रभाव** : `require_approval`
+- **Rôle** : Chef de projet
+- **Connecteur** : SharePoint publish
+- **Niveau** : `execute`
+- **Effet** : `require_approval`
 
-इसका मतलब है:
+Cela veut dire :
 
-- प्रोजेक्ट मैनेजर निष्पादन अनुरोध तक जा सकता है ;
-- लेकिन प्रकाशन तुरंत नहीं जाता ;
-- वास्तविक निष्पादन से पहले अनुमोदन आवश्यक है।
+- le Chef de projet peut aller jusqu’à la demande d’exécution ;
+- mais la publication ne part pas immédiatement ;
+- une approbation est nécessaire avant l’exécution réelle.
 
-### नीतियों के ठोस उदाहरण
+## Exemples concrets de politiques
 
-| व्यावसायिक मामला | भूमिका | अनुशंसित स्तर | अनुशंसित प्रभाव | क्यों |
+| Cas métier | Rôle | Niveau recommandé | Effet recommandé | Pourquoi |
 | --- | --- | --- | --- | --- |
-| SharePoint पर रिपोर्ट प्रकाशित करना | प्रोजेक्ट मैनेजर | `execute` | `require_approval` | आउटपुट बाहरी है और समीक्षा की आवश्यकता है |
-| ब्लॉक से Jira टिकट बनाना | प्रोजेक्ट मैनेजर | `propose` | `allow` या `require_approval` | प्रोजेक्ट टिकट मांग सकता है बिना उसे तुरंत खोलने के |
-| कम जोखिम वाला आंतरिक Teams संदेश | योगदानकर्ता | `execute` या `propose` | `allow` | तेज़ कम प्रभाव वाली संचार |
-| प्रायोजकों को Outlook ईमेल | योगदानकर्ता | `propose` | `require_approval` | अधिक संवेदनशील और औपचारिक संचार |
-| तृतीय पक्ष टूल के लिए webhook | प्रोजेक्ट मालिक | `execute` | `require_approval` | तकनीकी आउटपुट को बहुत नियंत्रित रखना |
-| कनेक्टर तैयार नहीं या अनुमत नहीं | सभी सिवाय प्रशासक के | `observe` या कोई उपयोग नहीं | `deny` | आकस्मिक शुरुआत से बचें |
+| publication d’un compte rendu vers SharePoint | Chef de projet | `execute` | `require_approval` | la sortie est externe et doit être relue |
+| création d’un ticket Jira depuis un blocage | Chef de projet | `propose` | `allow` ou `require_approval` | le projet peut demander un ticket sans forcément l’ouvrir automatiquement |
+| message Teams interne de faible risque | Contributeur | `execute` ou `propose` | `allow` | communication rapide à faible impact |
+| e-mail Outlook à des sponsors | Contributeur | `propose` | `require_approval` | communication plus sensible et plus formelle |
+| webhook vers un outil tiers | Propriétaire du projet | `execute` | `require_approval` | sortie technique à garder très contrôlée |
+| connecteur non prêt ou non autorisé | tous sauf admin | `observe` ou aucun usage | `deny` | on évite tout départ accidentel |
 
-## शासन नीति को कॉन्फ़िगर करने के लिए चरण-दर-चरण
+## Pas à pas pour configurer une politique de gouvernance
 
-इस सरल क्रम का पालन करें।
+Suivez cet ordre simple.
 
-### चरण 1 — सही पृष्ठ खोलें
+### Étape 1 — Ouvrir la bonne surface
 
-प्रोजेक्ट के **वर्कस्पेस** से, **शासन नीतियाँ** खोलें।
+Depuis l’**Espace de travail** du projet, ouvrez **Politiques de gouvernance**.
 
-### चरण 2 — नियंत्रित करने के लिए प्रवाह चुनें
+### Étape 2 — Choisir le flux à contrôler
 
-पहले पूछें:
+Demandez-vous d’abord :
 
-- क्या यह एक **प्रकाशन** है ;
-- एक **टिकट** ;
-- एक **संदेश** ;
-- एक **webhook** ;
-- या कोई अन्य बाहरी क्रिया ?
+- s’agit-il d’une **publication** ;
+- d’un **ticket** ;
+- d’un **message** ;
+- d’un **webhook** ;
+- d’une autre action externe ?
 
-### चरण 3 — संबंधित भूमिका चुनें
+### Étape 3 — Choisir le rôle concerné
 
-फिर तय करें कि कौन सी भूमिका कार्य कर सकती है:
+Définissez ensuite quel rôle peut agir :
 
-- **योगदानकर्ता** ;
-- **प्रोजेक्ट मैनेजर** ;
-- **प्रोजेक्ट मालिक** ;
-- या आपकी कॉन्फ़िगरेशन में मौजूद अन्य भूमिका।
+- **Contributeur** ;
+- **Chef de projet** ;
+- **Propriétaire du projet** ;
+- ou autre rôle présent dans votre configuration.
 
-### चरण 4 — क्रिया स्तर चुनें
+### Étape 4 — Choisir le niveau d’action
 
-निर्धारित करें कि यह भूमिका केवल:
+Décidez si ce rôle doit seulement :
 
-- अवलोकन ;
-- ड्राफ्ट तैयार करना ;
-- प्रस्ताव देना ;
-- या निष्पादित करना।
+- observer ;
+- préparer un brouillon ;
+- proposer ;
+- ou exécuter.
 
-### चरण 5 — प्रभाव चुनें
+### Étape 5 — Choisir l’effet
 
-निर्धारित करें कि यह स्तर:
+Décidez si ce niveau doit être :
 
-- सीधे अनुमत (`allow`) ;
-- अनुमोदन के साथ अनुमत (`require_approval`) ;
-- या अस्वीकृत (`deny`)।
+- autorisé directement (`allow`) ;
+- autorisé avec approbation (`require_approval`) ;
+- ou refusé (`deny`).
 
-### चरण 6 — संबंधित कनेक्टर या गंतव्य जाँचें
+### Étape 6 — Vérifier le connecteur ou la destination concernée
 
-एक अच्छी नीति पर्याप्त नहीं है यदि कनेक्टर:
+Une bonne politique ne suffit pas si le connecteur :
 
-- तकनीकी रूप से तैयार नहीं है ;
-- प्रोजेक्ट के लिए खुला नहीं है ;
-- या सही आर्टिफैक्ट गंतव्य नहीं है।
+- n’est pas prêt techniquement ;
+- n’est pas ouvert au projet ;
+- ou n’a pas la bonne destination d’artefact.
 
-### चरण 7 — गैर-प्रशासक भूमिका के साथ परीक्षण करें
+### Étape 7 — Tester avec un rôle non administrateur
 
-सर्वश्रेष्ठ नियंत्रण व्यावहारिक है:
+Le meilleur contrôle est pratique :
 
-1. एक वास्तविक व्यावसायिक भूमिका के साथ लॉगिन करें ;
-2. **Actions & approbations** खोलें ;
-3. देखें कि क्या दिखाई देता है, अनुमत है या अवरुद्ध है ;
-4. यदि व्यवहार अपेक्षित नहीं है तो नीति समायोजित करें।
+1. connectez-vous avec un rôle métier réaliste ;
+2. ouvrez **Actions & approbations** ;
+3. vérifiez ce qui est visible, autorisé ou bloqué ;
+4. ajustez la politique si le comportement n’est pas celui attendu.
 
-![प्रोजेक्ट शासन नीतियाँ](/img/screenshots/localized/hi/14-governance-policies.png)
+![Politiques de gouvernance du projet](/img/screenshots/localized/fr/14-governance-policies.png)
 
-## शासन को सही ढंग से कॉन्फ़िगर करने के लिए सरल नियम
+## Règles simples pour bien configurer la gouvernance
 
-- केवल कम जोखिम वाले प्रवाह के लिए **`allow`** का उपयोग **`execute`** पर करें ;
-- जब भी कोई सामग्री प्रोजेक्ट से बाहर जाए या बाहरी सिस्टम बदलती हो, **`require_approval`** का उपयोग करें ;
-- जब कनेक्टर तैयार नहीं, अनुमत नहीं या अत्यधिक संवेदनशील हो, **`deny`** का उपयोग करें ;
-- नियमों को वास्तविक रूप से सौंपे गए भूमिकाओं के साथ सुसंगत रखें ;
-- नीति को तैयार मानने से पहले हमेशा एक वास्तविक केस का परीक्षण करें।
+- utilisez **`allow`** sur **`execute`** seulement pour les flux faibles en risque ;
+- utilisez **`require_approval`** dès qu’un contenu sort du projet ou modifie un système externe ;
+- utilisez **`deny`** quand le connecteur n’est pas prêt, pas autorisé ou trop sensible ;
+- gardez les règles cohérentes avec les rôles réellement attribués ;
+- testez toujours un cas réel avant de considérer la politique comme prête.
 
-## आम गलतियाँ जिन्हें टालना चाहिए
+## Erreurs fréquentes à éviter
 
-| सामान्य त्रुटि | सही व्याख्या |
+| Erreur | Bonne lecture |
 | --- | --- |
-| « मैं कनेक्टर देखता हूँ, इसलिए मैं इसका उपयोग कर सकता हूँ » | गलत: दृश्यता अनुमोदन या तकनीकी स्वास्थ्य की गारंटी नहीं देती |
-| « `propose` का मतलब है कि क्रिया भेजी जाती है » | गलत: `propose` का मतलब है कि अनुरोध शासनित कतार में जाता है |
-| « `execute` का मतलब बिना नियंत्रण के है » | गलत: `execute` अभी भी `require_approval` के साथ संयोजित हो सकता है |
-| « `deny` का मतलब विफलता है » | गलत: `deny` अक्सर एक सामान्य शासन निर्णय है |
+| « Je vois le connecteur, donc je peux l’utiliser » | faux : la visibilité ne garantit pas l’autorisation ni la santé technique |
+| « `propose` veut dire que l’action part » | faux : `propose` veut dire que la demande entre dans la file gouvernée |
+| « `execute` veut dire sans contrôle » | faux : `execute` peut encore être combiné avec `require_approval` |
+| « `deny` veut dire panne » | faux : `deny` est souvent une décision de gouvernance normale |
 
-## भाग 3 — Actions & approbations
+## Partie 3 — Actions & approbations
 
-**Actions & approbations** स्क्रीन एक इरादे को वास्तविक शासनित क्रिया में बदलने के लिए है।
+L’écran **Actions & approbations** sert à transformer une intention en **action gouvernée réelle**.
 
-### उपयोगकर्ता इस स्क्रीन पर क्या देखते हैं
+### Quand tout est correctement prêt, que devrait-on voir ?
 
-उपयोगकर्ता आम तौर पर पाते हैं:
+Dans un cas nominal, l’utilisateur autorisé retrouve en général :
 
-- एक फ़ॉर्म **शासनित क्रिया प्रस्तावित करें** ;
-- **क्रिया प्रकार** का चयन ;
-- **निष्पादन कनेक्टर** या **निष्पादन विकल्प** का चयन ;
-- एक **तैयारी** सारांश जो बताता है कि क्या उपलब्ध है या अवरुद्ध है ;
-- फ़ील्ड जैसे **शीर्षक**, **औचित्य**, **गंतव्य**, **संदेश**, **टिकट विवरण** ;
-- एक **अनुमोदन और निष्पादन कतार** जिसमें पहले से जमा अनुरोध हैं।
+- au moins un **type d’action** pertinent ;
+- une **option d’exécution compatible et saine** ;
+- un **binding projet** réellement actif ;
+- une **policy** qui autorise la proposition ou route vers l’approbation ;
+- une file où les demandes passent ensuite en **pending approval**, **approved**, **executed** ou **rejected** selon le cas.
 
-### चरण-दर-चरण — एक शासनित क्रिया बनाना
+Si un de ces maillons manque, l’écran peut paraître vide, incomplet ou purement informatif sans qu’il s’agisse forcément d’une panne.
 
-#### चरण 1 — स्क्रीन खोलें
+## Ce que l’utilisateur voit dans cet écran
 
-वर्कस्पेस में, **Actions & approbations** खोलें।
+Un utilisateur y retrouve généralement :
 
-#### चरण 2 — क्रिया प्रकार चुनें
+- un formulaire **Proposer une action gouvernée** ;
+- le choix du **type d’action** ;
+- le choix du **connecteur d’exécution** ou de l’**option d’exécution** ;
+- un résumé de **readiness** indiquant ce qui est disponible ou bloqué ;
+- des champs comme **titre**, **rationale**, **destination**, **message**, **ticket description** ;
+- une **file d’approbation et d’exécution** avec les demandes déjà soumises.
 
-पहले व्यावसायिक इरादा चुनें। दिखाई देने वाले क्रिया प्रकारों में शामिल हैं:
+## Pas à pas — créer une action gouvernée
 
-- **SharePoint पर आर्टिफैक्ट प्रकाशित करें** ;
-- **Teams संदेश भेजें** ;
-- **Outlook संदेश भेजें** ;
-- **Jira टिकट बनाएं** ;
-- **Azure DevOps टिकट बनाएं** ;
-- **Webhook** टेनेंट कॉन्फ़िगरेशन के अनुसार।
+### Étape 1 — Ouvrir l’écran
 
-#### चरण 3 — संगत निष्पादन विकल्प जाँचें
+Dans l’**Espace de travail**, ouvrez **Actions & approbations**.
 
-इंटरफ़ेस फिर संगत **निष्पादन विकल्प** खोजता है।
+### Étape 2 — Choisir le type d’action
 
-एक विकल्प चुनें:
+Sélectionnez d’abord l’intention métier. Les types d’action visibles incluent notamment :
 
-- **स्वस्थ** ;
-- **अनुमत** ;
-- वास्तव में आपके प्रोजेक्ट के लिए खुला।
+- **Publish artifact to SharePoint** ;
+- **Send Teams message** ;
+- **Send Outlook message** ;
+- **Create Jira ticket** ;
+- **Create Azure DevOps ticket** ;
+- **Webhook** selon la configuration du tenant.
 
-यदि कोई स्वस्थ विकल्प दिखाई नहीं देता, जाँच अक्सर इस पर केंद्रित होती है:
+### Étape 3 — Vérifier l’option d’exécution compatible
 
-- स्वयं कनेक्टर ;
-- उसका स्वास्थ्य स्थिति ;
-- प्रोजेक्ट बाइंडिंग ;
-- नीति ;
-- या आपकी अनुमति।
+L’interface recherche ensuite les **options d’exécution compatibles**.
 
-#### चरण 4 — तैयारी पढ़ें
+Choisissez une option :
 
-**Execution readiness** क्षेत्र यह जाँचने के लिए है कि आप केवल सैद्धांतिक क्रिया तैयार नहीं कर रहे हैं।
+- **saine** ;
+- **autorisée** ;
+- réellement ouverte à votre projet.
 
-व्यावहारिक रूप से:
+Si aucune option saine n’apparaît, la vérification porte souvent sur :
 
-- **उपलब्ध / स्वस्थ** = उपयोग योग्य विकल्प ;
-- **स्वास्थ्य द्वारा अवरुद्ध** = प्लेटफ़ॉर्म पक्ष पर कनेक्टर जाँचें ;
-- **अधिकार द्वारा अवरुद्ध** = योजना में शामिल नहीं या खुला नहीं है ;
-- **नीति द्वारा अवरुद्ध** = प्रोजेक्ट शासन प्रतिबंधात्मक है ;
-- **अनुमति द्वारा अवरुद्ध** = आपकी भूमिका पर्याप्त नहीं है।
+- du connecteur lui-même ;
+- de son état de santé ;
+- du binding projet ;
+- de la politique ;
+- ou de votre permission.
 
-#### चरण 5 — शीर्षक और औचित्य भरें
+### Étape 4 — Lire la readiness
 
-फिर पूरा करें:
+La zone **Execution readiness** sert à vérifier que vous n’êtes pas en train de préparer une action théorique seulement.
 
-- एक **स्पष्ट शीर्षक** ;
-- एक संक्षिप्त लेकिन उपयोगी **औचित्य** ;
-- चुने गए क्रिया प्रकार के विशिष्ट फ़ील्ड।
+En pratique :
 
-औचित्य को दो प्रश्नों का उत्तर देना चाहिए:
+- **available / healthy** = option exploitable ;
+- **blocked by health** = connecteur à vérifier côté plateforme ;
+- **blocked by policy** = le cadre de gouvernance bloque encore le passage ;
+- **blocked by entitlement** = le plan ou la capacité autorisée ne couvre pas ce flux ;
+- aucune option visible = connecteur compatible absent, binding projet manquant ou option non ouverte à votre rôle.
 
-1. **यह क्रिया क्यों आवश्यक है?**
-2. **यह किस साक्ष्य या निर्णय पर आधारित है?**
+### Lecture pédagogique d’un écran qui semble vide
 
-#### चरण 6 — व्यावसायिक फ़ील्ड पूरा करें
+Si `Actions & approbations` ne propose rien d’exécutable, commencez par cette table très simple :
 
-| क्रिया प्रकार | अक्सर अपेक्षित फ़ील्ड |
+| Ce que vous voyez | Raison dominante possible | Réflexe utile |
+| --- | --- | --- |
+| aucun connecteur sélectionnable | aucun connecteur compatible et sain n’est prêt | vérifier **Intégrations du projet** puis **Administration de la plateforme** |
+| action visible mais bouton bloqué | permission, policy ou approbation requise | contrôler le rôle puis la gouvernance |
+| file visible mais rien ne part | la demande reste en attente d’approbation ou d’exécution aval | relire le statut réel de la file |
+| connecteur présent mais inutilisable | binding projet, health ou entitlement insuffisant | vérifier la chaîne complète plateforme → projet → policy |
+
+Rappelez-vous enfin qu’un statut **approved** ne veut pas dire **executed** : l’accord existe, mais l’exécution réelle peut encore rester en attente.
+- **blocked by entitlement** = capacité non incluse dans le plan ou non ouverte ;
+- **blocked by policy** = gouvernance du projet restrictive ;
+- **blocked by permission** = votre rôle ne suffit pas.
+
+### Étape 5 — Renseigner le titre et la justification
+
+Complétez ensuite :
+
+- un **titre clair** ;
+- une **justification** courte mais utile ;
+- les champs spécifiques au type d’action choisi.
+
+La justification doit répondre à deux questions :
+
+1. **Pourquoi cette action est-elle nécessaire ?**
+2. **Sur quelles preuves ou décisions s’appuie-t-elle ?**
+
+### Étape 6 — Compléter les champs métier
+
+Les champs changent selon le type d’action.
+
+| Type d’action | Champs fréquemment attendus |
 | --- | --- |
-| SharePoint प्रकाशन | शीर्षक, औचित्य, `artifact ID`, गंतव्य, रेंडर प्रोफ़ाइल, फ़ॉर्मेट |
-| Teams संदेश | शीर्षक, औचित्य, संदेश का मुख्य भाग |
-| Outlook संदेश | शीर्षक, औचित्य, प्राप्तकर्ता, विषय, संदेश का मुख्य भाग |
-| Jira टिकट | शीर्षक, औचित्य, टिकट विवरण, वैकल्पिक प्रोजेक्ट/बोर्ड कुंजी |
-| Azure DevOps टिकट | शीर्षक, औचित्य, विवरण, कनेक्टर के अनुसार टिकट प्रकार |
-| Webhook | शीर्षक, औचित्य और लक्षित सिस्टम के लिए उपयोगी डेटा |
+| Publication SharePoint | titre, justification, `artifact ID`, destination, profil de rendu, format |
+| Message Teams | titre, justification, corps du message |
+| Message Outlook | titre, justification, destinataires, objet, corps du message |
+| Ticket Jira | titre, justification, description du ticket, éventuellement clé projet / board |
+| Ticket Azure DevOps | titre, justification, description, type de ticket selon le connecteur |
+| Webhook | titre, justification et données utiles au système cible |
 
-#### चरण 7 — क्रिया प्रस्तावित करें
+### Étape 7 — Proposer l’action
 
-एक बार फ़ील्ड भरने के बाद, अनुरोध जमा करें।
+Une fois les champs remplis, soumettez la demande.
 
-इस चरण पर, क्रिया अभी तक नहीं भेजी गई हो सकती है। यह पहले **अनुमोदन कतार** में प्रवेश कर सकती है।
+À ce stade, l’action n’est pas forcément déjà partie. Elle peut d’abord entrer dans la **file d’approbation**.
 
-#### चरण 8 — अनुमोदक द्वारा समीक्षा
+### Étape 8 — Revue par l’approbateur
 
-यदि नीति `require_approval` लगाती है, तो अनुमोदक को पुनः पढ़ना चाहिए:
+Si la politique impose `require_approval`, un approbateur doit relire :
 
-- शीर्षक ;
-- औचित्य ;
-- उपयोग किया गया कनेक्टर ;
-- पेलोड या व्यावसायिक विवरण ;
-- संभावित आर्टिफैक्ट या ड्राफ्ट।
+- le titre ;
+- la justification ;
+- le connecteur utilisé ;
+- la charge utile ou le détail métier ;
+- l’éventuel artefact ou brouillon lié.
 
-#### चरण 9 — अनुमोदन, अस्वीकृति या निष्पादन
+### Étape 9 — Approbation, rejet ou exécution
 
-नीति और अनुमोदक की भूमिका के अनुसार, अनुरोध हो सकता है:
+Selon la politique et le rôle de l’approbateur, la demande peut être :
 
-- **स्वीकृत** ;
-- **अस्वीकृत** ;
-- फिर **निष्पादित** यदि सब तैयार है।
+- **approuvée** ;
+- **rejetée** ;
+- puis **exécutée** si tout est prêt.
 
-#### चरण 10 — अंतिम ट्रेस जाँचें
+### Étape 10 — Vérifier la trace finale
 
-निष्पादन के बाद जाँचें:
+Après exécution, vérifiez :
 
-- क्रिया कतार ;
-- प्रोजेक्ट गतिविधि ;
-- **Trace ID** यदि प्रदर्शित हो ;
-- **Journal IA** यदि प्रवाह वहाँ परिलक्षित हो ;
-- लक्षित टूल में आर्टिफैक्ट, टिकट या संदेश की उपस्थिति।
+- la file d’actions ;
+- l’activité projet ;
+- le **Trace ID** s’il est affiché ;
+- le **Journal IA** si le flux s’y reflète ;
+- la présence de l’artefact, du ticket ou du message côté outil cible.
 
-### क्रिया स्टेटस कैसे पढ़ें
+## Comment lire les statuts d’action
 
-| स्थिति | इसका अर्थ |
+| Statut | Ce que cela veut dire |
 | --- | --- |
-| `draft` | अनुरोध अभी भी तैयारी में है |
-| `pending approval` | अनुमोदन वास्तविक अगले चरण से पहले प्रतीक्षित है |
-| `approved` | अनुरोध स्वीकार किया गया है |
-| `executed` | क्रिया वास्तव में शुरू की गई है |
-| `rejected` | अनुरोध अस्वीकृत किया गया है |
-| `failed` | क्रिया शुरू हुई लेकिन सही ढंग से पूरी नहीं हुई |
-| `cancelled` | अनुरोध रद्द किया गया है |
+| `draft` | la demande est encore préparatoire |
+| `pending approval` | l’approbation est attendue avant suite réelle |
+| `approved` | la demande a été acceptée |
+| `executed` | l’action a réellement été lancée |
+| `rejected` | la demande a été refusée |
+| `failed` | l’action a été lancée mais n’a pas abouti correctement |
+| `cancelled` | la demande a été annulée |
 
-## चरण-दर-चरण उदाहरण — SharePoint पर आर्टिफैक्ट प्रकाशित करना
+## Exemple pas à pas — publication d’un artefact vers SharePoint
 
-### स्थिति
+### Situation
 
-टीम ने एक **साप्ताहिक ब्रीफ** पुनः पढ़ा है और इसे SharePoint पर प्रकाशित करना चाहती है।
+L’équipe a relu un **brief hebdomadaire** et veut le publier dans SharePoint.
 
-### प्रवाह
+### Parcours
 
-1. **Actions & approbations** खोलें ;
-2. **SharePoint पर आर्टिफैक्ट प्रकाशित करें** चुनें ;
-3. एक स्वस्थ **SharePoint publish** विकल्प चुनें ;
-4. क्रिया का **शीर्षक** भरें ;
-5. एक **औचित्य** जोड़ें, उदाहरण के लिए: "समीक्षित और साप्ताहिक प्रसार के लिए अनुमोदित संस्करण" ;
-6. **artifact ID** भरें ;
-7. **SharePoint गंतव्य** चुनें ;
-8. यदि आवश्यक हो तो **रेंडर प्रोफ़ाइल** या **फ़ॉर्मेट** चुनें ;
-9. क्रिया प्रस्तावित करें ;
-10. यदि नीति आवश्यक हो, तो अनुमोदन का इंतजार करें ;
-11. निष्पादित करें ;
-12. जाँचें कि आर्टिफैक्ट SharePoint पर सही ढंग से प्रकाशित है और ProPM Agent में ट्रेस किया गया है।
+1. ouvrir **Actions & approbations** ;
+2. choisir **Publish artifact to SharePoint** ;
+3. sélectionner une option **SharePoint publish** saine ;
+4. renseigner le **titre** de l’action ;
+5. ajouter une **justification**, par exemple : « version relue et approuvée pour diffusion hebdomadaire » ;
+6. renseigner l’**artifact ID** ;
+7. choisir la **destination SharePoint** ;
+8. choisir le **profil de rendu** ou le **format** si demandé ;
+9. proposer l’action ;
+10. si la politique l’exige, attendre l’approbation ;
+11. exécuter ;
+12. contrôler que l’artefact est bien publié côté SharePoint et tracé dans ProPM Agent.
 
-## चरण-दर-चरण उदाहरण — Jira टिकट बनाना
+## Exemple pas à pas — créer un ticket Jira
 
-### स्थिति
+### Situation
 
-एक सिग्नल एक आवर्ती ब्लॉकिंग को दर्शाता है जिसका योजना पर प्रभाव है।
+Un signal remonte un blocage récurrent avec impact planning.
 
-### प्रवाह
+### Parcours
 
-1. **Actions & approbations** खोलें ;
-2. **Jira टिकट बनाएं** चुनें ;
-3. उपलब्ध Jira कनेक्टर चुनें ;
-4. एक स्पष्ट शीर्षक दर्ज करें, उदाहरण के लिए: "आपूर्तिकर्ता ब्लॉकिंग महत्वपूर्ण बैच पर" ;
-5. टिकट का **विवरण** पूरा करें ;
-6. **औचित्य** और उपयोगी साक्ष्य जोड़ें ;
-7. अनुरोध प्रस्तावित करें ;
-8. यदि नीति `require_approval` लगाती है तो अनुमोदक को पुनः पढ़ने दें ;
-9. निष्पादित करें ;
-10. फिर बाहरी संदर्भ या बनाया गया टिकट जाँचें।
+1. ouvrir **Actions & approbations** ;
+2. choisir **Create Jira ticket** ;
+3. sélectionner un connecteur Jira disponible ;
+4. saisir un titre clair, par exemple : « Bloquage fournisseur sur lot critique » ;
+5. compléter la **description** du ticket ;
+6. ajouter la **justification** et les preuves utiles ;
+7. proposer la demande ;
+8. laisser l’approbateur relire si la politique impose `require_approval` ;
+9. exécuter ;
+10. vérifier ensuite la référence externe ou le ticket créé.
 
-## चरण-दर-चरण उदाहरण — Teams या Outlook संदेश भेजना
+## Exemple pas à pas — envoyer un message Teams ou Outlook
 
-### स्थिति
+### Situation
 
-प्रोजेक्ट को एक आंतरिक समूह या प्रायोजक को एक पूर्ण समीक्षा के बारे में सूचित करना है।
+Le projet doit informer un groupe interne ou un sponsor d’une revue terminée.
 
-#### Teams मार्ग
+### Parcours Teams
 
-1. **Teams संदेश भेजें** चुनें ;
-2. अनुमत Teams कनेक्टर चुनें ;
-3. एक संक्षिप्त और समझने योग्य संदेश लिखें ;
-4. यदि प्रवाह शासनित है तो औचित्य जोड़ें ;
-5. प्रस्तावित करें, आवश्यक होने पर अनुमोदन करें, फिर निष्पादित करें।
+1. choisir **Send Teams message** ;
+2. sélectionner le connecteur Teams autorisé ;
+3. rédiger un message court et compréhensible ;
+4. ajouter la justification si le flux est gouverné ;
+5. proposer, faire approuver si besoin, puis exécuter.
 
-#### Outlook मार्ग
+### Parcours Outlook
 
-1. **Outlook संदेश भेजें** चुनें ;
-2. Outlook कनेक्टर चुनें ;
-3. **प्राप्तकर्ता** भरें ;
-4. विषय और संदेश का मुख्य भाग पूरा करें ;
-5. प्रस्तावित करें, आवश्यक होने पर अनुमोदन करें, फिर निष्पादित करें।
+1. choisir **Send Outlook message** ;
+2. sélectionner le connecteur Outlook ;
+3. renseigner les **destinataires** ;
+4. compléter l’**objet** et le **corps** du message ;
+5. proposer, faire approuver si besoin, puis exécuter.
 
-#### व्यावहारिक अंतर
+### Différence pratique
 
-- **Teams** आंतरिक सहयोगी संचार के लिए उपयुक्त है ;
-- **Outlook** अधिक औपचारिक और लक्षित संचार के लिए बेहतर है।
+- **Teams** convient bien à une communication collaborative interne ;
+- **Outlook** convient mieux à une communication plus formelle et plus ciblée.
 
-## चरण-दर-चरण उदाहरण — तृतीय पक्ष टूल के लिए webhook
+## Exemple pas à pas — webhook vers un outil tiers
 
-### स्थिति
+### Situation
 
-कंपनी एक आंतरिक प्रवाह को एक कस्टम टूल पर ट्रिगर करना चाहती है।
+L’entreprise veut déclencher un flux interne vers un outil maison.
 
-### प्रवाह
+### Parcours
 
-1. **Webhook** से संबंधित क्रिया प्रकार या प्रवाह चुनें ;
-2. संगत webhook निष्पादन विकल्प चुनें ;
-3. शीर्षक और औचित्य भरें ;
-4. लक्षित सिस्टम के लिए उपयोगी डेटा पूरा करें ;
-5. अनुरोध प्रस्तावित करें ;
-6. यदि नीति आवश्यक हो तो अनुमोदन करें ;
-7. निष्पादित करें ;
-8. लक्षित सिस्टम और ProPM Agent ऑडिट पर परिणाम जाँचें।
+1. choisir le type d’action ou le flux lié au **Webhook** ;
+2. sélectionner l’option d’exécution webhook compatible ;
+3. renseigner le titre et la justification ;
+4. compléter les données utiles au système cible ;
+5. proposer la demande ;
+6. faire approuver si la politique l’exige ;
+7. exécuter ;
+8. contrôler le résultat côté système cible et côté audit ProPM Agent.
 
-## क्यों एक क्रिया दिखाई दे सकती है लेकिन निष्पादित नहीं हो सकती
+## Pourquoi une action peut être visible mais non exécutable
 
-एक क्रिया इंटरफ़ेस में दिखाई दे सकती है लेकिन अवरुद्ध रह सकती है यदि:
+Une action peut être visible dans l’interface mais rester bloquée si :
 
-- संगत कनेक्टर स्वस्थ नहीं है ;
-- प्रोजेक्ट के पास सही बाइंडिंग नहीं है ;
-- प्रोजेक्ट नीति इस स्तर की क्रिया को निषिद्ध करती है ;
-- आपकी भूमिका प्रस्ताव या निष्पादन की अनुमति नहीं देती ;
-- अनुमोदन अभी भी प्रतीक्षित है ;
-- अधिकार या योजना क्षमता प्रवाह को अवरुद्ध करती है।
+- le connecteur compatible n’est pas sain ;
+- le projet ne dispose pas du bon binding ;
+- la politique du projet interdit ce niveau d’action ;
+- votre rôle ne permet pas de proposer ou d’exécuter ;
+- une approbation est encore en attente ;
+- l’entitlement ou la capacité du plan bloque le flux.
 
-## यदि कोई निष्पादन विकल्प दिखाई नहीं देता तो क्या करें
+## Que faire si aucune option d’exécution n’apparaît
 
-इस क्रम का पालन करें:
+Suivez cet ordre :
 
-1. पहले **शासन नीतियाँ** जाँचें ;
-2. फिर **प्रोजेक्ट इंटीग्रेशन** जाँचें ;
-3. फिर **प्लेटफ़ॉर्म प्रशासन** खोलें ;
-4. अंत में **अधिकार**, **अनुमति** और कनेक्टर का स्वास्थ्य स्थिति जाँचें।
+1. vérifiez d’abord **Politiques de gouvernance** ;
+2. vérifiez ensuite **Intégrations du projet** ;
+3. ouvrez ensuite **Administration de la plateforme** ;
+4. contrôlez enfin l’**entitlement**, la **permission** et l’état de santé du connecteur.
 
-## पूर्ण परिदृश्य — सिग्नल से निष्पादित क्रिया तक
+## Scénario complet — du signal à l’action exécutée
 
-### सरल मामला
+### Cas simple
 
-1. एक `open` सिग्नल एक ब्लॉकिंग को दर्शाता है ;
-2. टीम सारांश, व्याख्या और साक्ष्य पुनः पढ़ती है ;
-3. वे निर्णय लेते हैं कि एक Jira टिकट आवश्यक है ;
-4. नीति प्रोजेक्ट मैनेजर को `propose` करने की अनुमति देती है लेकिन `require_approval` लगाती है ;
-5. प्रोजेक्ट मैनेजर **Actions & approbations** में अनुरोध बनाता है ;
-6. प्रोजेक्ट मालिक अनुमोदन करता है ;
-7. क्रिया **executed** हो जाती है ;
-8. बाहरी टिकट और आंतरिक ट्रेस संरेखित रहते हैं।
+1. un signal `open` remonte un blocage ;
+2. l’équipe relit le résumé, l’explication et les preuves ;
+3. elle décide qu’un ticket Jira est nécessaire ;
+4. la politique autorise le **Chef de projet** à `propose` mais impose `require_approval` ;
+5. le Chef de projet crée la demande dans **Actions & approbations** ;
+6. le **Propriétaire du projet** approuve ;
+7. l’action passe à **executed** ;
+8. le ticket externe et la trace interne restent alignés.
 
-यह परिदृश्य उत्पाद की लॉजिक को अच्छी तरह संक्षेपित करता है: **देखना, निर्णय लेना, नियंत्रित करना, निष्पादित करना, ट्रेस करना**।
+Ce scénario résume bien la logique du produit : **voir, décider, contrôler, exécuter, tracer**.
 
-## अच्छे अभ्यास
+## Bonnes pratiques
 
-- कभी भी **ड्राफ्ट** और **वास्तविक निष्पादन** को भ्रमित न करें ;
-- संवेदनशील आउटपुट को सीमित करने के लिए नीतियों का उपयोग करें ;
-- जब भी कोई सामग्री प्रोजेक्ट से बाहर जाए या बाहरी सिस्टम बदलती हो, अनुमोदन माँगें ;
-- क्रिया प्रस्तावित करने से पहले हमेशा साक्ष्य जाँचें ;
-- **Journal IA** और क्रिया कतार को सामान्य ऑडिट संदर्भ के रूप में उपयोग करें।
+- ne confondez jamais **brouillon** et **exécution réelle** ;
+- utilisez les politiques pour limiter les sorties sensibles ;
+- demandez une approbation dès qu’un contenu quitte le projet ou modifie un système externe ;
+- vérifiez toujours les preuves avant de proposer une action ;
+- utilisez le **Journal IA** et la file d’actions comme référence commune d’audit.
 
-## अगला
+## Suite
 
-- [कनेक्टर्स और इंटीग्रेशन](./connecteurs-jira-et-sharepoint) ;
-- [रिपोर्ट्स, जर्नल IA और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md) ;
-- [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md) ;
-- [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md) ;
+- [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
+- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
+- [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
+- [Maintenance, support et FAQ](./maintenance-support-faq.md)

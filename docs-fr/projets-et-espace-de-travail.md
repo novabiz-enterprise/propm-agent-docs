@@ -22,6 +22,24 @@ Cette page explique la différence entre **Projets**, **Espace de travail** et *
 
 En pratique, **Projets** sert à entrer dans le bon contexte, **Espace de travail** à le configurer et **Agents** à l’exploiter.
 
+## Le rôle exact du projet actif
+
+Le **projet actif** est le contexte actuellement appliqué aux pages de travail projet.
+
+Concrètement, il détermine :
+
+- les documents visibles dans **Connaissance** ;
+- les runs lancés dans **Agents** ;
+- les PM Docs, artefacts et diff visibles dans **Rapports & artefacts** ;
+- les runs et événements affichés dans **Journal IA** ;
+- les signaux, intégrations et politiques affichés dans **Espace de travail**.
+
+Il ne faut donc pas confondre :
+
+- **projet actif** : contexte opérationnel courant ;
+- **Portfolio** : vue de comparaison multi-projets ;
+- **All projects** : portée éventuelle d’un agent personnalisé visible dans plusieurs projets pour le même compte.
+
 ## Créer un projet
 
 Le formulaire observé contient les champs suivants :
@@ -210,6 +228,17 @@ Cette combinaison évite qu’un brouillon, un digest ou une action apparaisse c
 
 Cet onglet sépare les intégrations **techniquement définies** au niveau plateforme de celles qui sont **réellement utilisables** par le projet.
 
+### Comment lire cet onglet
+
+L’onglet **Intégrations du projet** n’est pas l’endroit où l’on configure toute la technique du tenant. Il sert surtout à lire la **readiness opérationnelle** projet : ce qui est visible pour ce projet, ce qui est prêt, et ce qui reste bloqué avec une raison explicite.
+
+On y retrouve plusieurs familles d’informations :
+
+- **Execution connectors** : options de sortie gouvernée vers des systèmes externes ;
+- **Ingestion providers** : sources d’import consommées ensuite par **Connaissance** ;
+- **AI runtime transparency** : fournisseur IA effectif et fournisseur sélectionné au déploiement ;
+- **Entitlement posture** : posture plan / sièges / blocages premium visibles.
+
 ### Causes de blocage explicitement observées
 
 Une intégration projet ou une option d’import peut être bloquée pour cause de :
@@ -232,6 +261,12 @@ Une intégration projet ou une option d’import peut être bloquée pour cause 
 | définition absente ou désactivée | rien n’est réellement prêt au niveau tenant | demandez d’abord la mise en place ou la réactivation plateforme |
 | binding projet absent | la plateforme est prête mais le projet ne consomme pas encore l’intégration | activez explicitement le binding côté projet |
 
+### Lecture pratique de `binding` et `entitlement`
+
+- **binding** : le connecteur ou fournisseur existe au niveau plateforme, mais il faut encore le rattacher et l’ouvrir au projet pour qu’il soit consommable dans ce projet ;
+- **entitlement** : même avec un binding prêt, le plan peut encore laisser l’option visible en lecture seule tout en bloquant l’usage opérationnel ;
+- un connecteur visible mais bloqué ne signifie donc pas qu’il est cassé : l’interface peut justement le laisser visible pour expliquer la raison du blocage.
+
 Si un blocage persiste, ouvrez ensuite **Administration de la plateforme** pour vérifier la définition technique, puis revenez sur le projet pour confirmer le binding et la préparation.
 
 ### Jira, SharePoint et chaîne des connecteurs
@@ -250,12 +285,20 @@ Voir la page dédiée : [Connecteurs et intégrations](./connecteurs-jira-et-sha
 
 ## Actions & approbations
 
-Cet onglet transforme une recommandation en opération contrôlée. Une action peut être **visible** mais non **exécutable** si :
+Cet onglet transforme une recommandation en opération contrôlée.
 
-- vous n’avez pas le bon droit ;
-- le connecteur compatible n’est pas prêt ;
-- le binding projet limite l’action ;
-- l’approbation requise n’a pas encore eu lieu.
+### Les états réels à retenir
+
+Dans l’interface observée, la file et les cartes de synthèse distinguent surtout quatre états canoniques :
+
+| État visible | Lecture pratique |
+| --- | --- |
+| **Execution prerequisites** | des connecteurs compatibles peuvent exister, mais l’exécution reste bloquée par health, entitlement, permission, policy ou readiness indisponible |
+| **Pending approval** | la demande a été proposée et attend encore une décision de gouvernance |
+| **Ready to execute** | la demande est **approved** mais l’exécution reste une étape distincte |
+| **Executed history** | l’action a réellement été exécutée et reste visible comme historique / preuve d’audit |
+
+Une action peut donc être **approved** sans être encore **executed**.
 
 ### Comment lire un onglet qui paraît vide ou incomplet
 
@@ -274,6 +317,19 @@ Quand tout est correctement prêt, on s’attend au minimum à voir :
 - un binding projet valide ;
 - une policy cohérente ;
 - un utilisateur autorisé à proposer, approuver ou exécuter selon le cas.
+
+### Ce qu’il faut lire dans `Execution readiness`
+
+Le bloc **Execution readiness** n’administre pas toute la plateforme. Il résume simplement ce qui est actuellement proposable dans ce projet.
+
+Lecture utile :
+
+- **available / healthy** : option théoriquement utilisable ;
+- **blocked by health** : le connecteur existe mais n’est pas dans un état opérationnel suffisant ;
+- **blocked by entitlement** : l’abonnement ne couvre pas ce flux ;
+- **blocked by policy** : la gouvernance du projet bloque le passage ;
+- **blocked by permission** : votre rôle ne suffit pas ;
+- aucune option visible : aucun connecteur compatible approuvé n’est actuellement exposé au projet.
 
 ## Lecture seule ou accès refusé
 

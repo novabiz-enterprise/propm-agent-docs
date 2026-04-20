@@ -1,315 +1,383 @@
 ---
-title: परियोजनाएँ और कार्यक्षेत्र
+title: Projets et espace de travail
 slug: /projets-et-espace-de-travail
-description: एक परियोजना बनाना, प्रारंभिक भूमिकाएँ सौंपना और कार्यक्षेत्र को नियंत्रण केंद्र के रूप में उपयोग करना।
+description: Créer un projet, déléguer les premiers rôles et utiliser l’espace de travail comme centre de pilotage.
 ---
 
-[होम](./index.md) · [इंटरफ़ेस और नेविगेशन](./interface-et-navigation.md) · [पहुँच नियंत्रण और परियोजना भूमिकाएँ](./controle-acces-et-roles.md)
+[Accueil](./index.md) · [Interface et navigation](./interface-et-navigation.md) · [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md)
 
-![परियोजना कार्यक्षेत्र अवलोकन](/img/screenshots/localized/hi/03-workspace-overview.png)
+![Espace de travail projet](/img/screenshots/localized/fr/03-workspace-overview.png)
 
-## उद्देश्य
+## Objectif
 
-यह पृष्ठ **Projets**, **Espace de travail** और **Agents** के बीच अंतर बताता है, और एप्लिकेशन में वास्तव में दृश्य परियोजना सेटिंग्स का विवरण देता है।
+Cette page explique la différence entre **Projets**, **Espace de travail** et **Agents**, puis détaille les réglages projet réellement visibles dans l’application.
 
-## तीन सतहें अलग करना
+## Trois surfaces à distinguer
 
-| सतह | कब उपयोग करें |
+| Surface | Quand l’utiliser |
 | --- | --- |
-| Projets | एक परियोजना बनाना, मौजूदा परियोजना खोलना, संदर्भ बदलना |
-| Espace de travail | परियोजना सारांश, परिचालन पारदर्शिता, सिग्नल और परियोजना स्तर सेटिंग्स पढ़ना |
-| Agents | एक एजेंट के साथ लाइव बातचीत शुरू करना और रन का संरचित आउटपुट पढ़ना |
+| Projets | Créer un projet, ouvrir un projet existant, changer de contexte |
+| Espace de travail | Lire le résumé projet, la transparence opérationnelle, les signaux et les réglages de niveau projet |
+| Agents | Lancer un échange en direct avec un agent et lire la sortie structurée du run |
 
-व्यवहार में, **Projets** सही संदर्भ में प्रवेश करने के लिए है, **Espace de travail** इसे कॉन्फ़िगर करने के लिए और **Agents** इसका उपयोग करने के लिए।
+En pratique, **Projets** sert à entrer dans le bon contexte, **Espace de travail** à le configurer et **Agents** à l’exploiter.
 
-## एक परियोजना बनाना
+## Le rôle exact du projet actif
 
-फ़ॉर्म में निम्न फ़ील्ड शामिल हैं :
+Le **projet actif** est le contexte actuellement appliqué aux pages de travail projet.
 
-- **ID परियोजना** ;
-- **नाम** ;
-- **विवरण** ;
-- **डिफ़ॉल्ट डेटा भाषा** ;
-- **अतिरिक्त डेटा भाषाएँ**.
+Concrètement, il détermine :
 
-सुझाव :
+- les documents visibles dans **Connaissance** ;
+- les runs lancés dans **Agents** ;
+- les PM Docs, artefacts et diff visibles dans **Rapports & artefacts** ;
+- les runs et événements affichés dans **Journal IA** ;
+- les signaux, intégrations et politiques affichés dans **Espace de travail**.
 
-- एक पठनीय और स्थायी ID चुनें ;
-- **परियोजना डेटा भाषा** और **इंटरफ़ेस भाषा** को भ्रमित न करें ;
-- ज्ञान या एजेंट खोलने से पहले दायरा सही ढंग से परिभाषित करें।
+Il ne faut donc pas confondre :
 
-## परियोजना निर्माता : प्रारंभिक अधिकार और प्रतिनिधि
+- **projet actif** : contexte opérationnel courant ;
+- **Portfolio** : vue de comparaison multi-projets ;
+- **All projects** : portée éventuelle d’un agent personnalisé visible dans plusieurs projets pour le même compte.
 
-निर्माण पर, **परियोजना निर्माता** **Project Owner** भूमिका और सभी परियोजना अनुमतियाँ प्राप्त करता है। व्यवहार में, वह ही परियोजना खोल सकता है, प्रारंभिक कॉन्फ़िगरेशन की जाँच कर सकता है और फिर टीम के बाकी सदस्यों को **भूमिकाएँ सौंप** सकता है।
+## Créer un projet
 
-### निर्माण के तुरंत बाद अनुशंसित प्रतिनिधि
+Le formulaire observé contient les champs suivants :
 
-1. **पहुँच नियंत्रण** खोलें ;
-2. कम से कम एक अन्य **Project Owner** या विश्वसनीय **Project Manager** जोड़ें ;
-3. आवश्यकता होने पर मालिकों को बढ़ाने के बजाय लक्षित कस्टम भूमिकाएँ बनाएं ;
-4. फिर योगदानकर्ता, पाठक और ऑडिटर को भूमिकाएँ सौंपें ;
-5. अंत में **शासन नीतियाँ** और **परियोजना एकीकरण** की समीक्षा करें ताकि अधिकार, कनेक्टर और सत्यापन संरेखित हों।
+- **ID projet** ;
+- **Nom** ;
+- **Description** ;
+- **Langue de données par défaut** ;
+- **Langues de données supplémentaires**.
 
-### प्लेटफ़ॉर्म अभी भी क्या सुरक्षा करता है
+Recommandations de saisie :
 
-- **निर्माता** का प्रवेश सुरक्षित रहता है ;
-- निर्माता की भूमिका इंटरफ़ेस में स्थिर रहती है ;
-- प्रतिनिधि अतिरिक्त भूमिकाओं के आवंटन से होता है, न कि निर्माता सुरक्षा हटाने से ;
-- RBAC का विस्तृत विवरण के लिए देखें [पहुँच नियंत्रण और परियोजना भूमिकाएँ](./controle-acces-et-roles.md).
+- choisissez un ID lisible et durable ;
+- ne confondez pas **langue de données projet** et **langue d’interface** ;
+- définissez correctement le périmètre avant d’ouvrir la connaissance ou les agents.
 
-## परियोजना खोलें और बदलें
+## Créateur du projet : droits initiaux et délégation
 
-एक परियोजना निम्न से खोली जा सकती है :
+À la création, le **créateur du projet** démarre avec le rôle **Propriétaire du projet** et l’ensemble des permissions projet observées. En pratique, c’est donc lui qui peut ouvrir le projet, vérifier la configuration initiale et **déléguer ensuite les rôles** au reste de l’équipe.
 
-- **Projets** पृष्ठ ;
-- शीर्ष बार का **परियोजना चयनकर्ता** ;
-- ब्राउज़र में हाल ही में याद रखी गई संदर्भ।
+### Délégation recommandée juste après la création
 
-परिवर्तन पर, निम्न सतहें संरेखित होती हैं : **Connaissance**, **Agents**, **Documents PM / Reports & artefacts**, **AI जर्नल**, सिग्नल और परियोजना सेटिंग्स।
+1. ouvrez **Contrôle d’accès** ;
+2. ajoutez au moins un autre **Propriétaire du projet** ou un **Chef de projet** de confiance ;
+3. créez si besoin des rôles personnalisés ciblés plutôt que de multiplier les propriétaires ;
+4. attribuez ensuite les rôles aux contributeurs, lecteurs et auditeurs ;
+5. relisez enfin les **Politiques de gouvernance** et les **Intégrations du projet** pour aligner droits, connecteurs et validations.
 
-### सक्रिय संदर्भ, transverse views और reset को स्पष्ट करना
+### Ce que la plateforme protège encore
 
-इन नियमों को सरल रूप से याद रखें:
+- l’entrée du **créateur** reste protégée ;
+- le rôle du créateur reste fixe dans l’interface observée ;
+- la délégation se fait par attribution de rôles supplémentaires, pas par suppression de la protection du créateur ;
+- pour le détail RBAC, voir [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md).
 
-- **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts** और **AI Log** project-scoped surfaces हैं;
-- **Portfolio** कई परियोजनाओं के बीच मुख्य transverse comparison view है;
-- किसी custom agent पर `All projects` उसकी definition की visibility और reuse को दर्शाता है, project-less execution mode को नहीं;
-- top bar में project बदलने से वही persisted active context बदलता है जिसे project-scoped surfaces उपयोग करती हैं;
-- remembered project context को साफ़ तरीके से reset करने का product तरीका है **Projects** पर लौटना और इच्छित project को स्पष्ट रूप से फिर से खोलना, न कि implicit browser behavior पर निर्भर रहना।
+## Ouvrir et changer de projet
 
-## कार्यक्षेत्र : परियोजना नियंत्रण केंद्र
+Un projet peut être ouvert depuis :
 
-**Espace de travail** एक ही सतह पर निम्न एकत्र करता है :
+- la page **Projets** ;
+- le **sélecteur de projet** de la barre supérieure ;
+- le contexte récemment mémorisé dans le navigateur.
 
-- **परियोजना सारांश** ;
-- **Agents**, **Documents PM** और **AI जर्नल** के शॉर्टकट ;
-- परिचालन पारदर्शिता का दृश्य ;
-- परियोजना के **सिग्नल** ;
-- परियोजना स्तर सेटिंग्स के टैब।
+Lorsque vous changez de projet, les surfaces suivantes se recalent : **Connaissance**, **Agents**, **Documents PM / Rapports & artefacts**, **Journal IA**, les signaux et les réglages projet.
 
-यह फ्रेंच दस्तावेज़ अब **Espace de travail** में समर्पित वॉइस मानचित्र नहीं दिखाता। जब कुछ वातावरणों में वॉइस इनपुट अभी भी मौजूद है, यह **Agents** में होता है, न कि यहाँ अलग प्रवेश बिंदु के रूप में।
+Ce changement de projet modifie donc réellement le **contexte actif** utilisé par la recherche documentaire, les conversations agents, les rapports et les traces associées.
 
-## परिचालन पारदर्शिता और तैयारी
+Le dernier projet retenu peut être mémorisé localement par le navigateur pour faciliter la reprise, mais cette mémoire locale n’est pas un réglage partagé à toute la plateforme.
 
-कार्यक्षेत्र केवल परियोजना सारांश के लिए नहीं है। यह यह भी दिखाता है कि परियोजना कार्य करने के लिए तैयार है या नहीं :
+## L’espace de travail : centre de pilotage du projet
 
-- सिग्नल की उपस्थिति या अनुपस्थिति ;
-- हालिया गतिविधि ;
-- ड्राफ्ट या डिलीवेरेबल्स के शॉर्टकट ;
-- परियोजना एकीकरण की तैयारी जब वे मौजूद हों ;
-- वास्तविक IA प्रदाता का प्रदर्शन बिना टेनेंट कॉन्फ़िगरेशन खोले।
+L’**Espace de travail** réunit dans une même surface :
 
-इस क्षेत्र का उपयोग यह समझने के लिए करें कि **क्यों** एक क्रिया या आयात उपलब्ध हो सकता है, पुष्टि या अवरुद्ध।
+- le **résumé projet** ;
+- des raccourcis vers **Agents**, **Documents PM** et **Journal IA** ;
+- une vue de **transparence opérationnelle** ;
+- les **signaux** du projet ;
+- les onglets de réglage de niveau projet.
 
-## परियोजना स्तर टैब
+Cette documentation française ne présente plus de carte **voix** dédiée dans l’**Espace de travail**. Quand une saisie vocale existe encore dans certains environnements, elle se fait dans **Agents**, pas comme point d’entrée séparé ici.
 
-| टैब | इसका उद्देश्य |
+## Transparence opérationnelle et préparation
+
+L’espace de travail ne sert pas seulement à résumer le projet. Il permet aussi de voir si le projet est prêt à agir :
+
+- présence ou absence de signaux ;
+- activité récente ;
+- raccourcis vers les brouillons ou livrables liés ;
+- préparation des intégrations projet quand elles existent ;
+- exposition du fournisseur IA effectif sans ouvrir la configuration tenant.
+
+Utilisez cette zone pour comprendre **pourquoi** une action ou un import peut être disponible, à confirmer ou bloqué.
+
+## Onglets de niveau projet
+
+| Onglet | À quoi il sert |
 | --- | --- |
-| एजेंट कॉन्फ़िगरेशन | इस परियोजना के लिए एजेंट सेट करें |
-| पहुँच नियंत्रण | परियोजना स्तर पर सदस्य, भूमिकाएँ और अनुमतियाँ प्रबंधित करें |
-| दस्तावेज़ श्रेणियाँ | परियोजना की दस्तावेज़ टैक्सोनॉमी को अनुकूलित करें और परियोजना दस्तावेज़ सतहों पर प्रसारित करें |
-| शासन नीतियाँ | कनेक्टर, गंतव्य, क्रिया नीतियाँ, रेंडर प्रोफ़ाइल और परियोजना स्तर नोटिफ़िकेशन प्राथमिकताएँ परिभाषित करें |
-| परियोजना एकीकरण | तैयार और अनुमत एकीकरण को परियोजना से जोड़ें |
-| Actions & approvals | वास्तविक अनुरोध पर शासन नीतियों को लागू करते हुए अनुरोध, सत्यापन और नियंत्रित निष्पादन प्रबंधित करें |
+| Configuration des agents | Paramétrer les agents pour ce projet |
+| Contrôle d’accès | Gérer membres, rôles et permissions de niveau projet |
+| Catégories de documents | Adapter la taxonomie documentaire du projet et la propager aux surfaces documentaires du projet |
+| Politiques de gouvernance | Définir connecteurs, destinations, politiques d’action, profils de rendu et préférences de notification de niveau projet |
+| Intégrations du projet | Relier au projet les intégrations prêtes et autorisées |
+| Actions & approbations | Gérer les demandes d’action, validations et exécution gouvernée |
 
-## एजेंट कॉन्फ़िगरेशन
+## Configuration des agents
 
-परियोजना स्तर पर पुष्टि किए गए पैरामीटर हैं :
+Les paramètres confirmés au niveau projet sont :
 
 - `status` ;
 - `temperature` ;
 - `max tokens`.
 
-### दृश्य सीमाएँ
+### Contraintes visibles
 
-- `temperature` 0 से 2 के बीच अपेक्षित है ;
-- `max tokens` कम से कम 1 का पूर्णांक होना चाहिए।
+- `temperature` est attendue entre **0** et **2** ;
+- `max tokens` doit être un entier supérieur ou égal à **1**.
 
-### कॉन्फ़िगरेशन इतिहास
+### Historique de configuration
 
-इंटरफ़ेस संस्करण के अनुसार इतिहास भी दिखाता है, कम से कम :
+L’interface expose aussi un historique par version avec au minimum :
 
-- संस्करण संख्या ;
-- स्थिति ;
-- तापमान ;
-- अधिकतम टोकन ;
-- निर्माण तिथि ;
-- लेखक ;
-- संबंधित `Trace ID`.
+- numéro de version ;
+- statut ;
+- température ;
+- max tokens ;
+- date de création ;
+- auteur ;
+- `Trace ID` associé.
 
-![परियोजना स्तर पर एजेंट सेटिंग्स](/img/screenshots/localized/hi/12-agent-configuration.png)
+![Réglages des agents au niveau projet](/img/screenshots/localized/fr/12-agent-configuration.png)
 
-## पहुँच नियंत्रण
+## Contrôle d’accès
 
-**पहुँच नियंत्रण** टैब सदस्य और परियोजना भूमिकाएँ प्रबंधित करता है। यह समर्थन करता है :
+L’onglet **Contrôle d’accès** administre les membres et rôles projet. Il supporte :
 
-- मानक भूमिकाएँ ;
-- कस्टम भूमिकाएँ ;
-- RBAC गार्ड्स ;
-- गैर-अनुमति प्राप्त प्रोफ़ाइल के लिए केवल-पढ़ें।
+- les rôles standards ;
+- les rôles personnalisés ;
+- les garde-fous RBAC ;
+- la lecture seule pour les profils non autorisés à modifier.
 
-देखें समर्पित पृष्ठ : [पहुँच नियंत्रण और परियोजना भूमिकाएँ](./controle-acces-et-roles.md).
+Voir la page dédiée : [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md).
 
-## दस्तावेज़ श्रेणियाँ
+## Catégories de documents
 
-यह टैब दस्तावेज़ वर्गीकरण को परियोजना के साथ संरेखित करता है। व्यवहार में, परियोजना टैक्सोनॉमी बाद के दस्तावेज़ चयनकर्ताओं को प्रभावित करती है।
+Cet onglet sert à aligner la classification documentaire avec le projet. En pratique, la taxonomie projet influence les catégories proposées lors des téléversements et certains sélecteurs documentaires utilisés ensuite dans les surfaces projet.
 
-### एक अपडेट का ठोस प्रभाव
+### Effet concret d’une mise à jour
 
-जब श्रेणी सूची सफलतापूर्वक बदलती है :
+Quand la liste des catégories est modifiée avec succès :
 
-- **Connaissance** में अपलोड के दौरान श्रेणी चयनकर्ता अपडेट होता है ;
-- **Documents PM** में श्रेणी फ़िल्टर और चयनकर्ता इस साझा टैक्सोनॉमी का उपयोग करते समय संरेखित होते हैं ;
-- परिवर्तन केवल **वर्तमान परियोजना** तक सीमित रहता है।
+- le sélecteur de catégorie de téléversement dans **Connaissance** est mis à jour ;
+- les sélecteurs et filtres de catégorie dans **Documents PM** se recalent quand ils utilisent cette taxonomie partagée ;
+- le changement reste limité au **projet courant**.
 
-### व्यावहारिक उदाहरण
+### Exemples pratiques
 
-एक संक्षिप्त और स्थिर टैक्सोनॉमी रखें। उदाहरण के लिए, निकटवर्ती विविधताओं को बढ़ाने के बजाय कुछ सुसंगत श्रेणियाँ चुनें :
+Gardez une taxonomie courte et stable. Par exemple, au lieu de multiplier les variantes proches, préférez quelques catégories cohérentes comme :
 
-- परियोजना चार्टर ;
-- जोखिम रजिस्टर ;
-- स्थिति रिपोर्ट ;
-- खरीद योजना ;
-- संचार योजना।
+- charte projet ;
+- registre des risques ;
+- rapport de statut ;
+- plan achats ;
+- plan de communication.
 
-उद्देश्य दस्तावेज़ संस्करण को श्रेणी में एन्कोड करना नहीं है, बल्कि **Connaissance** और **Documents PM** के बीच पुन: उपयोग योग्य वर्गीकरण बनाए रखना है।
+L’objectif n’est pas d’encoder la version du document dans la catégorie, mais de garder un classement réutilisable entre **Connaissance** et **Documents PM**.
 
-![परियोजना दस्तावेज़ श्रेणियाँ](/img/screenshots/localized/hi/13-document-categories.png)
+![Catégories documentaires du projet](/img/screenshots/localized/fr/13-document-categories.png)
 
-## शासन नीतियाँ
+## Politiques de gouvernance
 
-यह टैब निर्णय, सत्यापन और परियोजना शासन व्यवहार को नियंत्रित करने वाले नियम तय करता है। प्रकाशित करने से पहले या बाहरी नियंत्रित क्रिया को अनुमति देने से पहले इसका उपयोग करें।
+Cet onglet fixe les règles qui encadrent les décisions, validations et comportements de gouvernance du projet. Utilisez-le avant de publier un livrable ou d’autoriser une action externe gouvernée.
 
-### शासन नीतियों में दृश्य उपसतह
+### Sous-surfaces visibles dans Politiques de gouvernance
 
-| उपसतह | यह क्या नियंत्रित करती है |
+| Sous-surface | Ce qu’elle règle |
 | --- | --- |
-| निष्पादन कनेक्टर | कनेक्टर का प्रकार, स्थिति, निष्पादन मोड, पर्यावरण, स्कोप और संदर्भ पैरामीटर |
-| artefact गंतव्य | artefact का लक्ष्य गंतव्य, संबंधित कनेक्टर, सक्रिय या डिफ़ॉल्ट स्थिति |
-| क्रिया नीतियाँ | संबंधित भूमिका, लक्षित कनेक्टर, क्रिया स्तर (`observe`, `draft`, `propose`, `execute`), प्रभाव (`allow`, `require_approval`, `deny`) और अनुमत स्कोप |
-| रेंडर प्रोफ़ाइल | प्रकाशित करते समय उपयोग की जाने वाली रेंडर प्रोफ़ाइल और आउटपुट फ़ॉर्मेट |
-| नोटिफ़िकेशन प्राथमिकताएँ | चैनल, नोटिफ़िकेशन प्रकार, डाइजेस्ट मोड, गंभीरता सीमा और प्राथमिकता सक्रियण |
+| Connecteurs d’exécution | Type de connecteur, statut, mode d’exécution, environnement, scopes et paramètres de contexte |
+| Destinations des artefacts | Destination cible d’un artefact, connecteur associé, caractère actif ou par défaut |
+| Politiques d’action | Rôle concerné, connecteur ciblé, niveau d’action (`observe`, `draft`, `propose`, `execute`), effet (`allow`, `require_approval`, `deny`) et scopes autorisés |
+| Profils de rendu | Profils de rendu et format de sortie utilisés lors des publications gouvernées |
+| Préférences de notification | Canal, type de notification, mode de digest, seuil de sévérité et activation de la préférence |
 
-### उपयोगी सेटिंग उदाहरण
+### Exemples de réglages utiles
 
-- **SharePoint** पर प्रकाशन के लिए स्पष्ट अनुमोदन अनिवार्य करें ;
-- कुछ भूमिकाओं के लिए केवल `propose` स्तर पर **Jira** टिकट बनाना अनुमति दें ;
-- आंतरिक ट्रैकिंग के लिए `signal_digest` को `in_app` पर सेट करें ;
-- बाहरी नोटिफ़िकेशन `email`, `teams` या `webhook` को केवल तब अनुमोदित मार्ग में रखें जब कनेक्टर स्वस्थ हो ;
-- **DOCX** और **XLSX** प्रकाशन के लिए अलग रेंडर प्रोफ़ाइल चुनें।
+- exiger une approbation explicite avant une publication vers **SharePoint** ;
+- autoriser la création de ticket **Jira** seulement au niveau `propose` pour certains rôles ;
+- préparer des préférences `signal_digest` en `in_app` pour le suivi interne ;
+- laisser les notifications externes `email`, `teams` ou `webhook` dans un chemin approuvé seulement lorsque le connecteur est sain ;
+- choisir des profils de rendu séparés pour les publications **DOCX** et **XLSX**.
 
-### विश्वसनीय परिदृश्य — संवेदनशील परियोजना / नियंत्रित प्रसार
+### Scénario crédible — projet sensible / diffusion gouvernée
 
-एक परियोजना के लिए जहाँ सभी बाहरी प्रसार नियंत्रित होना चाहिए, एक सुसंगत सेटिंग अक्सर इस प्रकार दिखती है :
+Pour un projet où toute diffusion externe doit être contrôlée, un réglage cohérent ressemble souvent à ceci :
 
-1. **artefact गंतव्य** : सक्रिय SharePoint गंतव्य, ज्ञात रेंडर प्रोफ़ाइल ;
-2. **क्रिया नीतियाँ** : `observe` और `draft` के लिए `allow`, लेकिन `execute` पर `require_approval` प्रकाशित और बाहरी नोटिफ़िकेशन के लिए ;
-3. **निष्पादन कनेक्टर** : केवल वास्तविक रूप से अनुमत भूमिकाओं के लिए दृश्य बाहरी कनेक्टर ;
-4. **नोटिफ़िकेशन प्राथमिकताएँ** : टीम के लिए `signal_digest` `daily` पर, सबसे संवेदनशील मामलों के लिए `signal_alert` केवल ;
-5. **परियोजना एकीकरण** : प्लेटफ़ॉर्म पर पहले से मान्य कनेक्टर के लिए बाइंडिंग सक्रिय केवल तभी जब तैयार हो।
+1. **Destinations des artefacts** : destination SharePoint active avec profil de rendu connu ;
+2. **Politiques d’action** : `allow` pour `observe` et `draft`, mais `require_approval` pour `execute` sur les publications et notifications externes ;
+3. **Connecteurs d’exécution** : connecteurs externes visibles seulement pour les rôles réellement autorisés ;
+4. **Préférences de notification** : `signal_digest` en `daily` pour l’équipe, `signal_alert` seulement pour les cas les plus sensibles ;
+5. **Intégrations du projet** : bindings activés uniquement pour les connecteurs déjà validés au niveau plateforme.
 
-यह संयोजन एक ड्राफ़्ट, डाइजेस्ट या क्रिया को सीधे प्रसार योग्य दिखने से रोकता है जब तक कि परियोजना अभी भी मानव अनुमोदन की प्रतीक्षा कर रही हो।
+Cette combinaison évite qu’un brouillon, un digest ou une action apparaisse comme directement diffusable alors que le projet attend encore une approbation humaine.
 
-![परियोजना शासन नीतियाँ](/img/screenshots/localized/hi/14-governance-policies.png)
+![Politiques de gouvernance du projet](/img/screenshots/localized/fr/14-governance-policies.png)
 
-## परियोजना एकीकरण
+## Intégrations du projet
 
-यह टैब प्लेटफ़ॉर्म स्तर पर तकनीकी रूप से परिभाषित एकीकरण और परियोजना द्वारा वास्तव में उपयोग योग्य एकीकरण को अलग करता है।
+Cet onglet sépare les intégrations **techniquement définies** au niveau plateforme de celles qui sont **réellement utilisables** par le projet.
 
-### स्पष्ट रूप से अवलोकित अवरोध कारण
+### Comment lire cet onglet
 
-एक परियोजना एकीकरण या आयात विकल्प निम्न कारणों से अवरुद्ध हो सकता है :
+L’onglet **Intégrations du projet** n’est pas l’endroit où l’on configure toute la technique du tenant. Il sert surtout à lire la **readiness opérationnelle** projet : ce qui est visible pour ce projet, ce qui est prêt, et ce qui reste bloqué avec une raison explicite.
+
+On y retrouve plusieurs familles d’informations :
+
+- **Execution connectors** : options de sortie gouvernée vers des systèmes externes ;
+- **Ingestion providers** : sources d’import consommées ensuite par **Connaissance** ;
+- **AI runtime transparency** : fournisseur IA effectif et fournisseur sélectionné au déploiement ;
+- **Entitlement posture** : posture plan / sièges / blocages premium visibles.
+
+### Causes de blocage explicitement observées
+
+Une intégration projet ou une option d’import peut être bloquée pour cause de :
 
 - entitlement ;
 - policy ;
 - permission ;
-- स्वास्थ्य स्थिति जाँचें ;
-- प्लेटफ़ॉर्म परिभाषा अनुपस्थित या निष्क्रिय ;
-- परियोजना बाइंडिंग निष्क्रिय या कॉन्फ़िगर नहीं।
+- état health à vérifier ;
+- définition plateforme absente ou désactivée ;
+- binding projet désactivé ou non configuré.
 
-### बाइंडिंग अवरोध की व्याख्या
+### Comment interpréter un blocage de binding
 
-| दृश्य कारण | व्यावहारिक पढ़ना | अनुशंसित प्रवृत्ति |
+| Cause visible | Lecture pratique | Réflexe recommandé |
 | --- | --- | --- |
-| `entitlement` | योजना या क्षमता अनुमतियाँ इस कनेक्टर या उपयोग परिवार को कवर नहीं करतीं | सब्सक्रिप्शन और क्षमताएँ देखें [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md) |
-| `policy` | परियोजना शासन इस प्रवाह को रोकता या सीमित करता है | **शासन नीतियाँ** पुनः पढ़ें इससे पहले कि बाइंडिंग बदलें |
-| `permission` | कनेक्टर मौजूद है पर आपका भूमिका इसे सक्रिय या उपयोग नहीं कर सकती | परियोजना भूमिका [पहुँच नियंत्रण और परियोजना भूमिकाएँ](./controle-acces-et-roles.md) जाँचें |
-| `health` | प्लेटफ़ॉर्म परिभाषा मौजूद है पर तैयारी या उपलब्धता जाँच आवश्यक है | **प्लेटफ़ॉर्म प्रशासन** खोलें तकनीकी परिभाषा की पुष्टि के लिए |
-| परिभाषा अनुपस्थित या निष्क्रिय | टेनेंट स्तर पर कुछ भी तैयार नहीं है | पहले प्लेटफ़ॉर्म सेटअप या पुनः सक्रियण माँगें |
-| परियोजना बाइंडिंग अनुपस्थित | प्लेटफ़ॉर्म तैयार है पर परियोजना अभी एकीकरण का उपयोग नहीं कर रही | परियोजना पक्ष से स्पष्ट रूप से बाइंडिंग सक्रिय करें |
+| `entitlement` | le plan ou la capacité autorisée ne couvre pas ce connecteur ou cette famille d’usage | vérifiez l’abonnement et les capacités dans [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) |
+| `policy` | la gouvernance projet interdit ou limite ce flux | relisez **Politiques de gouvernance** avant de modifier le binding |
+| `permission` | le connecteur existe mais votre rôle ne permet pas de l’activer ou de l’utiliser | contrôlez le rôle projet dans [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md) |
+| `health` | la définition plateforme existe mais sa préparation ou sa disponibilité demandent une vérification | ouvrez l’**Administration de la plateforme** pour confirmer la définition technique |
+| définition absente ou désactivée | rien n’est réellement prêt au niveau tenant | demandez d’abord la mise en place ou la réactivation plateforme |
+| binding projet absent | la plateforme est prête mais le projet ne consomme pas encore l’intégration | activez explicitement le binding côté projet |
 
-यदि अवरोध बना रहता है, तो **प्लेटफ़ॉर्म प्रशासन** खोलें तकनीकी परिभाषा की जाँच के लिए, फिर परियोजना पर वापस जाकर बाइंडिंग और तैयारी की पुष्टि करें।
+### Lecture pratique de `binding` et `entitlement`
 
-### Jira, SharePoint और कनेक्टर श्रृंखला
+- **binding** : le connecteur ou fournisseur existe au niveau plateforme, mais il faut encore le rattacher et l’ouvrir au projet pour qu’il soit consommable dans ce projet ;
+- **entitlement** : même avec un binding prêt, le plan peut encore laisser l’option visible en lecture seule tout en bloquant l’usage opérationnel ;
+- un connecteur visible mais bloqué ne signifie donc pas qu’il est cassé : l’interface peut justement le laisser visible pour expliquer la raison du blocage.
 
-![Jira और SharePoint वर्कफ़्लो](/img/diagrams/hi/connecteurs-jira-sharepoint-workflow.svg)
+Si un blocage persiste, ouvrez ensuite **Administration de la plateforme** pour vérifier la définition technique, puis revenez sur le projet pour confirmer le binding et la préparation.
 
-इस तर्क को सरल रखें :
+### Jira, SharePoint et chaîne des connecteurs
 
-1. **प्लेटफ़ॉर्म एकीकरण** कनेक्टर या ingestion प्रदाता परिभाषित करता है ;
-2. **परियोजना एकीकरण** केवल अनुमोदित और तैयार बाइंडिंग दिखाता है ;
-3. **शासन नीतियाँ** तय करती हैं कि प्रत्येक भूमिका क्या देख सकती है, तैयार कर सकती है, प्रस्तावित कर सकती है या निष्पादित कर सकती है ;
-4. **Actions & approvals** वास्तविक अनुरोध पर इन नियमों को लागू करता है ;
-5. **Documents PM** और **AI जर्नल** प्रवाह का ट्रेस रखते हैं।
+![Flux Jira et SharePoint entre plateforme, projet et actions](/img/diagrams/fr/connecteurs-jira-sharepoint-workflow.svg)
 
-देखें समर्पित पृष्ठ : [कनेक्टर और एकीकरण](./connecteurs-jira-et-sharepoint).
+Gardez cette logique simple :
 
-## Actions & approvals
+1. **Intégrations de la plateforme** définit le connecteur ou le fournisseur d’ingestion ;
+2. **Intégrations du projet** expose seulement le binding approuvé et prêt ;
+3. **Politiques de gouvernance** décide ce que chaque rôle peut observer, préparer, proposer ou exécuter ;
+4. **Actions & approbations** applique ensuite ces règles lors de la demande réelle ;
+5. **Documents PM** et **Journal IA** conservent la trace du flux.
 
-यह टैब एक अनुशंसा को नियंत्रित ऑपरेशन में बदलता है। एक क्रिया **दृश्य** हो सकती है पर **निष्पादन योग्य** नहीं यदि :
+Voir la page dédiée : [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint).
 
-- आपके पास सही अधिकार नहीं है ;
-- संगत कनेक्टर तैयार नहीं है ;
-- परियोजना बाइंडिंग क्रिया को सीमित करती है ;
-- आवश्यक अनुमोदन अभी तक नहीं हुआ।
+## Actions & approbations
 
-## केवल-पढ़ें या पहुँच अस्वीकृत
+Cet onglet transforme une recommandation en opération contrôlée.
 
-- **केवल-पढ़ें** : टैब दृश्य रहता है पर सहेजना अवरुद्ध है ;
-- **पहुँच अस्वीकृत** : रूट या क्रिया आपके खाते के लिए उपलब्ध नहीं है।
+### Les états réels à retenir
 
-यह अंतर विशेष रूप से **पहुँच नियंत्रण**, **परियोजना एकीकरण** और शासन सेटिंग्स के लिए महत्वपूर्ण है।
+Dans l’interface observée, la file et les cartes de synthèse distinguent surtout quatre états canoniques :
 
-## परियोजना निर्माण के बाद अनुशंसित मार्ग
+| État visible | Lecture pratique |
+| --- | --- |
+| **Execution prerequisites** | des connecteurs compatibles peuvent exister, mais l’exécution reste bloquée par health, entitlement, permission, policy ou readiness indisponible |
+| **Pending approval** | la demande a été proposée et attend encore une décision de gouvernance |
+| **Ready to execute** | la demande est **approved** mais l’exécution reste une étape distincte |
+| **Executed history** | l’action a réellement été exécutée et reste visible comme historique / preuve d’audit |
 
-1. **Espace de travail** खोलें ;
-2. सबसे पहले **निर्माता**, **सदस्य** और **भूमिकाएँ** जाँचें यदि परियोजना सहयोगी है ;
-3. फिर **दस्तावेज़ श्रेणियाँ** समायोजित करें ;
-4. किसी भी बाहरी प्रसार से पहले **शासन नीतियाँ** पुनः पढ़ें ;
-5. केवल वास्तव में तैयार **परियोजना एकीकरण** जोड़ें ;
-6. फिर **Connaissance** लोड करें ;
-7. अंत में **Agents**, **Documents PM** और **Actions & approvals** पर जाएँ।
+Une action peut donc être **approved** sans être encore **executed**.
 
-## उपयोगी सेटिंग परिदृश्य
+### Comment lire un onglet qui paraît vide ou incomplet
 
-### परिदृश्य 1 — न्यूनतम नई परियोजना
+La visibilité de l’onglet ne signifie pas qu’une action est déjà exécutable. Quand rien de concret ne semble disponible, la lecture la plus utile est souvent :
 
-एक परियोजना जो शुरू हो रही है, सरल क्रम रखें :
+1. aucun **connecteur d’exécution compatible et sain** n’est prêt pour ce type d’action ;
+2. le **binding projet** n’expose pas encore l’option au projet ;
+3. une **policy** autorise la consultation mais pas la proposition ou l’exécution ;
+4. votre **permission** permet de voir la file, mais pas d’agir ;
+5. une approbation est requise et aucune décision n’a encore été prise.
 
-1. आवश्यक सदस्यों को जोड़ें और उनके भूमिकाएँ जाँचें ;
-2. **दस्तावेज़ श्रेणियाँ** में एक संक्षिप्त टैक्सोनॉमी बनाएं ;
-3. केवल पहले से मान्य और वास्तव में आवश्यक एकीकरण सक्रिय करें ;
-4. एक न्यूनतम शासन तैयार करें, उदाहरण के लिए एक आंतरिक डाइजेस्ट और एक डिफ़ॉल्ट artefact गंतव्य ;
-5. फिर **Connaissance** लोड करें पहले एजेंट खोलने से पहले।
+Quand tout est correctement prêt, on s’attend au minimum à voir :
 
-यह परिदृश्य बहुत जल्दी कनेक्टर या प्रसार नियमों को खोलने से बचाता है जो तुरंत उपयोग नहीं होंगे।
+- un type d’action compatible ;
+- au moins une option d’exécution saine ;
+- un binding projet valide ;
+- une policy cohérente ;
+- un utilisateur autorisé à proposer, approuver ou exécuter selon le cas.
 
-### परिदृश्य 2 — संवेदनशील परियोजना / नियंत्रित प्रसार
+### Ce qu’il faut lire dans `Execution readiness`
 
-एक परियोजना जो बाहरी नोटिफ़िकेशन या औपचारिक दस्तावेज़ प्रकाशन के लिए उजागर है :
+Le bloc **Execution readiness** n’administre pas toute la plateforme. Il résume simplement ce qui est actuellement proposable dans ce projet.
 
-1. बाहरी कनेक्टर तक पहुँच रखने वाली भूमिकाओं को सीमित करें ;
-2. **SharePoint** या समकक्ष को **artefact गंतव्य** में सेट करें ;
-3. उन क्रिया स्तरों पर `require_approval` लागू करें जो बाहरी प्रसार उत्पन्न कर सकते हैं ;
-4. चल रहे ट्रैकिंग के लिए `signal_digest` प्राथमिकता दें और केवल गंभीर मामलों में `signal_alert` रखें ;
-5. **परियोजना एकीकरण** में केवल वही बाइंडिंग दिखाएँ जिनकी तैयारी और नीति पहले से अनुपालन करती है।
+Lecture utile :
 
-यह दूसरा परिदृश्य सिग्नल पढ़ने, प्रसार, अनुमोदन और वास्तविक निष्पादन को एक स्वतंत्र सतह के रूप में टीम को संभालने के बजाय एकीकृत करता है।
+- **available / healthy** : option théoriquement utilisable ;
+- **blocked by health** : le connecteur existe mais n’est pas dans un état opérationnel suffisant ;
+- **blocked by entitlement** : l’abonnement ne couvre pas ce flux ;
+- **blocked by policy** : la gouvernance du projet bloque le passage ;
+- **blocked by permission** : votre rôle ne suffit pas ;
+- aucune option visible : aucun connecteur compatible approuvé n’est actuellement exposé au projet.
 
-## आगे
+## Lecture seule ou accès refusé
 
-- [पहुँच नियंत्रण और परियोजना भूमिकाएँ](./controle-acces-et-roles.md)
-- [ज्ञान और एजेंट्स](./connaissance-et-agents.md)
-- [शासन, निर्णय और क्रिया](./gouvernance-decisions-et-actions.md)
-- [कनेक्टर और एकीकरण](./connecteurs-jira-et-sharepoint)
-- [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md)
+- **lecture seule** : l’onglet reste visible mais l’enregistrement est bloqué ;
+- **accès refusé** : la route ou l’action n’est pas disponible pour votre compte.
+
+Cette différence est particulièrement importante pour **Contrôle d’accès**, **Intégrations du projet** et les réglages de gouvernance.
+
+## Parcours recommandé après création d’un projet
+
+1. ouvrez l’**Espace de travail** ;
+2. vérifiez d’abord le **créateur**, les **membres** et les **rôles** si le projet est collaboratif ;
+3. ajustez ensuite les **catégories de documents** ;
+4. relisez les **Politiques de gouvernance** avant toute diffusion externe ;
+5. reliez uniquement les **Intégrations du projet** réellement prêtes ;
+6. chargez ensuite la **Connaissance** ;
+7. passez enfin aux **Agents**, aux **Documents PM** et aux **Actions & approbations**.
+
+## Deux scénarios de paramétrage utiles
+
+### Scénario 1 — projet neuf minimal
+
+Pour un projet qui démarre, gardez un ordre simple :
+
+1. ajoutez les membres indispensables et vérifiez leurs rôles ;
+2. créez une taxonomie documentaire courte dans **Catégories de documents** ;
+3. activez seulement les intégrations déjà validées et vraiment nécessaires ;
+4. préparez une gouvernance minimale, par exemple un digest interne et une destination d’artefact par défaut ;
+5. chargez ensuite la **Connaissance** avant d’ouvrir les agents.
+
+Ce scénario évite d’ouvrir trop tôt des connecteurs ou des règles de diffusion qui ne seront pas utilisés immédiatement.
+
+### Scénario 2 — projet sensible / diffusion gouvernée
+
+Pour un projet exposé à des notifications externes ou à une publication documentaire formelle :
+
+1. limitez les rôles ayant accès aux connecteurs externes ;
+2. préparez une destination SharePoint ou équivalent dans **Destinations des artefacts** ;
+3. appliquez `require_approval` sur les niveaux d’action qui peuvent produire une diffusion externe ;
+4. privilégiez `signal_digest` pour le suivi courant et réservez les alertes instantanées aux cas critiques ;
+5. ne rendez visibles dans **Intégrations du projet** que les bindings dont la préparation et la politique sont déjà conformes.
+
+Ce second scénario aligne lecture des signaux, diffusion, approbation et exécution réelle au lieu de laisser l’équipe traiter chaque écran comme une surface indépendante.
+
+## Suite
+
+- [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md)
+- [Connaissance et agents](./connaissance-et-agents.md)
+- [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md)
+- [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
+- [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)

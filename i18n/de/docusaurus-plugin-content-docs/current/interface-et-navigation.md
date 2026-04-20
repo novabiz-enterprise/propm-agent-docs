@@ -1,160 +1,183 @@
 ---
-title: "Schnittstelle und Navigation"
+title: Interface et navigation
 slug: /interface-et-navigation
-description: "Verstehen Sie die Hauptbildschirme, die Seitenleiste, die obere Leiste und das Dashboard."
+description: Comprendre les écrans principaux, la barre latérale, la barre supérieure et le tableau de bord.
 ---
 
-[Startseite](./index.md) · [Start](./demarrage.md) · [Projekte und Workspace](./projets-et-espace-de-travail.md)
+[Accueil](./index.md) · [Démarrage](./demarrage.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md)
 
-![Dashboard ProPM Agent](/img/screenshots/localized/de/01-dashboard.png)
+![Tableau de bord ProPM Agent](/img/screenshots/localized/fr/01-dashboard.png)
 
-## Ziel
+## Objectif
 
-Diese Seite erklärt, wie man sich im ProPM Agent Shell zurechtfindet, das **Dashboard** liest, die **Command Palette** nutzt, die **Benachrichtigungen** interpretiert und das **Health Panel** für eine schnelle Überprüfung verwendet, wenn nötig.
+Cette page explique comment se repérer dans le shell de ProPM Agent, lire le **Tableau de bord**, utiliser la **palette de commandes**, interpréter les **notifications** et utiliser le panneau **santé** pour une vérification rapide lorsque nécessaire.
 
-## Überblick
+## Vue d’ensemble
 
-Die beobachtete Oberfläche folgt einer einfachen Logik:
+L’interface observée suit une logique simple :
 
-1. die **Sidebar** öffnet die großen Funktionsbereiche;
-2. die **Top bar** ändert das aktuelle Projekt und öffnet die Schnellwerkzeuge;
-3. die zentrale Fläche zeigt den **aktuellen Kontext**;
-4. mehrere Bildschirme ändern ihren Zustand je nach **aktivem Projekt** und Ihren **Rechten**.
+1. la **barre latérale** ouvre les grands domaines fonctionnels ;
+2. la **barre supérieure** change le projet courant et ouvre les outils rapides ;
+3. la surface centrale affiche le **contexte courant** ;
+4. plusieurs écrans changent d’état selon le **projet actif** et vos **droits**.
 
-## Hauptnavigation
+## Navigation principale
 
-| Eintrag | Hauptverwendung |
+| Entrée | Usage principal |
 | --- | --- |
-| Dashboard | Lesen Sie den allgemeinen Status und die empfohlenen nächsten Schritte |
-| Projects | Erstellen, öffnen und wechseln Sie den Projektkontext |
-| Workspace | Projektzusammenfassung, Signale, Readiness und Projekteinrichtungen |
-| Knowledge | Suchen, hochladen und importieren Sie Referenzdokumente |
-| Agents | Interagieren Sie mit verfügbaren Agenten und lesen Sie strukturierte Ausgaben |
-| Reports & artifacts | Überprüfen, vergleichen, veröffentlichen oder herunterladen Sie PM-Dokumente |
-| AI Log | Untersuchen Sie Runs, Ereignisse und Metadaten der Nachverfolgbarkeit |
-| Portfolio | Vergleichen Sie mehrere Projekte über konfigurierbare Signale |
-| Platform Administration | Verwalten Sie Integrationen, KI-Anbieter, Abonnement und Plattformaktivität |
+| Tableau de bord | Lire l’état général et les prochaines étapes suggérées |
+| Projets | Créer un projet, ouvrir un projet existant, choisir le projet actif |
+| Espace de travail | Résumé projet, signaux, readiness et réglages projet |
+| Connaissance | Rechercher, téléverser et importer les documents de référence |
+| Agents | Interagir avec les agents disponibles et lire les sorties structurées |
+| Rapports & artefacts | Réviser, comparer, publier ou télécharger les Documents PM |
+| Journal IA | Inspecter les runs, événements et métadonnées de traçabilité |
+| Centre de commande portefeuille | Comparer plusieurs projets via des signaux configurables |
+| Administration de la plateforme | Gérer intégrations, fournisseur IA, abonnement et activité plateforme |
 
-## Dashboard
+## Tableau de bord
 
-Das **Dashboard** ist der nützlichste Bildschirm direkt nach dem Einloggen.
+Le **Tableau de bord** est l’écran le plus utile juste après la connexion.
 
-Es konsolidiert:
+Il consolide :
 
-- Situation-Metriken;
-- Aufmerksamkeitspunkte;
-- empfohlene nächste Schritte;
-- Shortcuts zu den Bereichen, in denen gehandelt werden muss;
-- einen Überblick über offene Signale und geprüfte Elemente.
+- des métriques de situation ;
+- des éléments d’attention ;
+- des prochaines étapes recommandées ;
+- des raccourcis vers les zones où agir ;
+- un aperçu des signaux ouverts et des éléments en revue.
 
-Nutzen Sie es als **Orientierungsseite**: wenn kein Projekt aktiv ist, bleiben einige Blöcke leer; wenn ein Projekt ausgewählt ist, passen sich die Indikatoren an.
+Utilisez-le comme une **page d’orientation** : si un projet n’est pas actif, certains blocs restent vides ; si un projet est sélectionné, les indicateurs se contextualisent.
 
-### Wie man die großen Bereiche des Dashboards liest
+### Comment lire les grandes zones du tableau de bord
 
-| Bereich | Was sie zusammenfasst | Nützlicher Reflex |
+| Zone | Ce qu’elle synthétise | Réflexe utile |
 | --- | --- | --- |
-| Summary tiles | Zähler für Projekte, Wissen, aktive Agenten, offene Signale, Entwürfe von Benachrichtigungen und ausstehende Aktionen | Erkennen Sie sofort, ob das Thema ein Kontextmangel, eine Verzögerung bei der Überprüfung oder eine verwaltete Warteschlange ist |
-| Score cards | Allgemeiner Zustand der Lieferung, des Ausführungstakt, der Governance-Abdeckung und der Wissenstiefe | Lesen Sie diese Karten als Orientierungshilfen, bevor Sie einen Detailbildschirm öffnen |
-| Readiness blocks | Wissensbasis, Automatisierungsabdeckung, Governance-Posture und Lieferfluss | Identifizieren Sie, welcher Pfeiler die normale Nutzung des Projekts blockiert |
-| Attention panel | Signale, verwaltete Aktionen und Watchlist-Connectoren | Gehen Sie zum **Workspace**, um aktive Blockaden zu behandeln |
-| Pulse panel | Letzter Digest, aktuelle Benachrichtigungen, jüngste Aktivitäten und Connector-Status | Überprüfen Sie, was sich geändert hat, ohne die gesamte Projektgeschichte erneut zu lesen |
-| Quick links | Verknüpfungen zu **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts**, **AI Log** und **Portfolio** | Öffnen Sie direkt die richtige Oberfläche anstatt Bildschirme zu navigieren |
+| Tuiles de synthèse | compteurs de projets, de connaissance, d’agents actifs, de signaux ouverts, de brouillons de notifications et d’actions en attente | repérer immédiatement si le sujet est un manque de contexte, un retard de revue ou une file d’attente gouvernée |
+| Cartes de score | état général de la delivery, du rythme d’exécution, de la couverture de gouvernance et de la profondeur de connaissance | lire ces cartes comme des repères d’orientation avant d’ouvrir un écran de détail |
+| Blocs de readiness | fondation connaissance, couverture d’automatisation, posture de gouvernance et flux de livraison | identifier quel pilier bloque l’usage normal du projet |
+| Panneau **Attention** | signaux, actions gouvernées et watchlist connecteurs | aller vers l’**Espace de travail** pour traiter les blocages actifs |
+| Panneau **Pulse** | dernier digest, notifications récentes, activité récente et état connecteurs | vérifier ce qui vient de changer sans relire tout l’historique du projet |
+| Quick links | raccourcis vers **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts**, **AI Log** et **Portfolio** | ouvrir directement la bonne surface au lieu de naviguer écran par écran |
 
-Die Scores und Indikatoren des Dashboards sollten als **Priorisierungsreferenz** gelesen werden, nicht als alleinige Schlussfolgerung.
+Les scores et indicateurs du tableau de bord doivent être lus comme des **repères de priorisation**, pas comme une conclusion isolée à eux seuls.
 
-### Was tun, wenn das Dashboard widersprüchlich erscheint?
+### Que faire si le tableau de bord semble contradictoire ?
 
-1. Bestätigen Sie zuerst das **aktive Projekt** in der oberen Leiste.
-2. Behandeln Sie die Karten anschließend als **Orientierungs-Signale**, nicht als einzige Wahrheit.
-3. Öffnen Sie den **Workspace**, um Signale, Readiness und Projektblockaden zu prüfen.
-4. Öffnen Sie das **AI Log**, wenn der Zweifel auf einen Run, eine Ausgabe oder einen tatsächlich genutzten Anbieter gerichtet ist.
-5. Wenn das Dashboard lädt, aber eine zusätzliche Überprüfung anfordert, öffnen Sie den **Health indicator** bevor Sie zu den angezeigten Daten schließen.
+1. confirmez d’abord le **projet actif** dans la barre supérieure ;
+2. traitez ensuite les cartes comme des **signaux d’orientation**, pas comme la seule source de vérité ;
+3. ouvrez l’**Espace de travail** pour vérifier signaux, readiness et blocages projet ;
+4. ouvrez le **Journal IA** si le doute porte sur un run, une sortie ou un fournisseur réellement utilisé ;
+5. si le tableau de bord charge mais appelle une vérification complémentaire, ouvrez l’**indicateur de santé** avant de conclure sur les données affichées.
 
-![Top bar and global navigation](/img/screenshots/localized/de/01-navigation-topbar.png)
+![Barre supérieure et navigation globale](/img/screenshots/localized/fr/01-navigation-topbar.png)
 
-## Top bar
+## Barre supérieure
 
-| Element | Funktion |
+| Élément | Fonction |
 | --- | --- |
-| Project selector | Ändert das aktuelle Projekt ohne die vollständige Liste zu durchlaufen |
-| Command palette | Schnelle Suche nach Seiten und häufigen Aktionen |
-| Notifications | Zeigt die vom Produkt gemeldeten Aufmerksamkeitspunkte an |
-| Health indicator | Öffnet eine schnelle Ansicht des API-, Echtzeit- und Auth-Status |
-| Language | Ändert die Sprache der Oberfläche |
-| Theme | Schaltet zwischen hell/dunkel aus |
-| Help | Öffnet die integrierten Hilfemeldungen |
+| Sélecteur de projet | Change le projet courant sans repasser par la liste complète |
+| Palette de commandes | Recherche rapide sur les pages et actions courantes |
+| Notifications | Affiche les éléments d’attention remontés par le produit |
+| Indicateur de santé | Ouvre une lecture rapide de l’état API, temps réel et auth |
+| Langue | Change la langue de l’interface |
+| Thème | Bascule l’apparence claire/sombre |
+| Aide | Ouvre les messages d’aide intégrés |
 
-## Command palette
+### Comment lire le projet actif depuis la barre supérieure
 
-Die Command Palette ist für die schnelle Navigation konzipiert.
+Le sélecteur de projet de la barre supérieure sert à définir le **projet actif**. Ce projet est ensuite utilisé comme contexte par les pages projet.
 
-- **Windows / Linux**: `Ctrl+K`
-- **macOS**: `Cmd+K`
+En pratique :
 
-Sie filtert die verfügbaren Seiten und Einträge nach **Name** und **Beschreibung**. Verwenden Sie sie, um schnell zum **AI Log**, zur **Platform Administration** oder zu jeder selten geöffneten Route zurückzukehren.
+- **Connaissance** recherche dans le projet actif ;
+- **Agents** lance les runs dans le projet actif ;
+- **Rapports & artefacts** relit les PM Docs et artefacts du projet actif ;
+- **Journal IA** montre les runs et l’activité du projet actif ;
+- **Espace de travail** affiche les signaux, réglages et intégrations du projet actif.
 
-## Benachrichtigungen
+Le projet retenu peut être mémorisé localement dans le navigateur. Ce confort de navigation n’est pas un réglage partagé à toute la plateforme.
 
-Der Benachrichtigungsbereich ist über das Glocken-Symbol in der oberen Leiste zugänglich.
+## Palette de commandes
 
-Beobachtete Funktionen:
+La palette de commandes est conçue pour la navigation rapide.
 
-- Zähler für ungelesene Elemente;
-- Dropdown-Paneel;
-- **Mark all as read**;
-- **Clear all**;
-- Klick auf eine Benachrichtigung, um die zugehörige Oberfläche zu öffnen, wenn eine Navigation bereitgestellt wird.
+- **Windows / Linux** : `Ctrl+K`
+- **macOS** : `Cmd+K`
 
-Benachrichtigungen können insbesondere Status von Agenten, Ereignisse der Berichtserstellung, Dokumenten-Uploads und Updates zu Marketplace oder Abonnement enthalten.
+Elle filtre les pages et entrées disponibles par **nom** et **description**. Utilisez-la pour revenir vite vers **Journal IA**, **Administration de la plateforme** ou toute route rarement ouverte.
 
-## Health indicator
+## Notifications
 
-Der Health indicator öffnet ein Quick‑Read‑Panel. Es ermöglicht die Anzeige von:
+Le centre de notifications est accessible depuis l’icône de cloche de la barre supérieure.
 
-- API‑Status;
-- API‑Status;
-- Auth‑Status;
-- beobachtete Latenz;
-- eine Meldung, falls die Oberfläche eine hat;
-- dem aktuellen Projekt, wenn der Kontext bei der Statusauswertung wichtig ist.
+Capacités observées :
 
-Öffnen Sie ihn, wenn ein Agent offline erscheint, wenn Benachrichtigungen nicht mehr aktualisiert werden oder wenn eine Verfügbarkeitsprüfung sinnvoll ist.
+- compteur d’éléments non lus ;
+- panneau déroulant ;
+- **Marquer tout comme lu** ;
+- **Tout effacer** ;
+- clic sur une notification pour ouvrir la surface liée quand une navigation est fournie.
 
-Wenn das Panel einen degradierenden Zustand anzeigt, während die Oberfläche noch lädt, folgen Sie dieser Lesereihenfolge:
+Les notifications peuvent remonter notamment des statuts d’agent, des événements de génération de rapport, des uploads de documents et des mises à jour liées au Marketplace ou à l’abonnement.
 
-| Wenn das Signal hauptsächlich betrifft… | Öffnen Sie anschließend | Warum |
+## Indicateur de santé
+
+L’indicateur de santé ouvre un panneau de lecture rapide. Il permet de consulter :
+
+- l’état **API** ;
+- l’état **temps réel** ;
+- l’état **auth** ;
+- la **latence** observée ;
+- un message affiché si l’interface en présente un ;
+- le projet courant quand le contexte compte dans la lecture de l’état.
+
+Ouvrez-le si un agent paraît **offline**, si les notifications ne se rafraîchissent plus ou si une vérification de disponibilité est utile.
+
+Si le panneau indique un état dégradé alors que l’interface charge encore, gardez cet ordre de lecture :
+
+| Si le signal concerne surtout… | Ouvrez ensuite | Pourquoi |
 | --- | --- | --- |
-| **authentication** | [Start](./demarrage.md) | um Tenant, Konto, `redirect URI`, Admin‑Gruppe oder Hauptsitz zu unterscheiden |
-| **runtime**, API oder Konnektivität | [Maintenance, support and FAQ](./maintenance-support-faq.md) | um den Prüfpfad zwischen Health, KI‑Anbieter, Integrationen und Ausführung zu verfolgen |
-| **project context**, ein leerer Bildschirm oder fehlende Aktion | [Projects and workspace](./projets-et-espace-de-travail.md) | um das aktive Projekt, Binding, Readiness und Projektrechte zu prüfen |
+| l’**authentification** | [Démarrage](./demarrage.md) | pour distinguer tenant, compte, `redirect URI`, groupe admin ou siège |
+| le **runtime**, l’API ou la connectivité | [Maintenance, support et FAQ](./maintenance-support-faq.md) | pour suivre le parcours de vérification entre santé, fournisseur IA, intégrations et exécution |
+| le **contexte projet**, un écran vide ou une action absente | [Projets et espace de travail](./projets-et-espace-de-travail.md) | pour vérifier le projet actif, le binding, la readiness et les droits projet |
 
-Bevor Sie eskalieren, notieren Sie den angezeigten Status für **API**, **realtime**, **auth**, **latency**, **current project** und die ungefähre Testzeit. Diese Angaben erleichtern die Bearbeitung durch das zuständige Team erheblich.
+Avant d’escalader, relevez l’état affiché pour **API**, **realtime**, **auth**, la **latence**, le **projet courant** et l’heure approximative du test. Ces éléments facilitent fortement le traitement par l’équipe en charge.
 
-## Projektkontext und leere Zustände
+## Contexte projet et états vides
 
-Mehrere Bildschirme von ProPM Agent hängen vom aktiven Projekt ab. In der Praxis:
+Plusieurs écrans de ProPM Agent sont liés au projet actif. En pratique :
 
-- **ohne Projekt ausgewählt**, zeigen einige Seiten einen normalen leeren Zustand;
-- **mit Projekt ausgewählt**, lädt dieselbe Seite Daten und Aktionen dieses Projekts;
-- das Projektwechseln ändert den Inhalt von **Knowledge**, **Agents**, **Reports & artifacts** und **AI Log**.
+- **sans projet sélectionné**, certaines pages affichent un état vide normal ;
+- **avec projet sélectionné**, la même page charge les données et actions de ce projet ;
+- le changement de projet modifie le contenu de **Connaissance**, **Agents**, **Rapports & artefacts** et **Journal IA**.
 
-Diese Kontextabhängigkeit verhindert das Vermischen von Beweisen, Gesprächen und Lieferungen mehrerer Projekte.
+Cette dépendance au contexte évite de mélanger preuves, conversations et livrables de plusieurs projets.
 
-## Sprache, Thema und Hilfe
+### Ce que la navigation ne veut pas dire
 
-Die Sprache der Oberfläche kann über die obere Leiste geändert werden. Das Thema verbessert den Lesekomfort, hat jedoch keine Auswirkungen auf Projektdaten. Die integrierten Hilfekataloge decken die allgemeine Navigation, Projektseiten, das AI Log und Governance‑Erinnerungen ab.
+Quelques malentendus reviennent souvent :
 
-## Navigations‑Tipps
+- ouvrir **Portfolio** ne change pas automatiquement le projet actif des pages projet ;
+- `All projects` n’est pas un projet sélectionnable dans la barre supérieure ;
+- voir une page vide ne prouve pas une panne : cela peut simplement signifier qu’aucun projet actif n’est défini ou qu’aucune donnée n’existe encore pour ce projet ;
+- retrouver un historique de chat dans votre navigateur ne signifie pas qu’il est partagé à tous les utilisateurs.
 
-- Wechseln Sie das Projekt **vor** dem Öffnen eines Agenten oder eines Berichts;
-- Nutzen Sie die **Command Palette**, um schnell eine selten genutzte Oberfläche zu finden;
-- Kehren Sie zum **Dashboard** zurück, wenn Sie den Überblick verlieren;
-- Wenn eine Aktion fehlt, unterscheiden Sie klar zwischen **Read‑Only** und **Zugriff verweigert**;
-- Öffnen Sie den **Health indicator**, bevor Sie zu einer Service‑Verfügbarkeitsfrage kommen.
+## Langue, thème et aide
 
-## Weiter
+La langue d’interface peut être changée depuis la barre supérieure. Le changement de thème améliore le confort de lecture, sans effet sur les données projet. Les catalogues d’aide intégrés couvrent la navigation générale, les pages de projet, le Journal IA et les rappels de gouvernance.
 
-- [Projekte und Workspace](./projets-et-espace-de-travail.md)
-- [Knowledge und Agents](./connaissance-et-agents.md)
-- [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md)
-- [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md)
+## Conseils de navigation
+
+- changez de projet **avant** d’ouvrir un agent ou un rapport ;
+- utilisez la **palette de commandes** pour retrouver rapidement une surface rarement utilisée ;
+- revenez au **Tableau de bord** lorsque vous perdez le fil du parcours ;
+- si une action semble absente, distinguez bien **lecture seule** et **accès refusé** ;
+- ouvrez l’**indicateur de santé** avant de conclure à une question de disponibilité de service.
+
+## Suite
+
+- [Projets et espace de travail](./projets-et-espace-de-travail.md)
+- [Connaissance et agents](./connaissance-et-agents.md)
+- [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
+- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)

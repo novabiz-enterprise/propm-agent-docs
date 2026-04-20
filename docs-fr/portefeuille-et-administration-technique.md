@@ -399,6 +399,7 @@ Les familles de fournisseurs visibles dans le produit comprennent notamment :
 | **Configuration** | les champs sont enregistrés |
 | **Validation** | la configuration a passé les contrôles attendus |
 | **Test** | la connectivité réelle a été vérifiée |
+| **Activate** | le fournisseur est activé dans la configuration admin |
 | **Operational** | le fournisseur peut être considéré comme exploitable |
 
 ### Pas à pas très simple pour préparer un fournisseur IA
@@ -424,6 +425,15 @@ Avec **Azure OpenAI**, il faut souvent compléter dans l’administration :
 
 Pour le détail du choix de fournisseur IA pendant le déploiement Marketplace, voir [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md).
 
+### Effective AI provider vs deployment-selected AI provider
+
+Deux notions sont à distinguer :
+
+- **Deployment-selected AI Provider** : fournisseur sélectionné dans la configuration initiale de l’environnement ;
+- **Effective AI Provider** : fournisseur réellement utilisé au runtime pour un run donné.
+
+La valeur **effective** est la référence la plus fiable quand vous enquêtez sur un run concret. Elle peut être relue dans le **Journal IA** et peut différer de la valeur sélectionnée au déploiement.
+
 ## Abonnement, entitlement et sièges
 
 Le produit gère un modèle de licence avec sièges et capacités.
@@ -444,6 +454,16 @@ Un utilisateur bloqué n’a pas forcément une question de connexion. Le blocag
 - d’un entitlement manquant ;
 - d’une fonctionnalité non incluse dans le plan.
 
+### Lecture simple de `entitlement`
+
+`Entitlement` signifie ici : **ce que le plan couvre réellement comme capacité utilisable**.
+
+Exemples pratiques :
+
+- un connecteur premium peut rester visible mais bloqué en usage opérationnel ;
+- un fournisseur IA peut être configuré mais non utilisable si le plan ne l’autorise pas ;
+- un projet peut voir l’option mais rester en lecture seule tant que la capacité n’est pas ouverte.
+
 ## Repères techniques de plateforme
 
 L’infrastructure Azure observée s’appuie notamment sur :
@@ -455,6 +475,16 @@ L’infrastructure Azure observée s’appuie notamment sur :
 - Log Analytics ;
 - Application Insights ;
 - Document Intelligence.
+
+
+## Variabilité des contenus seedés et de démonstration
+
+Les environnements de démonstration peuvent varier. En pratique :
+
+- tous les environnements n’exposent pas les mêmes projets de démonstration ;
+- les documents seedés, rapports seedés et exemples de recherche peuvent différer ;
+- un écran vide dans un environnement live ne contredit pas forcément une capture issue d’un autre environnement ;
+- la documentation décrit le comportement observé, pas la promesse que chaque environnement contiendra exactement les mêmes données de démonstration.
 
 ## À retenir
 

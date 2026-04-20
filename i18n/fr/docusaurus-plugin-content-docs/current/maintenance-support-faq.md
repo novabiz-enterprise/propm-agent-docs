@@ -127,6 +127,10 @@ Dans l’état actuel observé :
 
 Il est donc normal qu’un historique de chat disparaisse en changeant de navigateur ou de machine alors que les documents et objets gouvernés du projet restent visibles aux autres utilisateurs autorisés.
 
+### Que signifie exactement `All projects` ?
+
+`All projects` est une **portée d’agent personnalisé**, pas un projet unique ni une vue portefeuille. Cela signifie qu’un agent personnalisé peut rester visible dans tous les projets accessibles par le **même compte**. Chaque run continue néanmoins à s’exécuter dans le **projet actif** au moment du chat.
+
 ### Pourquoi un agent personnalisé n’apparaît-il pas dans un autre projet ?
 
 Vérifiez d’abord son **scope**. Un agent `Project only` reste limité au projet courant. Si l’environnement expose un agent `All projects`, il doit en plus être consulté avec le **même compte** dans un projet auquel ce compte a accès.
@@ -199,6 +203,13 @@ Ouvrez le détail du run dans **Journal IA** et lisez **Effective AI Provider**.
 ### Pourquoi `Validate` et `Test` ne garantissent-ils pas toujours que ce fournisseur sera celui réellement utilisé ?
 
 Parce que `Validate` et `Test` contrôlent surtout la cohérence et la connectivité de la configuration administrative. Le fournisseur effectivement utilisé sur un run donné reste celui résolu au runtime et exposé dans le **Journal IA**.
+
+### Que signifient `lineage` et `context snapshot` dans une enquête ?
+
+- **lineage** : chaîne de traçabilité entre run, sortie structurée, artefact, version et PM Doc ;
+- **context snapshot** : capture du contexte utilisé au moment du run.
+
+Ces deux notions aident à comprendre **d’où vient** un livrable et **sur quelle base** il a été produit.
 
 ### Un run est visible dans `Runs`, mais aucune suite claire n’apparaît dans `Activity`. Que faire ?
 

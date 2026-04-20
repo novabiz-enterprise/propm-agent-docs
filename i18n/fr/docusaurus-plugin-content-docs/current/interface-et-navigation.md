@@ -26,7 +26,7 @@ L’interface observée suit une logique simple :
 | Entrée | Usage principal |
 | --- | --- |
 | Tableau de bord | Lire l’état général et les prochaines étapes suggérées |
-| Projets | Créer, ouvrir et changer de contexte projet |
+| Projets | Créer un projet, ouvrir un projet existant, choisir le projet actif |
 | Espace de travail | Résumé projet, signaux, readiness et réglages projet |
 | Connaissance | Rechercher, téléverser et importer les documents de référence |
 | Agents | Interagir avec les agents disponibles et lire les sorties structurées |
@@ -84,6 +84,20 @@ Les scores et indicateurs du tableau de bord doivent être lus comme des **repè
 | Thème | Bascule l’apparence claire/sombre |
 | Aide | Ouvre les messages d’aide intégrés |
 
+### Comment lire le projet actif depuis la barre supérieure
+
+Le sélecteur de projet de la barre supérieure sert à définir le **projet actif**. Ce projet est ensuite utilisé comme contexte par les pages projet.
+
+En pratique :
+
+- **Connaissance** recherche dans le projet actif ;
+- **Agents** lance les runs dans le projet actif ;
+- **Rapports & artefacts** relit les PM Docs et artefacts du projet actif ;
+- **Journal IA** montre les runs et l’activité du projet actif ;
+- **Espace de travail** affiche les signaux, réglages et intégrations du projet actif.
+
+Le projet retenu peut être mémorisé localement dans le navigateur. Ce confort de navigation n’est pas un réglage partagé à toute la plateforme.
+
 ## Palette de commandes
 
 La palette de commandes est conçue pour la navigation rapide.
@@ -112,7 +126,7 @@ Les notifications peuvent remonter notamment des statuts d’agent, des événem
 L’indicateur de santé ouvre un panneau de lecture rapide. Il permet de consulter :
 
 - l’état **API** ;
-- l’état **API** ;
+- l’état **temps réel** ;
 - l’état **auth** ;
 - la **latence** observée ;
 - un message affiché si l’interface en présente un ;
@@ -139,6 +153,15 @@ Plusieurs écrans de ProPM Agent sont liés au projet actif. En pratique :
 - le changement de projet modifie le contenu de **Connaissance**, **Agents**, **Rapports & artefacts** et **Journal IA**.
 
 Cette dépendance au contexte évite de mélanger preuves, conversations et livrables de plusieurs projets.
+
+### Ce que la navigation ne veut pas dire
+
+Quelques malentendus reviennent souvent :
+
+- ouvrir **Portfolio** ne change pas automatiquement le projet actif des pages projet ;
+- `All projects` n’est pas un projet sélectionnable dans la barre supérieure ;
+- voir une page vide ne prouve pas une panne : cela peut simplement signifier qu’aucun projet actif n’est défini ou qu’aucune donnée n’existe encore pour ce projet ;
+- retrouver un historique de chat dans votre navigateur ne signifie pas qu’il est partagé à tous les utilisateurs.
 
 ## Langue, thème et aide
 

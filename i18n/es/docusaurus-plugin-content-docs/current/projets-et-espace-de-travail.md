@@ -1,315 +1,383 @@
 ---
-title: Proyectos y espacio de trabajo
+title: Projets et espace de travail
 slug: /projets-et-espace-de-travail
-description: Crear un proyecto, delegar los primeros roles y usar el espacio de trabajo como centro de pilotaje.
+description: Créer un projet, déléguer les premiers rôles et utiliser l’espace de travail comme centre de pilotage.
 ---
 
-[Inicio](./index.md) · [Interfaz y navegación](./interface-et-navigation.md) · [Control de acceso y roles de proyecto](./controle-acces-et-roles.md)
+[Accueil](./index.md) · [Interface et navigation](./interface-et-navigation.md) · [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md)
 
-![Espacio de trabajo del proyecto](/img/screenshots/localized/es/03-workspace-overview.png)
+![Espace de travail projet](/img/screenshots/localized/fr/03-workspace-overview.png)
 
-## Objetivo
+## Objectif
 
-Esta página explica la diferencia entre **Proyectos**, **Espacio de trabajo** y **Agentes**, y detalla los ajustes de proyecto realmente visibles en la aplicación.
+Cette page explique la différence entre **Projets**, **Espace de travail** et **Agents**, puis détaille les réglages projet réellement visibles dans l’application.
 
-## Tres superficies a distinguir
+## Trois surfaces à distinguer
 
-| Superficie | Cuándo usar |
+| Surface | Quand l’utiliser |
 | --- | --- |
-| Proyectos | Crear un proyecto, abrir un proyecto existente, cambiar de contexto |
-| Espacio de trabajo | Leer el resumen del proyecto, la transparencia operativa, las señales y los ajustes de nivel de proyecto |
-| Agentes | Iniciar un intercambio en directo con un agente y leer la salida estructurada del run |
+| Projets | Créer un projet, ouvrir un projet existant, changer de contexte |
+| Espace de travail | Lire le résumé projet, la transparence opérationnelle, les signaux et les réglages de niveau projet |
+| Agents | Lancer un échange en direct avec un agent et lire la sortie structurée du run |
 
-En práctica, **Proyectos** sirve para entrar en el buen contexto, **Espacio de trabajo** para configurarlo y **Agentes** para explotarlo.
+En pratique, **Projets** sert à entrer dans le bon contexte, **Espace de travail** à le configurer et **Agents** à l’exploiter.
 
-## Crear un proyecto
+## Le rôle exact du projet actif
 
-El formulario observado contiene los siguientes campos:
+Le **projet actif** est le contexte actuellement appliqué aux pages de travail projet.
 
-- **ID proyecto** ;
-- **Nombre** ;
-- **Descripción** ;
-- **Idioma de datos por defecto** ;
-- **Idiomas de datos adicionales**.
+Concrètement, il détermine :
 
-Recomendaciones de entrada:
+- les documents visibles dans **Connaissance** ;
+- les runs lancés dans **Agents** ;
+- les PM Docs, artefacts et diff visibles dans **Rapports & artefacts** ;
+- les runs et événements affichés dans **Journal IA** ;
+- les signaux, intégrations et politiques affichés dans **Espace de travail**.
 
-- elige un ID legible y duradero ;
-- no confundas **idioma de datos del proyecto** y **idioma de la interfaz** ;
-- define correctamente el alcance antes de abrir el conocimiento o los agentes.
+Il ne faut donc pas confondre :
 
-## Creador del proyecto: derechos iniciales y delegación
+- **projet actif** : contexte opérationnel courant ;
+- **Portfolio** : vue de comparaison multi-projets ;
+- **All projects** : portée éventuelle d’un agent personnalisé visible dans plusieurs projets pour le même compte.
 
-Al crear, el **creador del proyecto** inicia con el rol **Propietario del proyecto** y todas las permisos del proyecto observados. En práctica, es él quien puede abrir el proyecto, verificar la configuración inicial y **delegar luego los roles** al resto del equipo.
+## Créer un projet
 
-### Delegación recomendada justo después de la creación
+Le formulaire observé contient les champs suivants :
 
-1. abre **Control de acceso** ;
-2. agrega al menos otro **Propietario del proyecto** o un **Jefe de proyecto** de confianza ;
-3. crea si es necesario roles personalizados dirigidos en lugar de multiplicar los propietarios ;
-4. asigna luego los roles a los colaboradores, lectores y auditores ;
-5. revisa finalmente las **Políticas de gobernanza** y las **Integraciones del proyecto** para alinear derechos, conectores y validaciones.
+- **ID projet** ;
+- **Nom** ;
+- **Description** ;
+- **Langue de données par défaut** ;
+- **Langues de données supplémentaires**.
 
-### Lo que la plataforma sigue protegiendo
+Recommandations de saisie :
 
-- la entrada del **creador** sigue protegida ;
-- el rol del creador sigue fijo en la interfaz observada ;
-- la delegación se hace por asignación de roles adicionales, no por eliminación de la protección del creador ;
-- para el detalle RBAC, ver [Control de acceso y roles del proyecto](./controle-acces-et-roles.md).
+- choisissez un ID lisible et durable ;
+- ne confondez pas **langue de données projet** et **langue d’interface** ;
+- définissez correctement le périmètre avant d’ouvrir la connaissance ou les agents.
 
-## Abrir y cambiar de proyecto
+## Créateur du projet : droits initiaux et délégation
 
-Un proyecto puede abrirse desde:
+À la création, le **créateur du projet** démarre avec le rôle **Propriétaire du projet** et l’ensemble des permissions projet observées. En pratique, c’est donc lui qui peut ouvrir le projet, vérifier la configuration initiale et **déléguer ensuite les rôles** au reste de l’équipe.
 
-- la página **Proyectos** ;
-- el **selector de proyecto** de la barra superior ;
-- el contexto recientemente memorizado en el navegador.
+### Délégation recommandée juste après la création
 
-Cuando cambias de proyecto, las superficies siguientes se alinean: **Conocimiento**, **Agentes**, **Documentos PM / Reportes & artefactos**, **Journal IA**, las señales y los ajustes del proyecto.
+1. ouvrez **Contrôle d’accès** ;
+2. ajoutez au moins un autre **Propriétaire du projet** ou un **Chef de projet** de confiance ;
+3. créez si besoin des rôles personnalisés ciblés plutôt que de multiplier les propriétaires ;
+4. attribuez ensuite les rôles aux contributeurs, lecteurs et auditeurs ;
+5. relisez enfin les **Politiques de gouvernance** et les **Intégrations du projet** pour aligner droits, connecteurs et validations.
 
-### Aclarar contexto activo, vistas transversales y reinicio
+### Ce que la plateforme protège encore
 
-Mantenga estas reglas simples:
+- l’entrée du **créateur** reste protégée ;
+- le rôle du créateur reste fixe dans l’interface observée ;
+- la délégation se fait par attribution de rôles supplémentaires, pas par suppression de la protection du créateur ;
+- pour le détail RBAC, voir [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md).
 
-- **Espacio de trabajo**, **Conocimiento**, **Agentes**, **Reportes & artefactos** y **Journal IA** son superficies dependientes del proyecto;
-- **Portfolio** es la principal vista transversal entre varios proyectos;
-- `All projects` en un agente personalizado se refiere a la visibilidad y reutilización de la definición del agente, no a un modo de ejecución sin proyecto;
-- cambiar de proyecto en la barra superior modifica el contexto activo persistido utilizado por las superficies dependientes del proyecto;
-- la forma producto más limpia de reinicializar un proyecto memorizado es volver a **Proyectos** y reabrir explícitamente el proyecto deseado, en lugar de confiar en un comportamiento implícito del navegador.
+## Ouvrir et changer de projet
 
-## El espacio de trabajo: centro de pilotaje del proyecto
+Un projet peut être ouvert depuis :
 
-El **Espacio de trabajo** reúne en una misma superficie:
+- la page **Projets** ;
+- le **sélecteur de projet** de la barre supérieure ;
+- le contexte récemment mémorisé dans le navigateur.
 
-- el **resumen del proyecto** ;
-- accesos directos a **Agentes**, **Documentos PM** y **Journal IA** ;
-- una vista de **transparencia operativa** ;
-- las **señales** del proyecto ;
-- las pestañas de ajuste de nivel de proyecto.
+Lorsque vous changez de projet, les surfaces suivantes se recalent : **Connaissance**, **Agents**, **Documents PM / Rapports & artefacts**, **Journal IA**, les signaux et les réglages projet.
 
-Esta documentación francesa ya no presenta una tarjeta **voz** dedicada en el **Espacio de trabajo**. Cuando la entrada de voz sigue existiendo en algunos entornos, se hace en **Agentes**, no como punto de entrada separado aquí.
+Ce changement de projet modifie donc réellement le **contexte actif** utilisé par la recherche documentaire, les conversations agents, les rapports et les traces associées.
 
-## Transparencia operativa y preparación
+Le dernier projet retenu peut être mémorisé localement par le navigateur pour faciliter la reprise, mais cette mémoire locale n’est pas un réglage partagé à toute la plateforme.
 
-El espacio de trabajo no solo sirve para resumir el proyecto. También permite ver si el proyecto está listo para actuar:
+## L’espace de travail : centre de pilotage du projet
 
-- presencia o ausencia de señales ;
-- actividad reciente ;
-- accesos directos a borradores o entregables relacionados ;
-- preparación de las integraciones del proyecto cuando existen ;
-- exposición del proveedor IA efectivo sin abrir la configuración del tenant.
+L’**Espace de travail** réunit dans une même surface :
 
-Utiliza esta zona para comprender **por qué** una acción o importación puede estar disponible, confirmada o bloqueada.
+- le **résumé projet** ;
+- des raccourcis vers **Agents**, **Documents PM** et **Journal IA** ;
+- une vue de **transparence opérationnelle** ;
+- les **signaux** du projet ;
+- les onglets de réglage de niveau projet.
 
-## Pestañas de nivel de proyecto
+Cette documentation française ne présente plus de carte **voix** dédiée dans l’**Espace de travail**. Quand une saisie vocale existe encore dans certains environnements, elle se fait dans **Agents**, pas comme point d’entrée séparé ici.
 
-| Pestaña | Para qué sirve |
+## Transparence opérationnelle et préparation
+
+L’espace de travail ne sert pas seulement à résumer le projet. Il permet aussi de voir si le projet est prêt à agir :
+
+- présence ou absence de signaux ;
+- activité récente ;
+- raccourcis vers les brouillons ou livrables liés ;
+- préparation des intégrations projet quand elles existent ;
+- exposition du fournisseur IA effectif sans ouvrir la configuration tenant.
+
+Utilisez cette zone pour comprendre **pourquoi** une action ou un import peut être disponible, à confirmer ou bloqué.
+
+## Onglets de niveau projet
+
+| Onglet | À quoi il sert |
 | --- | --- |
-| Configuración de agentes | Configurar los agentes para este proyecto |
-| Control de acceso | Gestionar miembros, roles y permisos de nivel de proyecto |
-| Categorías de documentos | Adaptar la taxonomía documental del proyecto y propagarla a las superficies documentales del proyecto |
-| Políticas de gobernanza | Definir conectores, destinos, políticas de acción, perfiles de render y preferencias de notificación de nivel de proyecto |
-| Integraciones del proyecto | Vincular al proyecto las integraciones listas y autorizadas |
-| Actions & approvals | Gestionar las solicitudes de acción, validaciones y ejecución gobernada |
+| Configuration des agents | Paramétrer les agents pour ce projet |
+| Contrôle d’accès | Gérer membres, rôles et permissions de niveau projet |
+| Catégories de documents | Adapter la taxonomie documentaire du projet et la propager aux surfaces documentaires du projet |
+| Politiques de gouvernance | Définir connecteurs, destinations, politiques d’action, profils de rendu et préférences de notification de niveau projet |
+| Intégrations du projet | Relier au projet les intégrations prêtes et autorisées |
+| Actions & approbations | Gérer les demandes d’action, validations et exécution gouvernée |
 
-## Configuración de agentes
+## Configuration des agents
 
-Los parámetros confirmados a nivel de proyecto son:
+Les paramètres confirmés au niveau projet sont :
 
 - `status` ;
 - `temperature` ;
 - `max tokens`.
 
-### Restricciones visibles
+### Contraintes visibles
 
-- `temperature` se espera entre **0** y **2** ;
-- `max tokens` debe ser un entero mayor o igual a **1**.
+- `temperature` est attendue entre **0** et **2** ;
+- `max tokens` doit être un entier supérieur ou égal à **1**.
 
-### Historial de configuración
+### Historique de configuration
 
-La interfaz también expone un historial por versión con al menos:
+L’interface expose aussi un historique par version avec au minimum :
 
-- número de versión ;
-- estado ;
-- temperatura ;
+- numéro de version ;
+- statut ;
+- température ;
 - max tokens ;
-- fecha de creación ;
-- autor ;
-- `Trace ID` asociado.
+- date de création ;
+- auteur ;
+- `Trace ID` associé.
 
-![Ajustes de agentes a nivel de proyecto](/img/screenshots/localized/es/12-agent-configuration.png)
+![Réglages des agents au niveau projet](/img/screenshots/localized/fr/12-agent-configuration.png)
 
-## Control de acceso
+## Contrôle d’accès
 
-La pestaña **Control de acceso** administra los miembros y roles del proyecto. Soporta:
+L’onglet **Contrôle d’accès** administre les membres et rôles projet. Il supporte :
 
-- los roles estándar ;
-- los roles personalizados ;
-- los salvaguardas RBAC ;
-- la lectura sola para perfiles no autorizados a modificar.
+- les rôles standards ;
+- les rôles personnalisés ;
+- les garde-fous RBAC ;
+- la lecture seule pour les profils non autorisés à modifier.
 
-Ver la página dedicada: [Control de acceso y roles del proyecto](./controle-acces-et-roles.md).
+Voir la page dédiée : [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md).
 
-## Categorías de documentos
+## Catégories de documents
 
-Esta pestaña sirve para alinear la clasificación documental con el proyecto. En práctica, la taxonomía del proyecto influye en las categorías propuestas durante las cargas y algunos selectores documentales usados después en las superficies del proyecto.
+Cet onglet sert à aligner la classification documentaire avec le projet. En pratique, la taxonomie projet influence les catégories proposées lors des téléversements et certains sélecteurs documentaires utilisés ensuite dans les surfaces projet.
 
-### Efecto concreto de una actualización
+### Effet concret d’une mise à jour
 
-Cuando la lista de categorías se modifica con éxito:
+Quand la liste des catégories est modifiée avec succès :
 
-- el selector de categoría de carga en **Conocimiento** se actualiza ;
-- los selectores y filtros de categoría en **Documentos PM** se alinean cuando usan esta taxonomía compartida ;
-- el cambio sigue limitado al **proyecto actual**.
+- le sélecteur de catégorie de téléversement dans **Connaissance** est mis à jour ;
+- les sélecteurs et filtres de catégorie dans **Documents PM** se recalent quand ils utilisent cette taxonomie partagée ;
+- le changement reste limité au **projet courant**.
 
-### Ejemplos prácticos
+### Exemples pratiques
 
-Mantén una taxonomía corta y estable. Por ejemplo, en lugar de multiplicar variantes cercanas, prefiera algunas categorías coherentes como:
+Gardez une taxonomie courte et stable. Par exemple, au lieu de multiplier les variantes proches, préférez quelques catégories cohérentes comme :
 
-- carta del proyecto ;
-- registro de riesgos ;
-- informe de estado ;
-- plan de compras ;
-- plan de comunicación.
+- charte projet ;
+- registre des risques ;
+- rapport de statut ;
+- plan achats ;
+- plan de communication.
 
-El objetivo no es codificar la versión del documento en la categoría, sino mantener una clasificación reutilizable entre **Conocimiento** y **Documentos PM**.
+L’objectif n’est pas d’encoder la version du document dans la catégorie, mais de garder un classement réutilisable entre **Connaissance** et **Documents PM**.
 
-![Categorías documentales del proyecto](/img/screenshots/localized/es/13-document-categories.png)
+![Catégories documentaires du projet](/img/screenshots/localized/fr/13-document-categories.png)
 
-## Políticas de gobernanza
+## Politiques de gouvernance
 
-Esta pestaña fija las reglas que enmarcan las decisiones, validaciones y comportamientos de gobernanza del proyecto. Úsala antes de publicar un entregable o autorizar una acción externa gobernada.
+Cet onglet fixe les règles qui encadrent les décisions, validations et comportements de gouvernance du projet. Utilisez-le avant de publier un livrable ou d’autoriser une action externe gouvernée.
 
-### Sub-superficies visibles en Políticas de gobernanza
+### Sous-surfaces visibles dans Politiques de gouvernance
 
-| Sub-superficie | Qué regula |
+| Sous-surface | Ce qu’elle règle |
 | --- | --- |
-| Conectores de ejecución | Tipo de conector, estado, modo de ejecución, entorno, scopes y parámetros de contexto |
-| Destinos de artefactos | Destino objetivo de un artefacto, conector asociado, carácter activo o por defecto |
-| Políticas de acción | Rol concernido, conector objetivo, nivel de acción (`observe`, `draft`, `propose`, `execute`), efecto (`allow`, `require_approval`, `deny`) y scopes autorizados |
-| Perfiles de render | Perfiles de render y formato de salida usados en las publicaciones gobernadas |
-| Preferencias de notificación | Canal, tipo de notificación, modo de digest, umbral de severidad y activación de la preferencia |
+| Connecteurs d’exécution | Type de connecteur, statut, mode d’exécution, environnement, scopes et paramètres de contexte |
+| Destinations des artefacts | Destination cible d’un artefact, connecteur associé, caractère actif ou par défaut |
+| Politiques d’action | Rôle concerné, connecteur ciblé, niveau d’action (`observe`, `draft`, `propose`, `execute`), effet (`allow`, `require_approval`, `deny`) et scopes autorisés |
+| Profils de rendu | Profils de rendu et format de sortie utilisés lors des publications gouvernées |
+| Préférences de notification | Canal, type de notification, mode de digest, seuil de sévérité et activation de la préférence |
 
-### Ejemplos de ajustes útiles
+### Exemples de réglages utiles
 
-- exigir una aprobación explícita antes de una publicación a **SharePoint** ;
-- autorizar la creación de ticket **Jira** solo en nivel `propose` para ciertos roles ;
-- preparar preferencias `signal_digest` en `in_app` para el seguimiento interno ;
-- dejar las notificaciones externas `email`, `teams` o `webhook` en un camino aprobado solo cuando el conector esté sano ;
-- elegir perfiles de render separados para las publicaciones **DOCX** y **XLSX**.
+- exiger une approbation explicite avant une publication vers **SharePoint** ;
+- autoriser la création de ticket **Jira** seulement au niveau `propose` pour certains rôles ;
+- préparer des préférences `signal_digest` en `in_app` pour le suivi interne ;
+- laisser les notifications externes `email`, `teams` ou `webhook` dans un chemin approuvé seulement lorsque le connecteur est sain ;
+- choisir des profils de rendu séparés pour les publications **DOCX** et **XLSX**.
 
-### Escenario creíble — proyecto sensible / difusión gobernada
+### Scénario crédible — projet sensible / diffusion gouvernée
 
-Para un proyecto donde toda difusión externa debe ser controlada, un ajuste coherente suele ser así:
+Pour un projet où toute diffusion externe doit être contrôlée, un réglage cohérent ressemble souvent à ceci :
 
-1. **Destinos de artefactos**: destino SharePoint activo con perfil de render conocido ;
-2. **Políticas de acción**: `allow` para `observe` y `draft`, pero `require_approval` para `execute` en publicaciones y notificaciones externas ;
-3. **Conectores de ejecución**: conectores externos visibles solo para los roles realmente autorizados ;
-4. **Preferencias de notificación**: `signal_digest` en `daily` para el equipo, `signal_alert` solo para los casos más sensibles ;
-5. **Integraciones del proyecto**: bindings activados solo para los conectores ya validados a nivel de plataforma.
+1. **Destinations des artefacts** : destination SharePoint active avec profil de rendu connu ;
+2. **Politiques d’action** : `allow` pour `observe` et `draft`, mais `require_approval` pour `execute` sur les publications et notifications externes ;
+3. **Connecteurs d’exécution** : connecteurs externes visibles seulement pour les rôles réellement autorisés ;
+4. **Préférences de notification** : `signal_digest` en `daily` pour l’équipe, `signal_alert` seulement pour les cas les plus sensibles ;
+5. **Intégrations du projet** : bindings activés uniquement pour les connecteurs déjà validés au niveau plateforme.
 
-Esta combinación evita que un borrador, digest o acción aparezca como directamente difundible cuando el proyecto aún espera una aprobación humana.
+Cette combinaison évite qu’un brouillon, un digest ou une action apparaisse comme directement diffusable alors que le projet attend encore une approbation humaine.
 
-![Políticas de gobernanza del proyecto](/img/screenshots/localized/es/14-governance-policies.png)
+![Politiques de gouvernance du projet](/img/screenshots/localized/fr/14-governance-policies.png)
 
-## Integraciones del proyecto
+## Intégrations du projet
 
-Esta pestaña separa las integraciones técnicamente definidas a nivel de plataforma de las que son realmente utilizables por el proyecto.
+Cet onglet sépare les intégrations **techniquement définies** au niveau plateforme de celles qui sont **réellement utilisables** par le projet.
 
-### Causas de bloqueo explícitamente observadas
+### Comment lire cet onglet
 
-Una integración de proyecto o una opción de importación puede estar bloqueada por:
+L’onglet **Intégrations du projet** n’est pas l’endroit où l’on configure toute la technique du tenant. Il sert surtout à lire la **readiness opérationnelle** projet : ce qui est visible pour ce projet, ce qui est prêt, et ce qui reste bloqué avec une raison explicite.
+
+On y retrouve plusieurs familles d’informations :
+
+- **Execution connectors** : options de sortie gouvernée vers des systèmes externes ;
+- **Ingestion providers** : sources d’import consommées ensuite par **Connaissance** ;
+- **AI runtime transparency** : fournisseur IA effectif et fournisseur sélectionné au déploiement ;
+- **Entitlement posture** : posture plan / sièges / blocages premium visibles.
+
+### Causes de blocage explicitement observées
+
+Une intégration projet ou une option d’import peut être bloquée pour cause de :
 
 - entitlement ;
-- política ;
-- permiso ;
-- estado health a verificar ;
-- definición de plataforma ausente o desactivada ;
-- binding de proyecto desactivado o no configurado.
+- policy ;
+- permission ;
+- état health à vérifier ;
+- définition plateforme absente ou désactivée ;
+- binding projet désactivé ou non configuré.
 
-### Cómo interpretar un bloqueo de binding
+### Comment interpréter un blocage de binding
 
-| Causa visible | Lectura práctica | Reflejo recomendado |
+| Cause visible | Lecture pratique | Réflexe recommandé |
 | --- | --- | --- |
-| `entitlement` | el plan o la capacidad autorizada no cubre este conector o familia de uso | verifica la suscripción y capacidades en [Portafolio y administración técnica](./portefeuille-et-administration-technique.md) |
-| `policy` | la gobernanza del proyecto impide o limita este flujo | revisa **Políticas de gobernanza** antes de modificar el binding |
-| `permission` | el conector existe pero tu rol no permite activarlo o usarlo | controla el rol del proyecto en [Control de acceso y roles del proyecto](./controle-acces-et-roles.md) |
-| `health` | la definición de la plataforma existe pero su preparación o disponibilidad requieren verificación | abre la **Administración de la plataforma** para confirmar la definición técnica |
-| definición ausente o desactivada | nada realmente está listo a nivel de tenant | solicita primero la puesta en marcha o reactivación de la plataforma |
-| binding de proyecto ausente | la plataforma está lista pero el proyecto aún no consume la integración | activa explícitamente el binding del lado del proyecto |
+| `entitlement` | le plan ou la capacité autorisée ne couvre pas ce connecteur ou cette famille d’usage | vérifiez l’abonnement et les capacités dans [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) |
+| `policy` | la gouvernance projet interdit ou limite ce flux | relisez **Politiques de gouvernance** avant de modifier le binding |
+| `permission` | le connecteur existe mais votre rôle ne permet pas de l’activer ou de l’utiliser | contrôlez le rôle projet dans [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md) |
+| `health` | la définition plateforme existe mais sa préparation ou sa disponibilité demandent une vérification | ouvrez l’**Administration de la plateforme** pour confirmer la définition technique |
+| définition absente ou désactivée | rien n’est réellement prêt au niveau tenant | demandez d’abord la mise en place ou la réactivation plateforme |
+| binding projet absent | la plateforme est prête mais le projet ne consomme pas encore l’intégration | activez explicitement le binding côté projet |
 
-Si un bloqueo persiste, abre luego **Administración de la plataforma** para verificar la definición técnica, luego vuelve al proyecto para confirmar el binding y la preparación.
+### Lecture pratique de `binding` et `entitlement`
 
-### Jira, SharePoint y cadena de conectores
+- **binding** : le connecteur ou fournisseur existe au niveau plateforme, mais il faut encore le rattacher et l’ouvrir au projet pour qu’il soit consommable dans ce projet ;
+- **entitlement** : même avec un binding prêt, le plan peut encore laisser l’option visible en lecture seule tout en bloquant l’usage opérationnel ;
+- un connecteur visible mais bloqué ne signifie donc pas qu’il est cassé : l’interface peut justement le laisser visible pour expliquer la raison du blocage.
 
-![Flujo Jira y SharePoint entre plataforma, proyecto y acciones](/img/diagrams/es/connecteurs-jira-sharepoint-workflow.svg)
+Si un blocage persiste, ouvrez ensuite **Administration de la plateforme** pour vérifier la définition technique, puis revenez sur le projet pour confirmer le binding et la préparation.
 
-Mantén esta lógica simple:
+### Jira, SharePoint et chaîne des connecteurs
 
-1. **Integraciones de la plataforma** define el conector o proveedor de ingestión ;
-2. **Integraciones del proyecto** expone solo el binding aprobado y listo ;
-3. **Políticas de gobernanza** decide qué puede observar, preparar, proponer o ejecutar cada rol ;
-4. **Actions & approvals** aplica luego estas reglas en la solicitud real ;
-5. **Documentos PM** y **Journal IA** conservan la trazabilidad del flujo.
+![Flux Jira et SharePoint entre plateforme, projet et actions](/img/diagrams/fr/connecteurs-jira-sharepoint-workflow.svg)
 
-Ver la página dedicada: [Conectores y integraciones](./connecteurs-jira-et-sharepoint).
+Gardez cette logique simple :
 
-## Actions & approvals
+1. **Intégrations de la plateforme** définit le connecteur ou le fournisseur d’ingestion ;
+2. **Intégrations du projet** expose seulement le binding approuvé et prêt ;
+3. **Politiques de gouvernance** décide ce que chaque rôle peut observer, préparer, proposer ou exécuter ;
+4. **Actions & approbations** applique ensuite ces règles lors de la demande réelle ;
+5. **Documents PM** et **Journal IA** conservent la trace du flux.
 
-Esta pestaña transforma una recomendación en operación controlada. Una acción puede ser **visible** pero no **ejecutable** si:
+Voir la page dédiée : [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint).
 
-- no tienes el derecho correcto ;
-- el conector compatible no está listo ;
-- el binding del proyecto limita la acción ;
-- la aprobación requerida aún no ha ocurrido.
+## Actions & approbations
 
-## Lectura sola o acceso denegado
+Cet onglet transforme une recommandation en opération contrôlée.
 
-- **lectura sola**: la pestaña sigue visible pero la grabación está bloqueada ;
-- **acceso denegado**: la ruta o la acción no está disponible para tu cuenta.
+### Les états réels à retenir
 
-Esta diferencia es particularmente importante para **Control de acceso**, **Integraciones del proyecto** y los ajustes de gobernanza.
+Dans l’interface observée, la file et les cartes de synthèse distinguent surtout quatre états canoniques :
 
-## Camino recomendado después de crear un proyecto
+| État visible | Lecture pratique |
+| --- | --- |
+| **Execution prerequisites** | des connecteurs compatibles peuvent exister, mais l’exécution reste bloquée par health, entitlement, permission, policy ou readiness indisponible |
+| **Pending approval** | la demande a été proposée et attend encore une décision de gouvernance |
+| **Ready to execute** | la demande est **approved** mais l’exécution reste une étape distincte |
+| **Executed history** | l’action a réellement été exécutée et reste visible comme historique / preuve d’audit |
 
-1. abre el **Espacio de trabajo** ;
-2. verifica primero al **creador**, los **miembros** y los **roles** si el proyecto es colaborativo ;
-3. ajusta luego las **categorías de documentos** ;
-4. revisa las **Políticas de gobernanza** antes de cualquier difusión externa ;
-5. enlaza solo las **Integraciones del proyecto** realmente listas ;
-6. carga luego la **Conocimiento** ;
-7. pasa finalmente a los **Agentes**, los **Documentos PM** y las **Actions & approvals**.
+Une action peut donc être **approved** sans être encore **executed**.
 
-## Dos escenarios de parametrización útiles
+### Comment lire un onglet qui paraît vide ou incomplet
 
-### Escenario 1 — proyecto nuevo mínimo
+La visibilité de l’onglet ne signifie pas qu’une action est déjà exécutable. Quand rien de concret ne semble disponible, la lecture la plus utile est souvent :
 
-Para un proyecto que comienza, mantén un orden simple:
+1. aucun **connecteur d’exécution compatible et sain** n’est prêt pour ce type d’action ;
+2. le **binding projet** n’expose pas encore l’option au projet ;
+3. une **policy** autorise la consultation mais pas la proposition ou l’exécution ;
+4. votre **permission** permet de voir la file, mais pas d’agir ;
+5. une approbation est requise et aucune décision n’a encore été prise.
 
-1. agrega los miembros indispensables y verifica sus roles ;
-2. crea una taxonomía documental corta en **Categorías de documentos** ;
-3. activa solo las integraciones ya validadas y realmente necesarias ;
-4. prepara una gobernanza mínima, por ejemplo un digest interno y una destino de artefacto por defecto ;
-5. carga luego la **Conocimiento** antes de abrir los agentes.
+Quand tout est correctement prêt, on s’attend au minimum à voir :
 
-Este escenario evita abrir demasiado pronto conectores o reglas de difusión que no se usarán inmediatamente.
+- un type d’action compatible ;
+- au moins une option d’exécution saine ;
+- un binding projet valide ;
+- une policy cohérente ;
+- un utilisateur autorisé à proposer, approuver ou exécuter selon le cas.
 
-### Escenario 2 — proyecto sensible / difusión gobernada
+### Ce qu’il faut lire dans `Execution readiness`
 
-Para un proyecto expuesto a notificaciones externas o a una publicación documental formal:
+Le bloc **Execution readiness** n’administre pas toute la plateforme. Il résume simplement ce qui est actuellement proposable dans ce projet.
 
-1. limita los roles que tienen acceso a conectores externos ;
-2. prepara un destino SharePoint o equivalente en **Destinos de artefactos** ;
-3. aplica `require_approval` en los niveles de acción que pueden producir difusión externa ;
-4. privilegia `signal_digest` para el seguimiento corriente y reserva alertas instantáneas a casos críticos ;
-5. no hagas visibles en **Integraciones del proyecto** solo los bindings cuya preparación y política ya estén conformes.
+Lecture utile :
 
-Este segundo escenario alinea la lectura de señales, difusión, aprobación y ejecución real en lugar de dejar al equipo tratar cada pantalla como una superficie independiente.
+- **available / healthy** : option théoriquement utilisable ;
+- **blocked by health** : le connecteur existe mais n’est pas dans un état opérationnel suffisant ;
+- **blocked by entitlement** : l’abonnement ne couvre pas ce flux ;
+- **blocked by policy** : la gouvernance du projet bloque le passage ;
+- **blocked by permission** : votre rôle ne suffit pas ;
+- aucune option visible : aucun connecteur compatible approuvé n’est actuellement exposé au projet.
 
-## Siguiente
+## Lecture seule ou accès refusé
 
-- [Control de acceso y roles del proyecto](./controle-acces-et-roles.md)
-- [Conocimiento y agentes](./connaissance-et-agents.md)
-- [Gobernanza, decisiones y acciones](./gouvernance-decisions-et-actions.md)
-- [Conectores y integraciones](./connecteurs-jira-et-sharepoint)
-- [Portafolio y administración técnica](./portefeuille-et-administration-technique.md)
+- **lecture seule** : l’onglet reste visible mais l’enregistrement est bloqué ;
+- **accès refusé** : la route ou l’action n’est pas disponible pour votre compte.
+
+Cette différence est particulièrement importante pour **Contrôle d’accès**, **Intégrations du projet** et les réglages de gouvernance.
+
+## Parcours recommandé après création d’un projet
+
+1. ouvrez l’**Espace de travail** ;
+2. vérifiez d’abord le **créateur**, les **membres** et les **rôles** si le projet est collaboratif ;
+3. ajustez ensuite les **catégories de documents** ;
+4. relisez les **Politiques de gouvernance** avant toute diffusion externe ;
+5. reliez uniquement les **Intégrations du projet** réellement prêtes ;
+6. chargez ensuite la **Connaissance** ;
+7. passez enfin aux **Agents**, aux **Documents PM** et aux **Actions & approbations**.
+
+## Deux scénarios de paramétrage utiles
+
+### Scénario 1 — projet neuf minimal
+
+Pour un projet qui démarre, gardez un ordre simple :
+
+1. ajoutez les membres indispensables et vérifiez leurs rôles ;
+2. créez une taxonomie documentaire courte dans **Catégories de documents** ;
+3. activez seulement les intégrations déjà validées et vraiment nécessaires ;
+4. préparez une gouvernance minimale, par exemple un digest interne et une destination d’artefact par défaut ;
+5. chargez ensuite la **Connaissance** avant d’ouvrir les agents.
+
+Ce scénario évite d’ouvrir trop tôt des connecteurs ou des règles de diffusion qui ne seront pas utilisés immédiatement.
+
+### Scénario 2 — projet sensible / diffusion gouvernée
+
+Pour un projet exposé à des notifications externes ou à une publication documentaire formelle :
+
+1. limitez les rôles ayant accès aux connecteurs externes ;
+2. préparez une destination SharePoint ou équivalent dans **Destinations des artefacts** ;
+3. appliquez `require_approval` sur les niveaux d’action qui peuvent produire une diffusion externe ;
+4. privilégiez `signal_digest` pour le suivi courant et réservez les alertes instantanées aux cas critiques ;
+5. ne rendez visibles dans **Intégrations du projet** que les bindings dont la préparation et la politique sont déjà conformes.
+
+Ce second scénario aligne lecture des signaux, diffusion, approbation et exécution réelle au lieu de laisser l’équipe traiter chaque écran comme une surface indépendante.
+
+## Suite
+
+- [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md)
+- [Connaissance et agents](./connaissance-et-agents.md)
+- [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md)
+- [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
+- [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)

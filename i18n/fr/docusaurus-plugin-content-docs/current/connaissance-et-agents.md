@@ -178,15 +178,52 @@ Pour une première utilisation sans ambiguïté :
 3. vérifiez ensuite les preuves, la fraîcheur et la confiance si la réponse doit être réutilisée ;
 4. n’ouvrez **Rapports & artefacts** que si vous souhaitez transformer ce résultat en document gouverné, révisable ou publiable.
 
+## All projects : sens exact dans Agents
+
+Quand l’interface de création d’agent personnalisé expose `All projects`, cela signifie :
+
+- l’agent est créé depuis le projet courant ;
+- il peut être **visible dans tous les projets accessibles par le même compte** ;
+- il suit votre compte d’un projet à l’autre ;
+- il ne crée pas un espace de données multi-projets fusionné ;
+- il ne remplace pas le **projet actif** au moment du run.
+
+Autrement dit, même un agent `All projects` s’exécute encore dans le **projet actif** au moment où vous lancez le chat.
+
 ## Des agents vers les Documents PM, DOCX et XLSX
 
 Les agents ne sautent pas directement vers un fichier final diffusé. Le flux observé est plus progressif :
 
-1. un agent produit une **sortie structurée** ;
-2. cette sortie peut alimenter un **artefact** ou un **Document PM** ;
-3. les contenus narratifs vont plutôt vers un rendu **DOCX** ;
-4. les contenus tabulaires ou matriciels vont plutôt vers un rendu **XLSX** ;
-5. la relecture, l’approbation, le téléchargement et la publication se font ensuite dans [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md).
+1. le chat courant reste d’abord **local au navigateur** ;
+2. l’envoi du message lance un **run** dans le projet actif ;
+3. le run produit une **structured output / sortie structurée** ;
+4. selon le flux et les droits, cette sortie peut exposer des liens de **lineage**, un **artifact** ou un **PM Doc** ;
+5. la revue se poursuit ensuite dans **Rapports & artefacts / Documents PM** ;
+6. le document relu peut enfin être **Add to knowledge**, **Download** ou **Publish** selon la gouvernance.
+
+### Ce que signifie `structured output`
+
+Une **structured output** est la sortie structurée produite par le run d’agent. Elle peut porter :
+
+- une synthèse ;
+- des sections ;
+- des preuves / citations ;
+- des informations de fraîcheur et de confiance ;
+- des identifiants de traçabilité.
+
+Ce n’est pas encore, à elle seule, un document final publié.
+
+### Ce que signifie `lineage`
+
+La **lineage / lignée** relie entre eux :
+
+- le **run** ;
+- le **structured output ID** ;
+- le **context snapshot ID** ;
+- l’**artifact** et sa version ;
+- le **PM Doc** si un document gouverné existe.
+
+Cette lignée aide à comprendre d’où vient un livrable et quel contexte a été utilisé.
 
 ## Sessions et mémoire locale
 

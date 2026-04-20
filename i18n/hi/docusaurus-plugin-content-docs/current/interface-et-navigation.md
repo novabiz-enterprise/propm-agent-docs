@@ -1,160 +1,183 @@
 ---
-title: "इंटरफ़ेस और नेविगेशन"
+title: Interface et navigation
 slug: /interface-et-navigation
-description: "मुख्य स्क्रीन, साइडबार, शीर्ष बार और डैशबोर्ड को समझें।"
+description: Comprendre les écrans principaux, la barre latérale, la barre supérieure et le tableau de bord.
 ---
 
-[होम](./index.md) · [शुरुआत](./demarrage.md) · [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md)
+[Accueil](./index.md) · [Démarrage](./demarrage.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md)
 
-![प्रोपीएम एजेंट डैशबोर्ड](/img/screenshots/localized/hi/01-dashboard.png)
+![Tableau de bord ProPM Agent](/img/screenshots/localized/fr/01-dashboard.png)
 
-## उद्देश्य
+## Objectif
 
-यह पृष्ठ बताता है कि प्रोपीएम एजेंट के शेल में कैसे नेविगेट करें, **डैशबोर्ड** पढ़ें, **कमांड पैलेट** का उपयोग करें, **सूचनाएँ** की व्याख्या करें और आवश्यकता पड़ने पर त्वरित जाँच के लिए **स्वास्थ्य पैनल** का उपयोग करें।
+Cette page explique comment se repérer dans le shell de ProPM Agent, lire le **Tableau de bord**, utiliser la **palette de commandes**, interpréter les **notifications** et utiliser le panneau **santé** pour une vérification rapide lorsque nécessaire.
 
-## अवलोकन
+## Vue d’ensemble
 
-इंटरफ़ेस अवलोकन एक सरल तर्क का पालन करता है :
+L’interface observée suit une logique simple :
 
-1. **साइडबार** प्रमुख कार्यात्मक डोमेन खोलता है ;
-2. **शीर्ष बार** वर्तमान परियोजना बदलता है और त्वरित उपकरण खोलता है ;
-3. केंद्रीय सतह **वर्तमान संदर्भ** दिखाती है ;
-4. कई स्क्रीन परियोजना सक्रिय और आपके **अधिकार** के अनुसार स्थिति बदलती हैं।
+1. la **barre latérale** ouvre les grands domaines fonctionnels ;
+2. la **barre supérieure** change le projet courant et ouvre les outils rapides ;
+3. la surface centrale affiche le **contexte courant** ;
+4. plusieurs écrans changent d’état selon le **projet actif** et vos **droits**.
 
-## मुख्य नेविगेशन
+## Navigation principale
 
-| प्रवेश | मुख्य उपयोग |
+| Entrée | Usage principal |
 | --- | --- |
-| डैशबोर्ड | सामान्य स्थिति और सुझाए गए अगले चरण पढ़ें |
-| परियोजनाएँ | परियोजना बनाएं, खोलें और संदर्भ बदलें |
-| कार्यक्षेत्र | परियोजना सारांश, सिग्नल, तैयारियाँ और परियोजना सेटिंग्स |
-| ज्ञान | संदर्भ दस्तावेज़ खोजें, अपलोड करें और आयात करें |
-| एजेंट | उपलब्ध एजेंटों के साथ इंटरैक्ट करें और संरचित आउटपुट पढ़ें |
-| रिपोर्ट और कलाकृतियाँ | PM दस्तावेज़ों की समीक्षा, तुलना, प्रकाशन या डाउनलोड करें |
-| एआई लॉग | रन, घटनाएँ और ट्रेसबिलिटी मेटाडेटा जाँचें |
-| पोर्टफोलियो कमांड सेंटर | कॉन्फ़िगर करने योग्य सिग्नल के साथ कई परियोजनाओं की तुलना करें |
-| प्लेटफ़ॉर्म प्रशासन | एकीकरण, एआई प्रदाता, सदस्यता और प्लेटफ़ॉर्म गतिविधि प्रबंधित करें |
+| Tableau de bord | Lire l’état général et les prochaines étapes suggérées |
+| Projets | Créer un projet, ouvrir un projet existant, choisir le projet actif |
+| Espace de travail | Résumé projet, signaux, readiness et réglages projet |
+| Connaissance | Rechercher, téléverser et importer les documents de référence |
+| Agents | Interagir avec les agents disponibles et lire les sorties structurées |
+| Rapports & artefacts | Réviser, comparer, publier ou télécharger les Documents PM |
+| Journal IA | Inspecter les runs, événements et métadonnées de traçabilité |
+| Centre de commande portefeuille | Comparer plusieurs projets via des signaux configurables |
+| Administration de la plateforme | Gérer intégrations, fournisseur IA, abonnement et activité plateforme |
 
-## डैशबोर्ड
+## Tableau de bord
 
-**डैशबोर्ड** लॉगिन के तुरंत बाद सबसे उपयोगी स्क्रीन है।
+Le **Tableau de bord** est l’écran le plus utile juste après la connexion.
 
-यह संकलित करता है :
+Il consolide :
 
-- स्थिति मेट्रिक्स ;
-- ध्यान बिंदु ;
-- अनुशंसित अगले चरण ;
-- कार्यवाही के लिए शॉर्टकट ;
-- खुली सिग्नल और समीक्षा में आइटम का पूर्वावलोकन।
+- des métriques de situation ;
+- des éléments d’attention ;
+- des prochaines étapes recommandées ;
+- des raccourcis vers les zones où agir ;
+- un aperçu des signaux ouverts et des éléments en revue.
 
-इसे एक **उन्मुखीकरण पृष्ठ** के रूप में उपयोग करें : यदि कोई परियोजना सक्रिय नहीं है, तो कुछ ब्लॉक खाली रहेंगे ; यदि परियोजना चुनी गई है, तो सूचकांक संदर्भित होंगे।
+Utilisez-le comme une **page d’orientation** : si un projet n’est pas actif, certains blocs restent vides ; si un projet est sélectionné, les indicateurs se contextualisent.
 
-### डैशबोर्ड के बड़े क्षेत्र कैसे पढ़ें
+### Comment lire les grandes zones du tableau de bord
 
-| क्षेत्र | यह क्या संक्षेप करता है | उपयोगी प्रतिक्रिया |
+| Zone | Ce qu’elle synthétise | Réflexe utile |
 | --- | --- | --- |
-| सारांश टाइल्स | परियोजनाओं, ज्ञान, सक्रिय एजेंट, खुली सिग्नल, सूचनाओं के ड्राफ्ट और प्रतीक्षारत क्रियाओं के काउंटर | तुरंत पता लगाएँ कि विषय में संदर्भ की कमी, समीक्षा में देरी या शासनित कतार है |
-| स्कोर कार्ड्स | डिलीवरी का सामान्य स्थिति, निष्पादन गति, शासन कवरेज और ज्ञान गहराई | इन कार्डों को एक दिशा-निर्देश के रूप में पढ़ें, विस्तृत स्क्रीन खोलने से पहले |
-| रेडीनेस ब्लॉक्स | ज्ञान आधार, स्वचालन कवरेज, शासन मुद्रा और डिलीवरी प्रवाह | पहचानें कौन सा स्तंभ परियोजना के सामान्य उपयोग को रोकता है |
-| **ध्यान** पैनल | सिग्नल, शासनित क्रियाएँ और वॉचलिस्ट कनेक्टर | सक्रिय अवरोधों को हल करने के लिए **कार्य क्षेत्र** पर जाएँ |
-| **पल्स** पैनल | नवीनतम डाइजेस्ट, हालिया सूचनाएँ, हालिया गतिविधि और कनेक्टर स्थिति | क्या नया बदल गया है, बिना परियोजना इतिहास को पुनः पढ़े |
-| त्वरित लिंक | **वर्कस्पेस**, **ज्ञान**, **एजेंट**, **रिपोर्ट और कलाकृतियाँ**, **एआई लॉग** और **पोर्टफोलियो** के शॉर्टकट | सीधे सही सतह खोलें, स्क्रिन‑रिपोर्टिंग के बजाय |
+| Tuiles de synthèse | compteurs de projets, de connaissance, d’agents actifs, de signaux ouverts, de brouillons de notifications et d’actions en attente | repérer immédiatement si le sujet est un manque de contexte, un retard de revue ou une file d’attente gouvernée |
+| Cartes de score | état général de la delivery, du rythme d’exécution, de la couverture de gouvernance et de la profondeur de connaissance | lire ces cartes comme des repères d’orientation avant d’ouvrir un écran de détail |
+| Blocs de readiness | fondation connaissance, couverture d’automatisation, posture de gouvernance et flux de livraison | identifier quel pilier bloque l’usage normal du projet |
+| Panneau **Attention** | signaux, actions gouvernées et watchlist connecteurs | aller vers l’**Espace de travail** pour traiter les blocages actifs |
+| Panneau **Pulse** | dernier digest, notifications récentes, activité récente et état connecteurs | vérifier ce qui vient de changer sans relire tout l’historique du projet |
+| Quick links | raccourcis vers **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts**, **AI Log** et **Portfolio** | ouvrir directement la bonne surface au lieu de naviguer écran par écran |
 
-स्कोर और संकेतक डैशबोर्ड को **प्राथमिकता संकेतक** के रूप में पढ़ा जाना चाहिए, न कि केवल एक अलग निष्कर्ष।
+Les scores et indicateurs du tableau de bord doivent être lus comme des **repères de priorisation**, pas comme une conclusion isolée à eux seuls.
 
-### यदि डैशबोर्ड विरोधाभासी दिखता है तो क्या करें ?
+### Que faire si le tableau de bord semble contradictoire ?
 
-1. पहले **परियोजना सक्रिय** को शीर्ष बार में पुष्टि करें ;
-2. फिर कार्डों को **सिग्नल** के रूप में देखें, न कि केवल सत्य के स्रोत के रूप में ;
-3. **कार्य क्षेत्र** खोलें ताकि सिग्नल, रेडीनेस और परियोजना अवरोधों की जाँच करें ;
-4. यदि संदेह रन, आउटपुट या वास्तविक उपयोग में प्रदाता पर है, तो **एआई लॉग** खोलें ;
-5. यदि डैशबोर्ड लोड हो रहा है लेकिन अतिरिक्त जाँच की आवश्यकता है, तो **स्वास्थ्य सूचकांक** खोलें और डेटा प्रदर्शित होने पर निष्कर्ष निकालें।
+1. confirmez d’abord le **projet actif** dans la barre supérieure ;
+2. traitez ensuite les cartes comme des **signaux d’orientation**, pas comme la seule source de vérité ;
+3. ouvrez l’**Espace de travail** pour vérifier signaux, readiness et blocages projet ;
+4. ouvrez le **Journal IA** si le doute porte sur un run, une sortie ou un fournisseur réellement utilisé ;
+5. si le tableau de bord charge mais appelle une vérification complémentaire, ouvrez l’**indicateur de santé** avant de conclure sur les données affichées.
 
-![शीर्ष बार और वैश्विक नेविगेशन](/img/screenshots/localized/hi/01-navigation-topbar.png)
+![Barre supérieure et navigation globale](/img/screenshots/localized/fr/01-navigation-topbar.png)
 
-## शीर्ष बार
+## Barre supérieure
 
-| तत्व | कार्य |
+| Élément | Fonction |
 | --- | --- |
-| परियोजना चयनकर्ता | वर्तमान परियोजना को पूरी सूची के बिना बदलें |
-| कमांड पैलेट | पृष्ठ और सामान्य कार्यों पर तेज़ खोज |
-| सूचनाएँ | उत्पाद द्वारा उठाए गए ध्यान बिंदु दिखाएँ |
-| स्वास्थ्य सूचकांक | API, रीयल‑टाइम और प्रमाणीकरण की त्वरित पढ़ाई खोलें |
-| भाषा | इंटरफ़ेस भाषा बदलें |
-| थीम | स्पष्ट/गहरे रूप को टॉगल करें |
-| सहायता | एकीकृत सहायता संदेश खोलें |
+| Sélecteur de projet | Change le projet courant sans repasser par la liste complète |
+| Palette de commandes | Recherche rapide sur les pages et actions courantes |
+| Notifications | Affiche les éléments d’attention remontés par le produit |
+| Indicateur de santé | Ouvre une lecture rapide de l’état API, temps réel et auth |
+| Langue | Change la langue de l’interface |
+| Thème | Bascule l’apparence claire/sombre |
+| Aide | Ouvre les messages d’aide intégrés |
 
-## कमांड पैलेट
+### Comment lire le projet actif depuis la barre supérieure
 
-कमांड पैलेट तेज़ नेविगेशन के लिए बनाया गया है।
+Le sélecteur de projet de la barre supérieure sert à définir le **projet actif**. Ce projet est ensuite utilisé comme contexte par les pages projet.
+
+En pratique :
+
+- **Connaissance** recherche dans le projet actif ;
+- **Agents** lance les runs dans le projet actif ;
+- **Rapports & artefacts** relit les PM Docs et artefacts du projet actif ;
+- **Journal IA** montre les runs et l’activité du projet actif ;
+- **Espace de travail** affiche les signaux, réglages et intégrations du projet actif.
+
+Le projet retenu peut être mémorisé localement dans le navigateur. Ce confort de navigation n’est pas un réglage partagé à toute la plateforme.
+
+## Palette de commandes
+
+La palette de commandes est conçue pour la navigation rapide.
 
 - **Windows / Linux** : `Ctrl+K`
 - **macOS** : `Cmd+K`
 
-यह पृष्ठ और उपलब्ध प्रवेश को **नाम** और **विवरण** के अनुसार फ़िल्टर करता है। इसका उपयोग करके जल्दी से **एआई लॉग**, **प्लेटफ़ॉर्म प्रशासन** या किसी भी कम रूट पथ को खोलें।
+Elle filtre les pages et entrées disponibles par **nom** et **description**. Utilisez-la pour revenir vite vers **Journal IA**, **Administration de la plateforme** ou toute route rarement ouverte.
 
-## सूचनाएँ
+## Notifications
 
-सूचना केंद्र पहुँच योग्य है बELL आइकन से, ऊपर की बार में।
+Le centre de notifications est accessible depuis l’icône de cloche de la barre supérieure.
 
-देखी गई क्षमताएँ :
+Capacités observées :
 
-- पढ़े नहीं गए आइटम के काउंटर ;
-- ड्रॉप‑डाउन पैनल ;
-- **सभी को पढ़ा हुआ चिह्नित करें** ;
-- **सभी हटाएँ** ;
-- किसी सूचना पर क्लिक करके संबंधित सतह खोलें जब नेविगेशन उपलब्ध हो।
+- compteur d’éléments non lus ;
+- panneau déroulant ;
+- **Marquer tout comme lu** ;
+- **Tout effacer** ;
+- clic sur une notification pour ouvrir la surface liée quand une navigation est fournie.
 
-सूचनाएँ मुख्य रूप से एजेंट स्थिति, रिपोर्ट जनरेशन इवेंट्स, दस्तावेज़ अपलोड और मार्केटप्लेस या सदस्यता से संबंधित अपडेट को दर्शाती हैं।
+Les notifications peuvent remonter notamment des statuts d’agent, des événements de génération de rapport, des uploads de documents et des mises à jour liées au Marketplace ou à l’abonnement.
 
-## स्वास्थ्य सूचकांक
+## Indicateur de santé
 
-हेल्थ इंडिकेटर एक त्वरित पढ़ाई पैनल खोलता है। यह आपको अनुमति देता है :
+L’indicateur de santé ouvre un panneau de lecture rapide. Il permet de consulter :
 
-- **API** स्थिति ;
-- **API** स्थिति ;
-- **auth** स्थिति ;
-- **लेटेंसी** देखी गई ;
-- एक संदेश यदि इंटरफ़ेस में कोई हो ;
-- वर्तमान परियोजना जब संदर्भ पढ़ने में महत्वपूर्ण हो।
+- l’état **API** ;
+- l’état **temps réel** ;
+- l’état **auth** ;
+- la **latence** observée ;
+- un message affiché si l’interface en présente un ;
+- le projet courant quand le contexte compte dans la lecture de l’état.
 
-यदि किसी एजेंट का **ऑफ़लाइन** दिखता है, या सूचनाएँ ताज़ा नहीं हो रही हों, या उपलब्धता जाँच आवश्यक हो, तो इसे खोलें।
+Ouvrez-le si un agent paraît **offline**, si les notifications ne se rafraîchissent plus ou si une vérification de disponibilité est utile.
 
-यदि पैनल एक ख़राब स्थिति दर्शाता है जबकि इंटरफ़ेस अभी भी लोड हो रहा है, तो इस क्रम में पढ़ें :
+Si le panneau indique un état dégradé alors que l’interface charge encore, gardez cet ordre de lecture :
 
-| यदि सिग्नल मुख्यतः … | फिर खोलें | क्यों |
+| Si le signal concerne surtout… | Ouvrez ensuite | Pourquoi |
 | --- | --- | --- |
-| **प्रमाणीकरण** | [शुरुआत](./demarrage.md) | टेनेंट, खाता, `redirect URI`, प्रशासक समूह या मुख्यालय को अलग करने के लिए |
-| **रनटाइम**, API या कनेक्टिविटी | [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md) | स्वास्थ्य, एआई प्रदाता, एकीकरण और निष्पादन के बीच सत्यापन पथ का पालन करें |
-| **परियोजना संदर्भ**, खाली स्क्रीन या अनुपलब्ध क्रिया | [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md) | परियोजना सक्रिय, बाइंडिंग, रेडीनेस और परियोजना अधिकार जाँचें |
+| l’**authentification** | [Démarrage](./demarrage.md) | pour distinguer tenant, compte, `redirect URI`, groupe admin ou siège |
+| le **runtime**, l’API ou la connectivité | [Maintenance, support et FAQ](./maintenance-support-faq.md) | pour suivre le parcours de vérification entre santé, fournisseur IA, intégrations et exécution |
+| le **contexte projet**, un écran vide ou une action absente | [Projets et espace de travail](./projets-et-espace-de-travail.md) | pour vérifier le projet actif, le binding, la readiness et les droits projet |
 
-उपरोक्त स्थिति, **API**, **realtime**, **auth**, **लेटेंसी**, **वर्तमान परियोजना** और परीक्षण का अनुमानित समय नोट करें। यह टीम को तेज़ी से समाधान में मदद करेगा।
+Avant d’escalader, relevez l’état affiché pour **API**, **realtime**, **auth**, la **latence**, le **projet courant** et l’heure approximative du test. Ces éléments facilitent fortement le traitement par l’équipe en charge.
 
-## परियोजना संदर्भ और खाली स्थिति
+## Contexte projet et états vides
 
-कई प्रोजेक्ट‑एजेंट स्क्रीन परियोजना सक्रिय पर निर्भर हैं। व्यवहार में :
+Plusieurs écrans de ProPM Agent sont liés au projet actif. En pratique :
 
-- **बिना परियोजना चयनित** , कुछ पृष्ठ सामान्य खाली स्थिति दिखाते हैं ;
-- **परियोजना चयनित** , वही पृष्ठ डेटा और क्रिया लोड करता है ;
-- परियोजना बदलने से **ज्ञान**, **एजेंट**, **रिपोर्ट और कलाकृतियाँ** और **एआई लॉग** की सामग्री बदलती है।
+- **sans projet sélectionné**, certaines pages affichent un état vide normal ;
+- **avec projet sélectionné**, la même page charge les données et actions de ce projet ;
+- le changement de projet modifie le contenu de **Connaissance**, **Agents**, **Rapports & artefacts** et **Journal IA**.
 
-यह निर्भरता साक्ष्य, वार्तालाप और कई परियोजनाओं के डिलिवरेबल्स को मिलाने से रोकती है।
+Cette dépendance au contexte évite de mélanger preuves, conversations et livrables de plusieurs projets.
 
-## भाषा, थीम और सहायता
+### Ce que la navigation ne veut pas dire
 
-इंटरफ़ेस भाषा शीर्ष बार से बदली जा सकती है। थीम परिवर्तन पढ़ने के आराम को बढ़ाता है, बिना परियोजना डेटा पर प्रभाव डाले। एकीकृत सहायता कैटलॉग सामान्य नेविगेशन, परियोजना पृष्ठ, एआई लॉग और शासन रिमाइंडर को कवर करते हैं।
+Quelques malentendus reviennent souvent :
 
-## नेविगेशन टिप्स
+- ouvrir **Portfolio** ne change pas automatiquement le projet actif des pages projet ;
+- `All projects` n’est pas un projet sélectionnable dans la barre supérieure ;
+- voir une page vide ne prouve pas une panne : cela peut simplement signifier qu’aucun projet actif n’est défini ou qu’aucune donnée n’existe encore pour ce projet ;
+- retrouver un historique de chat dans votre navigateur ne signifie pas qu’il est partagé à tous les utilisateurs.
 
-- परियोजना **पहले** बदलें जब आप एक एजेंट या रिपोर्ट खोलें ;
-- **कमांड पैलेट** का उपयोग करके कम उपयोग किए जाने वाले सतह को जल्दी खोजें ;
-- यदि आप पथ खो देते हैं, तो **डैशबोर्ड** पर लौटें ;
-- यदि कोई क्रिया गायब लगती है, तो **केवल पढ़ने** और **अस्वीकृत पहुँच** को अलग करें ;
-- सेवा उपलब्धता प्रश्न पर निष्कर्ष निकालने से पहले **स्वास्थ्य सूचकांक** खोलें।
+## Langue, thème et aide
 
-## आगे
+La langue d’interface peut être changée depuis la barre supérieure. Le changement de thème améliore le confort de lecture, sans effet sur les données projet. Les catalogues d’aide intégrés couvrent la navigation générale, les pages de projet, le Journal IA et les rappels de gouvernance.
 
-- [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md)
-- [ज्ञान और एजेंट](./connaissance-et-agents.md)
-- [संदर्भित आउटपुट, साक्ष्य और ताजगी](./sorties-contextuelles-preuves-et-fraicheur.md)
-- [रिपोर्ट, एआई लॉग और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md)
+## Conseils de navigation
+
+- changez de projet **avant** d’ouvrir un agent ou un rapport ;
+- utilisez la **palette de commandes** pour retrouver rapidement une surface rarement utilisée ;
+- revenez au **Tableau de bord** lorsque vous perdez le fil du parcours ;
+- si une action semble absente, distinguez bien **lecture seule** et **accès refusé** ;
+- ouvrez l’**indicateur de santé** avant de conclure à une question de disponibilité de service.
+
+## Suite
+
+- [Projets et espace de travail](./projets-et-espace-de-travail.md)
+- [Connaissance et agents](./connaissance-et-agents.md)
+- [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
+- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)

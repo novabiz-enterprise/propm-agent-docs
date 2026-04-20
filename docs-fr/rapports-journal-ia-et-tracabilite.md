@@ -24,13 +24,14 @@ Cette page explique la différence entre **artefact**, **version d’artefact** 
 
 Le flux le plus courant est :
 
-1. un agent produit une **sortie structurée** ;
-2. selon le flux et les droits disponibles, cette sortie peut ensuite alimenter un **artefact** ou un **Document PM** ;
-3. l’utilisateur ouvre **Rapports & artefacts / Documents PM** lorsqu’un document gouverné existe ou doit être préparé ;
-4. il relit le contenu, consulte le **diff** et la **lignée** ;
-5. il approuve, publie, télécharge ou ajoute le document à la **Connaissance**.
+1. un chat d’agent lance un **run** ;
+2. ce run produit une **sortie structurée** ;
+3. selon le flux et les droits disponibles, cette sortie peut ensuite alimenter un **artefact** ou un **Document PM** ;
+4. l’utilisateur ouvre **Rapports & artefacts / Documents PM** lorsqu’un document gouverné existe ou doit être préparé ;
+5. il relit le contenu, consulte le **diff** et la **lignée** ;
+6. il décide d’**Approve**, **Publish**, **Download** ou **Add to knowledge**.
 
-Autrement dit, une réponse d’agent ne devient pas automatiquement un document final : la chaîne observée reste **sortie structurée → artefact / PM Doc → revue → décision aval**.
+Autrement dit, une réponse d’agent ne devient pas automatiquement un document final : la chaîne observée reste **run → structured output → artifact / PM Doc → revue → décision aval**.
 
 ## De l’agent au DOCX ou XLSX
 
@@ -120,6 +121,12 @@ La **lignée** relie entre eux :
 - le `structured output ID` ;
 - l’artefact et sa version ;
 - les publications et preuves liées.
+
+### Comment lire `context snapshot`
+
+Le **context snapshot** est la capture du contexte effectivement utilisé pendant le run : sources, contexte projet et état documentaire au moment de l’exécution.
+
+Il aide à répondre à la question : **« sur quelle base contextuelle cette sortie a-t-elle été produite ? »**
 
 ### Versioning
 
@@ -262,6 +269,12 @@ La distinction suivante est importante :
 - **fournisseur IA effectif** : fournisseur réellement utilisé pour ce run.
 
 Ces deux valeurs peuvent différer. En cas de doute, le **Journal IA** fait foi pour le run observé.
+
+### Lecture simple de `Effective AI Provider`
+
+`Effective AI Provider` répond à la question : **« quel fournisseur a réellement servi ce run précis ? »**
+
+Cette valeur est plus fiable pour l’enquête qu’une supposition basée uniquement sur la configuration admin, car la valeur runtime observée peut différer du fournisseur sélectionné au déploiement.
 
 ## Surface à ouvrir d’abord selon le symptôme
 

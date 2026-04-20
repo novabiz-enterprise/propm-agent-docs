@@ -1,31 +1,31 @@
 ---
-title: ज्ञान और एजेंट्स
+title: Connaissance et agents
 slug: /connaissance-et-agents
-description: परियोजना ज्ञान आधार को पोषण दें, एजेंट्स की सक्रियता को समझें और परिणामों का उपयोग दस्तावेज़ PM तक करें।
+description: Alimenter la base de connaissance projet, comprendre la proactivité des agents et exploiter les résultats jusqu’aux Documents PM.
 ---
 
-[होम](./index.md) · [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md) · [संरचित आउटपुट, साक्ष्य और ताजगी](./sorties-contextuelles-preuves-et-fraicheur.md)
+[Accueil](./index.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md) · [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
 
-![ज्ञान परियोजना](/img/screenshots/localized/hi/05-knowledge.png)
+![Connaissance projet](/img/screenshots/localized/fr/05-knowledge.png)
 
-## उद्देश्य
+## Objectif
 
-यह पृष्ठ बताता है कि दस्तावेज़ कैसे अपलोड या आयात करें, **Connaissance** में दिखाई देने वाले मेटाडेटा को पुनः पढ़ें, और फिर **Agents** में परियोजना संदर्भ का उपयोग करें।
+Cette page explique comment téléverser ou importer des documents, relire les métadonnées visibles dans **Connaissance**, puis utiliser le contexte projet dans **Agents**.
 
-## Connaissance : आप क्या कर सकते हैं
+## Connaissance : ce que vous pouvez faire
 
-देखी गई क्षमताएँ :
+Capacités observées :
 
-- परियोजना सामग्री में खोज ;
-- मैन्युअल अपलोड ;
-- डेटा ताज़ा करना ;
-- अनुमोदित स्रोतों से आयात ;
-- आयात इतिहास की समीक्षा ;
-- परिणामों का क्रमबद्धन, फ़िल्टरिंग और पेजिनेशन।
+- recherche dans les contenus projet ;
+- téléversement manuel ;
+- rafraîchissement des données ;
+- import depuis des sources approuvées ;
+- consultation de l’historique des imports ;
+- tri, filtrage et pagination des résultats.
 
-## समर्थित फ़ाइल प्रकार
+## Types de fichiers pris en charge
 
-इंटरफ़ेस में स्पष्ट रूप से स्वीकार किए गए फ़ाइल प्रकार निम्नलिखित हैं :
+Les types explicitement acceptés dans l’interface couvrent notamment :
 
 - **PDF** ;
 - **DOCX**, **ODT**, **RTF**, **TXT**, **Markdown** ;
@@ -34,218 +34,271 @@ description: परियोजना ज्ञान आधार को पो
 - **PPTX**, **ODP** ;
 - **HTML / HTM** ;
 - **EML**, **EPUB** ;
-- **PNG**, **JPG**, **JPEG**, **BMP**, **TIFF**, **HEIF**।
+- **PNG**, **JPG**, **JPEG**, **BMP**, **TIFF**, **HEIF**.
 
-## अनुमोदित स्रोतों से आयात
+## Import depuis des sources approuvées
 
-आयात तंत्र प्लेटफ़ॉर्म स्तर पर मान्य **ingestion providers** पर निर्भर करता है, फिर परियोजना के लिए उपलब्ध कराया जाता है।
+Le mécanisme d’import dépend des **fournisseurs d’ingestion** validés au niveau plateforme, puis rendus disponibles au projet.
 
-### आयात चयनकर्ता क्या दिखाता है
+### Ce que montre le sélecteur d’import
 
-स्रोत के अनुसार, इंटरफ़ेस निम्न दिखा सकता है :
+Selon la source, l’interface peut afficher :
 
-- स्रोत का नाम ;
-- एक **source label** पठनीय ;
-- अंतिम आयात की तारीख ;
-- ताज़गी या स्वास्थ्य स्थिति ;
-- अवरोध का स्पष्टीकरण जब स्रोत उपयोग योग्य नहीं हो।
+- le nom de la source ;
+- un **source label** lisible ;
+- la date du dernier import ;
+- un état de fraîcheur ou de santé ;
+- une explication de blocage quand la source n’est pas utilisable.
 
-### जब आयात अवरुद्ध हो
+### Quand un import est bloqué
 
-एक आयात विकल्प निम्न कारणों से अनुपलब्ध हो सकता है :
+Une option d’import peut être indisponible pour cause de :
 
 - entitlement ;
 - permission ;
 - policy ;
-- उपलब्धता स्थिति की जाँच करनी है ;
-- प्रोजेक्ट बाइंडिंग अनुपस्थित या तैयार नहीं।
+- état de disponibilité à vérifier ;
+- binding projet absent ou non prêt.
 
-## आयात इतिहास
+## Historique d’import
 
-आयात इतिहास कम से कम निम्न की जाँच करने देता है :
+L’historique d’import permet de vérifier au minimum :
 
-- प्रदाता का प्रदर्शित नाम ;
-- रन की स्थिति ;
-- आयात के बाद ताज़गी ;
-- `Trace ID` ;
-- खोजे, आयातित, अनदेखे या असफल के रूप में चिह्नित वॉल्यूम ;
-- समाप्ति तिथि जब उपलब्ध हो।
+- le nom affiché du fournisseur ;
+- le statut du run ;
+- la fraîcheur après import ;
+- le `Trace ID` ;
+- les volumes découverts, importés, ignorés ou signalés comme non aboutis ;
+- la date de fin quand elle est disponible.
 
-## दस्तावेज़ सूची और खोज
+## Lire la liste documentaire et la recherche
 
-### दृश्य दस्तावेज़ अवस्थाएँ
+### États documentaires visibles
 
-दस्तावेज़ तालिका कम से कम निम्न अवस्थाएँ दिखाती है :
+La table documentaire expose au moins les états suivants :
 
 - **Indexed** ;
 - **Ingesting** ;
 - **Failed**.
 
-एक दस्तावेज़ जो दृश्य है लेकिन अभी खोज योग्य नहीं है, अक्सर **Ingesting** चरण में होता है।
+Un document visible mais non encore retrouvable en recherche est souvent encore en phase **Ingesting**.
 
-### खोज परिणामों में दृश्य मेटाडेटा
+### Métadonnées visibles dans les résultats de recherche
 
-खोज परिणाम निम्न दिखा सकते हैं :
+Les résultats de recherche peuvent afficher :
 
-- शीर्षक ;
-- स्निपेट ;
-- स्कोर ;
-- अनुभाग ;
-- ताज़गी बैज ;
-- **source system** बैज ;
-- **Open source** लिंक ;
-- खोज का `Trace ID`.
+- titre ;
+- snippet ;
+- score ;
+- section ;
+- badge de fraîcheur ;
+- badge **source system** ;
+- lien **Open source** ;
+- `Trace ID` de la recherche.
 
-ये तत्व साक्ष्य की उत्पत्ति, गुणवत्ता और पुन: उपयोगिता का त्वरित आकलन करने में मदद करते हैं।
+Ces éléments aident à juger rapidement la provenance, la qualité et la réutilisabilité d’une preuve.
 
-![ज्ञान में खोज परिणाम](/img/screenshots/localized/hi/05-knowledge-search-results.png)
+![Résultats de recherche dans la connaissance](/img/screenshots/localized/fr/05-knowledge-search-results.png)
 
-![एजेंट्स दृश्य](/img/screenshots/localized/hi/04-agents.png)
+![Vue Agents](/img/screenshots/localized/fr/04-agents.png)
 
-## एजेंट्स : पृष्ठ का भूमिका
+## Agents : rôle de la page
 
-**Agents** पृष्ठ परियोजना संदर्भ को मार्गदर्शित वार्तालाप में उपयोग करता है।
+La page **Agents** exploite le contexte projet en conversation guidée.
 
-पुष्टि की गई कार्यक्षमताएँ :
+Fonctions confirmées :
 
-- उपलब्ध एजेंटों की सूची ;
-- चयनित एजेंट का सारांश कार्ड जिसमें **kind**, **scope**, **status** और कवर किए गए डोमेन ;
-- वार्तालाप क्षेत्र ;
-- संरचित आउटपुट और साक्ष्य ;
-- ब्राउज़र में सहेजी गई सत्र ;
-- अनुमतियों के अनुसार कस्टम एजेंट बनाना और हटाना ;
-- यदि वातावरण अभी भी समर्थन करता है तो **Agents** में वॉइस इनपुट।
+- liste des agents disponibles ;
+- carte récapitulative de l’agent sélectionné avec **kind**, **scope**, **status** et domaines couverts ;
+- zone de conversation ;
+- sorties structurées et éléments de preuve ;
+- sessions sauvegardées dans le navigateur ;
+- création et suppression d’agents personnalisés selon les droits ;
+- saisie vocale dans **Agents** si l’environnement la prend encore en charge.
 
-## ProPM एजेंट की सक्रियता
+## Proactivité de ProPM Agent
 
-ProPM एजेंट में सक्रियता का अर्थ यह नहीं है कि एक एजेंट परियोजना के बाहर अकेले कार्य करता है। अवलोकित व्यवहार अधिक नियंत्रित है : प्लेटफ़ॉर्म निगरानी योग्य स्थितियों का पता लगाता है, उन्हें **सिग्नल** के रूप में उठाता है, एक **digest** तैयार कर सकता है, एक **draft** या एक **governed action** प्रस्तावित कर सकता है, फिर उपयोगकर्ता या अनुमोदक को आगे बढ़ने का निर्णय लेने देता है।
+La proactivité dans ProPM Agent ne signifie pas qu’un agent agit seul à l’extérieur du projet. Le comportement observé est plus encadré : la plateforme détecte des situations à surveiller, les remonte en **signaux**, peut préparer un **digest**, proposer un **brouillon** ou une **action gouvernée**, puis laisse l’utilisateur ou l’approbateur décider de la suite.
 
-![सक्रियता, डाइजेस्ट और नियंत्रित क्रिया](/img/diagrams/hi/proactivite-et-gouvernance.svg)
+![Proactivité, digests et actions gouvernées](/img/diagrams/fr/proactivite-et-gouvernance.svg)
 
-### अवलोकित ट्रिगर
+### Déclencheurs observés
 
-सक्रियता निम्न से पोषित हो सकती है :
+La proactivité peut être alimentée par :
 
-- अपर्याप्त **ताज़गी** ;
-- साक्ष्यों के बीच **विरोधाभास** ;
-- एक **ऑपरेशनल ब्लॉक** ;
-- पोर्टफोलियो में दिखाई देने वाली **योजना दबाव** या **लागत** ;
-- **अपूर्ण निष्पादन** ;
-- एक श्रृंखला जिसे प्रसार, सत्यापन या पुनः आरंभ की आवश्यकता है।
+- une **fraîcheur** insuffisante ;
+- une **contradiction** entre preuves ;
+- un **blocage** opérationnel ;
+- une **pression planning** ou **coûts** visible dans le portefeuille ;
+- des **exécutions non abouties** ;
+- une suite à donner nécessitant diffusion, validation ou relance.
 
-### सक्रियता कब दृश्य होती है
+### Où la proactivité devient visible
 
-- **वर्कस्पेस** : सिग्नल फ़ाइल और पुनः समीक्षा के लिए आइटम ;
-- **शासन, निर्णय और क्रिया** : डाइजेस्ट, नोटिफिकेशन ड्राफ्ट, क्रिया अनुरोध ;
-- **पोर्टफोलियो कमांड सेंटर** : संकेतकों द्वारा परियोजनाओं की तुलना ;
-- **AI जर्नल** : निर्णय श्रृंखला की ट्रेसबिलिटी।
+- **Espace de travail** : file de signaux et éléments à revoir ;
+- **Gouvernance, décisions et actions** : digests, brouillons de notification, demandes d’action ;
+- **Centre de commande portefeuille** : comparaison des projets par indicateurs ;
+- **Journal IA** : traçabilité de la chaîne de décision.
 
-### सक्रियता अकेले क्या नहीं करती
+### Ce que la proactivité ne fait pas seule
 
-- यह भूमिकाओं को बाईपास नहीं करती ;
-- यह नीतियों को बाईपास नहीं करती ;
-- यह स्वचालित रूप से एप्लिकेशन के बाहर प्रकाशित नहीं करती जब तक कि नियंत्रित मार्ग न हो ;
-- यह साक्ष्य, ताज़गी और दृश्य स्थिति के माध्यम से व्याख्यायोग्य रहती है।
+- elle ne contourne pas les rôles ;
+- elle ne contourne pas les politiques ;
+- elle ne publie pas automatiquement hors de l’application sans chemin gouverné ;
+- elle reste explicable par preuves, fraîcheur et statuts visibles.
 
-## एक एजेंट को जल्दी चुनना
+## Comment choisir un agent rapidement
 
-जब कई कार्ड दृश्य हों, उन्हें इस क्रम में पढ़ें :
+Quand plusieurs cartes sont visibles, lisez-les dans cet ordre :
 
-| फ़ील्ड | प्राथमिकता से क्या देखें | उपयोगी प्रवृत्ति |
+| Champ | Ce qu’il faut regarder en priorité | Réflexe utile |
 | --- | --- | --- |
-| `kind` | एजेंट का प्रकार या व्यापार विशेषीकरण | उस एजेंट से शुरू करें जिसका भूमिका सीधे अपेक्षित कार्य से मेल खाती हो |
-| `scope` | एजेंट की दृश्यता सीमा | जाँचें कि एजेंट वर्तमान परियोजना तक सीमित है या व्यापक रूप से दृश्य है |
-| `status` | एजेंट की व्यावहारिक उपलब्धता | यदि स्थिति भरोसेमंद नहीं लगती, एक मानक एजेंट पर जाएँ इससे पहले कि आप बढ़ाएँ |
-| कवर किए गए डोमेन | कार्ड पर घोषित विषय | उन्हें उपयोग करें ताकि योजना अनुरोध को शासन या दस्तावेज़-उन्मुख एजेंट को सौंपने से बचें |
+| `kind` | type d’agent ou spécialisation métier | commencez par l’agent dont le rôle correspond directement à la tâche attendue |
+| `scope` | portée de visibilité de l’agent | vérifiez si l’agent est limité au projet courant ou visible plus largement |
+| `status` | disponibilité pratique de l’agent | si le statut n’inspire pas confiance, passez à un agent standard avant d’escalader |
+| domaines couverts | sujets annoncés sur la carte | utilisez-les pour éviter de confier une demande planning à un agent orienté gouvernance ou documents |
 
-व्यवहार में, पहले एक **मानक एजेंट** चुनें यदि आप एक परिचित सामान्य पथ खोज रहे हैं। जब टीम को निर्देश, टोन या अधिक विशेष कार्य परिधि की आवश्यकता हो, तो एक **कस्टम एजेंट** पर जाएँ।
+En pratique, choisissez d’abord un **agent standard** si vous cherchez un parcours nominal bien connu. Passez à un **agent personnalisé** quand l’équipe a besoin d’instructions, d’un ton ou d’un périmètre de travail plus spécialisé.
 
-## एजेंट्स के साथ काम करना
+## Comment travailler avec les agents
 
-1. **सक्रिय परियोजना की जाँच करें** ;
-2. **उपयुक्त एजेंट चुनें** ;
-3. एक उपयोगी अनुरोध तैयार करें जिसमें उद्देश्य, परिधि और अपेक्षित प्रारूप हो ;
-4. किसी भी पुन: उपयोग से पहले **संरचित आउटपुट** को पुनः पढ़ें।
+1. **vérifiez le projet actif** ;
+2. **choisissez l’agent adapté** ;
+3. formulez une demande exploitable avec objectif, périmètre et format attendu ;
+4. relisez la **sortie structurée** avant toute réutilisation.
 
-इंटरफ़ेस एजेंट रॉस्टर में खोज करने की भी अनुमति देता है ताकि सही विशेषज्ञ तक जल्दी पहुँच सकें।
+L’interface permet aussi de rechercher dans le roster d’agents pour atteindre plus vite le bon spécialiste.
 
-## एजेंट्स से दस्तावेज़ PM, DOCX और XLSX तक
+### Parcours débutant recommandé
 
-एजेंट्स सीधे अंतिम फ़ाइल पर नहीं कूदते। अवलोकित प्रवाह अधिक क्रमिक है :
+Pour une première utilisation sans ambiguïté :
 
-1. एक एजेंट एक **संरचित आउटपुट** उत्पन्न करता है ;
-2. यह आउटपुट एक **artefact** या एक **Document PM** को पोषण दे सकता है ;
-3. कथात्मक सामग्री आम तौर पर एक **DOCX** रेंडर की ओर जाती है ;
-4. तालिकात्मक या मैट्रिक्स सामग्री आम तौर पर एक **XLSX** रेंडर की ओर जाती है ;
-5. पुनः समीक्षा, अनुमोदन, डाउनलोड और प्रकाशन फिर [रिपोर्ट्स, AI जर्नल और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md) में होते हैं।
+1. posez une question simple dans **Agents** ;
+2. lisez d’abord la synthèse de la **sortie structurée** ;
+3. vérifiez ensuite les preuves, la fraîcheur et la confiance si la réponse doit être réutilisée ;
+4. n’ouvrez **Rapports & artefacts** que si vous souhaitez transformer ce résultat en document gouverné, révisable ou publiable.
 
-## सत्र और स्थानीय स्मृति
+## All projects : sens exact dans Agents
 
-चैट इतिहास ब्राउज़र में स्थानीय है। व्यवहार में :
+Quand l’interface de création d’agent personnalisé expose `All projects`, cela signifie :
 
-- निरंतरता वर्तमान **परियोजना + एजेंट** जोड़े से जुड़ी होती है ;
-- एक सत्र स्थानीय रूप से उपयोग किए गए डिवाइस पर संग्रहीत होता है ;
-- ब्राउज़र या मशीन बदलने से एक सहेजा हुआ धागा गायब हो सकता है ;
-- पहला प्रॉम्प्ट आम तौर पर सत्र शीर्षक के रूप में कार्य करता है, जिससे पुनः आरंभ आसान होता है ;
-- ब्राउज़र को एक साझा केंद्रीय संग्रह के रूप में न मानें।
+- l’agent est créé depuis le projet courant ;
+- il peut être **visible dans tous les projets accessibles par le même compte** ;
+- il suit votre compte d’un projet à l’autre ;
+- il ne crée pas un espace de données multi-projets fusionné ;
+- il ne remplace pas le **projet actif** au moment du run.
 
-## कस्टम एजेंट्स
+Autrement dit, même un agent `All projects` s’exécute encore dans le **projet actif** au moment où vous lancez le chat.
 
-कस्टम एजेंट बनाने की क्षमता अधिकार स्तर पर निर्भर करती है। मुख्य बिंदु :
+## Des agents vers les Documents PM, DOCX et XLSX
 
-- सभी उपयोगकर्ता कस्टम एजेंट नहीं बना सकते ;
-- निर्माण संवाद सक्रिय परियोजना संदर्भ को सहेजने से पहले याद दिलाता है ;
-- दृश्य फ़ील्ड कम से कम **Name**, **Role / instructions** और **Scope** को कवर करते हैं ;
-- डिफ़ॉल्ट रूप से **Project only** चुनें, जब तक कि वातावरण स्पष्ट रूप से व्यापक स्कोप न दिखाए ;
-- यदि **All projects** विकल्प उपलब्ध है, तो एजेंट वर्तमान परियोजना से बनाया जाता है लेकिन उसी खाते के अन्य परियोजनाओं में भी दृश्य रह सकता है ;
-- यदि एक मल्टी-परियोजना एजेंट कहीं और दिखाई नहीं देता, तो पहले उसी खाते और लक्षित परियोजना पहुँच की जाँच करें ;
-- कस्टम एजेंट हटाना नियंत्रित रहता है ;
-- एक कस्टम एजेंट परियोजना और प्लेटफ़ॉर्म नियमों के अधीन रहता है।
+Les agents ne sautent pas directement vers un fichier final diffusé. Le flux observé est plus progressif :
 
-### त्वरित चयन उदाहरण
+1. le chat courant reste d’abord **local au navigateur** ;
+2. l’envoi du message lance un **run** dans le projet actif ;
+3. le run produit une **structured output / sortie structurée** ;
+4. selon le flux et les droits, cette sortie peut exposer des liens de **lineage**, un **artifact** ou un **PM Doc** ;
+5. la revue se poursuit ensuite dans **Rapports & artefacts / Documents PM** ;
+6. le document relu peut enfin être **Add to knowledge**, **Download** ou **Publish** selon la gouvernance.
 
-| आवश्यकता | अनुशंसित चयन |
+### Ce que signifie `structured output`
+
+Une **structured output** est la sortie structurée produite par le run d’agent. Elle peut porter :
+
+- une synthèse ;
+- des sections ;
+- des preuves / citations ;
+- des informations de fraîcheur et de confiance ;
+- des identifiants de traçabilité.
+
+Ce n’est pas encore, à elle seule, un document final publié.
+
+### Ce que signifie `lineage`
+
+La **lineage / lignée** relie entre eux :
+
+- le **run** ;
+- le **structured output ID** ;
+- le **context snapshot ID** ;
+- l’**artifact** et sa version ;
+- le **PM Doc** si un document gouverné existe.
+
+Cette lignée aide à comprendre d’où vient un livrable et quel contexte a été utilisé.
+
+## Sessions et mémoire locale
+
+L’historique de chat est local au navigateur. En pratique :
+
+- la continuité sauvegardée est rattachée au couple **projet + agent** dans le navigateur courant ;
+- une session est mémorisée localement sur le poste utilisé ;
+- changer de navigateur, de profil, de machine ou vider le stockage local peut faire disparaître un fil sauvegardé ;
+- le premier prompt sert généralement de titre de session, ce qui facilite la reprise ;
+- il ne faut pas traiter le navigateur comme une archive centrale partagée.
+
+### Local navigateur vs plateforme partagée
+
+Gardez cette distinction simple :
+
+- la **continuité de chat** et le **projet mémorisé** sont des commodités locales au navigateur ;
+- les **documents**, **imports**, **artefacts**, **approbations** et **publications** relèvent de la plateforme partagée.
+
+## Agents personnalisés
+
+La création d’agents personnalisés dépend du niveau de droit. Les points à retenir sont :
+
+- tous les utilisateurs ne peuvent pas créer un agent ;
+- le dialogue de création rappelle le **contexte projet** actif avant l’enregistrement ;
+- les champs visibles couvrent au minimum **Name**, **Role / instructions** et **Scope** ;
+- choisissez **Project only** par défaut, sauf si l’environnement expose explicitement un scope plus large ;
+- si l’option **All projects** est disponible, l’agent est créé depuis le projet courant mais peut rester visible dans d’autres projets pour le même compte ;
+- si un agent multi-projets n’apparaît pas ailleurs, vérifiez d’abord le même compte et l’accès au projet cible ;
+- la suppression d’un agent personnalisé reste contrôlée ;
+- un agent personnalisé reste gouverné par les règles du projet et de la plateforme.
+
+### Exemple rapide de choix
+
+| Besoin | Choix recommandé |
 | --- | --- |
-| सामान्य उपयोग, बड़ी टीम, पूर्वानुमेय व्यवहार | मानक एजेंट |
-| विशिष्ट निर्देश, टीम टोन, विशेष वर्कफ़्लो | कस्टम एजेंट |
-| केवल एक परियोजना संदर्भ में सीमित उपयोग | **Project only** |
-| वही एजेंट एक ही खाते की कई परियोजनाओं में पुन: उपयोग योग्य | **All projects** यदि विकल्प वास्तव में प्रदर्शित हो |
+| usage nominal, équipe large, comportement prévisible | agent standard |
+| consignes spécifiques, ton d’équipe, workflow spécialisé | agent personnalisé |
+| usage limité à un seul contexte projet | **Project only** |
+| même agent réutilisable dans plusieurs projets du même compte | **All projects** si l’option est réellement exposée |
 
-![कस्टम एजेंट बनाना](/img/screenshots/localized/hi/04-custom-agent-create.png)
+![Création d’un agent personnalisé](/img/screenshots/localized/fr/04-custom-agent-create.png)
 
-## एजेंट्स में वॉइस इनपुट
+## Saisie vocale dans Agents
 
-यह दस्तावेज़ अब **वर्कस्पेस** में अलग वॉइस प्रवेश बिंदु प्रस्तुत नहीं करता। जब वॉइस इनपुट अभी भी कुछ वातावरणों में उपलब्ध है, यह **Agents** में सीमित है और ब्राउज़र की वॉइस रिकग्निशन API समर्थन पर निर्भर है।
+Cette documentation ne décrit plus de point d’entrée **voix** séparé dans l’**Espace de travail**. Lorsqu’une saisie vocale reste disponible, elle est limitée à l’expérience **Agents** et dépend explicitement de la prise en charge navigateur des API de reconnaissance vocale. Son absence n’empêche pas le parcours nominal, qui reste la saisie texte.
 
-यदि वॉइस इनपुट उपलब्ध नहीं है :
+Si la saisie vocale n’est pas disponible :
 
-- टेक्स्ट इनपुट का उपयोग करें ;
-- ब्राउज़र माइक्रोफ़ोन अनुमतियों की जाँच करें ;
-- ब्राउज़र सीमा और स्थानीय पर्यावरण बाधा में अंतर करें ;
-- हमेशा जोड़ें गए टेक्स्ट को **Send** से पहले पुनः पढ़ें ;
-- यदि माइक्रो बटन अनुपलब्ध है या असंगतता संदेश दिखाई देता है, तुरंत टेक्स्ट इनपुट पर जाएँ।
+- utilisez la saisie texte ;
+- vérifiez les permissions micro du navigateur ;
+- distinguez une limitation du navigateur d’une contrainte locale de l’environnement ;
+- relisez toujours le texte ajouté dans le composeur avant **Send** ;
+- si le bouton micro est indisponible ou si un message d’incompatibilité apparaît, passez immédiatement à la saisie texte.
 
-### वॉइस इनपुट के लिए व्यावहारिक संकेत
+### Repères pratiques pour la saisie vocale
 
-| लक्षण | पहले जाँचें | उपयोगी प्रवृत्ति |
+| Symptôme | Vérifier d’abord | Réflexe utile |
 | --- | --- | --- |
-| माइक्रो बटन अनुपस्थित या निष्क्रिय | `SpeechRecognition` / `webkitSpeechRecognition` समर्थन | तुरंत टेक्स्ट इनपुट पर स्विच करें |
-| माइक्रो अनुमोदन अस्वीकृत | ब्राउज़र या OS माइक्रो अनुमतियाँ | माइक्रो को पुनः अधिकृत करें और सुनना पुनः आरम्भ करें |
-| अधूरी प्रतिलिपि | कंपोज़र में जोड़ा गया टेक्स्ट | पुनः पढ़ें, सुधारें और **Send** से पहले पूरा करें |
-| सुनने के दौरान एकल त्रुटि | ब्राउज़र या वर्तमान सत्र स्थिति | कैप्चर रोकें, कीबोर्ड पर लौटें, फिर बाद में पुनः प्रयास करें |
+| Bouton micro absent ou inactif | prise en charge `SpeechRecognition` / `webkitSpeechRecognition` | basculez immédiatement vers la saisie texte |
+| Autorisation micro refusée | permission micro du navigateur ou de l’OS | réautorisez le micro puis relancez l’écoute |
+| Transcription incomplète | texte ajouté dans le composeur | relisez, corrigez et complétez avant **Send** |
+| Erreur ponctuelle pendant l’écoute | état navigateur ou session courante | arrêtez la capture, reprenez au clavier, puis réessayez plus tard |
 
-टेक्स्ट इनपुट हमेशा प्राथमिक बैकअप मार्ग है। यह स्थानीय ब्राउज़र बाधा के कारण रन को रोके बिना कार्य जारी रखने की अनुमति देता है।
+La saisie texte reste le chemin nominal de secours. Elle permet de poursuivre le travail sans interrompre le run à cause d’une contrainte de navigateur local.
 
-## सर्वोत्तम प्रथाएँ
+## Bonnes pratiques
 
-- विश्लेषण से पहले **Connaissance** में विश्वसनीय और नवीन स्रोत लोड करें ;
-- जब कोई प्रबंधित स्रोत अनुपस्थित प्रतीत हो, आयात इतिहास पुनः पढ़ें ;
-- यदि निर्णय को न्यायसंगत बनाना है, तो स्पष्ट रूप से **साक्ष्य** या **उद्धरण** माँगें ;
-- यदि किसी उत्तर में `stale`, `conflicting` या `unavailable` अवस्थाएँ हैं, तो प्रकाशन से पहले [संरचित आउटपुट, साक्ष्य और ताजगी](./sorties-contextuelles-preuves-et-fraicheur.md) पृष्ठ खोलें।
+- chargez des sources fiables et récentes dans la **Connaissance** avant une analyse importante ;
+- relisez l’historique d’import quand une source gérée semble absente ;
+- demandez explicitement des **preuves** ou des **citations** si la décision doit être justifiée ;
+- si une réponse contient des états `stale`, `conflicting` ou `unavailable`, ouvrez la page [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md) avant publication.
 
-## आगे
+## Suite
 
-- [संरचित आउटपुट, साक्ष्य और ताजगी](./sorties-contextuelles-preuves-et-fraicheur.md)
-- [शासन, निर्णय और क्रिया](./gouvernance-decisions-et-actions.md)
-- [रिपोर्ट्स, AI जर्नल और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md)
-- [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md)
+- [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
+- [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md)
+- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
+- [Maintenance, support et FAQ](./maintenance-support-faq.md)

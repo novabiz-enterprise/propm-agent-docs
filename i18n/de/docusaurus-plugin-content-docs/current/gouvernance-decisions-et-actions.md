@@ -1,529 +1,557 @@
 ---
-title: Governance, Entscheidungen und Aktionen
+title: Gouvernance, décisions et actions
 slug: /gouvernance-decisions-et-actions
-description: "Verstehen Sie die Signale, konfigurieren Sie Governance-Richtlinien und nutzen Sie Actions & approbations Schritt für Schritt mit anfängerfreundlichen Beispielen."
+description: Comprendre les signaux, configurer les politiques de gouvernance et utiliser Actions & approbations pas à pas avec des exemples débutant-friendly.
 ---
 
-[Startseite](./index.md) · [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md) · [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md)
+[Accueil](./index.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
 
-![Proactivité, digests et actions gouvernées](/img/diagrams/de/proactivite-et-gouvernance.svg)
+![Proactivité, digests et actions gouvernées](/img/diagrams/fr/proactivite-et-gouvernance.svg)
 
-## Ziel
+## Objectif
 
-Diese Seite erklärt auf einfache Weise, wie ProPM Agent vorgeht:
+Cette page explique, de manière simple, comment ProPM Agent passe :
 
-1. ein **Signal** wird erkannt;
-2. eine **Entscheidung** wird getroffen;
-3. dann eine **gouvernierte Aktion**;
-4. ggf. einer **Genehmigung** unterzogen;
-5. bevor sie **ausgeführt** und **verfolgt** wird.
+1. d’un **signal** détecté ;
+2. à une **décision** ;
+3. puis à une **action gouvernée** ;
+4. éventuellement soumise à **approbation** ;
+5. avant d’être **exécutée** et **tracée**.
 
-Das Ziel ist, dass ein Anfänger klar versteht:
+Le but est qu’un utilisateur débutant comprenne clairement :
 
-- was eine **Governance-Richtlinie** ist;
-- was **`allow`**, **`require_approval`** und **`deny`** bedeuten;
-- was **`observe`**, **`draft`**, **`propose`** und **`execute`** bedeuten;
-- wie man **Actions & approbations** Schritt für Schritt nutzt;
-- warum eine Aktion sichtbar, aber blockiert sein kann.
+- ce qu’est une **politique de gouvernance** ;
+- ce que signifient **`allow`**, **`require_approval`** et **`deny`** ;
+- ce que signifient **`observe`**, **`draft`**, **`propose`** et **`execute`** ;
+- comment utiliser **Actions & approbations** pas à pas ;
+- pourquoi une action peut être visible mais bloquée.
 
-## Sehr einfacher Überblick des Flusses
+## Vue très simple du flux
 
-Im ProPM Agent ist der übliche Weg:
+Dans ProPM Agent, le chemin normal est le suivant :
 
-1. ein **Signal** zieht die Aufmerksamkeit auf sich;
-2. das Team liest es erneut;
-3. die **Governance** entscheidet, was jede Rolle tun darf;
-4. wenn ein externer Output nötig ist, wird eine **Aktion** erstellt;
-5. wenn das Projekt es verlangt, geht die Aktion in die **Genehmigung**;
-6. die Aktion wird dann **ausgeführt** oder **abgelehnt**;
-7. die Spur bleibt im **Aktivitätsbereich** und im **Journal IA** sichtbar.
+1. un **signal** attire l’attention ;
+2. l’équipe le relit ;
+3. la **gouvernance** décide ce que chaque rôle a le droit de faire ;
+4. si une sortie externe est nécessaire, une **action** est créée ;
+5. si le projet l’exige, l’action passe en **approbation** ;
+6. l’action est ensuite **exécutée** ou **rejetée** ;
+7. la trace reste visible dans l’**activité** et le **Journal IA**.
 
-## Teil 1 — Signale verstehen
+## Partie 1 — Comprendre les signaux
 
-Ein **Signal** ist eine strukturierte Warnung, die sagt: **„Dieses Thema verdient Aufmerksamkeit“**.
+Un **signal** est une alerte structurée qui dit : **« ce sujet mérite d’être regardé »**.
 
-### Signalbeispiele
+### Exemples de signaux
 
-Ein Signal kann auftreten:
+Un signal peut remonter :
 
-- bei **Mangel an Frische** der Quellen;
-- bei einer **Widersprüchlichkeit** mehrerer Beweise;
-- bei einem **Projektblocker**;
-- bei einer Folge, die eine **Benachrichtigung**, eine **Entscheidung** oder eine **externe Aktion** verdient.
+- une **fraîcheur** des sources insuffisante ;
+- une **contradiction** entre plusieurs preuves ;
+- un **blocage** projet ;
+- une suite à donner qui mérite une **notification**, une **décision** ou une **action externe**.
 
-### Was der Benutzer typischerweise auf einer Signalkarte sieht
+### Ce que l’utilisateur voit généralement sur une carte de signal
 
-Eine Signalkarte kann anzeigen:
+Une carte de signal peut afficher :
 
-- einen **Titel**;
-- eine **Zusammenfassung**;
-- eine **Erklärung**;
-- eine **Schwere**;
-- einen **Status**;
-- einen **Modus**;
-- eine Anzahl von **Beweisen** oder erneuten Auslösungen;
-- Aktionen wie **Create draft**, **Snooze 24h** oder **Dismiss** je nach Rolle.
+- un **titre** ;
+- un **résumé** ;
+- une **explication** ;
+- une **sévérité** ;
+- un **statut** ;
+- un **mode** ;
+- un nombre de **preuves** ou de redéclenchements ;
+- des actions comme **Create draft**, **Snooze 24h** ou **Dismiss** selon le rôle.
 
-### Empfohlener Schritt-für-Schritt-Ansatz zur Signalbearbeitung
+### Pas à pas conseillé pour traiter un signal
 
-Wenn Sie ein Signal öffnen, halten Sie sich an diese Reihenfolge:
+Quand vous ouvrez un signal, gardez cet ordre :
 
-1. lesen Sie die **Zusammenfassung**;
-2. lesen Sie anschließend die **Erklärung**;
-3. prüfen Sie die **Beweise** und die **Frische**;
-4. entscheiden Sie, ob das Thema nur **Beobachtung**, einen **Entwurf** oder eine echte **Aktion** erfordert;
-5. wenn ein externer Output nötig wird, gehen Sie zu **Actions & approbations**.
+1. lisez le **résumé** ;
+2. relisez ensuite l’**explication** ;
+3. vérifiez les **preuves** et la **fraîcheur** ;
+4. décidez si le sujet demande seulement une surveillance, un brouillon ou une action réelle ;
+5. si une sortie externe devient nécessaire, passez à **Actions & approbations**.
 
-### Nützliche Signalstatus
+### Statuts utiles d’un signal
 
-| Status | Was es bedeutet |
+| Statut | Ce que cela veut dire |
 | --- | --- |
-| `open` | Das Thema bleibt aktiv und erfordert weitere Aufmerksamkeit |
-| `snoozed` | Das Thema wird vorübergehend pausiert |
-| `dismissed` | Das Thema wird aus der aktiven Warteschlange entfernt |
-| `resolved` | Das Thema gilt als bearbeitet |
+| `open` | le sujet reste actif et demande encore de l’attention |
+| `snoozed` | le sujet est mis en pause temporairement |
+| `dismissed` | le sujet est retiré de la file active |
+| `resolved` | le sujet est considéré comme traité |
 
-### Nützliche Signalmodi
+### Modes utiles d’un signal
 
-| Modus | Einfache Interpretation |
+| Mode | Lecture simple |
 | --- | --- |
-| `inform` | Das Signal informiert, ohne sofortige Aktion zu verlangen |
-| `suggest` | Das Signal schlägt einen nächsten Schritt vor |
-| `draft` | Das Signal ist bereits auf einen Entwurf oder eine Vorbereitung ausgerichtet |
-| `request_approval` | Das Signal ruft eine geregelte Überprüfung oder Genehmigung an |
+| `inform` | le signal informe, sans exiger d’action immédiate |
+| `suggest` | le signal suggère une prochaine étape |
+| `draft` | le signal est déjà orienté vers un brouillon ou une préparation |
+| `request_approval` | le signal appelle une revue gouvernée ou une approbation |
 
-## Teil 2 — Governance-Richtlinien
+## Partie 2 — Politiques de gouvernance
 
-## Was ist eine Governance-Richtlinie?
+## Qu’est-ce qu’une politique de gouvernance ?
 
-Eine **Governance-Richtlinie** ist eine Regel, die die Frage beantwortet:
+Une **politique de gouvernance** est une règle qui répond à la question :
 
-**„Wer darf was tun, auf welchem Connector, und mit welchem Kontrollniveau?“**
+**« Qui a le droit de faire quoi, sur quel connecteur, et avec quel niveau de contrôle ? »**
 
-Anders ausgedrückt verhindert Governance, dass eine externe Aktion ohne klaren Rahmen ausgeht.
+Autrement dit, la gouvernance empêche qu’une action externe parte sans cadre clair.
 
-### Was eine Richtlinie entscheidet
+### Ce qu’une politique décide
 
-Eine Richtlinie beantwortet im Allgemeinen vier Fragen:
+Une politique répond en général à quatre questions :
 
-1. **Wer?** – welche Rolle ist betroffen;
-2. **Was?** – welcher Connector, welche Art von Aktion oder welches Ziel ist betroffen;
-3. **Wie weit?** – einfache Beobachtung, Entwurf, Vorschlag oder Ausführung;
-4. **Mit welchem Effekt?** – erlaubt, erlaubt mit Genehmigung oder verweigert.
+1. **Qui ?** — quel rôle est concerné ;
+2. **Sur quoi ?** — quel connecteur, quel type d’action ou quelle destination est concerné ;
+3. **Jusqu’où ?** — simple observation, brouillon, proposition ou exécution ;
+4. **Avec quel effet ?** — autorisé, autorisé avec approbation, ou refusé.
 
-### Sehr einfaches Beispiel
+### Exemple très simple
 
-Eine Richtlinie könnte bedeuten:
+Une politique peut vouloir dire :
 
-- der **Contributor** kann einen Teams-Entwurf vorbereiten;
-- der **Projektleiter** kann eine SharePoint-Veröffentlichung vorschlagen;
-- der **Projektbesitzer** muss vor der Ausführung genehmigen;
-- niemand sonst darf diese Veröffentlichung direkt ausführen.
+- le **Contributeur** peut préparer un brouillon Teams ;
+- le **Chef de projet** peut proposer une publication SharePoint ;
+- le **Propriétaire du projet** doit approuver avant exécution ;
+- personne d’autre ne peut exécuter directement cette publication.
 
-## Die Ebenen verstehen: `observe`, `draft`, `propose`, `execute`
+## Comprendre les niveaux : `observe`, `draft`, `propose`, `execute`
 
-Die **Ebene** beschreibt, wie weit eine Rolle im Fluss gehen kann.
+Le **niveau** décrit jusqu’où un rôle peut aller dans le flux.
 
-| Ebene | Was der Benutzer tun kann | Was er noch nicht tun kann | Einfaches Beispiel |
+| Niveau | Ce que l’utilisateur peut faire | Ce qu’il ne peut pas encore faire | Exemple simple |
 | --- | --- | --- | --- |
-| `observe` | Informationen sehen, Thema verfolgen, Warteschlange prüfen | Aktion oder Entwurf erstellen | Ein Leser verfolgt Signale, ohne einen Output vorzubereiten |
-| `draft` | Einen Entwurf, Text oder eine Aktionsabsicht vorbereiten | Die Aktion offiziell in die Warteschlange einreichen | Ein Contributor bereitet eine Teams-Nachricht vor, reicht sie aber nicht vor |
-| `propose` | Eine echte Aktionsanfrage in die geregelte Warteschlange einreichen | Direkt ausführen | Ein Projektleiter schlägt ein Jira-Ticket vor |
-| `execute` | Die reale Ausführung starten, wenn andere Bedingungen erfüllt sind | Die Richtlinie oder Genehmigungen umgehen | Ein Projektbesitzer veröffentlicht ein Artefakt zu SharePoint |
+| `observe` | voir l’information, suivre le sujet, consulter la file | créer une action ou un brouillon | un lecteur suit les signaux sans préparer de sortie |
+| `draft` | préparer un brouillon, un texte, une intention d’action | soumettre officiellement l’action à la file | un contributeur prépare un message Teams mais ne le propose pas |
+| `propose` | soumettre une vraie demande d’action dans la file gouvernée | exécuter directement l’action | un chef de projet propose un ticket Jira |
+| `execute` | lancer l’exécution réelle si les autres conditions sont remplies | contourner la politique ou les approbations imposées | un propriétaire de projet publie un artefact vers SharePoint |
 
-### Sehr einfache Interpretation
+### Lecture très simple
 
-- **`observe`** = ich schaue zu;
-- **`draft`** = ich bereite vor;
-- **`propose`** = ich fordere offiziell an;
-- **`execute`** = ich starte tatsächlich.
+- **`observe`** = je regarde ;
+- **`draft`** = je prépare ;
+- **`propose`** = je demande officiellement ;
+- **`execute`** = je lance réellement.
 
-## Die Effekte verstehen: `allow`, `require_approval`, `deny`
+## Comprendre les effets : `allow`, `require_approval`, `deny`
 
-Der **Effekt** beschreibt, was die Plattform tut, wenn eine Rolle diese Ebene erreicht.
+L’**effet** décrit ce que la plateforme fait quand un rôle atteint ce niveau.
 
-| Effekt | Was es bedeutet | Praktische Konsequenz |
+| Effet | Ce que cela veut dire | Conséquence pratique |
 | --- | --- | --- |
-| `allow` | Die Aktion ist auf dieser Ebene erlaubt | Der Fluss kann ohne zusätzliche Genehmigungsschritte fortschreiten, wenn der Rest bereit ist |
-| `require_approval` | Die Aktion ist möglich, muss aber genehmigt werden | Der Genehmigungs-Queue wird obligatorisch vor der Ausführung |
-| `deny` | Die Aktion ist für diese Rolle oder diesen Bereich verboten | Der Benutzer kann in diesem Fluss nicht weitergehen |
+| `allow` | l’action est autorisée à ce niveau | le flux peut avancer sans étape d’approbation supplémentaire, si le reste est prêt |
+| `require_approval` | l’action est possible, mais doit être approuvée | la file d’approbation devient obligatoire avant exécution |
+| `deny` | l’action est interdite pour ce rôle ou ce périmètre | l’utilisateur ne peut pas aller plus loin sur ce flux |
 
-### Sehr einfache Interpretation
+### Lecture très simple
 
-- **`allow`** = ja;
-- **`require_approval`** = ja, aber nach menschlicher Validierung;
-- **`deny`** = nein.
+- **`allow`** = oui ;
+- **`require_approval`** = oui, mais après validation humaine ;
+- **`deny`** = non.
 
-## Wie man eine Richtlinienzeile liest
+## Comment lire une ligne de politique
 
-Nehmen wir diese Lesung:
+Prenons cette lecture :
 
-- **Rolle**: Projektleiter
-- **Connector**: SharePoint publish
-- **Ebene**: `execute`
-- **Effekt**: `require_approval`
+- **Rôle** : Chef de projet
+- **Connecteur** : SharePoint publish
+- **Niveau** : `execute`
+- **Effet** : `require_approval`
 
-Das bedeutet:
+Cela veut dire :
 
-- Der Projektleiter kann bis zur Ausführungsanfrage gehen;
-- Die Veröffentlichung geht jedoch nicht sofort los;
-- Eine Genehmigung ist vor der realen Ausführung nötig.
+- le Chef de projet peut aller jusqu’à la demande d’exécution ;
+- mais la publication ne part pas immédiatement ;
+- une approbation est nécessaire avant l’exécution réelle.
 
-## Konkrete Richtlinienbeispiele
+## Exemples concrets de politiques
 
-| Geschäftsszenario | Rolle | Empfohlene Ebene | Empfohlener Effekt | Warum |
+| Cas métier | Rôle | Niveau recommandé | Effet recommandé | Pourquoi |
 | --- | --- | --- | --- | --- |
-| Veröffentlichung eines Protokolls zu SharePoint | Projektleiter | `execute` | `require_approval` | Der Output ist extern und muss noch einmal gelesen werden |
-| Erstellung eines Jira-Tickets aus einem Blocker | Projektleiter | `propose` | `allow` oder `require_approval` | Das Projekt kann ein Ticket anfordern, ohne es automatisch zu öffnen |
-| Interne Teams-Nachricht mit geringem Risiko | Contributor | `execute` oder `propose` | `allow` | Schnelle Kommunikation mit geringem Einfluss |
-| Outlook-E-Mail an Sponsoren | Contributor | `propose` | `require_approval` | Sensiblere und formellere Kommunikation |
-| Webhook zu einem Drittanbieter-Tool | Projektbesitzer | `execute` | `require_approval` | Technischer Output, der sehr kontrolliert bleiben soll |
-| Connector nicht bereit oder nicht autorisiert | alle außer Admin | `observe` oder kein Gebrauch | `deny` | Wir vermeiden einen versehentlichen Start |
+| publication d’un compte rendu vers SharePoint | Chef de projet | `execute` | `require_approval` | la sortie est externe et doit être relue |
+| création d’un ticket Jira depuis un blocage | Chef de projet | `propose` | `allow` ou `require_approval` | le projet peut demander un ticket sans forcément l’ouvrir automatiquement |
+| message Teams interne de faible risque | Contributeur | `execute` ou `propose` | `allow` | communication rapide à faible impact |
+| e-mail Outlook à des sponsors | Contributeur | `propose` | `require_approval` | communication plus sensible et plus formelle |
+| webhook vers un outil tiers | Propriétaire du projet | `execute` | `require_approval` | sortie technique à garder très contrôlée |
+| connecteur non prêt ou non autorisé | tous sauf admin | `observe` ou aucun usage | `deny` | on évite tout départ accidentel |
 
-## Schritt-für-Schritt zur Konfiguration einer Governance-Richtlinie
+## Pas à pas pour configurer une politique de gouvernance
 
-Folgen Sie dieser einfachen Reihenfolge.
+Suivez cet ordre simple.
 
-### Schritt 1 — Öffnen der richtigen Oberfläche
+### Étape 1 — Ouvrir la bonne surface
 
-Öffnen Sie im **Workspace** des Projekts **Politiques de gouvernance**.
+Depuis l’**Espace de travail** du projet, ouvrez **Politiques de gouvernance**.
 
-### Schritt 2 — Wählen Sie den zu kontrollierenden Fluss
+### Étape 2 — Choisir le flux à contrôler
 
-Fragen Sie sich zuerst:
+Demandez-vous d’abord :
 
-- Handelt es sich um eine **Veröffentlichung**;
-- um ein **Ticket**;
-- um eine **Nachricht**;
-- um einen **Webhook**;
-- um eine andere externe Aktion?
+- s’agit-il d’une **publication** ;
+- d’un **ticket** ;
+- d’un **message** ;
+- d’un **webhook** ;
+- d’une autre action externe ?
 
-### Schritt 3 — Wählen Sie die betroffene Rolle
+### Étape 3 — Choisir le rôle concerné
 
-Definieren Sie dann, welche Rolle handeln darf:
+Définissez ensuite quel rôle peut agir :
 
-- **Contributor**;
-- **Projektleiter**;
-- **Projektbesitzer**;
-- oder eine andere Rolle in Ihrer Konfiguration.
+- **Contributeur** ;
+- **Chef de projet** ;
+- **Propriétaire du projet** ;
+- ou autre rôle présent dans votre configuration.
 
-### Schritt 4 — Wählen Sie die Aktionsstufe
+### Étape 4 — Choisir le niveau d’action
 
-Entscheiden Sie, ob diese Rolle nur:
+Décidez si ce rôle doit seulement :
 
-- beobachten;
-- einen Entwurf vorbereiten;
-- vorschlagen;
-- oder ausführen soll.
+- observer ;
+- préparer un brouillon ;
+- proposer ;
+- ou exécuter.
 
-### Schritt 5 — Wählen Sie den Effekt
+### Étape 5 — Choisir l’effet
 
-Entscheiden Sie, ob diese Ebene:
+Décidez si ce niveau doit être :
 
-- direkt erlaubt (`allow`);
-- mit Genehmigung erlaubt (`require_approval`);
-- oder verweigert (`deny`) sein soll.
+- autorisé directement (`allow`) ;
+- autorisé avec approbation (`require_approval`) ;
+- ou refusé (`deny`).
 
-### Schritt 6 — Prüfen Sie den betroffenen Connector oder das Ziel
+### Étape 6 — Vérifier le connecteur ou la destination concernée
 
-Eine gute Richtlinie reicht nicht aus, wenn der Connector:
+Une bonne politique ne suffit pas si le connecteur :
 
-- technisch nicht bereit ist;
-- dem Projekt nicht offensteht;
-- oder das richtige Ziel für Artefakte nicht hat.
+- n’est pas prêt techniquement ;
+- n’est pas ouvert au projet ;
+- ou n’a pas la bonne destination d’artefact.
 
-### Schritt 7 — Testen mit einer Nicht-Administrator-Rolle
+### Étape 7 — Tester avec un rôle non administrateur
 
-Die beste Kontrolle ist praktisch:
+Le meilleur contrôle est pratique :
 
-1. melden Sie sich mit einer realistischen Geschäftsrolle an;
-2. öffnen Sie **Actions & approbations**;
-3. prüfen Sie, was sichtbar, erlaubt oder blockiert ist;
-4. passen Sie die Richtlinie an, wenn das Verhalten nicht das erwartete ist.
+1. connectez-vous avec un rôle métier réaliste ;
+2. ouvrez **Actions & approbations** ;
+3. vérifiez ce qui est visible, autorisé ou bloqué ;
+4. ajustez la politique si le comportement n’est pas celui attendu.
 
-![Politiques de gouvernance du projet](/img/screenshots/localized/de/14-governance-policies.png)
+![Politiques de gouvernance du projet](/img/screenshots/localized/fr/14-governance-policies.png)
 
-## Einfache Regeln für eine gute Governance-Konfiguration
+## Règles simples pour bien configurer la gouvernance
 
-- Verwenden Sie **`allow`** auf **`execute`** nur für Flüsse mit geringem Risiko;
-- Verwenden Sie **`require_approval`** sobald ein Inhalt das Projekt verlässt oder ein externes System verändert;
-- Verwenden Sie **`deny`**, wenn der Connector nicht bereit, nicht autorisiert oder zu sensibel ist;
-- Halten Sie die Regeln konsistent mit den tatsächlich zugewiesenen Rollen;
-- Testen Sie immer einen realen Fall, bevor Sie die Richtlinie als fertig betrachten.
+- utilisez **`allow`** sur **`execute`** seulement pour les flux faibles en risque ;
+- utilisez **`require_approval`** dès qu’un contenu sort du projet ou modifie un système externe ;
+- utilisez **`deny`** quand le connecteur n’est pas prêt, pas autorisé ou trop sensible ;
+- gardez les règles cohérentes avec les rôles réellement attribués ;
+- testez toujours un cas réel avant de considérer la politique comme prête.
 
-## Häufige Fehler zu vermeiden
+## Erreurs fréquentes à éviter
 
-| Fehler | Richtige Interpretation |
+| Erreur | Bonne lecture |
 | --- | --- |
-| „Ich sehe den Connector, also kann ich ihn benutzen“ | falsch: Sichtbarkeit garantiert weder Berechtigung noch technische Gesundheit |
-| „`propose` bedeutet, dass die Aktion ausgeht“ | falsch: `propose` bedeutet, dass der Antrag in die geregelte Warteschlange eintritt |
-| „`execute` bedeutet ohne Kontrolle“ | falsch: `execute` kann noch mit `require_approval` kombiniert werden |
-| „`deny` bedeutet Ausfall“ | falsch: `deny` ist oft eine normale Governance-Entscheidung |
+| « Je vois le connecteur, donc je peux l’utiliser » | faux : la visibilité ne garantit pas l’autorisation ni la santé technique |
+| « `propose` veut dire que l’action part » | faux : `propose` veut dire que la demande entre dans la file gouvernée |
+| « `execute` veut dire sans contrôle » | faux : `execute` peut encore être combiné avec `require_approval` |
+| « `deny` veut dire panne » | faux : `deny` est souvent une décision de gouvernance normale |
 
-## Teil 3 — Actions & approbations
+## Partie 3 — Actions & approbations
 
-Der Bildschirm **Actions & approbations** dient dazu, eine Absicht in eine echte **gouvernierte Aktion** umzuwandeln.
+L’écran **Actions & approbations** sert à transformer une intention en **action gouvernée réelle**.
 
-## Was der Benutzer auf diesem Bildschirm sieht
+### Quand tout est correctement prêt, que devrait-on voir ?
 
-Ein Benutzer findet typischerweise:
+Dans un cas nominal, l’utilisateur autorisé retrouve en général :
 
-- ein Formular **Proposer une action gouvernée**;
-- die Auswahl des **Aktionstyps**;
-- die Auswahl des **Connector-Exekutionsoption** oder der **Ausführungsoption**;
-- eine Zusammenfassung der **Readiness**, die anzeigt, was verfügbar oder blockiert ist;
-- Felder wie **Titel**, **Rationale**, **Ziel**, **Nachricht**, **Ticketbeschreibung**;
-- einen **Genehmigungs- und Ausführungs-Queue** mit bereits eingereichten Anfragen.
+- au moins un **type d’action** pertinent ;
+- une **option d’exécution compatible et saine** ;
+- un **binding projet** réellement actif ;
+- une **policy** qui autorise la proposition ou route vers l’approbation ;
+- une file où les demandes passent ensuite en **pending approval**, **approved**, **executed** ou **rejected** selon le cas.
 
-## Schritt-für-Schritt – eine gouvernierte Aktion erstellen
+Si un de ces maillons manque, l’écran peut paraître vide, incomplet ou purement informatif sans qu’il s’agisse forcément d’une panne.
 
-### Schritt 1 – Öffnen des Bildschirms
+## Ce que l’utilisateur voit dans cet écran
 
-Im **Workspace** öffnen Sie **Actions & approbations**.
+Un utilisateur y retrouve généralement :
 
-### Schritt 2 – Wählen Sie den Aktionstyp
+- un formulaire **Proposer une action gouvernée** ;
+- le choix du **type d’action** ;
+- le choix du **connecteur d’exécution** ou de l’**option d’exécution** ;
+- un résumé de **readiness** indiquant ce qui est disponible ou bloqué ;
+- des champs comme **titre**, **rationale**, **destination**, **message**, **ticket description** ;
+- une **file d’approbation et d’exécution** avec les demandes déjà soumises.
 
-Wählen Sie zunächst die geschäftliche Absicht. Die sichtbaren Aktionstypen umfassen unter anderem:
+## Pas à pas — créer une action gouvernée
 
-- **Publish artifact to SharePoint**;
-- **Send Teams message**;
-- **Send Outlook message**;
-- **Create Jira ticket**;
-- **Create Azure DevOps ticket**;
-- **Webhook** je nach Tenant-Konfiguration.
+### Étape 1 — Ouvrir l’écran
 
-### Schritt 3 – Prüfen Sie die kompatible Ausführungsoption
+Dans l’**Espace de travail**, ouvrez **Actions & approbations**.
 
-Die Oberfläche sucht dann nach **kompatiblen Ausführungsoptionen**.
+### Étape 2 — Choisir le type d’action
 
-Wählen Sie eine Option:
+Sélectionnez d’abord l’intention métier. Les types d’action visibles incluent notamment :
 
-- **gesund**;
-- **genehmigt**;
-- tatsächlich für Ihr Projekt geöffnet.
+- **Publish artifact to SharePoint** ;
+- **Send Teams message** ;
+- **Send Outlook message** ;
+- **Create Jira ticket** ;
+- **Create Azure DevOps ticket** ;
+- **Webhook** selon la configuration du tenant.
 
-Wenn keine gesunde Option erscheint, prüft die Validierung oft:
+### Étape 3 — Vérifier l’option d’exécution compatible
 
-- den Connector selbst;
-- seinen Gesundheitszustand;
-- das Projekt-Binding;
-- die Richtlinie;
-- oder Ihre Berechtigung.
+L’interface recherche ensuite les **options d’exécution compatibles**.
 
-### Schritt 4 – Lesen Sie die Readiness
+Choisissez une option :
 
-Der Bereich **Execution readiness** dient dazu, zu prüfen, ob Sie nur eine theoretische Aktion vorbereiten.
+- **saine** ;
+- **autorisée** ;
+- réellement ouverte à votre projet.
 
-In der Praxis:
+Si aucune option saine n’apparaît, la vérification porte souvent sur :
 
-- **available / healthy** = Option nutzbar;
-- **blocked by health** = Connector prüfen auf Plattformseite;
-- **blocked by entitlement** = Fähigkeit nicht im Plan enthalten oder nicht geöffnet;
-- **blocked by policy** = restriktive Projekt-Governance;
-- **blocked by permission** = Ihre Rolle reicht nicht aus.
+- du connecteur lui-même ;
+- de son état de santé ;
+- du binding projet ;
+- de la politique ;
+- ou de votre permission.
 
-### Schritt 5 – Füllen Sie Titel und Begründung aus
+### Étape 4 — Lire la readiness
 
-Geben Sie anschließend ein:
+La zone **Execution readiness** sert à vérifier que vous n’êtes pas en train de préparer une action théorique seulement.
 
-- einen **klaren Titel**;
-- eine **kurze, aber nützliche Begründung**;
-- die spezifischen Felder für den gewählten Aktionstyp.
+En pratique :
 
-Die Begründung muss zwei Fragen beantworten:
+- **available / healthy** = option exploitable ;
+- **blocked by health** = connecteur à vérifier côté plateforme ;
+- **blocked by policy** = le cadre de gouvernance bloque encore le passage ;
+- **blocked by entitlement** = le plan ou la capacité autorisée ne couvre pas ce flux ;
+- aucune option visible = connecteur compatible absent, binding projet manquant ou option non ouverte à votre rôle.
 
-1. **Warum ist diese Aktion notwendig?**
-2. **Auf welchen Beweisen oder Entscheidungen basiert sie?**
+### Lecture pédagogique d’un écran qui semble vide
 
-### Schritt 6 – Füllen Sie die geschäftlichen Felder aus
+Si `Actions & approbations` ne propose rien d’exécutable, commencez par cette table très simple :
 
-Die Felder ändern sich je nach Aktionstyp.
+| Ce que vous voyez | Raison dominante possible | Réflexe utile |
+| --- | --- | --- |
+| aucun connecteur sélectionnable | aucun connecteur compatible et sain n’est prêt | vérifier **Intégrations du projet** puis **Administration de la plateforme** |
+| action visible mais bouton bloqué | permission, policy ou approbation requise | contrôler le rôle puis la gouvernance |
+| file visible mais rien ne part | la demande reste en attente d’approbation ou d’exécution aval | relire le statut réel de la file |
+| connecteur présent mais inutilisable | binding projet, health ou entitlement insuffisant | vérifier la chaîne complète plateforme → projet → policy |
 
-| Aktionstyp | Häufig erwartete Felder |
+Rappelez-vous enfin qu’un statut **approved** ne veut pas dire **executed** : l’accord existe, mais l’exécution réelle peut encore rester en attente.
+- **blocked by entitlement** = capacité non incluse dans le plan ou non ouverte ;
+- **blocked by policy** = gouvernance du projet restrictive ;
+- **blocked by permission** = votre rôle ne suffit pas.
+
+### Étape 5 — Renseigner le titre et la justification
+
+Complétez ensuite :
+
+- un **titre clair** ;
+- une **justification** courte mais utile ;
+- les champs spécifiques au type d’action choisi.
+
+La justification doit répondre à deux questions :
+
+1. **Pourquoi cette action est-elle nécessaire ?**
+2. **Sur quelles preuves ou décisions s’appuie-t-elle ?**
+
+### Étape 6 — Compléter les champs métier
+
+Les champs changent selon le type d’action.
+
+| Type d’action | Champs fréquemment attendus |
 | --- | --- |
-| Publication SharePoint | Titel, Begründung, `artifact ID`, Ziel, Renderprofil, Format |
-| Teams-Nachricht | Titel, Begründung, Nachrichtentext |
-| Outlook-Nachricht | Titel, Begründung, Empfänger, Betreff, Nachrichtentext |
-| Jira-Ticket | Titel, Begründung, Ticketbeschreibung, ggf. Projekt-/Board-Schlüssel |
-| Azure DevOps Ticket | Titel, Begründung, Beschreibung, Tickettyp je nach Connector |
-| Webhook | Titel, Begründung und Daten für das Zielsystem |
+| Publication SharePoint | titre, justification, `artifact ID`, destination, profil de rendu, format |
+| Message Teams | titre, justification, corps du message |
+| Message Outlook | titre, justification, destinataires, objet, corps du message |
+| Ticket Jira | titre, justification, description du ticket, éventuellement clé projet / board |
+| Ticket Azure DevOps | titre, justification, description, type de ticket selon le connecteur |
+| Webhook | titre, justification et données utiles au système cible |
 
-### Schritt 7 – Vorschlagen der Aktion
+### Étape 7 — Proposer l’action
 
-Sobald die Felder ausgefüllt sind, reichen Sie die Anfrage ein.
+Une fois les champs remplis, soumettez la demande.
 
-An diesem Punkt ist die Aktion noch nicht unbedingt ausgeführt. Sie kann zuerst in die **Genehmigungs-Queue** einsteigen.
+À ce stade, l’action n’est pas forcément déjà partie. Elle peut d’abord entrer dans la **file d’approbation**.
 
-### Schritt 8 – Überprüfung durch den Genehmiger
+### Étape 8 — Revue par l’approbateur
 
-Wenn die Richtlinie `require_approval` verlangt, muss ein Genehmiger prüfen:
+Si la politique impose `require_approval`, un approbateur doit relire :
 
-- den Titel;
-- die Begründung;
-- den verwendeten Connector;
-- das Nutzlast- oder geschäftliche Detail;
-- das eventuell verknüpfte Artefakt oder den Entwurf.
+- le titre ;
+- la justification ;
+- le connecteur utilisé ;
+- la charge utile ou le détail métier ;
+- l’éventuel artefact ou brouillon lié.
 
-### Schritt 9 – Genehmigung, Ablehnung oder Ausführung
+### Étape 9 — Approbation, rejet ou exécution
 
-Je nach Richtlinie und Rolle des Genehmigers kann die Anfrage:
+Selon la politique et le rôle de l’approbateur, la demande peut être :
 
-- **genehmigt**;
-- **abgelehnt**;
-- dann **ausgeführt** werden, wenn alles bereit ist.
+- **approuvée** ;
+- **rejetée** ;
+- puis **exécutée** si tout est prêt.
 
-### Schritt 10 – Prüfen der endgültigen Spur
+### Étape 10 — Vérifier la trace finale
 
-Nach Ausführung prüfen Sie:
+Après exécution, vérifiez :
 
-- die Aktionswarteschlange;
-- die Projektaktivität;
-- die **Trace ID**, falls angezeigt;
-- das **Journal IA**, falls der Fluss dort reflektiert wird;
-- das Vorhandensein des Artefakts, Tickets oder der Nachricht im Zieltool.
+- la file d’actions ;
+- l’activité projet ;
+- le **Trace ID** s’il est affiché ;
+- le **Journal IA** si le flux s’y reflète ;
+- la présence de l’artefact, du ticket ou du message côté outil cible.
 
-## Wie man die Aktionsstatus liest
+## Comment lire les statuts d’action
 
-| Status | Was es bedeutet |
+| Statut | Ce que cela veut dire |
 | --- | --- |
-| `draft` | Die Anfrage ist noch vorbereitend |
-| `pending approval` | Genehmigung wird vor echter Fortsetzung erwartet |
-| `approved` | Die Anfrage wurde akzeptiert |
-| `executed` | Die Aktion wurde tatsächlich gestartet |
-| `rejected` | Die Anfrage wurde abgelehnt |
-| `failed` | Die Aktion wurde gestartet, aber nicht korrekt abgeschlossen |
-| `cancelled` | Die Anfrage wurde abgebrochen |
+| `draft` | la demande est encore préparatoire |
+| `pending approval` | l’approbation est attendue avant suite réelle |
+| `approved` | la demande a été acceptée |
+| `executed` | l’action a réellement été lancée |
+| `rejected` | la demande a été refusée |
+| `failed` | l’action a été lancée mais n’a pas abouti correctement |
+| `cancelled` | la demande a été annulée |
 
-## Schritt-für-Schritt-Beispiel – Veröffentlichung eines Artefakts zu SharePoint
-
-### Situation
-
-Das Team hat ein **wöchentliches Briefing** gelesen und möchte es in SharePoint veröffentlichen.
-
-### Ablauf
-
-1. öffnen Sie **Actions & approbations**;
-2. wählen Sie **Publish artifact to SharePoint**;
-3. wählen Sie eine gesunde **SharePoint publish**-Option;
-4. geben Sie den **Titel** der Aktion ein;
-5. fügen Sie eine **Begründung** hinzu, z. B.: „Version geprüft und für wöchentliche Verbreitung freigegeben“;
-6. geben Sie die **artifact ID** ein;
-7. wählen Sie das **SharePoint-Ziel**;
-8. wählen Sie das **Renderprofil** oder das **Format**, falls verlangt;
-9. schlagen Sie die Aktion vor;
-10. falls die Richtlinie es verlangt, warten Sie auf Genehmigung;
-11. führen Sie aus;
-12. prüfen Sie, dass das Artefakt tatsächlich in SharePoint veröffentlicht und in ProPM Agent verfolgt wird.
-
-## Schritt-für-Schritt-Beispiel – ein Jira-Ticket erstellen
+## Exemple pas à pas — publication d’un artefact vers SharePoint
 
 ### Situation
 
-Ein Signal meldet einen wiederkehrenden Blocker mit Planungsimpact.
+L’équipe a relu un **brief hebdomadaire** et veut le publier dans SharePoint.
 
-### Ablauf
+### Parcours
 
-1. öffnen Sie **Actions & approbations**;
-2. wählen Sie **Create Jira ticket**;
-3. wählen Sie einen verfügbaren Jira-Connector;
-4. geben Sie einen klaren Titel ein, z. B.: „Lieferantenblocker bei kritischem Los“;
-5. ergänzen Sie die **Ticketbeschreibung**;
-6. fügen Sie die **Begründung** und nützliche Beweise hinzu;
-7. schlagen Sie die Anfrage vor;
-8. lassen Sie den Genehmiger prüfen, falls die Richtlinie `require_approval` verlangt;
-9. führen Sie aus;
-10. prüfen Sie anschließend die externe Referenz oder das erstellte Ticket.
+1. ouvrir **Actions & approbations** ;
+2. choisir **Publish artifact to SharePoint** ;
+3. sélectionner une option **SharePoint publish** saine ;
+4. renseigner le **titre** de l’action ;
+5. ajouter une **justification**, par exemple : « version relue et approuvée pour diffusion hebdomadaire » ;
+6. renseigner l’**artifact ID** ;
+7. choisir la **destination SharePoint** ;
+8. choisir le **profil de rendu** ou le **format** si demandé ;
+9. proposer l’action ;
+10. si la politique l’exige, attendre l’approbation ;
+11. exécuter ;
+12. contrôler que l’artefact est bien publié côté SharePoint et tracé dans ProPM Agent.
 
-## Schritt-für-Schritt-Beispiel – Teams- oder Outlook-Nachricht senden
-
-### Situation
-
-Das Projekt muss eine interne Gruppe oder einen Sponsor über eine abgeschlossene Überprüfung informieren.
-
-### Teams-Ablauf
-
-1. wählen Sie **Send Teams message**;
-2. wählen Sie den autorisierten Teams-Connector;
-3. verfassen Sie eine kurze und verständliche Nachricht;
-4. fügen Sie die Begründung hinzu, falls der Fluss geregelt ist;
-5. schlagen Sie vor, lassen Sie ggf. genehmigen, dann ausführen.
-
-### Outlook-Ablauf
-
-1. wählen Sie **Send Outlook message**;
-2. wählen Sie den Outlook-Connector;
-3. geben Sie die **Empfänger** ein;
-4. ergänzen Sie **Betreff** und **Nachrichtentext**;
-5. schlagen Sie vor, lassen Sie ggf. genehmigen, dann ausführen.
-
-### Praktischer Unterschied
-
-- **Teams** eignet sich gut für kollaborative interne Kommunikation;
-- **Outlook** eignet sich besser für formellere und gezieltere Kommunikation.
-
-## Schritt-für-Schritt-Beispiel – Webhook zu einem Drittanbieter
+## Exemple pas à pas — créer un ticket Jira
 
 ### Situation
 
-Das Unternehmen möchte einen internen Fluss zu einem eigenen Tool auslösen.
+Un signal remonte un blocage récurrent avec impact planning.
 
-### Ablauf
+### Parcours
 
-1. wählen Sie den Aktionstyp oder den mit dem **Webhook** verbundenen Fluss;
-2. wählen Sie die kompatible Webhook-Ausführungsoption;
-3. geben Sie Titel und Begründung ein;
-4. ergänzen Sie die Daten für das Zielsystem;
-5. schlagen Sie die Anfrage vor;
-6. lassen Sie genehmigen, falls die Richtlinie es verlangt;
-7. führen Sie aus;
-8. prüfen Sie das Ergebnis im Zielsystem und im ProPM Agent Audit.
+1. ouvrir **Actions & approbations** ;
+2. choisir **Create Jira ticket** ;
+3. sélectionner un connecteur Jira disponible ;
+4. saisir un titre clair, par exemple : « Bloquage fournisseur sur lot critique » ;
+5. compléter la **description** du ticket ;
+6. ajouter la **justification** et les preuves utiles ;
+7. proposer la demande ;
+8. laisser l’approbateur relire si la politique impose `require_approval` ;
+9. exécuter ;
+10. vérifier ensuite la référence externe ou le ticket créé.
 
-## Warum eine Aktion sichtbar, aber nicht ausführbar sein kann
+## Exemple pas à pas — envoyer un message Teams ou Outlook
 
-Eine Aktion kann in der Oberfläche sichtbar sein, aber blockiert bleiben, wenn:
+### Situation
 
-- der kompatible Connector nicht gesund ist;
-- das Projekt nicht das richtige Binding hat;
-- die Projekt-Richtlinie dieses Aktionsniveau verbietet;
-- Ihre Rolle nicht erlaubt, vorzuschlagen oder auszuführen;
-- eine Genehmigung noch aussteht;
-- die Berechtigung oder die Plankapazität den Fluss blockiert.
+Le projet doit informer un groupe interne ou un sponsor d’une revue terminée.
 
-## Was tun, wenn keine Ausführungsoption angezeigt wird
+### Parcours Teams
 
-Folgen Sie dieser Reihenfolge:
+1. choisir **Send Teams message** ;
+2. sélectionner le connecteur Teams autorisé ;
+3. rédiger un message court et compréhensible ;
+4. ajouter la justification si le flux est gouverné ;
+5. proposer, faire approuver si besoin, puis exécuter.
 
-1. prüfen Sie zuerst **Politiques de gouvernance**;
-2. prüfen Sie dann **Intégrations du projet**;
-3. öffnen Sie anschließend **Administration de la plateforme**;
-4. prüfen Sie schließlich **entitlement**, **permission** und den Gesundheitszustand des Connectors.
+### Parcours Outlook
 
-## Vollständiges Szenario – vom Signal zur ausgeführten Aktion
+1. choisir **Send Outlook message** ;
+2. sélectionner le connecteur Outlook ;
+3. renseigner les **destinataires** ;
+4. compléter l’**objet** et le **corps** du message ;
+5. proposer, faire approuver si besoin, puis exécuter.
 
-### Einfaches Beispiel
+### Différence pratique
 
-1. ein `open`-Signal meldet einen Blocker;
-2. das Team liest Zusammenfassung, Erklärung und Beweise;
-3. es entscheidet, dass ein Jira-Ticket nötig ist;
-4. die Richtlinie erlaubt dem **Projektleiter** zu `propose`, verlangt aber `require_approval`;
-5. der Projektleiter erstellt die Anfrage in **Actions & approbations**;
-6. der **Projektbesitzer** genehmigt;
-7. die Aktion wird zu **executed**;
-8. das externe Ticket und die interne Spur bleiben ausgerichtet.
+- **Teams** convient bien à une communication collaborative interne ;
+- **Outlook** convient mieux à une communication plus formelle et plus ciblée.
 
-Dieses Szenario fasst die Produktlogik gut zusammen: **sehen, entscheiden, kontrollieren, ausführen, verfolgen**.
+## Exemple pas à pas — webhook vers un outil tiers
 
-## Best Practices
+### Situation
 
-- verwechseln Sie niemals **Entwurf** und **tatsächliche Ausführung**;
-- nutzen Sie Richtlinien, um sensible Ausgaben zu begrenzen;
-- fordern Sie eine Genehmigung an, sobald ein Inhalt das Projekt verlässt oder ein externes System verändert;
-- prüfen Sie immer die Beweise, bevor Sie eine Aktion vorschlagen;
-- nutzen Sie das **Journal IA** und die Aktionswarteschlange als gemeinsame Auditquelle.
+L’entreprise veut déclencher un flux interne vers un outil maison.
 
-## Weiter
+### Parcours
 
-- [Connectoren und Integrationen](./connecteurs-jira-et-sharepoint)
-- [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md)
-- [Portfolio und technische Administration](./portefeuille-et-administration-technique.md)
-- [Wartung, Support und FAQ](./maintenance-support-faq.md)
+1. choisir le type d’action ou le flux lié au **Webhook** ;
+2. sélectionner l’option d’exécution webhook compatible ;
+3. renseigner le titre et la justification ;
+4. compléter les données utiles au système cible ;
+5. proposer la demande ;
+6. faire approuver si la politique l’exige ;
+7. exécuter ;
+8. contrôler le résultat côté système cible et côté audit ProPM Agent.
+
+## Pourquoi une action peut être visible mais non exécutable
+
+Une action peut être visible dans l’interface mais rester bloquée si :
+
+- le connecteur compatible n’est pas sain ;
+- le projet ne dispose pas du bon binding ;
+- la politique du projet interdit ce niveau d’action ;
+- votre rôle ne permet pas de proposer ou d’exécuter ;
+- une approbation est encore en attente ;
+- l’entitlement ou la capacité du plan bloque le flux.
+
+## Que faire si aucune option d’exécution n’apparaît
+
+Suivez cet ordre :
+
+1. vérifiez d’abord **Politiques de gouvernance** ;
+2. vérifiez ensuite **Intégrations du projet** ;
+3. ouvrez ensuite **Administration de la plateforme** ;
+4. contrôlez enfin l’**entitlement**, la **permission** et l’état de santé du connecteur.
+
+## Scénario complet — du signal à l’action exécutée
+
+### Cas simple
+
+1. un signal `open` remonte un blocage ;
+2. l’équipe relit le résumé, l’explication et les preuves ;
+3. elle décide qu’un ticket Jira est nécessaire ;
+4. la politique autorise le **Chef de projet** à `propose` mais impose `require_approval` ;
+5. le Chef de projet crée la demande dans **Actions & approbations** ;
+6. le **Propriétaire du projet** approuve ;
+7. l’action passe à **executed** ;
+8. le ticket externe et la trace interne restent alignés.
+
+Ce scénario résume bien la logique du produit : **voir, décider, contrôler, exécuter, tracer**.
+
+## Bonnes pratiques
+
+- ne confondez jamais **brouillon** et **exécution réelle** ;
+- utilisez les politiques pour limiter les sorties sensibles ;
+- demandez une approbation dès qu’un contenu quitte le projet ou modifie un système externe ;
+- vérifiez toujours les preuves avant de proposer une action ;
+- utilisez le **Journal IA** et la file d’actions comme référence commune d’audit.
+
+## Suite
+
+- [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
+- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
+- [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
+- [Maintenance, support et FAQ](./maintenance-support-faq.md)
