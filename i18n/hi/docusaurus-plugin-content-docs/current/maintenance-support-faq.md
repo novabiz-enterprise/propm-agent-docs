@@ -1,289 +1,319 @@
 ---
-title: Maintenance, support et FAQ
+title: रखरखाव, समर्थन और अक्सर पूछे जाने वाले प्रश्न
 slug: /maintenance-support-faq
-description: Repères d’exploitation, vérifications utiles et réponses aux questions fréquentes.
+description: ऑपरेशन के संदर्भ, उपयोगी जाँच और अक्सर पूछे जाने वाले प्रश्नों के उत्तर।
 ---
 
-[Accueil](./index.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) · [Glossaire](./glossaire.md)
+[मुखपृष्ठ](./index.md) · [रिपोर्ट, AI लॉग और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md) · [शब्दकोश](./glossaire.md)
 
-## Surfaces utiles pour l’exploitation
+## ऑपरेशन के लिए उपयोगी स्क्रीनें
 
-Les points d’observation suivants sont confirmés dans l’application :
+एप्लिकेशन में निम्न अवलोकन बिंदु स्पष्ट रूप से दिखाई देते हैं:
 
-- **notifications** dans la barre supérieure ;
-- **indicateur de santé** dans la barre supérieure ;
-- **signaux** dans l’espace de travail projet ;
-- **Journal IA** pour les runs et l’activité ;
-- **Audit / activity** dans l’administration de plateforme.
+- शीर्ष पट्टी में **notifications**;
+- शीर्ष पट्टी में **Health indicator**;
+- project **Workspace** में **signals**;
+- runs और activity देखने के लिए **AI Log**;
+- **Platform administration** में **Audit / activity**।
 
-## Procédure de vérification rapide
+## त्वरित सत्यापन प्रक्रिया
 
-1. vérifiez que le bon **projet** est actif ;
-2. distinguez **état vide**, **lecture seule**, **accès refusé** ou **message affiché** ;
-3. ouvrez le **Journal IA** si le sujet concerne un agent, un résultat ou un artefact ;
-4. conservez le **Trace ID** et, si visible, le `Context snapshot ID` ou le `Structured output ID` ;
-5. vérifiez droits, intégrations, entitlements et sièges si l’accès ou l’exécution est bloqué.
+1. पहले पुष्टि करें कि सही **project** active है;
+2. यह स्पष्ट करें कि मामला **empty state**, **read-only**, **access denied** या किसी दिखाई देने वाले संदेश से जुड़ा है;
+3. यदि विषय agent, result या artifact से जुड़ा है, तो **AI Log** खोलें;
+4. **Trace ID** सुरक्षित रखें और यदि दिखे तो `Context snapshot ID` या `Structured output ID` भी नोट करें;
+5. यदि access या execution रुका हुआ है, तो permissions, integrations, entitlements और seats जाँचें।
 
-## Repères rapides par situation
+## स्थिति के अनुसार त्वरित संदर्भ
 
-| Situation observée | Surface de premier niveau | Étape suivante |
+| देखी गई स्थिति | पहले देखने योग्य स्क्रीन | अगला चरण |
 | --- | --- | --- |
-| Connexion ou retour Microsoft anormal | [Démarrage](./demarrage.md) | vérifier Entra, tenant, `redirectUri` et sièges |
-| Aucun projet visible après connexion | **Projets** / sélecteur de projet | **Contrôle d’accès** ou ajout du compte au projet |
-| Réponse agent, artefact ou publication douteuse | **Journal IA** → `Runs` | **Activity**, puis **Rapports & artefacts** |
-| Import ou recherche incohérente | **Connaissance** et historique d’import | **Intégrations du projet**, puis **Administration de la plateforme** |
-| Action externe visible mais bloquée | **Actions & approbations** | **Intégrations du projet**, puis **Administration de la plateforme** |
+| Microsoft sign-in या वापसी असामान्य है | [प्रारम्भ](./demarrage.md) | Entra, tenant, `redirectUri` और seats जाँचें |
+| sign-in के बाद कोई project नहीं दिखता | **Projects** / project selector | access control जाँचें या account को project में जोड़ें |
+| agent response, artifact या publication संदिग्ध है | **AI Log** -> `Runs` | **Activity**, फिर **Reports & artifacts** |
+| import या search असंगत है | **Knowledge** और import history | **Project integrations**, फिर **Platform administration** |
+| external action दिख रही है लेकिन रुकी हुई है | **Actions & approvals** | **Project integrations**, फिर **Platform administration** |
 
-## Fiches de vérification rapide
+## त्वरित जाँच सूचियाँ
 
-### Accès à confirmer
+### पुष्टि करने योग्य access
 
-Vérifiez l’URL, le tenant, le compte invité si usage guest, la `redirectUri` réellement configurée et la disponibilité d’un siège si le plan en consomme un.
+URL, tenant, `guest` access की स्थिति में guest account, वास्तव में configured `redirectUri`, और जहाँ plan seat की माँग करता हो वहाँ seat availability जाँचें।
 
-### Page visible mais non modifiable
+### पृष्ठ दिखता है लेकिन edit नहीं होता
 
-Vous êtes probablement en **lecture seule**. Vérifiez votre rôle avant de conclure à une restriction de permission.
+संभावना है कि आप **read-only** mode में हों। इसे तुरंत permission issue मानने से पहले अपना role जाँचें।
 
-### Document visible mais non searchable
+### दस्तावेज़ दिखता है लेकिन search में नहीं मिलता
 
-Commencez par vérifier le statut du document (`Indexed`, `Ingesting`, `Failed`), l’historique d’import, le rafraîchissement de la page et le `Trace ID` de recherche si un appel a échoué.
+पहले document status (`Indexed`, `Ingesting`, `Failed`), import history, page refresh और failed call होने पर search `Trace ID` जाँचें।
 
-### Import depuis une source grisé ou absent
+### धुंधले या अनुपलब्ध source से import
 
-Les vérifications les plus utiles sont : fournisseur non validé, binding projet absent, entitlement bloquant, permission insuffisante ou état health à confirmer.
+सबसे उपयोगी जाँचें हैं: unvalidated provider, missing project binding, blocking entitlement, अपर्याप्त permission या ऐसा health status जिसे पहले confirm करना हो।
 
-### Action visible mais non exécutable
+### action दिखती है लेकिन execute नहीं होती
 
-Vérifiez le connecteur compatible, le binding projet, l’approbation requise, le rôle utilisateur et la politique applicable.
+compatible connector, project binding, required approval, user role और लागू policy जाँचें।
 
-### Voix indisponible
+### voice उपलब्ध नहीं
 
-La voix dépend du navigateur. Essayez un autre navigateur, vérifiez les permissions micro et utilisez la saisie texte si la reconnaissance vocale n’est pas supportée.
+voice browser पर निर्भर करती है। दूसरा browser आज़माएँ, microphone permissions जाँचें, और यदि speech recognition उपलब्ध नहीं है तो text input का उपयोग करें।
 
-## Données à transmettre au support
+## support को भेजने योग्य डेटा
 
-| Élément | Pourquoi c’est utile |
+| तत्व | यह क्यों उपयोगी है |
 | --- | --- |
-| URL du déploiement | Identifier l’environnement concerné |
-| Projet concerné | Rejouer le contexte |
-| Trace ID | Retrouver précisément le run ou l’événement |
-| Context snapshot ID / Structured output ID | Rapprocher un run, une sortie et un artefact |
-| Capture d’écran | Comprendre l’état visible au moment du blocage |
-| Heure approximative | Croiser l’événement avec les journaux |
+| deployment URL | संबंधित environment की पहचान करने के लिए |
+| संबंधित project | संदर्भ फिर से बनाने के लिए |
+| Trace ID | run या event को सटीक रूप से ढूँढने के लिए |
+| Context snapshot ID / Structured output ID | run, output और artifact को जोड़ने के लिए |
+| screenshot | रुकावट के समय दिखाई दे रही स्थिति समझने के लिए |
+| approximate time | event को logs से मिलाने के लिए |
 
-## FAQ — accès et sécurité
+## FAQ - access और security
 
-### Pourquoi puis-je voir une page d’administration sans pouvoir la modifier ?
+### मैं admin page देख सकता हूँ, लेकिन उसे modify क्यों नहीं कर सकता?
 
-Parce que le produit distingue **lecture seule** et **accès refusé**. Une page peut être exposée pour inspection sans autoriser la modification.
+क्योंकि उत्पाद **read-only** और **access denied** में अंतर करता है। कोई page निरीक्षण के लिए दिखाई दे सकती है, भले ही उसमें बदलाव की अनुमति न हो।
 
-### Pourquoi ma connexion Microsoft réussit-elle mais l’accès n’aboutit pas encore comme prévu ?
+### Microsoft sign-in सफल है, फिर भी access अपेक्षित रूप से क्यों नहीं मिल रहा?
 
-Vérifiez le tenant, l’autorisation du compte, l’existence d’un projet accessible et la disponibilité d’un siège si le plan en impose un.
+tenant, account authorization, उपलब्ध project access और जहाँ लागू हो वहाँ seat availability जाँचें।
 
-### Pourquoi ma connexion réussit-elle mais aucun projet n’apparaît ?
+### sign-in सफल है, लेकिन कोई project क्यों नहीं दिखाई देता?
 
-Cette situation n’indique pas forcément une question d’authentification. Vérifiez d’abord le **sélecteur de projet**, puis la page **Projets**. Si la liste reste vide, le compte n’a probablement pas encore été ajouté au bon projet ou ne dispose pas du droit de création.
+यह स्थिति हमेशा authentication समस्या नहीं दर्शाती। पहले project selector, फिर **Projects** page देखें। यदि list अभी भी खाली है, तो account शायद अभी सही project में जोड़ा नहीं गया है या उसके पास creation rights नहीं हैं।
 
-### Quand faut-il inviter un compte externe comme utilisateur `guest` ?
+### किसी external account को `guest` user के रूप में कब आमंत्रित करना चाहिए?
 
-Lorsque le compte appartient à un autre tenant que celui qui héberge l’application. Le compte doit alors être invité dans le tenant cible, puis autorisé sur l’application ou via le groupe attendu.
+जब account उस tenant से अलग tenant में हो जिसमें application host की गई हो। तब account को target tenant में invite करना चाहिए, फिर application या अपेक्षित group के माध्यम से authorize करना चाहिए।
 
-### Comment distinguer rapidement tenant, `redirect URI`, client Entra ou siège ?
+### tenant, `redirect URI`, Entra client और seat में जल्दी अंतर कैसे करें?
 
-Suivez cet ordre :
+इस क्रम का पालन करें:
 
-1. si Microsoft échoue **avant** le retour dans l’application, suspectez d’abord tenant, `clientId` ou `redirect URI` ;
-2. si la connexion réussit mais que l’application reste bloquée, vérifiez ensuite les **sièges** et l’accès à un projet ;
-3. si seule une surface précise reste verrouillée, le sujet est souvent côté **rôle** ou **permission** plutôt que côté authentification.
+1. यदि Microsoft application में लौटने से पहले ही प्रक्रिया fail हो जाए, तो पहले tenant, `clientId` या `redirectUri` पर संदेह करें;
+2. यदि sign-in सफल है लेकिन application blocked रहती है, तो seats और project access जाँचें;
+3. यदि केवल कोई specific screen locked रहे, तो मुद्दा अक्सर role या permission से जुड़ा होता है, authentication से नहीं।
 
-## FAQ — disponibilité, runtime et connectivité
+## FAQ - availability, runtime और connectivity
 
-### Comment lire le panneau de santé lorsque certaines pages chargent encore ?
+### जब कुछ pages अभी भी load हो रही हों, तब health panel को कैसे पढ़ें?
 
-Parce que l’authentification peut rester valide alors qu’un composant **API** ou un fournisseur demande encore une vérification de disponibilité. Relevez d’abord l’état affiché dans l’indicateur de santé, puis poursuivez vers [Interface et navigation](./interface-et-navigation.md) pour la lecture du panneau et [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) si le doute porte sur le fournisseur ou l’intégration admin.
+authentication वैध रह सकती है, जबकि कोई **API** component या provider availability अतिरिक्त जाँच माँग रहा हो। पहले **Health indicator** में दिखाई दे रही स्थिति नोट करें, फिर panel की व्याख्या के लिए [इंटरफ़ेस और नेविगेशन](./interface-et-navigation.md) और provider या admin integration से जुड़े संदेह के लिए [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md) खोलें।
 
-### Que faire si la connexion réussit, qu’un projet est visible, mais que les runs ne démarrent pas ?
+### यदि sign-in सफल है, project visible है, लेकिन runs शुरू नहीं हो रहे, तो क्या करें?
 
-Vérifiez dans cet ordre : projet actif, indicateur de santé, fournisseur IA supposé opérationnel, entitlement éventuel, puis **Journal IA** pour voir si un run a au moins été créé. Si le fournisseur reste suspect, poursuivez vers [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
+इस क्रम में जाँचें: active project, **Health indicator**, provider का `Operational` होना, संभावित entitlement, फिर **AI Log** ताकि यह देखा जा सके कि कम-से-कम कोई run बना भी है या नहीं। यदि provider पर संदेह बना रहे, तो [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md) पर जाएँ।
 
-## FAQ — projet, espace de travail et agents
+## FAQ - project, workspace और agents
 
-### Quand faut-il utiliser Espace de travail plutôt qu’Agents ?
+### मुझे **Workspace** का उपयोग कब करना चाहिए और **Agents** का कब?
 
-Utilisez **Espace de travail** pour régler et piloter le projet ; utilisez **Agents** pour converser avec un agent et produire une sortie structurée.
+**Workspace** का उपयोग project को configure, monitor और संचालित करने के लिए करें। **Agents** का उपयोग किसी agent से बातचीत करने और structured output बनाने के लिए करें।
 
-### Où est stocké l’historique de chat ?
+### chat history कहाँ store होती है?
 
-L’historique visible est local au navigateur. Il n’est pas une archive partagée centrale.
+दिखाई देने वाली history browser में स्थानीय रहती है। यह कोई साझा केंद्रीय संग्रह नहीं है।
 
-### Qu’est-ce qui est local au navigateur et qu’est-ce qui est partagé dans la plateforme ?
+### browser में local क्या रहता है और platform पर क्या shared रहता है?
 
-Dans l’état actuel observé :
+वर्तमान में देखी गई स्थिति के अनुसार:
 
-- la **continuité de chat** est sauvegardée localement, par couple **projet + agent**, dans le navigateur courant ;
-- le **projet actif mémorisé** relève aussi du navigateur et parfois de la session locale ;
-- les **documents**, **imports**, **artefacts**, **approbations**, **rapports publiés** et autres objets projet relèvent de la **plateforme partagée**.
+- **chat continuity** वर्तमान browser में, **project + agent** pair के आधार पर, स्थानीय रूप से सुरक्षित रहती है;
+- याद रखा गया **active project** भी browser और कभी-कभी local session पर निर्भर करता है;
+- अन्य browser-local सुविधाओं में **interface language**, **theme**, **recent-project list**, **notification center** की read/cleared state, और कुछ saved **table या view preferences** शामिल हो सकती हैं;
+- **documents**, **imports**, **artifacts**, **approvals**, **published reports**, **project notifications**, **signals**, **digests**, **drafts** और **governed actions** shared platform state का हिस्सा हैं।
 
-Il est donc normal qu’un historique de chat disparaisse en changeant de navigateur ou de machine alors que les documents et objets gouvernés du projet restent visibles aux autres utilisateurs autorisés.
+इसलिए browser या machine बदलने पर chat history का गायब होना सामान्य है, जबकि नियंत्रित project objects अन्य अधिकृत उपयोगकर्ताओं के लिए दिखाई देते रहते हैं।
 
-### Que signifie exactement `All projects` ?
+### `All projects` का ठीक अर्थ क्या है?
 
-`All projects` est une **portée d’agent personnalisé**, pas un projet unique ni une vue portefeuille. Cela signifie qu’un agent personnalisé peut rester visible dans tous les projets accessibles par le **même compte**. Chaque run continue néanmoins à s’exécuter dans le **projet actif** au moment du chat.
+`All projects` एक **custom-agent scope** है। यह न तो कोई single project है और न ही कोई **Portfolio** view। इसका अर्थ केवल इतना है कि कोई custom agent उसी account के सभी accessible projects में दिखाई दे सकता है। फिर भी हर run chat भेजे जाने के समय वाले **active project** में ही execute होता है।
 
-### Pourquoi un agent personnalisé n’apparaît-il pas dans un autre projet ?
+### कोई custom agent दूसरे project में क्यों नहीं दिखाई देता?
 
-Vérifiez d’abord son **scope**. Un agent `Project only` reste limité au projet courant. Si l’environnement expose un agent `All projects`, il doit en plus être consulté avec le **même compte** dans un projet auquel ce compte a accès.
+पहले उसका scope जाँचें। `Project only` agent केवल current project तक सीमित रहता है। यदि environment `All projects` option दिखाता है, तो agent को उसी account से ऐसे project में देखना होगा जहाँ उस account की access वास्तव में हो।
 
-### L’historique de chat est-il conservé par projet, par agent ou seulement par navigateur ?
+### chat history project के आधार पर रहती है, agent के आधार पर, या केवल browser में?
 
-La continuité observée est **locale au navigateur** et rattachée au couple **projet + agent**. Elle n’est donc ni globale à tout le tenant ni partagée automatiquement entre navigateurs.
+देखी गई continuity **browser-local** है और **project + agent** pair से जुड़ी है। इसलिए यह पूरे tenant के लिए global नहीं होती और अलग-अलग browsers में अपने-आप shared भी नहीं होती।
 
-### Quels navigateurs ou permissions faut-il vérifier en priorité pour la voix ?
+### voice के लिए सबसे पहले कौन-से browsers या permissions जाँचनी चाहिए?
 
-Commencez par la prise en charge navigateur de `SpeechRecognition` / `webkitSpeechRecognition`, puis contrôlez l’autorisation d’accès au micro. Si le bouton reste indisponible ou si la reconnaissance échoue, revenez à la saisie texte sans bloquer le parcours projet.
+`SpeechRecognition` / `webkitSpeechRecognition` के browser support से शुरुआत करें, फिर microphone access permission जाँचें। यदि button अभी भी उपलब्ध न हो या recognition fail हो, तो text input पर लौटें ताकि project flow रुका न रहे।
 
-### Pourquoi la voix n’apparaît-elle pas dans tous les environnements ?
+### voice हर environment में क्यों नहीं दिखाई देती?
 
-Parce que cette capacité dépend du navigateur et de son support de reconnaissance vocale. La saisie vocale reste optionnelle : son absence ne bloque pas le workflow nominal, qui reste la saisie texte dans **Agents**.
+क्योंकि यह capability browser और speech recognition support पर निर्भर करती है। voice input optional है। इसका न होना सामान्य workflow को नहीं रोकता, क्योंकि **Agents** में text input मुख्य path बना रहता है।
 
-## FAQ — connaissance et recherche
+## FAQ - knowledge और search
 
-### Pourquoi **Espace de travail**, **Connaissance** ou **Journal IA** semble vide ?
+### **Workspace**, **Knowledge** या **AI Log** खाली क्यों दिखाई दे सकते हैं?
 
-Commencez par vérifier s’il existe bien un **projet actif**. Dans l’état actuel de l’application, ces surfaces peuvent afficher un **état vide normal** tant qu’aucun projet n’est sélectionné.
+पहले जाँचें कि कोई **active project** चुना गया है या नहीं। वर्तमान application state में, जब तक कोई project selected नहीं होता, ये screens सामान्य **empty state** दिखा सकती हैं।
 
-Si un projet est déjà actif, distinguez ensuite un vide normal de l’absence réelle de données : projet neuf, aucun run, aucun document, aucun artefact ou filtre actif.
+यदि project पहले से active है, तो यह अलग करें कि मामला सामान्य empty state का है या वास्तव में data की कमी का: नया project, कोई run नहीं, कोई document नहीं, कोई artifact नहीं, या active filter।
 
-### Pourquoi **Rapports & artefacts** est-il vide ?
+### **Reports & artifacts** खाली क्यों दिखाई देता है?
 
-Les causes les plus fréquentes sont :
+सबसे सामान्य कारण हैं:
 
-- aucun **artefact** ou **PM Doc** n’a encore été créé ;
-- le run est resté au stade de **sortie structurée** ;
-- le mauvais projet ou un filtre masque les lignes ;
-- l’environnement ne contient pas les mêmes données de démonstration que d’autres captures ou tests.
+- अभी तक कोई **artifact** या **PM Doc** नहीं बना है;
+- run केवल **structured output** चरण तक पहुँचा है;
+- गलत project active है या कोई filter rows छिपा रहा है;
+- environment में वही demo data नहीं है जो किसी दूसरी screenshot, documentation उदाहरण या test में दिखती है।
 
-### Pourquoi un document est-il visible dans la liste mais pas encore retrouvable dans la recherche ?
+### कोई document list में दिखता है, लेकिन search में अभी क्यों नहीं मिलता?
 
-Parce qu’il peut encore être en état **Ingesting** ou en attente de fin de pipeline d’indexation.
+क्योंकि वह अभी भी **Ingesting** state में हो सकता है या indexing pipeline पूरी होने की प्रतीक्षा में हो सकता है।
 
-### Que signifient `source label` et `source system` ?
+### `source label` और `source system` का क्या अर्थ है?
 
-Ce sont des indicateurs de provenance. Ils aident à savoir d’où vient une preuve sans relire toute la configuration détaillée.
+ये fields provenance को जल्दी समझने में मदद करती हैं:
 
-### Pourquoi un import peut-il sembler terminé alors que certains documents ne sont pas encore retrouvables ?
+- **source label** प्रायः visible provider या ingestion origin की पहचान करता है, जैसे `manual`, `SharePoint`, `ADF`, `Blob`, `Confluence`, `Jira` आदि;
+- **source system** उस human-readable system या workstream को पहचानने में मदद करता है जिससे वह evidence आया है, जैसे `Knowledge`, `Schedule`, `Finance`, `Operations` आदि।
 
-Parce que l’ingestion visible ne signifie pas toujours que toute l’indexation est terminée. Contrôlez le statut documentaire (`Indexed`, `Ingesting`, `Failed`), puis relancez la recherche quand le document est réellement indexé.
+जब किसी snippet पर निर्णय लेना हो और पूरी configuration फिर से खोलनी न हो, तब इन दोनों को साथ पढ़ें।
 
-### Pourquoi un document est-il `Indexed` alors qu’une preuve reste `unavailable` dans une sortie structurée ?
+### import पूरा दिख सकता है, फिर भी कुछ documents searchable क्यों नहीं होते?
 
-Le document peut être bien présent dans la **Connaissance** alors que la preuve liée au run n’a pas pu être confirmée, réouverte ou stabilisée au moment de la génération. Reprenez la lecture dans [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md), puis contrôlez le run dans [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) si nécessaire.
+क्योंकि visible ingestion का अर्थ यह नहीं कि indexing पूरी हो चुकी है। document status (`Indexed`, `Ingesting`, `Failed`) जाँचें और document वास्तव में indexed होने पर search फिर से चलाएँ।
 
-### Que signifient les badges de fraîcheur dans la recherche et dans les preuves ?
+### कोई document `Indexed` है, फिर भी किसी structured output में proof `unavailable` क्यों हो सकती है?
 
-Ils indiquent l’état de confiance temporelle de la source : `fresh`, `aging`, `stale`, `conflicting` ou `unavailable`. Utilisez-les comme un signal de relecture avant publication, pas comme un détail cosmétique.
+document **Knowledge** में मौजूद हो सकता है, लेकिन run के समय proof generation उससे जुड़ा प्रमाण भरोसेमंद रूप से स्थापित नहीं कर पाई हो। पहले [संरचित आउटपुट, प्रमाण और नवीनता](./sorties-contextuelles-preuves-et-fraicheur.md) देखें, फिर आवश्यकता हो तो [रिपोर्ट, AI लॉग और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md) में run जाँचें।
 
-### Quelle différence entre `Trace ID`, `Context snapshot ID` et `Structured output ID` ?
+### search और evidence में freshness badges का क्या अर्थ है?
 
-- **Trace ID** : identifiant de suivi principal pour retrouver un run ou un événement ;
-- **Context snapshot ID** : capture du contexte documentaire/projet utilisé pendant le run ;
-- **Structured output ID** : identifiant de la sortie structurée réellement produite.
+ये source की समय-संबंधी confidence state दिखाते हैं: `fresh`, `aging`, `stale`, `conflicting` या `unavailable`। publication से पहले इन्हें पुनः समीक्षा संकेत की तरह पढ़ें, केवल सजावटी detail की तरह नहीं।
 
-## FAQ — sorties IA et Journal IA
+### `Trace ID`, `Context snapshot ID` और `Structured output ID` में क्या अंतर है?
 
-### Quelle différence entre Runs et Activity ?
+- **Trace ID**: run या event को locate करने वाला मुख्य tracking identifier;
+- **Context snapshot ID**: run के दौरान उपयोग किए गए document/project context का रिकॉर्ड;
+- **Structured output ID**: वास्तव में बने structured output का identifier।
 
-**Runs** montre les exécutions d’agent et leurs métadonnées ; **Activity** montre une timeline d’événements projet et le payload brut associé.
+दैनिक उपयोग में यह याद रखें कि **Run ID** स्क्रीन पर पंक्ति खोजने के लिए सबसे व्यावहारिक संकेतक है, जबकि **Trace ID** support, audit और cross-service correlation में अधिक उपयोगी होता है।
 
-### Comment savoir quel fournisseur IA a réellement été utilisé ?
+## FAQ - AI outputs और AI Log
 
-Ouvrez le détail du run dans **Journal IA** et lisez **Effective AI Provider**. C’est la valeur de référence pour ce run.
+### `Runs` और `Activity` में क्या अंतर है?
 
-### Pourquoi `Validate` et `Test` ne garantissent-ils pas toujours que ce fournisseur sera celui réellement utilisé ?
+**Runs** agent executions और उनका मेटाडेटा दिखाता है। **Activity** project events की समयरेखा और उनसे जुड़े raw payload दिखाती है।
 
-Parce que `Validate` et `Test` contrôlent surtout la cohérence et la connectivité de la configuration administrative. Le fournisseur effectivement utilisé sur un run donné reste celui résolu au runtime et exposé dans le **Journal IA**.
+### यह कैसे जानें कि वास्तव में कौन-सा AI provider उपयोग हुआ था?
 
-### Que signifient `lineage` et `context snapshot` dans une enquête ?
+**AI Log** में run detail खोलें और **Effective AI Provider** पढ़ें। उसी run के लिए यही संदर्भ मान है।
 
-- **lineage** : chaîne de traçabilité entre run, sortie structurée, artefact, version et PM Doc ;
-- **context snapshot** : capture du contexte utilisé au moment du run.
+### `Validate` और `Test` हमेशा यह क्यों नहीं बताते कि वास्तव में यही provider उपयोग होगा?
 
-Ces deux notions aident à comprendre **d’où vient** un livrable et **sur quelle base** il a été produit.
+क्योंकि `Validate` और `Test` मुख्यतः administrative configuration की consistency और connectivity जाँचते हैं। किसी विशेष run पर वास्तव में उपयोग हुआ provider वही है जो runtime में resolve हुआ और **AI Log** में दिखाई देता है।
 
-### Un run est visible dans `Runs`, mais aucune suite claire n’apparaît dans `Activity`. Que faire ?
+### investigation में `Lineage` और `context snapshot` का क्या अर्थ है?
 
-Ce cas signifie souvent que le run a bien existé, mais qu’aucun brouillon, artefact, notification ou action aval n’a encore été créé, ou que vous n’ouvrez pas le bon projet / bon filtre dans **Activity**. Reprenez l’enquête via [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) en suivant l’ordre **diff / lignée / Runs / Activity**.
+- **Lineage**: run, structured output, artifact, version और PM Doc के बीच की traceability chain;
+- **context snapshot**: run के समय उपयोग किए गए context का रिकॉर्ड।
 
-## FAQ — rapports, artefacts et gouvernance
+इन दोनों की मदद से आप समझते हैं कि deliverable कहाँ से आया और किस आधार पर तैयार हुआ।
 
-### Quelle différence entre PM Doc, artefact et version d’artefact ?
+### कोई run `Runs` में दिखता है, लेकिन `Activity` में स्पष्ट follow-up नहीं है। क्या करें?
 
-L’artefact est l’objet gouverné, la version d’artefact est son état historisé, et le PM Doc est le document projet revu, édité ou publié à partir de cet objet.
+इसका अर्थ अक्सर यह होता है कि run तो बना, लेकिन उससे आगे कोई draft, artifact, notification या action अभी तक नहीं बनी, या आप **Activity** में सही project / filter नहीं देख रहे। जाँच को [रिपोर्ट, AI लॉग और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md) में दिए गए क्रम **Diff / Lineage / Runs / Activity** से आगे बढ़ाएँ।
 
-### Pourquoi une action est-elle visible mais non exécutable ?
+### `Cost` field को कैसे पढ़ना चाहिए?
 
-Vérifiez droits, connecteur, binding projet, politique de gouvernance et approbation requise. Voir aussi [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md).
+`Cost` को runtime transparency संकेत की तरह पढ़ें। `tokens` और `calls` मुख्यतः जाँच, support और usage समझने के लिए उपयोगी हैं; अपने-आप business approval signal नहीं हैं। यदि cross-project budget pressure या usage pressure समझना हो, तो किसी individual run की raw cost के बजाय **Portfolio** में `cost_pressure` देखें।
 
-### Quand faut-il **Approve**, **Publish** ou **Add to knowledge** ?
+### `Confidence` और `Source freshness` के साथ व्यावहारिक रूप से क्या करना चाहिए?
 
-- **Approve** valide une version d’artefact encore en `draft` ;
-- **Publish** déclenche la diffusion gouvernée vers une destination ou un format cible ;
-- **Add to knowledge** réinjecte un document relu dans la recherche projet.
+- **Confidence** = समीक्षा संकेत, अपने-आप proof नहीं;
+- **Source freshness** = cited evidence अभी कितनी वर्तमान है;
+- यदि इनमें से कोई भी value कमज़ोर, पुरानी, `conflicting` या `unavailable` लगे, तो external sharing से पहले evidence, run और lineage पर वापस जाएँ।
 
-Ces trois actions ne sont pas interchangeables.
+## FAQ - reports, artifacts और governance
 
-### Comment arbitrer une preuve `conflicting` avant publication ?
+### `PM Doc`, `artifact` और `artifact version` में क्या अंतर है?
 
-Rouvrez les sources contradictoires, comparez le snippet, la date, la provenance et la fraîcheur, puis documentez l’arbitrage dans l’artefact, la note de revue ou le flux de gouvernance. Si besoin, rapprochez ensuite le tout du **Journal IA**.
+artifact नियंत्रित ऑब्जेक्ट है, artifact version उसकी ऐतिहासिक स्थिति है, और **PM Doc** वह project document है जो उस object से review, edit या publish होता है।
 
-### Pourquoi un brouillon de notification reste-t-il `held` ou ne part-il jamais vers un canal externe ?
+### कोई action visible है, लेकिन executable क्यों नहीं है?
 
-Dans l’interface observée, `in_app` est le chemin le plus direct. Les canaux externes peuvent rester en posture **held / draft** tant que la diffusion gouvernée, la policy, le connecteur ou l’approbation ne sont pas réunis. Reprenez la chaîne dans [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) : signal, digest éventuel, brouillon, policy, connecteur, puis approbation.
+अनुमतियाँ, connector, project binding, governance policy और required approval जाँचें। यह भी देखें: [गवर्नेंस, निर्णय और क्रियाएँ](./gouvernance-decisions-et-actions.md)।
 
-### Pourquoi une action reste-t-elle `pending approval` ou `approved` sans exécution visible ?
+### **Approve**, **Publish** और **Add to knowledge** का उपयोग कब करना चाहिए?
 
-- `pending approval` signifie que l’accord n’a pas encore été donné ;
-- `approved` signifie que l’accord existe, mais pas forcément que l’exécution a déjà eu lieu.
+- **Approve** उस artifact version को स्वीकृत करता है जो अभी `draft` में है;
+- **Publish** नियंत्रित वितरण को target या output format की ओर भेजता है;
+- **Add to knowledge** reviewed document को project search में वापस जोड़ता है।
 
-Confirmez ensuite l’étape aval dans **Actions & approbations**, puis dans **Activity**. Si besoin, utilisez la méthode décrite dans [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md).
+इन तीनों actions का उपयोग एक-दूसरे के स्थान पर नहीं किया जाना चाहिए।
 
-### Pourquoi une intégration est-elle disponible en plateforme mais verrouillée dans mon projet ?
+### publication से पहले `conflicting` proof को कैसे arbitrate करें?
 
-Parce qu’une définition technique plateforme ne suffit pas. Il faut encore un **binding projet** valide, des permissions adéquates, une policy compatible, un état de santé acceptable et, selon les cas, l’entitlement correspondant.
+विरोधी sources फिर से खोलें, snippet, date, provenance और freshness की तुलना करें, फिर arbitration को artifact, review note या governance flow में दर्ज करें। आवश्यकता हो तो सब कुछ **AI Log** से मिलाएँ।
 
-## FAQ — portefeuille et administration
+### notification draft `held` क्यों रहती है या कभी external channel तक क्यों नहीं जाती?
 
-### Pourquoi les données de démonstration ne correspondent-elles pas toujours exactement à la documentation ?
+देखे गए इंटरफ़ेस में `in_app` सबसे सीधा path है। external channels `held` / `draft` में रह सकते हैं जब तक नियंत्रित वितरण, policy, connector या approval पूरी न हो। इस क्रम को [गवर्नेंस, निर्णय और क्रियाएँ](./gouvernance-decisions-et-actions.md) में इस तरह पढ़ें: signal, संभावित digest, draft, policy, connector, फिर approval।
 
-Les environnements live peuvent varier. Certains projets n’exposent pas toujours les mêmes documents seedés, rapports seedés ou exemples de recherche que ceux montrés dans la documentation ou dans d’autres tests.
+### कोई action `pending approval` या `approved` बनी रहती है, लेकिन visible execution क्यों नहीं दिखता?
 
-### Pourquoi le portefeuille ne remonte-t-il aucun projet ou aucun outlier ?
+- `pending approval` का अर्थ है कि approval अभी दी नहीं गई है;
+- `approved` का अर्थ है कि approval मौजूद है, लेकिन execution हो चुकी है यह मान लेना अभी सही नहीं होगा।
 
-Vérifiez les projets sélectionnés, les signaux actifs, les poids, les seuils et la sévérité minimale appliquée à la cohorte.
+पहले downstream step की **Actions & approvals** में, फिर **Activity** में पुष्टि करें। आवश्यकता हो तो [रिपोर्ट, AI लॉग और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md) में दी गई विधि अपनाएँ।
 
-### Comment libérer ou réattribuer un siège ?
+### कोई integration platform level पर available है, लेकिन मेरे project में locked क्यों है?
 
-Cela se fait depuis **Administration de la plateforme** par un profil autorisé. Le retrait libère la capacité pour une réattribution ultérieure, sous réserve de la posture et de la fenêtre de retrait du plan.
+क्योंकि केवल platform-level तकनीकी परिभाषा पर्याप्त नहीं होती। आपको valid project binding, पर्याप्त permissions, compatible policy, स्वीकार्य health status और जहाँ लागू हो वहाँ संबंधित entitlement भी चाहिए।
 
-### Que signifie `Validate` réussi mais `Test` non abouti dans `Paramètres du fournisseur IA` ?
+## FAQ - portfolio और administration
 
-La configuration administrative paraît cohérente, mais la connectivité réelle ou l’accès distant ne passent pas encore. Vérifiez endpoint, secret ou auth réelle, accessibilité du fournisseur et contraintes réseau, puis reprenez la séquence décrite dans [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
+### demo data हमेशा documentation से बिल्कुल मेल क्यों नहीं खाती?
 
-### Pourquoi mon fournisseur est-il visible mais jamais `Operational` ?
+live environments अलग हो सकते हैं। कुछ projects वही seeded documents, seeded reports या search examples नहीं दिखाते जो documentation या दूसरे tests में दिखते हैं।
 
-Un fournisseur peut être configuré ou même validé sans avoir passé toute la chaîne **Configuration → Validation → Test → Activate**. Vérifiez aussi l’entitlement, les `allowed providers` et la readiness générale avant de le considérer exploitable.
+### Portfolio कोई project या outlier क्यों नहीं लौटा रहा?
 
-### Que faire si aucun deployment Azure OpenAI n’apparaît dans `Paramètres du fournisseur IA` ?
+कई व्याख्याएँ सामान्य हो सकती हैं:
 
-Cela signifie généralement qu’aucun déploiement n’est visible dans la ressource Azure OpenAI configurée, ou que la découverte ne peut pas aboutir avec les paramètres actuels. Vérifiez endpoint, auth, version d’API et présence réelle des déploiements côté Azure, puis reprenez le contrôle détaillé dans [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
+- कोई accessible project load नहीं हुआ है;
+- अभी कोई project या signal selected नहीं है;
+- comparison ने usable project summaries वापस नहीं दीं;
+- कुछ signals evidence की कमी के कारण unavailable हैं;
+- active configuration के साथ कोई project overall outlier threshold से ऊपर नहीं है।
 
-### Pourquoi le fournisseur IA est-il visible mais non modifiable ou non utilisable ?
+इसलिए शांत दिखता **Portfolio** restrictive selection, limited evidence या वास्तव में stable स्थिति, इनमें से किसी भी कारण से हो सकता है।
 
-Le fournisseur peut être visible en lecture alors que sa modification reste réservée à un rôle admin. Son usage peut aussi être limité par le plan, les `allowed providers`, l’entitlement ou la résolution runtime du fournisseur effectif.
+### क्या `Portfolio` के implicit presets होते हैं?
 
-## Suite
+नहीं। देखी गई interface मुख्य रूप से default values, **Reset defaults** action और saved **cohorts** देती है। defaults एक सुरक्षित शुरुआती बिंदु हैं, कोई अनिवार्य model नहीं। कुछ demos में seeded cohort भी दिख सकती है, लेकिन यह environment के अनुसार बदलती है।
 
-- [Glossaire](./glossaire.md)
-- [Démarrage](./demarrage.md)
-- [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
+### seat को release या reassign कैसे करें?
+
+यह **Platform administration** में किसी authorized profile द्वारा किया जाता है। removal के बाद capacity plan posture और withdrawal window के अनुसार बाद की reallocation के लिए उपलब्ध हो जाती है।
+
+### `AI Provider settings` में `Validate` सफल लेकिन `Test` fail क्यों होता है?
+
+इसका अर्थ है कि administrative configuration संगत दिख रही है, लेकिन वास्तविक connectivity या remote access अभी सफल नहीं हुआ। endpoint, secret या auth, provider accessibility और network constraints जाँचें, फिर [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md) में वर्णित क्रम का पालन करें।
+
+### मेरा provider visible है, लेकिन कभी `Operational` क्यों नहीं होता?
+
+कोई provider configure या `Validate` हो सकता है, फिर भी उसने पूरी **Configuration -> Validation -> Test -> Activate** chain पूरी न की हो। इसे उपयोग योग्य मानने से पहले entitlement, `allowed providers` और समग्र तैयारी भी जाँचें।
+
+### `AI Provider settings` में कोई Azure OpenAI deployment नहीं दिखे तो क्या करें?
+
+यह सामान्यतः बताता है कि configured Azure OpenAI resource में कोई deployment दिखाई नहीं दे रहा, या current parameters के साथ discovery सफल नहीं हो रही। Azure side पर endpoint, auth, API version और actual deployments जाँचें, फिर [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md) में विस्तृत नियंत्रण क्रम देखें।
+
+### AI provider visible है, लेकिन modify या use क्यों नहीं किया जा सकता?
+
+provider **read-only** mode में दिखाई दे सकता है, जबकि modification admin role तक सीमित हो। इसका actual use plan, `allowed providers`, entitlement या effective runtime resolution से भी सीमित हो सकता है।
+
+## आगे
+
+- [शब्दकोश](./glossaire.md)
+- [प्रारम्भ](./demarrage.md)
+- [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md)

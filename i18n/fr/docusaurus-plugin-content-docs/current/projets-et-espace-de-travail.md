@@ -113,6 +113,23 @@ L’espace de travail ne sert pas seulement à résumer le projet. Il permet aus
 
 Utilisez cette zone pour comprendre **pourquoi** une action ou un import peut être disponible, à confirmer ou bloqué.
 
+![Signaux et brouillons de notification du projet](/img/screenshots/localized/fr/15-workspace-signals.png)
+
+## Comment arrivent les signaux, digests et brouillons
+
+Dans l’état observé, le panneau de signaux du projet relit trois flux partagés pour le **projet actif** :
+
+- les **signaux** courants ;
+- les **digests** récents ;
+- les **brouillons de notification** liés à ces signaux.
+
+Lecture utile :
+
+- l’ouverture de l’espace de travail recharge l’état partagé déjà connu pour ce projet ;
+- **Refresh** demande explicitement au système de réévaluer le projet et de tirer les derniers signaux proactifs ;
+- **Generate digest draft** construit une nouvelle synthèse groupée et peut préparer des notifications `in_app` ;
+- ces éléments ne sont donc pas de simples notes locales du navigateur.
+
 ## Onglets de niveau projet
 
 | Onglet | À quoi il sert |

@@ -1,338 +1,367 @@
 ---
-title: Rapports, Journal IA et traçabilité
+title: रिपोर्ट, AI लॉग और ट्रेसबिलिटी
 slug: /rapports-journal-ia-et-tracabilite
-description: Réviser les Documents PM, générer des sorties DOCX/XLSX et suivre la traçabilité complète des runs IA.
+description: PM Docs की समीक्षा करें, डिलिवरेबल्स प्रकाशित करें और AI run की पूरी ट्रेसबिलिटी को समझें।
 ---
 
-[Accueil](./index.md) · [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md) · [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
+[मुखपृष्ठ](./index.md) · [संरचित आउटपुट, प्रमाण और नवीनता](./sorties-contextuelles-preuves-et-fraicheur.md) · [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md)
 
-![Flux Documents PM, DOCX et XLSX](/img/diagrams/fr/documents-pm-docx-xlsx-workflow.svg)
+![रिपोर्ट और आर्टिफैक्ट](/img/screenshots/localized/hi/08-reports-overview.png)
 
-## Objectif
+## उद्देश्य
 
-Cette page explique la différence entre **artefact**, **version d’artefact** et **Document PM**, puis détaille le rôle du **Journal IA** pour l’audit et le support.
+यह पृष्ठ **artifact**, **artifact version** और **PM Doc** के बीच का अंतर स्पष्ट करता है और फिर ऑडिट, समर्थन तथा रनटाइम पारदर्शिता के लिए **AI Log** की भूमिका समझाता है।
 
-## Trois notions à distinguer
+## तीन अवधारणाएँ जिन्हें अलग-अलग समझना चाहिए
 
-| Terme | Rôle |
+| शब्द | भूमिका |
 | --- | --- |
-| Artefact | Objet gouverné issu d’un run ou d’un travail de revue |
-| Version d’artefact | État précis d’un artefact, avec historique, diff et lignée |
-| Document PM | Document projet revu, édité, téléchargé, publié ou réinjecté dans la connaissance |
+| Artifact | किसी run या समीक्षा कार्य से बना नियंत्रित ऑब्जेक्ट |
+| Artifact Version | किसी artifact की सटीक स्थिति, जिसमें उसका इतिहास, `Diff` और `Lineage` शामिल होते हैं |
+| PM Doc | परियोजना दस्तावेज़, जिसे review, edit, download, publish किया जा सकता है या फिर **Knowledge** में वापस जोड़ा जा सकता है |
 
-## Cycle de vie observé
+## देखा गया जीवनचक्र
 
-Le flux le plus courant est :
+सबसे सामान्य प्रवाह यह है:
 
-1. un chat d’agent lance un **run** ;
-2. ce run produit une **sortie structurée** ;
-3. selon le flux et les droits disponibles, cette sortie peut ensuite alimenter un **artefact** ou un **Document PM** ;
-4. l’utilisateur ouvre **Rapports & artefacts / Documents PM** lorsqu’un document gouverné existe ou doit être préparé ;
-5. il relit le contenu, consulte le **diff** et la **lignée** ;
-6. il décide d’**Approve**, **Publish**, **Download** ou **Add to knowledge**.
+1. agent chat से एक **run** शुरू होता है;
+2. यह **run** एक **structured output** बनाता है;
+3. flow और उपलब्ध अनुमतियों के अनुसार यही output आगे **artifact** या **PM Doc** का आधार बन सकता है;
+4. जब कोई नियंत्रित दस्तावेज़ मौजूद हो या तैयार किया जाना हो, तब उपयोगकर्ता **Reports & artifacts / PM Documents** खोलता है;
+5. वह सामग्री पढ़ता है और **Diff** तथा **Lineage** की जाँच करता है;
+6. फिर वह **Approve**, **Publish**, **Download** या **Add to knowledge** में से उपयुक्त कार्रवाई चुनता है।
 
-Autrement dit, une réponse d’agent ne devient pas automatiquement un document final : la chaîne observée reste **run → structured output → artifact / PM Doc → revue → décision aval**.
+दूसरे शब्दों में, agent का उत्तर अपने-आप अंतिम दस्तावेज़ नहीं बनता। सामान्य क्रम प्रायः **run -> structured output -> artifact / PM Doc -> review -> downstream decision** रहता है।
 
-## De l’agent au DOCX ou XLSX
+![PM डॉक्स, DOCX और XLSX कार्यप्रवाह](/img/diagrams/hi/documents-pm-docx-xlsx-workflow.svg)
 
-Les flux observés montrent que les agents peuvent préparer des contenus destinés à un rendu documentaire ou tabulaire, mais toujours via une chaîne de revue explicite.
+## एजेंट से DOCX या XLSX तक
 
-### Quand le résultat devient un DOCX
+देखे गए प्रवाह बताते हैं कि agents दस्तावेज़ीय या सारणीबद्ध प्रस्तुति के लिए सामग्री तैयार कर सकते हैं, लेकिन अंतिम प्रसार से पहले review चरण स्पष्ट रूप से बना रहता है।
 
-Le rendu **DOCX** correspond surtout aux sorties orientées document : brief, rapport de statut, note de synthèse, compte rendu ou livrable narratif. Le chemin reste généralement :
+### जब परिणाम DOCX बनता है
 
-1. run d’agent ;
-2. sortie structurée ;
-3. artefact ;
-4. revue dans **Documents PM** ;
-5. téléchargement **DOCX** ou publication selon la gouvernance.
+**DOCX** सामान्यतः वर्णनात्मक output के लिए अधिक उपयुक्त होता है, जैसे संक्षिप्त रिपोर्ट, स्थिति रिपोर्ट, संश्लेषण नोट, बैठक सारांश या कोई अन्य दस्तावेज़-उन्मुख डिलिवरेबल। सामान्य प्रवाह प्रायः यह रहता है:
 
-### Quand le résultat devient un XLSX
+1. agent run;
+2. structured output;
+3. artifact;
+4. **PM Documents** में review;
+5. **DOCX** download या governance के अनुसार publish।
 
-Le rendu **XLSX** correspond surtout aux sorties orientées tableau : registres, matrices, plans de suivi, inventaires ou comparatifs structurés. Le flux reste le même, mais la surface de revue privilégie l’éditeur de type grille avant export.
+### जब परिणाम XLSX बनता है
 
-### Ce qui reste gouverné avant diffusion
+**XLSX** अधिकतर तालिका-आधारित output के लिए उपयुक्त होता है, जैसे रजिस्टर, मैट्रिक्स, ट्रैकिंग योजनाएँ, सूचियाँ या संरचित तुलना। मूल प्रवाह वही रहता है, लेकिन review स्क्रीन प्रायः grid-style editor को प्राथमिकता देती है।
 
-Même lorsqu’un agent produit un contenu déjà très exploitable :
+### प्रसार से पहले क्या नियंत्रित रहता है
 
-- l’utilisateur relit encore le brouillon ;
-- l’approbation peut rester obligatoire ;
-- la publication dépend d’une destination et d’un profil de rendu ;
-- le **Journal IA** garde la trace du run source.
+भले ही agent ने बहुत उपयोगी सामग्री तैयार कर दी हो:
 
-## Statuts visibles
+- उपयोगकर्ता draft को फिर भी पढ़ता है;
+- approval अभी भी आवश्यक हो सकती है;
+- publication किसी destination और rendering profile पर निर्भर कर सकती है;
+- source run का trace **AI Log** में बना रहता है।
 
-### Artefact
+## दिखाई देने वाली स्थितियाँ
 
-Les statuts confirmés au niveau artefact/version sont :
+### Artifact
+
+artifact या artifact version स्तर पर पुष्टि की गई स्थितियाँ:
 
 - `draft`
 - `approved`
 - `published`
 - `superseded`
 
-### Document PM
+### PM Doc
 
-Les Documents PM exposent au moins les états de compatibilité suivants :
+PM Docs में कम-से-कम ये स्थितियाँ दिखाई देती हैं:
 
 - `draft`
 - `final`
 
-## Si Rapports & artefacts paraît vide
+## यदि Reports & artifacts खाली दिखाई दे
 
-Un projet peut afficher une surface vide pour plusieurs raisons normales :
+किसी project में यह स्क्रीन कई सामान्य कारणों से खाली दिख सकती है:
 
-- aucun **artefact** ou **PM Doc** n’a encore été créé ;
-- le run est resté au stade de **sortie structurée** sans transformation aval ;
-- le mauvais projet ou un filtre masque les lignes attendues ;
-- l’environnement ne contient pas les mêmes données de démonstration seedées que d’autres captures ou tests.
+- अभी तक कोई **artifact** या **PM Doc** बनाया ही नहीं गया है;
+- run केवल **structured output** चरण तक ही पहुँचा और उससे आगे कोई नियंत्रित ऑब्जेक्ट नहीं बना;
+- गलत project active है या कोई filter अपेक्षित rows छिपा रहा है;
+- वर्तमान environment में वही seeded demo data न हो जो किसी दूसरी screenshot, demo या test में दिखाई गई थी।
 
-Dans ce cas, repartez d’abord de **Agents** ou du **Journal IA**, puis revenez dans **Rapports & artefacts** quand un objet gouverné existe réellement.
+समर्थन के लिए इसे सरल तरीके से पढ़ें:
 
-## Actions disponibles dans Rapports & artefacts
+- यदि **Runs** में run मौजूद है लेकिन **Reports & artifacts** खाली है, तो यह जरूरी नहीं कि यह failure हो; संभव है output अभी किसी नियंत्रित दस्तावेज़ में बदला ही न गया हो;
+- यदि केवल agent का उत्तर दिख रहा है, तो पहले **Agents** या **AI Log** से शुरू करें;
+- यदि project बदलने पर rows अचानक दिखाई दें, तो समस्या सामग्री की नहीं, context की थी;
+- यदि documentation और live environment अलग दिखें, तो seeded demo data के मेल न खाने को भी सामान्य संभावना मानें।
 
-Le hub expose des actions telles que :
+ऐसी स्थिति में पहले **Agents** या **AI Log** पर लौटें और **Reports & artifacts** में तभी आएँ जब कोई नियंत्रित ऑब्जेक्ट वास्तव में मौजूद हो।
 
-- **review / preview** ;
-- **diff** ;
-- **lineage** ;
-- **edit** ;
-- **download** ;
-- **add to knowledge** ;
-- **publish** ;
-- **delete**.
+## Reports & artifacts में उपलब्ध क्रियाएँ
 
-## Diff, lignée et versioning
+यहाँ सामान्यतः ये विकल्प उपलब्ध होते हैं:
+
+- **review / preview**;
+- **Diff**;
+- **Lineage**;
+- **edit**;
+- **download**;
+- **Add to knowledge**;
+- **publish**;
+- **delete**।
+
+## Diff, Lineage और versioning
 
 ### Diff
 
-Le **diff** compare des versions d’artefact. Il est surtout utile pour :
+**Diff** अलग-अलग artifact versions की तुलना करता है। यह विशेष रूप से इन स्थितियों में उपयोगी है:
 
-- relire les écarts avant publication ;
-- distinguer une proposition d’agent d’une version réellement validée ;
-- comprendre pourquoi un document final diffère d’un brouillon précédent.
+- publication से पहले बदलावों को पढ़ना;
+- agent के प्रस्ताव और वास्तव में स्वीकृत version के बीच का अंतर समझना;
+- यह समझना कि अंतिम दस्तावेज़ किसी पिछले draft से अलग क्यों है।
 
-### Lignée
+### Lineage
 
-La **lignée** relie entre eux :
+**Lineage** इन तत्वों को आपस में जोड़ती है:
 
-- le `source run ID` ;
-- le `context snapshot ID` ;
-- le `structured output ID` ;
-- l’artefact et sa version ;
-- les publications et preuves liées.
+- `source run ID`;
+- `Context snapshot ID`;
+- `Structured output ID`;
+- artifact और उसकी version;
+- जुड़ी हुई publications और प्रमाण।
 
-### Comment lire `context snapshot`
+### `Context snapshot` को कैसे पढ़ें
 
-Le **context snapshot** est la capture du contexte effectivement utilisé pendant le run : sources, contexte projet et état documentaire au moment de l’exécution.
+`Context snapshot` उस वास्तविक context का रिकॉर्ड है जो run के दौरान उपयोग हुआ था: sources, project context और उस समय की दस्तावेज़ीय स्थिति।
 
-Il aide à répondre à la question : **« sur quelle base contextuelle cette sortie a-t-elle été produite ? »**
+यह इस प्रश्न का उत्तर देने में मदद करता है: **यह output किस context के आधार पर तैयार हुआ था?**
 
 ### Versioning
 
-L’interface permet aussi de sélectionner une version par numéro et d’identifier la version précédente, la base de comparaison ou une version remplacée.
+interface version number के आधार पर चयन की अनुमति देती है और यह भी दिखा सकती है कि पिछली version कौन-सी थी, comparison base क्या है और कौन-सी version `superseded` हो चुकी है।
 
-## Approbation et publication
+## अनुमोदन, प्रकाशन और Knowledge में पुनः जोड़ना
 
-Les comportements observés montrent que :
+देखे गए व्यवहारों से यह स्पष्ट है कि:
 
-- **Approve** valide une version d’artefact encore en `draft` ;
-- **Publish** correspond à une diffusion gouvernée vers une destination ou un format cible quand le flux l’autorise ;
-- la publication envoie des formats et destinations gouvernés ;
-- **Add to knowledge** réinjecte un document relu dans la recherche projet ;
-- **Download** reste distinct de l’ajout à la connaissance et de la publication.
+- **Approve** अभी भी `draft` में मौजूद artifact version को स्वीकृत करता है;
+- **Publish** तब नियंत्रित वितरण शुरू करता है जब flow और destination इसकी अनुमति दें;
+- publication नियंत्रित formats और destinations की ओर जाती है;
+- **Add to knowledge** reviewed document को project search में वापस जोड़ता है;
+- **Download** publication और knowledge में पुनः जोड़ने, दोनों से अलग action है।
 
-## Éditeurs disponibles
+## उपलब्ध editors
 
-Le produit embarque plusieurs surfaces d’édition :
+उत्पाद में संपादन के कई तरीके दिखाई देते हैं:
 
-- un éditeur riche / markdown pour les sorties orientées document ;
-- un éditeur de type grille pour les sorties orientées tableur ;
-- un mode de revue / source en lecture si le format n’est pas éditable de la même manière.
+- दस्तावेज़-उन्मुख output के लिए rich / markdown editor;
+- तालिका-उन्मुख output के लिए spreadsheet जैसी grid editor;
+- ऐसे formats के लिए review / source read-only mode, जिन्हें उसी रूप में edit नहीं किया जा सकता।
 
-Téléchargements confirmés : **DOCX** et **XLSX**.
+पुष्टि किए गए downloads: **DOCX** और **XLSX**।
 
-### Quel type de sortie mène à quel format
+### कौन-सी सामग्री किस format में जाती है
 
-| Type de contenu | Surface la plus probable | Format de sortie le plus naturel |
+| सामग्री का प्रकार | सबसे संभावित स्क्रीन | सबसे स्वाभाविक output format |
 | --- | --- | --- |
-| brief, note, synthèse, rapport de statut | éditeur riche | DOCX |
-| registre, matrice, tableau de suivi, comparatif | éditeur grille | XLSX |
-| format non éditable ou spécialisé | revue / source | téléchargement ou publication selon profil |
+| संक्षिप्त नोट, संश्लेषण, स्थिति रिपोर्ट | rich editor | DOCX |
+| रजिस्टर, मैट्रिक्स, ट्रैकिंग तालिका, संरचित तुलना | grid editor | XLSX |
+| गैर-संपादनयोग्य या विशेष format | review / source mode | profile के अनुसार download या publish |
 
-### Limites pratiques à garder en tête
+### ध्यान रखने योग्य व्यावहारिक सीमाएँ
 
-| Cas | Lecture utile |
+| स्थिति | उपयोगी समझ |
 | --- | --- |
-| contenu réellement éditable | utilisez l’éditeur pour la relecture et les ajustements contrôlés avant approbation |
-| contenu surtout en mode revue | traitez l’écran comme une surface de validation, pas comme l’endroit principal de réécriture |
-| besoin d’un rendu de référence à transmettre | le téléchargement gouverné reste la sortie la plus fiable à partager hors de l’application |
+| वास्तव में संपादनयोग्य सामग्री | approval से पहले review और नियंत्रित बदलावों के लिए editor का उपयोग करें |
+| सामग्री मुख्यतः review mode में है | इसे review और validation की स्क्रीन की तरह देखें, मुख्य पुनर्लेखन स्थान की तरह नहीं |
+| साझा करने के लिए reference rendering चाहिए | application के बाहर साझा करने के लिए नियंत्रित download सबसे भरोसेमंद output रहता है |
 
-![Journal IA](/img/screenshots/localized/fr/09-ai-log-runs.png)
+![PM Doc संपादक और दस्तावेज़ समीक्षा](/img/screenshots/localized/hi/06-pm-doc-editor.png)
 
-## Journal IA : ce que couvre la page
+![AI Log](/img/screenshots/localized/hi/09-ai-log-runs.png)
 
-Le **Journal IA** a deux onglets distincts :
+## AI Log: यह पृष्ठ क्या कवर करता है
 
-- **Runs** ;
-- **Activity**.
+**AI Log** में दो अलग tabs होते हैं:
 
-## Runs vs Activity
+- **Runs**;
+- **Activity**।
 
-| Onglet | À quoi il sert |
+## Runs बनाम Activity
+
+| टैब | इसका उपयोग किस लिए है |
 | --- | --- |
-| Runs | Revoir une exécution d’agent, ses métadonnées de traçabilité et ses artefacts liés |
-| Activity | Revoir une timeline d’événements projet et inspecter le payload brut d’un événement |
+| Runs | किसी agent execution, उसकी ट्रेसबिलिटी मेटाडेटा और जुड़े हुए artifacts की समीक्षा के लिए |
+| Activity | परियोजना events की समयरेखा और किसी event के raw payload की जाँच के लिए |
 
-### Quand ouvrir Runs
+### Runs कब खोलें
 
-Ouvrez **Runs** pour :
+**Runs** तब खोलें जब आपको:
 
-- comprendre pourquoi un résultat a été produit ;
-- retrouver le fournisseur réellement utilisé ;
-- relire la fraîcheur, la confiance et les citations ;
-- rattacher un run à un artefact ou à un Document PM.
+- समझना हो कि कोई परिणाम क्यों उत्पन्न हुआ;
+- वास्तव में उपयोग हुआ provider देखना हो;
+- `Source freshness`, `Confidence` और citations पढ़नी हों;
+- किसी run को artifact या PM Doc से जोड़ना हो।
 
-### Quand ouvrir Activity
+### Activity कब खोलें
 
-Ouvrez **Activity** pour :
+**Activity** तब खोलें जब आपको:
 
-- reconstituer une chronologie ;
-- vérifier qu’un brouillon, une approbation ou une publication a bien laissé un événement ;
-- inspecter le payload brut quand vous faites du support ou de l’audit.
+- समयरेखा दोबारा बनानी हो;
+- यह सत्यापित करना हो कि draft, approval या publication ने वास्तव में event छोड़ा है;
+- support या audit के लिए raw payload देखना हो।
 
-### Exemples d’événements utiles à confirmer dans Activity
+### Activity में किन घटनाओं की पुष्टि उपयोगी रहती है
 
-Selon le flux, **Activity** peut vous aider à confirmer qu’un événement aval a bien été enregistré, par exemple :
+प्रवाह के अनुसार **Activity** यह पुष्टि करने में मदद कर सकता है कि आगे का event वास्तव में record हुआ था, जैसे:
 
-- création d’un brouillon ;
-- approbation d’un artefact ;
-- publication ;
-- préparation d’une notification ;
-- décision d’approbation, de rejet ou d’exécution gouvernée.
+- draft creation;
+- artifact approval;
+- publication;
+- notification preparation;
+- approval, rejection या governed execution से जुड़ा decision।
 
-### Exemples concrets de `Type` / `Kind`
+### `Type` / `Kind` के ठोस उदाहरण
 
-Les valeurs ci-dessous sont des exemples observés dans les flux seedés et démonstrations. Elles donnent un bon repère de lecture, sans prétendre couvrir tous les futurs événements.
+नीचे दिए गए values seeded flows और demonstrations में देखे गए उदाहरण हैं। इन्हें पढ़ने के reference की तरह उपयोग करें, पूरी सूची की तरह नहीं।
 
-| Type | Kind | Lecture pratique |
+| Type | Kind | व्यावहारिक समझ |
 | --- | --- | --- |
-| `agent_execution` | `completed` / `failed` | un run d’agent s’est terminé correctement ou en échec |
-| `document_upload` | `started` / `completed` / `failed` | un document a commencé son ingestion, l’a terminée ou a échoué |
-| `report_generated` | `completed` | un Document PM ou rapport a été généré et journalisé |
-| `marketplace_update` | `completed` | une notification ou mise à jour système a été enregistrée dans l’historique |
+| `agent_execution` | `completed` / `failed` | agent run सफलतापूर्वक समाप्त हुआ या विफल रहा |
+| `document_upload` | `started` / `completed` / `failed` | document ingestion शुरू हुई, पूरी हुई या विफल हुई |
+| `report_generated` | `completed` | PM Doc या report बनकर log हो गया |
+| `marketplace_update` | `completed` | notification या system update इतिहास में दर्ज हो गया |
 
-## Filtres et colonnes visibles
+## दिखाई देने वाले filters और columns
 
 ### Runs
 
-Filtres observés :
+देखे गए filters:
 
-- recherche sur agent / statut / run ID ;
-- filtre agent ;
-- filtre statut.
+- agent / status / run ID के आधार पर खोज;
+- agent filter;
+- status filter।
 
-Colonnes visibles : **Created**, **Agent**, **Status**, **Cost**, **Run ID**, **Actions**.
+दिखाई देने वाले columns: **Created**, **Agent**, **Status**, **Cost**, **Run ID**, **Actions**।
 
-Le champ **Cost** expose au moins les **tokens** et le nombre de **calls** quand ces informations sont disponibles.
+**Cost** field उपलब्ध होने पर कम-से-कम **tokens** और **calls** की संख्या दिखाती है।
+
+### समर्थन के लिए `Trace ID`, `Cost`, `Confidence` और `Source freshness` को कैसे पढ़ें
+
+समर्थन के लिए इन फ़ील्ड्स को इस तरह पढ़ना उपयोगी है:
+
+| फ़ील्ड | support के लिए व्यावहारिक समझ |
+| --- | --- |
+| `Run ID` | `Runs` स्क्रीन में दिखाई देने वाली पंक्ति को जल्दी ढूँढने का सबसे व्यावहारिक संकेतक |
+| `Trace ID` | support ticket, audit correlation और cross-service diagnostics के लिए मुख्य technical identifier; महत्वपूर्ण run हो तो इसे नोट करके रखें |
+| `Cost` | `tokens` और `calls` runtime उपयोग, retries, असामान्य खपत या जाँच का संदर्भ समझने के लिए हैं; इसे अपने-आप business approval signal न मानें |
+| `Confidence` | समीक्षा प्राथमिकता का संकेत; यदि यह कमज़ोर लगे, तो evidence, assumptions और citations दोबारा पढ़ें |
+| `Source freshness` | cited evidence कितनी वर्तमान है; यदि यह `aging`, `stale`, `conflicting` या `unavailable` हो, तो external sharing से पहले पुनः सत्यापन करें |
+
+यदि cross-project budget pressure या usage pressure देखना हो, तो individual run की raw **Cost** card की जगह **Portfolio** में **`cost_pressure`** देखें।
 
 ### Activity
 
-Filtres observés :
+देखे गए filters:
 
-- recherche sur type / kind / actor ;
-- filtre type ;
-- filtre kind.
+- type / kind / actor के आधार पर खोज;
+- type filter;
+- kind filter।
 
-Colonnes visibles : **Created**, **Type**, **Kind**, **Actor**, **ID**, **Actions**.
+दिखाई देने वाले columns: **Created**, **Type**, **Kind**, **Actor**, **ID**, **Actions**।
 
-## Détails techniques visibles dans un run
+## किसी run में दिखाई देने वाले तकनीकी विवरण
 
-Le détail d’un run peut exposer :
+किसी run की detail view में यह जानकारी दिखाई दे सकती है:
 
-- `Trace ID` ;
-- `Context snapshot ID` ;
-- `Structured output ID` ;
-- citations ;
-- `Effective AI Provider` ;
-- `Deployment-selected AI Provider` ;
-- `Model family` ;
-- `Confidence` ;
-- `Source freshness` ;
-- artefacts liés.
+- `Trace ID`;
+- `Context snapshot ID`;
+- `Structured output ID`;
+- citations;
+- `Effective AI Provider`;
+- `Deployment-selected AI Provider`;
+- `Model family`;
+- `Confidence`;
+- `Source freshness`;
+- linked artifacts।
 
-## Transparence runtime IA
+## AI runtime पारदर्शिता
 
-La distinction suivante est importante :
+यह अंतर विशेष रूप से महत्वपूर्ण है:
 
-- **fournisseur IA sélectionné au déploiement** : choix initial de l’environnement ;
-- **fournisseur IA effectif** : fournisseur réellement utilisé pour ce run.
+- **Deployment-selected AI Provider**: environment setup या deployment के समय चुना गया provider;
+- **Effective AI Provider**: वही provider जिसने इस विशेष run को वास्तव में संभाला।
 
-Ces deux valeurs peuvent différer. En cas de doute, le **Journal IA** fait foi pour le run observé.
+ये दोनों values अलग हो सकती हैं। यदि संदेह हो, तो देखे जा रहे run के लिए **AI Log** को अंतिम reference मानें।
 
-### Lecture simple de `Effective AI Provider`
+### समर्थन के लिए `Effective AI Provider` को कैसे पढ़ें
 
-`Effective AI Provider` répond à la question : **« quel fournisseur a réellement servi ce run précis ? »**
+`Effective AI Provider` इस प्रश्न का उत्तर देता है: **इस सटीक run को वास्तव में किस provider ने संभाला?**
 
-Cette valeur est plus fiable pour l’enquête qu’une supposition basée uniquement sur la configuration admin, car la valeur runtime observée peut différer du fournisseur sélectionné au déploiement.
+support या audit में इसे इस तरह पढ़ना उपयोगी है:
 
-## Surface à ouvrir d’abord selon le symptôme
+- यदि admin configuration और actual run में अंतर दिखे, तो इसी run की runtime value को reference मानें;
+- escalation करते समय `Trace ID`, `Effective AI Provider`, `Model family`, approximate time और project को साथ रखें;
+- केवल deployment setting, `Validate` या `Test` देखकर provider मान लेने के बजाय run detail में दिखाई देने वाली runtime value पढ़ें;
+- provider selection पर संदेह हो, तो `Deployment-selected AI Provider` और `Effective AI Provider` को साथ पढ़ें।
 
-| Symptôme | Surface à ouvrir en premier | Pourquoi |
+## लक्षण के अनुसार पहले कौन-सी स्क्रीन खोलें
+
+| लक्षण | पहले खोलने योग्य स्क्रीन | क्यों |
 | --- | --- | --- |
-| divergence de contenu entre brouillon et version finale | **Diff** | pour voir ce qui a réellement changé |
-| doute sur la preuve ou la provenance | **Lignée** | pour relier run, sortie structurée, artefact et sources |
-| doute sur le runtime, le fournisseur ou l’exécution IA | **Runs** | pour relire `Trace ID`, fournisseur effectif, fraîcheur et confiance |
-| doute sur la publication, l’approbation ou la suite aval | **Activity** | pour confirmer la chronologie et le payload brut |
+| draft और final version में content का अंतर | **Diff** | यह देखने के लिए कि वास्तव में क्या बदला |
+| evidence या provenance पर संदेह | **Lineage** | run, structured output, artifact और sources को जोड़ने के लिए |
+| runtime, provider या AI execution पर संदेह | **Runs** | `Trace ID`, effective provider, `Source freshness` और `Confidence` देखने के लिए |
+| publication, approval या आगे की प्रक्रिया पर संदेह | **Activity** | समयरेखा और raw payload की पुष्टि के लिए |
 
-## Workflow d’enquête recommandé
+## अनुशंसित जाँच क्रम
 
-Quand un livrable, une publication ou une notification paraît douteuse, partez du plus visible vers le plus technique :
+जब कोई deliverable, publication या notification संदिग्ध लगे, तो सबसे दृश्य स्तर से सबसे तकनीकी स्तर तक इस क्रम में जाएँ:
 
-1. ouvrez le **Document PM** ou l’artefact concerné ;
-2. consultez le **diff** pour voir ce qui a réellement changé ;
-3. ouvrez la **lignée** pour relever `source run ID`, `Context snapshot ID` et `Structured output ID` ;
-4. basculez dans **Runs** pour revoir fraîcheur, confiance, citations, fournisseur IA effectif et artefacts liés ;
-5. utilisez **Activity** pour confirmer la suite du flux : brouillon, approbation, publication, notification ou action gouvernée ;
-6. conservez enfin le **Trace ID** si l’enquête doit être reprise par le support ou l’audit.
+1. संबंधित **PM Doc** या artifact खोलें;
+2. **Diff** देखकर समझें कि वास्तव में क्या बदला;
+3. **Lineage** खोलकर `source run ID`, `Context snapshot ID` और `Structured output ID` नोट करें;
+4. **Runs** में जाकर `Source freshness`, `Confidence`, citations, **Effective AI Provider** और linked artifacts देखें;
+5. **Activity** में आगे की प्रक्रिया की पुष्टि करें: draft, approval, publication, notification या governed action;
+6. यदि support या audit को जाँच आगे बढ़ानी हो, तो अंत में **Trace ID** सुरक्षित रखें।
 
-### Cas 1 — un Document PM final semble faux
+### मामला 1 - final PM Doc गलत लगता है
 
-1. ouvrez le **Document PM** final et confirmez la version réellement publiée ;
-2. utilisez **Diff** pour repérer ce qui a été ajouté, retiré ou reformulé ;
-3. ouvrez **Lignée** pour retrouver le `source run ID` et le `Structured output ID` ;
-4. dans **Runs**, contrôlez les preuves, la fraîcheur et le fournisseur effectif ;
-5. si le contenu final ne reflète pas le flux attendu, terminez dans **Activity** pour vérifier l’approbation, la publication et l’acteur ayant poussé la version.
+1. final **PM Doc** खोलें और पुष्टि करें कि वास्तव में कौन-सी version publish हुई थी;
+2. **Diff** से पहचानें कि क्या जोड़ा, हटाया या बदला गया;
+3. **Lineage** खोलकर `source run ID` और `Structured output ID` खोजें;
+4. **Runs** में evidence, `Source freshness` और effective provider जाँचें;
+5. यदि final content अपेक्षित flow नहीं दिखाता, तो **Activity** में approval, publication और उस actor की जाँच करें जिसने version को आगे बढ़ाया।
 
-### Cas 2 — une action ou notification préparée n’a pas abouti
+### मामला 2 - तैयार action या notification पूरी नहीं हुई
 
-1. partez du brouillon, de la file d’action ou de la notification visible ;
-2. relevez `relatedArtifactId` ou `relatedNotificationId` quand ils existent ;
-3. utilisez **Activity** pour confirmer si une approbation, un rejet ou une exécution a été journalisée ;
-4. si la suite reste floue, revenez dans **Runs** pour vérifier le run source et la logique ayant produit la recommandation ;
-5. documentez enfin le **Trace ID** et les identifiants liés avant d’escalader.
+1. दिख रहे draft, action queue या notification से शुरू करें;
+2. उपलब्ध हो तो `relatedArtifactId` या `relatedNotificationId` नोट करें;
+3. **Activity** में देखें कि approval, rejection या execution log हुआ या नहीं;
+4. यदि flow अभी भी अस्पष्ट हो, तो **Runs** पर लौटकर source run और recommendation तैयार करने वाले logic देखें;
+5. escalation से पहले **Trace ID** और संबंधित identifiers दस्तावेज़ित करें।
 
-## Quels IDs conserver en priorité
+## किन IDs को प्राथमिकता से सुरक्षित रखें
 
-| Situation | IDs à conserver en priorité |
+| स्थिति | प्राथमिकता से रखने योग्य IDs |
 | --- | --- |
-| résultat de run douteux | `Trace ID`, `Context snapshot ID`, `Structured output ID` |
-| artefact ou Document PM final suspect | `source run ID`, `Structured output ID`, version d’artefact concernée |
-| action ou notification sans suite claire | `Trace ID`, `relatedArtifactId`, `relatedNotificationId` |
-| enquête support transverse | tous les IDs ci-dessus, plus l’heure approximative et le projet concerné |
+| संदिग्ध run result | `Trace ID`, `Context snapshot ID`, `Structured output ID` |
+| संदिग्ध artifact या final PM Doc | `source run ID`, `Structured output ID`, संबंधित artifact version |
+| अस्पष्ट follow-up वाली action या notification | `Trace ID`, `relatedArtifactId`, `relatedNotificationId` |
+| cross-support जाँच | ऊपर दिए गए सभी IDs, साथ में approximate time और संबंधित project |
 
-## Bonnes pratiques de traçabilité
+## ट्रेसबिलिटी की अच्छी प्रथाएँ
 
-- conservez le **Trace ID** lorsqu’un résultat a de l’importance ;
-- avant de publier, vérifiez la lignée entre le livrable et la preuve ;
-- en cas d’écart entre deux versions, utilisez le **diff** avant arbitrage ;
-- ajoutez à la **Connaissance** seulement les livrables réellement relus ;
-- utilisez **Activity** pour compléter l’enquête quand **Runs** ne suffit pas.
+- जब कोई परिणाम महत्वपूर्ण हो, तो **Trace ID** अवश्य सुरक्षित रखें;
+- publish करने से पहले deliverable और evidence के बीच की lineage जाँचें;
+- दो versions में अंतर हो, तो निर्णय से पहले **Diff** पढ़ें;
+- केवल वास्तव में reviewed deliverables को ही **Knowledge** में जोड़ें;
+- जब **Runs** पर्याप्त न हो, तो जाँच पूरी करने के लिए **Activity** का उपयोग करें।
 
-## Suite
+## आगे
 
-- [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
-- [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
-- [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
-- [Maintenance, support et FAQ](./maintenance-support-faq.md)
-- [Glossaire](./glossaire.md)
+- [संरचित आउटपुट, प्रमाण और नवीनता](./sorties-contextuelles-preuves-et-fraicheur.md)
+- [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md)
+- [रखरखाव, समर्थन और अक्सर पूछे जाने वाले प्रश्न](./maintenance-support-faq.md)
+- [शब्दकोश](./glossaire.md)

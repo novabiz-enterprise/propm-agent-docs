@@ -264,6 +264,21 @@ Le meilleur contrôle est pratique :
 
 L’écran **Actions & approbations** sert à transformer une intention en **action gouvernée réelle**.
 
+![Panneau Actions & approbations](/img/screenshots/localized/fr/17-actions-approvals.png)
+
+### Quatre lectures canoniques à retenir
+
+Dans l’interface observée, cette surface se lit plus facilement à travers quatre états distincts :
+
+| Lecture canonique | Ce que cela veut dire |
+| --- | --- |
+| **Execution prerequisites** | des options d’exécution compatibles peuvent exister, mais leur usage opérationnel reste bloqué ou indisponible |
+| **Pending approval** | une demande gouvernée a été proposée et attend encore une décision |
+| **Ready to execute** | la demande est déjà **approved**, mais l’exécution contrôlée reste une étape séparée |
+| **Executed history** | l’action a réellement été exécutée et reste visible comme historique d’audit |
+
+Une demande **approved** n’est donc pas encore une demande **executed**.
+
 ### Quand tout est correctement prêt, que devrait-on voir ?
 
 Dans un cas nominal, l’utilisateur autorisé retrouve en général :
@@ -336,7 +351,13 @@ En pratique :
 
 ### Lecture pédagogique d’un écran qui semble vide
 
-Si `Actions & approbations` ne propose rien d’exécutable, commencez par cette table très simple :
+Quand `Actions & approbations` ne propose rien d’exécutable, distinguez d’abord trois cas avant de conclure à une panne :
+
+1. la disponibilité des options d’exécution n’a pas pu être chargée ;
+2. des options compatibles existent mais restent bloquées ou non saines ;
+3. aucun connecteur compatible n’est encore configuré pour ce type d’action.
+
+Dans les trois cas, cet état doit être distingué d’une file simplement vide parce qu’aucune action n’a encore été proposée.
 
 | Ce que vous voyez | Raison dominante possible | Réflexe utile |
 | --- | --- | --- |
@@ -345,10 +366,7 @@ Si `Actions & approbations` ne propose rien d’exécutable, commencez par cette
 | file visible mais rien ne part | la demande reste en attente d’approbation ou d’exécution aval | relire le statut réel de la file |
 | connecteur présent mais inutilisable | binding projet, health ou entitlement insuffisant | vérifier la chaîne complète plateforme → projet → policy |
 
-Rappelez-vous enfin qu’un statut **approved** ne veut pas dire **executed** : l’accord existe, mais l’exécution réelle peut encore rester en attente.
-- **blocked by entitlement** = capacité non incluse dans le plan ou non ouverte ;
-- **blocked by policy** = gouvernance du projet restrictive ;
-- **blocked by permission** = votre rôle ne suffit pas.
+Rappelez-vous aussi que seules les options d’exécution approuvées côté entreprise/projet apparaissent ici. La préparation technique du connecteur reste dans **Administration de la plateforme**, tandis que l’exposition au projet se lit dans **Intégrations du projet**.
 
 ### Étape 5 — Renseigner le titre et la justification
 

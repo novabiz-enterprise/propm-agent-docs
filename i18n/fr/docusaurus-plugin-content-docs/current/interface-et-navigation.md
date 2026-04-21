@@ -119,7 +119,15 @@ Capacités observées :
 - **Tout effacer** ;
 - clic sur une notification pour ouvrir la surface liée quand une navigation est fournie.
 
-Les notifications peuvent remonter notamment des statuts d’agent, des événements de génération de rapport, des uploads de documents et des mises à jour liées au Marketplace ou à l’abonnement.
+Les notifications ne viennent pas d’une seule famille d’événements. Dans l’application observée, elles peuvent agréger :
+
+- des statuts d’agent ou de run ;
+- des événements de rapport, d’artefact ou de document ;
+- des notifications projet relues côté serveur ;
+- des suites de gouvernance ou d’approbation ;
+- des mises à jour d’intégration, de Marketplace, d’abonnement ou de coût.
+
+Le centre de la barre supérieure peut donc mélanger des événements quasi temps réel et des notifications projet relues côté plateforme.
 
 ## Indicateur de santé
 
@@ -166,6 +174,17 @@ Quelques malentendus reviennent souvent :
 ## Langue, thème et aide
 
 La langue d’interface peut être changée depuis la barre supérieure. Le changement de thème améliore le confort de lecture, sans effet sur les données projet. Les catalogues d’aide intégrés couvrent la navigation générale, les pages de projet, le Journal IA et les rappels de gouvernance.
+
+## Ce qui reste local au navigateur dans la navigation
+
+Au-delà de la continuité de chat et du projet actif mémorisé, d’autres commodités restent locales au navigateur observé :
+
+- la langue et le thème d’interface ;
+- la liste des projets récents ;
+- l’état lu / effacé du centre de notifications ;
+- certaines préférences de tableaux ou de vues enregistrées localement.
+
+À l’inverse, les notifications projet, les signaux, les digests, les brouillons de notification, les actions gouvernées, les documents et les artefacts relèvent de la plateforme partagée.
 
 ## Conseils de navigation
 

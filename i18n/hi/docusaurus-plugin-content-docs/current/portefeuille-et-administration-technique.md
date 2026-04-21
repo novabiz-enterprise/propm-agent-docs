@@ -1,183 +1,218 @@
 ---
-title: Portefeuille et administration technique
+title: पोर्टफोलियो और तकनीकी प्रशासन
 slug: /portefeuille-et-administration-technique
-description: Comprendre la page Portfolio pas à pas, lire les cohortes et outliers, puis administrer la plateforme, les intégrations et les fournisseurs IA.
+description: पोर्टफोलियो पृष्ठ को चरण-दर-चरण समझें, कोहोर्ट्स और आउट्लायर पढ़ें, फिर प्लेटफ़ॉर्म, एकीकरण और एआई प्रदाताओं का प्रशासन करें।
 ---
 
-[Accueil](./index.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) · [Maintenance, support et FAQ](./maintenance-support-faq.md)
+[मुखपृष्ठ](./index.md) · [रिपोर्ट, AI लॉग और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md) · [रखरखाव, समर्थन और अक्सर पूछे जाने वाले प्रश्न](./maintenance-support-faq.md)
 
-![Centre de commande portefeuille](/img/screenshots/localized/fr/02-portfolio-command-center.png)
+![पोर्टफोलियो कमांड सेंटर](/img/screenshots/localized/hi/02-portfolio-command-center.png)
 
-## Objectif
+## उद्देश्य
 
-Cette page couvre deux surfaces différentes du produit :
+यह पृष्ठ उत्पाद के दो अलग-अलग हिस्सों को कवर करता है:
 
-1. la page **Portfolio** ou **Centre de commande portefeuille**, utilisée pour comparer plusieurs projets ;
-2. **Administration de la plateforme**, utilisée pour préparer les intégrations, les fournisseurs IA, l’abonnement et l’audit.
+1. **पोर्टफोलियो** या **पोर्टफोलियो कमांड सेंटर** पृष्ठ, जिसका उपयोग कई परियोजनाओं की तुलना करने के लिए किया जाता है;
+2. **प्लेटफ़ॉर्म प्रशासन**, जिसका उपयोग एकीकरण, एआई प्रदाताओं, सदस्यता और ऑडिट को तैयार करने के लिए किया जाता है।
 
-Pour un utilisateur débutant, il est utile de retenir ceci :
+एक शुरुआती उपयोगकर्ता के लिए, यह याद रखना उपयोगी है:
 
-- la page **Portfolio** aide à répondre à la question **« quels projets méritent mon attention en priorité ? »** ;
-- l’**Administration de la plateforme** aide à répondre à la question **« la plateforme est-elle correctement préparée pour l’organisation ? »**.
+- **पोर्टफोलियो** पृष्ठ यह सवाल का उत्तर देने में मदद करता है **“कौन सी परियोजनाएँ मेरे प्राथमिक ध्यान की पात्र हैं?”**;
+- **प्लेटफ़ॉर्म प्रशासन** यह सवाल का उत्तर देने में मदद करता है **“क्या प्लेटफ़ॉर्म संगठन के लिए सही ढंग से तैयार है?”**.
+
+## यह पृष्ठ मुख्य रूप से किनके लिए है?
+
+देखे गए अनुप्रयोग में **Portfolio** मुख्यतः PMO-शैली की बहु-परियोजना समीक्षा सतह है। यह एक ही संकेतक मॉडल के आधार पर कई परियोजनाओं की तुलना करने में मदद करती है, उससे पहले कि आप किसी एक परियोजना का विस्तृत दृश्य खोलें।
+
+इसे मुख्य रूप से इन कामों के लिए उपयोग करें:
+
+- पहले किस परियोजना पर ध्यान देना है, यह तय करने के लिए;
+- कई परियोजनाओं के बीच एकसमान संकेतकों की तुलना करने के लिए;
+- यह तय करने के लिए कि अगला विस्तृत **Project drill-down** किस परियोजना का खोलना चाहिए।
+
+इसे केवल प्रायोजक-सारांश पृष्ठ या किसी एक परियोजना के विस्तृत **Workspace** के विकल्प के रूप में न देखें।
 
 ---
 
-## Partie 1 — Comprendre la page Portfolio pas à pas
+## भाग 1 — पोर्टफोलियो पृष्ठ को चरण-दर-चरण समझें
 
-## À quoi sert la page Portfolio ?
+## पोर्टफोलियो पृष्ठ का उद्देश्य क्या है?
 
-La page **Portfolio** sert à comparer plusieurs projets avec des **signaux configurables** au lieu d’un simple tableau rouge / orange / vert figé.
+**पोर्टफोलियो** पृष्ठ कई परियोजनाओं की तुलना करने के लिए उपयोग किया जाता है, जिसमें **कॉन्फ़िगर करने योग्य संकेतक** होते हैं, न कि केवल एक स्थिर लाल/नारंगी/हरा तालिका।
 
-Elle permet notamment de :
+यह विशेष रूप से अनुमति देता है:
 
-- sélectionner plusieurs projets ;
-- choisir les signaux à comparer ;
-- définir un **poids** et un **seuil** pour chaque signal ;
-- filtrer la **sévérité minimale** ;
-- enregistrer une **cohorte** réutilisable ;
-- repérer les **outliers** ou **valeurs aberrantes** ;
-- ouvrir ensuite le détail d’un projet pour comprendre pourquoi il ressort.
+- कई परियोजनाओं का चयन करना;
+- तुलना करने के लिए संकेतक चुनना;
+- प्रत्येक संकेतक के लिए **वज़न** और **सीमा** निर्धारित करना;
+- **न्यूनतम गंभीरता** फ़िल्टर करना;
+- एक **कोहोर्ट** को पुन: उपयोग योग्य रूप में सहेजना;
+- **आउटलायर** या **असामान्य मान** को पहचानना;
+- फिर किसी परियोजना का विवरण खोलकर समझना कि वह क्यों उभरता है।
 
-## Ce que l’utilisateur voit en arrivant sur la page
+## उपयोगकर्ता पृष्ठ पर आने पर क्या देखते हैं
 
-En arrivant sur la page Portfolio, l’utilisateur voit généralement cinq zones.
+पोर्टफोलियो पृष्ठ पर आने पर, उपयोगकर्ता आम तौर पर पाँच क्षेत्र देखते हैं।
 
-| Zone | Ce que l’on y fait |
+| क्षेत्र | वहाँ क्या किया जाता है |
 | --- | --- |
-| **Sélection des projets** | choisir quels projets entrent dans la comparaison |
-| **Profil de signaux** | choisir les signaux, leurs poids, leurs seuils et la sévérité minimale |
-| **Cohortes** | enregistrer ou recharger une configuration de comparaison réutilisable |
-| **Résultats de comparaison** | lire le résumé, les outliers et les écarts entre projets |
-| **Project drill-down** | ouvrir les preuves, l’activité récente et le détail par signal pour un projet |
+| **परियोजनाओं का चयन** | तुलना में कौन सी परियोजनाएँ शामिल हैं, चुनें |
+| **सिग्नल प्रोफ़ाइल** | संकेतक, उनके वज़न, सीमाएँ और न्यूनतम गंभीरता चुनें |
+| **कोहोर्ट्स** | पुन: उपयोग योग्य तुलना कॉन्फ़िगरेशन को सहेजें या पुनः लोड करें |
+| **तुलना परिणाम** | सारांश, आउट्लायर और परियोजनाओं के बीच अंतर पढ़ें |
+| **परियोजना ड्रिल-डाउन** | साक्ष्य, हालिया गतिविधि और संकेतक के अनुसार विवरण खोलें |
 
-## Les mots à comprendre avant de commencer
+## शुरू करने से पहले समझने वाले शब्द
 
-| Mot | Explication simple |
+| शब्द | सरल व्याख्या |
 | --- | --- |
-| **Projet** | un projet inclus dans la comparaison |
-| **Signal** | un indicateur comparatif, par exemple blocages, fraîcheur ou pression planning |
-| **Poids** | l’importance donnée à un signal dans le score global |
-| **Seuil** | le niveau à partir duquel un signal commence à ressortir comme notable |
-| **Sévérité minimale** | un filtre qui masque les signaux trop faibles |
-| **Cohorte** | un groupe de projets enregistré avec son profil de comparaison |
-| **Outlier / valeur aberrante** | un projet qui ressort plus fortement que les autres selon la configuration active |
-| **Narrative comparison** | un résumé textuel de la comparaison en cours |
-| **Project drill-down** | le détail projet par projet avec preuves et activité |
+| **परियोजना** | तुलना में शामिल एक परियोजना |
+| **सिग्नल** | तुलनात्मक संकेतक, जैसे ब्लॉक, ताज़गी या शेड्यूल दबाव |
+| **वज़न** | कुल स्कोर में एक सिग्नल को दी गई महत्ता |
+| **सीमा** | वह स्तर जिस पर सिग्नल उल्लेखनीय बनना शुरू करता है |
+| **न्यूनतम गंभीरता** | एक फ़िल्टर जो बहुत कम सिग्नल को छिपाता है |
+| **कोहोर्ट** | एक समूह परियोजनाओं को उनके तुलना प्रोफ़ाइल के साथ सहेजा गया |
+| **आउटलायर / असामान्य मान** | एक परियोजना जो सक्रिय कॉन्फ़िगरेशन के अनुसार अन्य से अधिक उभरती है |
+| **नैरेटिव तुलना** | चल रही तुलना का पाठ्य सारांश |
+| **परियोजना ड्रिल-डाउन** | परियोजना के अनुसार साक्ष्य और गतिविधि के साथ विस्तृत विवरण |
 
-## Exemple guidé — comparer trois projets pour une revue hebdomadaire
+## मार्गदर्शित उदाहरण — साप्ताहिक समीक्षा के लिए तीन परियोजनाओं की तुलना
 
-Imaginons qu’un PMO veut comparer trois projets :
+मान लीजिए एक PMO तीन परियोजनाओं की तुलना करना चाहता है:
 
-- Projet A ;
-- Projet B ;
-- Projet C.
+- परियोजना A;
+- परियोजना B;
+- परियोजना C.
 
-Le but est de repérer rapidement celui qui demande une attention prioritaire avant le comité hebdomadaire.
+उद्देश्य है कि साप्ताहिक समिति से पहले प्राथमिक ध्यान देने वाली परियोजना को जल्दी पहचानना।
 
-### Étape 1 — Choisir les projets
+### चरण 1 — परियोजनाओं का चयन
 
-Dans la zone **Projects**, cochez les projets que vous voulez comparer.
+**Projects** क्षेत्र में, उन परियोजनाओं को चेक करें जिन्हें आप तुलना करना चाहते हैं।
 
-### Bon réflexe
+### अच्छा अभ्यास
 
-Comparez de préférence des projets qui appartiennent à une **même conversation de pilotage**. Par exemple :
+समान प्रबंधन वार्तालाप से संबंधित परियोजनाओं की तुलना करना बेहतर है। उदाहरण के लिए:
 
-- trois projets d’un même portefeuille ;
-- trois projets d’un même comité ;
-- ou trois projets d’une même direction.
+- एक ही पोर्टफोलियो की तीन परियोजनाएँ;
+- एक ही समिति की तीन परियोजनाएँ;
+- या एक ही दिशा की तीन परियोजनाएँ।
 
-### Étape 2 — Choisir les signaux utiles
+### चरण 2 — उपयोगी संकेतक चुनें
 
-Dans le **Signal profile**, activez les signaux qui comptent réellement pour votre revue.
+**Signal profile** में, उन संकेतकों को सक्रिय करें जो आपकी समीक्षा के लिए वास्तव में महत्वपूर्ण हैं।
 
-Exemple pour une revue hebdomadaire :
+साप्ताहिक समीक्षा के लिए उदाहरण:
 
-- **blocker_density** ;
-- **freshness_issues** ;
-- **failed_runs** ;
-- **schedule_pressure**.
+- `blocker_density`;
+- `freshness_issues`;
+- `failed_runs`;
+- `schedule_pressure`.
 
-### Étape 3 — Régler les poids
+### चरण 3 — वज़न समायोजित करें
 
-Le **poids** indique l’importance donnée à un signal.
+**वज़न** एक सिग्नल को दी गई महत्ता को दर्शाता है।
 
-- si vous mettez un poids élevé sur **blocker_density**, les projets avec beaucoup de blocages ressortiront davantage ;
-- si vous mettez un poids faible sur **activity_change**, ce signal influencera moins le classement final.
+- यदि आप `blocker_density` पर उच्च वज़न देते हैं, तो अधिक ब्लॉकर वाली परियोजनाएँ अधिक उभरेंगी;
+- यदि आप `activity_change` पर कम वज़न देते हैं, तो यह सिग्नल अंतिम रैंकिंग को कम प्रभावित करेगा।
 
-### Étape 4 — Régler les seuils
+### चरण 4 — सीमाएँ समायोजित करें
 
-Le **seuil** indique à partir de quand un signal doit vraiment attirer l’attention.
+**सीमा** दर्शाती है कि कब एक सिग्नल वास्तव में ध्यान आकर्षित करना चाहिए।
 
-- un seuil bas rend la comparaison plus sensible ;
-- un seuil élevé rend la comparaison plus sélective.
+- कम सीमा तुलना को अधिक संवेदनशील बनाती है;
+- उच्च सीमा तुलना को अधिक चयनात्मक बनाती है।
 
-### Étape 5 — Choisir la sévérité minimale
+### चरण 5 — न्यूनतम गंभीरता चुनें
 
-La **sévérité minimale** filtre ce que vous voulez voir dans les résultats.
+**न्यूनतम गंभीरता** फ़िल्टर करती है कि आप परिणामों में क्या देखना चाहते हैं।
 
-Exemple :
+उदाहरण:
 
-- **low and above** = vous voyez presque tout ;
-- **medium and above** = vous filtrez déjà les signaux faibles ;
-- **high and above** = vous vous concentrez uniquement sur les sujets plus sérieux.
+- **low and above** = आप लगभग सब कुछ देखते हैं;
+- **medium and above** = आप पहले से ही कम सिग्नल को फ़िल्टर कर रहे हैं;
+- **high and above** = आप केवल अधिक गंभीर विषयों पर ध्यान केंद्रित करते हैं।
 
-### Étape 6 — Régler le seuil global d’outlier
+### चरण 6 — समग्र आउट्लायर सीमा समायोजित करें
 
-Le **Overall outlier threshold** détermine à partir de quel niveau combiné un projet doit être signalé comme **valeur aberrante**.
+**Overall outlier threshold** निर्धारित करता है कि किस संयुक्त स्तर पर एक परियोजना को **असामान्य मान** के रूप में चिह्नित किया जाना चाहिए।
 
-- seuil plus bas = plus de projets ressortent ;
-- seuil plus haut = seuls les cas les plus marqués ressortent.
+- कम सीमा = अधिक परियोजनाएँ उभरेंगी;
+- उच्च सीमा = केवल सबसे स्पष्ट मामलों को उभरने दें।
 
-### Étape 7 — Enregistrer une cohorte si besoin
+## देखी गई प्रारंभिक डिफ़ॉल्ट सेटिंग्स
 
-Si vous faites souvent la même comparaison, enregistrez-la comme **cohorte**.
+यह पृष्ठ बिल्कुल खाली कॉन्फ़िगरेशन से शुरू नहीं होता। देखे गए डिफ़ॉल्ट मान सामान्यतः ये हैं:
 
-Une cohorte mémorise :
+| सिग्नल | डिफ़ॉल्ट वज़न | डिफ़ॉल्ट सीमा |
+| --- | --- | --- |
+| `activity_change` | `1.0` | `45` |
+| `blocker_density` | `1.2` | `35` |
+| `freshness_issues` | `1.0` | `35` |
+| `contradiction_count` | `1.1` | `35` |
+| `failed_runs` | `1.3` | `40` |
+| `schedule_pressure` | `1.2` | `40` |
+| `cost_pressure` | `1.2` | `40` |
+| `overall_outlier_score` | — | `55` |
 
-- les projets choisis ;
-- les signaux activés ;
-- les poids ;
-- les seuils ;
-- la sévérité minimale.
+उपयोगी बातें:
 
-![Éditeur de cohorte portefeuille](/img/screenshots/localized/fr/02-portfolio-cohort-editor.png)
+- **न्यूनतम गंभीरता** शुरुआत में बिना कठोर फ़िल्टर वाले `All` दृश्य से शुरू होती है;
+- **Reset defaults** इन्हीं प्रारंभिक मानों को वापस लाता है;
+- ये मान सुरक्षित शुरुआती आधार हैं, कोई अनिवार्य मॉडल नहीं;
+- इन डिफ़ॉल्ट मानों और आपकी सहेजी हुई **कोहोर्ट्स** के अलावा कोई छिपा हुआ पूर्व-सेट नहीं है;
+- कुछ डेमो वातावरण पहले से भरी हुई कोहोर्ट भी दिखा सकते हैं, लेकिन उसकी सामग्री वातावरण के अनुसार बदलती है।
 
-### Étape 8 — Lancer ou rafraîchir la comparaison
+### चरण 7 — आवश्यकता होने पर कोहोर्ट सहेजें
 
-Cliquez sur **Refresh comparison** pour recalculer la vue avec les paramètres actifs.
+यदि आप अक्सर वही तुलना करते हैं, तो इसे **कोहोर्ट** के रूप में सहेजें।
 
-### Étape 9 — Lire le résumé narratif
+एक कोहोर्ट याद रखता है:
 
-La zone **Narrative comparison** donne un texte de synthèse.
+- चुनी गई परियोजनाएँ;
+- सक्रिय संकेतक;
+- वज़न;
+- सीमाएँ;
+- न्यूनतम गंभीरता.
 
-Elle répond généralement à la question :
+![पोर्टफोलियो कोहोर्ट संपादक](/img/screenshots/localized/hi/02-portfolio-cohort-editor.png)
 
-**« Qu’est-ce qui ressort le plus, maintenant, dans ce groupe de projets ? »**
+### चरण 8 — तुलना चलाएँ या ताज़ा करें
 
-### Étape 10 — Lire les outliers
+**Refresh comparison** पर क्लिक करके सक्रिय पैरामीटर के साथ दृश्य को पुनः गणना करें।
 
-La zone **Outliers** liste les projets qui dépassent le profil actif de poids et de seuils.
+### चरण 9 — नैरेटिव सारांश पढ़ें
 
-Un outlier n’est pas forcément un « projet en difficulté ». Cela veut simplement dire :
+**Narrative comparison** क्षेत्र एक संक्षिप्त पाठ देता है।
 
-- qu’il ressort plus que les autres ;
-- qu’il mérite une lecture plus attentive ;
-- qu’il faut comprendre **pourquoi** il ressort.
+यह आम तौर पर इस सवाल का उत्तर देता है:
 
-### Étape 11 — Ouvrir le détail du projet
+**“इस परियोजना समूह में अभी सबसे अधिक क्या उभर रहा है?”**
 
-Dans **Project drill-down**, vous pouvez consulter :
+### चरण 10 — आउट्लायर पढ़ें
 
-- les signaux du projet ;
-- les preuves ;
-- l’activité récente ;
-- les liens vers l’**Espace de travail**, la **Connaissance**, les **Rapports** ou le **Journal IA**.
+**Outliers** क्षेत्र उन परियोजनाओं को सूचीबद्ध करता है जो सक्रिय वज़न और सीमाओं से अधिक हैं।
 
-C’est cette étape qui transforme une alerte portefeuille en compréhension concrète.
+एक आउट्लायर अनिवार्य रूप से “कठिन परियोजना” नहीं है। इसका मतलब केवल यह है:
 
-## Comprendre les signaux visibles dans Portfolio
+- वह अन्य से अधिक उभरता है;
+- उसे अधिक ध्यान देने की आवश्यकता है;
+- आपको समझना है **क्यों** वह उभरता है।
 
-Les signaux observés dans le produit incluent notamment :
+### चरण 11 — परियोजना का विवरण खोलें
+
+**Project drill-down** में आप देख सकते हैं:
+
+- परियोजना के संकेतक;
+- साक्ष्य;
+- हालिया गतिविधि;
+- **Workspace**, **Knowledge**, **Reports & artifacts** या **AI Log** के लिंक.
+
+यह चरण पोर्टफोलियो अलर्ट को ठोस समझ में बदलता है।
+
+## पोर्टफोलियो में दिखाई देने वाले संकेतकों को समझें
+
+उत्पाद में देखे जाने वाले संकेतक मुख्यतः हैं:
 
 - `activity_change`
 - `blocker_density`
@@ -187,327 +222,329 @@ Les signaux observés dans le produit incluent notamment :
 - `schedule_pressure`
 - `cost_pressure`
 
-### Définition simple de chaque signal
+### प्रत्येक संकेतक की सरल परिभाषा
 
-| Signal | Question à laquelle il répond | Comment l’interpréter |
+| सिग्नल | यह किस सवाल का उत्तर देता है | इसे कैसे व्याख्या करें |
 | --- | --- | --- |
-| `activity_change` | l’activité récente est-elle très différente de la période précédente ? | élevé = variation inhabituelle à expliquer |
-| `blocker_density` | le projet montre-t-il beaucoup de blocages ou d’escalades ? | élevé = blocages fréquents ou concentrés |
-| `freshness_issues` | les preuves et sources sont-elles trop anciennes ou indisponibles ? | élevé = la vue projet devient moins fiable |
-| `contradiction_count` | les sources se contredisent-elles ? | élevé = arbitrage ou clarification nécessaire |
-| `failed_runs` | les automatisations ou runs échouent-ils souvent ? | élevé = friction technique ou opérationnelle |
-| `schedule_pressure` | le planning montre-t-il des signes de tension ? | élevé = pression planning ou dérive calendrier |
-| `cost_pressure` | le budget ou la consommation montrent-ils une tension ? | élevé = risque budget / coûts |
+| `activity_change` | क्या हालिया गतिविधि पिछली अवधि से बहुत अलग है? | उच्च = असामान्य परिवर्तन जिसे समझाना है |
+| `blocker_density` | क्या परियोजना में बहुत सारे ब्लॉकर या एस्केलेशन हैं? | उच्च = बार-बार या केंद्रित ब्लॉकर |
+| `freshness_issues` | क्या साक्ष्य और स्रोत बहुत पुराने या अनुपलब्ध हैं? | उच्च = परियोजना दृश्य कम विश्वसनीय |
+| `contradiction_count` | क्या स्रोत एक-दूसरे से विरोधाभास करते हैं? | उच्च = मध्यस्थता या स्पष्टता आवश्यक |
+| `failed_runs` | क्या ऑटोमेशन या रन अक्सर विफल होते हैं? | उच्च = तकनीकी या परिचालन घर्षण |
+| `schedule_pressure` | क्या शेड्यूल में तनाव के संकेत हैं? | उच्च = शेड्यूल दबाव या कैलेंडर विचलन |
+| `cost_pressure` | क्या बजट या उपभोग में तनाव है? | उच्च = बजट/लागत जोखिम |
 
-## Comment lire poids, seuils et sévérité avec un exemple simple
+## वज़न, सीमाएँ और गंभीरता को एक सरल उदाहरण के साथ कैसे पढ़ें
 
-Prenons un exemple très concret.
+एक बहुत ही ठोस उदाहरण लेते हैं।
 
-### Cas 1 — Vous voulez surtout voir les projets bloqués
+### केस 1 — आप मुख्य रूप से ब्लॉक्ड परियोजनाएँ देखना चाहते हैं
 
-- augmentez le **poids** de `blocker_density` ;
-- gardez un **seuil** moyen ;
-- mettez la **sévérité minimale** sur `medium`.
+- `blocker_density` का **वज़न** बढ़ाएँ;
+- एक **मध्यम सीमा** रखें;
+- **न्यूनतम गंभीरता** को `medium` पर सेट करें.
 
-Résultat attendu : les projets avec blocages récurrents ressortent davantage.
+अपेक्षित परिणाम: बार-बार ब्लॉकर वाली परियोजनाएँ अधिक उभरेंगी।
 
-### Cas 2 — Vous voulez surtout contrôler la qualité des preuves
+### केस 2 — आप साक्ष्य की गुणवत्ता को नियंत्रित करना चाहते हैं
 
-- augmentez le poids de `freshness_issues` et `contradiction_count` ;
-- gardez un seuil plus sensible ;
-- lisez ensuite les preuves indisponibles ou contradictoires.
+- `freshness_issues` और `contradiction_count` का वज़न बढ़ाएँ;
+- एक अधिक संवेदनशील सीमा रखें;
+- फिर अनुपलब्ध या विरोधाभासी साक्ष्य पढ़ें.
 
-Résultat attendu : les projets dont la lecture devient peu fiable remontent plus vite.
+अपेक्षित परिणाम: जिन परियोजनाओं की विश्वसनीयता कम हो रही है, वे जल्दी उभरेंगी।
 
-### Cas 3 — Vous voulez un comité très sélectif
+### केस 3 — आप एक बहुत चयनात्मक समिति चाहते हैं
 
-- gardez peu de signaux ;
-- montez les seuils ;
-- augmentez la sévérité minimale ;
-- montez le seuil global d’outlier.
+- कम संकेतक रखें;
+- सीमाएँ बढ़ाएँ;
+- न्यूनतम गंभीरता बढ़ाएँ;
+- समग्र आउट्लायर सीमा बढ़ाएँ.
 
-Résultat attendu : seuls les cas les plus marqués resteront visibles.
+अपेक्षित परिणाम: केवल सबसे स्पष्ट मामले दिखाई देंगे।
 
-## Comment lire un outlier correctement
+## आउट्लायर को सही ढंग से कैसे पढ़ें
 
-Un **outlier** n’est pas une note magique ni un jugement définitif.
+एक **आउटलायर** कोई जादुई अंक या अंतिम निर्णय नहीं है।
 
-Dans les flux observés, un projet ressort comme outlier lorsque :
+देखे गए प्रवाह में, एक परियोजना आउट्लायर के रूप में उभरती है जब:
 
-- un ou plusieurs signaux sont élevés ;
-- ces signaux portent un poids significatif ;
-- les seuils actifs sont dépassés ;
-- le score combiné dépasse le seuil global d’outlier.
+- एक या अधिक सिग्नल उच्च हैं;
+- ये सिग्नल महत्वपूर्ण वज़न रखते हैं;
+- सक्रिय सीमाएँ पार हो गई हैं;
+- संयुक्त स्कोर समग्र आउट्लायर सीमा से अधिक है।
 
-### Lecture correcte
+### सही पढ़ना
 
-- **outlier** = « ce projet ressort plus que les autres selon les règles actuelles » ;
-- **pas outlier** = « ce projet reste dans la bande normale du groupe actuel ».
+- **आउटलायर** = “यह परियोजना वर्तमान नियमों के अनुसार अन्य से अधिक उभरती है”;
+- **नॉन-आउटलायर** = “यह परियोजना वर्तमान समूह के सामान्य बैंड में रहती है”।
 
-## Pourquoi un signal peut être indisponible
+## एक सिग्नल अनुपलब्ध क्यों हो सकता है
 
-Un signal peut être **indisponible** quand la preuve nécessaire manque.
+एक सिग्नल **अनुपलब्ध** हो सकता है जब आवश्यक साक्ष्य गायब हो।
 
-Exemple :
+उदाहरण:
 
-- si le projet n’a pas les bonnes sources planning, `schedule_pressure` peut rester indisponible ;
-- si les sources budget ne sont pas présentes, `cost_pressure` peut rester indisponible.
+- यदि परियोजना के पास सही शेड्यूल स्रोत नहीं हैं, तो `schedule_pressure` अनुपलब्ध रह सकता है;
+- यदि बजट स्रोत मौजूद नहीं हैं, तो `cost_pressure` अनुपलब्ध रह सकता है।
 
-### Point très important
+### बहुत महत्वपूर्ण बिंदु
 
-Un signal **indisponible** ne veut pas dire **zéro risque**.
+एक **अनुपलब्ध** सिग्नल का मतलब **शून्य जोखिम** नहीं है।
 
-Cela veut dire :
+इसका मतलब है:
 
-**« le portefeuille n’a pas assez de preuve fiable pour calculer cet indicateur »**.
+**“पोर्टफोलियो के पास इस संकेतक की गणना के लिए पर्याप्त विश्वसनीय साक्ष्य नहीं है”**.
 
-## Ce que contient une cohorte
+## एक कोहोर्ट क्या रखता है
 
-Une cohorte est un **profil de comparaison enregistré**.
+एक कोहोर्ट एक **सहेजा गया तुलना प्रोफ़ाइल** है।
 
-Elle garde en mémoire :
+यह याद रखता है:
 
-- le nom de la cohorte ;
-- sa description ;
-- les projets choisis ;
-- les signaux activés ;
-- les poids ;
-- les seuils ;
-- la sévérité minimale.
+- कोहोर्ट का नाम;
+- उसका विवरण;
+- चुनी गई परियोजनाएँ;
+- सक्रिय संकेतक;
+- वज़न;
+- सीमाएँ;
+- न्यूनतम गंभीरता.
 
-### Pourquoi utiliser une cohorte
+### कोहोर्ट का उपयोग क्यों करें
 
-Utilisez une cohorte quand vous voulez refaire régulièrement la même comparaison, par exemple :
+जब आप नियमित रूप से वही तुलना करना चाहते हैं, तो कोहोर्ट का उपयोग करें, उदाहरण के लिए:
 
-- revue hebdomadaire de livraison ;
-- suivi mensuel de portefeuille ;
-- comité de risques ;
-- revue exécutive restreinte.
+- डिलीवरी की साप्ताहिक समीक्षा;
+- पोर्टफोलियो का मासिक ट्रैकिंग;
+- जोखिम समिति;
+- सीमित कार्यकारी समीक्षा।
 
-## Comment lire la zone Project drill-down
+## जब Portfolio खाली, शांत या बिना outlier के दिखे
 
-La zone **Project drill-down** permet d’expliquer le résultat.
+कई तरह की पढ़ाइयाँ सामान्य हो सकती हैं:
 
-Elle peut afficher :
+- कोई सुलभ परियोजना लोड नहीं हुई है;
+- अभी कोई परियोजना या कोई सिग्नल चयनित नहीं है;
+- तुलना ने उपयोग योग्य परियोजना-सारांश वापस नहीं दिया;
+- कुछ सिग्नल साक्ष्य के अभाव में स्पष्ट रूप से अनुपलब्ध हैं;
+- सक्रिय **Overall outlier threshold** के ऊपर कोई परियोजना नहीं जाती।
 
-- le **score pondéré** du projet ;
-- la liste des signaux visibles ;
-- des **preuves** ou extraits documentaires ;
-- l’**activité récente** ;
-- des liens vers **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts** et **AI Log**.
+**Project drill-down** में अलग से यह भी दिख सकता है:
 
-### Lecture pratique
+- हालिया गतिविधि नहीं है;
+- कोई दृश्य साक्ष्य नहीं है;
+- सक्रिय गंभीरता फ़िल्टर के बाद कोई सिग्नल नहीं बचा है।
 
-- si un projet ressort, commencez par le **résumé narratif** ;
-- ouvrez ensuite le **signal concerné** ;
-- relisez les **preuves** ;
-- contrôlez enfin l’**activité récente** pour comprendre si la situation est encore active.
+इसलिए शांत परिणाम का अर्थ प्रतिबंधात्मक चयन, सीमित साक्ष्य या वास्तव में स्थिर परियोजनाएँ, तीनों में से कोई भी हो सकता है।
 
-## Bon usage de la page Portfolio
+## परियोजना ड्रिल-डाउन क्षेत्र को कैसे पढ़ें
 
-Utilisez la page Portfolio pour :
+**Project drill-down** क्षेत्र परिणाम को समझाने में मदद करता है।
 
-- comparer ;
-- prioriser ;
-- repérer les écarts ;
-- décider quel projet doit être étudié en détail.
+यह दिखा सकता है:
 
-N’utilisez pas la page Portfolio comme remplacement complet de l’**Espace de travail** projet.
+- परियोजना का **वज़नित स्कोर**;
+- दिखाई देने वाले सिग्नल की सूची;
+- **साक्ष्य** या दस्तावेज़ अंश;
+- **हालिया गतिविधि**;
+- **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts** और **AI Log** के लिंक।
+
+### व्यावहारिक पढ़ना
+
+- यदि एक परियोजना उभरती है, तो पहले **नैरेटिव सारांश** से शुरू करें;
+- फिर संबंधित **सिग्नल** खोलें;
+- फिर **साक्ष्य** पुनः पढ़ें;
+- अंत में **हालिया गतिविधि** की जाँच करें ताकि समझ सकें कि स्थिति अभी भी सक्रिय है या नहीं।
+
+## देखे गए अनुप्रयोग में तुलना कैसे गणना होती है
+
+**Portfolio** दृश्य केवल ब्राउज़र में होने वाली स्थिर स्थानीय गणना नहीं है।
+
+देखा गया व्यवहार:
+
+1. पृष्ठ सुलभ परियोजनाएँ लोड करता है;
+2. यदि उपयोगकर्ता ने अभी कुछ नहीं चुना है, तो यह एक प्रारंभिक उपयोगी सेट पहले से चुन सकता है;
+3. जैसे ही परियोजना/सिग्नल कॉन्फ़िगरेशन वैध होती है, तुलना बैकएंड सेवा से मांगी जाती है;
+4. **Refresh comparison** असिंक्रोनस पुनर्गणना शुरू करता है और दिख रहे **snapshot** को अपडेट करता है;
+5. **Narrative comparison** में दिखने वाला snapshot timestamp बताता है कि यह **Portfolio** दृश्य आखिरी बार कब पुनर्गणना किया गया था।
+
+सहेजी गई **कोहोर्ट्स** पुनः उपयोग योग्य तुलना प्रोफ़ाइल रखती हैं, लेकिन वे लाइव तुलना अनुरोध की जगह नहीं लेतीं।
+
+## पोर्टफोलियो पृष्ठ का अच्छा उपयोग
+
+पोर्टफोलियो पृष्ठ का उपयोग करें:
+
+- तुलना करने के लिए;
+- प्राथमिकता देने के लिए;
+- अंतर पहचानने के लिए;
+- तय करने के लिए कि कौन सी परियोजना को विस्तृत रूप से अध्ययन करना है।
+
+पोर्टफोलियो पृष्ठ को परियोजना के **Workspace** का पूर्ण विकल्प न मानें।
 
 ---
 
-## Partie 2 — Administration de la plateforme
+## भाग 2 — प्लेटफ़ॉर्म प्रशासन
 
-## À quoi sert cette partie
+## यह भाग क्या करता है
 
-**Administration de la plateforme** sert à préparer la plateforme à l’échelle de l’organisation.
+**प्लेटफ़ॉर्म प्रशासन** संगठन के पैमाने पर प्लेटफ़ॉर्म को तैयार करने के लिए है।
 
-C’est ici que l’on configure notamment :
+यहाँ आप मुख्यतः कॉन्फ़िगर करते हैं:
 
-- les **intégrations de la plateforme** ;
-- les **fournisseurs IA** ;
-- l’**abonnement** et les **sièges** ;
-- l’**audit d’activité**.
+- **प्लेटफ़ॉर्म एकीकरण**;
+- **एआई प्रदाता**;
+- **सदस्यता** और **सीटें**;
+- **गतिविधि ऑडिट**.
 
-![Administration de la plateforme](/img/screenshots/localized/fr/18-platform-administration-overview.png)
+![प्लेटफ़ॉर्म प्रशासन](/img/screenshots/localized/hi/18-platform-administration-overview.png)
 
-## Sections visibles
+## दिखाई देने वाले अनुभाग
 
-| Section | Rôle |
+| अनुभाग | भूमिका |
 | --- | --- |
-| Vue d’ensemble | résumé de l’état général de préparation |
-| Intégrations de la plateforme | définitions techniques des connecteurs et fournisseurs d’ingestion |
-| Paramètres du fournisseur IA | configuration, validation, test et activation du fournisseur IA |
-| Marketplace & abonnement | plan, entitlements, sièges et état commercial |
-| Audit / activité | historique des actions administratives |
+| अवलोकन | तैयारी की सामान्य स्थिति का सारांश |
+| प्लेटफ़ॉर्म एकीकरण | कनेक्टर और इन्जेशन प्रदाताओं की तकनीकी परिभाषाएँ |
+| एआई प्रदाता सेटिंग्स | एआई प्रदाता का कॉन्फ़िगरेशन, सत्यापन, परीक्षण और सक्रियण |
+| मार्केटप्लेस & सदस्यता | योजना, अधिकार, सीटें और व्यावसायिक स्थिति |
+| ऑडिट / गतिविधि | प्रशासनिक क्रियाओं का इतिहास |
 
-## Intégrations de la plateforme vs Intégrations du projet
+## प्लेटफ़ॉर्म एकीकरण बनाम परियोजना एकीकरण
 
-Une règle importante ressort du produit :
+उत्पाद से एक महत्वपूर्ण नियम निकलता है:
 
-- le **niveau plateforme** décide ce qui existe techniquement ;
-- le **niveau projet** décide ce qui est réellement utilisé dans un projet donné.
+- **प्लेटफ़ॉर्म स्तर** तय करता है कि क्या तकनीकी रूप से मौजूद है;
+- **परियोजना स्तर** तय करता है कि किसी विशेष परियोजना में वास्तव में क्या उपयोग किया जाता है.
 
-### Lecture simple
+### सरल पढ़ना
 
-- **plateforme** = on prépare l’outil ;
-- **projet** = on autorise le projet à s’en servir ;
-- **gouvernance** = on décide qui peut vraiment agir avec cet outil.
+- **प्लेटफ़ॉर्म** = उपकरण तैयार करना;
+- **परियोजना** = परियोजना को इसका उपयोग करने की अनुमति देना;
+- **शासन** = तय करना कि कौन वास्तव में इस उपकरण के साथ कार्य कर सकता है.
 
-Pour le détail complet par famille de connecteurs, voir [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint).
+पूर्ण कनेक्टर परिवार के विवरण के लिए देखें [कनेक्टर्स और एकीकरण](./connecteurs-jira-et-sharepoint).
 
-## Préparation et causes de blocage
+## तैयारी और अवरोध के कारण
 
-Une intégration peut être bloquée pour cause de :
+एक एकीकरण निम्न कारणों से अवरुद्ध हो सकता है:
 
-- **entitlement** ;
-- **policy** ;
-- **permission** ;
-- **health** à vérifier ;
-- définition plateforme manquante ;
-- binding projet non ouvert.
+- **entitlement**;
+- **policy**;
+- **permission**;
+- **health** की जाँच;
+- प्लेटफ़ॉर्म परिभाषा गायब;
+- परियोजना बाइंडिंग खुली नहीं।
 
-### Circuit de vérification recommandé
+### अनुशंसित जाँच प्रक्रिया
 
-1. relire le blocage côté projet ;
-2. ouvrir **Administration de la plateforme** ;
-3. vérifier la définition technique du connecteur ou fournisseur ;
-4. revenir dans le projet pour confirmer le binding et l’usage autorisé.
+1. परियोजना पक्ष पर अवरोध को पुनः पढ़ें;
+2. **प्लेटफ़ॉर्म प्रशासन** खोलें;
+3. कनेक्टर या प्रदाता की तकनीकी परिभाषा की जाँच करें;
+4. परियोजना में वापस जाएँ ताकि बाइंडिंग और अनुमत उपयोग की पुष्टि हो सके।
 
-## Paramètres du fournisseur IA
+## एआई प्रदाता सेटिंग्स
 
-Les familles de fournisseurs visibles dans le produit comprennent notamment :
+उत्पाद में दिखाई देने वाले प्रदाता परिवारों में मुख्यतः शामिल हैं:
 
-- **OpenRouter** ;
-- **OpenAI-compatible** ;
-- **OpenAI** ;
-- **Azure OpenAI** ;
+- **OpenRouter**;
+- **OpenAI-compatible**;
+- **OpenAI**;
+- **Azure OpenAI**;
 
-### Quand choisir chaque fournisseur
+### प्रत्येक प्रदाता कब चुनें
 
-| Fournisseur | Quand le choisir | Ce qu’il faut généralement compléter |
+| प्रदाता | कब चुनें | सामान्यतः क्या पूरा करना होता है |
 | --- | --- | --- |
-| **OpenRouter** | quand il faut comparer plusieurs familles de modèles via un seul raccordement | Base URL, clé, modèle par défaut |
-| **OpenAI-compatible** | quand le client utilise une gateway ou un endpoint compatible | endpoint exact, auth, clé ou secret, modèle attendu |
-| **OpenAI** | quand le client utilise directement OpenAI | URL, clé ou secret, modèle par défaut |
-| **Azure OpenAI** | quand le client est centré sur Azure et veut choisir ses déploiements Azure OpenAI | endpoint, version API, auth mode, nom de déploiement LLM |
+| **OpenRouter** | जब एक ही कनेक्शन के माध्यम से कई मॉडल परिवारों की तुलना करनी हो | बेस URL, कुंजी, डिफ़ॉल्ट मॉडल |
+| **OpenAI-compatible** | जब ग्राहक एक गेटवे या संगत एंडपॉइंट का उपयोग करता हो | सटीक एंडपॉइंट, प्रमाणीकरण, कुंजी या सीक्रेट, अपेक्षित मॉडल |
+| **OpenAI** | जब ग्राहक सीधे OpenAI का उपयोग करता हो | URL, कुंजी या सीक्रेट, डिफ़ॉल्ट मॉडल |
+| **Azure OpenAI** | जब ग्राहक Azure पर केंद्रित हो और अपने Azure OpenAI डिप्लॉयमेंट चुनना चाहता हो | एंडपॉइंट, API संस्करण, प्रमाणीकरण मोड, LLM डिप्लॉयमेंट नाम |
 
-### Comment lire les statuts d’un fournisseur IA
+### एआई प्रदाता के स्टेटस कैसे पढ़ें
 
-| Statut | Ce que cela veut dire |
+| स्थिति | इसका क्या अर्थ है |
 | --- | --- |
-| **Configuration** | les champs sont enregistrés |
-| **Validation** | la configuration a passé les contrôles attendus |
-| **Test** | la connectivité réelle a été vérifiée |
-| **Activate** | le fournisseur est activé dans la configuration admin |
-| **Operational** | le fournisseur peut être considéré comme exploitable |
+| **Configuration** | फ़ील्ड्स सहेजे गए हैं |
+| **Validation** | कॉन्फ़िगरेशन अपेक्षित जाँचों को पास कर चुका है |
+| **Test** | वास्तविक कनेक्टिविटी सत्यापित की गई है |
+| **Operational** | प्रदाता को उपयोग योग्य माना जा सकता है |
 
-### Pas à pas très simple pour préparer un fournisseur IA
+### एआई प्रदाता तैयार करने के लिए बहुत सरल चरण
 
-1. ouvrez **Paramètres du fournisseur IA** ;
-2. sélectionnez le fournisseur voulu ;
-3. complétez les champs demandés ;
-4. cliquez sur **Save** ;
-5. cliquez sur **Validate** ;
-6. cliquez sur **Test** ;
-7. cliquez sur **Activate** ;
-8. contrôlez ensuite le résultat dans **Journal IA**.
+1. **एआई प्रदाता सेटिंग्स** खोलें;
+2. इच्छित प्रदाता चुनें;
+3. आवश्यक फ़ील्ड्स भरें;
+4. **Save** पर क्लिक करें;
+5. **Validate** पर क्लिक करें;
+6. **Test** पर क्लिक करें;
+7. **Activate** पर क्लिक करें;
+8. फिर **AI Log** में परिणाम की जाँच करें।
 
-### Cas particulier Azure OpenAI
+### Azure OpenAI का विशेष मामला
 
-Avec **Azure OpenAI**, il faut souvent compléter dans l’administration :
+**Azure OpenAI** के साथ, अक्सर प्रशासन में निम्नलिखित को पूरा करना होता है:
 
-- l’**Endpoint** ;
-- la **version API** ;
-- le **mode d’authentification** ;
-- le **LLM deployment name** ;
-- éventuellement l’**Embeddings deployment name**.
+- **Endpoint**;
+- **API संस्करण**;
+- **प्रमाणीकरण मोड**;
+- **LLM डिप्लॉयमेंट नाम**;
+- वैकल्पिक रूप से **Embeddings डिप्लॉयमेंट नाम**.
 
-Pour le détail du choix de fournisseur IA pendant le déploiement Marketplace, voir [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md).
+मार्केटप्लेस डिप्लॉयमेंट के दौरान एआई प्रदाता चयन के विवरण के लिए देखें [Azure Marketplace पर तैनाती](./deploiement-azure-marketplace.md).
 
-### Effective AI provider vs deployment-selected AI provider
+## सदस्यता, अधिकार और सीटें
 
-Deux notions sont à distinguer :
+उत्पाद एक लाइसेंस मॉडल को सीटों और क्षमताओं के साथ प्रबंधित करता है।
 
-- **Deployment-selected AI Provider** : fournisseur sélectionné dans la configuration initiale de l’environnement ;
-- **Effective AI Provider** : fournisseur réellement utilisé au runtime pour un run donné.
+### एक प्रशासक क्या देख सकता है
 
-La valeur **effective** est la référence la plus fiable quand vous enquêtez sur un run concret. Elle peut être relue dans le **Journal IA** et peut différer de la valeur sélectionnée au déploiement.
+- सक्रिय **plan**;
+- खरीदी गई **सीटों की संख्या**;
+- उपलब्ध **सीटों की संख्या**;
+- पहले से लाइसेंस प्राप्त उपयोगकर्ता;
+- व्यावसायिक स्थिति, जैसे `billing state`, `payment state` या `subscription status`.
 
-## Abonnement, entitlement et sièges
+### यह क्यों महत्वपूर्ण है
 
-Le produit gère un modèle de licence avec sièges et capacités.
+एक अवरुद्ध उपयोगकर्ता का मतलब अनिवार्य रूप से कनेक्शन समस्या नहीं है। अवरोध निम्न कारणों से हो सकता है:
 
-### Ce qu’un administrateur peut voir
+- सीटों की कमी;
+- अधिकार का अभाव;
+- योजना में शामिल नहीं की गई सुविधा।
 
-- le **plan** actif ;
-- le nombre de **sièges achetés** ;
-- le nombre de **sièges disponibles** ;
-- les utilisateurs déjà licenciés ;
-- l’état commercial, par exemple `billing state`, `payment state` ou `subscription status`.
+## प्लेटफ़ॉर्म के तकनीकी संदर्भ
 
-### Pourquoi c’est important
+Azure अवलोकन में मुख्यतः शामिल हैं:
 
-Un utilisateur bloqué n’a pas forcément une question de connexion. Le blocage peut venir :
-
-- d’un manque de sièges ;
-- d’un entitlement manquant ;
-- d’une fonctionnalité non incluse dans le plan.
-
-### Lecture simple de `entitlement`
-
-`Entitlement` signifie ici : **ce que le plan couvre réellement comme capacité utilisable**.
-
-Exemples pratiques :
-
-- un connecteur premium peut rester visible mais bloqué en usage opérationnel ;
-- un fournisseur IA peut être configuré mais non utilisable si le plan ne l’autorise pas ;
-- un projet peut voir l’option mais rester en lecture seule tant que la capacité n’est pas ouverte.
-
-## Repères techniques de plateforme
-
-L’infrastructure Azure observée s’appuie notamment sur :
-
-- Azure Container Apps ;
-- Storage ;
-- Azure AI Search ;
-- Key Vault ;
-- Log Analytics ;
-- Application Insights ;
+- Azure Container Apps;
+- Storage;
+- Azure AI Search;
+- Key Vault;
+- Log Analytics;
+- Application Insights;
 - Document Intelligence.
 
+## याद रखने योग्य बातें
 
-## Variabilité des contenus seedés et de démonstration
+### पोर्टफोलियो पृष्ठ के लिए
 
-Les environnements de démonstration peuvent varier. En pratique :
+- सही परियोजनाएँ चुनकर शुरू करें;
+- केवल समीक्षा के लिए उपयोगी संकेतक सक्रिय करें;
+- वज़न, सीमाएँ और गंभीरता को उद्देश्य के साथ समायोजित करें;
+- **आउटलायर** को जांच का प्रारंभिक बिंदु मानें, अंतिम निर्णय नहीं;
+- फिर **Project drill-down** खोलें ताकि परिणाम को समझ सकें।
 
-- tous les environnements n’exposent pas les mêmes projets de démonstration ;
-- les documents seedés, rapports seedés et exemples de recherche peuvent différer ;
-- un écran vide dans un environnement live ne contredit pas forcément une capture issue d’un autre environnement ;
-- la documentation décrit le comportement observé, pas la promesse que chaque environnement contiendra exactement les mêmes données de démonstration.
+### तकनीकी प्रशासन के लिए
 
-## À retenir
+- प्लेटफ़ॉर्म स्तर कनेक्टर और प्रदाता तैयार करता है;
+- परियोजना स्तर वास्तविक उपयोग खोलता है;
+- शासन तय करता है कि कौन कार्य कर सकता है;
+- एक एआई प्रदाता तभी तैयार है जब वह **रजिस्टर्ड, वैलिडेटेड, टेस्टेड और एक्टिवेटेड** हो;
+- **AI Log** वास्तविक उपयोग किए गए प्रदाता को पुष्टि करने के लिए संदर्भ है।
 
-### Pour la page Portfolio
+## आगे
 
-- commencez par choisir les bons projets ;
-- activez seulement les signaux utiles à votre revue ;
-- réglez poids, seuils et sévérité avec intention ;
-- utilisez les **outliers** comme point de départ d’investigation, pas comme verdict final ;
-- ouvrez ensuite le **Project drill-down** pour comprendre le résultat.
-
-### Pour l’administration technique
-
-- le niveau plateforme prépare les connecteurs et fournisseurs ;
-- le niveau projet ouvre leur usage réel ;
-- la gouvernance décide qui peut agir ;
-- un fournisseur IA n’est prêt que lorsqu’il est **enregistré, validé, testé et activé** ;
-- le **Journal IA** reste la référence pour confirmer le fournisseur réellement utilisé.
-
-## Suite
-
-- [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
-- [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md)
-- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
-- [Maintenance, support et FAQ](./maintenance-support-faq.md)
-- [Glossaire](./glossaire.md)
+- [कनेक्टर्स और एकीकरण](./connecteurs-jira-et-sharepoint)
+- [Azure Marketplace पर तैनाती](./deploiement-azure-marketplace.md)
+- [रिपोर्ट, AI लॉग और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md)
+- [रखरखाव, समर्थन और अक्सर पूछे जाने वाले प्रश्न](./maintenance-support-faq.md)
+- [शब्दकोश](./glossaire.md)

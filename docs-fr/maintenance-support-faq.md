@@ -6,6 +6,8 @@ description: Repères d’exploitation, vérifications utiles et réponses aux q
 
 [Accueil](./index.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) · [Glossaire](./glossaire.md)
 
+![Journal IA et repères d’investigation](/img/screenshots/localized/fr/09-ai-log-runs.png)
+
 ## Surfaces utiles pour l’exploitation
 
 Les points d’observation suivants sont confirmés dans l’application :
@@ -123,9 +125,10 @@ Dans l’état actuel observé :
 
 - la **continuité de chat** est sauvegardée localement, par couple **projet + agent**, dans le navigateur courant ;
 - le **projet actif mémorisé** relève aussi du navigateur et parfois de la session locale ;
-- les **documents**, **imports**, **artefacts**, **approbations**, **rapports publiés** et autres objets projet relèvent de la **plateforme partagée**.
+- d’autres commodités locales incluent aussi la **langue d’interface**, le **thème**, la liste des **projets récents**, l’état lu/effacé du **centre de notifications** et certaines préférences de **tableaux** ;
+- les **documents**, **imports**, **artefacts**, **approbations**, **rapports publiés**, **notifications projet**, **signaux**, **digests**, **brouillons** et **actions gouvernées** relèvent de la **plateforme partagée**.
 
-Il est donc normal qu’un historique de chat disparaisse en changeant de navigateur ou de machine alors que les documents et objets gouvernés du projet restent visibles aux autres utilisateurs autorisés.
+Il est donc normal qu’un historique de chat disparaisse en changeant de navigateur ou de machine alors que les objets gouvernés du projet restent visibles aux autres utilisateurs autorisés.
 
 ### Que signifie exactement `All projects` ?
 
@@ -170,7 +173,12 @@ Parce qu’il peut encore être en état **Ingesting** ou en attente de fin de p
 
 ### Que signifient `source label` et `source system` ?
 
-Ce sont des indicateurs de provenance. Ils aident à savoir d’où vient une preuve sans relire toute la configuration détaillée.
+Ces deux champs servent à juger rapidement la provenance d’une preuve :
+
+- **source label** désigne surtout le fournisseur ou l’origine d’ingestion affichée (`manual`, `SharePoint`, `ADF`, `Blob`, `Confluence`, `Jira`, etc.) ;
+- **source system** aide à reconnaître le système ou le flux métier lisible derrière cette preuve (`Knowledge`, `Schedule`, `Finance`, `Operations`, etc.).
+
+Utilisez-les ensemble quand vous devez arbitrer un extrait sans rouvrir toute la configuration détaillée.
 
 ### Pourquoi un import peut-il sembler terminé alors que certains documents ne sont pas encore retrouvables ?
 
@@ -189,6 +197,8 @@ Ils indiquent l’état de confiance temporelle de la source : `fresh`, `aging`,
 - **Trace ID** : identifiant de suivi principal pour retrouver un run ou un événement ;
 - **Context snapshot ID** : capture du contexte documentaire/projet utilisé pendant le run ;
 - **Structured output ID** : identifiant de la sortie structurée réellement produite.
+
+Dans la lecture quotidienne, gardez surtout en tête que le **Run ID** reste la poignée la plus pratique dans l’écran, alors que le **Trace ID** devient surtout utile pour le support, l’audit et la corrélation transverse entre services.
 
 ## FAQ — sorties IA et Journal IA
 
@@ -214,6 +224,16 @@ Ces deux notions aident à comprendre **d’où vient** un livrable et **sur que
 ### Un run est visible dans `Runs`, mais aucune suite claire n’apparaît dans `Activity`. Que faire ?
 
 Ce cas signifie souvent que le run a bien existé, mais qu’aucun brouillon, artefact, notification ou action aval n’a encore été créé, ou que vous n’ouvrez pas le bon projet / bon filtre dans **Activity**. Reprenez l’enquête via [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) en suivant l’ordre **diff / lignée / Runs / Activity**.
+
+### Comment lire le champ `Cost` ?
+
+Traitez `Cost` comme un repère de transparence runtime : `tokens` et `calls` servent surtout à l’enquête, au support et à la compréhension de l’usage, pas à une décision d’approbation métier à eux seuls. Si vous cherchez un signal transversal de pression budgétaire, ouvrez plutôt `cost_pressure` dans **Portfolio**.
+
+### Que faut-il vraiment faire avec `Confidence` et `Source freshness` ?
+
+- **Confidence** = indice de relecture, pas preuve autonome ;
+- **Source freshness** = degré d’actualité des preuves citées ;
+- si l’un des deux paraît faible, ancien, `conflicting` ou `unavailable`, revenez aux preuves, au run et à la lignée avant diffusion.
 
 ## FAQ — rapports, artefacts et gouvernance
 
@@ -260,7 +280,19 @@ Les environnements live peuvent varier. Certains projets n’exposent pas toujou
 
 ### Pourquoi le portefeuille ne remonte-t-il aucun projet ou aucun outlier ?
 
-Vérifiez les projets sélectionnés, les signaux actifs, les poids, les seuils et la sévérité minimale appliquée à la cohorte.
+Plusieurs lectures sont normales :
+
+- aucun projet accessible n’a été chargé ;
+- aucun projet ou aucun signal n’est actuellement sélectionné ;
+- la comparaison n’a pas renvoyé de résumés projet exploitables ;
+- certains signaux sont indisponibles faute de preuves ;
+- aucun projet ne dépasse le seuil global d’outlier avec la configuration active.
+
+Un portefeuille « calme » peut donc venir d’une sélection restrictive, d’un manque de preuves ou d’une situation réellement stable.
+
+### Existe-t-il des presets implicites pour Portfolio ?
+
+Non : l’interface observée fournit surtout des **valeurs par défaut**, un bouton **Reset defaults** et des **cohortes sauvegardées**. Les valeurs par défaut servent de point de départ sûr, pas de modèle imposé. Certaines démos peuvent aussi montrer une cohorte seedée, mais ce contenu varie selon l’environnement.
 
 ### Comment libérer ou réattribuer un siège ?
 

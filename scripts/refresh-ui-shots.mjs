@@ -13,6 +13,9 @@ const { chromium } = requireFromWeb('playwright');
 
 const locales = (process.env.SCREENSHOT_LOCALES || 'en,fr,de,hi,es').split(',').map((value) => value.trim()).filter(Boolean);
 const outputRoot = path.join(docsRoot, 'static', 'img', 'screenshots', 'localized');
+const STRUCTURED_OUTPUT_PROMPT =
+  process.env.PLAYWRIGHT_LIVE_CHAT_PROMPT ||
+  'Summarize the most important schedule risk, one decision request, and the next two actions for project leadership.';
 const legacyAliases = {
   en: {
     '01-dashboard': '01-dashboard.png',
@@ -64,7 +67,7 @@ const shots = [
   { id: '02-portfolio-command-center', path: '/portfolio-command-center/', ready: '[data-testid="portfolio-page"]' },
   { id: '02-portfolio-cohort-editor', path: '/portfolio-command-center/', ready: '[data-testid="portfolio-page"]', target: '[data-testid="portfolio-cohort-panel"]' },
   { id: '03-workspace-overview', path: '/projects/workspace/?projectId=demo-hotel-001', ready: '[data-testid="workspace-page"]' },
-  { id: '03-workspace-structured-output', path: '/agents?projectId=demo-hotel-001', ready: '[data-testid="agents-selected-agent-summary"], [data-testid="agents-console"]', before: async (page) => { const input = page.locator('[data-testid="agent-chat-input"]').first(); if (await input.isVisible().catch(() => false)) { await input.fill(PROMPT); const send = page.locator('[data-testid="agent-chat-send"]').first(); if (await send.isVisible().catch(() => false)) await send.click(); await page.locator('[data-testid="structured-output-card"]').first().waitFor({ state: 'visible', timeout: 180000 }).catch(() => {}); } }, target: '[data-testid="structured-output-card"]' },
+  { id: '03-workspace-structured-output', path: '/agents?projectId=demo-hotel-001', ready: '[data-testid="agents-selected-agent-summary"], [data-testid="agents-console"]', before: async (page) => { const input = page.locator('[data-testid="agent-chat-input"]').first(); if (await input.isVisible().catch(() => false) && await input.isEditable().catch(() => false) && await input.isEnabled().catch(() => false)) { await input.fill(STRUCTURED_OUTPUT_PROMPT); const send = page.locator('[data-testid="agent-chat-send"]').first(); if (await send.isVisible().catch(() => false)) await send.click().catch(() => {}); await waitForStructuredOutputSurface(page).catch(() => {}); } }, target: '[data-testid="structured-output-card"], [data-testid="agents-console"]' },
   { id: '04-agents', path: '/agents?projectId=demo-hotel-001', ready: '[data-testid="agents-page"], [data-testid="agents-selected-agent-summary"]' },
   { id: '04-custom-agent-create', path: '/agents?projectId=demo-hotel-001', ready: '[data-testid="agents-selected-agent-summary"], [data-testid="agents-create-dialog"]', before: async (page) => { const trigger = page.getByRole('button', { name: /create/i }).first(); if (await trigger.isVisible().catch(() => false)) await trigger.click(); }, target: '[data-testid="agents-create-dialog"]' },
   { id: '05-knowledge', path: '/documents?projectId=demo-hotel-001', ready: '[data-testid="knowledge-page"], [data-testid="knowledge-page-real"]' },
@@ -144,8 +147,9 @@ function readExpectedEmail(sessionStorage) {
 
 async function recoverSignIn(page, sessionStorage) {
   await page.waitForTimeout(1500);
-  const button = page.getByRole('button', { name: /sign in with microsoft/i }).first();
-  const fallback = page.getByText(/sign in with microsoft/i).first();
+  const microsoftSignInPattern = /(?=.*microsoft)(?=.*(?:sign in|log in|continue|se connecter|connexion|anmelden|weiter|iniciar sesi[oó]n|acceder|continuar|साइन इन|लॉग इन))/i;
+  const button = page.getByRole('button', { name: microsoftSignInPattern }).first();
+  const fallback = page.getByText(microsoftSignInPattern).first();
   const trigger = await button.isVisible().catch(() => false) ? button : ((await fallback.isVisible().catch(() => false)) ? fallback : null);
   if (!trigger) return;
   const expectedEmail = readExpectedEmail(sessionStorage);
@@ -174,6 +178,33 @@ async function waitForReady(page, selector) {
   }
   const body = (await page.locator('body').innerText().catch(() => '')).slice(0, 800);
   throw new Error(`Ready selector not found: ${selector} | url=${page.url()} | body=${body}`);
+}
+
+async function waitForStructuredOutputSurface(page, timeout = 180000) {
+  const started = Date.now();
+  const candidates = [
+    page.locator('[data-testid="structured-output-card"]').first(),
+    page.getByRole('button', { name: /Review diff/i }).first(),
+    page.getByRole('button', { name: /Create draft/i }).first(),
+  ];
+
+  while ((Date.now() - started) < timeout) {
+    for (const candidate of candidates) {
+      if (await candidate.isVisible().catch(() => false)) return true;
+    }
+    await page.waitForTimeout(1000);
+  }
+
+  return false;
+}
+
+async function gotoWithRetry(page, url) {
+  const options = { waitUntil: 'domcontentloaded', timeout: 120000 };
+  try {
+    await page.goto(url, options);
+  } catch {
+    await page.goto(url, options);
+  }
 }
 
 async function screenshotTarget(page, selector, file, options = {}) {
@@ -228,7 +259,7 @@ async function captureLocale(browser, locale, contextOptions) {
 
   for (const shot of shots) {
     if (shotFilter.size && !shotFilter.has(shot.id)) continue;
-    await page.goto(new URL(shot.path, contextOptions.baseUrl).toString(), { waitUntil: 'domcontentloaded' });
+    await gotoWithRetry(page, new URL(shot.path, contextOptions.baseUrl).toString());
     await recoverSignIn(page, contextOptions.sessionStorage);
     await waitForReady(page, shot.ready);
     await page.waitForTimeout(1200);

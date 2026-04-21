@@ -1,289 +1,293 @@
 ---
-title: Maintenance, support et FAQ
+title: Mantenimiento, soporte y FAQ
 slug: /maintenance-support-faq
-description: Repères d’exploitation, vérifications utiles et réponses aux questions fréquentes.
+description: Puntos de referencia de operación, verificaciones útiles y respuestas a preguntas frecuentes.
 ---
 
-[Accueil](./index.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) · [Glossaire](./glossaire.md)
+[Inicio](./index.md) · [Informes, Registro IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md) · [Glosario](./glossaire.md)
 
-## Surfaces utiles pour l’exploitation
+## Superficies útiles para la operación
 
-Les points d’observation suivants sont confirmés dans l’application :
+Los puntos de observación siguientes están confirmados en la aplicación:
 
-- **notifications** dans la barre supérieure ;
-- **indicateur de santé** dans la barre supérieure ;
-- **signaux** dans l’espace de travail projet ;
-- **Journal IA** pour les runs et l’activité ;
-- **Audit / activity** dans l’administration de plateforme.
+- **notificaciones** en la barra superior;
+- **indicador de salud** en la barra superior;
+- **señales** en el espacio de trabajo del proyecto;
+- **Registro IA** para las ejecuciones y la actividad;
+- **Auditoría / actividad** en la administración de la plataforma.
 
-## Procédure de vérification rapide
+## Procedimiento de verificación rápida
 
-1. vérifiez que le bon **projet** est actif ;
-2. distinguez **état vide**, **lecture seule**, **accès refusé** ou **message affiché** ;
-3. ouvrez le **Journal IA** si le sujet concerne un agent, un résultat ou un artefact ;
-4. conservez le **Trace ID** et, si visible, le `Context snapshot ID` ou le `Structured output ID` ;
-5. vérifiez droits, intégrations, entitlements et sièges si l’accès ou l’exécution est bloqué.
+1. verifique que el **proyecto** correcto esté activo;
+2. distinga **estado vacío**, **lectura sola**, **acceso denegado** o **mensaje mostrado**;
+3. abra el **Registro IA** si el tema concierne a un agente, un resultado o un artefacto;
+4. conserve el **Trace ID** y, si es visible, el `Context snapshot ID` o el `Structured output ID`;
+5. verifique derechos, integraciones, entitlements y asientos si el acceso o la ejecución está bloqueado.
 
-## Repères rapides par situation
+## Puntos rápidos por situación
 
-| Situation observée | Surface de premier niveau | Étape suivante |
+| Situación observada | Superficie de primer nivel | Próximo paso |
 | --- | --- | --- |
-| Connexion ou retour Microsoft anormal | [Démarrage](./demarrage.md) | vérifier Entra, tenant, `redirectUri` et sièges |
-| Aucun projet visible après connexion | **Projets** / sélecteur de projet | **Contrôle d’accès** ou ajout du compte au projet |
-| Réponse agent, artefact ou publication douteuse | **Journal IA** → `Runs` | **Activity**, puis **Rapports & artefacts** |
-| Import ou recherche incohérente | **Connaissance** et historique d’import | **Intégrations du projet**, puis **Administration de la plateforme** |
-| Action externe visible mais bloquée | **Actions & approbations** | **Intégrations du projet**, puis **Administration de la plateforme** |
+| Conexión o retorno Microsoft anormal | [Inicio](./demarrage.md) | verificar Entra, tenant, `redirectUri` y asientos |
+| Ningún proyecto visible después de la conexión | **Proyectos** / selector de proyecto | **Control de acceso** o añadir la cuenta al proyecto |
+| Respuesta de agente, artefacto o publicación dudosa | **Registro IA** → `Runs` | **Activity**, luego **Informes y artefactos** |
+| Importación o búsqueda incoherente | **Conocimiento** y historial de importación | **Integraciones del proyecto**, luego **Administración de la plataforma** |
+| Acción externa visible pero bloqueada | **Acciones y aprobaciones** | **Integraciones del proyecto**, luego **Administración de la plataforma** |
 
-## Fiches de vérification rapide
+## Tarjetas de verificación rápida
 
-### Accès à confirmer
+### Acceso a confirmar
 
-Vérifiez l’URL, le tenant, le compte invité si usage guest, la `redirectUri` réellement configurée et la disponibilité d’un siège si le plan en consomme un.
+Verifique la URL, el tenant, la cuenta invitada si se usa como invitado, la `redirectUri` realmente configurada y la disponibilidad de un asiento si el plan lo consume.
 
-### Page visible mais non modifiable
+### Página visible pero no modificable
 
-Vous êtes probablement en **lecture seule**. Vérifiez votre rôle avant de conclure à une restriction de permission.
+Probablemente esté en modo de solo lectura. Verifique su rol antes de concluir que hay una restricción de permiso.
 
-### Document visible mais non searchable
+### Documento visible pero no buscable
 
-Commencez par vérifier le statut du document (`Indexed`, `Ingesting`, `Failed`), l’historique d’import, le rafraîchissement de la page et le `Trace ID` de recherche si un appel a échoué.
+Comience por verificar el estado del documento (`Indexed`, `Ingesting`, `Failed`), el historial de importación, la actualización de la página y el `Trace ID` de búsqueda si una llamada falló.
 
-### Import depuis une source grisé ou absent
+### Importación desde una fuente gris o ausente
 
-Les vérifications les plus utiles sont : fournisseur non validé, binding projet absent, entitlement bloquant, permission insuffisante ou état health à confirmer.
+Las verificaciones más útiles son: proveedor no validado, enlace de proyecto ausente, entitlement bloqueante, permiso insuficiente o estado de salud a confirmar.
 
-### Action visible mais non exécutable
+### Acción visible pero no ejecutable
 
-Vérifiez le connecteur compatible, le binding projet, l’approbation requise, le rôle utilisateur et la politique applicable.
+Verifique el conector compatible, el enlace de proyecto, la aprobación requerida, el rol de usuario y la política aplicable.
 
-### Voix indisponible
+### Voz no disponible
 
-La voix dépend du navigateur. Essayez un autre navigateur, vérifiez les permissions micro et utilisez la saisie texte si la reconnaissance vocale n’est pas supportée.
+La voz depende del navegador. Pruebe otro navegador, verifique los permisos de micrófono y use la entrada de texto si el reconocimiento de voz no es compatible.
 
-## Données à transmettre au support
+## Datos a enviar al soporte
 
-| Élément | Pourquoi c’est utile |
+| Elemento | Por qué es útil |
 | --- | --- |
-| URL du déploiement | Identifier l’environnement concerné |
-| Projet concerné | Rejouer le contexte |
-| Trace ID | Retrouver précisément le run ou l’événement |
-| Context snapshot ID / Structured output ID | Rapprocher un run, une sortie et un artefact |
-| Capture d’écran | Comprendre l’état visible au moment du blocage |
-| Heure approximative | Croiser l’événement avec les journaux |
+| URL del despliegue | Identificar el entorno concernido |
+| Proyecto concernido | Reproducir el contexto |
+| Trace ID | Encontrar con precisión la ejecución o el evento |
+| Context snapshot ID / Structured output ID | Acercar una ejecución, una salida y un artefacto |
+| Captura de pantalla | Entender el estado visible en el momento del bloqueo |
+| Hora aproximada | Cruzar el evento con los registros |
 
-## FAQ — accès et sécurité
+## FAQ — acceso y seguridad
 
-### Pourquoi puis-je voir une page d’administration sans pouvoir la modifier ?
+### ¿Por qué puedo ver una página de administración sin poder modificarla?
 
-Parce que le produit distingue **lecture seule** et **accès refusé**. Une page peut être exposée pour inspection sans autoriser la modification.
+Porque el producto distingue entre lectura sola y acceso denegado. Una página puede mostrarse para inspección sin permitir la modificación.
 
-### Pourquoi ma connexion Microsoft réussit-elle mais l’accès n’aboutit pas encore comme prévu ?
+### ¿Por qué mi conexión Microsoft funciona pero el acceso aún no se logra como se esperaba?
 
-Vérifiez le tenant, l’autorisation du compte, l’existence d’un projet accessible et la disponibilité d’un siège si le plan en impose un.
+Verifique el tenant, la autorización de la cuenta, la existencia de un proyecto accesible y la disponibilidad de un asiento si el plan lo requiere.
 
-### Pourquoi ma connexion réussit-elle mais aucun projet n’apparaît ?
+### ¿Por qué mi conexión funciona pero no aparece ningún proyecto?
 
-Cette situation n’indique pas forcément une question d’authentification. Vérifiez d’abord le **sélecteur de projet**, puis la page **Projets**. Si la liste reste vide, le compte n’a probablement pas encore été ajouté au bon projet ou ne dispose pas du droit de création.
+Esta situación no indica necesariamente un problema de autenticación. Verifique primero el selector de proyecto, luego la página Proyectos. Si la lista sigue vacía, la cuenta probablemente aún no se ha añadido al proyecto correcto o no tiene derecho de creación.
 
-### Quand faut-il inviter un compte externe comme utilisateur `guest` ?
+### ¿Cuándo se debe invitar una cuenta externa como usuario `guest`?
 
-Lorsque le compte appartient à un autre tenant que celui qui héberge l’application. Le compte doit alors être invité dans le tenant cible, puis autorisé sur l’application ou via le groupe attendu.
+Cuando la cuenta pertenece a otro tenant que el que aloja la aplicación. La cuenta debe entonces ser invitada al tenant objetivo, luego autorizada en la aplicación o mediante el grupo esperado.
 
-### Comment distinguer rapidement tenant, `redirect URI`, client Entra ou siège ?
+### ¿Cómo distinguir rápidamente tenant, `redirect URI`, cliente Entra o asiento?
 
-Suivez cet ordre :
+Siga este orden:  
+1. si Microsoft falla antes de volver a la aplicación, sospeche primero de tenant, clientId o redirect URI;  
+2. si la conexión funciona pero la aplicación sigue bloqueada, verifique luego los asientos y el acceso a un proyecto;  
+3. si solo una superficie específica permanece bloqueada, el tema suele ser el rol o permiso en lugar de la autenticación.
 
-1. si Microsoft échoue **avant** le retour dans l’application, suspectez d’abord tenant, `clientId` ou `redirect URI` ;
-2. si la connexion réussit mais que l’application reste bloquée, vérifiez ensuite les **sièges** et l’accès à un projet ;
-3. si seule une surface précise reste verrouillée, le sujet est souvent côté **rôle** ou **permission** plutôt que côté authentification.
+## FAQ — disponibilidad, runtime y conectividad
 
-## FAQ — disponibilité, runtime et connectivité
+### ¿Cómo leer el panel de salud cuando algunas páginas siguen cargando?
 
-### Comment lire le panneau de santé lorsque certaines pages chargent encore ?
+Porque la autenticación puede seguir siendo válida mientras un componente API o un proveedor siga solicitando una verificación de disponibilidad. Primero observe el estado mostrado en el indicador de salud, luego continúe a [Interfaz y navegación](./interface-et-navigation.md) para leer el panel y [Portafolio y administración técnica](./portefeuille-et-administration-technique.md) si la duda se refiere al proveedor o la integración administrativa.
 
-Parce que l’authentification peut rester valide alors qu’un composant **API** ou un fournisseur demande encore une vérification de disponibilité. Relevez d’abord l’état affiché dans l’indicateur de santé, puis poursuivez vers [Interface et navigation](./interface-et-navigation.md) pour la lecture du panneau et [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) si le doute porte sur le fournisseur ou l’intégration admin.
+### ¿Qué hacer si la conexión funciona, un proyecto es visible, pero los runs no se inician?
 
-### Que faire si la connexion réussit, qu’un projet est visible, mais que les runs ne démarrent pas ?
+Verifique en este orden: proyecto activo, indicador de salud, proveedor IA supuesto operativo, entitlement posible, luego **Registro IA** para ver si al menos se creó un run. Si el proveedor sigue sospechoso, continúe a [Portafolio y administración técnica](./portefeuille-et-administration-technique.md).
 
-Vérifiez dans cet ordre : projet actif, indicateur de santé, fournisseur IA supposé opérationnel, entitlement éventuel, puis **Journal IA** pour voir si un run a au moins été créé. Si le fournisseur reste suspect, poursuivez vers [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
+## FAQ — proyecto, espacio de trabajo y agentes
 
-## FAQ — projet, espace de travail et agents
+### ¿Cuándo se debe usar Espacio de trabajo en lugar de Agentes?
 
-### Quand faut-il utiliser Espace de travail plutôt qu’Agents ?
+Use Espacio de trabajo para configurar y dirigir el proyecto; use Agentes para conversar con un agente y producir una salida estructurada.
 
-Utilisez **Espace de travail** pour régler et piloter le projet ; utilisez **Agents** pour converser avec un agent et produire une sortie structurée.
+### ¿Dónde se almacena el historial de chat?
 
-### Où est stocké l’historique de chat ?
+El historial visible es local al navegador. No es un archivo central compartido.
 
-L’historique visible est local au navigateur. Il n’est pas une archive partagée centrale.
+### ¿Qué es local al navegador y qué se comparte en la plataforma?
 
-### Qu’est-ce qui est local au navigateur et qu’est-ce qui est partagé dans la plateforme ?
+En el estado actualmente observado:
 
-Dans l’état actuel observé :
+- la **continuidad del chat** se guarda localmente, por pareja **proyecto + agente**, en el navegador actual;
+- el **proyecto activo recordado** también depende del navegador y a veces de la sesión local;
+- **documentos**, **importaciones**, **artefactos**, **aprobaciones**, **informes publicados** y otros objetos del proyecto pertenecen a la **plataforma compartida**.
 
-- la **continuité de chat** est sauvegardée localement, par couple **projet + agent**, dans le navigateur courant ;
-- le **projet actif mémorisé** relève aussi du navigateur et parfois de la session locale ;
-- les **documents**, **imports**, **artefacts**, **approbations**, **rapports publiés** et autres objets projet relèvent de la **plateforme partagée**.
+Por lo tanto, es normal que el historial del chat desaparezca al cambiar de navegador o de equipo mientras los objetos gobernados del proyecto sigan visibles para otros usuarios autorizados.
 
-Il est donc normal qu’un historique de chat disparaisse en changeant de navigateur ou de machine alors que les documents et objets gouvernés du projet restent visibles aux autres utilisateurs autorisés.
+### ¿Qué significa exactamente `All projects`?
 
-### Que signifie exactement `All projects` ?
+`All projects` es un alcance de agente personalizado, no un proyecto único ni una vista de portafolio. Significa que un agente personalizado puede seguir visible en todos los proyectos a los que tenga acceso la misma cuenta. Cada run se sigue ejecutando en el proyecto activo en el momento del chat.
 
-`All projects` est une **portée d’agent personnalisé**, pas un projet unique ni une vue portefeuille. Cela signifie qu’un agent personnalisé peut rester visible dans tous les projets accessibles par le **même compte**. Chaque run continue néanmoins à s’exécuter dans le **projet actif** au moment du chat.
+### ¿Por qué un agente personalizado no aparece en otro proyecto?
 
-### Pourquoi un agent personnalisé n’apparaît-il pas dans un autre projet ?
+Verifique primero su alcance. Un agente `Project only` permanece limitado al proyecto actual. Si el entorno expone un agente `All projects`, también debe consultarse con la misma cuenta en un proyecto al que esa cuenta tenga acceso.
 
-Vérifiez d’abord son **scope**. Un agent `Project only` reste limité au projet courant. Si l’environnement expose un agent `All projects`, il doit en plus être consulté avec le **même compte** dans un projet auquel ce compte a accès.
+### ¿El historial de chat se conserva por proyecto, por agente o solo por navegador?
 
-### L’historique de chat est-il conservé par projet, par agent ou seulement par navigateur ?
+La continuidad observada es local al navegador y vinculada al par proyecto + agente. Por lo tanto, no es global a todo el tenant ni compartida automáticamente entre navegadores.
 
-La continuité observée est **locale au navigateur** et rattachée au couple **projet + agent**. Elle n’est donc ni globale à tout le tenant ni partagée automatiquement entre navigateurs.
+### ¿Qué navegadores o permisos se deben verificar primero para la voz?
 
-### Quels navigateurs ou permissions faut-il vérifier en priorité pour la voix ?
+Comience por la compatibilidad del navegador con `SpeechRecognition` / `webkitSpeechRecognition`, luego controle la autorización de acceso al micrófono. Si el botón sigue indisponible o el reconocimiento falla, vuelva a la entrada de texto sin bloquear el flujo del proyecto.
 
-Commencez par la prise en charge navigateur de `SpeechRecognition` / `webkitSpeechRecognition`, puis contrôlez l’autorisation d’accès au micro. Si le bouton reste indisponible ou si la reconnaissance échoue, revenez à la saisie texte sans bloquer le parcours projet.
+### ¿Por qué la voz no aparece en todos los entornos?
 
-### Pourquoi la voix n’apparaît-elle pas dans tous les environnements ?
+Porque esta capacidad depende del navegador y de su compatibilidad con el reconocimiento de voz. La voz es opcional: su ausencia no bloquea el flujo nominal, que sigue siendo la entrada de texto en **Agentes**.
 
-Parce que cette capacité dépend du navigateur et de son support de reconnaissance vocale. La saisie vocale reste optionnelle : son absence ne bloque pas le workflow nominal, qui reste la saisie texte dans **Agents**.
+## FAQ — conocimiento y búsqueda
 
-## FAQ — connaissance et recherche
+### ¿Por qué **Espacio de trabajo**, **Conocimiento** o **Registro IA** parecen vacíos?
 
-### Pourquoi **Espace de travail**, **Connaissance** ou **Journal IA** semble vide ?
+Comience verificando si existe un **proyecto activo**. En el estado actual de la aplicación, estas superficies pueden mostrar un **estado vacío normal** mientras no se seleccione ningún proyecto.
 
-Commencez par vérifier s’il existe bien un **projet actif**. Dans l’état actuel de l’application, ces surfaces peuvent afficher un **état vide normal** tant qu’aucun projet n’est sélectionné.
+Si ya hay un proyecto activo, distinga luego entre un vacío normal y una ausencia real de datos: proyecto nuevo, ningún run, ningún documento, ningún artefacto o un filtro activo.
 
-Si un projet est déjà actif, distinguez ensuite un vide normal de l’absence réelle de données : projet neuf, aucun run, aucun document, aucun artefact ou filtre actif.
+### ¿Por qué **Informes y artefactos** está vacío?
 
-### Pourquoi **Rapports & artefacts** est-il vide ?
+Las causas más frecuentes son:
 
-Les causes les plus fréquentes sont :
+- todavía no se ha creado ningún **artefacto** o **Documento PM**;
+- el run se quedó en la etapa de **salida estructurada**;
+- el proyecto incorrecto o un filtro oculta las filas;
+- el entorno no contiene los mismos datos demo que otras capturas o pruebas.
 
-- aucun **artefact** ou **PM Doc** n’a encore été créé ;
-- le run est resté au stade de **sortie structurée** ;
-- le mauvais projet ou un filtre masque les lignes ;
-- l’environnement ne contient pas les mêmes données de démonstration que d’autres captures ou tests.
 
-### Pourquoi un document est-il visible dans la liste mais pas encore retrouvable dans la recherche ?
+### ¿Por qué un documento es visible en la lista pero aún no se encuentra en la búsqueda?
 
-Parce qu’il peut encore être en état **Ingesting** ou en attente de fin de pipeline d’indexation.
+Porque puede estar todavía en estado Ingesting o esperando la finalización del pipeline de indexación.
 
-### Que signifient `source label` et `source system` ?
+### ¿Qué significan `source label` y `source system`?
 
-Ce sont des indicateurs de provenance. Ils aident à savoir d’où vient une preuve sans relire toute la configuration détaillée.
+Son indicadores de procedencia. Ayudan a saber de dónde proviene una prueba sin volver a leer toda la configuración detallada.
 
-### Pourquoi un import peut-il sembler terminé alors que certains documents ne sont pas encore retrouvables ?
+### ¿Por qué una importación puede parecer terminada aunque algunos documentos aún no se encuentran?
 
-Parce que l’ingestion visible ne signifie pas toujours que toute l’indexation est terminée. Contrôlez le statut documentaire (`Indexed`, `Ingesting`, `Failed`), puis relancez la recherche quand le document est réellement indexé.
+Porque la ingestión visible no siempre significa que toda la indexación esté terminada. Controle el estado documental (`Indexed`, `Ingesting`, `Failed`), luego reinicie la búsqueda cuando el documento esté realmente indexado.
 
-### Pourquoi un document est-il `Indexed` alors qu’une preuve reste `unavailable` dans une sortie structurée ?
+### ¿Por qué un documento está `Indexed` pero una prueba sigue `unavailable` en una salida estructurada?
 
-Le document peut être bien présent dans la **Connaissance** alors que la preuve liée au run n’a pas pu être confirmée, réouverte ou stabilisée au moment de la génération. Reprenez la lecture dans [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md), puis contrôlez le run dans [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) si nécessaire.
+El documento puede estar presente en **Conocimiento**, pero la evidencia vinculada al run no pudo confirmarse, reabrirse o estabilizarse en el momento de la generación. Revise la lectura en [Salidas estructuradas, evidencias y actualidad](./sorties-contextuelles-preuves-et-fraicheur.md), luego controle el run en [Informes, Registro IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md) si es necesario.
 
-### Que signifient les badges de fraîcheur dans la recherche et dans les preuves ?
+### ¿Qué significan las insignias de frescura en la búsqueda y en las pruebas?
 
-Ils indiquent l’état de confiance temporelle de la source : `fresh`, `aging`, `stale`, `conflicting` ou `unavailable`. Utilisez-les comme un signal de relecture avant publication, pas comme un détail cosmétique.
+Indican el estado de confianza temporal de la fuente: fresh, aging, stale, conflicting o unavailable. Úselos como señal de revisión antes de publicar, no como detalle cosmético.
 
-### Quelle différence entre `Trace ID`, `Context snapshot ID` et `Structured output ID` ?
+### ¿Cuál es la diferencia entre `Trace ID`, `Context snapshot ID` y `Structured output ID`?
 
-- **Trace ID** : identifiant de suivi principal pour retrouver un run ou un événement ;
-- **Context snapshot ID** : capture du contexte documentaire/projet utilisé pendant le run ;
-- **Structured output ID** : identifiant de la sortie structurée réellement produite.
+- **Trace ID**: identificador de seguimiento principal para encontrar una ejecución o un evento.  
+- **Context snapshot ID**: captura del contexto documental/proyecto utilizado durante la ejecución.  
+- **Structured output ID**: identificador de la salida estructurada realmente producida.
 
-## FAQ — sorties IA et Journal IA
+## FAQ — salidas IA y Registro IA
 
-### Quelle différence entre Runs et Activity ?
+### ¿Cuál es la diferencia entre Runs y Activity?
 
-**Runs** montre les exécutions d’agent et leurs métadonnées ; **Activity** montre une timeline d’événements projet et le payload brut associé.
+**Runs** muestra las ejecuciones de agente y sus metadatos; **Activity** muestra una línea de tiempo de eventos del proyecto y el payload bruto asociado.
 
-### Comment savoir quel fournisseur IA a réellement été utilisé ?
+### ¿Cómo saber qué proveedor IA se utilizó realmente?
 
-Ouvrez le détail du run dans **Journal IA** et lisez **Effective AI Provider**. C’est la valeur de référence pour ce run.
+Abra el detalle del run en **Registro IA** y lea **Effective AI Provider**. Es el valor de referencia para ese run.
 
-### Pourquoi `Validate` et `Test` ne garantissent-ils pas toujours que ce fournisseur sera celui réellement utilisé ?
+### ¿Por qué `Validate` y `Test` no garantizan siempre que ese proveedor sea el que realmente se use?
 
-Parce que `Validate` et `Test` contrôlent surtout la cohérence et la connectivité de la configuration administrative. Le fournisseur effectivement utilisé sur un run donné reste celui résolu au runtime et exposé dans le **Journal IA**.
+Porque `Validate` y `Test` comprueban sobre todo la coherencia administrativa y la conectividad de la configuración. El proveedor realmente utilizado en un run concreto sigue siendo el que se resuelve en tiempo de ejecución y aparece en el **Registro IA**.
 
-### Que signifient `lineage` et `context snapshot` dans une enquête ?
+### Un run es visible en `Runs`, pero no aparece una secuencia clara en `Activity`. ¿Qué hacer?
 
-- **lineage** : chaîne de traçabilité entre run, sortie structurée, artefact, version et PM Doc ;
-- **context snapshot** : capture du contexte utilisé au moment du run.
+Este caso suele significar que el run existió, pero no se creó un borrador, artefacto, notificación o acción posterior, o que no está abriendo el proyecto o el filtro correctos en **Activity**. Continúe la investigación a través de [Informes, Registro IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md) siguiendo el orden **diff / linaje / Runs / Activity**.
 
-Ces deux notions aident à comprendre **d’où vient** un livrable et **sur quelle base** il a été produit.
+### ¿Cómo se debe leer el campo `Cost`?
 
-### Un run est visible dans `Runs`, mais aucune suite claire n’apparaît dans `Activity`. Que faire ?
+Trate `Cost` como un indicador de transparencia del tiempo de ejecución: `tokens` y `calls` sirven sobre todo para la investigación, el soporte y la comprensión del uso, no como una señal de aprobación de negocio por sí sola. Si necesita una señal transversal de presión presupuestaria o de consumo, abra `cost_pressure` en **Portafolio**.
 
-Ce cas signifie souvent que le run a bien existé, mais qu’aucun brouillon, artefact, notification ou action aval n’a encore été créé, ou que vous n’ouvrez pas le bon projet / bon filtre dans **Activity**. Reprenez l’enquête via [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) en suivant l’ordre **diff / lignée / Runs / Activity**.
+### ¿Qué conviene hacer con `Confidence` y `Source freshness`?
 
-## FAQ — rapports, artefacts et gouvernance
+- **Confidence** = una señal de revisión, no una prueba por sí sola;
+- **Source freshness** = el grado de actualidad de las evidencias citadas;
+- si cualquiera de los dos parece débil, antiguo, `conflicting` o `unavailable`, vuelva a las evidencias, al run y al linaje antes de compartir el resultado fuera de la aplicación.
 
-### Quelle différence entre PM Doc, artefact et version d’artefact ?
+## FAQ — reportes, artefactos y gobernanza
 
-L’artefact est l’objet gouverné, la version d’artefact est son état historisé, et le PM Doc est le document projet revu, édité ou publié à partir de cet objet.
+### ¿Cuál es la diferencia entre PM Doc, artefacto y versión de artefacto?
 
-### Pourquoi une action est-elle visible mais non exécutable ?
+El artefacto es el objeto gobernado, la versión de artefacto es su estado histórico, y el PM Doc es el documento del proyecto revisado, editado o publicado a partir de ese objeto.
 
-Vérifiez droits, connecteur, binding projet, politique de gouvernance et approbation requise. Voir aussi [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md).
+### ¿Por qué una acción es visible pero no ejecutable?
 
-### Quand faut-il **Approve**, **Publish** ou **Add to knowledge** ?
+Verifique derechos, conector, enlace de proyecto, política de gobernanza y aprobación requerida. Vea también [Gobernanza, decisiones y acciones](./gouvernance-decisions-et-actions.md).
 
-- **Approve** valide une version d’artefact encore en `draft` ;
-- **Publish** déclenche la diffusion gouvernée vers une destination ou un format cible ;
-- **Add to knowledge** réinjecte un document relu dans la recherche projet.
+### ¿Cuándo se debe Approve, Publish o Add to knowledge?
 
-Ces trois actions ne sont pas interchangeables.
+- **Approve** valida una versión de artefacto aún en `draft`;  
+- **Publish** desencadena la difusión gobernada hacia un destino o formato objetivo;  
+- **Add to knowledge** reinyecta un documento revisado en la búsqueda del proyecto.
 
-### Comment arbitrer une preuve `conflicting` avant publication ?
+Estas tres acciones no son intercambiables.
 
-Rouvrez les sources contradictoires, comparez le snippet, la date, la provenance et la fraîcheur, puis documentez l’arbitrage dans l’artefact, la note de revue ou le flux de gouvernance. Si besoin, rapprochez ensuite le tout du **Journal IA**.
+### ¿Cómo arbitrar una prueba `conflicting` antes de publicar?
 
-### Pourquoi un brouillon de notification reste-t-il `held` ou ne part-il jamais vers un canal externe ?
+Reabra las fuentes contradictorias, compare el fragmento, la fecha, la procedencia y la frescura, luego documente el arbitraje en el artefacto, la nota de revisión o el flujo de gobernanza. Si es necesario, relacione todo con el **Registro IA**.
 
-Dans l’interface observée, `in_app` est le chemin le plus direct. Les canaux externes peuvent rester en posture **held / draft** tant que la diffusion gouvernée, la policy, le connecteur ou l’approbation ne sont pas réunis. Reprenez la chaîne dans [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) : signal, digest éventuel, brouillon, policy, connecteur, puis approbation.
+### ¿Por qué un borrador de notificación permanece `held` o nunca se envía a un canal externo?
 
-### Pourquoi une action reste-t-elle `pending approval` ou `approved` sans exécution visible ?
+En la interfaz observada, `in_app` es la ruta más directa. Los canales externos pueden permanecer en postura **held / draft** mientras la difusión gobernada, la política, el conector o la aprobación no estén reunidos. Revise la cadena en Gobernanza, decisiones y acciones: señal, digest eventual, borrador, política, conector, luego aprobación.
 
-- `pending approval` signifie que l’accord n’a pas encore été donné ;
-- `approved` signifie que l’accord existe, mais pas forcément que l’exécution a déjà eu lieu.
+### ¿Por qué una acción permanece `pending approval` o `approved` sin ejecución visible?
 
-Confirmez ensuite l’étape aval dans **Actions & approbations**, puis dans **Activity**. Si besoin, utilisez la méthode décrite dans [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md).
+`pending approval` significa que la aprobación aún no se ha dado; `approved` significa que la aprobación existe, pero no necesariamente que la ejecución haya ocurrido. Confirme luego la etapa posterior en **Acciones y aprobaciones**, luego en **Activity**. Si es necesario, use el método descrito en [Informes, Registro IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md).
 
-### Pourquoi une intégration est-elle disponible en plateforme mais verrouillée dans mon projet ?
+### ¿Por qué una integración está disponible en la plataforma pero bloqueada en mi proyecto?
 
-Parce qu’une définition technique plateforme ne suffit pas. Il faut encore un **binding projet** valide, des permissions adéquates, une policy compatible, un état de santé acceptable et, selon les cas, l’entitlement correspondant.
+Porque una definición técnica de la plataforma no basta. También se necesita un enlace de proyecto válido, permisos adecuados, una política compatible, un estado de salud aceptable y, según el caso, el entitlement correspondiente.
 
-## FAQ — portefeuille et administration
+## FAQ — portafolio y administración
 
-### Pourquoi les données de démonstration ne correspondent-elles pas toujours exactement à la documentation ?
+### ¿Por qué los datos de demostración no siempre coinciden exactamente con la documentación?
 
-Les environnements live peuvent varier. Certains projets n’exposent pas toujours les mêmes documents seedés, rapports seedés ou exemples de recherche que ceux montrés dans la documentation ou dans d’autres tests.
+Los entornos reales pueden variar. Algunos proyectos no muestran siempre los mismos documentos precargados, informes precargados o ejemplos de búsqueda que aparecen en la documentación o en otras pruebas.
 
-### Pourquoi le portefeuille ne remonte-t-il aucun projet ou aucun outlier ?
+### ¿Por qué el portafolio no muestra ningún proyecto o outlier?
 
-Vérifiez les projets sélectionnés, les signaux actifs, les poids, les seuils et la sévérité minimale appliquée à la cohorte.
+Verifique los proyectos seleccionados, las señales activas, los pesos, los umbrales y la severidad mínima aplicada a la cohorte.
 
-### Comment libérer ou réattribuer un siège ?
+### ¿Existen valores predeterminados implícitos en Portafolio?
 
-Cela se fait depuis **Administration de la plateforme** par un profil autorisé. Le retrait libère la capacité pour une réattribution ultérieure, sous réserve de la posture et de la fenêtre de retrait du plan.
+No. La interfaz observada ofrece principalmente valores predeterminados, una acción para restablecerlos y cohortes guardadas. Los valores predeterminados son un punto de partida seguro, no un modelo obligatorio. Algunas demostraciones también pueden mostrar una cohorte precargada, pero ese contenido varía según el entorno.
 
-### Que signifie `Validate` réussi mais `Test` non abouti dans `Paramètres du fournisseur IA` ?
+### ¿Cómo liberar o reasignar un asiento?
 
-La configuration administrative paraît cohérente, mais la connectivité réelle ou l’accès distant ne passent pas encore. Vérifiez endpoint, secret ou auth réelle, accessibilité du fournisseur et contraintes réseau, puis reprenez la séquence décrite dans [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
+Se hace desde Administración de la plataforma por un perfil autorizado. La retirada libera la capacidad para una reasignación posterior, sujeto a la postura y la ventana de retirada del plan.
 
-### Pourquoi mon fournisseur est-il visible mais jamais `Operational` ?
+### ¿Qué significa que `Validate` haya tenido éxito, pero `Test` no, en **Parámetros del proveedor IA**?
 
-Un fournisseur peut être configuré ou même validé sans avoir passé toute la chaîne **Configuration → Validation → Test → Activate**. Vérifiez aussi l’entitlement, les `allowed providers` et la readiness générale avant de le considérer exploitable.
+La configuración administrativa parece coherente, pero la conectividad real o el acceso remoto aún no pasan. Verifique el endpoint, el secreto o la autenticación real, la accesibilidad del proveedor y las restricciones de red, luego continúe con la secuencia descrita en [Portafolio y administración técnica](./portefeuille-et-administration-technique.md).
 
-### Que faire si aucun deployment Azure OpenAI n’apparaît dans `Paramètres du fournisseur IA` ?
+### ¿Por qué mi proveedor es visible pero nunca `Operational`?
 
-Cela signifie généralement qu’aucun déploiement n’est visible dans la ressource Azure OpenAI configurée, ou que la découverte ne peut pas aboutir avec les paramètres actuels. Vérifiez endpoint, auth, version d’API et présence réelle des déploiements côté Azure, puis reprenez le contrôle détaillé dans [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
+Un proveedor puede estar configurado o incluso validado sin haber pasado toda la cadena Configuración → Validación → Prueba → Activación. Verifique también el entitlement, los `allowed providers` y la readiness general antes de considerarlo explotable.
 
-### Pourquoi le fournisseur IA est-il visible mais non modifiable ou non utilisable ?
+### ¿Qué hacer si no aparece ningún despliegue de Azure OpenAI en **Parámetros del proveedor IA**?
 
-Le fournisseur peut être visible en lecture alors que sa modification reste réservée à un rôle admin. Son usage peut aussi être limité par le plan, les `allowed providers`, l’entitlement ou la résolution runtime du fournisseur effectif.
+Esto generalmente significa que no hay ningún despliegue visible en el recurso Azure OpenAI configurado, o que el descubrimiento no puede completarse con los parámetros actuales. Verifique el endpoint, la autenticación, la versión de API y la presencia real de despliegues en Azure, luego continúe con el control detallado en [Portafolio y administración técnica](./portefeuille-et-administration-technique.md).
 
-## Suite
+### ¿Por qué el proveedor IA es visible pero no modificable o no utilizable?
 
-- [Glossaire](./glossaire.md)
-- [Démarrage](./demarrage.md)
-- [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
+El proveedor puede ser visible en lectura mientras su modificación esté reservada a un rol admin. Su uso también puede estar limitado por el plan, los `allowed providers`, el entitlement o la resolución en tiempo de ejecución del proveedor efectivo.
+
+## Siguiente
+
+- [Glosario](./glossaire.md)
+- [Inicio](./index.md)
+- [Portafolio y administración técnica](./portefeuille-et-administration-technique.md)

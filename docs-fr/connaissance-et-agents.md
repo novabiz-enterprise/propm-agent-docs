@@ -93,10 +93,17 @@ Les résultats de recherche peuvent afficher :
 - section ;
 - badge de fraîcheur ;
 - badge **source system** ;
+- badge **source label** ;
 - lien **Open source** ;
 - `Trace ID` de la recherche.
 
-Ces éléments aident à juger rapidement la provenance, la qualité et la réutilisabilité d’une preuve.
+Lecture pratique :
+
+- **source label** désigne surtout le fournisseur ou l’origine d’ingestion visible pour cette preuve, par exemple `manual`, `SharePoint`, `ADF`, `Blob`, `Confluence` ou `Jira` ;
+- **source system** aide à reconnaître le système ou le flux métier lisible derrière cette preuve, par exemple `Knowledge`, `Schedule`, `Finance` ou `Operations` ;
+- le `Trace ID` de recherche reste surtout un identifiant de diagnostic, de support et d’audit plutôt qu’une clé métier de pilotage quotidien.
+
+Utilisez `source label` et `source system` ensemble quand vous devez arbitrer rapidement la provenance d’un extrait avant réutilisation.
 
 ![Résultats de recherche dans la connaissance](/img/screenshots/localized/fr/05-knowledge-search-results.png)
 
@@ -149,16 +156,16 @@ La proactivité peut être alimentée par :
 
 ## Comment choisir un agent rapidement
 
-Quand plusieurs cartes sont visibles, lisez-les dans cet ordre :
+Quand plusieurs cartes paraissent plausibles, partez d’abord du domaine couvert, puis vérifiez le scope et le status.
 
 | Champ | Ce qu’il faut regarder en priorité | Réflexe utile |
 | --- | --- | --- |
-| `kind` | type d’agent ou spécialisation métier | commencez par l’agent dont le rôle correspond directement à la tâche attendue |
-| `scope` | portée de visibilité de l’agent | vérifiez si l’agent est limité au projet courant ou visible plus largement |
-| `status` | disponibilité pratique de l’agent | si le statut n’inspire pas confiance, passez à un agent standard avant d’escalader |
-| domaines couverts | sujets annoncés sur la carte | utilisez-les pour éviter de confier une demande planning à un agent orienté gouvernance ou documents |
+| domaines couverts | sujets annoncés sur la carte | rapprochez la demande de l’agent dont la couverture métier correspond réellement au travail attendu |
+| `scope` | portée de visibilité de l’agent | vérifiez si l’agent reste limité au projet courant ou visible plus largement |
+| `status` | disponibilité pratique de l’agent | privilégiez les agents actifs pour le projet sélectionné avant d’escalader |
+| `kind` | caractère standard ou personnalisé de la carte | traitez `kind` comme un contexte descriptif, pas comme le premier critère de choix |
 
-En pratique, choisissez d’abord un **agent standard** si vous cherchez un parcours nominal bien connu. Passez à un **agent personnalisé** quand l’équipe a besoin d’instructions, d’un ton ou d’un périmètre de travail plus spécialisé.
+En pratique, recherchez d’abord dans le roster par nom ou par domaine. Privilégiez un agent actif pour le projet sélectionné, et gardez les agents transverses ou personnalisés pour les cas où leur couverture correspond vraiment à la demande.
 
 ## Comment travailler avec les agents
 

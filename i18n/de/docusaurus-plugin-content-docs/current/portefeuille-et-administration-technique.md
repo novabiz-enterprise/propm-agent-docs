@@ -1,183 +1,218 @@
 ---
-title: Portefeuille et administration technique
+title: Portfolio und technische Administration
 slug: /portefeuille-et-administration-technique
-description: Comprendre la page Portfolio pas à pas, lire les cohortes et outliers, puis administrer la plateforme, les intégrations et les fournisseurs IA.
+description: Verstehen Sie die Portfolio-Seite Schritt für Schritt, lesen Sie die Kohorten und Ausreißer, und verwalten Sie anschließend die Plattform, die Integrationen und die KI-Anbieter.
 ---
 
-[Accueil](./index.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) · [Maintenance, support et FAQ](./maintenance-support-faq.md)
+[Startseite](./index.md) · [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md) · [Wartung, Support und FAQ](./maintenance-support-faq.md)
 
-![Centre de commande portefeuille](/img/screenshots/localized/fr/02-portfolio-command-center.png)
+![Portfolio-Befehlszentrale](/img/screenshots/localized/de/02-portfolio-command-center.png)
 
-## Objectif
+## Ziel
 
-Cette page couvre deux surfaces différentes du produit :
+Diese Seite behandelt zwei unterschiedliche Bereiche des Produkts:
 
-1. la page **Portfolio** ou **Centre de commande portefeuille**, utilisée pour comparer plusieurs projets ;
-2. **Administration de la plateforme**, utilisée pour préparer les intégrations, les fournisseurs IA, l’abonnement et l’audit.
+1. die **Portfolio**- oder **Portfolio-Befehlszentrale**-Seite, die zum Vergleichen mehrerer Projekte verwendet wird;
+2. **Plattformverwaltung**, die zur Vorbereitung von Integrationen, KI-Anbietern, Abonnements und Audits dient.
 
-Pour un utilisateur débutant, il est utile de retenir ceci :
+Für einen Anfänger ist es hilfreich, Folgendes zu behalten:
 
-- la page **Portfolio** aide à répondre à la question **« quels projets méritent mon attention en priorité ? »** ;
-- l’**Administration de la plateforme** aide à répondre à la question **« la plateforme est-elle correctement préparée pour l’organisation ? »**.
+- die **Portfolio**-Seite hilft, die Frage **„Welche Projekte verdienen meine höchste Priorität?“** zu beantworten;
+- die **Plattformverwaltung** hilft, die Frage **„Ist die Plattform für die Organisation korrekt vorbereitet?“** zu beantworten.
+
+## Für wen diese Seite vor allem gedacht ist
+
+In der beobachteten Anwendung ist **Portfolio** in erster Linie eine bereichsübergreifende PMO-/Multi-Projekt-Steuerungsoberfläche. Sie hilft dabei, mehrere Projekte mit demselben Signalmodell zu vergleichen, bevor Sie die Detailansicht eines Projekts öffnen.
+
+Nutzen Sie diese Seite vor allem, um:
+
+- zu priorisieren, welches Projekt zuerst Aufmerksamkeit braucht;
+- konsistente Signale über mehrere Projekte hinweg zu vergleichen;
+- zu entscheiden, welches Projekt als Nächstes eine tiefere Detailanalyse verdient.
+
+Behandeln Sie sie weder als reine Sponsor-Zusammenfassung noch als Ersatz für den detaillierten **Workspace** eines einzelnen Projekts.
 
 ---
 
-## Partie 1 — Comprendre la page Portfolio pas à pas
+## Teil 1 – Schritt für Schritt die Portfolio-Seite verstehen
 
-## À quoi sert la page Portfolio ?
+## Wozu dient die Portfolio-Seite?
 
-La page **Portfolio** sert à comparer plusieurs projets avec des **signaux configurables** au lieu d’un simple tableau rouge / orange / vert figé.
+Die **Portfolio**-Seite dient dazu, mehrere Projekte mit **konfigurierbaren Signalen** statt einer festen roten/gelben/grünen Tabelle zu vergleichen.
 
-Elle permet notamment de :
+Sie ermöglicht unter anderem:
 
-- sélectionner plusieurs projets ;
-- choisir les signaux à comparer ;
-- définir un **poids** et un **seuil** pour chaque signal ;
-- filtrer la **sévérité minimale** ;
-- enregistrer une **cohorte** réutilisable ;
-- repérer les **outliers** ou **valeurs aberrantes** ;
-- ouvrir ensuite le détail d’un projet pour comprendre pourquoi il ressort.
+- mehrere Projekte auszuwählen;
+- die zu vergleichenden Signale zu wählen;
+- ein **Gewicht** und einen **Schwellenwert** für jedes Signal festzulegen;
+- die **minimale Schwere** zu filtern;
+- eine wiederverwendbare **Kohorte** zu speichern;
+- **Ausreißer** oder **abnormale Werte** zu erkennen;
+- anschließend die Detailansicht eines Projekts zu öffnen, um zu verstehen, warum es hervortritt.
 
-## Ce que l’utilisateur voit en arrivant sur la page
+## Was der Benutzer beim Aufrufen der Seite sieht
 
-En arrivant sur la page Portfolio, l’utilisateur voit généralement cinq zones.
+Beim Aufrufen der Portfolio-Seite sieht der Benutzer in der Regel fünf Bereiche.
 
-| Zone | Ce que l’on y fait |
+| Bereich | Was dort gemacht wird |
 | --- | --- |
-| **Sélection des projets** | choisir quels projets entrent dans la comparaison |
-| **Profil de signaux** | choisir les signaux, leurs poids, leurs seuils et la sévérité minimale |
-| **Cohortes** | enregistrer ou recharger une configuration de comparaison réutilisable |
-| **Résultats de comparaison** | lire le résumé, les outliers et les écarts entre projets |
-| **Project drill-down** | ouvrir les preuves, l’activité récente et le détail par signal pour un projet |
+| **Projekt-Auswahl** | wählen, welche Projekte in den Vergleich einbezogen werden |
+| **Signalprofil** | wählen, welche Signale, deren Gewichte, Schwellenwerte und die minimale Schwere verwendet werden |
+| **Kohorten** | speichern oder laden einer wiederverwendbaren Vergleichskonfiguration |
+| **Vergleichsergebnisse** | lesen Sie die Zusammenfassung, Ausreißer und Abweichungen zwischen Projekten |
+| **Projekt-Detailansicht** | öffnen Sie Beweise, aktuelle Aktivitäten und Detailansicht pro Signal für ein Projekt |
 
-## Les mots à comprendre avant de commencer
+## Begriffe, die vor dem Start verstanden werden sollten
 
-| Mot | Explication simple |
+| Begriff | Einfache Erklärung |
 | --- | --- |
-| **Projet** | un projet inclus dans la comparaison |
-| **Signal** | un indicateur comparatif, par exemple blocages, fraîcheur ou pression planning |
-| **Poids** | l’importance donnée à un signal dans le score global |
-| **Seuil** | le niveau à partir duquel un signal commence à ressortir comme notable |
-| **Sévérité minimale** | un filtre qui masque les signaux trop faibles |
-| **Cohorte** | un groupe de projets enregistré avec son profil de comparaison |
-| **Outlier / valeur aberrante** | un projet qui ressort plus fortement que les autres selon la configuration active |
-| **Narrative comparison** | un résumé textuel de la comparaison en cours |
-| **Project drill-down** | le détail projet par projet avec preuves et activité |
+| **Projekt** | ein Projekt, das im Vergleich enthalten ist |
+| **Signal** | ein vergleichender Indikator, z. B. Blockierungen, Aktualität oder Planungsdruck |
+| **Gewicht** | die Bedeutung eines Signals im Gesamtscore |
+| **Schwellenwert** | der Punkt, ab dem ein Signal als bemerkenswert gilt |
+| **Minimale Schwere** | ein Filter, der schwache Signale ausblendet |
+| **Kohorte** | eine Gruppe von Projekten mit einem gespeicherten Vergleichsprofil |
+| **Ausreißer / abnormaler Wert** | ein Projekt, das stärker hervortritt als die anderen gemäß der aktiven Konfiguration |
+| **Narrative comparison** | eine textuelle Zusammenfassung des laufenden Vergleichs |
+| **Project drill-down** | Detailansicht pro Projekt mit Beweisen und Aktivitäten |
 
-## Exemple guidé — comparer trois projets pour une revue hebdomadaire
+## Geführtes Beispiel – drei Projekte für eine wöchentliche Überprüfung vergleichen
 
-Imaginons qu’un PMO veut comparer trois projets :
+Stellen Sie sich vor, ein PMO möchte drei Projekte vergleichen:
 
-- Projet A ;
-- Projet B ;
-- Projet C.
+- Projekt A;
+- Projekt B;
+- Projekt C.
 
-Le but est de repérer rapidement celui qui demande une attention prioritaire avant le comité hebdomadaire.
+Ziel ist es, schnell das Projekt zu identifizieren, das vor dem wöchentlichen Gremium besondere Aufmerksamkeit erfordert.
 
-### Étape 1 — Choisir les projets
+### Schritt 1 – Projekte auswählen
 
-Dans la zone **Projects**, cochez les projets que vous voulez comparer.
+Im Bereich **Projects** markieren Sie die Projekte, die Sie vergleichen möchten.
 
-### Bon réflexe
+### Guter Reflex
 
-Comparez de préférence des projets qui appartiennent à une **même conversation de pilotage**. Par exemple :
+Vergleichen Sie vorzugsweise Projekte, die zu einer **gleichen Steuerungsrunde** gehören. Zum Beispiel:
 
-- trois projets d’un même portefeuille ;
-- trois projets d’un même comité ;
-- ou trois projets d’une même direction.
+- drei Projekte aus demselben Portfolio;
+- drei Projekte aus demselben Gremium;
+- oder drei Projekte aus derselben Abteilung.
 
-### Étape 2 — Choisir les signaux utiles
+### Schritt 2 – Nützliche Signale auswählen
 
-Dans le **Signal profile**, activez les signaux qui comptent réellement pour votre revue.
+Im **Signalprofil** aktivieren Sie die Signale, die für Ihre Überprüfung wirklich zählen.
 
-Exemple pour une revue hebdomadaire :
+Beispiel für eine wöchentliche Überprüfung:
 
-- **blocker_density** ;
-- **freshness_issues** ;
-- **failed_runs** ;
+- **blocker_density**;
+- **freshness_issues**;
+- **failed_runs**;
 - **schedule_pressure**.
 
-### Étape 3 — Régler les poids
+### Schritt 3 – Gewichte einstellen
 
-Le **poids** indique l’importance donnée à un signal.
+Das **Gewicht** gibt an, wie wichtig ein Signal ist.
 
-- si vous mettez un poids élevé sur **blocker_density**, les projets avec beaucoup de blocages ressortiront davantage ;
-- si vous mettez un poids faible sur **activity_change**, ce signal influencera moins le classement final.
+- Wenn Sie ein hohes Gewicht für **blocker_density** setzen, werden Projekte mit vielen Blockierungen stärker hervorgehoben;
+- Wenn Sie ein niedriges Gewicht für **activity_change** setzen, beeinflusst dieses Signal die Endplatzierung weniger.
 
-### Étape 4 — Régler les seuils
+### Schritt 4 – Schwellenwerte einstellen
 
-Le **seuil** indique à partir de quand un signal doit vraiment attirer l’attention.
+Der **Schwellenwert** gibt an, ab wann ein Signal wirklich Aufmerksamkeit erfordert.
 
-- un seuil bas rend la comparaison plus sensible ;
-- un seuil élevé rend la comparaison plus sélective.
+- Ein niedriger Schwellenwert macht den Vergleich empfindlicher;
+- Ein hoher Schwellenwert macht den Vergleich selektiver.
 
-### Étape 5 — Choisir la sévérité minimale
+### Schritt 5 – Minimale Schwere wählen
 
-La **sévérité minimale** filtre ce que vous voulez voir dans les résultats.
+Die **minimale Schwere** filtert, was Sie in den Ergebnissen sehen möchten.
 
-Exemple :
+Beispiel:
 
-- **low and above** = vous voyez presque tout ;
-- **medium and above** = vous filtrez déjà les signaux faibles ;
-- **high and above** = vous vous concentrez uniquement sur les sujets plus sérieux.
+- **low and above** = Sie sehen fast alles;
+- **medium and above** = Sie filtern bereits schwache Signale;
+- **high and above** = Sie konzentrieren sich ausschließlich auf ernstere Themen.
 
-### Étape 6 — Régler le seuil global d’outlier
+### Schritt 6 – Globalen Ausreißer-Schwellenwert einstellen
 
-Le **Overall outlier threshold** détermine à partir de quel niveau combiné un projet doit être signalé comme **valeur aberrante**.
+Der **Overall outlier threshold** bestimmt, ab welchem kombinierten Niveau ein Projekt als **abnormaler Wert** gemeldet wird.
 
-- seuil plus bas = plus de projets ressortent ;
-- seuil plus haut = seuls les cas les plus marqués ressortent.
+- Niedriger Schwellenwert = mehr Projekte werden hervorgehoben;
+- Höherer Schwellenwert = nur die stärksten Fälle werden angezeigt.
 
-### Étape 7 — Enregistrer une cohorte si besoin
+## Beobachtete Starteinstellungen
 
-Si vous faites souvent la même comparaison, enregistrez-la comme **cohorte**.
+Die Seite startet nicht von einem leeren Blatt. Die beobachteten Standardwerte sind:
 
-Une cohorte mémorise :
+| Signal | Standardgewicht | Standardschwellenwert |
+| --- | --- | --- |
+| `activity_change` | `1.0` | `45` |
+| `blocker_density` | `1.2` | `35` |
+| `freshness_issues` | `1.0` | `35` |
+| `contradiction_count` | `1.1` | `35` |
+| `failed_runs` | `1.3` | `40` |
+| `schedule_pressure` | `1.2` | `40` |
+| `cost_pressure` | `1.2` | `40` |
+| `overall_outlier_score` | - | `55` |
 
-- les projets choisis ;
-- les signaux activés ;
-- les poids ;
-- les seuils ;
-- la sévérité minimale.
+Nützliche Ergänzungen:
 
-![Éditeur de cohorte portefeuille](/img/screenshots/localized/fr/02-portfolio-cohort-editor.png)
+- die **minimale Schwere** startet ohne restriktiven Filter (`All`);
+- **Reset defaults** stellt diese Startwerte wieder her;
+- diese Werte sind ein sicherer Ausgangspunkt, kein vorgeschriebenes Modell;
+- es gibt kein verborgenes Produkt-Preset jenseits dieser Standardwerte und Ihrer gespeicherten **Kohorten**;
+- in manchen Demo-Umgebungen ist zusätzlich eine vorausgefüllte Kohorte sichtbar, deren Inhalt je nach Umgebung variiert.
 
-### Étape 8 — Lancer ou rafraîchir la comparaison
+### Schritt 7 – Kohorte speichern, falls nötig
 
-Cliquez sur **Refresh comparison** pour recalculer la vue avec les paramètres actifs.
+Wenn Sie häufig dieselbe Vergleichsaufgabe durchführen, speichern Sie sie als **Kohorte**.
 
-### Étape 9 — Lire le résumé narratif
+Eine Kohorte speichert:
 
-La zone **Narrative comparison** donne un texte de synthèse.
+- die ausgewählten Projekte;
+- die aktivierten Signale;
+- die Gewichte;
+- die Schwellenwerte;
+- die minimale Schwere.
 
-Elle répond généralement à la question :
+![Portfolio-Kohorteneditor](/img/screenshots/localized/de/02-portfolio-cohort-editor.png)
 
-**« Qu’est-ce qui ressort le plus, maintenant, dans ce groupe de projets ? »**
+### Schritt 8 – Vergleich starten oder aktualisieren
 
-### Étape 10 — Lire les outliers
+Klicken Sie auf **Refresh comparison**, um die Ansicht mit den aktiven Parametern neu zu berechnen.
 
-La zone **Outliers** liste les projets qui dépassent le profil actif de poids et de seuils.
+### Schritt 9 – Narrative Zusammenfassung lesen
 
-Un outlier n’est pas forcément un « projet en difficulté ». Cela veut simplement dire :
+Der Bereich **Narrative comparison** liefert eine Textzusammenfassung.
 
-- qu’il ressort plus que les autres ;
-- qu’il mérite une lecture plus attentive ;
-- qu’il faut comprendre **pourquoi** il ressort.
+Er beantwortet in der Regel die Frage:
 
-### Étape 11 — Ouvrir le détail du projet
+**„Was ist jetzt am stärksten hervorzuheben in dieser Projektgruppe?“**
 
-Dans **Project drill-down**, vous pouvez consulter :
+### Schritt 10 – Ausreißer lesen
 
-- les signaux du projet ;
-- les preuves ;
-- l’activité récente ;
-- les liens vers l’**Espace de travail**, la **Connaissance**, les **Rapports** ou le **Journal IA**.
+Der Bereich **Outliers** listet Projekte auf, die das aktive Profil aus Gewichten und Schwellenwerten überschreiten.
 
-C’est cette étape qui transforme une alerte portefeuille en compréhension concrète.
+Ein Ausreißer ist nicht unbedingt ein „Projekt in Schwierigkeiten“. Es bedeutet einfach:
 
-## Comprendre les signaux visibles dans Portfolio
+- dass es stärker hervortritt als die anderen;
+- dass es genauer betrachtet werden sollte;
+- dass man verstehen muss **warum** es hervortritt.
 
-Les signaux observés dans le produit incluent notamment :
+### Schritt 11 – Projekt-Detailansicht öffnen
+
+In **Project drill-down** können Sie einsehen:
+
+- die Signale des Projekts;
+- Beweise;
+- aktuelle Aktivitäten;
+- Links zu **Workspace**, **Knowledge**, **Reports** oder **AI Log**.
+
+Dies ist der Schritt, der eine Portfolio‑Alarmierung in konkretes Verständnis verwandelt.
+
+## Signale, die im Portfolio sichtbar sind
+
+Die im Produkt beobachteten Signale umfassen unter anderem:
 
 - `activity_change`
 - `blocker_density`
@@ -187,327 +222,329 @@ Les signaux observés dans le produit incluent notamment :
 - `schedule_pressure`
 - `cost_pressure`
 
-### Définition simple de chaque signal
+### Einfache Definition jedes Signals
 
-| Signal | Question à laquelle il répond | Comment l’interpréter |
+| Signal | Frage, die es beantwortet | Interpretation |
 | --- | --- | --- |
-| `activity_change` | l’activité récente est-elle très différente de la période précédente ? | élevé = variation inhabituelle à expliquer |
-| `blocker_density` | le projet montre-t-il beaucoup de blocages ou d’escalades ? | élevé = blocages fréquents ou concentrés |
-| `freshness_issues` | les preuves et sources sont-elles trop anciennes ou indisponibles ? | élevé = la vue projet devient moins fiable |
-| `contradiction_count` | les sources se contredisent-elles ? | élevé = arbitrage ou clarification nécessaire |
-| `failed_runs` | les automatisations ou runs échouent-ils souvent ? | élevé = friction technique ou opérationnelle |
-| `schedule_pressure` | le planning montre-t-il des signes de tension ? | élevé = pression planning ou dérive calendrier |
-| `cost_pressure` | le budget ou la consommation montrent-ils une tension ? | élevé = risque budget / coûts |
+| `activity_change` | Ist die aktuelle Aktivität stark von der vorherigen Periode abweichend? | hoch = ungewöhnliche Variation, zu erklären |
+| `blocker_density` | Zeigt das Projekt viele Blockierungen oder Eskalationen? | hoch = häufige oder konzentrierte Blockierungen |
+| `freshness_issues` | Sind Beweise und Quellen zu alt oder nicht verfügbar? | hoch = Projektansicht wird weniger zuverlässig |
+| `contradiction_count` | Stimmen die Quellen überein? | hoch = Abwägung oder Klärung nötig |
+| `failed_runs` | Scheitern Automatisierungen oder Läufe häufig? | hoch = technische oder operative Reibung |
+| `schedule_pressure` | Zeigt der Plan Anzeichen von Druck? | hoch = Planungsdruck oder Kalenderabweichung |
+| `cost_pressure` | Zeigt Budget oder Verbrauch Spannung? | hoch = Budget‑/Kostenrisiko |
 
-## Comment lire poids, seuils et sévérité avec un exemple simple
+## Gewichte, Schwellenwerte und Schwere mit einem einfachen Beispiel lesen
 
-Prenons un exemple très concret.
+Nehmen wir ein sehr konkretes Beispiel.
 
-### Cas 1 — Vous voulez surtout voir les projets bloqués
+### Fall 1 – Sie möchten hauptsächlich blockierte Projekte sehen
 
-- augmentez le **poids** de `blocker_density` ;
-- gardez un **seuil** moyen ;
-- mettez la **sévérité minimale** sur `medium`.
+- erhöhen Sie das **Gewicht** von `blocker_density`;
+- behalten Sie einen **mittleren Schwellenwert**;
+- setzen Sie die **minimale Schwere** auf `medium`.
 
-Résultat attendu : les projets avec blocages récurrents ressortent davantage.
+Erwartetes Ergebnis: Projekte mit wiederkehrenden Blockierungen treten stärker hervor.
 
-### Cas 2 — Vous voulez surtout contrôler la qualité des preuves
+### Fall 2 – Sie möchten die Qualität der Beweise überwachen
 
-- augmentez le poids de `freshness_issues` et `contradiction_count` ;
-- gardez un seuil plus sensible ;
-- lisez ensuite les preuves indisponibles ou contradictoires.
+- erhöhen Sie das Gewicht von `freshness_issues` und `contradiction_count`;
+- behalten Sie einen sensibleren Schwellenwert;
+- lesen Sie anschließend die nicht verfügbaren oder widersprüchlichen Beweise.
 
-Résultat attendu : les projets dont la lecture devient peu fiable remontent plus vite.
+Erwartetes Ergebnis: Projekte, deren Lesbarkeit schnell unzuverlässig wird, steigen schneller auf.
 
-### Cas 3 — Vous voulez un comité très sélectif
+### Fall 3 – Sie möchten ein sehr selektives Gremium
 
-- gardez peu de signaux ;
-- montez les seuils ;
-- augmentez la sévérité minimale ;
-- montez le seuil global d’outlier.
+- behalten Sie wenige Signale;
+- erhöhen Sie die Schwellenwerte;
+- erhöhen Sie die minimale Schwere;
+- erhöhen Sie den globalen Ausreißer-Schwellenwert.
 
-Résultat attendu : seuls les cas les plus marqués resteront visibles.
+Erwartetes Ergebnis: Nur die stärksten Fälle bleiben sichtbar.
 
-## Comment lire un outlier correctement
+## Ausreißer korrekt lesen
 
-Un **outlier** n’est pas une note magique ni un jugement définitif.
+Ein **Ausreißer** ist keine magische Note oder ein endgültiges Urteil.
 
-Dans les flux observés, un projet ressort comme outlier lorsque :
+In den beobachteten Flows tritt ein Projekt als Ausreißer hervor, wenn:
 
-- un ou plusieurs signaux sont élevés ;
-- ces signaux portent un poids significatif ;
-- les seuils actifs sont dépassés ;
-- le score combiné dépasse le seuil global d’outlier.
+- ein oder mehrere Signale hoch sind;
+- diese Signale ein signifikantes Gewicht tragen;
+- die aktiven Schwellenwerte überschritten werden;
+- der kombinierte Score den globalen Ausreißer-Schwellenwert überschreitet.
 
-### Lecture correcte
+### Korrekte Interpretation
 
-- **outlier** = « ce projet ressort plus que les autres selon les règles actuelles » ;
-- **pas outlier** = « ce projet reste dans la bande normale du groupe actuel ».
+- **Ausreißer** = „Dieses Projekt tritt stärker hervor als die anderen gemäß den aktuellen Regeln“;
+- **kein Ausreißer** = „Dieses Projekt liegt im normalen Band der aktuellen Gruppe“.
 
-## Pourquoi un signal peut être indisponible
+## Warum ein Signal nicht verfügbar sein kann
 
-Un signal peut être **indisponible** quand la preuve nécessaire manque.
+Ein Signal kann **nicht verfügbar** sein, wenn die erforderlichen Beweise fehlen.
 
-Exemple :
+Beispiel:
 
-- si le projet n’a pas les bonnes sources planning, `schedule_pressure` peut rester indisponible ;
-- si les sources budget ne sont pas présentes, `cost_pressure` peut rester indisponible.
+- Wenn das Projekt keine geeigneten Planungsquellen hat, kann `schedule_pressure` nicht verfügbar sein;
+- Wenn die Budgetquellen fehlen, kann `cost_pressure` nicht verfügbar sein.
 
-### Point très important
+### Sehr wichtig
 
-Un signal **indisponible** ne veut pas dire **zéro risque**.
+Ein **nicht verfügbares Signal** bedeutet **nicht** „kein Risiko“.
 
-Cela veut dire :
+Es bedeutet:
 
-**« le portefeuille n’a pas assez de preuve fiable pour calculer cet indicateur »**.
+**„Das Portfolio hat nicht genügend zuverlässige Beweise, um diesen Indikator zu berechnen.“**
 
-## Ce que contient une cohorte
+## Was eine Kohorte enthält
 
-Une cohorte est un **profil de comparaison enregistré**.
+Eine Kohorte ist ein **gespeichertes Vergleichsprofil**.
 
-Elle garde en mémoire :
+Sie speichert:
 
-- le nom de la cohorte ;
-- sa description ;
-- les projets choisis ;
-- les signaux activés ;
-- les poids ;
-- les seuils ;
-- la sévérité minimale.
+- den Namen der Kohorte;
+- ihre Beschreibung;
+- die ausgewählten Projekte;
+- die aktivierten Signale;
+- die Gewichte;
+- die Schwellenwerte;
+- die minimale Schwere.
 
-### Pourquoi utiliser une cohorte
+### Warum eine Kohorte nutzen
 
-Utilisez une cohorte quand vous voulez refaire régulièrement la même comparaison, par exemple :
+Verwenden Sie eine Kohorte, wenn Sie regelmäßig denselben Vergleich durchführen, z. B.:
 
-- revue hebdomadaire de livraison ;
-- suivi mensuel de portefeuille ;
-- comité de risques ;
-- revue exécutive restreinte.
+- wöchentliche Lieferüberprüfung;
+- monatliche Portfolio‑Verfolgung;
+- Risikogremium;
+- eingeschränkte Executive‑Überprüfung.
 
-## Comment lire la zone Project drill-down
+## Wenn Portfolio leer, ruhig oder ohne Ausreißer wirkt
 
-La zone **Project drill-down** permet d’expliquer le résultat.
+Mehrere Lesarten sind normal:
 
-Elle peut afficher :
+- es wurden noch keine zugänglichen Projekte geladen;
+- aktuell ist kein Projekt oder kein Signal ausgewählt;
+- der Vergleich hat keine nutzbaren Projektzusammenfassungen zurückgegeben;
+- einige Signale sind ausdrücklich nicht verfügbar, weil Belege fehlen;
+- kein Projekt überschreitet mit der aktiven Konfiguration den globalen Ausreißer-Schwellenwert.
 
-- le **score pondéré** du projet ;
-- la liste des signaux visibles ;
-- des **preuves** ou extraits documentaires ;
-- l’**activité récente** ;
-- des liens vers **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts** et **AI Log**.
+In der Projekt-Detailansicht können Sie außerdem getrennt davon sehen:
 
-### Lecture pratique
+- keine aktuelle Aktivität;
+- keine sichtbaren Belege;
+- keine verbleibenden Signale nach dem aktiven Schwere-Filter.
 
-- si un projet ressort, commencez par le **résumé narratif** ;
-- ouvrez ensuite le **signal concerné** ;
-- relisez les **preuves** ;
-- contrôlez enfin l’**activité récente** pour comprendre si la situation est encore active.
+Ein ruhiges Ergebnis kann daher auf eine restriktive Auswahl, begrenzte Belege oder tatsächlich stabile Projekte hinweisen.
 
-## Bon usage de la page Portfolio
+## Projekt-Detailansicht lesen
 
-Utilisez la page Portfolio pour :
+Der Bereich **Project drill-down** erklärt das Ergebnis.
 
-- comparer ;
-- prioriser ;
-- repérer les écarts ;
-- décider quel projet doit être étudié en détail.
+Er kann anzeigen:
 
-N’utilisez pas la page Portfolio comme remplacement complet de l’**Espace de travail** projet.
+- den **gewichteten Score** des Projekts;
+- die sichtbaren Signale;
+- **Beweise** oder Dokumentausschnitte;
+- die **aktuelle Aktivität**;
+- Links zu **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts** und **AI Log**.
+
+### Praktische Lesung
+
+- Wenn ein Projekt hervortritt, beginnen Sie mit der **narrativen Zusammenfassung**;
+- öffnen Sie anschließend das **betreffende Signal**;
+- lesen Sie die **Beweise** erneut;
+- prüfen Sie schließlich die **aktuelle Aktivität**, um zu verstehen, ob die Situation noch aktiv ist.
+
+## Wie der Vergleich in der beobachteten Anwendung berechnet wird
+
+Die Portfolio-Ansicht ist dienstgestützt und nicht nur eine statische lokale Berechnung im Browser.
+
+Beobachtetes Verhalten:
+
+1. die Seite lädt die zugänglichen Projekte;
+2. wenn noch nichts ausgewählt wurde, wird eine erste brauchbare Auswahl vorselektiert;
+3. sobald die Konfiguration aus Projekten und Signalen gültig ist, wird der Vergleich von einem Dienst angefordert;
+4. **Refresh comparison** stößt eine asynchrone Neuberechnung an und aktualisiert den sichtbaren **Snapshot**;
+5. der Zeitstempel des Snapshot im Bereich **Narrative comparison** zeigt, wann diese Portfolio-Ansicht neu berechnet wurde.
+
+Gespeicherte **Kohorten** bewahren ein wiederverwendbares Vergleichsprofil, ersetzen aber nicht die Live-Anfrage für den Vergleich selbst.
+
+## Gute Nutzung der Portfolio-Seite
+
+Verwenden Sie die Portfolio-Seite, um:
+
+- zu vergleichen;
+- zu priorisieren;
+- Abweichungen zu erkennen;
+- zu entscheiden, welches Projekt detailliert untersucht werden soll.
+
+Verwenden Sie die Portfolio-Seite nicht als vollständigen Ersatz für den **Workspace** eines Projekts.
 
 ---
 
-## Partie 2 — Administration de la plateforme
+## Teil 2 – Plattformverwaltung
 
-## À quoi sert cette partie
+## Wozu dient dieser Abschnitt
 
-**Administration de la plateforme** sert à préparer la plateforme à l’échelle de l’organisation.
+**Plattformverwaltung** dient dazu, die Plattform im organisatorischen Maßstab vorzubereiten.
 
-C’est ici que l’on configure notamment :
+Hier konfigurieren Sie insbesondere:
 
-- les **intégrations de la plateforme** ;
-- les **fournisseurs IA** ;
-- l’**abonnement** et les **sièges** ;
-- l’**audit d’activité**.
+- die **Plattformintegrationen**;
+- die **KI-Anbieter**;
+- das **Abonnement** und die **Sitze**;
+- das **Aktivitätsaudit**.
 
-![Administration de la plateforme](/img/screenshots/localized/fr/18-platform-administration-overview.png)
+![Plattformverwaltung](/img/screenshots/localized/de/18-platform-administration-overview.png)
 
-## Sections visibles
+## Sichtbare Abschnitte
 
-| Section | Rôle |
+| Abschnitt | Rolle |
 | --- | --- |
-| Vue d’ensemble | résumé de l’état général de préparation |
-| Intégrations de la plateforme | définitions techniques des connecteurs et fournisseurs d’ingestion |
-| Paramètres du fournisseur IA | configuration, validation, test et activation du fournisseur IA |
-| Marketplace & abonnement | plan, entitlements, sièges et état commercial |
-| Audit / activité | historique des actions administratives |
+| Überblick | Zusammenfassung des allgemeinen Vorbereitungsstatus |
+| Plattformintegrationen | Technische Definitionen von Connectors und Ingestionsanbietern |
+| KI-Anbieter‑Einstellungen | Konfiguration, Validierung, Test und Aktivierung des KI-Anbieters |
+| Marketplace & Abonnement | Plan, Berechtigungen, Sitze und kommerzieller Status |
+| Audit / Aktivität | Historie der administrativen Aktionen |
 
-## Intégrations de la plateforme vs Intégrations du projet
+## Plattformintegrationen vs Projektintegrationen
 
-Une règle importante ressort du produit :
+Eine wichtige Regel im Produkt:
 
-- le **niveau plateforme** décide ce qui existe techniquement ;
-- le **niveau projet** décide ce qui est réellement utilisé dans un projet donné.
+- die **Plattformebene** bestimmt, was technisch existiert;
+- die **Projektebene** bestimmt, was tatsächlich in einem Projekt verwendet wird.
 
-### Lecture simple
+### Einfache Lesung
 
-- **plateforme** = on prépare l’outil ;
-- **projet** = on autorise le projet à s’en servir ;
-- **gouvernance** = on décide qui peut vraiment agir avec cet outil.
+- **Plattform** = das Tool wird vorbereitet;
+- **Projekt** = das Projekt darf es nutzen;
+- **Governance** = entscheidet, wer wirklich mit dem Tool handeln kann.
 
-Pour le détail complet par famille de connecteurs, voir [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint).
+Für die vollständige Detailbeschreibung pro Connector-Familie siehe [Connectors und Integrationen](./connecteurs-jira-et-sharepoint).
 
-## Préparation et causes de blocage
+## Vorbereitung und Blockierungsursachen
 
-Une intégration peut être bloquée pour cause de :
+Eine Integration kann aus folgenden Gründen blockiert sein:
 
-- **entitlement** ;
-- **policy** ;
-- **permission** ;
-- **health** à vérifier ;
-- définition plateforme manquante ;
-- binding projet non ouvert.
+- **Entitlement**;
+- **Policy**;
+- **Permission**;
+- **Health** zu prüfen;
+- fehlende Plattformdefinition;
+- nicht geöffneter Projekt‑Binding.
 
-### Circuit de vérification recommandé
+### Empfohlener Prüfungszyklus
 
-1. relire le blocage côté projet ;
-2. ouvrir **Administration de la plateforme** ;
-3. vérifier la définition technique du connecteur ou fournisseur ;
-4. revenir dans le projet pour confirmer le binding et l’usage autorisé.
+1. prüfen Sie die Blockierung auf Projektebene;
+2. öffnen Sie **Plattformverwaltung**;
+3. prüfen Sie die technische Definition des Connectors oder Anbieters;
+4. kehren Sie zum Projekt zurück, um das Binding und die erlaubte Nutzung zu bestätigen.
 
-## Paramètres du fournisseur IA
+## KI-Anbieter‑Einstellungen
 
-Les familles de fournisseurs visibles dans le produit comprennent notamment :
+Die sichtbaren Anbieterfamilien im Produkt umfassen unter anderem:
 
-- **OpenRouter** ;
-- **OpenAI-compatible** ;
-- **OpenAI** ;
-- **Azure OpenAI** ;
+- **OpenRouter**;
+- **OpenAI-compatible**;
+- **OpenAI**;
+- **Azure OpenAI**;
 
-### Quand choisir chaque fournisseur
+### Wann welcher Anbieter gewählt wird
 
-| Fournisseur | Quand le choisir | Ce qu’il faut généralement compléter |
+| Anbieter | Wann wählen | Was üblicherweise ausgefüllt wird |
 | --- | --- | --- |
-| **OpenRouter** | quand il faut comparer plusieurs familles de modèles via un seul raccordement | Base URL, clé, modèle par défaut |
-| **OpenAI-compatible** | quand le client utilise une gateway ou un endpoint compatible | endpoint exact, auth, clé ou secret, modèle attendu |
-| **OpenAI** | quand le client utilise directement OpenAI | URL, clé ou secret, modèle par défaut |
-| **Azure OpenAI** | quand le client est centré sur Azure et veut choisir ses déploiements Azure OpenAI | endpoint, version API, auth mode, nom de déploiement LLM |
+| **OpenRouter** | wenn mehrere Modellfamilien über einen einzigen Anschluss verglichen werden sollen | Basis‑URL, Schlüssel, Standardmodell |
+| **OpenAI-compatible** | wenn der Kunde eine Gateway‑ oder kompatible Endpoint nutzt | exakter Endpoint, Auth, Schlüssel oder Secret, erwartetes Modell |
+| **OpenAI** | wenn der Kunde direkt OpenAI nutzt | URL, Schlüssel oder Secret, Standardmodell |
+| **Azure OpenAI** | wenn der Kunde Azure‑zentriert ist und Azure OpenAI‑Deployments wählen möchte | Endpoint, API‑Version, Auth‑Modus, LLM‑Deployment‑Name |
 
-### Comment lire les statuts d’un fournisseur IA
+### Status eines KI‑Anbieters lesen
 
-| Statut | Ce que cela veut dire |
+| Status | Was das bedeutet |
 | --- | --- |
-| **Configuration** | les champs sont enregistrés |
-| **Validation** | la configuration a passé les contrôles attendus |
-| **Test** | la connectivité réelle a été vérifiée |
-| **Activate** | le fournisseur est activé dans la configuration admin |
-| **Operational** | le fournisseur peut être considéré comme exploitable |
+| **Configuration** | Felder sind gespeichert |
+| **Validation** | Konfiguration hat die erwarteten Kontrollen bestanden |
+| **Test** | Echtzeit‑Verbindung wurde geprüft |
+| **Operational** | Anbieter kann als betriebsbereit betrachtet werden |
 
-### Pas à pas très simple pour préparer un fournisseur IA
+### Sehr einfacher Schritt-für-Schritt zur Vorbereitung eines KI‑Anbieters
 
-1. ouvrez **Paramètres du fournisseur IA** ;
-2. sélectionnez le fournisseur voulu ;
-3. complétez les champs demandés ;
-4. cliquez sur **Save** ;
-5. cliquez sur **Validate** ;
-6. cliquez sur **Test** ;
-7. cliquez sur **Activate** ;
-8. contrôlez ensuite le résultat dans **Journal IA**.
+1. öffnen Sie **KI-Anbieter‑Einstellungen**;
+2. wählen Sie den gewünschten Anbieter;
+3. füllen Sie die geforderten Felder aus;
+4. klicken Sie auf **Save**;
+5. klicken Sie auf **Validate**;
+6. klicken Sie auf **Test**;
+7. klicken Sie auf **Activate**;
+8. prüfen Sie anschließend das Ergebnis im **AI Log**.
 
-### Cas particulier Azure OpenAI
+### Besonderer Fall Azure OpenAI
 
-Avec **Azure OpenAI**, il faut souvent compléter dans l’administration :
+Bei **Azure OpenAI** müssen Sie häufig in der Administration ausfüllen:
 
-- l’**Endpoint** ;
-- la **version API** ;
-- le **mode d’authentification** ;
-- le **LLM deployment name** ;
-- éventuellement l’**Embeddings deployment name**.
+- den **Endpoint**;
+- die **API‑Version**;
+- den **Auth‑Modus**;
+- den **LLM‑Deployment‑Name**;
+- ggf. den **Embeddings‑Deployment‑Name**.
 
-Pour le détail du choix de fournisseur IA pendant le déploiement Marketplace, voir [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md).
+Für die Detailauswahl eines KI‑Anbieters während der Marketplace‑Bereitstellung siehe [Azure Marketplace‑Bereitstellung](./deploiement-azure-marketplace.md).
 
-### Effective AI provider vs deployment-selected AI provider
+## Abonnement, Berechtigung und Sitze
 
-Deux notions sont à distinguer :
+Das Produkt verwaltet ein Lizenzmodell mit Sitzen und Kapazitäten.
 
-- **Deployment-selected AI Provider** : fournisseur sélectionné dans la configuration initiale de l’environnement ;
-- **Effective AI Provider** : fournisseur réellement utilisé au runtime pour un run donné.
+### Was ein Administrator sehen kann
 
-La valeur **effective** est la référence la plus fiable quand vous enquêtez sur un run concret. Elle peut être relue dans le **Journal IA** et peut différer de la valeur sélectionnée au déploiement.
+- den **aktiven Plan**;
+- die Anzahl der **gekauften Sitze**;
+- die Anzahl der **verfügbaren Sitze**;
+- bereits lizenzierte Benutzer;
+- den kommerziellen Status, z. B. `billing state`, `payment state` oder `subscription status`.
 
-## Abonnement, entitlement et sièges
+### Warum das wichtig ist
 
-Le produit gère un modèle de licence avec sièges et capacités.
+Ein blockierter Benutzer hat nicht unbedingt ein Verbindungsproblem. Die Blockierung kann von:
 
-### Ce qu’un administrateur peut voir
+- fehlenden Sitzen;
+- fehlender Berechtigung;
+- einer Funktion, die im Plan nicht enthalten ist, herrühren.
 
-- le **plan** actif ;
-- le nombre de **sièges achetés** ;
-- le nombre de **sièges disponibles** ;
-- les utilisateurs déjà licenciés ;
-- l’état commercial, par exemple `billing state`, `payment state` ou `subscription status`.
+## Technische Plattform‑Anhaltspunkte
 
-### Pourquoi c’est important
+Die beobachtete Azure‑Infrastruktur basiert unter anderem auf:
 
-Un utilisateur bloqué n’a pas forcément une question de connexion. Le blocage peut venir :
-
-- d’un manque de sièges ;
-- d’un entitlement manquant ;
-- d’une fonctionnalité non incluse dans le plan.
-
-### Lecture simple de `entitlement`
-
-`Entitlement` signifie ici : **ce que le plan couvre réellement comme capacité utilisable**.
-
-Exemples pratiques :
-
-- un connecteur premium peut rester visible mais bloqué en usage opérationnel ;
-- un fournisseur IA peut être configuré mais non utilisable si le plan ne l’autorise pas ;
-- un projet peut voir l’option mais rester en lecture seule tant que la capacité n’est pas ouverte.
-
-## Repères techniques de plateforme
-
-L’infrastructure Azure observée s’appuie notamment sur :
-
-- Azure Container Apps ;
-- Storage ;
-- Azure AI Search ;
-- Key Vault ;
-- Log Analytics ;
-- Application Insights ;
+- Azure Container Apps;
+- Storage;
+- Azure AI Search;
+- Key Vault;
+- Log Analytics;
+- Application Insights;
 - Document Intelligence.
 
+## Zu behalten
 
-## Variabilité des contenus seedés et de démonstration
+### Für die Portfolio-Seite
 
-Les environnements de démonstration peuvent varier. En pratique :
+- beginnen Sie mit der Auswahl der richtigen Projekte;
+- aktivieren Sie nur die Signale, die für Ihre Überprüfung relevant sind;
+- setzen Sie Gewichte, Schwellenwerte und Schwere bewusst;
+- nutzen Sie die **Ausreißer** als Ausgangspunkt für Untersuchungen, nicht als endgültiges Urteil;
+- öffnen Sie anschließend die **Project drill-down**, um das Ergebnis zu verstehen.
 
-- tous les environnements n’exposent pas les mêmes projets de démonstration ;
-- les documents seedés, rapports seedés et exemples de recherche peuvent différer ;
-- un écran vide dans un environnement live ne contredit pas forcément une capture issue d’un autre environnement ;
-- la documentation décrit le comportement observé, pas la promesse que chaque environnement contiendra exactement les mêmes données de démonstration.
+### Für die technische Administration
 
-## À retenir
+- die Plattformebene bereitet Connectors und Anbieter vor;
+- die Projekt‑Ebene öffnet deren reale Nutzung;
+- die Governance entscheidet, wer handeln kann;
+- ein KI‑Anbieter ist erst dann bereit, wenn er **registriert, validiert, getestet und aktiviert** ist;
+- das **AI Log** bleibt die Referenz, um den tatsächlich verwendeten Anbieter zu bestätigen.
 
-### Pour la page Portfolio
+## Weiterführend
 
-- commencez par choisir les bons projets ;
-- activez seulement les signaux utiles à votre revue ;
-- réglez poids, seuils et sévérité avec intention ;
-- utilisez les **outliers** comme point de départ d’investigation, pas comme verdict final ;
-- ouvrez ensuite le **Project drill-down** pour comprendre le résultat.
-
-### Pour l’administration technique
-
-- le niveau plateforme prépare les connecteurs et fournisseurs ;
-- le niveau projet ouvre leur usage réel ;
-- la gouvernance décide qui peut agir ;
-- un fournisseur IA n’est prêt que lorsqu’il est **enregistré, validé, testé et activé** ;
-- le **Journal IA** reste la référence pour confirmer le fournisseur réellement utilisé.
-
-## Suite
-
-- [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
-- [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md)
-- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
-- [Maintenance, support et FAQ](./maintenance-support-faq.md)
-- [Glossaire](./glossaire.md)
+- [Connectors und Integrationen](./connecteurs-jira-et-sharepoint)
+- [Azure Marketplace‑Bereitstellung](./deploiement-azure-marketplace.md)
+- [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md)
+- [Wartung, Support und FAQ](./maintenance-support-faq.md)
+- [Glossar](./glossaire.md)

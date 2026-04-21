@@ -1,304 +1,315 @@
 ---
-title: Connaissance et agents
+title: Wissen und Agenten
 slug: /connaissance-et-agents
-description: Alimenter la base de connaissance projet, comprendre la proactivité des agents et exploiter les résultats jusqu’aux Documents PM.
+description: Die Projekt-Wissensdatenbank füttern, die Proaktivität der Agenten verstehen und die Ergebnisse bis zu den PM-Dokumenten nutzen.
 ---
 
-[Accueil](./index.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md) · [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
+[Startseite](./index.md) · [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md) · [Strukturierte Ausgaben, Beweise und Frische](./sorties-contextuelles-preuves-et-fraicheur.md)
 
-![Connaissance projet](/img/screenshots/localized/fr/05-knowledge.png)
+![Projektwissen](/img/screenshots/localized/de/05-knowledge.png)
 
-## Objectif
+## Ziel
 
-Cette page explique comment téléverser ou importer des documents, relire les métadonnées visibles dans **Connaissance**, puis utiliser le contexte projet dans **Agents**.
+Diese Seite erklärt, wie man Dokumente hochlädt oder importiert, die in **Wissen** sichtbaren Metadaten erneut liest und den Projektkontext in **Agenten** nutzt.
 
-## Connaissance : ce que vous pouvez faire
+## Wissen: Was Sie tun können
 
-Capacités observées :
+Beobachtete Fähigkeiten:
 
-- recherche dans les contenus projet ;
-- téléversement manuel ;
-- rafraîchissement des données ;
-- import depuis des sources approuvées ;
-- consultation de l’historique des imports ;
-- tri, filtrage et pagination des résultats.
+- Suche in den Projektinhalten;
+- Manuelles Hochladen;
+- Aktualisierung der Daten;
+- Import aus genehmigten Quellen;
+- Durchsicht des Importverlaufes;
+- Sortieren, Filtern und Paginieren der Ergebnisse.
 
-## Types de fichiers pris en charge
+## Unterstützte Dateitypen
 
-Les types explicitement acceptés dans l’interface couvrent notamment :
+Die explizit akzeptierten Dateitypen in der Oberfläche umfassen unter anderem:
 
-- **PDF** ;
-- **DOCX**, **ODT**, **RTF**, **TXT**, **Markdown** ;
-- **CSV**, **XLSX**, **XLSM**, **ODS** ;
-- **JSON**, **XML** ;
-- **PPTX**, **ODP** ;
-- **HTML / HTM** ;
-- **EML**, **EPUB** ;
+- **PDF**;
+- **DOCX**, **ODT**, **RTF**, **TXT**, **Markdown**;
+- **CSV**, **XLSX**, **XLSM**, **ODS**;
+- **JSON**, **XML**;
+- **PPTX**, **ODP**;
+- **HTML / HTM**;
+- **EML**, **EPUB**;
 - **PNG**, **JPG**, **JPEG**, **BMP**, **TIFF**, **HEIF**.
 
-## Import depuis des sources approuvées
+## Import aus genehmigten Quellen
 
-Le mécanisme d’import dépend des **fournisseurs d’ingestion** validés au niveau plateforme, puis rendus disponibles au projet.
+Der Importmechanismus hängt von den auf Plattformebene validierten **Ingestionsanbietern** ab, die anschließend dem Projekt zur Verfügung gestellt werden.
 
-### Ce que montre le sélecteur d’import
+### Was der Importauswahl-Dialog zeigt
 
-Selon la source, l’interface peut afficher :
+Je nach Quelle kann die Oberfläche Folgendes anzeigen:
 
-- le nom de la source ;
-- un **source label** lisible ;
-- la date du dernier import ;
-- un état de fraîcheur ou de santé ;
-- une explication de blocage quand la source n’est pas utilisable.
+- den Namen der Quelle;
+- ein lesbares **Source Label**;
+- das Datum des letzten Imports;
+- einen Frische- oder Gesundheitsstatus;
+- eine Blockierungsbeschreibung, wenn die Quelle nicht nutzbar ist.
 
-### Quand un import est bloqué
+### Wann ein Import blockiert ist
 
-Une option d’import peut être indisponible pour cause de :
+Eine Importoption kann aus folgenden Gründen nicht verfügbar sein:
 
-- entitlement ;
-- permission ;
-- policy ;
-- état de disponibilité à vérifier ;
-- binding projet absent ou non prêt.
+- Rechte;
+- Berechtigung;
+- Richtlinie;
+- zu prüfender Gesundheitszustand;
+- fehlende oder nicht bereitgestellte Projektbindung.
 
-## Historique d’import
+## Importverlauf
 
-L’historique d’import permet de vérifier au minimum :
+Der Importverlauf ermöglicht es, mindestens Folgendes zu überprüfen:
 
-- le nom affiché du fournisseur ;
-- le statut du run ;
-- la fraîcheur après import ;
-- le `Trace ID` ;
-- les volumes découverts, importés, ignorés ou signalés comme non aboutis ;
-- la date de fin quand elle est disponible.
+- den angezeigten Namen des Anbieters;
+- den Status des Runs;
+- die Frische nach dem Import;
+- die `Trace ID`;
+- die entdeckten, importierten, ignorierten oder als fehlgeschlagen gemeldeten Volumen;
+- das Abschlussdatum, falls verfügbar.
 
-## Lire la liste documentaire et la recherche
+## Dokumentenliste und Suche
 
-### États documentaires visibles
+### Sichtbare Dokumentenstatus
 
-La table documentaire expose au moins les états suivants :
+Die Dokumententabelle zeigt mindestens die folgenden Status:
 
-- **Indexed** ;
-- **Ingesting** ;
+- **Indexed**;
+- **Ingesting**;
 - **Failed**.
 
-Un document visible mais non encore retrouvable en recherche est souvent encore en phase **Ingesting**.
+Ein sichtbares Dokument, das noch nicht in der Suche gefunden werden kann, befindet sich oft noch in der Phase **Ingesting**.
 
-### Métadonnées visibles dans les résultats de recherche
+### Sichtbare Metadaten in Suchergebnissen
 
-Les résultats de recherche peuvent afficher :
+Suchergebnisse können Folgendes anzeigen:
 
-- titre ;
-- snippet ;
-- score ;
-- section ;
-- badge de fraîcheur ;
-- badge **source system** ;
-- lien **Open source** ;
-- `Trace ID` de la recherche.
+- Titel;
+- Auszug;
+- Score;
+- Abschnitt;
+- Frische-Badge;
+- Badge **source system**;
+- Badge **source label**;
+- Link **Open source**;
+- `Trace ID` der Suche.
 
-Ces éléments aident à juger rapidement la provenance, la qualité et la réutilisabilité d’une preuve.
+Praktische Lesart:
 
-![Résultats de recherche dans la connaissance](/img/screenshots/localized/fr/05-knowledge-search-results.png)
+- **source label** bezeichnet meist den sichtbaren Provider oder die Herkunft der Ingestion, z. B. `manual`, `SharePoint`, `ADF`, `Blob`, `Confluence` oder `Jira`;
+- **source system** hilft dabei, das lesbare System oder den fachlichen Strom hinter diesem Beleg zu erkennen, z. B. `Knowledge`, `Schedule`, `Finance` oder `Operations`;
+- die Such-`Trace ID` ist vor allem ein Diagnose-, Support- und Audit-Hinweis, nicht der übliche fachliche Schlüssel des Alltags.
 
-![Vue Agents](/img/screenshots/localized/fr/04-agents.png)
+Verwenden Sie `source label` und `source system` zusammen, wenn Sie die Herkunft eines Auszugs schnell vor seiner Wiederverwendung einschätzen müssen.
 
-## Agents : rôle de la page
+![Suchergebnisse im Wissensbereich](/img/screenshots/localized/de/05-knowledge-search-results.png)
 
-La page **Agents** exploite le contexte projet en conversation guidée.
+![Agentenansicht](/img/screenshots/localized/de/04-agents.png)
 
-Fonctions confirmées :
+## Agenten: Rolle der Seite
 
-- liste des agents disponibles ;
-- carte récapitulative de l’agent sélectionné avec **kind**, **scope**, **status** et domaines couverts ;
-- zone de conversation ;
-- sorties structurées et éléments de preuve ;
-- sessions sauvegardées dans le navigateur ;
-- création et suppression d’agents personnalisés selon les droits ;
-- saisie vocale dans **Agents** si l’environnement la prend encore en charge.
+Die Seite **Agenten** nutzt den Projektkontext in einer geführten Konversation.
 
-## Proactivité de ProPM Agent
+Bestätigte Funktionen:
 
-La proactivité dans ProPM Agent ne signifie pas qu’un agent agit seul à l’extérieur du projet. Le comportement observé est plus encadré : la plateforme détecte des situations à surveiller, les remonte en **signaux**, peut préparer un **digest**, proposer un **brouillon** ou une **action gouvernée**, puis laisse l’utilisateur ou l’approbateur décider de la suite.
+- Liste der verfügbaren Agenten;
+- Zusammenfassende Karte des ausgewählten Agenten mit **kind**, **scope**, **status** und abgedeckten Bereichen;
+- Konversationsbereich;
+- Strukturierte Ausgaben und Beweismittel;
+- Gespeicherte Sitzungen im Browser;
+- Erstellen und Löschen von benutzerdefinierten Agenten je nach Berechtigungen;
+- Sprachsteuerung in **Agenten**, falls die Umgebung sie noch unterstützt.
 
-![Proactivité, digests et actions gouvernées](/img/diagrams/fr/proactivite-et-gouvernance.svg)
+## Proaktivität von ProPM Agent
 
-### Déclencheurs observés
+Proaktivität in ProPM Agent bedeutet nicht, dass ein Agent außerhalb des Projekts allein handelt. Das beobachtete Verhalten ist stärker geregelt: die Plattform erkennt zu überwachende Situationen, meldet sie als **Signale**, kann einen **Digest** vorbereiten, einen **Entwurf** oder eine **gesteuerte Aktion** vorschlagen und lässt den Benutzer oder Genehmiger die weitere Vorgehensweise entscheiden.
 
-La proactivité peut être alimentée par :
+![Proaktivität, Digests und gesteuerte Aktionen](/img/diagrams/de/proactivite-et-gouvernance.svg)
 
-- une **fraîcheur** insuffisante ;
-- une **contradiction** entre preuves ;
-- un **blocage** opérationnel ;
-- une **pression planning** ou **coûts** visible dans le portefeuille ;
-- des **exécutions non abouties** ;
-- une suite à donner nécessitant diffusion, validation ou relance.
+### Beobachtete Auslöser
 
-### Où la proactivité devient visible
+Proaktivität kann durch folgende Faktoren ausgelöst werden:
 
-- **Espace de travail** : file de signaux et éléments à revoir ;
-- **Gouvernance, décisions et actions** : digests, brouillons de notification, demandes d’action ;
-- **Centre de commande portefeuille** : comparaison des projets par indicateurs ;
-- **Journal IA** : traçabilité de la chaîne de décision.
+- unzureichende **Frische**;
+- **Widersprüchlichkeit** zwischen Beweisen;
+- ein **Block** im Betrieb;
+- **Planungsdruck** oder **Kosten** im Portfolio;
+- **nicht abgeschlossene Ausführungen**;
+- ein Folgebedarf, der Verteilung, Validierung oder erneute Ausführung erfordert.
 
-### Ce que la proactivité ne fait pas seule
+### Wo Proaktivität sichtbar wird
 
-- elle ne contourne pas les rôles ;
-- elle ne contourne pas les politiques ;
-- elle ne publie pas automatiquement hors de l’application sans chemin gouverné ;
-- elle reste explicable par preuves, fraîcheur et statuts visibles.
+- **Arbeitsbereich**: Signal- und zu überprüfende Elemente;
+- **Governance, Entscheidungen und Aktionen**: Digests, Benachrichtigungsentwürfe, Aktionsanfragen;
+- **Portfolio-Befehlszentrum**: Vergleich von Projekten anhand von Indikatoren;
+- **KI-Log**: Nachvollziehbarkeit der Entscheidungsfolge.
 
-## Comment choisir un agent rapidement
+### Was Proaktivität nicht allein tut
 
-Quand plusieurs cartes sont visibles, lisez-les dans cet ordre :
+- Sie umgeht keine Rollen;
+- Sie umgeht keine Richtlinien;
+- Sie veröffentlicht nicht automatisch außerhalb der Anwendung ohne einen geregelten Pfad;
+- Sie bleibt durch Beweise, Frische und sichtbare Status erklärbar.
 
-| Champ | Ce qu’il faut regarder en priorité | Réflexe utile |
+## Wie Sie einen Agenten schnell auswählen
+
+Merken Sie sich diese Reihenfolge: **Fachbereich -> `scope` -> `status`**. Beginnen Sie mit dem abgedeckten Domänenbereich und prüfen Sie erst danach Sichtbarkeit und praktische Verfügbarkeit.
+
+| Feld | Was Sie zuerst prüfen sollten | Nützlicher Reflex |
 | --- | --- | --- |
-| `kind` | type d’agent ou spécialisation métier | commencez par l’agent dont le rôle correspond directement à la tâche attendue |
-| `scope` | portée de visibilité de l’agent | vérifiez si l’agent est limité au projet courant ou visible plus largement |
-| `status` | disponibilité pratique de l’agent | si le statut n’inspire pas confiance, passez à un agent standard avant d’escalader |
-| domaines couverts | sujets annoncés sur la carte | utilisez-les pour éviter de confier une demande planning à un agent orienté gouvernance ou documents |
+| abgedeckte Domänen | auf der Karte angekündigte Themen | gleichen Sie die Anfrage mit dem Agenten ab, dessen fachliche Abdeckung wirklich zur erwarteten Arbeit passt |
+| `scope` | Sichtbarkeitsbereich des Agenten | prüfen Sie, ob der Agent auf das aktuelle Projekt begrenzt ist oder breiter sichtbar bleibt |
+| `status` | praktische Verfügbarkeit des Agenten | bevorzugen Sie aktive Agenten für das ausgewählte Projekt, bevor Sie eskalieren |
+| `kind` | ob die Karte standardmäßig oder benutzerdefiniert ist | behandeln Sie `kind` als beschreibenden Kontext, nicht als erstes Auswahlkriterium |
 
-En pratique, choisissez d’abord un **agent standard** si vous cherchez un parcours nominal bien connu. Passez à un **agent personnalisé** quand l’équipe a besoin d’instructions, d’un ton ou d’un périmètre de travail plus spécialisé.
+In der Praxis suchen Sie im Roster zuerst nach Name oder Domäne. Bevorzugen Sie einen aktiven Agenten für das ausgewählte Projekt und nutzen Sie transversale oder benutzerdefinierte Agenten nur dann, wenn ihre Fachabdeckung wirklich passt.
 
-## Comment travailler avec les agents
+## Mit Agenten arbeiten
 
-1. **vérifiez le projet actif** ;
-2. **choisissez l’agent adapté** ;
-3. formulez une demande exploitable avec objectif, périmètre et format attendu ;
-4. relisez la **sortie structurée** avant toute réutilisation.
+1. **Überprüfen Sie das aktive Projekt**;
+2. **Wählen Sie den passenden Agenten**;
+3. Formulieren Sie eine nutzbare Anfrage mit Ziel, Umfang und erwartetem Format;
+4. Lesen Sie die **strukturierte Ausgabe** erneut, bevor Sie sie wiederverwenden.
 
-L’interface permet aussi de rechercher dans le roster d’agents pour atteindre plus vite le bon spécialiste.
+Die Oberfläche ermöglicht auch die Suche im Agenten-Roster, um schneller den richtigen Spezialisten zu finden.
 
-### Parcours débutant recommandé
+### Empfohlener Anfängerpfad
 
-Pour une première utilisation sans ambiguïté :
+Für eine erste Nutzung ohne Mehrdeutigkeit:
 
-1. posez une question simple dans **Agents** ;
-2. lisez d’abord la synthèse de la **sortie structurée** ;
-3. vérifiez ensuite les preuves, la fraîcheur et la confiance si la réponse doit être réutilisée ;
-4. n’ouvrez **Rapports & artefacts** que si vous souhaitez transformer ce résultat en document gouverné, révisable ou publiable.
+1. stellen Sie in **Agenten** eine einfache Frage;
+2. lesen Sie zuerst die Zusammenfassung der **strukturierten Ausgabe**;
+3. prüfen Sie danach Belege, Frische und Vertrauen, falls die Antwort wiederverwendet werden soll;
+4. öffnen Sie **Berichte & Artefakte** nur dann, wenn Sie dieses Ergebnis in ein gesteuertes, prüfbares oder veröffentlichbares Dokument umwandeln möchten.
 
-## All projects : sens exact dans Agents
+## Was `All projects` in Agenten wirklich bedeutet
 
-Quand l’interface de création d’agent personnalisé expose `All projects`, cela signifie :
+Wenn der Dialog zum Erstellen benutzerdefinierter Agenten `All projects` anzeigt, bedeutet dies:
 
-- l’agent est créé depuis le projet courant ;
-- il peut être **visible dans tous les projets accessibles par le même compte** ;
-- il suit votre compte d’un projet à l’autre ;
-- il ne crée pas un espace de données multi-projets fusionné ;
-- il ne remplace pas le **projet actif** au moment du run.
+- der Agent wird weiterhin aus dem aktuellen Projekt erzeugt;
+- er kann **in allen Projekten sichtbar sein, auf die dasselbe Konto Zugriff hat**;
+- er folgt Ihrem Konto von einem Projekt zum anderen;
+- er erzeugt keinen zusammengeführten Mehrprojekt-Datenraum;
+- er ersetzt zur Laufzeit nicht das **aktive Projekt**.
 
-Autrement dit, même un agent `All projects` s’exécute encore dans le **projet actif** au moment où vous lancez le chat.
+Auch ein Agent mit `All projects` läuft weiterhin im **aktiven Projekt**, sobald Sie die Chat-Nachricht absenden.
 
-## Des agents vers les Documents PM, DOCX et XLSX
+## Vom browserlokalen Chat zu PM-Dokumenten, DOCX und XLSX
 
-Les agents ne sautent pas directement vers un fichier final diffusé. Le flux observé est plus progressif :
+Agenten springen nicht direkt zu einer final verteilten Datei. Der beobachtete Ablauf ist stufenweise:
 
-1. le chat courant reste d’abord **local au navigateur** ;
-2. l’envoi du message lance un **run** dans le projet actif ;
-3. le run produit une **structured output / sortie structurée** ;
-4. selon le flux et les droits, cette sortie peut exposer des liens de **lineage**, un **artifact** ou un **PM Doc** ;
-5. la revue se poursuit ensuite dans **Rapports & artefacts / Documents PM** ;
-6. le document relu peut enfin être **Add to knowledge**, **Download** ou **Publish** selon la gouvernance.
+1. der aktuelle Chat bleibt zunächst **lokal im Browser**;
+2. das Senden der Nachricht startet einen **Run** im aktiven Projekt;
+3. der Run erzeugt eine **strukturierte Ausgabe**;
+4. je nach Fluss und Ihren Rechten kann diese Ausgabe **Lineage**-Links, ein **Artefakt** oder ein **PM-Dokument** zeigen;
+5. die Prüfung geht dann in **Berichte & Artefakte / PM-Dokumente** weiter;
+6. das geprüfte Dokument kann anschließend je nach Governance **Add to knowledge**, **Download** oder **Publish** werden.
 
-### Ce que signifie `structured output`
+Ein Agenten-Chat erzeugt also nicht für sich allein ein gemeinsam genutztes Abschlussdokument.
 
-Une **structured output** est la sortie structurée produite par le run d’agent. Elle peut porter :
+### Was `structured output` bedeutet
 
-- une synthèse ;
-- des sections ;
-- des preuves / citations ;
-- des informations de fraîcheur et de confiance ;
-- des identifiants de traçabilité.
+Eine `structured output` ist die strukturierte Ausgabe, die ein Agenten-Run erzeugt. Sie kann enthalten:
 
-Ce n’est pas encore, à elle seule, un document final publié.
+- eine Zusammenfassung;
+- Abschnitte;
+- Belege oder Zitate;
+- Frische- und Vertrauensinformationen;
+- Nachvollziehbarkeits-IDs.
 
-### Ce que signifie `lineage`
+Für sich allein ist sie noch kein final veröffentlichtes Dokument.
 
-La **lineage / lignée** relie entre eux :
+### Was `lineage` bedeutet
 
-- le **run** ;
-- le **structured output ID** ;
-- le **context snapshot ID** ;
-- l’**artifact** et sa version ;
-- le **PM Doc** si un document gouverné existe.
+`Lineage` verbindet miteinander:
 
-Cette lignée aide à comprendre d’où vient un livrable et quel contexte a été utilisé.
+- den **Run**;
+- die **structured output ID**;
+- die **context snapshot ID**;
+- das **Artefakt** und seine Version;
+- das **PM-Dokument**, wenn ein gesteuertes Dokument existiert.
 
-## Sessions et mémoire locale
+Diese Lineage hilft zu verstehen, woher ein Liefergegenstand kommt und welcher Kontext verwendet wurde.
 
-L’historique de chat est local au navigateur. En pratique :
+## Sitzungen und lokale Erinnerung
 
-- la continuité sauvegardée est rattachée au couple **projet + agent** dans le navigateur courant ;
-- une session est mémorisée localement sur le poste utilisé ;
-- changer de navigateur, de profil, de machine ou vider le stockage local peut faire disparaître un fil sauvegardé ;
-- le premier prompt sert généralement de titre de session, ce qui facilite la reprise ;
-- il ne faut pas traiter le navigateur comme une archive centrale partagée.
+Der Chatverlauf ist lokal im Browser. In der Praxis gilt:
 
-### Local navigateur vs plateforme partagée
+- Die gespeicherte Kontinuität ist an das Paar **Projekt + Agent** im aktuellen Browser gebunden;
+- Eine Sitzung wird lokal auf dem verwendeten Gerät gespeichert;
+- Wechseln Sie Browser, Profil oder Maschine oder löschen Sie den lokalen Speicher, kann ein gespeicherter Thread verschwinden;
+- Der erste Prompt dient in der Regel als Sitzungsname, was die Wiederaufnahme erleichtert;
+- Der Browser sollte nicht als gemeinsames zentrales Archiv betrachtet werden.
 
-Gardez cette distinction simple :
+### Browserlokal vs. geteilte Plattform
 
-- la **continuité de chat** et le **projet mémorisé** sont des commodités locales au navigateur ;
-- les **documents**, **imports**, **artefacts**, **approbations** et **publications** relèvent de la plateforme partagée.
+Merken Sie sich diese Trennung:
 
-## Agents personnalisés
+- **Chat-Kontinuität** und das **gemerkte Projekt** sind browserlokale Komfortfunktionen;
+- **Dokumente**, **Importe**, **Artefakte**, **Genehmigungen** und **Veröffentlichungen** gehören zum gemeinsamen Plattformzustand.
 
-La création d’agents personnalisés dépend du niveau de droit. Les points à retenir sont :
+Ein in einem Browser sichtbarer Verlauf ist daher nicht automatisch für alle Benutzer verfügbar.
 
-- tous les utilisateurs ne peuvent pas créer un agent ;
-- le dialogue de création rappelle le **contexte projet** actif avant l’enregistrement ;
-- les champs visibles couvrent au minimum **Name**, **Role / instructions** et **Scope** ;
-- choisissez **Project only** par défaut, sauf si l’environnement expose explicitement un scope plus large ;
-- si l’option **All projects** est disponible, l’agent est créé depuis le projet courant mais peut rester visible dans d’autres projets pour le même compte ;
-- si un agent multi-projets n’apparaît pas ailleurs, vérifiez d’abord le même compte et l’accès au projet cible ;
-- la suppression d’un agent personnalisé reste contrôlée ;
-- un agent personnalisé reste gouverné par les règles du projet et de la plateforme.
+## Benutzerdefinierte Agenten
 
-### Exemple rapide de choix
+Die Erstellung von benutzerdefinierten Agenten hängt vom Berechtigungsniveau ab. Zu beachten ist:
 
-| Besoin | Choix recommandé |
+- Nicht alle Benutzer können einen Agenten erstellen;
+- Der Erstellungsdialog erinnert an den aktiven **Projektkontext** vor dem Speichern;
+- Sichtbare Felder umfassen mindestens **Name**, **Rolle / Anweisungen** und **Scope**;
+- Wählen Sie standardmäßig **Nur Projekt**, es sei denn, die Umgebung zeigt explizit einen breiteren Scope;
+- Wenn die Option **`All projects`** verfügbar ist, wird der Agent aus dem aktuellen Projekt erstellt, kann aber in anderen Projekten desselben Kontos sichtbar bleiben;
+- Wenn ein Multi-Projekt-Agent nicht anderswo erscheint, prüfen Sie zunächst dasselbe Konto und den Zugriff auf das Zielprojekt;
+- Das Löschen eines benutzerdefinierten Agenten bleibt kontrolliert;
+- Ein benutzerdefinierter Agent bleibt durch die Regeln des Projekts und der Plattform geregelt.
+
+### Schnelles Auswahlbeispiel
+
+| Bedarf | Empfohlene Wahl |
 | --- | --- |
-| usage nominal, équipe large, comportement prévisible | agent standard |
-| consignes spécifiques, ton d’équipe, workflow spécialisé | agent personnalisé |
-| usage limité à un seul contexte projet | **Project only** |
-| même agent réutilisable dans plusieurs projets du même compte | **All projects** si l’option est réellement exposée |
+| Nominale Nutzung, großes Team, vorhersehbares Verhalten | Standard-Agent |
+| Spezifische Anweisungen, Team-Ton, spezialisierter Workflow | Benutzerdefinierter Agent |
+| Nutzung auf ein einzelnes Projekt beschränkt | **Nur Projekt** |
+| Derselbe Agent in mehreren Projekten desselben Kontos wiederverwendbar | **`All projects`**, falls die Option tatsächlich exponiert ist |
 
-![Création d’un agent personnalisé](/img/screenshots/localized/fr/04-custom-agent-create.png)
+![Erstellung eines benutzerdefinierten Agenten](/img/screenshots/localized/de/04-custom-agent-create.png)
 
-## Saisie vocale dans Agents
+## Sprachsteuerung in Agenten
 
-Cette documentation ne décrit plus de point d’entrée **voix** séparé dans l’**Espace de travail**. Lorsqu’une saisie vocale reste disponible, elle est limitée à l’expérience **Agents** et dépend explicitement de la prise en charge navigateur des API de reconnaissance vocale. Son absence n’empêche pas le parcours nominal, qui reste la saisie texte.
+Diese Dokumentation beschreibt keinen separaten **Sprach**-Eingangspunkt im **Arbeitsbereich**. Wenn eine Sprachsteuerung noch verfügbar ist, ist sie auf die **Agenten** beschränkt und hängt explizit von der Browserunterstützung der Spracherkennungs-APIs ab.
 
-Si la saisie vocale n’est pas disponible :
+Wenn die Sprachsteuerung nicht verfügbar ist:
 
-- utilisez la saisie texte ;
-- vérifiez les permissions micro du navigateur ;
-- distinguez une limitation du navigateur d’une contrainte locale de l’environnement ;
-- relisez toujours le texte ajouté dans le composeur avant **Send** ;
-- si le bouton micro est indisponible ou si un message d’incompatibilité apparaît, passez immédiatement à la saisie texte.
+- Verwenden Sie die Texteingabe;
+- Prüfen Sie die Mikrofonberechtigungen des Browsers;
+- Unterscheiden Sie eine Browserbeschränkung von einer lokalen Umgebungsbeschränkung;
+- Lesen Sie den hinzugefügten Text im Composer immer vor dem **Send** durch;
+- Wenn der Mikrofonknopf nicht verfügbar ist oder eine Inkompatibilitätsmeldung erscheint, wechseln Sie sofort zur Texteingabe.
 
-### Repères pratiques pour la saisie vocale
+### Praktische Hinweise zur Sprachsteuerung
 
-| Symptôme | Vérifier d’abord | Réflexe utile |
+| Symptom | Zuerst prüfen | Nützliche Reflexion |
 | --- | --- | --- |
-| Bouton micro absent ou inactif | prise en charge `SpeechRecognition` / `webkitSpeechRecognition` | basculez immédiatement vers la saisie texte |
-| Autorisation micro refusée | permission micro du navigateur ou de l’OS | réautorisez le micro puis relancez l’écoute |
-| Transcription incomplète | texte ajouté dans le composeur | relisez, corrigez et complétez avant **Send** |
-| Erreur ponctuelle pendant l’écoute | état navigateur ou session courante | arrêtez la capture, reprenez au clavier, puis réessayez plus tard |
+| Mikrofonknopf fehlt oder inaktiv | Unterstützung von `SpeechRecognition` / `webkitSpeechRecognition` | Wechseln Sie sofort zur Texteingabe |
+| Mikrofonberechtigung verweigert | Mikrofonberechtigung des Browsers oder OS | Erneuern Sie die Berechtigung und starten Sie die Aufnahme erneut |
+| Unvollständige Transkription | Text im Composer | Lesen Sie, korrigieren und ergänzen Sie vor dem **Send** |
+| Einzelne Fehler während der Aufnahme | Browserzustand oder aktuelle Sitzung | Stoppen Sie die Aufnahme, wechseln Sie zur Tastatur und versuchen Sie es später erneut |
 
-La saisie texte reste le chemin nominal de secours. Elle permet de poursuivre le travail sans interrompre le run à cause d’une contrainte de navigateur local.
+Die Texteingabe bleibt der nominale Backup-Pfad. Sie ermöglicht die Fortsetzung der Arbeit ohne Unterbrechung des Runs wegen einer lokalen Browserbeschränkung.
 
-## Bonnes pratiques
+## Gute Praktiken
 
-- chargez des sources fiables et récentes dans la **Connaissance** avant une analyse importante ;
-- relisez l’historique d’import quand une source gérée semble absente ;
-- demandez explicitement des **preuves** ou des **citations** si la décision doit être justifiée ;
-- si une réponse contient des états `stale`, `conflicting` ou `unavailable`, ouvrez la page [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md) avant publication.
+- Laden Sie zuverlässige und aktuelle Quellen in die **Wissen**-Bibliothek, bevor Sie eine wichtige Analyse durchführen;
+- Lesen Sie den Importverlauf, wenn eine verwaltete Quelle fehlt;
+- Fordern Sie explizit **Beweise** oder **Zitate** an, wenn die Entscheidung damit begründet werden muss;
+- Wenn eine Antwort die Zustände `stale`, `conflicting` oder `unavailable` enthält, öffnen Sie die Seite [Strukturierte Ausgaben, Beweise und Frische](./sorties-contextuelles-preuves-et-fraicheur.md) vor der Veröffentlichung.
 
-## Suite
+## Weiter
 
-- [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
-- [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md)
-- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
-- [Maintenance, support et FAQ](./maintenance-support-faq.md)
+- [Strukturierte Ausgaben, Beweise und Frische](./sorties-contextuelles-preuves-et-fraicheur.md)
+- [Governance, Entscheidungen und Aktionen](./gouvernance-decisions-et-actions.md)
+- [Berichte, KI-Log und Nachvollziehbarkeit](./rapports-journal-ia-et-tracabilite.md)
+- [Wartung, Support und FAQ](./maintenance-support-faq.md)

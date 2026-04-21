@@ -20,6 +20,18 @@ Pour un utilisateur débutant, il est utile de retenir ceci :
 - la page **Portfolio** aide à répondre à la question **« quels projets méritent mon attention en priorité ? »** ;
 - l’**Administration de la plateforme** aide à répondre à la question **« la plateforme est-elle correctement préparée pour l’organisation ? »**.
 
+## Pour quel public cette page est-elle surtout utile ?
+
+Dans l’application observée, **Portfolio** sert d’abord à une lecture transverse de type **PMO / pilotage multi-projets**. Il aide à comparer plusieurs projets avec un même modèle de signaux avant d’ouvrir le détail d’un projet.
+
+Utilisez-le surtout pour :
+
+- prioriser le projet qui mérite l’attention en premier ;
+- comparer des signaux cohérents entre plusieurs projets ;
+- décider quel projet mérite ensuite un drill-down plus détaillé.
+
+Ne le traitez ni comme une vue sponsor purement narrative, ni comme un remplacement de l’**Espace de travail** détaillé d’un projet.
+
 ---
 
 ## Partie 1 — Comprendre la page Portfolio pas à pas
@@ -127,6 +139,29 @@ Le **Overall outlier threshold** détermine à partir de quel niveau combiné un
 
 - seuil plus bas = plus de projets ressortent ;
 - seuil plus haut = seuls les cas les plus marqués ressortent.
+
+## Paramètres de départ observés
+
+La page ne part pas d’une feuille blanche. Les paramètres observés par défaut sont les suivants :
+
+| Signal | Poids par défaut | Seuil par défaut |
+| --- | --- | --- |
+| `activity_change` | `1.0` | `45` |
+| `blocker_density` | `1.2` | `35` |
+| `freshness_issues` | `1.0` | `35` |
+| `contradiction_count` | `1.1` | `35` |
+| `failed_runs` | `1.3` | `40` |
+| `schedule_pressure` | `1.2` | `40` |
+| `cost_pressure` | `1.2` | `40` |
+| `overall_outlier_score` | — | `55` |
+
+Compléments utiles :
+
+- la **sévérité minimale** démarre sans filtre restrictif (`All`) ;
+- **Reset defaults** ramène ces valeurs de départ ;
+- ces valeurs sont un **point de départ sûr**, pas un modèle imposé ;
+- il n’existe pas de preset caché au-delà de ces défauts et des **cohortes sauvegardées** ;
+- certains environnements de démonstration peuvent aussi montrer une cohorte seedée, mais ce contenu varie selon l’environnement.
 
 ### Étape 7 — Enregistrer une cohorte si besoin
 
@@ -284,6 +319,24 @@ Utilisez une cohorte quand vous voulez refaire régulièrement la même comparai
 - comité de risques ;
 - revue exécutive restreinte.
 
+## Quand Portfolio paraît vide, calme ou sans outlier
+
+Plusieurs lectures sont normales :
+
+- aucun projet accessible n’a été chargé ;
+- aucun projet ou aucun signal n’est actuellement sélectionné ;
+- la comparaison n’a pas renvoyé de résumé projet exploitable ;
+- certains signaux restent explicitement indisponibles faute de preuves ;
+- aucun projet ne dépasse le seuil global d’outlier avec la configuration active.
+
+Dans le drill-down, vous pouvez aussi voir séparément :
+
+- aucune activité récente ;
+- aucune preuve visible ;
+- aucun signal restant après le filtre de sévérité actif.
+
+Un portefeuille « calme » peut donc venir d’une sélection restrictive, d’un manque de preuves ou d’une situation réellement stable.
+
 ## Comment lire la zone Project drill-down
 
 La zone **Project drill-down** permet d’expliquer le résultat.
@@ -302,6 +355,20 @@ Elle peut afficher :
 - ouvrez ensuite le **signal concerné** ;
 - relisez les **preuves** ;
 - contrôlez enfin l’**activité récente** pour comprendre si la situation est encore active.
+
+## Comment la comparaison est calculée dans l’application observée
+
+La vue portefeuille n’est pas un simple calcul local figé dans le navigateur.
+
+Comportement observé :
+
+1. la page charge les projets accessibles ;
+2. elle pré-sélectionne un premier ensemble utilisable quand rien n’a encore été choisi ;
+3. dès que la configuration projets/signaux est valide, la comparaison est demandée à un service ;
+4. **Refresh comparison** relance un recalcul asynchrone et met à jour le **snapshot** visible ;
+5. l’horodatage de snapshot dans le résumé narratif sert de repère pour savoir quand cette vue a été recalculée.
+
+Les **cohortes** sauvegardées mémorisent un profil réutilisable, mais elles ne remplacent pas la requête de comparaison elle-même.
 
 ## Bon usage de la page Portfolio
 
