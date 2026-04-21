@@ -107,7 +107,7 @@ Los permisos expuestos incluyen, entre otros:
 | `members:manage` | zona **Miembros** en **Control de acceso** | imposible añadir, eliminar o cambiar un miembro |
 | `roles:manage` | roles personalizados y sus permisos | imposible crear, ajustar o eliminar un rol personalizado |
 
-![Editor de rol personalizado](/img/screenshots/localized/es/11-custom-role-editor.png)
+![Editor de rol personalizado](/img/screenshots/localized/es/11-custom-role-editor.jpg)
 
 ## Lo que ves en la página
 

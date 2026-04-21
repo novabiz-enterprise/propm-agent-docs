@@ -6,7 +6,7 @@ description: "Verstehen Sie die Hauptbildschirme, die Seitenleiste, die obere Le
 
 [Startseite](./index.md) · [Start](./demarrage.md) · [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md)
 
-![ProPM-Agent-Dashboard](/img/screenshots/localized/de/01-dashboard.png)
+![ProPM-Agent-Dashboard](/img/screenshots/localized/de/01-dashboard.jpg)
 
 ## Ziel
 
@@ -70,7 +70,7 @@ Die Scores und Indikatoren des Dashboards sollten als **Priorisierungsreferenz**
 4. Öffnen Sie das **AI Log**, wenn der Zweifel auf einen Run, eine Ausgabe oder einen tatsächlich genutzten Anbieter gerichtet ist.
 5. Wenn das Dashboard lädt, aber eine zusätzliche Überprüfung anfordert, öffnen Sie den **Health indicator** bevor Sie zu den angezeigten Daten schließen.
 
-![Obere Leiste und globale Navigation](/img/screenshots/localized/de/01-navigation-topbar.png)
+![Obere Leiste und globale Navigation](/img/screenshots/localized/de/01-navigation-topbar.jpg)
 
 ## Top bar
 

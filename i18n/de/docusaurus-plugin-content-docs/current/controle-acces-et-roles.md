@@ -109,7 +109,7 @@ Die exponierten Berechtigungen umfassen unter anderem:
 
 Diese Tabelle dient vor allem dazu, das Verhalten der Oberfläche korrekt zu lesen: Eine fehlende oder ausgegraute Aktion deutet oft auf eine nicht gewährte Berechtigung hin.
 
-![Editor für benutzerdefinierte Rollen](/img/screenshots/localized/de/11-custom-role-editor.png)
+![Editor für benutzerdefinierte Rollen](/img/screenshots/localized/de/11-custom-role-editor.jpg)
 
 ## Was Sie auf der Seite sehen
 

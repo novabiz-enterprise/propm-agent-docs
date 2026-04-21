@@ -6,7 +6,7 @@ description: Verstehen Sie die Portfolio-Seite Schritt für Schritt, lesen Sie d
 
 [Startseite](./index.md) · [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md) · [Wartung, Support und FAQ](./maintenance-support-faq.md)
 
-![Portfolio-Befehlszentrale](/img/screenshots/localized/de/02-portfolio-command-center.png)
+![Portfolio-Befehlszentrale](/img/screenshots/localized/de/02-portfolio-command-center.jpg)
 
 ## Ziel
 
@@ -175,7 +175,7 @@ Eine Kohorte speichert:
 - die Schwellenwerte;
 - die minimale Schwere.
 
-![Portfolio-Kohorteneditor](/img/screenshots/localized/de/02-portfolio-cohort-editor.png)
+![Portfolio-Kohorteneditor](/img/screenshots/localized/de/02-portfolio-cohort-editor.jpg)
 
 ### Schritt 8 – Vergleich starten oder aktualisieren
 
@@ -396,7 +396,7 @@ Hier konfigurieren Sie insbesondere:
 - das **Abonnement** und die **Sitze**;
 - das **Aktivitätsaudit**.
 
-![Plattformverwaltung](/img/screenshots/localized/de/18-platform-administration-overview.png)
+![Plattformverwaltung](/img/screenshots/localized/de/18-platform-administration-overview.jpg)
 
 ## Sichtbare Abschnitte
 

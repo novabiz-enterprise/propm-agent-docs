@@ -6,7 +6,7 @@ description: Comprendre la page Portfolio pas à pas, lire les cohortes et outli
 
 [Accueil](./index.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) · [Maintenance, support et FAQ](./maintenance-support-faq.md)
 
-![Centre de commande portefeuille](/img/screenshots/localized/fr/02-portfolio-command-center.png)
+![Centre de commande portefeuille](/img/screenshots/localized/fr/02-portfolio-command-center.jpg)
 
 ## Objectif
 
@@ -175,7 +175,7 @@ Une cohorte mémorise :
 - les seuils ;
 - la sévérité minimale.
 
-![Éditeur de cohorte portefeuille](/img/screenshots/localized/fr/02-portfolio-cohort-editor.png)
+![Éditeur de cohorte portefeuille](/img/screenshots/localized/fr/02-portfolio-cohort-editor.jpg)
 
 ### Étape 8 — Lancer ou rafraîchir la comparaison
 
@@ -396,7 +396,7 @@ C’est ici que l’on configure notamment :
 - l’**abonnement** et les **sièges** ;
 - l’**audit d’activité**.
 
-![Administration de la plateforme](/img/screenshots/localized/fr/18-platform-administration-overview.png)
+![Administration de la plateforme](/img/screenshots/localized/fr/18-platform-administration-overview.jpg)
 
 ## Sections visibles
 

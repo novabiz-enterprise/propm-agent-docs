@@ -241,7 +241,7 @@ Die beste Kontrolle ist praktisch:
 3. prüfen Sie, was sichtbar, erlaubt oder blockiert ist;
 4. passen Sie die Richtlinie an, wenn das Verhalten nicht das erwartete ist.
 
-![Governance-Richtlinien des Projekts](/img/screenshots/localized/de/14-governance-policies.png)
+![Governance-Richtlinien des Projekts](/img/screenshots/localized/de/14-governance-policies.jpg)
 
 ## Einfache Regeln für eine gute Governance-Konfiguration
 
@@ -264,7 +264,7 @@ Die beste Kontrolle ist praktisch:
 
 Die Oberfläche **Actions & approvals** dient dazu, eine Absicht in eine echte **gouvernierte Aktion** umzuwandeln.
 
-![Bereich Aktionen & Genehmigungen](/img/screenshots/localized/de/17-actions-approvals.png)
+![Bereich Aktionen & Genehmigungen](/img/screenshots/localized/de/17-actions-approvals.jpg)
 
 ### Vier kanonische Lesarten, die Sie im Kopf behalten sollten
 

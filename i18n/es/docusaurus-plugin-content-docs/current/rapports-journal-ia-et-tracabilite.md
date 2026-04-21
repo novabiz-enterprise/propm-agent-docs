@@ -6,7 +6,7 @@ description: Revisar los PM Docs, publicar entregables y seguir la trazabilidad 
 
 [Inicio](./index.md) · [Salidas estructuradas, evidencias y actualidad](./sorties-contextuelles-preuves-et-fraicheur.md) · [Portafolio y administración técnica](./portefeuille-et-administration-technique.md)
 
-![Informes y artefactos](/img/screenshots/localized/es/08-reports-overview.png)
+![Informes y artefactos](/img/screenshots/localized/es/08-reports-overview.jpg)
 
 ## Objetivo
 
@@ -123,9 +123,9 @@ Descargas confirmadas: **DOCX** y **XLSX**.
 | contenido principalmente en modo revisión | trate la pantalla como una superficie de validación, no como el lugar principal de reescritura |
 | necesidad de un render de referencia para transmitir | la descarga gobernada sigue siendo la salida más confiable para compartir fuera de la aplicación |
 
-![Editor PM Doc y revisión documental](/img/screenshots/localized/es/06-pm-doc-editor.png)
+![Editor PM Doc y revisión documental](/img/screenshots/localized/es/06-pm-doc-editor.jpg)
 
-![Registro de IA](/img/screenshots/localized/es/09-ai-log-runs.png)
+![Registro de IA](/img/screenshots/localized/es/09-ai-log-runs.jpg)
 
 ## Registro de IA: lo que cubre la página
 

@@ -109,7 +109,7 @@ Les permissions exposées incluent notamment :
 
 Cette table sert surtout à lire correctement le comportement de l’interface : une action absente ou grisée traduit souvent une permission non accordée.
 
-![Éditeur de rôle personnalisé](/img/screenshots/localized/fr/11-custom-role-editor.png)
+![Éditeur de rôle personnalisé](/img/screenshots/localized/fr/11-custom-role-editor.jpg)
 
 ## Ce que vous voyez sur la page
 

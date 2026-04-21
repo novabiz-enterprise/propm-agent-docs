@@ -6,7 +6,7 @@ description: Operational references, useful checks and answers to frequently ask
 
 [Home](./index.md) · [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) · [Glossary](./glossaire.md)
 
-![AI Log investigation cues](/img/screenshots/localized/en/09-ai-log-runs.png)
+![AI Log investigation cues](/img/screenshots/localized/en/09-ai-log-runs.jpg)
 
 ## Useful surfaces for operation
 

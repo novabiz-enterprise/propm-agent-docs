@@ -6,7 +6,7 @@ description: Erstellen Sie ein Projekt, delegieren Sie die ersten Rollen und nut
 
 [Startseite](./index.md) · [Oberfläche und Navigation](./interface-et-navigation.md) · [Zugriffskontrolle und Projektrollen](./controle-acces-et-roles.md)
 
-![Projektarbeitsbereich](/img/screenshots/localized/de/03-workspace-overview.png)
+![Projektarbeitsbereich](/img/screenshots/localized/de/03-workspace-overview.jpg)
 
 ## Ziel
 
@@ -112,7 +112,7 @@ Der Arbeitsbereich dient nicht nur der Zusammenfassung des Projekts. Er ermögli
 
 Nutzen Sie diesen Bereich, um zu verstehen **warum** eine Aktion oder ein Import verfügbar, bestätigt oder blockiert sein könnte.
 
-![Projekt-Signale und Benachrichtigungsentwürfe](/img/screenshots/localized/de/15-workspace-signals.png)
+![Projekt-Signale und Benachrichtigungsentwürfe](/img/screenshots/localized/de/15-workspace-signals.jpg)
 
 ## Wie Signale, Digests und Entwürfe eintreffen
 
@@ -165,7 +165,7 @@ Die Oberfläche zeigt auch einen Versionsverlauf mit mindestens:
 - Autor;
 - zugehörige `Trace ID`.
 
-![Agenteneinstellungen auf Projektebene](/img/screenshots/localized/de/12-agent-configuration.png)
+![Agenteneinstellungen auf Projektebene](/img/screenshots/localized/de/12-agent-configuration.jpg)
 
 ## Zugriffskontrolle
 
@@ -202,7 +202,7 @@ Halten Sie eine kurze und stabile Taxonomie. Zum Beispiel, anstatt Varianten zu 
 
 Das Ziel ist nicht, die Dokumentenversion in der Kategorie zu kodieren, sondern eine wiederverwendbare Klassifizierung zwischen **Wissen** und **PM-Dokumenten** zu behalten.
 
-![Dokumentenkategorien des Projekts](/img/screenshots/localized/de/13-document-categories.png)
+![Dokumentenkategorien des Projekts](/img/screenshots/localized/de/13-document-categories.jpg)
 
 ## Governance-Richtlinien
 
@@ -238,7 +238,7 @@ Für ein Projekt, bei dem jede externe Veröffentlichung kontrolliert werden mus
 
 Diese Kombination verhindert, dass ein Entwurf, ein Digest oder eine Aktion als direkt veröffentlichbar erscheint, während das Projekt noch eine menschliche Genehmigung benötigt.
 
-![Governance-Richtlinien des Projekts](/img/screenshots/localized/de/14-governance-policies.png)
+![Governance-Richtlinien des Projekts](/img/screenshots/localized/de/14-governance-policies.jpg)
 
 ## Projektintegrationen
 

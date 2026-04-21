@@ -6,7 +6,7 @@ description: Review PM Docs, publish deliverables, and track the complete tracea
 
 [Home](./index.md) · [Structured Outputs, Evidence, and Freshness](./sorties-contextuelles-preuves-et-fraicheur.md) · [Portfolio and Technical Administration](./portefeuille-et-administration-technique.md)
 
-![Reports and Artifacts](/img/screenshots/localized/en/08-reports-overview.png)
+![Reports and Artifacts](/img/screenshots/localized/en/08-reports-overview.jpg)
 
 ## Objective
 
@@ -126,9 +126,9 @@ Confirmed downloads: **DOCX** and **XLSX**.
 | content mainly in review mode | treat the screen as a validation surface, not as the primary place for rewriting |
 | need for a reference rendering to share | the governed download remains the most reliable output to share outside the application |
 
-![PM Doc Editor and Document Review](/img/screenshots/localized/en/06-pm-doc-editor.png)
+![PM Doc Editor and Document Review](/img/screenshots/localized/en/06-pm-doc-editor.jpg)
 
-![AI Log](/img/screenshots/localized/en/09-ai-log-runs.png)
+![AI Log](/img/screenshots/localized/en/09-ai-log-runs.jpg)
 
 ## AI Log: What the Page Covers
 

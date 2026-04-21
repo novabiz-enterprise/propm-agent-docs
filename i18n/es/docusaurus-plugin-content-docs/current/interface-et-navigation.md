@@ -6,7 +6,7 @@ description: Comprender las pantallas principales, la barra lateral, la barra su
 
 [Inicio](./index.md) · [Inicio](./demarrage.md) · [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md)
 
-![Tablero de ProPM Agent](/img/screenshots/localized/es/01-dashboard.png)
+![Tablero de ProPM Agent](/img/screenshots/localized/es/01-dashboard.jpg)
 
 ## Objetivo
 
@@ -70,7 +70,7 @@ Los scores y los indicadores del tablero de control deben leerse como **puntos d
 4. abre el **Registro IA** si la duda se centra en una ejecución, una salida o un proveedor realmente usado;
 5. si el tablero de control carga pero llama a una verificación complementaria, abre el **indicador de salud** antes de concluir sobre los datos mostrados.
 
-![Barra superior y navegación global](/img/screenshots/localized/es/01-navigation-topbar.png)
+![Barra superior y navegación global](/img/screenshots/localized/es/01-navigation-topbar.jpg)
 
 ## Barra superior
 

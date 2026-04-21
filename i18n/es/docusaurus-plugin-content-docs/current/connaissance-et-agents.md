@@ -6,7 +6,7 @@ description: Alimentar la base de conocimiento del proyecto, comprender la proac
 
 [Inicio](./index.md) · [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md) · [Salidas estructuradas, evidencias y actualidad](./sorties-contextuelles-preuves-et-fraicheur.md)
 
-![Connaissance projet](/img/screenshots/localized/es/05-knowledge.png)
+![Connaissance projet](/img/screenshots/localized/es/05-knowledge.jpg)
 
 ## Objetivo
 
@@ -98,9 +98,9 @@ Los resultados de búsqueda pueden mostrar:
 
 Estos elementos ayudan a juzgar rápidamente la procedencia, la calidad y la reutilizabilidad de una prueba.
 
-![Resultados de búsqueda en el conocimiento](/img/screenshots/localized/es/05-knowledge-search-results.png)
+![Resultados de búsqueda en el conocimiento](/img/screenshots/localized/es/05-knowledge-search-results.jpg)
 
-![Vista Agentes](/img/screenshots/localized/es/04-agents.png)
+![Vista Agentes](/img/screenshots/localized/es/04-agents.jpg)
 
 ## Agentes: rol de la página
 
@@ -264,7 +264,7 @@ La creación de agentes personalizados depende del nivel de derecho. Los puntos 
 | uso limitado a un solo contexto de proyecto | **Project only** |
 | mismo agente reutilizable en varios proyectos de la misma cuenta | **All projects** si la opción está realmente expuesta |
 
-![Creación de un agente personalizado](/img/screenshots/localized/es/04-custom-agent-create.png)
+![Creación de un agente personalizado](/img/screenshots/localized/es/04-custom-agent-create.jpg)
 
 ## Entrada de voz en Agentes
 

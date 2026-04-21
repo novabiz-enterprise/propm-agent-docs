@@ -6,7 +6,7 @@ description: Créer un projet, déléguer les premiers rôles et utiliser l’es
 
 [Accueil](./index.md) · [Interface et navigation](./interface-et-navigation.md) · [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md)
 
-![Espace de travail projet](/img/screenshots/localized/fr/03-workspace-overview.png)
+![Espace de travail projet](/img/screenshots/localized/fr/03-workspace-overview.jpg)
 
 ## Objectif
 
@@ -113,7 +113,7 @@ L’espace de travail ne sert pas seulement à résumer le projet. Il permet aus
 
 Utilisez cette zone pour comprendre **pourquoi** une action ou un import peut être disponible, à confirmer ou bloqué.
 
-![Signaux et brouillons de notification du projet](/img/screenshots/localized/fr/15-workspace-signals.png)
+![Signaux et brouillons de notification du projet](/img/screenshots/localized/fr/15-workspace-signals.jpg)
 
 ## Comment arrivent les signaux, digests et brouillons
 
@@ -166,7 +166,7 @@ L’interface expose aussi un historique par version avec au minimum :
 - auteur ;
 - `Trace ID` associé.
 
-![Réglages des agents au niveau projet](/img/screenshots/localized/fr/12-agent-configuration.png)
+![Réglages des agents au niveau projet](/img/screenshots/localized/fr/12-agent-configuration.jpg)
 
 ## Contrôle d’accès
 
@@ -203,7 +203,7 @@ Gardez une taxonomie courte et stable. Par exemple, au lieu de multiplier les va
 
 L’objectif n’est pas d’encoder la version du document dans la catégorie, mais de garder un classement réutilisable entre **Connaissance** et **Documents PM**.
 
-![Catégories documentaires du projet](/img/screenshots/localized/fr/13-document-categories.png)
+![Catégories documentaires du projet](/img/screenshots/localized/fr/13-document-categories.jpg)
 
 ## Politiques de gouvernance
 
@@ -239,7 +239,7 @@ Pour un projet où toute diffusion externe doit être contrôlée, un réglage c
 
 Cette combinaison évite qu’un brouillon, un digest ou une action apparaisse comme directement diffusable alors que le projet attend encore une approbation humaine.
 
-![Politiques de gouvernance du projet](/img/screenshots/localized/fr/14-governance-policies.png)
+![Politiques de gouvernance du projet](/img/screenshots/localized/fr/14-governance-policies.jpg)
 
 ## Intégrations du projet
 

@@ -6,7 +6,7 @@ description: परियोजना ज्ञान आधार को पो
 
 [होम](./index.md) · [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md) · [संरचित आउटपुट, साक्ष्य और ताजगी](./sorties-contextuelles-preuves-et-fraicheur.md)
 
-![ज्ञान परियोजना](/img/screenshots/localized/hi/05-knowledge.png)
+![ज्ञान परियोजना](/img/screenshots/localized/hi/05-knowledge.jpg)
 
 ## उद्देश्य
 
@@ -105,9 +105,9 @@ description: परियोजना ज्ञान आधार को पो
 
 यदि किसी snippet को पुनः उपयोग करना हो, तो स्रोत-उत्पत्ति का त्वरित आकलन करने के लिए `source label` और `source system` को साथ पढ़ें।
 
-![ज्ञान में खोज परिणाम](/img/screenshots/localized/hi/05-knowledge-search-results.png)
+![ज्ञान में खोज परिणाम](/img/screenshots/localized/hi/05-knowledge-search-results.jpg)
 
-![एजेंट्स दृश्य](/img/screenshots/localized/hi/04-agents.png)
+![एजेंट्स दृश्य](/img/screenshots/localized/hi/04-agents.jpg)
 
 ## Agents: पृष्ठ की भूमिका
 
@@ -271,7 +271,7 @@ custom agent बनाने की क्षमता user rights पर नि
 | केवल एक परियोजना संदर्भ तक सीमित उपयोग | **Project only** |
 | उसी account की कई projects में पुनः उपयोग होने वाला agent | **All projects**, यदि option वास्तव में visible हो |
 
-![कस्टम एजेंट बनाना](/img/screenshots/localized/hi/04-custom-agent-create.png)
+![कस्टम एजेंट बनाना](/img/screenshots/localized/hi/04-custom-agent-create.jpg)
 
 ## Agents में voice input
 

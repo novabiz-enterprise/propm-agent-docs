@@ -6,7 +6,7 @@ description: Die Projekt-Wissensdatenbank füttern, die Proaktivität der Agente
 
 [Startseite](./index.md) · [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md) · [Strukturierte Ausgaben, Beweise und Frische](./sorties-contextuelles-preuves-et-fraicheur.md)
 
-![Projektwissen](/img/screenshots/localized/de/05-knowledge.png)
+![Projektwissen](/img/screenshots/localized/de/05-knowledge.jpg)
 
 ## Ziel
 
@@ -105,9 +105,9 @@ Praktische Lesart:
 
 Verwenden Sie `source label` und `source system` zusammen, wenn Sie die Herkunft eines Auszugs schnell vor seiner Wiederverwendung einschätzen müssen.
 
-![Suchergebnisse im Wissensbereich](/img/screenshots/localized/de/05-knowledge-search-results.png)
+![Suchergebnisse im Wissensbereich](/img/screenshots/localized/de/05-knowledge-search-results.jpg)
 
-![Agentenansicht](/img/screenshots/localized/de/04-agents.png)
+![Agentenansicht](/img/screenshots/localized/de/04-agents.jpg)
 
 ## Agenten: Rolle der Seite
 
@@ -275,7 +275,7 @@ Die Erstellung von benutzerdefinierten Agenten hängt vom Berechtigungsniveau ab
 | Nutzung auf ein einzelnes Projekt beschränkt | **Nur Projekt** |
 | Derselbe Agent in mehreren Projekten desselben Kontos wiederverwendbar | **`All projects`**, falls die Option tatsächlich exponiert ist |
 
-![Erstellung eines benutzerdefinierten Agenten](/img/screenshots/localized/de/04-custom-agent-create.png)
+![Erstellung eines benutzerdefinierten Agenten](/img/screenshots/localized/de/04-custom-agent-create.jpg)
 
 ## Sprachsteuerung in Agenten
 

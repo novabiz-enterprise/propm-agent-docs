@@ -6,7 +6,7 @@ description: Eine strukturierte Ausgabe, ihre Nachweise, Aktualitätszustände u
 
 [Startseite](./index.md) · [Wissen und Agenten](./connaissance-et-agents.md) · [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md)
 
-![Vue Agents](/img/screenshots/localized/de/04-agents.png)
+![Vue Agents](/img/screenshots/localized/de/04-agents.jpg)
 
 ## Ziel
 
@@ -35,7 +35,7 @@ Strukturierte Ausgaben und ihre Metadaten sind auf mehreren Oberflächen sichtba
 - **KI-Protokoll**, in den Details eines Runs;
 - **Berichte & Artefakte**, über die Abstammungslinie zwischen Run, Artefakt und PM Doc.
 
-![Beispiel einer strukturierten Ausgabe im Arbeitsbereich](/img/screenshots/localized/de/03-workspace-structured-output.png)
+![Beispiel einer strukturierten Ausgabe im Arbeitsbereich](/img/screenshots/localized/de/03-workspace-structured-output.jpg)
 
 ## Wie man eine strukturierte Ausgabe liest
 

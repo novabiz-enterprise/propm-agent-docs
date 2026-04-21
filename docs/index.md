@@ -15,7 +15,7 @@ It is organized for two audiences:
 - **Business users** who work on a project;
 - **Technical administrators** who manage access, integrations, AI provider, subscription and supervision.
 
-![Overview of the application](/img/screenshots/localized/en/01-dashboard.png)
+![Overview of the application](/img/screenshots/localized/en/01-dashboard.jpg)
 
 ## I want to find the right page quickly
 

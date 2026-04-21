@@ -6,7 +6,7 @@ description: Create a project, delegate initial roles and use the workspace as a
 
 [Home](./index.md) · [Interface and navigation](./interface-et-navigation.md) · [Access control and project roles](./controle-acces-et-roles.md)
 
-![Project workspace overview](/img/screenshots/localized/en/03-workspace-overview.png)
+![Project workspace overview](/img/screenshots/localized/en/03-workspace-overview.jpg)
 
 ## Goal
 
@@ -113,7 +113,7 @@ The workspace is not only for summarizing the project. It also lets you see if t
 
 Use this area to understand **why** an action or import may be available, confirmed or blocked.
 
-![Workspace signals and notification drafts](/img/screenshots/localized/en/15-workspace-signals.png)
+![Workspace signals and notification drafts](/img/screenshots/localized/en/15-workspace-signals.jpg)
 
 ## How signals, digests, and drafts arrive
 
@@ -166,7 +166,7 @@ The interface also exposes a history by version with at least:
 - author;
 - associated `Trace ID`.
 
-![Agent settings at project level](/img/screenshots/localized/en/12-agent-configuration.png)
+![Agent settings at project level](/img/screenshots/localized/en/12-agent-configuration.jpg)
 
 ## Access control
 
@@ -203,7 +203,7 @@ Keep a short and stable taxonomy. For example, instead of multiplying close vari
 
 The goal is not to encode the document version in the category, but to keep a reusable classification between **Knowledge** and **PM Documents**.
 
-![Project document categories](/img/screenshots/localized/en/13-document-categories.png)
+![Project document categories](/img/screenshots/localized/en/13-document-categories.jpg)
 
 ## Governance policies
 
@@ -239,7 +239,7 @@ For a project where all external distribution must be controlled, a coherent set
 
 This combination prevents a draft, digest or action from appearing directly distributable while the project still awaits human approval.
 
-![Project governance policies](/img/screenshots/localized/en/14-governance-policies.png)
+![Project governance policies](/img/screenshots/localized/en/14-governance-policies.jpg)
 
 ## Project integrations
 

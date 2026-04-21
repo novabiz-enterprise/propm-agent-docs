@@ -6,7 +6,7 @@ description: Crear un proyecto, delegar los primeros roles y usar el espacio de 
 
 [Inicio](./index.md) · [Interfaz y navegación](./interface-et-navigation.md) · [Control de acceso y roles de proyecto](./controle-acces-et-roles.md)
 
-![Espacio de trabajo del proyecto](/img/screenshots/localized/es/03-workspace-overview.png)
+![Espacio de trabajo del proyecto](/img/screenshots/localized/es/03-workspace-overview.jpg)
 
 ## Objetivo
 
@@ -164,7 +164,7 @@ La interfaz también expone un historial por versión con al menos:
 - autor ;
 - `Trace ID` asociado.
 
-![Ajustes de agentes a nivel de proyecto](/img/screenshots/localized/es/12-agent-configuration.png)
+![Ajustes de agentes a nivel de proyecto](/img/screenshots/localized/es/12-agent-configuration.jpg)
 
 ## Control de acceso
 
@@ -201,7 +201,7 @@ Mantén una taxonomía corta y estable. Por ejemplo, en lugar de multiplicar var
 
 El objetivo no es codificar la versión del documento en la categoría, sino mantener una clasificación reutilizable entre **Conocimiento** y **Documentos PM**.
 
-![Categorías documentales del proyecto](/img/screenshots/localized/es/13-document-categories.png)
+![Categorías documentales del proyecto](/img/screenshots/localized/es/13-document-categories.jpg)
 
 ## Políticas de gobernanza
 
@@ -237,7 +237,7 @@ Para un proyecto donde toda difusión externa debe ser controlada, un ajuste coh
 
 Esta combinación evita que un borrador, un digesto o una acción aparezcan como directamente difundibles cuando el proyecto aún espera una aprobación humana.
 
-![Políticas de gobernanza del proyecto](/img/screenshots/localized/es/14-governance-policies.png)
+![Políticas de gobernanza del proyecto](/img/screenshots/localized/es/14-governance-policies.jpg)
 
 ## Integraciones del proyecto
 

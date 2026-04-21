@@ -6,7 +6,7 @@ description: Feed the project knowledge base, understand agent proactivity, and 
 
 [Home](./index.md) · [Projects and workspace](./projets-et-espace-de-travail.md) · [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md)
 
-![Project knowledge](/img/screenshots/localized/en/05-knowledge.png)
+![Project knowledge](/img/screenshots/localized/en/05-knowledge.jpg)
 
 ## Goal
 
@@ -105,9 +105,9 @@ Practical reading:
 
 Use `source label` and `source system` together when you need to judge provenance quickly before reusing a snippet.
 
-![Search results in knowledge](/img/screenshots/localized/en/05-knowledge-search-results.png)
+![Search results in knowledge](/img/screenshots/localized/en/05-knowledge-search-results.jpg)
 
-![Agents view](/img/screenshots/localized/en/04-agents.png)
+![Agents view](/img/screenshots/localized/en/04-agents.jpg)
 
 ## Agents: page role
 
@@ -272,7 +272,7 @@ Creating custom agents depends on the level of rights. Key points to remember:
 | usage limited to a single project context | **Project only** |
 | same agent reusable in multiple projects of the same account | **All projects** if the option is truly exposed |
 
-![Creating a custom agent](/img/screenshots/localized/en/04-custom-agent-create.png)
+![Creating a custom agent](/img/screenshots/localized/en/04-custom-agent-create.jpg)
 
 ## Voice input in Agents
 

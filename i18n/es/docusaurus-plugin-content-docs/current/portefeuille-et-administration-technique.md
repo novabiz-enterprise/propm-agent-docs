@@ -6,7 +6,7 @@ description: Comprender la página Portfolio paso a paso, leer las cohortes y ou
 
 [Inicio](./index.md) · [Informes, Diario IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md) · [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md)
 
-![Centro de comando de portafolio](/img/screenshots/localized/es/02-portfolio-command-center.png)
+![Centro de comando de portafolio](/img/screenshots/localized/es/02-portfolio-command-center.jpg)
 
 ## Objetivo
 
@@ -173,7 +173,7 @@ Una cohorte recuerda:
 - los umbrales;
 - la severidad mínima.
 
-![Editor de cohorte de portafolio](/img/screenshots/localized/es/02-portfolio-cohort-editor.png)
+![Editor de cohorte de portafolio](/img/screenshots/localized/es/02-portfolio-cohort-editor.jpg)
 
 ### Paso 8 — Iniciar o refrescar la comparación
 
@@ -392,7 +392,7 @@ Aquí es donde se configuran principalmente:
 - la **suscripción** y los **asientos**;
 - la **auditoría de actividad**.
 
-![Administración de la plataforma](/img/screenshots/localized/es/18-platform-administration-overview.png)
+![Administración de la plataforma](/img/screenshots/localized/es/18-platform-administration-overview.jpg)
 
 ## Secciones visibles
 

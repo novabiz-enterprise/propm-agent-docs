@@ -16,7 +16,7 @@ Está organizada para dos públicos:
 - **usuarios de negocio** que trabajan en un proyecto;
 - **administradores técnicos** que gestionan el acceso, las integraciones, el proveedor IA, la suscripción y la supervisión.
 
-![Vista general de la aplicación](/img/screenshots/localized/es/01-dashboard.png)
+![Vista general de la aplicación](/img/screenshots/localized/es/01-dashboard.jpg)
 
 ## Busco la página correcta rápidamente
 

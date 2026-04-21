@@ -168,7 +168,7 @@ Téléchargements confirmés : **DOCX** et **XLSX**.
 | contenu surtout en mode revue | traitez l’écran comme une surface de validation, pas comme l’endroit principal de réécriture |
 | besoin d’un rendu de référence à transmettre | le téléchargement gouverné reste la sortie la plus fiable à partager hors de l’application |
 
-![Journal IA](/img/screenshots/localized/fr/09-ai-log-runs.png)
+![Journal IA](/img/screenshots/localized/fr/09-ai-log-runs.jpg)
 
 ## Journal IA : ce que couvre la page
 

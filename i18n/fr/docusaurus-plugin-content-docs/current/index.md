@@ -15,7 +15,7 @@ Elle est organisée pour deux publics :
 - **utilisateurs métier** qui travaillent dans un projet ;
 - **administrateurs techniques** qui gèrent l’accès, les intégrations, le fournisseur IA, l’abonnement et la supervision.
 
-![Vue d’ensemble de l’application](/img/screenshots/localized/fr/01-dashboard.png)
+![Vue d’ensemble de l’application](/img/screenshots/localized/fr/01-dashboard.jpg)
 
 ## Je cherche la bonne page rapidement
 

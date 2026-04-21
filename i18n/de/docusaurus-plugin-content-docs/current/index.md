@@ -16,7 +16,7 @@ Sie ist für zwei Zielgruppen strukturiert:
 - **Geschäftsanwender**, die in einem Projekt arbeiten;
 - **Technische Administratoren**, die Zugriff, Integrationen, den KI-Anbieter, das Abonnement und die Überwachung verwalten.
 
-![Übersicht der Anwendung](/img/screenshots/localized/de/01-dashboard.png)
+![Übersicht der Anwendung](/img/screenshots/localized/de/01-dashboard.jpg)
 
 ## Ich suche die richtige Seite schnell
 

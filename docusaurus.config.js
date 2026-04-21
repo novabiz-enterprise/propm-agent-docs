@@ -8,7 +8,7 @@ const siteUrl = 'https://robertsmaoui.github.io';
 const baseUrl = '/propm-agent-docs/';
 const siteFullUrl = `${siteUrl}${baseUrl}`;
 const marketplaceUrl = 'https://marketplace.microsoft.com/en-us/product/azure-application/novabiz.propm-agentx?tab=Overview';
-const socialImage = 'img/screenshots/localized/en/01-dashboard.png';
+const socialImage = 'img/screenshots/localized/en/01-dashboard.jpg';
 const logoImage = 'img/propm-agent-marketplace-logo.png';
 
 const searchDocsDirs = [
@@ -223,3 +223,4 @@ const config = {
 };
 
 module.exports = config;
+

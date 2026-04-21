@@ -6,7 +6,7 @@ description: Alimenter la base de connaissance projet, comprendre la proactivit�
 
 [Accueil](./index.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md) · [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
 
-![Connaissance projet](/img/screenshots/localized/fr/05-knowledge.png)
+![Connaissance projet](/img/screenshots/localized/fr/05-knowledge.jpg)
 
 ## Objectif
 
@@ -105,9 +105,9 @@ Lecture pratique :
 
 Utilisez `source label` et `source system` ensemble quand vous devez arbitrer rapidement la provenance d’un extrait avant réutilisation.
 
-![Résultats de recherche dans la connaissance](/img/screenshots/localized/fr/05-knowledge-search-results.png)
+![Résultats de recherche dans la connaissance](/img/screenshots/localized/fr/05-knowledge-search-results.jpg)
 
-![Vue Agents](/img/screenshots/localized/fr/04-agents.png)
+![Vue Agents](/img/screenshots/localized/fr/04-agents.jpg)
 
 ## Agents : rôle de la page
 
@@ -271,7 +271,7 @@ La création d’agents personnalisés dépend du niveau de droit. Les points à
 | usage limité à un seul contexte projet | **Project only** |
 | même agent réutilisable dans plusieurs projets du même compte | **All projects** si l’option est réellement exposée |
 
-![Création d’un agent personnalisé](/img/screenshots/localized/fr/04-custom-agent-create.png)
+![Création d’un agent personnalisé](/img/screenshots/localized/fr/04-custom-agent-create.jpg)
 
 ## Saisie vocale dans Agents
 

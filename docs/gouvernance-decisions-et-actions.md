@@ -241,7 +241,7 @@ The best control is practical:
 3. check what is visible, allowed or blocked;
 4. adjust the policy if the behavior is not as expected.
 
-![Project governance policies](/img/screenshots/localized/en/14-governance-policies.png)
+![Project governance policies](/img/screenshots/localized/en/14-governance-policies.jpg)
 
 ### Simple rules for good governance configuration
 
@@ -264,7 +264,7 @@ The best control is practical:
 
 The **Actions & approvals** screen is used to turn an intention into a real **governed action**.
 
-![Actions & approvals panel](/img/screenshots/localized/en/17-actions-approvals.png)
+![Actions & approvals panel](/img/screenshots/localized/en/17-actions-approvals.jpg)
 
 ### Four canonical readings to keep in mind
 

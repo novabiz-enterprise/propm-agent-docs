@@ -6,7 +6,7 @@ description: Lire correctement une sortie structurée, ses preuves, ses états d
 
 [Accueil](./index.md) · [Connaissance et agents](./connaissance-et-agents.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
 
-![Vue Agents](/img/screenshots/localized/fr/04-agents.png)
+![Vue Agents](/img/screenshots/localized/fr/04-agents.jpg)
 
 ## Objectif
 
@@ -35,7 +35,7 @@ Les sorties structurées et leurs métadonnées sont visibles dans plusieurs sur
 - **Journal IA**, dans le détail d’un run ;
 - **Rapports & artefacts**, via la lignée entre run, artefact et PM Doc.
 
-![Exemple de sortie structurée dans l’espace projet](/img/screenshots/localized/fr/03-workspace-structured-output.png)
+![Exemple de sortie structurée dans l’espace projet](/img/screenshots/localized/fr/03-workspace-structured-output.jpg)
 
 ## Comment lire une sortie structurée
 

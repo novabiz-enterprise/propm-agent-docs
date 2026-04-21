@@ -241,7 +241,7 @@ El mejor control es práctico:
 3. verifica lo que es visible, autorizado o bloqueado ;
 4. ajusta la política si el comportamiento no es el esperado.
 
-![Políticas de gobernanza del proyecto](/img/screenshots/localized/es/14-governance-policies.png)
+![Políticas de gobernanza del proyecto](/img/screenshots/localized/es/14-governance-policies.jpg)
 
 ## Reglas simples para configurar bien la gobernanza
 

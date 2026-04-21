@@ -6,7 +6,7 @@ description: Cómo leer correctamente una salida estructurada, sus evidencias, s
 
 [Inicio](./index.md) · [Conocimiento y agentes](./connaissance-et-agents.md) · [Informes, registro de IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md)
 
-![Vista Agentes](/img/screenshots/localized/es/04-agents.png)
+![Vista Agentes](/img/screenshots/localized/es/04-agents.jpg)
 
 ## Objetivo
 
@@ -35,7 +35,7 @@ Las salidas estructuradas y sus metadatos son visibles en varias superficies:
 - **Registro de IA**, en el detalle de un run;
 - **Informes y artefactos**, a través del linaje entre run, artefacto y PM Doc.
 
-![Ejemplo de salida estructurada en el espacio de proyecto](/img/screenshots/localized/es/03-workspace-structured-output.png)
+![Ejemplo de salida estructurada en el espacio de proyecto](/img/screenshots/localized/es/03-workspace-structured-output.jpg)
 
 ## Cómo leer una salida estructurada
 

@@ -6,7 +6,7 @@ description: पोर्टफोलियो पृष्ठ को चरण-
 
 [मुखपृष्ठ](./index.md) · [रिपोर्ट, AI लॉग और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md) · [रखरखाव, समर्थन और अक्सर पूछे जाने वाले प्रश्न](./maintenance-support-faq.md)
 
-![पोर्टफोलियो कमांड सेंटर](/img/screenshots/localized/hi/02-portfolio-command-center.png)
+![पोर्टफोलियो कमांड सेंटर](/img/screenshots/localized/hi/02-portfolio-command-center.jpg)
 
 ## उद्देश्य
 
@@ -175,7 +175,7 @@ description: पोर्टफोलियो पृष्ठ को चरण-
 - सीमाएँ;
 - न्यूनतम गंभीरता.
 
-![पोर्टफोलियो कोहोर्ट संपादक](/img/screenshots/localized/hi/02-portfolio-cohort-editor.png)
+![पोर्टफोलियो कोहोर्ट संपादक](/img/screenshots/localized/hi/02-portfolio-cohort-editor.jpg)
 
 ### चरण 8 — तुलना चलाएँ या ताज़ा करें
 
@@ -396,7 +396,7 @@ description: पोर्टफोलियो पृष्ठ को चरण-
 - **सदस्यता** और **सीटें**;
 - **गतिविधि ऑडिट**.
 
-![प्लेटफ़ॉर्म प्रशासन](/img/screenshots/localized/hi/18-platform-administration-overview.png)
+![प्लेटफ़ॉर्म प्रशासन](/img/screenshots/localized/hi/18-platform-administration-overview.jpg)
 
 ## दिखाई देने वाले अनुभाग
 

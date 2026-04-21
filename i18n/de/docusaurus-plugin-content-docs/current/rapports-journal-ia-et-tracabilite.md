@@ -6,7 +6,7 @@ description: PM Docs überprüfen, Liefergegenstände veröffentlichen und die v
 
 [Startseite](./index.md) · [Strukturierte Ausgaben, Nachweise und Aktualität](./sorties-contextuelles-preuves-et-fraicheur.md) · [Portfolio und technische Administration](./portefeuille-et-administration-technique.md)
 
-![Berichte und Artefakte](/img/screenshots/localized/de/08-reports-overview.png)
+![Berichte und Artefakte](/img/screenshots/localized/de/08-reports-overview.jpg)
 
 ## Ziel
 
@@ -123,9 +123,9 @@ Bestätigte Downloads: **DOCX** und **XLSX**.
 | Inhalt hauptsächlich im Review-Modus | Behandeln Sie den Bildschirm als Validierungsoberfläche, nicht als Hauptort für Neufassungen |
 | Bedarf an einer Referenzdarstellung zur Weitergabe | Der verwaltete Download bleibt die zuverlässigste Ausgabe für die Weitergabe außerhalb der Anwendung |
 
-![PM Doc-Editor und Dokumentenüberprüfung](/img/screenshots/localized/de/06-pm-doc-editor.png)
+![PM Doc-Editor und Dokumentenüberprüfung](/img/screenshots/localized/de/06-pm-doc-editor.jpg)
 
-![KI-Protokoll](/img/screenshots/localized/de/09-ai-log-runs.png)
+![KI-Protokoll](/img/screenshots/localized/de/09-ai-log-runs.jpg)
 
 ## KI-Protokoll: Was die Seite abdeckt
 

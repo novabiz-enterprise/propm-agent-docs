@@ -241,7 +241,7 @@ Le meilleur contrôle est pratique :
 3. vérifiez ce qui est visible, autorisé ou bloqué ;
 4. ajustez la politique si le comportement n’est pas celui attendu.
 
-![Politiques de gouvernance du projet](/img/screenshots/localized/fr/14-governance-policies.png)
+![Politiques de gouvernance du projet](/img/screenshots/localized/fr/14-governance-policies.jpg)
 
 ## Règles simples pour bien configurer la gouvernance
 
@@ -264,7 +264,7 @@ Le meilleur contrôle est pratique :
 
 L’écran **Actions & approbations** sert à transformer une intention en **action gouvernée réelle**.
 
-![Panneau Actions & approbations](/img/screenshots/localized/fr/17-actions-approvals.png)
+![Panneau Actions & approbations](/img/screenshots/localized/fr/17-actions-approvals.jpg)
 
 ### Quatre lectures canoniques à retenir
 

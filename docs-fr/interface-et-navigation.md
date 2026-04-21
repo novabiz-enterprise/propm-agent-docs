@@ -6,7 +6,7 @@ description: Comprendre les écrans principaux, la barre latérale, la barre sup
 
 [Accueil](./index.md) · [Démarrage](./demarrage.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md)
 
-![Tableau de bord ProPM Agent](/img/screenshots/localized/fr/01-dashboard.png)
+![Tableau de bord ProPM Agent](/img/screenshots/localized/fr/01-dashboard.jpg)
 
 ## Objectif
 
@@ -70,7 +70,7 @@ Les scores et indicateurs du tableau de bord doivent être lus comme des **repè
 4. ouvrez le **Journal IA** si le doute porte sur un run, une sortie ou un fournisseur réellement utilisé ;
 5. si le tableau de bord charge mais appelle une vérification complémentaire, ouvrez l’**indicateur de santé** avant de conclure sur les données affichées.
 
-![Barre supérieure et navigation globale](/img/screenshots/localized/fr/01-navigation-topbar.png)
+![Barre supérieure et navigation globale](/img/screenshots/localized/fr/01-navigation-topbar.jpg)
 
 ## Barre supérieure
 

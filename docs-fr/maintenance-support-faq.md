@@ -6,7 +6,7 @@ description: Repères d’exploitation, vérifications utiles et réponses aux q
 
 [Accueil](./index.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) · [Glossaire](./glossaire.md)
 
-![Journal IA et repères d’investigation](/img/screenshots/localized/fr/09-ai-log-runs.png)
+![Journal IA et repères d’investigation](/img/screenshots/localized/fr/09-ai-log-runs.jpg)
 
 ## Surfaces utiles pour l’exploitation
 

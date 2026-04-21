@@ -6,7 +6,7 @@ description: How to correctly read a structured output, its evidence, freshness 
 
 [Home](./index.md) · [Knowledge and Agents](./connaissance-et-agents.md) · [Reports, AI Log, and Traceability](./rapports-journal-ia-et-tracabilite.md)
 
-![Agents View](/img/screenshots/localized/en/04-agents.png)
+![Agents View](/img/screenshots/localized/en/04-agents.jpg)
 
 ## Objective
 
@@ -35,7 +35,7 @@ Structured outputs and their metadata are visible in several surfaces:
 - **AI Log**, in the detail of a run;
 - **Reports & Artifacts**, via the lineage between run, artifact, and PM Doc.
 
-![Example of a structured output in the project workspace](/img/screenshots/localized/en/03-workspace-structured-output.png)
+![Example of a structured output in the project workspace](/img/screenshots/localized/en/03-workspace-structured-output.jpg)
 
 ## How to Read a Structured Output
 

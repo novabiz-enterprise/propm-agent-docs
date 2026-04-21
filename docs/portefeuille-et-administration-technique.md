@@ -6,7 +6,7 @@ description: Understand the Portfolio page step by step, read cohorts and outlie
 
 [Home](./index.md) · [Reports, AI Log and Traceability](./rapports-journal-ia-et-tracabilite.md) · [Maintenance, Support and FAQ](./maintenance-support-faq.md)
 
-![Portfolio command center](/img/screenshots/localized/en/02-portfolio-command-center.png)
+![Portfolio command center](/img/screenshots/localized/en/02-portfolio-command-center.jpg)
 
 ## Objective
 
@@ -177,7 +177,7 @@ A cohort remembers:
 - the thresholds;
 - the minimum severity.
 
-![Portfolio cohort editor](/img/screenshots/localized/en/02-portfolio-cohort-editor.png)
+![Portfolio cohort editor](/img/screenshots/localized/en/02-portfolio-cohort-editor.jpg)
 
 ### Step 8 — Run or refresh the comparison
 
@@ -398,7 +398,7 @@ Here you configure, in particular:
 - the **subscription** and **seats**;
 - the **activity audit**.
 
-![Platform administration](/img/screenshots/localized/en/18-platform-administration-overview.png)
+![Platform administration](/img/screenshots/localized/en/18-platform-administration-overview.jpg)
 
 ## Visible sections
 
