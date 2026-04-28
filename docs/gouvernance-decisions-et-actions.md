@@ -1,7 +1,7 @@
 ---
 title: Governance, decisions and actions
 slug: /gouvernance-decisions-et-actions
-description: Understand signals, configure governance policies, and use Actions & approvals step-by-step with beginner-friendly examples.
+description: Understand signals, configure governance policies, and use Actions & approvals step by step with practical examples.
 ---
 
 [Home](./index.md) · [Projects and workspace](./projets-et-espace-de-travail.md) · [Reports, AI Journal and traceability](./rapports-journal-ia-et-tracabilite.md)
@@ -18,7 +18,7 @@ This page explains, in a simple way, how ProPM Agent moves from:
 4. possibly subject to **approval**;
 5. before it is **executed** and **traced**.
 
-The goal is for a beginner user to clearly understand:
+This page helps you clearly understand:
 
 - what a **governance policy** is;
 - what `allow`, `require_approval` and `deny` mean;
@@ -268,7 +268,7 @@ The **Actions & approvals** screen is used to turn an intention into a real **go
 
 ### Four canonical readings to keep in mind
 
-In the observed interface, this surface is easiest to read through four distinct states:
+In the interface, this surface is easiest to read through four distinct states:
 
 | Canonical reading | What it means |
 | --- | --- |

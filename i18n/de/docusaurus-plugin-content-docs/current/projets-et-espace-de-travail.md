@@ -41,7 +41,7 @@ Verwechseln Sie es deshalb nicht mit:
 
 ## Projekt erstellen
 
-Das beobachtete Formular enthält die folgenden Felder:
+Das Formular enthält die folgenden Felder:
 
 - **ID Projekt**;
 - **Name**;
@@ -57,7 +57,7 @@ Eingabeempfehlungen:
 
 ## Projektersteller: Anfangsrechte und Delegation
 
-Beim Erstellen übernimmt der **Projektersteller** die Rolle **Projektbesitzer** und alle beobachteten Projektberechtigungen. In der Praxis ist er also derjenige, der das Projekt öffnen, die anfängliche Konfiguration prüfen und anschließend die Rollen an das restliche Team delegieren kann.
+Beim Erstellen übernimmt der **Projektersteller** die Rolle **Projektbesitzer** und alle verfügbaren Projektberechtigungen. In der Praxis ist er also derjenige, der das Projekt öffnen, die anfängliche Konfiguration prüfen und anschließend die Rollen an das restliche Team delegieren kann.
 
 ### Empfohlene Delegation unmittelbar nach der Erstellung
 
@@ -70,7 +70,7 @@ Beim Erstellen übernimmt der **Projektersteller** die Rolle **Projektbesitzer**
 ### Was die Plattform weiterhin schützt
 
 - Der **Ersteller** bleibt geschützt;
-- Die Rolle des Erstellers bleibt in der beobachteten Oberfläche fest;
+- Die Rolle des Erstellers bleibt in der Oberfläche fest;
 - Die Delegation erfolgt durch Zuweisung zusätzlicher Rollen, nicht durch Abschaffung des Erstellerschutzes;
 - Für detailliertes RBAC siehe [Zugriffskontrolle und Rollen Projekt](./controle-acces-et-roles.md).
 
@@ -116,7 +116,7 @@ Nutzen Sie diesen Bereich, um zu verstehen **warum** eine Aktion oder ein Import
 
 ## Wie Signale, Digests und Entwürfe eintreffen
 
-In der beobachteten Anwendung liest das Signale-Panel des Projekts drei geteilte Plattformflüsse für das **aktive Projekt** erneut:
+In der Oberfläche liest das Signale-Panel des Projekts drei geteilte Plattformflüsse für das **aktive Projekt** erneut:
 
 - aktuelle **Signale**;
 - aktuelle **Digests**;
@@ -255,7 +255,21 @@ Sie können dort typischerweise mehrere Informationsfamilien ablesen:
 - **Transparenz der KI-Laufzeit**: effektiver KI-Anbieter und der beim Deployment ausgewählte Anbieter;
 - **Entitlement-Status**: sichtbare Plan-, Lizenzplatz- oder Premium-Funktionslage des Projekts.
 
-### Explizit beobachtete Blockierungsgründe
+### Was der Bildschirm „Projektintegrationen“ zeigt
+
+Der Bildschirm trennt technische Readiness von Projektverfügbarkeit:
+
+- Plattform-Setup, Projektbindung, Policy, Permission, Entitlement und Health sind **getrennte Ursachen**. Ein Connector kann schreibgeschützt sichtbar bleiben, damit das Projektteam versteht, warum er blockiert ist, statt anzunehmen, dass er fehlt;
+- die technische Konfiguration bleibt in **Plattformadministration**. Projektverantwortliche können aktivierte und bereite Integrationen binden, während Tenant-URLs, Authentifizierungsstrategie, API-Schlüssel und Secret-Referenzen zentral kontrolliert bleiben.
+
+| Bereich | Was sichtbar sein kann | Wie handeln |
+| --- | --- | --- |
+| **Ausführungs-Connectoren** | eine aktuelle Liste, die auch leer sein kann, plus ein Katalog **Available to bind** mit Asta Powerproject schedule sync, Azure DevOps delivery project, Jira delivery workspace, Microsoft Project schedule sync, Microsoft Teams collaboration, Outlook executive notifications, SharePoint publication library, Smartsheet portfolio workspace, Webhook event delivery und Wrike delivery workspace | **Bind to project** nur für Connectoren verwenden, die auf Plattformebene bereits aktiviert und bereit sind |
+| **Ingestionsanbieter** | Anbieter wie **Smartsheet sheet import** und **Azure Data Factory evidence pipeline** mit Status **Healthy**, plus verfügbare Anbieter wie SharePoint knowledge import, Azure Blob document ingest, Confluence knowledge import, Jira issue import, SFTP document intake, Microsoft Project schedule import, Wrike task import und Asta Powerproject schedule import | **Validate binding** zur erneuten Prüfung eines gebundenen Anbieters, **Disable** zum Schließen auf Projektebene oder **Bind to project** für einen genehmigten Anbieter verwenden |
+
+Anbieterkarten können **Ready**, **Healthy** oder **Not configured** anzeigen. **Not configured** bedeutet, dass der Anbieter im Plattformkatalog existiert, aber Quelle, Zugangsdaten oder Readiness-Prüfung noch fehlen, bevor das Projekt ihn nutzen kann.
+
+### Angezeigte Blockierungsgründe
 
 Eine Projektintegration oder eine Importoption kann aus folgenden Gründen blockiert sein:
 
@@ -310,7 +324,7 @@ Diese Registerkarte wandelt eine Empfehlung in eine kontrollierte Operation um. 
 
 ### Die zentralen Zustände, die Sie unterscheiden sollten
 
-In der beobachteten Oberfläche unterscheiden Warteschlange und Übersichtskarten vor allem vier kanonische Lesarten:
+In der Oberfläche unterscheiden Warteschlange und Übersichtskarten vor allem vier kanonische Lesarten:
 
 | Sichtbarer Zustand | Praktische Lesart |
 | --- | --- |

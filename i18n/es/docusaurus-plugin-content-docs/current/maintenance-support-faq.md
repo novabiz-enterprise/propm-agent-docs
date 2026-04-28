@@ -26,7 +26,7 @@ Los puntos de observación siguientes están confirmados en la aplicación:
 
 ## Puntos rápidos por situación
 
-| Situación observada | Superficie de primer nivel | Próximo paso |
+| Situación encontrada | Superficie de primer nivel | Próximo paso |
 | --- | --- | --- |
 | Conexión o retorno Microsoft anormal | [Inicio](./demarrage.md) | verificar Entra, tenant, `redirectUri` y asientos |
 | Ningún proyecto visible después de la conexión | **Proyectos** / selector de proyecto | **Control de acceso** o añadir la cuenta al proyecto |
@@ -89,7 +89,7 @@ Esta situación no indica necesariamente un problema de autenticación. Verifiqu
 
 Cuando la cuenta pertenece a otro tenant que el que aloja la aplicación. La cuenta debe entonces ser invitada al tenant objetivo, luego autorizada en la aplicación o mediante el grupo esperado.
 
-### ¿Cómo distinguir rápidamente tenant, `redirect URI`, cliente Entra o asiento?
+### ¿Cómo distinguir rápidamente tenant, `redirect URI`, aplicación Entra o asiento?
 
 Siga este orden:  
 1. si Microsoft falla antes de volver a la aplicación, sospeche primero de tenant, clientId o redirect URI;  
@@ -118,7 +118,7 @@ El historial visible es local al navegador. No es un archivo central compartido.
 
 ### ¿Qué es local al navegador y qué se comparte en la plataforma?
 
-En el estado actualmente observado:
+En el estado actual:
 
 - la **continuidad del chat** se guarda localmente, por pareja **proyecto + agente**, en el navegador actual;
 - el **proyecto activo recordado** también depende del navegador y a veces de la sesión local;
@@ -136,7 +136,7 @@ Verifique primero su alcance. Un agente `Project only` permanece limitado al pro
 
 ### ¿El historial de chat se conserva por proyecto, por agente o solo por navegador?
 
-La continuidad observada es local al navegador y vinculada al par proyecto + agente. Por lo tanto, no es global a todo el tenant ni compartida automáticamente entre navegadores.
+La continuidad es local al navegador y vinculada al par proyecto + agente. Por lo tanto, no es global a todo el tenant ni compartida automáticamente entre navegadores.
 
 ### ¿Qué navegadores o permisos se deben verificar primero para la voz?
 
@@ -161,7 +161,7 @@ Las causas más frecuentes son:
 - todavía no se ha creado ningún **artefacto** o **Documento PM**;
 - el run se quedó en la etapa de **salida estructurada**;
 - el proyecto incorrecto o un filtro oculta las filas;
-- el entorno no contiene los mismos datos demo que otras capturas o pruebas.
+- el entorno no contiene los mismos ejemplos precargados que las capturas de referencia.
 
 
 ### ¿Por qué un documento es visible en la lista pero aún no se encuentra en la búsqueda?
@@ -242,7 +242,7 @@ Reabra las fuentes contradictorias, compare el fragmento, la fecha, la procedenc
 
 ### ¿Por qué un borrador de notificación permanece `held` o nunca se envía a un canal externo?
 
-En la interfaz observada, `in_app` es la ruta más directa. Los canales externos pueden permanecer en postura **held / draft** mientras la difusión gobernada, la política, el conector o la aprobación no estén reunidos. Revise la cadena en Gobernanza, decisiones y acciones: señal, digest eventual, borrador, política, conector, luego aprobación.
+En la interfaz, `in_app` es la ruta más directa. Los canales externos pueden permanecer en postura **held / draft** mientras la difusión gobernada, la política, el conector o la aprobación no estén reunidos. Revise la cadena en Gobernanza, decisiones y acciones: señal, digest eventual, borrador, política, conector, luego aprobación.
 
 ### ¿Por qué una acción permanece `pending approval` o `approved` sin ejecución visible?
 
@@ -254,9 +254,9 @@ Porque una definición técnica de la plataforma no basta. También se necesita 
 
 ## FAQ — portafolio y administración
 
-### ¿Por qué los datos de demostración no siempre coinciden exactamente con la documentación?
+### ¿Por qué los ejemplos precargados no siempre coinciden exactamente con la documentación?
 
-Los entornos reales pueden variar. Algunos proyectos no muestran siempre los mismos documentos precargados, informes precargados o ejemplos de búsqueda que aparecen en la documentación o en otras pruebas.
+Los entornos reales pueden variar. Algunos proyectos no muestran siempre los mismos documentos precargados, informes precargados o ejemplos de búsqueda que aparecen en las capturas de referencia.
 
 ### ¿Por qué el portafolio no muestra ningún proyecto o outlier?
 
@@ -264,7 +264,7 @@ Verifique los proyectos seleccionados, las señales activas, los pesos, los umbr
 
 ### ¿Existen valores predeterminados implícitos en Portafolio?
 
-No. La interfaz observada ofrece principalmente valores predeterminados, una acción para restablecerlos y cohortes guardadas. Los valores predeterminados son un punto de partida seguro, no un modelo obligatorio. Algunas demostraciones también pueden mostrar una cohorte precargada, pero ese contenido varía según el entorno.
+No. La interfaz ofrece principalmente valores predeterminados, una acción para restablecerlos y cohortes guardadas. Los valores predeterminados son un punto de partida seguro, no un modelo obligatorio. Algunos entornos también pueden mostrar una cohorte precargada, pero ese contenido varía según el entorno.
 
 ### ¿Cómo liberar o reasignar un asiento?
 

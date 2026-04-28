@@ -8,7 +8,7 @@ description: "English user documentation for ProPM Agent, covering AI-assisted p
 >
 > To successfully adopt ProPM Agent in the organization and fully leverage the application, it is strongly recommended to read this guide from the start of the project, then refer to it during deployment, connector setup, governance and daily operation.
 
-This documentation describes **only** the functions observed in the application, in the code, in the deployment configuration and in the automated tests of ProPM Agent.
+This documentation helps you use ProPM Agent day to day: navigation, projects, knowledge, agents, governance, reports, administration and deployment.
 
 It is organized for two audiences:
 
@@ -19,7 +19,7 @@ It is organized for two audiences:
 
 ## I want to find the right page quickly
 
-| Observed situation | First open | Then |
+| Encountered situation | First open | Then |
 | --- | --- | --- |
 | I cannot log in | [Getting started](./demarrage.md) | [Maintenance, support and FAQ](./maintenance-support-faq.md) to distinguish tenant, `redirect URI`, seat or health status |
 | No projects appear | [Getting started](./demarrage.md) | [Projects and workspace](./projets-et-espace-de-travail.md), then [Maintenance, support and FAQ](./maintenance-support-faq.md) if adding to the project or role remains doubtful |
@@ -104,7 +104,7 @@ Based on verified behaviours, ProPM Agent organizes work around the **project co
 8. you use **connectors** and **integrations** only when they are validated and bound to the project;
 9. administrators steer the technical layer in **Platform Administration**.
 
-## Observed functional architecture
+## Functional architecture
 
 | Domain | What it allows |
 | --- | --- |
@@ -123,7 +123,7 @@ Based on verified behaviours, ProPM Agent organizes work around the **project co
 
 ## What distinguishes the application
 
-The following elements are explicitly visible in the interface, seeded data or tests:
+The following elements are explicitly visible in the interface, preloaded data or tests:
 
 - **structured outputs** with sections, evidence, freshness, confidence and follow‑up decisions;
 - **lineage** between a run, a structured output, an artifact, an artifact version and a PM Document;
@@ -143,9 +143,9 @@ The following elements are explicitly visible in the interface, seeded data or t
 
 ## Screenshots and diagrams
 
-Screenshots of the application were generated on the observed environment. When some available screenshots mainly showed a loading state or incomplete demo data, this French version also favours **explanatory diagrams** to keep a usable reading before final translation and publication.
+Screenshots and diagrams are visual references. They illustrate the main screens and may vary slightly depending on your data, permissions and environment configuration.
 
-Demo content can also vary by environment: some projects do not always expose the same seeded documents, seeded reports or examples shown in the documentation.
+Demo content can also vary by environment: some projects do not always expose the same preloaded documents, preloaded reports or examples shown in the documentation.
 
 ## What stays local to the browser and what is shared
 
@@ -162,7 +162,7 @@ Use the appropriate channel depending on the request type:
 
 | Request type | Priority to forward |
 | --- | --- |
-| Technical support | Deployment URL, project in question, observed situation, approximate time, `Trace ID` if visible |
+| Technical support | Deployment URL, project in question, encountered situation, approximate time, `Trace ID` if visible |
 | Access, tenant or identity question | Expected tenant, account used, actual URL opened, Microsoft message or screenshot |
 | Commercial or subscription question | Account context, plan in question, number of seats or capacity need |
 

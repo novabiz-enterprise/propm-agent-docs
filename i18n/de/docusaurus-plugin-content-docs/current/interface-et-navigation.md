@@ -14,7 +14,7 @@ Diese Seite erklärt, wie man sich in der ProPM Agent-Shell zurechtfindet, das *
 
 ## Überblick
 
-Die beobachtete Oberfläche folgt einer einfachen Logik:
+Die Oberfläche folgt einer einfachen Logik:
 
 1. die **Sidebar** öffnet die großen Funktionsbereiche;
 2. die **Top bar** ändert das aktuelle Projekt und öffnet die Schnellwerkzeuge;
@@ -113,7 +113,7 @@ Sie filtert die verfügbaren Seiten und Einträge nach **Name** und **Beschreibu
 
 Der Benachrichtigungsbereich ist über das Glocken-Symbol in der oberen Leiste zugänglich.
 
-Beobachtete Funktionen:
+Verfügbare Funktionen:
 
 - Zähler für ungelesene Elemente;
 - Dropdown-Paneel;
@@ -121,7 +121,7 @@ Beobachtete Funktionen:
 - **Clear all**;
 - Klick auf eine Benachrichtigung, um die zugehörige Oberfläche zu öffnen, wenn eine Navigation bereitgestellt wird.
 
-Benachrichtigungen stammen nicht nur aus einer einzigen Ereignisfamilie. In der beobachteten Anwendung können sie unter anderem bündeln:
+Benachrichtigungen stammen nicht nur aus einer einzigen Ereignisfamilie. In ProPM Agent können sie unter anderem bündeln:
 
 - Statusänderungen von Agenten oder Runs;
 - Ereignisse zu Berichten, Artefakten oder Dokumenten;
@@ -138,7 +138,7 @@ Der Health indicator öffnet ein Quick‑Read‑Panel. Es ermöglicht die Anzeig
 - API‑Status;
 - Echtzeit-Status;
 - Auth‑Status;
-- beobachtete Latenz;
+- angezeigte Latenz;
 - eine Meldung, falls die Oberfläche eine hat;
 - dem aktuellen Projekt, wenn der Kontext bei der Statusauswertung wichtig ist.
 
@@ -179,7 +179,7 @@ Die Sprache der Oberfläche kann über die obere Leiste geändert werden. Das Th
 
 ## Was in der Navigation lokal im Browser bleibt
 
-Neben der Chat-Kontinuität und dem gemerkten aktuellen Projekt bleiben in der beobachteten Anwendung auch folgende Hilfen browserlokal:
+Neben der Chat-Kontinuität und dem gemerkten aktuellen Projekt bleiben auch folgende Hilfen browserlokal:
 
 - Sprache und Thema der Oberfläche;
 - Liste der zuletzt verwendeten Projekte;

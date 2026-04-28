@@ -14,7 +14,7 @@ Diese Seite erklärt, wie eine **strukturierte Ausgabe** in ProPM Agent zu inter
 
 ## Warum das wichtig ist
 
-ProPM Agent liefert nicht nur Freitext. Beobachtete Runs können zusätzlich Folgendes enthalten:
+ProPM Agent liefert nicht nur Freitext. Runs können zusätzlich Folgendes enthalten:
 
 - eine **Zusammenfassung**;
 - **Findings**;
@@ -151,7 +151,7 @@ Diese Felder sind besonders nützlich, wenn Sie einen Run, ein Artefakt und ein 
 
 ## Wann die Ausgabe in ein Artefakt umwandeln
 
-Der beobachtete normale Weg ist:
+Der normale Weg ist:
 
 1. Projektfrage;
 2. Strukturierte Antwort;

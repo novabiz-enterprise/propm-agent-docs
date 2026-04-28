@@ -15,14 +15,14 @@ Esta página cubre dos superficies diferentes del producto:
 1. la página **Portfolio** o **Centro de comando de portafolio**, utilizada para comparar varios proyectos;
 2. **Administración de la plataforma**, utilizada para preparar las integraciones, los proveedores IA, la suscripción y la auditoría.
 
-Para un usuario principiante, es útil recordar esto:
+Para empezar, recuerda esto:
 
 - la página **Portfolio** ayuda a responder la pregunta **« ¿qué proyectos merecen mi atención en prioridad? »**;
 - la **Administración de la plataforma** ayuda a responder la pregunta **« ¿la plataforma está correctamente preparada para la organización? »**.
 
 ## ¿Para quién es principalmente útil esta página?
 
-En la aplicación observada, **Portfolio** sirve ante todo como una vista transversal de tipo **PMO / seguimiento multiproyecto**. Ayuda a comparar varios proyectos con un mismo modelo de señales antes de abrir el detalle de un proyecto.
+En ProPM Agent, **Portfolio** sirve ante todo como una vista transversal de tipo **PMO / seguimiento multiproyecto**. Ayuda a comparar varios proyectos con un mismo modelo de señales antes de abrir el detalle de un proyecto.
 
 Úsala sobre todo para:
 
@@ -138,9 +138,9 @@ El **Umbral global de outlier** determina a partir de qué nivel combinado un pr
 - umbral más bajo = más proyectos destacan;
 - umbral más alto = solo los casos más marcados destacan.
 
-## Ajustes iniciales observados
+## Ajustes iniciales
 
-La página no parte de una hoja en blanco. Los valores observados por defecto son:
+La página no parte de una hoja en blanco. Los valores por defecto son:
 
 | Señal | Peso por defecto | Umbral por defecto |
 | --- | --- | --- |
@@ -159,7 +159,7 @@ Complementos útiles:
 - **Reset defaults** restaura estos valores iniciales;
 - estos valores son un **punto de partida seguro**, no un modelo impuesto;
 - no existe ningún preset oculto aparte de estos valores y de las **cohortes guardadas**;
-- algunos entornos de demostración también pueden mostrar una cohorte precargada, pero ese contenido varía según el entorno.
+- algunos entornos también pueden mostrar una cohorte precargada, pero ese contenido varía según el entorno.
 
 ### Paso 7 — Registrar una cohorte si es necesario
 
@@ -210,7 +210,7 @@ Esta es la etapa que transforma una alerta de portafolio en comprensión concret
 
 ## Entender las señales visibles en Portfolio
 
-Las señales observadas en el producto incluyen:
+Las señales mostradas en el producto incluyen:
 
 - `activity_change`
 - `blocker_density`
@@ -265,7 +265,7 @@ Resultado esperado: solo los casos más marcados permanecerán visibles.
 
 Un **outlier** no es una nota mágica ni un juicio definitivo.
 
-En los flujos observados, un proyecto destaca como outlier cuando:
+En ProPM Agent, un proyecto destaca como outlier cuando:
 
 - una o varias señales son altas;
 - esas señales tienen un peso significativo;
@@ -354,11 +354,11 @@ Puede mostrar:
 - relee las **pruebas**;
 - controla finalmente la **actividad reciente** para entender si la situación sigue activa.
 
-## Cómo se calcula la comparación en la aplicación observada
+## Cómo se calcula la comparación
 
 La vista de Portfolio no es solo un cálculo local estático en el navegador.
 
-Comportamiento observado:
+Comportamiento esperado:
 
 1. la página carga los proyectos accesibles;
 2. preselecciona un primer conjunto utilizable cuando todavía no se ha elegido nada;
@@ -417,6 +417,14 @@ Una regla importante sale del producto:
 - **proyecto** = se autoriza al proyecto a usarla;
 - **gobernanza** = se decide quién puede realmente actuar con esta herramienta.
 
+### Qué permanece centralizado y qué pasa a la configuración del proyecto
+
+| Responsabilidad | Conservado en Administración de la plataforma | Expuesto en Integraciones del proyecto |
+| --- | --- | --- |
+| Configuración técnica | URL del tenant, estrategia de autenticación, claves API, referencias de secretos, scopes y definiciones de fuente o destino | preparación en solo lectura, `health` y razones de bloqueo |
+| Binding operativo | habilitar o deshabilitar el conector/proveedor empresarial y validar la salud técnica | **Bind to project**, **Validate binding** y **Disable** para disponibilidad del proyecto |
+| Guía del usuario | auditoría admin, historial de validación y configuración de alcance tenant | enlaces contextuales como **Open Platform Administration** y **Open Knowledge imports** |
+
 Para el detalle completo por familia de conectores, ver [Conectores e integraciones](./connecteurs-jira-et-sharepoint).
 
 ## Preparación y causas de bloqueo
@@ -451,9 +459,9 @@ Las familias de proveedores visibles en el producto incluyen:
 | Proveedor | Cuándo elegirlo | Qué se debe completar generalmente |
 | --- | --- | --- |
 | **OpenRouter** | cuando se necesita comparar varias familias de modelos a través de un solo conector | Base URL, clave, modelo por defecto |
-| **OpenAI-compatible** | cuando el cliente usa una puerta de enlace o un endpoint compatible | endpoint exacto, auth, clave o secreto, modelo esperado |
-| **OpenAI** | cuando el cliente usa directamente OpenAI | URL, clave o secreto, modelo por defecto |
-| **Azure OpenAI** | cuando el cliente está centrado en Azure y quiere elegir sus despliegues Azure OpenAI | endpoint, versión API, modo de autenticación, nombre de despliegue LLM |
+| **OpenAI-compatible** | cuando tu organización usa una puerta de enlace o un endpoint compatible | endpoint exacto, auth, clave o secreto, modelo esperado |
+| **OpenAI** | cuando tu organización usa directamente OpenAI | URL, clave o secreto, modelo por defecto |
+| **Azure OpenAI** | cuando tu organización está centrada en Azure y quiere elegir sus despliegues Azure OpenAI | endpoint, versión API, modo de autenticación, nombre de despliegue LLM |
 
 ### Cómo leer los estados de un proveedor IA
 
@@ -509,7 +517,7 @@ Un usuario bloqueado no necesariamente tiene un problema de conexión. El bloque
 
 ## Referencias técnicas de la plataforma
 
-La infraestructura Azure observada se basa en:
+La infraestructura Azure del despliegue se basa en:
 
 - Azure Container Apps;
 - Storage;

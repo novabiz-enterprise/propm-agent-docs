@@ -26,7 +26,7 @@ Die folgenden Beobachtungspunkte sind in der Anwendung bestätigt:
 
 ## Schnelle Referenzen nach Situation
 
-| Beobachtete Situation | Oberfläche erster Ebene | Nächster Schritt |
+| Angetroffene Situation | Oberfläche erster Ebene | Nächster Schritt |
 | --- | --- | --- |
 | Anmelde- oder Microsoft-Rückkehr abnormal | [Start](./demarrage.md) | prüfen Entra, Mandant, `redirectUri` und Sitzplätze |
 | Kein Projekt sichtbar nach Anmeldung | **Projekte** / Projekt-Auswahl | **Zugriffskontrolle** oder Hinzufügen des Kontos zum Projekt |
@@ -119,7 +119,7 @@ Der sichtbare Verlauf ist lokal im Browser. Es ist keine zentrale, geteilte Arch
 
 ### Was ist lokal im Browser und was wird in der Plattform geteilt?
 
-Im aktuell beobachteten Zustand gilt:
+Im aktuellen Zustand gilt:
 
 - die **Chat‑Kontinuität** wird lokal gespeichert, pro Paar **Projekt + Agent**, im aktuellen Browser;
 - das **gemerkte aktive Projekt** hängt ebenfalls vom Browser und manchmal von der lokalen Sitzung ab;
@@ -138,7 +138,7 @@ Prüfen Sie zuerst seinen **Geltungsbereich**. Ein Agent mit `Project only` blei
 
 ### Wird der Chatverlauf pro Projekt, pro Agent oder nur im Browser beibehalten?
 
-Die beobachtete Kontinuität ist **lokal im Browser** und an das Paar **Projekt + Agent** gebunden. Sie ist weder global für den gesamten Mandanten noch automatisch zwischen Browsern geteilt.
+Die Kontinuität ist **lokal im Browser** und an das Paar **Projekt + Agent** gebunden. Sie ist weder global für den gesamten Mandanten noch automatisch zwischen Browsern geteilt.
 
 ### Welche Browser oder Berechtigungen sollten für die Spracheingabe zuerst geprüft werden?
 
@@ -152,7 +152,7 @@ Weil diese Funktion vom Browser und seiner Unterstützung für Spracherkennung a
 
 ### Warum wirken **Arbeitsbereich**, **Wissen** oder **KI-Protokoll** leer?
 
-Prüfen Sie zuerst, ob ein **aktives Projekt** vorhanden ist. Im aktuell beobachteten Zustand der Anwendung können diese Oberflächen einen **normalen leeren Zustand** anzeigen, solange kein Projekt ausgewählt ist.
+Prüfen Sie zuerst, ob ein **aktives Projekt** vorhanden ist. In der aktuellen Anwendung können diese Oberflächen einen **normalen leeren Zustand** anzeigen, solange kein Projekt ausgewählt ist.
 
 Wenn bereits ein Projekt aktiv ist, unterscheiden Sie danach zwischen einem normalen leeren Zustand und einem tatsächlichen Fehlen von Daten: neues Projekt, kein Run, kein Dokument, kein Artefakt oder aktiver Filter.
 
@@ -163,7 +163,7 @@ Die häufigsten Ursachen sind:
 - es wurde noch kein **Artefakt** oder **PM-Dokument** erstellt;
 - der Run blieb auf der Stufe der **strukturierten Ausgabe**;
 - das falsche Projekt oder ein Filter verbirgt die Zeilen;
-- die Umgebung enthält nicht dieselben Demo-Daten wie andere Screenshots oder Tests.
+- die Umgebung enthält nicht dieselben Beispieldaten wie andere Screenshots oder Tests.
 
 
 ### Warum ist ein Dokument in der Liste sichtbar, aber noch nicht auffindbar?
@@ -246,7 +246,7 @@ Diese drei Aktionen sind nicht austauschbar.
 
 ### Warum bleibt ein Benachrichtigungsentwurf `held` oder geht nie zu einem externen Kanal?
 
-Im beobachteten Interface ist `in_app` der direkteste Pfad. Externe Kanäle können in der **held / draft** Haltung bleiben, bis die verwaltete Verbreitung, die Richtlinie, der Connector oder die Genehmigung erfüllt sind. Folgen Sie der Kette in [Governance, Entscheidungen und Aktionen](./gouvernance-decisions-et-actions.md): Signal, möglicher Digest, Entwurf, Richtlinie, Connector, dann Genehmigung.
+In der Oberfläche ist `in_app` der direkteste Pfad. Externe Kanäle können in der **held / draft** Haltung bleiben, bis die verwaltete Verbreitung, die Richtlinie, der Connector oder die Genehmigung erfüllt sind. Folgen Sie der Kette in [Governance, Entscheidungen und Aktionen](./gouvernance-decisions-et-actions.md): Signal, möglicher Digest, Entwurf, Richtlinie, Connector, dann Genehmigung.
 
 ### Warum bleibt eine Aktion `pending approval` oder `approved` ohne sichtbare Ausführung?
 
@@ -261,7 +261,7 @@ Ein technisches Plattformdefinition reicht nicht aus. Es muss noch ein gültiges
 
 ## FAQ — Portfolio und Verwaltung
 
-### Warum stimmen Demo-Daten nicht immer exakt mit der Dokumentation überein?
+### Warum stimmen Beispieldaten nicht immer exakt mit der Dokumentation überein?
 
 Live-Umgebungen können sich unterscheiden. Manche Projekte zeigen nicht immer dieselben seedierten Dokumente, seedierten Berichte oder Suchbeispiele wie in der Dokumentation oder in anderen Tests.
 
@@ -279,7 +279,7 @@ Ein ruhiges Portfolio kann daher aus einer restriktiven Auswahl, fehlenden Nachw
 
 ### Gibt es implizite Standardwerte im Portfolio?
 
-Nein. Die beobachtete Oberfläche bietet vor allem **Standardwerte**, die Aktion **Reset defaults** und gespeicherte **Kohorten**. Die Standardwerte sind ein sicherer Startpunkt, aber kein verpflichtendes Modell. Einige Demos zeigen zusätzlich eine seedierte Kohorte; auch das variiert je nach Umgebung.
+Nein. Die Oberfläche bietet vor allem **Standardwerte**, die Aktion **Reset defaults** und gespeicherte **Kohorten**. Die Standardwerte sind ein sicherer Startpunkt, aber kein verpflichtendes Modell. Einige Umgebungen zeigen zusätzlich eine vorkonfigurierte Kohorte; auch das variiert je nach Umgebung.
 
 ### Wie löse ich einen Sitzplatz oder weise ihn neu zu?
 

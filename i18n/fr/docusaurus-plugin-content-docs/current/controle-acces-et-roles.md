@@ -29,7 +29,7 @@ Les droits conditionnent une grande partie de l’expérience : exécution d’a
 
 ## Créateur du projet : rôle initial et délégation
 
-À la création du projet, le créateur démarre avec le rôle **Propriétaire du projet** et l’ensemble des permissions projet observées. Il sert donc de point de départ administratif : il ouvre le projet, contrôle la configuration initiale et délègue ensuite les rôles utiles aux autres membres.
+À la création du projet, le créateur démarre avec le rôle **Propriétaire du projet** et l’ensemble des permissions projet disponibles. Il sert donc de point de départ administratif : il ouvre le projet, contrôle la configuration initiale et délègue ensuite les rôles utiles aux autres membres.
 
 ### Délégation recommandée
 
@@ -39,15 +39,15 @@ Les droits conditionnent une grande partie de l’expérience : exécution d’a
 4. réservez les rôles personnalisés aux écarts réels de besoin ;
 5. vérifiez ensuite **Politiques de gouvernance** et **Intégrations du projet** pour que les droits correspondent aux usages externes.
 
-### Ce que la documentation observée confirme
+### Ce que la page confirme
 
 - le créateur ne peut pas être retiré depuis cet écran ;
 - le rôle du créateur reste fixe ;
 - un utilisateur ne peut pas s’auto-rétrograder ni s’auto-supprimer depuis cette surface ;
 - la délégation des rôles est confirmée ;
-- le transfert libre du **statut de créateur** n’est pas confirmé par les écrans observés.
+- le transfert libre du **statut de créateur** n’est pas proposé directement dans les écrans d’administration.
 
-## Rôles standards observés
+## Rôles standards
 
 Chaque projet démarre avec des rôles intégrés protégés :
 
@@ -63,7 +63,7 @@ Ces rôles intégrés sont protégés côté serveur et ne peuvent pas être sup
 
 ## Matrice rapide des rôles standards
 
-Les rôles personnalisés peuvent étendre ou réduire ce schéma. Le tableau ci-dessous décrit le **comportement habituel** des rôles standards observés.
+Les rôles personnalisés peuvent étendre ou réduire ce schéma. Le tableau ci-dessous décrit le **comportement habituel** des rôles standards.
 
 | Action courante | Propriétaire du projet | Chef de projet | Contributeur | Lecteur | Auditeur |
 | --- | --- | --- | --- | --- | --- |
@@ -78,7 +78,7 @@ Les rôles personnalisés peuvent étendre ou réduire ce schéma. Le tableau ci
 
 Le produit supporte la création, l’édition et la suppression de **rôles personnalisés** au niveau projet.
 
-### Permissions explicitement observées
+### Permissions disponibles
 
 Les permissions exposées incluent notamment :
 

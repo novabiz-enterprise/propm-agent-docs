@@ -36,7 +36,7 @@ For normal use, you need:
 
 ### Technical administrator prerequisites
 
-The following items are explicitly expected by the observed configuration:
+The following items must be configured correctly:
 
 | Element | Role |
 | --- | --- |
@@ -91,7 +91,7 @@ If everything is correctly configured, you should be able to:
 
 ## Create your first project
 
-The form observed in the application offers the following fields:
+The application form offers the following fields:
 
 - **Project ID**;
 - **Name**;
@@ -113,7 +113,7 @@ The data language influences, in particular:
 
 ## If no project appears
 
-Several screens display an explicit empty state when no project is selected. That is normal. This is notably the case, in the observed state, for **Workspace**, **Knowledge** and **AI Log**.
+Several screens display an explicit empty state when no project is selected. That is normal. This is notably the case, in the interface, for **Workspace**, **Knowledge** and **AI Log**.
 
 In other words, a blank screen on these surfaces does not automatically mean a failure: it may simply indicate that no **active project** is currently defined.
 
@@ -167,7 +167,7 @@ If Microsoft indicates that your account does not exist in the target tenant, it
 
 If the login returns a redirect error, compare the actually published URL with the **Redirect URIs** of the Entra app registration. Each published environment must be listed exactly, without typos.
 
-### `unauthorized_client` or client in the wrong tenant
+### `unauthorized_client` or Entra application in the wrong tenant
 
 This symptom usually indicates that the app registration is not in the correct tenant, or that the deployment uses an incompatible authority for a **single‑tenant** app.
 
@@ -191,7 +191,7 @@ This case often indicates that authentication succeeded but a further check of r
 
 ## Situation, items to note and next page
 
-| Observed situation | Items to note | Next page to open |
+| Encountered situation | Items to note | Next page to open |
 | --- | --- | --- |
 | Microsoft error before returning to the app | exact message, screenshot, account used, actually opened URL | [Getting Started](./demarrage.md), then [Maintenance, support and FAQ](./maintenance-support-faq.md) if doubt persists |
 | Dashboard loaded but availability check useful | **API**, **realtime**, **auth**, latency, test time, current project | [Interface and navigation](./interface-et-navigation.md), then [Maintenance, support and FAQ](./maintenance-support-faq.md) |

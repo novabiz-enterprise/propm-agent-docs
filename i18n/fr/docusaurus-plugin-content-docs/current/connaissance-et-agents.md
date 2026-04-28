@@ -14,7 +14,7 @@ Cette page explique comment téléverser ou importer des documents, relire les m
 
 ## Connaissance : ce que vous pouvez faire
 
-Capacités observées :
+Capacités disponibles :
 
 - recherche dans les contenus projet ;
 - téléversement manuel ;
@@ -125,11 +125,11 @@ Fonctions confirmées :
 
 ## Proactivité de ProPM Agent
 
-La proactivité dans ProPM Agent ne signifie pas qu’un agent agit seul à l’extérieur du projet. Le comportement observé est plus encadré : la plateforme détecte des situations à surveiller, les remonte en **signaux**, peut préparer un **digest**, proposer un **brouillon** ou une **action gouvernée**, puis laisse l’utilisateur ou l’approbateur décider de la suite.
+La proactivité dans ProPM Agent ne signifie pas qu’un agent agit seul à l’extérieur du projet. Le fonctionnement est plus encadré : la plateforme détecte des situations à surveiller, les remonte en **signaux**, peut préparer un **digest**, proposer un **brouillon** ou une **action gouvernée**, puis laisse l’utilisateur ou l’approbateur décider de la suite.
 
 ![Proactivité, digests et actions gouvernées](/img/diagrams/fr/proactivite-et-gouvernance.svg)
 
-### Déclencheurs observés
+### Déclencheurs disponibles
 
 La proactivité peut être alimentée par :
 
@@ -176,7 +176,7 @@ En pratique, recherchez d’abord dans le roster par nom ou par domaine. Privil�
 
 L’interface permet aussi de rechercher dans le roster d’agents pour atteindre plus vite le bon spécialiste.
 
-### Parcours débutant recommandé
+### Parcours recommandé
 
 Pour une première utilisation sans ambiguïté :
 
@@ -199,7 +199,7 @@ Autrement dit, même un agent `All projects` s’exécute encore dans le **proje
 
 ## Des agents vers les Documents PM, DOCX et XLSX
 
-Les agents ne sautent pas directement vers un fichier final diffusé. Le flux observé est plus progressif :
+Les agents ne sautent pas directement vers un fichier final diffusé. Le flux est plus progressif :
 
 1. le chat courant reste d’abord **local au navigateur** ;
 2. l’envoi du message lance un **run** dans le projet actif ;

@@ -9,7 +9,7 @@ description: "Documentación de usuario en español para ProPM Agent, cubriendo 
 >
 > Para lograr la adopción de ProPM Agent en la empresa y aprovechar plenamente la aplicación, se recomienda leer esta guía desde el inicio del proyecto y consultarla durante el despliegue, la configuración de conectores, la gobernanza y el uso diario.
 
-Esta documentación describe **solo** las funciones observadas en la aplicación, en el código, en la configuración de despliegue y en las pruebas automatizadas de ProPM Agent.
+Esta documentación te ayuda a usar ProPM Agent a diario: navegación, proyectos, conocimiento, agentes, gobernanza, informes, administración y despliegue.
 
 Está organizada para dos públicos:
 
@@ -20,7 +20,7 @@ Está organizada para dos públicos:
 
 ## Busco la página correcta rápidamente
 
-| Situación observada | Abrir primero | Luego |
+| Situación encontrada | Abrir primero | Luego |
 | --- | --- | --- |
 | No puedo iniciar sesión | [Inicio](./demarrage.md) | [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) para distinguir inquilino, `redirect URI`, sede o estado de salud |
 | No aparece ningún proyecto | [Inicio](./demarrage.md) | [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md), luego [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) si la adición al proyecto o el rol siguen dudosos |
@@ -103,7 +103,7 @@ A partir de los comportamientos verificados, ProPM Agent organiza el trabajo alr
 8. usas los **conectores** y las **integraciones** solo cuando están validados y vinculados al proyecto;
 9. los administradores pilotan la capa técnica en **Administración de la plataforma**.
 
-## Arquitectura funcional observada
+## Arquitectura funcional
 
 | Dominio | Lo que permite |
 | --- | --- |
@@ -122,7 +122,7 @@ A partir de los comportamientos verificados, ProPM Agent organiza el trabajo alr
 
 ## Lo que distingue la aplicación
 
-Los siguientes elementos son explícitamente visibles en la interfaz, los datos sembrados o las pruebas:
+Los siguientes elementos son explícitamente visibles en la interfaz, los ejemplos precargados:
 
 - **salidas estructuradas** con secciones, pruebas, frescura, confianza y pasos a decidir;
 - **linaje** entre una ejecución, una salida estructurada, un artefacto, una versión de artefacto y un Documento PM;
@@ -142,7 +142,7 @@ Los siguientes elementos son explícitamente visibles en la interfaz, los datos 
 
 ## Capturas de pantalla y diagramas
 
-Las capturas de la aplicación se generaron en el entorno observado. Cuando algunas capturas disponibles mostraban principalmente un estado de carga o datos de demostración incompletos, esta versión en español también incluye **diagramas explicativos** para mantener una lectura utilizable antes de la traducción y publicación final.
+Las capturas y diagramas son referencias visuales. Ilustran las pantallas principales y pueden variar ligeramente según tus datos, permisos y configuración del entorno.
 
 ## Qué permanece local en el navegador y qué se comparte
 
@@ -159,7 +159,7 @@ Utiliza el canal adecuado según la naturaleza de la solicitud:
 
 | Tipo de solicitud | Enviar con prioridad |
 | --- | --- |
-| Soporte técnico | URL del despliegue, proyecto concerniente, situación observada, hora aproximada, `Trace ID` si es visible |
+| Soporte técnico | URL del despliegue, proyecto concerniente, situación encontrada, hora aproximada, `Trace ID` si es visible |
 | Pregunta de acceso, inquilino o identidad | inquilino esperado, cuenta usada, URL realmente abierta, mensaje de Microsoft o captura de pantalla |
 | Pregunta comercial o suscripción | contexto de la cuenta, plan concerniente, número de sedes o necesidad de capacidad |
 

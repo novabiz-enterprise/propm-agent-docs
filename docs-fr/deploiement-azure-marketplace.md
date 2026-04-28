@@ -8,7 +8,7 @@ description: Déployer ProPM Agent depuis Azure Marketplace, choisir le fourniss
 
 ## Objectif
 
-Cette page explique comment déployer **ProPM Agent** depuis **Azure Marketplace**, puis comment terminer proprement la mise en service côté client.
+Cette page explique comment déployer **ProPM Agent** depuis **Azure Marketplace**, puis comment terminer proprement la mise en service de votre environnement.
 
 Le point essentiel à retenir est simple :
 
@@ -104,10 +104,10 @@ Le champ **LLM Provider** ne sert pas uniquement à Azure OpenAI. Il permet de c
 
 | Fournisseur IA | Quand le choisir | Avantage principal | Ce que vous décidez pendant le déploiement | Ce que vous terminez ensuite dans l’administration |
 | --- | --- | --- | --- | --- |
-| **Azure OpenAI** | si l’environnement client est déjà centré sur Azure, Entra, réseau privé et gouvernance Microsoft | intégration naturelle à l’écosystème Azure | vous choisissez Azure OpenAI comme fournisseur cible | vous renseignez l’endpoint, la version API, le mode d’authentification et surtout le **LLM deployment name** |
-| **OpenAI** | si le client veut utiliser directement la plateforme OpenAI | parcours simple et direct | vous choisissez OpenAI comme fournisseur cible | vous complétez l’URL utilisée, la clé ou la référence de secret, le modèle par défaut, puis vous validez et activez |
-| **OpenRouter** | si le client veut comparer plusieurs familles de modèles via un point d’entrée unique | un seul raccordement pour plusieurs modèles et scénarios de routage | vous choisissez OpenRouter comme fournisseur cible | vous complétez la Base URL, la clé et le modèle par défaut, puis vous validez et activez |
-| **OpenAI-compatible** | si le client utilise une gateway partenaire, un endpoint d’entreprise ou un runtime compatible | permet de raccorder une implémentation compatible sans changer le produit | vous choisissez OpenAI-compatible comme fournisseur cible | vous complétez l’endpoint exact, l’authentification et le modèle ou déploiement attendu |
+| **Azure OpenAI** | si votre environnement est déjà centré sur Azure, Entra, réseau privé et gouvernance Microsoft | intégration naturelle à l’écosystème Azure | vous choisissez Azure OpenAI comme fournisseur cible | vous renseignez l’endpoint, la version API, le mode d’authentification et surtout le **LLM deployment name** |
+| **OpenAI** | si votre organisation veut utiliser directement la plateforme OpenAI | parcours simple et direct | vous choisissez OpenAI comme fournisseur cible | vous complétez l’URL utilisée, la clé ou la référence de secret, le modèle par défaut, puis vous validez et activez |
+| **OpenRouter** | si votre organisation veut comparer plusieurs familles de modèles via un point d’entrée unique | un seul raccordement pour plusieurs modèles et scénarios de routage | vous choisissez OpenRouter comme fournisseur cible | vous complétez la Base URL, la clé et le modèle par défaut, puis vous validez et activez |
+| **OpenAI-compatible** | si votre organisation utilise une gateway partenaire, un endpoint d’entreprise ou un runtime compatible | permet de raccorder une implémentation compatible sans changer le produit | vous choisissez OpenAI-compatible comme fournisseur cible | vous complétez l’endpoint exact, l’authentification et le modèle ou déploiement attendu |
 
 ### Règle simple à retenir
 
@@ -132,13 +132,13 @@ En revanche, l’utilisateur final ne doit pas avoir à comprendre toute la méc
 
 ## Cas 1 — **Azure OpenAI**
 
-La capture ci-dessous montre le comportement observé quand **LLM Provider** est réglé sur **Azure OpenAI**.
+La capture ci-dessous montre le comportement quand **LLM Provider** est réglé sur **Azure OpenAI**.
 
 ![Sélection Azure OpenAI avec indication de configuration ultérieure dans l’administration](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed.png)
 
 ### Quand ce choix est pertinent
 
-Choisissez **Azure OpenAI** lorsque le client :
+Choisissez **Azure OpenAI** lorsque votre organisation :
 
 - travaille déjà majoritairement dans Azure ;
 - souhaite un cadrage fort autour d’**Entra**, du réseau et de la gouvernance Microsoft ;
@@ -174,7 +174,7 @@ Si un administrateur sélectionne volontairement une génération GPT inférieur
 
 ### Quand ce choix est pertinent
 
-Choisissez **OpenAI** lorsque le client veut utiliser directement les API OpenAI, sans passer par Azure OpenAI ni par une gateway intermédiaire.
+Choisissez **OpenAI** lorsque votre organisation veut utiliser directement les API OpenAI, sans passer par Azure OpenAI ni par une gateway intermédiaire.
 
 ### Avantages pratiques
 
@@ -195,7 +195,7 @@ Dans **Paramètres du fournisseur IA**, complétez ensuite :
 - la **clé API** ou la **référence de secret** ;
 - la séquence **Save → Validate → Test → Activate**.
 
-### Impact côté client
+### Impact côté environnement utilisateur
 
 L’utilisateur final n’a pas besoin de voir ces réglages. Ce qui compte pour lui est que l’administrateur ait bien confirmé la connectivité et le modèle réellement exploité.
 
@@ -203,7 +203,7 @@ L’utilisateur final n’a pas besoin de voir ces réglages. Ce qui compte pour
 
 ### Quand ce choix est pertinent
 
-Choisissez **OpenRouter** lorsque le client veut accéder à plusieurs familles de modèles via **un point d’entrée unique**, par exemple pour comparer les résultats ou ajuster le routage plus facilement.
+Choisissez **OpenRouter** lorsque votre organisation veut accéder à plusieurs familles de modèles via **un point d’entrée unique**, par exemple pour comparer les résultats ou ajuster le routage plus facilement.
 
 ### Avantages pratiques
 
@@ -226,13 +226,13 @@ Dans **Paramètres du fournisseur IA**, complétez ensuite :
 
 ### Exemple simple
 
-Un client veut démarrer vite, comparer plusieurs modèles puis stabiliser plus tard son choix. **OpenRouter** est alors un bon candidat pour une première phase de cadrage.
+Votre organisation veut démarrer vite, comparer plusieurs modèles puis stabiliser plus tard son choix. **OpenRouter** est alors un bon candidat pour une première phase de cadrage.
 
 ## Cas 4 — **OpenAI-compatible**
 
 ### Quand ce choix est pertinent
 
-Choisissez **OpenAI-compatible** lorsque le client n’utilise ni OpenAI direct ni Azure OpenAI, mais un **endpoint compatible**, par exemple :
+Choisissez **OpenAI-compatible** lorsque votre organisation n’utilise ni OpenAI direct ni Azure OpenAI, mais un **endpoint compatible**, par exemple :
 
 - une gateway d’entreprise ;
 - une solution partenaire ;
@@ -241,7 +241,7 @@ Choisissez **OpenAI-compatible** lorsque le client n’utilise ni OpenAI direct 
 ### Avantages pratiques
 
 - permet de raccorder un fournisseur compatible sans modifier ProPM Agent ;
-- utile quand l’architecture du client impose un point d’entrée IA spécifique ;
+- utile quand l’architecture de votre organisation impose un point d’entrée IA spécifique ;
 - bon choix pour un tenant qui veut garder une couche de contrôle ou de routage interne.
 
 ### Ce que vous décidez pendant le déploiement
@@ -328,7 +328,7 @@ Après publication, réalisez au minimum :
 - un **Save → Validate → Test → Activate** sur le fournisseur retenu si ce n’est pas déjà fait ;
 - un contrôle de **Journal IA** pour confirmer le fournisseur effectif et la famille de modèle utilisés.
 
-## Informations à transmettre à l’équipe cliente
+## Informations à transmettre à l’équipe d’administration
 
 Une fois la plateforme validée techniquement, transmettez au minimum :
 

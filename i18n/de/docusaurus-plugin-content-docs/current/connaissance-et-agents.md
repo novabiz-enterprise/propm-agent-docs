@@ -14,7 +14,7 @@ Diese Seite erklärt, wie man Dokumente hochlädt oder importiert, die in **Wiss
 
 ## Wissen: Was Sie tun können
 
-Beobachtete Fähigkeiten:
+Verfügbare Fähigkeiten:
 
 - Suche in den Projektinhalten;
 - Manuelles Hochladen;
@@ -125,11 +125,11 @@ Bestätigte Funktionen:
 
 ## Proaktivität von ProPM Agent
 
-Proaktivität in ProPM Agent bedeutet nicht, dass ein Agent außerhalb des Projekts allein handelt. Das beobachtete Verhalten ist stärker geregelt: die Plattform erkennt zu überwachende Situationen, meldet sie als **Signale**, kann einen **Digest** vorbereiten, einen **Entwurf** oder eine **gesteuerte Aktion** vorschlagen und lässt den Benutzer oder Genehmiger die weitere Vorgehensweise entscheiden.
+Proaktivität in ProPM Agent bedeutet nicht, dass ein Agent außerhalb des Projekts allein handelt. Das Verhalten ist stärker geregelt: die Plattform erkennt zu überwachende Situationen, meldet sie als **Signale**, kann einen **Digest** vorbereiten, einen **Entwurf** oder eine **gesteuerte Aktion** vorschlagen und lässt den Benutzer oder Genehmiger die weitere Vorgehensweise entscheiden.
 
 ![Proaktivität, Digests und gesteuerte Aktionen](/img/diagrams/de/proactivite-et-gouvernance.svg)
 
-### Beobachtete Auslöser
+### Verfügbare Auslöser
 
 Proaktivität kann durch folgende Faktoren ausgelöst werden:
 
@@ -176,7 +176,7 @@ In der Praxis suchen Sie im Roster zuerst nach Name oder Domäne. Bevorzugen Sie
 
 Die Oberfläche ermöglicht auch die Suche im Agenten-Roster, um schneller den richtigen Spezialisten zu finden.
 
-### Empfohlener Anfängerpfad
+### Empfohlener Pfad
 
 Für eine erste Nutzung ohne Mehrdeutigkeit:
 
@@ -199,7 +199,7 @@ Auch ein Agent mit `All projects` läuft weiterhin im **aktiven Projekt**, sobal
 
 ## Vom browserlokalen Chat zu PM-Dokumenten, DOCX und XLSX
 
-Agenten springen nicht direkt zu einer final verteilten Datei. Der beobachtete Ablauf ist stufenweise:
+Agenten springen nicht direkt zu einer final verteilten Datei. Der Ablauf ist stufenweise:
 
 1. der aktuelle Chat bleibt zunächst **lokal im Browser**;
 2. das Senden der Nachricht startet einen **Run** im aktiven Projekt;
@@ -279,7 +279,7 @@ Die Erstellung von benutzerdefinierten Agenten hängt vom Berechtigungsniveau ab
 
 ## Sprachsteuerung in Agenten
 
-Diese Dokumentation beschreibt keinen separaten **Sprach**-Eingangspunkt im **Arbeitsbereich**. Wenn eine Sprachsteuerung noch verfügbar ist, ist sie auf die **Agenten** beschränkt und hängt explizit von der Browserunterstützung der Spracherkennungs-APIs ab.
+Diese Seite beschreibt keinen separaten **Sprach**-Eingangspunkt im **Arbeitsbereich**. Wenn eine Sprachsteuerung noch verfügbar ist, ist sie auf die **Agenten** beschränkt und hängt explizit von der Browserunterstützung der Spracherkennungs-APIs ab.
 
 Wenn die Sprachsteuerung nicht verfügbar ist:
 

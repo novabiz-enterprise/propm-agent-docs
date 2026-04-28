@@ -14,7 +14,7 @@ Cette page explique comment interpréter une **sortie structurée** dans ProPM A
 
 ## Pourquoi c’est important
 
-ProPM Agent ne renvoie pas seulement un texte libre. Les runs observés peuvent exposer en plus :
+ProPM Agent ne renvoie pas seulement un texte libre. Les runs peuvent exposer en plus :
 
 - un **résumé** ;
 - des **findings** ;
@@ -151,7 +151,7 @@ Ces champs sont particulièrement utiles quand vous devez rapprocher un run, un 
 
 ## Quand transformer la sortie en artefact
 
-Le chemin normal observé est :
+Le chemin normal est :
 
 1. question projet ;
 2. réponse structurée ;

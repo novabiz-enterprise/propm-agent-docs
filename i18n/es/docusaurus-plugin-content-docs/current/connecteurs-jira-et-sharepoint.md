@@ -18,7 +18,7 @@ El objetivo es responder a tres preguntas simples:
 2. **¿Dónde se ve en ProPM Agent?**
 3. **¿Cómo se pasa de un conector declarado a uno realmente utilizable?**
 
-## Para un principiante: ¿qué es un conector en ProPM Agent?
+## Entender un conector en ProPM Agent
 
 Un conector es un **puente controlado** entre ProPM Agent y otra herramienta de la empresa.
 
@@ -70,59 +70,59 @@ Cualquiera que sea el conector, el recorrido lógico es siempre el mismo:
 
 Los conectores de ejecución sirven para **enviar una acción** desde ProPM Agent a una herramienta externa.
 
-### Tabla completa de conectores de ejecución
+La pantalla **Integraciones del proyecto** muestra estos conectores de ejecución habilitados como disponibles para vincular cuando aún no están asociados al proyecto.
 
-| Conector | Utilidad principal | Ventaja principal | Integración típica en ProPM Agent |
-| --- | --- | --- | --- |
-| **Jira** | crear o actualizar tickets, comentarios y seguimientos de entrega | muy útil para formalizar un bloqueo o una acción de seguimiento | preparado en **Administration de la plateforme**, expuesto en **Intégrations du projet**, usado en **Actions & approbations** |
-| **Azure DevOps** | crear o actualizar work items y seguir la entrega | buena opción para equipos ya organizados alrededor de Boards y sprints | misma lógica que Jira, con integración a nivel de proyecto y archivo de acciones |
-| **GitHub** | crear issues o alimentar flujos de repositorio | práctico para enlazar un tema de proyecto a un backlog técnico | visible como conector de ejecución, gobernado por proyecto antes de uso |
-| **GitLab** | gestionar issues, merge requests y handoffs DevSecOps | útil para organizaciones que ya operan en GitLab | conectado a la plataforma y luego usado para acciones gobernadas |
-| **ServiceNow** | crear tickets de servicio, soporte o aprobación | muy útil cuando la salida del proyecto debe entrar en un flujo ITSM | conectado al proyecto como salida controlada hacia procesos de servicio |
-| **Monday.com** | sincronizar planes y tableros de equipo | útil para equipos que pilotan la entrega en Monday.com | conector de ejecución gobernado disponible una vez la definición técnica esté lista |
-| **Asana** | crear o actualizar tareas y responsables | práctico para el seguimiento de acciones ligeras y distribuidas | expuesto al proyecto como herramienta de seguimiento de acción externa |
-| **ClickUp** | enlazar listas, tareas y estados de trabajo | útil para centralizar tareas de equipo en ClickUp | integrado como salida de acción gobernada |
-| **Wrike** | pilotar tareas, validaciones y planes de trabajo | pertinente para flujos empresariales con coordinación y aprobación | usado como conector de ejecución una vez abierto al proyecto |
-| **Microsoft Teams** | enviar una notificación o recordatorio en Teams | práctico para difundir rápidamente una decisión o alerta | aparece en **Actions & approbations** para mensajes gobernados |
-| **Slack** | enviar una actualización o solicitud de aprobación | útil para organizaciones que colaboran principalmente en Slack | misma lógica que Teams con control por política y permisos |
-| **Outlook** | enviar un correo o recordatorio gobernado | útil para comunicaciones formales a destinatarios específicos | usado en **Actions & approbations** con control de destinatarios |
-| **SharePoint publish** | publicar un artefacto o documento revisado en SharePoint | muy útil para difundir un entregable validado a una biblioteca objetivo | ligado a un destino de artefacto y luego pilotado por **Actions & approbations** |
-| **Notion** | actualizar espacios de notas o trabajo | útil cuando el equipo mantiene notas operativas en Notion | conectado como salida gobernada para alimentar un espacio compartido |
-| **Trello** | crear o seguir tarjetas | práctico para equipos que usan un backlog simple y ligero | integrado como salida de acción hacia tableros Trello |
-| **Webhook** | llamar a una herramienta específica de la empresa | muy flexible para necesidades a medida | usado como salida gobernada hacia un sistema externo o interno |
+### Catálogo actual de conectores de ejecución
+
+| Conector en la interfaz | Utilidad principal | Acción típica del proyecto |
+| --- | --- | --- |
+| **Asta Powerproject schedule sync** | sincronizar cronogramas y baselines empresariales | vincular cuando las actualizaciones de planificación deben pasar por un canal de proyecto gobernado |
+| **Azure DevOps delivery project** | crear o actualizar work items y seguir la entrega | vincular para equipos que usan Boards, sprints o backlogs de entrega |
+| **Jira delivery workspace** | crear o actualizar issues y seguimiento de entrega | vincular cuando riesgos, bloqueos o decisiones deben convertirse en tickets Jira gobernados |
+| **Microsoft Project schedule sync** | sincronizar cronogramas de Microsoft Project | vincular cuando el plan maestro se gestiona en Microsoft Project |
+| **Microsoft Teams collaboration** | enviar mensajes colaborativos y notificaciones de aprobación gobernadas | vincular para notificaciones de equipo controladas |
+| **Outlook executive notifications** | enviar correos o recordatorios gobernados a stakeholders | vincular para comunicaciones formales a destinatarios identificados |
+| **SharePoint publication library** | publicar artefactos revisados en una biblioteca SharePoint | vincular cuando entregables PM aprobados deben distribuirse por SharePoint |
+| **Smartsheet portfolio workspace** | actualizar hojas y datos de portafolio | vincular cuando el seguimiento de portafolio se gestiona en Smartsheet |
+| **Webhook event delivery** | llamar a un endpoint empresarial o interno específico | vincular para automatización posterior personalizada |
+| **Wrike delivery workspace** | actualizar tareas, responsables y coordinación de entrega | vincular cuando Wrike soporta el trabajo operativo |
 
 ## Proveedores de ingestión visibles
 
-Los proveedores de ingestión sirven para **hacer entrar contenido** en ProPM Agent para enriquecer la **Connaissance**.
+Los proveedores de ingestión sirven para **hacer entrar contenido** en ProPM Agent para enriquecer el **Conocimiento**.
 
-### Tabla completa de proveedores de ingestión
+La pantalla del proyecto separa los proveedores ya vinculados de los proveedores **Available to bind**. Los contadores varían según el tenant, pero la pantalla distingue bindings saludables de entradas del catálogo que aún necesitan binding de proyecto o configuración de plataforma.
 
-| Proveedor | Utilidad principal | Ventaja principal | Integración típica en ProPM Agent |
+### Catálogo actual de proveedores de ingestión
+
+| Proveedor en la interfaz | Modo o fuente mostrada | Utilidad principal | Nota de preparación |
 | --- | --- | --- | --- |
-| **SharePoint** | importar documentos, listas y pruebas Microsoft 365 | muy útil para recuperar documentos de referencia ya existentes | preparado a nivel de plataforma y luego usado en **Connaissance** y **Intégrations du projet** |
-| **Confluence** | importar páginas wiki, notas y bases de conocimiento | práctico para recuperar documentación de trabajo | alimenta la **Connaissance** con contenidos textuales y estructurados |
-| **Jira** | importar issues, comentarios e historial de entrega | acerca el contexto operativo del proyecto y el backlog | usado como fuente de contexto de proyecto en **Connaissance** |
-| **Azure DevOps** | importar work items, elementos de sprint y artefactos de entrega | útil para enlazar la gestión de proyecto y la entrega con herramientas | enriquece la conocimiento con información de Boards / sprint |
-| **Google Drive** | indexar archivos y carpetas compartidas | útil para organizaciones Google Workspace | permite integrar archivos de trabajo en la conocimiento |
-| **OneDrive** | importar archivos personales o de equipo | práctico para recuperar documentos Microsoft 365 fuera de SharePoint | alimenta la conocimiento a partir de espacios OneDrive |
-| **Box** | conectar repositorios documentales corporativos | útil en entornos que estandarizan su gestión documental en Box | sirve como fuente de importación a la conocimiento |
-| **Dropbox** | importar carpetas y contenidos compartidos | práctico si la organización sigue almacenando contenidos en Dropbox | provee fuentes documentales a la conocimiento |
-| **Notion** | indexar espacios, páginas y notas operativas | muy útil cuando el conocimiento del proyecto está disperso en páginas Notion | alimenta la conocimiento con páginas y notas estructuradas |
-| **Amazon S3** | importar archivos o artefactos desde buckets | útil para recuperar entregables generados o archivados en S3 | fuente de ingestión para documentos y artefactos |
-| **Upload manual** | cargar directamente archivos en ProPM Agent | ideal para iniciar rápidamente sin depender de un conector externo | el equipo carga él mismo los archivos útiles en la conocimiento |
-| **Webhook** | recibir contenido desde un flujo empresarial a medida | muy flexible cuando la herramienta fuente no tiene conector estándar | sirve como entrada personalizada a la conocimiento |
+| **Smartsheet sheet import** | Smartsheet · Scheduled | refrescar hojas de portafolio en Conocimiento | puede aparecer vinculado y **Healthy** |
+| **Azure Data Factory evidence pipeline** | ADF · Pipeline | importar evidencias, RAID y refrescos de reporting | puede aparecer vinculado y **Healthy** |
+| **Asta Powerproject schedule import** | Asta Powerproject Import · Manual | importar snapshots y baselines de cronograma | disponible para vincular cuando esté **Ready** |
+| **Azure Blob document ingest** | Blob Storage · Scheduled | ingerir entregas documentales gobernadas y refrescos de archivo | disponible para vincular cuando esté **Ready** |
+| **Confluence knowledge import** | Confluence · Manual | importar páginas wiki y conocimiento procedimental | puede mostrar **Not configured** hasta completar la fuente |
+| **Jira issue import** | Jira · Scheduled | importar issues, bloqueos y evidencias de seguimiento | puede mostrar **Not configured** hasta completar la fuente |
+| **Microsoft Project schedule import** | MS Project Import · Manual | importar baselines y actualizaciones de cronograma | disponible para vincular cuando esté **Ready** |
+| **SFTP document intake** | SFTP · Scheduled | importar entregas de documentos de terceros | puede mostrar **Not configured** hasta completar host, carpeta y credenciales |
+| **SharePoint knowledge import** | SharePoint · Manual | importar bibliotecas de conocimiento y artefactos de reporting | disponible para vincular tras configurar sitio y biblioteca |
+| **Wrike task import** | Wrike · Scheduled | importar tareas, responsables y evidencias de workflow | disponible para vincular tras configurar el espacio |
 
 ## Conectores presentes en varios roles
 
-Algunos nombres aparecen en varios lugares del producto. Es normal.
+Algunos nombres aparecen en varios lugares del producto. Es normal: el proveedor de importación y el conector de ejecución siguen siendo bindings separados.
 
-| Familia | ¿Puede servir para importar? | ¿Puede servir para ejecutar una acción? | Lectura correcta |
+| Familia | Rol de importación | Rol de ejecución | Lectura correcta |
 | --- | --- | --- | --- |
-| **SharePoint** | sí | sí, vía **SharePoint publish** | se puede leer documentos y publicar un artefacto revisado |
-| **Jira** | sí | sí | se puede importar contexto Jira y luego crear un ticket gobernado |
-| **Azure DevOps** | sí | sí | se puede importar work items y luego crear o actualizar un work item |
-| **Notion** | sí | sí según la configuración | se puede leer páginas y también alimentar un espacio compartido |
-| **Webhook** | sí | sí | puede servir de entrada o salida según el flujo configurado |
+| **SharePoint** | **SharePoint knowledge import** | **SharePoint publication library** | puede leer documentos y publicar un artefacto revisado, pero cada rol tiene su propio setup y binding |
+| **Jira** | **Jira issue import** | **Jira delivery workspace** | puede importar contexto Jira y luego crear un ticket gobernado si el conector de ejecución también está vinculado |
+| **Microsoft Project** | **Microsoft Project schedule import** | **Microsoft Project schedule sync** | puede llevar evidencias de planificación a Conocimiento y sincronizar cambios de cronograma gobernados |
+| **Smartsheet** | **Smartsheet sheet import** | **Smartsheet portfolio workspace** | puede refrescar evidencias de portafolio y actualizar Smartsheet como destino de ejecución |
+| **Wrike** | **Wrike task import** | **Wrike delivery workspace** | puede importar evidencias de tareas operativas y actualizar Wrike mediante acciones gobernadas |
+| **Asta Powerproject** | **Asta Powerproject schedule import** | **Asta Powerproject schedule sync** | puede importar snapshots de cronograma y sincronizar cambios controlados |
+| **Azure DevOps** | — | **Azure DevOps delivery project** | disponible como conector de ejecución; cualquier ruta de importación debe validarse por separado si está disponible |
+| **ADF / Blob / Confluence / SFTP** | solo proveedor de ingestión | — | enriquecen el **Conocimiento** y no se convierten automáticamente en destinos de acción |
+| **Teams / Outlook / Webhook** | — | solo conector de ejecución | envían mensajes o eventos gobernados y no importan automáticamente Conocimiento |
 
 ## Ejemplo 1 — SharePoint de extremo a extremo
 
@@ -193,25 +193,25 @@ SharePoint es uno de los mejores ejemplos para comprender la lógica completa.
 
 La difusión no sale como un mensaje libre: permanece **gobernada, revisada y trazable**.
 
-## Ejemplo 4 — Webhook para una herramienta específica de la empresa
+## Ejemplo 4 — Webhook event delivery
 
 ### Cuándo usarlo
 
-Usa **Webhook** cuando la empresa quiere enviar o recibir datos desde una herramienta que no tiene conector dedicado.
+Usa **Webhook event delivery** cuando ProPM Agent debe llamar a un endpoint interno o de terceros específico después de una decisión gobernada.
 
 ### Integración con ProPM Agent
 
-- como **ingestión**, un webhook puede empujar contenido a la conocimiento ;
-- como **ejecución**, un webhook puede enviar una acción a una herramienta externa ;
-- en ambos casos, es preferible tratarlo como un flujo **gobernado**, no como una salida libre.
+- en el catálogo actual, Webhook es un **conector de ejecución**;
+- vincúlalo al proyecto solo después de validar el endpoint de plataforma y el `health`;
+- si más adelante se añade ingestión webhook entrante, trátala como un proveedor de ingestión separado, con su propia validación y binding de proyecto.
 
 ### Ventaja principal
 
-El webhook aporta flexibilidad sin obligar al producto a conocer nativamente todas las herramientas corporativas.
+Webhook delivery aporta flexibilidad para automatizaciones personalizadas sin convertir el flujo en una salida no controlada.
 
 ## Cómo reconocer que un conector está realmente listo
 
-Para un usuario principiante, hay que distinguir tres estados simples:
+Para leer correctamente el estado de un conector, distingue tres estados simples:
 
 | Situación | Qué significa |
 | --- | --- |
@@ -230,7 +230,7 @@ Un conector puede ser visible pero no utilizables si:
 - el binding del proyecto aún no se abrió ;
 - el destino de artefacto esperado no está configurado.
 
-## Lectura simple para un usuario principiante
+## Lectura simple
 
 | Si observas… | Verifica primero… |
 | --- | --- |
@@ -240,7 +240,7 @@ Un conector puede ser visible pero no utilizables si:
 | la importación se propone pero no devuelve nada | proveedor de ingestión, fuente realmente accesible y frescura de datos |
 | la publicación SharePoint no concluye | destino de artefacto, política, aprobación y conector **SharePoint publish** |
 
-## Flujo recomendado para un cliente
+## Flujo recomendado para tu equipo
 
 1. identificar las herramientas realmente útiles para el proyecto ;
 2. preparar los conectores en **Administration de la plateforme** ;

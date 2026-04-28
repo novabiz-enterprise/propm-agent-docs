@@ -8,7 +8,7 @@ description: ProPM Agent über Azure Marketplace bereitstellen, den KI-Anbieter 
 
 ## Ziel
 
-Diese Seite erklärt, wie man **ProPM Agent** aus dem **Azure Marketplace** bereitstellt und anschließend die Inbetriebnahme auf Kundenseite sauber abschließt.
+Diese Seite erklärt, wie man **ProPM Agent** aus dem **Azure Marketplace** bereitstellt und anschließend die Inbetriebnahme Ihrer Umgebung sauber abschließt.
 
 Der wesentliche Punkt ist einfach:
 
@@ -104,10 +104,10 @@ Das Feld **LLM Provider** dient nicht nur für Azure OpenAI. Es ermöglicht die 
 
 | KI-Anbieter | Wann wählen | Hauptvorteil | Was Sie während der Bereitstellung entscheiden | Was Sie anschließend in der Verwaltung abschließen |
 | --- | --- | --- | --- | --- |
-| **Azure OpenAI** | wenn die Kundengruppe bereits stark in Azure, Entra, Netzwerk und Microsoft‑Governance ist | natürliche Integration in das Azure‑Ökosystem | wählen Sie Azure OpenAI als Zielanbieter | geben Sie den Endpunkt, die API‑Version, das Authentifizierungs‑Modell und insbesondere den **LLM deployment name** ein |
-| **OpenAI** | wenn der Kunde die OpenAI-Plattform direkt nutzen möchte | einfacher, direkter Ablauf | wählen Sie OpenAI als Zielanbieter | ergänzen Sie die verwendete URL, den Schlüssel oder die Secret‑Referenz, das Standardmodell und validieren und aktivieren |
-| **OpenRouter** | wenn der Kunde mehrere Modellfamilien über einen einzigen Einstiegspunkt vergleichen möchte | ein einziger Anschluss für mehrere Modelle und Routings | wählen Sie OpenRouter als Zielanbieter | ergänzen Sie die Basis‑URL, den API‑Schlüssel oder die Secret‑Referenz, das Standardmodell, dann **Save → Validate → Test → Activate** |
-| **OpenAI-compatible** | wenn der Kunde einen kompatiblen Endpoint nutzt, z. B. eine Unternehmens‑Gateway oder ein selbst‑gehostetes Runtime | ermöglicht die Anbindung eines kompatiblen Anbieters ohne Produktänderung | wählen Sie OpenAI-compatible als Zielanbieter | ergänzen Sie die genaue URL, die Authentifizierung und das erwartete Modell oder Deployment |
+| **Azure OpenAI** | wenn Ihre Organisation bereits stark auf Azure, Entra, Netzwerk und Microsoft-Governance ausgerichtet ist | natürliche Integration in das Azure‑Ökosystem | wählen Sie Azure OpenAI als Zielanbieter | geben Sie den Endpunkt, die API‑Version, das Authentifizierungs‑Modell und insbesondere den **LLM deployment name** ein |
+| **OpenAI** | wenn Ihre Organisation die OpenAI-Plattform direkt nutzen möchte | einfacher, direkter Ablauf | wählen Sie OpenAI als Zielanbieter | ergänzen Sie die verwendete URL, den Schlüssel oder die Secret‑Referenz, das Standardmodell und validieren und aktivieren |
+| **OpenRouter** | wenn Ihre Organisation mehrere Modellfamilien über einen einzigen Einstiegspunkt vergleichen möchte | ein einziger Anschluss für mehrere Modelle und Routings | wählen Sie OpenRouter als Zielanbieter | ergänzen Sie die Basis‑URL, den API‑Schlüssel oder die Secret‑Referenz, das Standardmodell, dann **Save → Validate → Test → Activate** |
+| **OpenAI-compatible** | wenn Ihre Organisation einen kompatiblen Endpoint nutzt, z. B. eine Unternehmens‑Gateway oder ein selbst‑gehostetes Runtime | ermöglicht die Anbindung eines kompatiblen Anbieters ohne Produktänderung | wählen Sie OpenAI-compatible als Zielanbieter | ergänzen Sie die genaue URL, die Authentifizierung und das erwartete Modell oder Deployment |
 
 ### Einfache Regel zum Behalten
 
@@ -132,13 +132,13 @@ Der Endbenutzer muss jedoch nicht die gesamte Installationsmechanik verstehen. S
 
 ## Fall 1 — Azure OpenAI
 
-Die untenstehende Aufnahme zeigt das beobachtete Verhalten, wenn **LLM Provider** auf **Azure OpenAI** eingestellt ist.
+Die untenstehende Aufnahme zeigt das Verhalten, wenn **LLM Provider** auf **Azure OpenAI** eingestellt ist.
 
 ![Auswahl Azure OpenAI mit Hinweis auf spätere Konfiguration in der Verwaltung](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed.png)
 
 ### Wann diese Wahl sinnvoll ist
 
-Wählen Sie **Azure OpenAI**, wenn der Kunde:
+Wählen Sie **Azure OpenAI**, wenn Ihre Organisation:
 
 - bereits überwiegend in Azure arbeitet;  
 - einen starken Rahmen um **Entra**, Netzwerk und Microsoft‑Governance möchte;  
@@ -174,7 +174,7 @@ Wenn ein Administrator absichtlich eine GPT‑Generation unter **GPT-5** auswäh
 
 ### Wann diese Wahl sinnvoll ist
 
-Wählen Sie **OpenAI**, wenn der Kunde die OpenAI‑APIs direkt nutzen möchte, ohne Azure OpenAI oder eine Zwischen‑Gateway zu verwenden.
+Wählen Sie **OpenAI**, wenn Ihre Organisation die OpenAI-APIs direkt nutzen möchte, ohne Azure OpenAI oder eine Zwischen‑Gateway zu verwenden.
 
 ### Praktische Vorteile
 
@@ -203,7 +203,7 @@ Der Endbenutzer muss diese Einstellungen nicht sehen. Was für ihn zählt, ist, 
 
 ### Wann diese Wahl sinnvoll ist
 
-Wählen Sie **OpenRouter**, wenn der Kunde mehrere Modellfamilien über einen einzigen Einstiegspunkt vergleichen möchte, z. B. um Ergebnisse zu vergleichen oder das Routing leichter anzupassen.
+Wählen Sie **OpenRouter**, wenn Ihre Organisation mehrere Modellfamilien über einen einzigen Einstiegspunkt vergleichen möchte, z. B. um Ergebnisse zu vergleichen oder das Routing leichter anzupassen.
 
 ### Praktische Vorteile
 
@@ -226,13 +226,13 @@ In **KI-Anbieter-Einstellungen** ergänzen Sie anschließend:
 
 ### Einfaches Beispiel
 
-Ein Kunde möchte schnell starten, mehrere Modelle vergleichen und später seine Wahl stabilisieren. **OpenRouter** ist dann ein guter Kandidat für eine erste Phase der Planung.
+Ihre Organisation möchte schnell starten, mehrere Modelle vergleichen und später die Wahl stabilisieren. **OpenRouter** ist dann ein guter Kandidat für eine erste Phase der Planung.
 
 ## Fall 4 — OpenAI-compatible
 
 ### Wann diese Wahl sinnvoll ist
 
-Wählen Sie **OpenAI-compatible**, wenn der Kunde weder OpenAI direkt noch Azure OpenAI nutzt, sondern einen **kompatiblen Endpoint**, z. B.:
+Wählen Sie **OpenAI-compatible**, wenn Ihre Organisation weder OpenAI direkt noch Azure OpenAI nutzt, sondern einen **kompatiblen Endpoint**, z. B.:
 
 - ein Unternehmens‑Gateway;  
 - eine Partner‑Lösung;  
@@ -328,7 +328,7 @@ Nach der Veröffentlichung führen Sie mindestens Folgendes durch:
 - ein **Save → Validate → Test → Activate** des gewählten Anbieters, falls noch nicht erledigt;  
 - eine Kontrolle des **Journal IA** um den tatsächlich genutzten Anbieter und die Modellfamilie zu bestätigen.
 
-## Informationen, die an das Kundenteam weitergegeben werden
+## Informationen für das Administrationsteam
 
 Nach technischer Validierung der Plattform übermitteln Sie mindestens:
 

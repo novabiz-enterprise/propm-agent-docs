@@ -28,7 +28,7 @@ The following observation points are confirmed in the application:
 
 ## Quick references by situation
 
-| Observed situation | First‑level surface | Next step |
+| Encountered situation | First-level surface | Next step |
 | --- | --- | --- |
 | Abnormal Microsoft login or return | [Getting Started](./demarrage.md) | check Entra, tenant, `redirectUri` and seats |
 | No project visible after login | **Projects** / project selector | **Access control** or add account to project |
@@ -91,7 +91,7 @@ This situation does not necessarily indicate an authentication issue. First chec
 
 When the account belongs to a different tenant than the one hosting the application. The account must then be invited to the target tenant, then authorized on the application or via the expected group.
 
-### How to quickly distinguish tenant, redirect URI, Entra client or seat?
+### How to quickly distinguish tenant, redirect URI, Entra application or seat?
 
 Follow this order:
 
@@ -121,7 +121,7 @@ The visible history is local to the browser. It is not a shared central archive.
 
 ### What is local to the browser and what is shared in the platform?
 
-In the currently observed state:
+In the current state:
 
 - **chat continuity** is saved locally, per **project + agent** pair, in the current browser;
 - the **remembered active project** also depends on the browser and sometimes the local session;
@@ -140,7 +140,7 @@ First check its scope. A **Project‑only** agent remains limited to the current
 
 ### Is chat history retained by project, by agent or only by browser?
 
-The observed continuity is local to the browser and tied to the project + agent pair. It is therefore neither global to the entire tenant nor automatically shared between browsers.
+Continuity is local to the browser and tied to the project + agent pair. It is therefore neither global to the entire tenant nor automatically shared between browsers.
 
 ### Which browsers or permissions should be checked first for voice?
 
@@ -165,7 +165,7 @@ The most frequent causes are:
 - no **artifact** or **PM Doc** has been created yet;
 - the run stayed at the **structured output** stage;
 - the wrong project or a filter hides the rows;
-- the environment does not contain the same demo data as other screenshots or tests.
+- the environment does not contain the same sample data as other screenshots or tests.
 
 ### Why is a document visible in the list but not yet searchable?
 
@@ -252,7 +252,7 @@ Reopen contradictory sources, compare snippet, date, provenance and freshness, t
 
 ### Why does a notification draft remain `held` or never go to an external channel?
 
-In the observed interface, `in_app` is the most direct path. External channels may remain in **held / draft** until governed distribution, policy, connector or approval are met. Follow the chain in **Governance, decisions and actions**: signal, possible digest, draft, policy, connector, then approval.
+In the interface, `in_app` is the most direct path. External channels may remain in **held / draft** until governed distribution, policy, connector or approval are met. Follow the chain in **Governance, decisions and actions**: signal, possible digest, draft, policy, connector, then approval.
 
 ### Why does an action remain `pending approval` or `approved` without visible execution?
 
@@ -267,9 +267,9 @@ Because a platform technical definition alone is not enough. You still need a va
 
 ## FAQ — portfolio and administration
 
-### Why does demo data not always match the documentation exactly?
+### Why does sample data not always match the documentation exactly?
 
-Live environments can vary. Some projects do not always expose the same seeded documents, seeded reports or search examples shown in the documentation or in other tests.
+Live environments can vary. Some projects do not always expose the same preloaded documents, preloaded reports or search examples shown in the documentation or in other tests.
 
 ### Why does the portfolio not return any project or outlier?
 
@@ -285,7 +285,7 @@ A quiet portfolio can therefore come from restrictive selection, limited evidenc
 
 ### Are there implicit Portfolio presets?
 
-No. The observed interface mainly provides **default values**, a **Reset defaults** action, and saved **cohorts**. The defaults are a safe starting point, not a mandatory model. Some demos may also show a seeded cohort, but that content varies by environment.
+No. The interface mainly provides **default values**, a **Reset defaults** action, and saved **cohorts**. The defaults are a safe starting point, not a mandatory model. Some environments may also show a preconfigured cohort, with content that varies by available settings.
 
 ### How to release or reassign a seat?
 

@@ -42,7 +42,7 @@ It should therefore not be confused with:
 
 ## Create a project
 
-The observed form contains the following fields:
+The form contains the following fields:
 
 - **Project ID**;
 - **Name**;
@@ -58,7 +58,7 @@ Input recommendations:
 
 ## Project creator: initial rights and delegation
 
-At creation, the **project creator** starts with the role **Project Owner** and all observed project permissions. In practice, this is the person who can open the project, verify the initial configuration and then **delegate roles** to the rest of the team.
+At creation, the **project creator** starts with the role **Project Owner** and all available project permissions. In practice, this is the person who can open the project, verify the initial configuration and then **delegate roles** to the rest of the team.
 
 ### Recommended delegation immediately after creation
 
@@ -71,7 +71,7 @@ At creation, the **project creator** starts with the role **Project Owner** and 
 ### What the platform still protects
 
 - the creator’s entry remains protected;
-- the creator’s role remains fixed in the observed interface;
+- the creator’s role remains fixed in the interface;
 - delegation is done by assigning additional roles, not by removing creator protection;
 - for detailed RBAC, see [Access control and project roles](./controle-acces-et-roles.md).
 
@@ -117,7 +117,7 @@ Use this area to understand **why** an action or import may be available, confir
 
 ## How signals, digests, and drafts arrive
 
-In the observed application, the project signals panel rereads three shared platform flows for the **active project**:
+In the interface, the project signals panel rereads three shared platform flows for the **active project**:
 
 - current **signals**;
 - recent **digests**;
@@ -256,7 +256,24 @@ You can typically read several information families there:
 - **AI runtime transparency**: effective AI provider and deployment-selected provider;
 - **Entitlement posture**: plan, seat, or premium-capability posture visible to the project.
 
-### Explicitly observed blocking causes
+### What the Project integrations screen shows
+
+The screen separates technical readiness from project availability:
+
+- platform setup, project binding, policy, permission, entitlement and health are **separate causes**. A connector can stay visible in read-only mode so the project team understands why it is blocked instead of assuming it is missing;
+- technical setup remains in **Platform Administration**. Project settings managers can bind integrations that are enabled and ready, while tenant URLs, authentication strategy, API keys and secret references stay centrally controlled.
+
+| Area | What you may see | How to act |
+| --- | --- | --- |
+| **Execution Connectors** | a current list that may be empty, plus an **Available to bind** catalog with Asta Powerproject schedule sync, Azure DevOps delivery project, Jira delivery workspace, Microsoft Project schedule sync, Microsoft Teams collaboration, Outlook executive notifications, SharePoint publication library, Smartsheet portfolio workspace, Webhook event delivery and Wrike delivery workspace | use **Bind to project** only for connectors already enabled and ready at platform level |
+| **Ingestion Providers** | visible providers such as **Smartsheet sheet import** and **Azure Data Factory evidence pipeline** marked **Healthy**, plus available providers such as SharePoint knowledge import, Azure Blob document ingest, Confluence knowledge import, Jira issue import, SFTP document intake, Microsoft Project schedule import, Wrike task import and Asta Powerproject schedule import | use **Validate binding** to re-check a bound provider, **Disable** to close it for the project, or **Bind to project** for an approved provider |
+
+Provider cards can show **Ready**, **Healthy** or **Not configured**. **Not configured** means the provider exists in the platform catalog but still needs source, credential or readiness setup before the project can use it.
+
+
+### Blocking causes shown by the product
+
+
 
 A project integration or import option may be blocked due to:
 
@@ -306,7 +323,7 @@ This tab turns a recommendation into a controlled operation.
 
 ### The real states to keep in mind
 
-In the observed interface, the queue and synthesis cards mainly distinguish four canonical readings:
+In the interface, the queue and synthesis cards mainly distinguish four states:
 
 | Visible state | Practical reading |
 | --- | --- |

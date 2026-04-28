@@ -36,7 +36,7 @@ Pour un usage normal, il faut disposer de :
 
 ### Prérequis côté administrateur technique
 
-Les éléments suivants sont explicitement prévus par la configuration observée :
+Les éléments suivants doivent être correctement configurés :
 
 | Élément | Rôle |
 | --- | --- |
@@ -91,7 +91,7 @@ Si tout est correctement configuré, vous devez pouvoir :
 
 ## Créer un premier projet
 
-Le formulaire observé dans l’application propose les champs suivants :
+Le formulaire de l’application propose les champs suivants :
 
 - **ID projet** ;
 - **Nom** ;
@@ -113,7 +113,7 @@ La langue de données influence notamment :
 
 ## Si aucun projet n’apparaît
 
-Plusieurs écrans affichent un état vide explicite lorsqu’aucun projet n’est sélectionné. C’est normal. C’est notamment le cas, dans l’état observé, pour **Espace de travail**, **Connaissance** et **Journal IA**.
+Plusieurs écrans affichent un état vide explicite lorsqu’aucun projet n’est sélectionné. C’est normal. C’est notamment le cas, dans l’interface, pour **Espace de travail**, **Connaissance** et **Journal IA**.
 
 Autrement dit, un écran vide sur ces surfaces ne signifie pas automatiquement une panne : cela peut simplement indiquer qu’aucun **projet actif** n’est encore défini.
 
@@ -167,7 +167,7 @@ Si Microsoft indique que votre compte n’existe pas dans le tenant cible, cela 
 
 Si la connexion renvoie une erreur de redirection, comparez l’URL réellement publiée avec les **Redirect URIs** de l’inscription d’application Entra. Chaque environnement publié doit être listé exactement, sans faute de frappe.
 
-### `unauthorized_client` ou client dans le mauvais tenant
+### `unauthorized_client` ou application Entra dans le mauvais tenant
 
 Ce symptôme indique généralement que l’inscription d’application ne se trouve pas dans le bon tenant, ou que le déploiement utilise une autorité incompatible avec une application **single-tenant**.
 
@@ -191,7 +191,7 @@ Ce cas indique souvent que l’authentification a réussi mais qu’une vérific
 
 ## Situation, éléments à relever et page suivante
 
-| Situation observée | Éléments à relever | Page suivante à ouvrir |
+| Situation rencontrée | Éléments à relever | Page suivante à ouvrir |
 | --- | --- | --- |
 | Erreur Microsoft avant retour dans l’application | message exact, capture d’écran, compte utilisé, URL réellement ouverte | [Démarrage](./demarrage.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) si le doute persiste |
 | Tableau de bord chargé mais vérification de disponibilité utile | états **API**, **realtime**, **auth**, latence, heure du test, projet courant | [Interface et navigation](./interface-et-navigation.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) |

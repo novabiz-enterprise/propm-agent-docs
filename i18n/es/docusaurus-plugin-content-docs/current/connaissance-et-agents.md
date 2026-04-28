@@ -14,7 +14,7 @@ Esta página explica cómo subir o importar documentos, revisar los metadatos vi
 
 ## Conocimiento: lo que puedes hacer
 
-Capacidades observadas:
+Capacidades disponibles:
 
 - búsqueda en los contenidos del proyecto ;
 - carga manual ;
@@ -118,11 +118,11 @@ Funciones confirmadas:
 
 ## Proactividad de ProPM Agent
 
-La proactividad en ProPM Agent no significa que un agente actúe por sí solo fuera del proyecto. El comportamiento observado es más controlado: la plataforma detecta situaciones que conviene vigilar, las presenta como **señales**, puede preparar un **digest**, proponer un **borrador** o una **acción gobernada**, y luego deja al usuario o al aprobador decidir el siguiente paso.
+La proactividad en ProPM Agent no significa que un agente actúe por sí solo fuera del proyecto. El comportamiento es más controlado: la plataforma detecta situaciones que conviene vigilar, las presenta como **señales**, puede preparar un **digest**, proponer un **borrador** o una **acción gobernada**, y luego deja al usuario o al aprobador decidir el siguiente paso.
 
 ![Proactividad, digest y acciones gobernadas](/img/diagrams/es/proactivite-et-gouvernance.svg)
 
-### Disparadores observados
+### Disparadores disponibles
 
 La proactividad puede alimentarse por:
 
@@ -169,7 +169,7 @@ En la práctica, busca primero en la lista de agentes por nombre o por dominio. 
 
 La interfaz también permite buscar en la lista de agentes para encontrar más rápido al especialista adecuado.
 
-### Ruta recomendada para principiantes
+### Ruta recomendada
 
 Para un primer uso sin ambigüedades:
 
@@ -192,7 +192,7 @@ En otras palabras, incluso un agente `All projects` se ejecuta dentro del **proy
 
 ## Del chat local del navegador a los Documentos PM, DOCX y XLSX
 
-Los agentes no saltan directamente a un archivo final difundido. El flujo observado es más progresivo:
+Los agentes no saltan directamente a un archivo final difundido. El flujo es más progresivo:
 
 1. el chat actual permanece primero **local al navegador** ;
 2. al enviar el mensaje se lanza un **run** en el proyecto activo ;

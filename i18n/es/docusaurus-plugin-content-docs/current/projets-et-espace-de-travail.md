@@ -42,7 +42,7 @@ No debe confundirse con:
 
 ## Crear un proyecto
 
-El formulario observado contiene los siguientes campos:
+El formulario contiene los siguientes campos:
 
 - **ID proyecto** ;
 - **Nombre** ;
@@ -58,7 +58,7 @@ Recomendaciones de entrada:
 
 ## Creador del proyecto: derechos iniciales y delegación
 
-Al crear, el **creador del proyecto** inicia con el rol **Propietario del proyecto** y todos los permisos del proyecto observados. En la práctica, es quien puede abrir el proyecto, verificar la configuración inicial y **delegar luego los roles** al resto del equipo.
+Al crear, el **creador del proyecto** inicia con el rol **Propietario del proyecto** y todos los permisos del proyecto disponibles. En la práctica, es quien puede abrir el proyecto, verificar la configuración inicial y **delegar luego los roles** al resto del equipo.
 
 ### Delegación recomendada justo después de la creación
 
@@ -71,7 +71,7 @@ Al crear, el **creador del proyecto** inicia con el rol **Propietario del proyec
 ### Lo que la plataforma sigue protegiendo
 
 - la entrada del **creador** sigue protegida ;
-- el rol del creador sigue fijo en la interfaz observada ;
+- el rol del creador sigue fijo en la interfaz ;
 - la delegación se hace por asignación de roles adicionales, no por eliminación de la protección del creador ;
 - para el detalle RBAC, ver [Control de acceso y roles del proyecto](./controle-acces-et-roles.md).
 
@@ -115,7 +115,7 @@ Utiliza esta zona para entender **por qué** una acción o una importación pued
 
 ## Cómo llegan las señales, los digestos y los borradores
 
-En la aplicación observada, el panel de señales del proyecto relee tres flujos compartidos de la plataforma para el **proyecto activo**:
+En la interfaz, el panel de señales del proyecto relee tres flujos compartidos de la plataforma para el **proyecto activo**:
 
 - las **señales** actuales ;
 - los **digestos** recientes ;
@@ -254,7 +254,21 @@ Suele mostrar varias familias de información:
 - **transparencia del runtime de IA**: proveedor de IA efectivo y proveedor seleccionado en el despliegue ;
 - **postura de `entitlement`**: plan, licencias o capacidades premium visibles para el proyecto.
 
-### Causas de bloqueo observadas de forma explícita
+### Qué muestra la pantalla Integraciones del proyecto
+
+La pantalla separa la preparación técnica de la disponibilidad del proyecto:
+
+- la configuración de plataforma, el `binding` del proyecto, la `policy`, la `permission`, el `entitlement` y el `health` son **causas separadas**. Un conector puede seguir visible en solo lectura para que el equipo entienda por qué está bloqueado, en lugar de asumir que falta;
+- la configuración técnica permanece en **Administración de la plataforma**. Los responsables de configuración del proyecto pueden vincular integraciones habilitadas y listas, mientras que las URL del tenant, la estrategia de autenticación, las claves API y las referencias de secretos permanecen centralizadas.
+
+| Zona | Qué puedes ver | Cómo actuar |
+| --- | --- | --- |
+| **Conectores de ejecución** | una lista actual que puede estar vacía, más un catálogo **Available to bind** con Asta Powerproject schedule sync, Azure DevOps delivery project, Jira delivery workspace, Microsoft Project schedule sync, Microsoft Teams collaboration, Outlook executive notifications, SharePoint publication library, Smartsheet portfolio workspace, Webhook event delivery y Wrike delivery workspace | usa **Bind to project** solo para conectores ya habilitados y listos a nivel de plataforma |
+| **Proveedores de ingestión** | proveedores como **Smartsheet sheet import** y **Azure Data Factory evidence pipeline** marcados **Healthy**, más proveedores disponibles como SharePoint knowledge import, Azure Blob document ingest, Confluence knowledge import, Jira issue import, SFTP document intake, Microsoft Project schedule import, Wrike task import y Asta Powerproject schedule import | usa **Validate binding** para volver a comprobar un proveedor vinculado, **Disable** para cerrarlo para el proyecto o **Bind to project** para un proveedor aprobado |
+
+Las tarjetas de proveedor pueden mostrar **Ready**, **Healthy** o **Not configured**. **Not configured** significa que el proveedor existe en el catálogo de plataforma, pero aún necesita fuente, credenciales o validación de preparación antes de que el proyecto pueda usarlo.
+
+### Causas de bloqueo mostradas por el producto
 
 Una integración del proyecto o una opción de importación puede quedar bloqueada por:
 
@@ -304,7 +318,7 @@ Esta pestaña convierte una recomendación en una operación controlada.
 
 ### Los estados reales que conviene recordar
 
-En la interfaz observada, la cola y las tarjetas de síntesis distinguen sobre todo cuatro lecturas canónicas:
+En la interfaz, la cola y las tarjetas de síntesis distinguen sobre todo cuatro lecturas canónicas:
 
 | Estado visible | Lectura práctica |
 | --- | --- |

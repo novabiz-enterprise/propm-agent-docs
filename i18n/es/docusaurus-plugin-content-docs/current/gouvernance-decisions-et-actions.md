@@ -1,7 +1,7 @@
 ---
 title: Gobernanza, decisiones y acciones
 slug: /gouvernance-decisions-et-actions
-description: Comprender las señales, configurar las políticas de gobernanza y usar Acciones y aprobaciones paso a paso con ejemplos amigables para principiantes.
+description: Comprender las señales, configurar las políticas de gobernanza y usar Acciones y aprobaciones paso a paso con ejemplos prácticos.
 ---
 
 [Inicio](./index.md) · [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md) · [Informes, registro de IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md)
@@ -18,7 +18,7 @@ Esta página explica, de manera simple, cómo ProPM Agent pasa:
 4. eventualmente sometida a **aprobación** ;
 5. antes de ser **ejecutada** y **trazada**.
 
-El objetivo es que un usuario principiante comprenda claramente:
+Esta página te ayuda a comprender claramente:
 
 - qué es una **política de gobernanza** ;
 - qué significan **`allow`**, **`require_approval`** y **`deny`** ;
@@ -266,7 +266,7 @@ La pantalla **Acciones y aprobaciones** sirve para transformar una intención en
 
 ### Cuatro lecturas canónicas que conviene tener presentes
 
-En la interfaz observada, esta superficie se entiende mejor a través de cuatro estados distintos:
+En la interfaz, esta superficie se entiende mejor a través de cuatro estados distintos:
 
 | Lectura canónica | Qué significa |
 | --- | --- |

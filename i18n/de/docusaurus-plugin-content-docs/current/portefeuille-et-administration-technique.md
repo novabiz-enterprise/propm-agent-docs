@@ -15,14 +15,14 @@ Diese Seite behandelt zwei unterschiedliche Bereiche des Produkts:
 1. die **Portfolio**- oder **Portfolio-Befehlszentrale**-Seite, die zum Vergleichen mehrerer Projekte verwendet wird;
 2. **Plattformverwaltung**, die zur Vorbereitung von Integrationen, KI-Anbietern, Abonnements und Audits dient.
 
-Für einen Anfänger ist es hilfreich, Folgendes zu behalten:
+Zum Einstieg merken Sie sich Folgendes:
 
 - die **Portfolio**-Seite hilft, die Frage **„Welche Projekte verdienen meine höchste Priorität?“** zu beantworten;
 - die **Plattformverwaltung** hilft, die Frage **„Ist die Plattform für die Organisation korrekt vorbereitet?“** zu beantworten.
 
 ## Für wen diese Seite vor allem gedacht ist
 
-In der beobachteten Anwendung ist **Portfolio** in erster Linie eine bereichsübergreifende PMO-/Multi-Projekt-Steuerungsoberfläche. Sie hilft dabei, mehrere Projekte mit demselben Signalmodell zu vergleichen, bevor Sie die Detailansicht eines Projekts öffnen.
+In ProPM Agent ist **Portfolio** in erster Linie eine bereichsübergreifende PMO-/Multi-Projekt-Steuerungsoberfläche. Sie hilft dabei, mehrere Projekte mit demselben Signalmodell zu vergleichen, bevor Sie die Detailansicht eines Projekts öffnen.
 
 Nutzen Sie diese Seite vor allem, um:
 
@@ -140,9 +140,9 @@ Der **Overall outlier threshold** bestimmt, ab welchem kombinierten Niveau ein P
 - Niedriger Schwellenwert = mehr Projekte werden hervorgehoben;
 - Höherer Schwellenwert = nur die stärksten Fälle werden angezeigt.
 
-## Beobachtete Starteinstellungen
+## Starteinstellungen
 
-Die Seite startet nicht von einem leeren Blatt. Die beobachteten Standardwerte sind:
+Die Seite startet nicht von einem leeren Blatt. Die Standardwerte sind:
 
 | Signal | Standardgewicht | Standardschwellenwert |
 | --- | --- | --- |
@@ -212,7 +212,7 @@ Dies ist der Schritt, der eine Portfolio‑Alarmierung in konkretes Verständnis
 
 ## Signale, die im Portfolio sichtbar sind
 
-Die im Produkt beobachteten Signale umfassen unter anderem:
+Die im Produkt angezeigten Signale umfassen unter anderem:
 
 - `activity_change`
 - `blocker_density`
@@ -267,7 +267,7 @@ Erwartetes Ergebnis: Nur die stärksten Fälle bleiben sichtbar.
 
 Ein **Ausreißer** ist keine magische Note oder ein endgültiges Urteil.
 
-In den beobachteten Flows tritt ein Projekt als Ausreißer hervor, wenn:
+In ProPM Agent tritt ein Projekt als Ausreißer hervor, wenn:
 
 - ein oder mehrere Signale hoch sind;
 - diese Signale ein signifikantes Gewicht tragen;
@@ -356,11 +356,11 @@ Er kann anzeigen:
 - lesen Sie die **Beweise** erneut;
 - prüfen Sie schließlich die **aktuelle Aktivität**, um zu verstehen, ob die Situation noch aktiv ist.
 
-## Wie der Vergleich in der beobachteten Anwendung berechnet wird
+## Wie der Vergleich berechnet wird
 
 Die Portfolio-Ansicht ist dienstgestützt und nicht nur eine statische lokale Berechnung im Browser.
 
-Beobachtetes Verhalten:
+Erwartetes Verhalten:
 
 1. die Seite lädt die zugänglichen Projekte;
 2. wenn noch nichts ausgewählt wurde, wird eine erste brauchbare Auswahl vorselektiert;
@@ -421,6 +421,14 @@ Eine wichtige Regel im Produkt:
 - **Projekt** = das Projekt darf es nutzen;
 - **Governance** = entscheidet, wer wirklich mit dem Tool handeln kann.
 
+### Was zentral bleibt und was in die Projekteinstellungen wandert
+
+| Verantwortung | Bleibt in der Plattformadministration | Sichtbar in Projektintegrationen |
+| --- | --- | --- |
+| Technische Einrichtung | Tenant-URLs, Authentifizierungsstrategie, API-Schlüssel, Secret-Referenzen, Scopes sowie Quellen- oder Zieldefinitionen | schreibgeschützte Readiness, Health und Blockierungsgründe |
+| Operatives Binding | Enterprise-Connector/-Anbieter aktivieren oder deaktivieren und technische Gesundheit validieren | **Bind to project**, **Validate binding** und **Disable** für Projektverfügbarkeit |
+| Benutzerführung | Admin-Audit, Validierungshistorie und tenantweite Konfiguration | Kontextlinks wie **Open Platform Administration** und **Open Knowledge imports** |
+
 Für die vollständige Detailbeschreibung pro Connector-Familie siehe [Connectors und Integrationen](./connecteurs-jira-et-sharepoint).
 
 ## Vorbereitung und Blockierungsursachen
@@ -455,9 +463,9 @@ Die sichtbaren Anbieterfamilien im Produkt umfassen unter anderem:
 | Anbieter | Wann wählen | Was üblicherweise ausgefüllt wird |
 | --- | --- | --- |
 | **OpenRouter** | wenn mehrere Modellfamilien über einen einzigen Anschluss verglichen werden sollen | Basis‑URL, Schlüssel, Standardmodell |
-| **OpenAI-compatible** | wenn der Kunde eine Gateway‑ oder kompatible Endpoint nutzt | exakter Endpoint, Auth, Schlüssel oder Secret, erwartetes Modell |
-| **OpenAI** | wenn der Kunde direkt OpenAI nutzt | URL, Schlüssel oder Secret, Standardmodell |
-| **Azure OpenAI** | wenn der Kunde Azure‑zentriert ist und Azure OpenAI‑Deployments wählen möchte | Endpoint, API‑Version, Auth‑Modus, LLM‑Deployment‑Name |
+| **OpenAI-compatible** | wenn Ihre Organisation ein Gateway oder einen kompatiblen Endpoint nutzt | exakter Endpoint, Auth, Schlüssel oder Secret, erwartetes Modell |
+| **OpenAI** | wenn Ihre Organisation OpenAI direkt nutzt | URL, Schlüssel oder Secret, Standardmodell |
+| **Azure OpenAI** | wenn Ihre Organisation Azure-zentriert ist und Azure OpenAI-Deployments wählen möchte | Endpoint, API‑Version, Auth‑Modus, LLM‑Deployment‑Name |
 
 ### Status eines KI‑Anbieters lesen
 
@@ -513,7 +521,7 @@ Ein blockierter Benutzer hat nicht unbedingt ein Verbindungsproblem. Die Blockie
 
 ## Technische Plattform‑Anhaltspunkte
 
-Die beobachtete Azure‑Infrastruktur basiert unter anderem auf:
+Die Azure-Bereitstellungsinfrastruktur basiert unter anderem auf:
 
 - Azure Container Apps;
 - Storage;

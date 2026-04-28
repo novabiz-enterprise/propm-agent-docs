@@ -36,7 +36,7 @@ Para un uso normal, se necesita:
 
 ### Requisitos previos del administrador técnico
 
-Los siguientes elementos están explícitamente previstos por la configuración observada:
+Los siguientes elementos deben estar correctamente configurados:
 
 | Elemento | Rol |
 | --- | --- |
@@ -91,7 +91,7 @@ Si todo está correctamente configurado, deberías poder:
 
 ## Crear un primer proyecto
 
-El formulario observado en la aplicación propone los siguientes campos:
+El formulario de la aplicación propone los siguientes campos:
 
 - **ID proyecto**;
 - **Nombre**;
@@ -155,7 +155,7 @@ Si Microsoft indica que tu cuenta no existe en el tenant objetivo, generalmente 
 
 Si la conexión devuelve un error de redirección, compara la URL realmente publicada con los **Redirect URIs** de la inscripción de la aplicación Entra. Cada entorno publicado debe estar listado exactamente, sin errores tipográficos.
 
-### `unauthorized_client` o cliente en el tenant incorrecto
+### `unauthorized_client` o aplicación Entra en el tenant incorrecto
 
 Este síntoma indica generalmente que la inscripción de la aplicación no se encuentra en el tenant correcto, o que el despliegue usa una autoridad incompatible con una aplicación **single-tenant**.
 
@@ -179,7 +179,7 @@ Este caso indica a menudo que la autenticación tuvo éxito pero que una verific
 
 ## Situación, elementos a destacar y página siguiente
 
-| Situación observada | Elementos a destacar | Página siguiente a abrir |
+| Situación encontrada | Elementos a destacar | Página siguiente a abrir |
 | --- | --- | --- |
 | Error de Microsoft antes de volver a la aplicación | mensaje exacto, captura de pantalla, cuenta usada, URL realmente abierta | [Inicio](./demarrage.md), luego [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) si la duda persiste |
 | Tablero de control cargado pero verificación de disponibilidad útil | estados **API**, **realtime**, **auth**, latencia, hora de la prueba, proyecto actual | [Interfaz y navegación](./interface-et-navigation.md), luego [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) |

@@ -18,7 +18,7 @@ The goal is to answer three simple questions:
 2. **Where can it be seen in ProPM Agent?**
 3. **How do we move from a declared connector to a usable connector?**
 
-## For a beginner: what is a connector in ProPM Agent?
+## Understand a connector in ProPM Agent
 
 A connector is a **controlled bridge** between ProPM Agent and another enterprise tool.
 
@@ -70,59 +70,59 @@ Regardless of the connector, the logical path is always the same:
 
 Execution connectors are used to **send an action** from ProPM Agent to an external tool.
 
-### Full table of execution connectors
+The **Project integrations** screen shows these enabled execution connectors as available to bind when they are not already attached to a project.
 
-| Connector | Primary use | Main advantage | Typical integration in ProPM Agent |
-| --- | --- | --- | --- |
-| **Jira** | create or update tickets, comments and delivery tracking | very useful to formalize a blockage or a follow‑up action | prepared in **Platform Administration**, exposed in **Project Integrations**, used in **Actions & approvals** |
-| **Azure DevOps** | create or update work items and track delivery | good choice for teams already organized around Boards and sprints | same logic as Jira, with project integration and action queue |
-| **GitHub** | create issues or feed repository flows | useful to link a project topic to a technical backlog | visible as an execution connector, governed by project before use |
-| **GitLab** | manage issues, merge requests and DevSecOps handoffs | useful for organizations already operating in GitLab | connected to the platform then used for governed actions |
-| **ServiceNow** | create service, support or approval tickets | very useful when the project output must enter an ITSM workflow | linked to the project as a controlled output to service processes |
-| **Monday.com** | sync plans and team boards | useful for teams that drive delivery in Monday.com | execution connector governed, available once the technical definition is ready |
-| **Asana** | create or update tasks and owners | practical for tracking light and distributed actions | exposed to the project as an external action tracking tool |
-| **ClickUp** | link lists, tasks and work status | useful to centralize team tasks in ClickUp | integrated as a governed action output |
-| **Wrike** | drive tasks, validations and work plans | relevant for enterprise flows with coordination and approval | used as an execution connector once opened to the project |
-| **Microsoft Teams** | send a notification or reminder in Teams | practical to quickly disseminate a decision or alert | appears in **Actions & approvals** for governed messages |
-| **Slack** | send an update or approval request | useful for organizations that mainly collaborate in Slack | same logic as Teams with policy and permission control |
-| **Outlook** | send an email or governed reminder | useful for formal communications to specific recipients | used in **Actions & approvals** with recipient control |
-| **SharePoint publish** | publish a reviewed artifact or document to SharePoint | very useful to distribute a validated deliverable to a target library | linked to an artifact destination then driven by **Actions & approvals** |
-| **Notion** | update note or work spaces | useful when the team keeps operational notes in Notion | connected as a governed output to feed a shared space |
-| **Trello** | create or track cards | practical for teams that use a simple, lightweight backlog | integrated as an action output to Trello boards |
-| **Webhook** | call a specific enterprise tool | very flexible for custom needs | used as a governed output to a third‑party or internal system |
+### Current execution connector catalog
+
+| Connector in the interface | Primary use | Typical project action |
+| --- | --- | --- |
+| **Asta Powerproject schedule sync** | synchronize enterprise schedules and baselines | bind when schedule updates must flow through a governed project channel |
+| **Azure DevOps delivery project** | create or update work items and track delivery | bind for teams using Boards, sprints or delivery backlogs |
+| **Jira delivery workspace** | create or update issues and delivery follow-up | bind when risks, blockers or decisions must become governed Jira tickets |
+| **Microsoft Project schedule sync** | synchronize Microsoft Project schedules | bind when the master schedule is managed in Microsoft Project |
+| **Microsoft Teams collaboration** | send governed collaboration messages and approval notifications | bind for controlled team notifications |
+| **Outlook executive notifications** | send governed email reminders or stakeholder updates | bind for formal communication to named recipients |
+| **SharePoint publication library** | publish reviewed artifacts to a SharePoint library | bind when approved PM deliverables must be distributed through SharePoint |
+| **Smartsheet portfolio workspace** | update portfolio sheets and workspace data | bind when portfolio tracking is managed in Smartsheet |
+| **Webhook event delivery** | call a specific enterprise or internal endpoint | bind for custom downstream automation |
+| **Wrike delivery workspace** | update tasks, assignees and delivery coordination | bind when Wrike carries operational delivery work |
 
 ## Visible ingestion providers
 
 Ingestion providers are used to **bring content into ProPM Agent to enrich Knowledge**.
 
-### Full table of ingestion providers
+The project screen separates providers already bound to the project from providers **Available to bind**. Counts vary by tenant, but the screen distinguishes healthy bindings from catalog entries that still need project binding or platform configuration.
 
-| Provider | Primary use | Main advantage | Typical integration in ProPM Agent |
+### Current ingestion provider catalog
+
+| Provider in the interface | Import mode or source shown | Primary use | Readiness note |
 | --- | --- | --- | --- |
-| **SharePoint** | import documents, lists and Microsoft 365 evidence | very useful to retrieve already existing reference documents | prepared at the platform level then used in **Knowledge** and **Project Integrations** |
-| **Confluence** | import wiki pages, notes and knowledge bases | practical to retrieve work documentation | feeds **Knowledge** with textual and structured content |
-| **Jira** | import issues, comments and delivery history | brings operational context of the project and backlog | used as a project context source in **Knowledge** |
-| **Azure DevOps** | import work items, sprint items and delivery artifacts | useful to link project steering and tool‑based delivery | enriches knowledge with Boards / sprint information |
-| **Google Drive** | index shared files and folders | useful for Google Workspace organizations | allows integrating work files into knowledge |
-| **OneDrive** | import personal or team files | practical to retrieve Microsoft 365 documents outside SharePoint | feeds knowledge from OneDrive spaces |
-| **Box** | connect enterprise document repositories | useful in environments that standardize document management on Box | serves as an import source for knowledge |
-| **Dropbox** | import shared folders and content | practical if the organization still stores content in Dropbox | provides document sources to knowledge |
-| **Notion** | index operational spaces, pages and notes | very useful when project knowledge is spread across Notion pages | feeds knowledge with structured pages and notes |
-| **Amazon S3** | import files or artifacts from buckets | useful to retrieve generated or archived deliverables in S3 | ingestion source for documents and artifacts |
-| **Manual upload** | drop files directly into ProPM Agent | ideal to quickly start without relying on an external connector | the team uploads useful files themselves into knowledge |
-| **Webhook** | receive content from a custom enterprise flow | very flexible when the source tool has no standard connector | serves as a custom entry to knowledge |
+| **Smartsheet sheet import** | Smartsheet · Scheduled | refresh portfolio sheets into Knowledge | can appear as bound and **Healthy** |
+| **Azure Data Factory evidence pipeline** | ADF · Pipeline | import evidence, RAID and reporting refreshes | can appear as bound and **Healthy** |
+| **Asta Powerproject schedule import** | Asta Powerproject Import · Manual | import schedule snapshots and baselines | available to bind when **Ready** |
+| **Azure Blob document ingest** | Blob Storage · Scheduled | ingest governed document drops and archive refreshes | available to bind when **Ready** |
+| **Confluence knowledge import** | Confluence · Manual | import wiki pages and procedural knowledge | can show **Not configured** until the source is completed |
+| **Jira issue import** | Jira · Scheduled | import issues, blockers and follow-up evidence | can show **Not configured** until the source is completed |
+| **Microsoft Project schedule import** | MS Project Import · Manual | import schedule baselines and updates | available to bind when **Ready** |
+| **SFTP document intake** | SFTP · Scheduled | import third-party document drops | can show **Not configured** until host, folder and credentials are completed |
+| **SharePoint knowledge import** | SharePoint · Manual | import knowledge libraries and reporting artifacts | available to bind after site and library setup |
+| **Wrike task import** | Wrike · Scheduled | import tasks, assignees and workflow evidence | available to bind after workspace setup |
 
 ## Connectors present in multiple roles
 
-Some names appear in several places in the product. That’s normal.
+Some names appear in several places in the product. That is normal: the import provider and the execution connector remain separate bindings.
 
-| Family | Can be used to import? | Can be used to execute an action? | Correct reading |
+| Family | Import role | Execution role | Correct reading |
 | --- | --- | --- | --- |
-| **SharePoint** | yes | yes, via **SharePoint publish** | can read documents and publish a reviewed artifact |
-| **Jira** | yes | yes | can import Jira context then create a governed ticket |
-| **Azure DevOps** | yes | yes | can import work items then create or update a work item |
-| **Notion** | yes | yes, depending on configuration | can read pages and also feed a shared space |
-| **Webhook** | yes | yes | can serve as an entry or exit depending on the configured flow |
+| **SharePoint** | **SharePoint knowledge import** | **SharePoint publication library** | can read documents and publish a reviewed artifact, but each role has its own setup and binding |
+| **Jira** | **Jira issue import** | **Jira delivery workspace** | can import Jira context, then create a governed ticket if the execution connector is also bound |
+| **Microsoft Project** | **Microsoft Project schedule import** | **Microsoft Project schedule sync** | can bring schedule evidence into Knowledge and synchronize governed schedule changes |
+| **Smartsheet** | **Smartsheet sheet import** | **Smartsheet portfolio workspace** | can refresh portfolio evidence and update Smartsheet as an execution destination |
+| **Wrike** | **Wrike task import** | **Wrike delivery workspace** | can import operational task evidence and update Wrike tasks through governed actions |
+| **Asta Powerproject** | **Asta Powerproject schedule import** | **Asta Powerproject schedule sync** | can import schedule snapshots and synchronize controlled schedule changes |
+| **Azure DevOps** | — | **Azure DevOps delivery project** | exposed as an execution connector; any import path should be validated separately when available |
+| **ADF / Blob / Confluence / SFTP** | ingestion provider only | — | they enrich **Knowledge** and do not automatically become action destinations |
+| **Teams / Outlook / Webhook** | — | execution connector only | they send governed messages or events and do not automatically import Knowledge |
 
 ## Example 1 — SharePoint end‑to‑end
 
@@ -193,25 +193,25 @@ SharePoint is one of the best examples to understand the full logic.
 
 The broadcast does not go out as a free message: it remains **governed, reviewed and traceable**.
 
-## Example 4 — Webhook for a specific enterprise tool
+## Example 4 — Webhook event delivery
 
 ### When to use
 
-Use **Webhook** when the company wants to send or receive data from a tool that does not have a dedicated connector.
+Use **Webhook event delivery** when your organization wants ProPM Agent to call a specific internal or third-party endpoint after a governed decision.
 
 ### Integration with ProPM Agent
 
-- as **ingestion**, a webhook can push content to Knowledge;
-- as **execution**, a webhook can send an action to a third‑party tool;
-- in both cases, it is preferable to treat it as a **governed flow**, not a free output.
+- in the current catalog, Webhook is an **execution connector**;
+- bind it to the project only after the platform endpoint and health are validated;
+- if inbound webhook ingestion is added later, treat it as a separate ingestion provider with its own validation and project binding.
 
 ### Main advantage
 
-The webhook provides flexibility without requiring the product to natively know all enterprise tools.
+Webhook delivery provides flexibility for custom automation without turning the flow into an uncontrolled output.
 
 ## How to recognize that a connector is actually ready
 
-For a beginner user, distinguish three simple states:
+To read connector status correctly, distinguish three simple states:
 
 | Situation | What it means |
 | --- | --- |
@@ -230,7 +230,7 @@ A connector can be visible but unusable if:
 - the project binding has not yet been opened;
 - the expected **artifact destination** is not configured.
 
-## Simple reading for a beginner user
+## Simple reading
 
 | If you observe… | First check… |
 | --- | --- |
@@ -240,7 +240,7 @@ A connector can be visible but unusable if:
 | the import is offered but returns nothing | ingestion provider, actual accessible source and data freshness |
 | the SharePoint publication has not yet succeeded | artifact destination, policy, approval and **SharePoint publish** connector |
 
-## Recommended workflow for a client
+## Recommended workflow for your team
 
 1. identify the tools truly useful for the project;
 2. prepare connectors in **Platform Administration**;

@@ -29,7 +29,7 @@ Los derechos condicionan gran parte de la experiencia: ejecución de agentes, ge
 
 ## Creador del proyecto: rol inicial y delegación
 
-Al crear el proyecto, el creador comienza con el rol **Propietario del proyecto** y todas las permisos de proyecto observados. Así que sirve como punto de partida administrativo: abre el proyecto, controla la configuración inicial y luego delega los roles útiles a otros miembros.
+Al crear el proyecto, el creador comienza con el rol **Propietario del proyecto** y todas las permisos de proyecto disponibles. Así que sirve como punto de partida administrativo: abre el proyecto, controla la configuración inicial y luego delega los roles útiles a otros miembros.
 
 ### Delegación recomendada
 
@@ -39,15 +39,15 @@ Al crear el proyecto, el creador comienza con el rol **Propietario del proyecto*
 4. reserva los roles personalizados a las diferencias reales de necesidad;
 5. verifica luego **Políticas de gobernanza** y **Integraciones del proyecto** para que los derechos correspondan a los usos externos.
 
-### Lo que la documentación observada confirma
+### Lo que confirma esta página
 
 - el creador no puede ser retirado desde esta pantalla;
 - el rol del creador permanece fijo;
 - un usuario no puede auto-rebaixar ni auto-eliminarse desde esta superficie;
 - la delegación de roles está confirmada;
-- la transferencia libre del **estatus de creador** no está confirmada por las pantallas observadas.
+- la transferencia libre del **estatus de creador** no se ofrece directamente en las pantallas de administración.
 
-## Roles estándar observados
+## Roles estándar
 
 Cada proyecto comienza con roles integrados protegidos:
 
@@ -63,7 +63,7 @@ Estos roles integrados están protegidos del lado del servidor y no pueden ser e
 
 ## Matriz rápida de roles estándar
 
-Los roles personalizados pueden ampliar o reducir este esquema. La tabla a continuación describe el **comportamiento habitual** de los roles estándar observados.
+Los roles personalizados pueden ampliar o reducir este esquema. La tabla a continuación describe el **comportamiento habitual** de los roles estándar.
 
 | Acción común | Propietario del proyecto | Jefe de proyecto | Contribuyente | Lector | Auditor |
 | --- | --- | --- | --- | --- | --- |
@@ -78,7 +78,7 @@ Los roles personalizados pueden ampliar o reducir este esquema. La tabla a conti
 
 El producto soporta la creación, edición y eliminación de **roles personalizados** a nivel de proyecto.
 
-### Permisos explícitamente observados
+### Permisos disponibles
 
 Los permisos expuestos incluyen, entre otros:
 

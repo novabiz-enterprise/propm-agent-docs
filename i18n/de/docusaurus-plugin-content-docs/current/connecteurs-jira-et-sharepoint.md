@@ -18,7 +18,7 @@ Das Ziel ist es, drei einfache Fragen zu beantworten:
 2. **Wo sieht man ihn in ProPM Agent?**
 3. **Wie geht man von einem deklarierten Connector zu einem tatsächlich nutzbaren Connector über?**
 
-## Für einen Anfänger: Was ist ein Connector in ProPM Agent?
+## Einen Connector in ProPM Agent verstehen
 
 Ein Connector ist eine **kontrollierte Brücke** zwischen ProPM Agent und einem anderen Unternehmenswerkzeug.
 
@@ -70,59 +70,59 @@ Unabhängig vom Connector ist der logische Ablauf immer gleich:
 
 Ausführungs-Connectoren dienen dazu, **eine Aktion** von ProPM Agent an ein externes Tool zu senden.
 
-### Vollständige Tabelle der Ausführungs-Connectoren
+Der Bildschirm **Projektintegrationen** zeigt diese aktivierten Ausführungs-Connectoren als bindbar, wenn sie noch nicht mit dem Projekt verknüpft sind.
 
-| Connector | Hauptnutzen | Hauptvorteil | Typische Integration in ProPM Agent |
-| --- | --- | --- | --- |
-| **Jira** | Tickets, Kommentare und Lieferverfolgung erstellen oder aktualisieren | sehr nützlich, um ein Blockieren oder eine Nachverfolgungsaktion zu formalieren | vorbereitet in **Platform Administration**, exponiert in **Project Integrations**, verwendet in **Actions & approvals** |
-| **Azure DevOps** | Work Items erstellen oder aktualisieren und Lieferung verfolgen | gute Wahl für Teams, die bereits um Boards und Sprints organisiert sind | gleiche Logik wie Jira, mit Projektintegration und Aktionsdatei |
-| **GitHub** | Issues erstellen oder Repository-Workflows ansteuern | praktisch, um ein Projektthema mit einem technischen Backlog zu verknüpfen | als Ausführungs-Connector, vor Projektgouvernanz |
-| **GitLab** | Issues, Merge Requests und DevSecOps-Handoffs verwalten | nützlich für Organisationen, die bereits in GitLab operieren | an die Plattform angebunden und für Governance-Aktionen verwendet |
-| **ServiceNow** | Service-, Support- oder Genehmigungstickets erstellen | sehr nützlich, wenn die Projektausgabe in einen ITSM-Workflow eintritt | als kontrollierte Ausgabe zu Serviceprozessen |
-| **Monday.com** | Pläne und Team-Boards synchronisieren | nützlich für Teams, die die Lieferung in Monday.com steuern | Ausführungs-Connector, nach technischer Definition verfügbar |
-| **Asana** | Aufgaben und Verantwortliche erstellen oder aktualisieren | praktisch für die Nachverfolgung leichter und verteilter Aktionen | exponiert im Projekt als externes Aktionsverfolgungstool |
-| **ClickUp** | Listen, Aufgaben und Arbeitsstatus verknüpfen | nützlich, um Teamaufgaben in ClickUp zu zentralisieren | als kontrollierte Ausführungs-Ausgabe integriert |
-| **Wrike** | Aufgaben, Validierungen und Arbeitspläne steuern | relevant für Unternehmensabläufe mit Koordination und Genehmigung | als Ausführungs-Connector, wenn im Projekt geöffnet |
-| **Microsoft Teams** | Benachrichtigung oder Erinnerung in Teams senden | praktisch, um schnell eine Entscheidung oder Warnung zu verbreiten | erscheint in **Actions & approvals** für kontrollierte Nachrichten |
-| **Slack** | Update oder Genehmigungsanfrage senden | nützlich für Organisationen, die hauptsächlich in Slack zusammenarbeiten | gleiche Logik wie Teams mit Politik- und Berechtigungssteuerung |
-| **Outlook** | E‑Mail oder kontrollierte Erinnerung senden | nützlich für formelle Kommunikation an bestimmte Empfänger | verwendet in **Actions & approvals** mit Empfängersteuerung |
-| **SharePoint publish** | Artefakt oder überarbeitetes Dokument in SharePoint veröffentlichen | sehr nützlich, um ein validiertes Deliverable in eine Zielbibliothek zu verbreiten | verbunden mit einem Artefaktziel und gesteuert durch **Actions & approvals** |
-| **Notion** | Notizen- oder Arbeitsbereiche aktualisieren | nützlich, wenn das Team seine operativen Notizen in Notion hält | als kontrollierte Ausgabe zur Befüllung eines gemeinsamen Bereichs |
-| **Trello** | Karten erstellen oder verfolgen | praktisch für Teams, die ein einfaches und leichtes Backlog nutzen | als Ausführungs-Ausgabe zu Trello-Boards integriert |
-| **Webhook** | ein spezifisches Unternehmenswerkzeug ansprechen | sehr flexibel für maßgeschneiderte Bedürfnisse | als kontrollierte Ausgabe zu einem Dritt- oder internen System |
+### Aktueller Katalog der Ausführungs-Connectoren
+
+| Connector in der Oberfläche | Hauptnutzen | Typische Projektaktion |
+| --- | --- | --- |
+| **Asta Powerproject schedule sync** | Unternehmenspläne und Baselines synchronisieren | binden, wenn Terminplanänderungen über einen gouvernierten Projektkanal laufen müssen |
+| **Azure DevOps delivery project** | Work Items erstellen oder aktualisieren und Delivery nachverfolgen | binden für Teams mit Boards, Sprints oder Delivery-Backlogs |
+| **Jira delivery workspace** | Issues und Delivery-Follow-up erstellen oder aktualisieren | binden, wenn Risiken, Blockaden oder Entscheidungen zu gouvernierten Jira-Tickets werden sollen |
+| **Microsoft Project schedule sync** | Microsoft-Project-Terminpläne synchronisieren | binden, wenn der Masterplan in Microsoft Project gepflegt wird |
+| **Microsoft Teams collaboration** | gouvernierte Kollaborationsnachrichten und Genehmigungsbenachrichtigungen senden | binden für kontrollierte Team-Benachrichtigungen |
+| **Outlook executive notifications** | gouvernierte E-Mails oder Stakeholder-Updates senden | binden für formelle Kommunikation an benannte Empfänger |
+| **SharePoint publication library** | geprüfte Artefakte in eine SharePoint-Bibliothek veröffentlichen | binden, wenn genehmigte PM-Lieferobjekte über SharePoint verteilt werden |
+| **Smartsheet portfolio workspace** | Portfolio-Sheets und Workspace-Daten aktualisieren | binden, wenn Portfolio-Tracking in Smartsheet erfolgt |
+| **Webhook event delivery** | einen bestimmten Enterprise- oder internen Endpoint aufrufen | binden für kundenspezifische nachgelagerte Automatisierung |
+| **Wrike delivery workspace** | Aufgaben, Verantwortliche und Delivery-Koordination aktualisieren | binden, wenn Wrike die operative Delivery-Arbeit trägt |
 
 ## Sichtbare Ingestionsanbieter
 
 Ingestionsanbieter dienen dazu, **Inhalt in ProPM Agent zu bringen**, um das **Wissen** zu bereichern.
 
-### Vollständige Tabelle der Ingestionsanbieter
+Der Projektbildschirm trennt bereits gebundene Anbieter von Anbietern **Available to bind**. Zähler variieren je Tenant, aber die Oberfläche unterscheidet gesunde Bindings von Katalogeinträgen, die noch Projektbindung oder Plattformkonfiguration benötigen.
 
-| Anbieter | Hauptnutzen | Hauptvorteil | Typische Integration in ProPM Agent |
+### Aktueller Katalog der Ingestionsanbieter
+
+| Anbieter in der Oberfläche | Angezeigter Modus oder Quelle | Hauptnutzen | Readiness-Hinweis |
 | --- | --- | --- | --- |
-| **SharePoint** | Dokumente, Listen und Microsoft 365-Beweise importieren | sehr nützlich, um bereits vorhandene Referenzdokumente zu holen | auf Plattformebene vorbereitet, dann in **Knowledge** und **Project Integrations** verwendet |
-| **Confluence** | Wiki-Seiten, Notizen und Wissensbasen importieren | praktisch, um Arbeitshandbücher zu holen | versorgt **Knowledge** mit strukturiertem Text |
-| **Jira** | Issues, Kommentare und Lieferhistorie importieren | verbindet den operativen Kontext des Projekts und des Backlogs | als Kontextquelle für **Knowledge** |
-| **Azure DevOps** | Work Items, Sprint-Elemente und Lieferartefakte importieren | nützlich, um Projektsteuerung und Lieferung zu verknüpfen | bereichert das Wissen mit Boards-/Sprint-Informationen |
-| **Google Drive** | Dateien und freigegebene Ordner indexieren | nützlich für Google Workspace-Organisationen | ermöglicht die Integration von Arbeitsdateien in das Wissen |
-| **OneDrive** | Persönliche oder Teamdateien importieren | praktisch, um Microsoft 365-Dokumente außerhalb von SharePoint zu holen | versorgt das Wissen aus OneDrive‑Bereichen |
-| **Box** | Unternehmensdokumenten-Repositorien verbinden | nützlich in Umgebungen, die ihre Dokumentenverwaltung auf Box standardisieren | dient als Importquelle für das Wissen |
-| **Dropbox** | Ordner und freigegebene Inhalte importieren | praktisch, wenn die Organisation noch Inhalte in Dropbox speichert | liefert Dokumentationsquellen für das Wissen |
-| **Notion** | Räume, Seiten und operative Notizen indexieren | sehr nützlich, wenn das Projektwissen in Notion verteilt ist | versorgt das Wissen mit strukturierten Seiten und Notizen |
-| **Amazon S3** | Dateien oder Artefakte aus Buckets importieren | nützlich, um generierte oder archivierte Deliverables zu holen | Quelle für Dokumente und Artefakte |
-| **Upload manuel** | Dateien direkt in ProPM Agent hochladen | ideal, um schnell ohne externen Connector zu starten | das Team lädt selbst die nützlichen Dateien in das Wissen |
-| **Webhook** | Inhalt von einem maßgeschneiderten Unternehmensfluss empfangen | sehr flexibel, wenn das Quellwerkzeug keinen Standard-Connector hat | dient als benutzerdefinierte Eingabe für das Wissen |
+| **Smartsheet sheet import** | Smartsheet · Scheduled | Portfolio-Sheets in Wissen aktualisieren | kann als gebunden und **Healthy** erscheinen |
+| **Azure Data Factory evidence pipeline** | ADF · Pipeline | Nachweise, RAID und Reporting-Refreshes importieren | kann als gebunden und **Healthy** erscheinen |
+| **Asta Powerproject schedule import** | Asta Powerproject Import · Manual | Terminplan-Snapshots und Baselines importieren | bindbar, wenn **Ready** |
+| **Azure Blob document ingest** | Blob Storage · Scheduled | gouvernierte Dokumentablagen und Archiv-Refreshes ingestieren | bindbar, wenn **Ready** |
+| **Confluence knowledge import** | Confluence · Manual | Wiki-Seiten und Prozesswissen importieren | kann **Not configured** anzeigen, bis die Quelle vollständig ist |
+| **Jira issue import** | Jira · Scheduled | Issues, Blockaden und Follow-up-Nachweise importieren | kann **Not configured** anzeigen, bis die Quelle vollständig ist |
+| **Microsoft Project schedule import** | MS Project Import · Manual | Terminplan-Baselines und Aktualisierungen importieren | bindbar, wenn **Ready** |
+| **SFTP document intake** | SFTP · Scheduled | Dokumentablagen von Dritten importieren | kann **Not configured** anzeigen, bis Host, Ordner und Zugangsdaten vollständig sind |
+| **SharePoint knowledge import** | SharePoint · Manual | Wissensbibliotheken und Reporting-Artefakte importieren | bindbar nach Einrichtung von Site und Bibliothek |
+| **Wrike task import** | Wrike · Scheduled | Aufgaben, Verantwortliche und Workflow-Nachweise importieren | bindbar nach Workspace-Einrichtung |
 
 ## Connectoren, die in mehreren Rollen vorkommen
 
-Einige Namen erscheinen an mehreren Stellen im Produkt. Das ist normal.
+Einige Namen erscheinen an mehreren Stellen im Produkt. Das ist normal: Importanbieter und Ausführungs-Connector bleiben getrennte Bindings.
 
-| Familie | Kann importieren? | Kann eine Aktion ausführen? | Richtiges Lesen |
+| Familie | Importrolle | Ausführungsrolle | Richtiges Lesen |
 | --- | --- | --- | --- |
-| **SharePoint** | ja | ja, über **SharePoint publish** | kann sowohl Dokumente lesen als auch ein überarbeitetes Artefakt veröffentlichen |
-| **Jira** | ja | ja | kann Jira-Kontext importieren und ein genehmigtes Ticket erstellen |
-| **Azure DevOps** | ja | ja | kann Work Items importieren und anschließend erstellen oder aktualisieren |
-| **Notion** | ja | ja, je nach Konfiguration | kann Seiten lesen und auch einen gemeinsamen Bereich füttern |
-| **Webhook** | ja | ja | kann als Eingabe oder Ausgabe je nach konfiguriertem Fluss dienen |
+| **SharePoint** | **SharePoint knowledge import** | **SharePoint publication library** | kann Dokumente lesen und ein geprüftes Artefakt veröffentlichen, aber jede Rolle hat eigenes Setup und Binding |
+| **Jira** | **Jira issue import** | **Jira delivery workspace** | kann Jira-Kontext importieren und anschließend ein gouverniertes Ticket erstellen, wenn auch der Ausführungs-Connector gebunden ist |
+| **Microsoft Project** | **Microsoft Project schedule import** | **Microsoft Project schedule sync** | kann Terminplan-Nachweise in Wissen bringen und gouvernierte Planänderungen synchronisieren |
+| **Smartsheet** | **Smartsheet sheet import** | **Smartsheet portfolio workspace** | kann Portfolio-Nachweise aktualisieren und Smartsheet als Ausführungsziel aktualisieren |
+| **Wrike** | **Wrike task import** | **Wrike delivery workspace** | kann operative Aufgaben-Nachweise importieren und Wrike-Aufgaben über gouvernierte Aktionen aktualisieren |
+| **Asta Powerproject** | **Asta Powerproject schedule import** | **Asta Powerproject schedule sync** | kann Terminplan-Snapshots importieren und kontrollierte Planänderungen synchronisieren |
+| **Azure DevOps** | — | **Azure DevOps delivery project** | als Ausführungs-Connector verfügbar; ein Importpfad sollte separat validiert werden, wenn er verfügbar ist |
+| **ADF / Blob / Confluence / SFTP** | nur Ingestionsanbieter | — | sie bereichern **Wissen** und werden nicht automatisch zu Aktionszielen |
+| **Teams / Outlook / Webhook** | — | nur Ausführungs-Connector | sie senden gouvernierte Nachrichten oder Ereignisse und importieren nicht automatisch Wissen |
 
 ## Beispiel 1 — SharePoint von Anfang bis Ende
 
@@ -193,7 +193,7 @@ SharePoint ist eines der besten Beispiele, um die komplette Logik zu verstehen.
 
 Die Verbreitung erfolgt nicht als freie Nachricht, sondern bleibt **gouverniert, geprüft und nachvollziehbar**.
 
-## Beispiel 4 — Webhook für ein spezifisches Unternehmenswerkzeug
+## Beispiel 4 — Webhook event delivery
 
 ### Wann verwenden
 
@@ -207,11 +207,11 @@ Verwenden Sie **Webhook**, wenn das Unternehmen Daten an ein Tool senden oder vo
 
 ### Hauptvorteil
 
-Der Webhook bietet Flexibilität, ohne dass das Produkt alle Unternehmenswerkzeuge nativ kennen muss.
+Webhook delivery bietet Flexibilität für kundenspezifische Automatisierung, ohne den Fluss zu einer unkontrollierten Ausgabe zu machen.
 
 ## Wie man erkennt, ob ein Connector wirklich bereit ist
 
-Für einen Anfänger muss man drei einfache Zustände unterscheiden:
+Um den Connector-Status richtig zu lesen, unterscheiden Sie drei einfache Zustände:
 
 | Situation | Was das bedeutet |
 | --- | --- |
@@ -230,7 +230,7 @@ Ein Connector kann sichtbar, aber nicht nutzbar sein, wenn:
 - das Projekt-Binding noch nicht geöffnet wurde;  
 - das erwartete Artefaktziel nicht konfiguriert ist.
 
-## Einfache Lesung für einen Anfänger
+## Einfache Lesung
 
 | Wenn Sie beobachten… | Überprüfen Sie zuerst… |
 | --- | --- |
@@ -240,7 +240,7 @@ Ein Connector kann sichtbar, aber nicht nutzbar sein, wenn:
 | Der Import wird vorgeschlagen, liefert aber nichts | Ingestionsanbieter, tatsächlich zugängliche Quelle und Datenfrische |
 | Die SharePoint-Veröffentlichung ist noch nicht abgeschlossen | Artefaktziel, Politik, Genehmigung und **SharePoint publish** |
 
-## Empfohlener Workflow für einen Kunden
+## Empfohlener Workflow für Ihr Team
 
 1. Identifizieren Sie die wirklich nützlichen Tools für das Projekt;  
 2. Bereiten Sie die Connectoren in **Platform Administration** vor;  

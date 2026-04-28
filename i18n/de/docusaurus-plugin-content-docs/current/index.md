@@ -9,7 +9,7 @@ description: "Benutzerhandbuch für ProPM Agent, das die KI-gestützte Projektum
 >
 > Um die Einführung von ProPM Agent im Unternehmen erfolgreich zu gestalten und die Anwendung voll auszuschöpfen, wird dringend empfohlen, diesen Leitfaden bereits zu Beginn des Projekts zu lesen und während der Bereitstellung, der Einrichtung von Connectoren, der Governance und des täglichen Betriebs darauf zurückzugreifen.
 
-Diese Dokumentation beschreibt **nur** die in der Anwendung, im Code, in der Bereitstellungskonfiguration und in den automatisierten Tests von ProPM Agent beobachteten Funktionen.
+Diese Dokumentation hilft Ihnen, ProPM Agent im Alltag zu nutzen: Navigation, Projekte, Wissen, Agenten, Governance, Berichte, Administration und Bereitstellung.
 
 Sie ist für zwei Zielgruppen strukturiert:
 
@@ -20,7 +20,7 @@ Sie ist für zwei Zielgruppen strukturiert:
 
 ## Ich suche die richtige Seite schnell
 
-| Beobachtete Situation | Öffnen Sie zuerst | Dann |
+| Angetroffene Situation | Öffnen Sie zuerst | Dann |
 | --- | --- | --- |
 | Ich kann mich nicht anmelden | [Start](./demarrage.md) | [Wartung, Support und FAQ](./maintenance-support-faq.md), um Tenant, `redirect URI`, Lizenzplatz oder Gesundheitszustand zu unterscheiden |
 | Kein Projekt erscheint | [Start](./demarrage.md) | [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md), dann [Wartung, Support und FAQ](./maintenance-support-faq.md), falls die Projektzuordnung oder Rolle unklar bleibt |
@@ -103,7 +103,7 @@ Basierend auf den überprüften Verhaltensweisen organisiert ProPM Agent die Arb
 8. Sie nutzen **Connectoren** und **Integrationen** nur, wenn sie validiert und an das Projekt gebunden sind;
 9. Administratoren steuern die technische Schicht in **Plattformadministration**.
 
-## Beobachtete Funktionsarchitektur
+## Funktionsarchitektur
 
 | Bereich | Was es ermöglicht |
 | --- | --- |
@@ -142,7 +142,7 @@ Folgende Elemente sind explizit in der Oberfläche, den Seed-Daten oder den Test
 
 ## Screenshots und Diagramme
 
-Die Screenshots der Anwendung wurden in der beobachteten Umgebung erstellt. Wenn einige verfügbare Screenshots hauptsächlich einen Ladezustand oder unvollständige Demo-Daten zeigten, verwendet auch diese deutsche Version ergänzend **erklärende Diagramme**, damit die Dokumentation vor der endgültigen Veröffentlichung nutzbar bleibt.
+Screenshots und Diagramme dienen als visuelle Orientierung. Sie zeigen die wichtigsten Bildschirme und können je nach Daten, Berechtigungen und Umgebungskonfiguration leicht variieren.
 
 Demo-Inhalte können zudem je nach Umgebung variieren: Manche Projekte zeigen nicht immer dieselben Seed-Dokumente, Seed-Berichte oder Beispielinhalte wie in der Dokumentation.
 
@@ -161,7 +161,7 @@ Verwenden Sie den richtigen Kanal je nach Art der Anfrage:
 
 | Anfragetyp | Priorität |
 | --- | --- |
-| Technischer Support | URL der Bereitstellung, betroffenes Projekt, beobachtete Situation, ungefähre Uhrzeit, `Trace ID` falls sichtbar |
+| Technischer Support | URL der Bereitstellung, betroffenes Projekt, angetroffene Situation, ungefähre Uhrzeit, `Trace ID` falls sichtbar |
 | Zugangs-, Tenant- oder Identitätsfrage | Erwarteter Tenant, verwendetes Konto, tatsächlich geöffnete URL, Microsoft-Nachricht oder Screenshot |
 | Kommerzielle oder Abonnementfrage | Kontokontext, betroffener Plan, Anzahl der Lizenzplätze oder Kapazitätsbedarf |
 

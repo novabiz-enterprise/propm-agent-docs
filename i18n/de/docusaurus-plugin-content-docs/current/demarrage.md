@@ -36,7 +36,7 @@ Für die normale Nutzung benötigen Sie:
 
 ### Voraussetzungen für den technischen Administrator
 
-Die folgenden Elemente sind explizit in der beobachteten Konfiguration vorgesehen:
+Die folgenden Elemente müssen korrekt konfiguriert sein:
 
 | Element | Rolle |
 | --- | --- |
@@ -91,7 +91,7 @@ Wenn alles korrekt konfiguriert ist, sollten Sie:
 
 ## Erstes Projekt erstellen
 
-Das in der Anwendung beobachtete Formular bietet die folgenden Felder:
+Das Anwendungsformular bietet die folgenden Felder:
 
 - **Projekt‑ID**;
 - **Name**;
@@ -155,7 +155,7 @@ Wenn Microsoft angibt, dass Ihr Konto im Ziel‑Mandanten nicht existiert, bedeu
 
 Wenn die Anmeldung einen Weiterleitungsfehler zurückgibt, vergleichen Sie die tatsächlich veröffentlichte URL mit den **Redirect‑URIs** der Entra‑Anwendungs‑Registrierung. Jede veröffentlichte Umgebung muss exakt gelistet sein, ohne Tippfehler.
 
-### `unauthorized_client` oder Client im falschen Mandanten
+### `unauthorized_client` oder Entra-Anwendung im falschen Mandanten
 
 Dieses Symptom weist in der Regel darauf hin, dass die Anwendungs‑Registrierung nicht im richtigen Mandanten liegt oder die Bereitstellung eine inkompatible Authority für eine **single‑tenant**‑Anwendung nutzt.
 
@@ -179,7 +179,7 @@ Dieses Szenario weist oft darauf hin, dass die Authentifizierung erfolgreich war
 
 ## Situation, zu erfassende Elemente und nächste Seite
 
-| Beobachtete Situation | Zu erfassende Elemente | Nächste zu öffnende Seite |
+| Angetroffene Situation | Zu erfassende Elemente | Nächste zu öffnende Seite |
 | --- | --- | --- |
 | Microsoft‑Fehler vor Rückkehr in die Anwendung | genaue Fehlermeldung, Screenshot, verwendetes Konto, tatsächlich geöffnete URL | [Start](./demarrage.md), dann [Wartung, Support und FAQ](./maintenance-support-faq.md), falls Zweifel bestehen |
 | Dashboard geladen, aber Verfügbarkeit prüfen sinnvoll | Zustände **API**, **realtime**, **auth**, Latenz, Testzeit, aktuelles Projekt | [Benutzeroberfläche und Navigation](./interface-et-navigation.md), dann [Wartung, Support und FAQ](./maintenance-support-faq.md) |

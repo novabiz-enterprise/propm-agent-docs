@@ -15,14 +15,14 @@ This page covers two distinct areas of the product:
 1. the **Portfolio** or **Portfolio command center** page, used to compare multiple projects;
 2. **Platform Administration**, used to prepare integrations, AI providers, subscriptions and audit.
 
-For a beginner user, it is useful to remember:
+To get started, remember:
 
 - the **Portfolio** page helps answer the question **“Which projects deserve my priority attention?”**;
 - **Platform Administration** helps answer the question **“Is the platform properly prepared for the organization?”**.
 
 ## Who this page is mainly for
 
-In the observed application, **Portfolio** is primarily a cross-project PMO-style review surface. It helps compare several projects with the same signal model before opening a detailed project view.
+In ProPM Agent, **Portfolio** is primarily a cross-project PMO-style review surface. It helps compare several projects with the same signal model before opening a detailed project view.
 
 Use it mainly to:
 
@@ -142,9 +142,9 @@ The **Overall outlier threshold** determines from what combined level a project 
 - lower threshold = more projects stand out;
 - higher threshold = only the most marked cases stand out.
 
-## Observed starting settings
+## Starting settings
 
-The page does not start from a blank sheet. The observed default settings are:
+The page does not start from a blank sheet. The default settings are:
 
 | Signal | Default weight | Default threshold |
 | --- | --- | --- |
@@ -163,7 +163,7 @@ Useful additions:
 - **Reset defaults** restores these starting values;
 - these defaults are a safe starting point, not a required model;
 - there is no hidden product preset beyond these defaults and your saved **cohorts**;
-- some demo environments may also show a seeded cohort, but that content varies by environment.
+- some environments may also show a preconfigured cohort, with content that varies by available settings.
 
 ### Step 7 — Save a cohort if needed
 
@@ -214,7 +214,7 @@ This step turns a portfolio alert into concrete understanding.
 
 ## Understanding the signals visible in Portfolio
 
-The signals observed in the product include, among others:
+The signals shown in the product include, among others:
 
 - `activity_change`
 - `blocker_density`
@@ -269,7 +269,7 @@ Expected result: only the most marked cases remain visible.
 
 An **outlier** is not a magic score or a definitive judgment.
 
-In observed flows, a project is an outlier when:
+In ProPM Agent, a project is an outlier when:
 
 - one or more signals are high;
 - those signals carry significant weight;
@@ -358,11 +358,11 @@ It can display:
 - reread the **proofs**;
 - finally check the **recent activity** to see if the situation is still active.
 
-## How the comparison is calculated in the observed application
+## How the comparison is calculated
 
 The portfolio view is not just a static local browser calculation.
 
-Observed behavior:
+Expected behavior:
 
 1. the page loads accessible projects;
 2. it preselects an initial usable set when no project has been chosen yet;
@@ -423,6 +423,14 @@ An important rule emerges from the product:
 - **project** = we allow the project to use it;
 - **governance** = we decide who can actually act with the tool.
 
+### What stays central and what moves to project settings
+
+| Responsibility | Kept in Platform Administration | Exposed in Project integrations |
+| --- | --- | --- |
+| Technical setup | tenant URLs, authentication strategy, API keys, secret references, scopes and source or target definitions | read-only readiness, health and block reasons |
+| Operational binding | enable or disable the enterprise connector/provider and validate technical health | **Bind to project**, **Validate binding** and **Disable** for project availability |
+| User guidance | admin audit, validation history and tenant-scoped configuration | contextual links such as **Open Platform Administration** and **Open Knowledge imports** |
+
 For full detail by connector family, see [Connectors and integrations](./connecteurs-jira-et-sharepoint).
 
 ## Preparation and blocking causes
@@ -457,9 +465,9 @@ The provider families visible in the product include, among others:
 | Provider | When to choose | What usually needs to be completed |
 | --- | --- | --- |
 | **OpenRouter** | when you need to compare multiple model families via a single connection | Base URL, key, default model |
-| **OpenAI-compatible** | when the client uses a gateway or a compatible endpoint | exact endpoint, auth, key or secret, expected model |
-| **OpenAI** | when the client uses OpenAI directly | URL, key or secret, default model |
-| **Azure OpenAI** | when the client is centered on Azure and wants to choose its Azure OpenAI deployments | endpoint, API version, auth mode, LLM deployment name |
+| **OpenAI-compatible** | when your organization uses a gateway or a compatible endpoint | exact endpoint, auth, key or secret, expected model |
+| **OpenAI** | when your organization uses OpenAI directly | URL, key or secret, default model |
+| **Azure OpenAI** | when your organization is centered on Azure and wants to choose its Azure OpenAI deployments | endpoint, API version, auth mode, LLM deployment name |
 
 ### How to read an AI provider’s status
 
@@ -515,7 +523,7 @@ A blocked user does not necessarily have a connection issue. The block can come 
 
 ## Platform technical landmarks
 
-The observed Azure infrastructure relies on, among others:
+The Azure deployment infrastructure relies on, among others:
 
 - Azure Container Apps;
 - Storage;

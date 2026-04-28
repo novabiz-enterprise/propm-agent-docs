@@ -14,7 +14,7 @@ This page explains how to upload or import documents, review the metadata visibl
 
 ## Knowledge: what you can do
 
-Observed capabilities:
+Available capabilities:
 
 - search within project contents;
 - manual upload;
@@ -125,11 +125,11 @@ Confirmed functions:
 
 ## ProPM Agent proactivity
 
-Proactivity in ProPM Agent does not mean an agent acts alone outside the project. The observed behavior is more controlled: the platform detects situations to monitor, surfaces them as **signals**, can prepare a **digest**, propose a **draft** or a **governed action**, then leaves the user or approver to decide the next step.
+Proactivity in ProPM Agent does not mean an agent acts alone outside the project. The behavior is more controlled: the platform detects situations to monitor, surfaces them as **signals**, can prepare a **digest**, propose a **draft** or a **governed action**, then leaves the user or approver to decide the next step.
 
 ![Proactivity, digests and governed actions](/img/diagrams/en/proactivite-et-gouvernance.svg)
 
-### Observed triggers
+### Available triggers
 
 Proactivity can be fueled by:
 
@@ -176,7 +176,7 @@ In practice, search the roster by name or domain first. Prefer an active agent f
 
 The interface also allows searching the agent roster to reach the right specialist faster.
 
-### Recommended beginner path
+### Recommended path
 
 For a first use without ambiguity:
 
@@ -199,7 +199,7 @@ Even an `All projects` agent still runs in the **active project** at the moment 
 
 ## From local browser chat to PM Documents, DOCX, and XLSX
 
-Agents do not jump directly to a final distributed file. The observed flow is more progressive:
+Agents do not jump directly to a final distributed file. The flow is more progressive:
 
 1. the current chat first remains **browser-local**;
 2. sending the message launches a **run** in the active project;

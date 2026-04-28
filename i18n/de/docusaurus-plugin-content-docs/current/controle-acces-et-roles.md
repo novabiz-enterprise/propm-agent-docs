@@ -29,7 +29,7 @@ Die Rechte bestimmen einen großen Teil der Erfahrung: Ausführung von Agenten, 
 
 ## Ersteller des Projekts: Anfangsrolle und Delegation
 
-Bei der Projekterstellung startet der Ersteller mit der Rolle **Projektinhaber** und allen beobachteten Projekt‑Berechtigungen. Er dient somit als administrativer Ausgangspunkt: Er öffnet das Projekt, prüft die Anfangskonfiguration und delegiert anschließend die nützlichen Rollen an andere Mitglieder.
+Bei der Projekterstellung startet der Ersteller mit der Rolle **Projektinhaber** und allen verfügbaren Projekt-Berechtigungen. Er dient somit als administrativer Ausgangspunkt: Er öffnet das Projekt, prüft die Anfangskonfiguration und delegiert anschließend die nützlichen Rollen an andere Mitglieder.
 
 ### Empfohlene Delegation
 
@@ -39,15 +39,15 @@ Bei der Projekterstellung startet der Ersteller mit der Rolle **Projektinhaber**
 4. reservieren Sie benutzerdefinierte Rollen für echte Bedarfsschwankungen;
 5. prüfen Sie anschließend **Governance‑Politiken** und **Projekt‑Integrationen**, damit die Rechte den externen Nutzungen entsprechen.
 
-### Was die beobachtete Dokumentation bestätigt
+### Was diese Seite bestätigt
 
 - der Ersteller kann nicht von diesem Bildschirm entfernt werden;
 - die Rolle des Erstellers bleibt fest;
 - ein Benutzer kann sich nicht selbst zurückstufen oder selbst löschen von dieser Oberfläche;
 - die Rollen‑Delegation ist bestätigt;
-- der freie Transfer des **Ersteller‑Status** ist von den beobachteten Bildschirmen nicht bestätigt.
+- der freie Transfer des **Ersteller‑Status** ist in den Administrationsbildschirmen nicht direkt angeboten.
 
-## Beobachtete Standardrollen
+## Standardrollen
 
 Jedes Projekt startet mit integrierten, geschützten Rollen:
 
@@ -63,7 +63,7 @@ Diese integrierten Rollen sind serverseitig geschützt und können von der Oberf
 
 ## Schnelle Rollen‑Matrix
 
-Benutzerdefinierte Rollen können dieses Schema erweitern oder reduzieren. Die folgende Tabelle beschreibt das **typische Verhalten** der beobachteten Standardrollen.
+Benutzerdefinierte Rollen können dieses Schema erweitern oder reduzieren. Die folgende Tabelle beschreibt das **typische Verhalten** der Standardrollen.
 
 | Häufige Aktion | Projektinhaber | Projektleiter | Mitwirkender | Leser | Auditor |
 | --- | --- | --- | --- | --- | --- |
@@ -78,7 +78,7 @@ Benutzerdefinierte Rollen können dieses Schema erweitern oder reduzieren. Die f
 
 Das Produkt unterstützt die Erstellung, Bearbeitung und Löschung von **benutzerdefinierten Rollen** auf Projektebene.
 
-### Explizit beobachtete Berechtigungen
+### Verfügbare Berechtigungen
 
 Die exponierten Berechtigungen umfassen unter anderem:
 

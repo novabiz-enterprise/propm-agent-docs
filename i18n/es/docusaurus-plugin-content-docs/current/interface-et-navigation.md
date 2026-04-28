@@ -14,7 +14,7 @@ Esta página explica cómo orientarse en el shell de ProPM Agent, leer el **Tabl
 
 ## Visión general
 
-La interfaz observada sigue una lógica simple:
+La interfaz sigue una lógica simple:
 
 1. la **barra lateral** abre los grandes dominios funcionales;
 2. la **barra superior** cambia el proyecto actual y abre las herramientas rápidas;
@@ -111,7 +111,7 @@ Filtra las páginas y entradas disponibles por **nombre** y **descripción**. Ú
 
 El centro de notificaciones es accesible desde el icono de campana de la barra superior.
 
-Capacidades observadas:
+Capacidades disponibles:
 
 - contador de elementos no leídos;
 - panel desplegable;
@@ -128,7 +128,7 @@ El indicador de salud abre un panel de lectura rápida. Permite consultar:
 - el estado **API**;
 - el estado **realtime**;
 - el estado **auth**;
-- la **latencia** observada;
+- la **latencia** mostrada;
 - un mensaje mostrado si la interfaz lo presenta;
 - el proyecto actual cuando el contexto cuenta en la lectura del estado.
 
@@ -169,7 +169,7 @@ El idioma de la interfaz puede cambiarse desde la barra superior. El cambio de t
 
 ## Qué permanece local en el navegador durante la navegación
 
-Además de la continuidad de chat y del proyecto activo recordado, otras ayudas observadas que permanecen locales al navegador son:
+Además de la continuidad de chat y del proyecto activo recordado, otras ayudas que permanecen locales al navegador son:
 
 - el idioma y el tema de la interfaz ;
 - los accesos rápidos a proyectos recientes ;

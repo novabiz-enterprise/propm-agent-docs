@@ -14,7 +14,7 @@ This page explains how to interpret a **structured output** in ProPM Agent to de
 
 ## Why It's Important
 
-ProPM Agent does not return only free text. Observed runs can additionally expose:
+ProPM Agent does not return only free text. Runs can additionally expose:
 
 - a **summary**;
 - **findings**;
@@ -151,7 +151,7 @@ These fields are particularly useful when you need to reconcile a run, an artifa
 
 ## When to Transform the Output into an Artifact
 
-The typical observed path is:
+The typical path is:
 
 1. Project question;
 2. Structured response;

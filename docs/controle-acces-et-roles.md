@@ -29,7 +29,7 @@ Rights condition a large part of the experience: agent execution, member managem
 
 ## Project creator: initial role and delegation
 
-At project creation, the creator starts with the **Project Owner** role and all observed project permissions. They therefore serve as the initial administrative point: they open the project, control the initial configuration and then delegate useful roles to other members.
+At project creation, the creator starts with the **Project Owner** role and all available project permissions. They therefore serve as the initial administrative point: they open the project, control the initial configuration and then delegate useful roles to other members.
 
 ### Recommended delegation
 
@@ -39,15 +39,15 @@ At project creation, the creator starts with the **Project Owner** role and all 
 4. reserve custom roles for real need gaps;
 5. then check **Governance policies** and **Project integrations** so that rights match external usage.
 
-### What the observed documentation confirms
+### What this page confirms
 
 - the creator cannot be removed from this screen;
 - the creator’s role remains fixed;
 - a user cannot self‑downgrade or self‑remove from this surface;
 - role delegation is confirmed;
-- free transfer of the **creator status** is not confirmed by the observed screens.
+- free transfer of the **creator status** is not offered directly in the administration screens.
 
-## Standard roles observed
+## Standard roles
 
 Each project starts with protected built‑in roles:
 
@@ -63,7 +63,7 @@ These built‑in roles are protected server‑side and cannot be deleted from th
 
 ## Quick matrix of standard roles
 
-Custom roles can extend or reduce this scheme. The table below describes the **usual behavior** of the observed standard roles.
+Custom roles can extend or reduce this scheme. The table below describes the **usual behavior** of the standard roles.
 
 | Common action | Project Owner | Project Manager | Contributor | Reader | Auditor |
 | --- | --- | --- | --- | --- | --- |
@@ -78,7 +78,7 @@ Custom roles can extend or reduce this scheme. The table below describes the **u
 
 The product supports creation, editing and deletion of **custom roles** at the project level.
 
-### Permissions explicitly observed
+### Available permissions
 
 The exposed permissions include, notably:
 

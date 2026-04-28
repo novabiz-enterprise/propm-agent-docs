@@ -20,7 +20,7 @@ Cette page explique la différence entre **artefact**, **version d’artefact** 
 | Version d’artefact | État précis d’un artefact, avec historique, diff et lignée |
 | Document PM | Document projet revu, édité, téléchargé, publié ou réinjecté dans la connaissance |
 
-## Cycle de vie observé
+## Cycle de vie
 
 Le flux le plus courant est :
 
@@ -31,11 +31,11 @@ Le flux le plus courant est :
 5. il relit le contenu, consulte le **diff** et la **lignée** ;
 6. il décide d’**Approve**, **Publish**, **Download** ou **Add to knowledge**.
 
-Autrement dit, une réponse d’agent ne devient pas automatiquement un document final : la chaîne observée reste **run → structured output → artifact / PM Doc → revue → décision aval**.
+Autrement dit, une réponse d’agent ne devient pas automatiquement un document final : la chaîne reste **run → structured output → artifact / PM Doc → revue → décision aval**.
 
 ## De l’agent au DOCX ou XLSX
 
-Les flux observés montrent que les agents peuvent préparer des contenus destinés à un rendu documentaire ou tabulaire, mais toujours via une chaîne de revue explicite.
+Dans ProPM Agent, les agents peuvent préparer des contenus destinés à un rendu documentaire ou tabulaire, mais toujours via une chaîne de revue explicite.
 
 ### Quand le résultat devient un DOCX
 
@@ -85,7 +85,7 @@ Un projet peut afficher une surface vide pour plusieurs raisons normales :
 - aucun **artefact** ou **PM Doc** n’a encore été créé ;
 - le run est resté au stade de **sortie structurée** sans transformation aval ;
 - le mauvais projet ou un filtre masque les lignes attendues ;
-- l’environnement ne contient pas les mêmes données de démonstration seedées que d’autres captures ou tests.
+- l’environnement ne contient pas les mêmes exemples préchargés que les captures de référence.
 
 Dans ce cas, repartez d’abord de **Agents** ou du **Journal IA**, puis revenez dans **Rapports & artefacts** quand un objet gouverné existe réellement.
 
@@ -134,7 +134,7 @@ L’interface permet aussi de sélectionner une version par numéro et d’ident
 
 ## Approbation et publication
 
-Les comportements observés montrent que :
+Retenez les règles suivantes :
 
 - **Approve** valide une version d’artefact encore en `draft` ;
 - **Publish** correspond à une diffusion gouvernée vers une destination ou un format cible quand le flux l’autorise ;
@@ -213,7 +213,7 @@ Selon le flux, **Activity** peut vous aider à confirmer qu’un événement ava
 
 ### Exemples concrets de `Type` / `Kind`
 
-Les valeurs ci-dessous sont des exemples observés dans les flux seedés et démonstrations. Elles donnent un bon repère de lecture, sans prétendre couvrir tous les futurs événements.
+Les valeurs ci-dessous donnent des repères de lecture pour interpréter les événements les plus courants.
 
 | Type | Kind | Lecture pratique |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ Les valeurs ci-dessous sont des exemples observés dans les flux seedés et dém
 
 ### Runs
 
-Filtres observés :
+Filtres disponibles :
 
 - recherche sur agent / statut / run ID ;
 - filtre agent ;
@@ -251,7 +251,7 @@ Si vous cherchez un signal de pression budgétaire ou de consommation à arbitre
 
 ### Activity
 
-Filtres observés :
+Filtres disponibles :
 
 - recherche sur type / kind / actor ;
 - filtre type ;
@@ -281,13 +281,13 @@ La distinction suivante est importante :
 - **fournisseur IA sélectionné au déploiement** : choix initial de l’environnement ;
 - **fournisseur IA effectif** : fournisseur réellement utilisé pour ce run.
 
-Ces deux valeurs peuvent différer. En cas de doute, le **Journal IA** fait foi pour le run observé.
+Ces deux valeurs peuvent différer. En cas de doute, le **Journal IA** fait foi pour le run concerné.
 
 ### Lecture simple de `Effective AI Provider`
 
 `Effective AI Provider` répond à la question : **« quel fournisseur a réellement servi ce run précis ? »**
 
-Cette valeur est plus fiable pour l’enquête qu’une supposition basée uniquement sur la configuration admin, car la valeur runtime observée peut différer du fournisseur sélectionné au déploiement.
+Cette valeur est plus fiable pour l’enquête qu’une supposition basée uniquement sur la configuration admin, car la valeur runtime peut différer du fournisseur sélectionné au déploiement.
 
 ## Surface à ouvrir d’abord selon le symptôme
 

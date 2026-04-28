@@ -20,7 +20,7 @@ This page explains the difference between **artifact**, **artifact version**, an
 | Artifact Version | Precise state of an artifact, with history, diff, and lineage |
 | PM Doc | Reviewed, edited, downloaded, published, or reinjected project document into the Knowledge |
 
-## Observed Lifecycle
+## Lifecycle
 
 The most common flow is:
 
@@ -30,7 +30,7 @@ The most common flow is:
 4. they review the content, consult the **diff** and **lineage**;
 5. they approve, publish, download, or add the document to the **Knowledge**.
 
-In other words, an agent answer does not automatically become a final document: the observed chain remains **structured output → artifact / PM Doc → review → downstream decision**.
+In other words, an agent answer does not automatically become a final document: the chain remains **structured output → artifact / PM Doc → review → downstream decision**.
 
 ## Visible Statuses
 
@@ -57,7 +57,7 @@ A project can display an empty surface for several normal reasons:
 - no **artifact** or **PM Doc** has been created yet;
 - the run stayed at the **structured output** stage without downstream transformation;
 - the wrong project or a filter hides the expected rows;
-- the environment does not contain the same seeded demo data as other screenshots or tests.
+- the environment does not contain the same preloaded sample data as the reference screenshots.
 
 In that case, start again from **Agents** or **AI Log**, then return to **Reports & Artifacts** when a governed object actually exists.
 
@@ -100,7 +100,7 @@ The interface also allows selecting a version by number and identifying the prev
 
 ## Approval and Publication
 
-Observed behaviors show that:
+Remember these rules:
 
 - **Approve** validates an artifact version still in `draft`;
 - **Publish** corresponds to governed distribution to a target destination or output format when the flow allows it;
@@ -173,7 +173,7 @@ Depending on the flow, **Activity** can help you confirm that a downstream event
 
 ### Concrete Examples of `Type` / `Kind`
 
-The values below are examples observed in seeded flows and demonstrations. They provide a good reading reference, without claiming to cover all future events.
+The values below provide reading references for common events.
 
 | Type | Kind | Practical Reading |
 | --- | --- | --- |
@@ -186,7 +186,7 @@ The values below are examples observed in seeded flows and demonstrations. They 
 
 ### Runs
 
-Observed filters:
+Available filters:
 
 - search on agent / status / run ID;
 - agent filter;
@@ -211,7 +211,7 @@ If you need a portfolio-level signal about budget or usage pressure, the relevan
 
 ### Activity
 
-Observed filters:
+Available filters:
 
 - search on type / kind / actor;
 - type filter;
@@ -241,13 +241,13 @@ The following distinction is important:
 - **AI provider selected at deployment**: initial environment choice;
 - **effective AI provider**: provider actually used for this run.
 
-These two values can differ. In case of doubt, the **AI Log** is authoritative for the observed run.
+These two values can differ. In case of doubt, the **AI Log** is authoritative for the current run.
 
 ### Simple reading of `Effective AI Provider`
 
 `Effective AI Provider` answers the question: **“Which provider actually served this exact run?”**
 
-For investigation, this value is more reliable than an assumption based only on the administrative configuration, because the observed runtime value can differ from the provider selected at deployment.
+For investigation, this value is more reliable than an assumption based only on the administrative configuration, because the runtime value can differ from the provider selected at deployment.
 
 ## Surface to Open First Based on Symptom
 

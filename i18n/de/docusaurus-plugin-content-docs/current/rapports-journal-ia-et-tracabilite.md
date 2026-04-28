@@ -20,7 +20,7 @@ Diese Seite erklärt den Unterschied zwischen **Artefakt**, **Artefaktversion** 
 | Artefaktversion | Genaues Stadium eines Artefakts, mit Historie, Diff und Linie |
 | PM Doc | Überprüftes, bearbeitetes, heruntergeladenes, veröffentlichtes oder in das Wissen zurückinjiziertes Projektdokument |
 
-## Beobachteter Lebenszyklus
+## Lebenszyklus
 
 Der häufigste Fluss ist:
 
@@ -98,7 +98,7 @@ Die Oberfläche ermöglicht auch die Auswahl einer Version anhand ihrer Nummer u
 
 ## Genehmigung und Veröffentlichung
 
-Die beobachteten Verhaltensweisen zeigen, dass:
+Merken Sie sich folgende Regeln:
 
 - **Approve** für eine Version im Status `draft` verfügbar ist;
 - **Publish** verfügbar wird, wenn die Version `approved` oder bereits `published` ist;
@@ -170,7 +170,7 @@ Je nach Fluss kann **Activity** Ihnen helfen zu bestätigen, dass ein nachgelage
 
 ### Konkrete Beispiele für `Type` / `Kind`
 
-Die folgenden Werte sind Beispiele, die in den gesäten und Demonstrations-Flüssen beobachtet wurden. Sie geben eine gute Leserichtung, ohne Anspruch auf Vollständigkeit aller zukünftigen Ereignisse.
+Die folgenden Werte dienen als Orientierung für häufige Ereignisse.
 
 | Type | Kind | Praktische Lesart |
 | --- | --- | --- |
@@ -183,7 +183,7 @@ Die folgenden Werte sind Beispiele, die in den gesäten und Demonstrations-Flüs
 
 ### Runs
 
-Beobachtete Filter:
+Verfügbare Filter:
 
 - Suche nach Agent / Status / Run ID;
 - Agentenfilter;
@@ -207,7 +207,7 @@ Wenn Sie einen portfolioweiten Hinweis auf Budget- oder Nutzungsdruck suchen, is
 
 ### Activity
 
-Beobachtete Filter:
+Verfügbare Filter:
 
 - Suche nach Type / Kind / Actor;
 - Type-Filter;
@@ -237,7 +237,7 @@ Die folgende Unterscheidung ist wichtig:
 - **für die Bereitstellung ausgewählter KI-Provider**: anfängliche Wahl der Umgebung;
 - **effektiver KI-Provider**: tatsächlich für diesen Run verwendeter Provider.
 
-Diese beiden Werte können abweichen. Im Zweifelsfall ist das **KI-Protokoll** für den beobachteten Run maßgeblich.
+Diese beiden Werte können abweichen. Im Zweifelsfall ist das **KI-Protokoll** für den betreffenden Run maßgeblich.
 
 ### Praktische Lesart von `Effective AI Provider`
 

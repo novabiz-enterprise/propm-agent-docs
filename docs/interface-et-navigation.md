@@ -111,7 +111,7 @@ It filters available pages and entries by **name** and **description**. Use it t
 
 The notification center is accessible from the bell icon in the top bar.
 
-Observed capabilities:
+Available capabilities:
 
 - counter of unread items;
 - dropdown panel;
@@ -119,7 +119,7 @@ Observed capabilities:
 - **Clear all**;
 - click on a notification to open the linked surface when navigation is provided.
 
-Notifications do not come from a single event family. In the observed application they can aggregate:
+Notifications do not come from a single event family. In ProPM Agent they can aggregate:
 
 - agent or run status changes;
 - report, artifact, or document events;
@@ -136,7 +136,7 @@ The health indicator opens a quick read panel. It allows you to view:
 - **API** status;
 - **realtime** status;
 - **auth** status;
-- observed **latency**;
+- displayed **latency**;
 - a message displayed if the interface has one;
 - the current project when context matters in the status read.
 
@@ -177,7 +177,7 @@ The interface language can be changed from the top bar. Changing the theme impro
 
 ## What stays browser-local in navigation
 
-Beyond chat continuity and the remembered current project, the observed browser-local conveniences also include:
+Beyond chat continuity and the remembered current project, the browser-local conveniences also include:
 
 - interface language and theme;
 - recent-project shortcuts;

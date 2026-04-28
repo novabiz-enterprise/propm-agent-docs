@@ -42,7 +42,7 @@ Il ne faut donc pas confondre :
 
 ## Créer un projet
 
-Le formulaire observé contient les champs suivants :
+Le formulaire contient les champs suivants :
 
 - **ID projet** ;
 - **Nom** ;
@@ -58,7 +58,7 @@ Recommandations de saisie :
 
 ## Créateur du projet : droits initiaux et délégation
 
-À la création, le **créateur du projet** démarre avec le rôle **Propriétaire du projet** et l’ensemble des permissions projet observées. En pratique, c’est donc lui qui peut ouvrir le projet, vérifier la configuration initiale et **déléguer ensuite les rôles** au reste de l’équipe.
+À la création, le **créateur du projet** démarre avec le rôle **Propriétaire du projet** et l’ensemble des permissions projet disponibles. En pratique, c’est donc lui qui peut ouvrir le projet, vérifier la configuration initiale et **déléguer ensuite les rôles** au reste de l’équipe.
 
 ### Délégation recommandée juste après la création
 
@@ -71,7 +71,7 @@ Recommandations de saisie :
 ### Ce que la plateforme protège encore
 
 - l’entrée du **créateur** reste protégée ;
-- le rôle du créateur reste fixe dans l’interface observée ;
+- le rôle du créateur reste fixe dans l’interface ;
 - la délégation se fait par attribution de rôles supplémentaires, pas par suppression de la protection du créateur ;
 - pour le détail RBAC, voir [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md).
 
@@ -117,7 +117,7 @@ Utilisez cette zone pour comprendre **pourquoi** une action ou un import peut ê
 
 ## Comment arrivent les signaux, digests et brouillons
 
-Dans l’état observé, le panneau de signaux du projet relit trois flux partagés pour le **projet actif** :
+Dans l’interface, le panneau de signaux du projet relit trois flux partagés pour le **projet actif** :
 
 - les **signaux** courants ;
 - les **digests** récents ;
@@ -256,7 +256,21 @@ On y retrouve plusieurs familles d’informations :
 - **AI runtime transparency** : fournisseur IA effectif et fournisseur sélectionné au déploiement ;
 - **Entitlement posture** : posture plan / sièges / blocages premium visibles.
 
-### Causes de blocage explicitement observées
+### Ce que montre l’écran Intégrations du projet
+
+L’écran sépare la readiness technique de la disponibilité projet :
+
+- la configuration plateforme, le binding projet, la policy, la permission, l’entitlement et le health sont des **causes distinctes**. Un connecteur peut rester visible en lecture seule pour expliquer pourquoi il est bloqué au lieu de laisser croire qu’il manque ;
+- la configuration technique reste dans **Administration de la plateforme**. Les responsables des paramètres projet peuvent binder les intégrations activées et prêtes, tandis que les URL tenant, la stratégie d’authentification, les clés API et les références de secrets restent centralisées.
+
+| Zone | Ce que vous pouvez voir | Comment agir |
+| --- | --- | --- |
+| **Execution Connectors** | une liste courante parfois vide, puis un catalogue **Available to bind** avec Asta Powerproject schedule sync, Azure DevOps delivery project, Jira delivery workspace, Microsoft Project schedule sync, Microsoft Teams collaboration, Outlook executive notifications, SharePoint publication library, Smartsheet portfolio workspace, Webhook event delivery et Wrike delivery workspace | utilisez **Bind to project** seulement pour les connecteurs déjà activés et prêts au niveau plateforme |
+| **Ingestion Providers** | des fournisseurs comme **Smartsheet sheet import** et **Azure Data Factory evidence pipeline** marqués **Healthy**, puis des fournisseurs disponibles comme SharePoint knowledge import, Azure Blob document ingest, Confluence knowledge import, Jira issue import, SFTP document intake, Microsoft Project schedule import, Wrike task import et Asta Powerproject schedule import | utilisez **Validate binding** pour revérifier un fournisseur bindé, **Disable** pour le fermer côté projet, ou **Bind to project** pour un fournisseur approuvé |
+
+Les cartes fournisseur peuvent afficher **Ready**, **Healthy** ou **Not configured**. **Not configured** signifie que le fournisseur existe dans le catalogue plateforme, mais qu’il manque encore une source, des identifiants ou une validation de readiness avant l’usage projet.
+
+### Causes de blocage affichées
 
 Une intégration projet ou une option d’import peut être bloquée pour cause de :
 
@@ -306,7 +320,7 @@ Cet onglet transforme une recommandation en opération contrôlée.
 
 ### Les états réels à retenir
 
-Dans l’interface observée, la file et les cartes de synthèse distinguent surtout quatre états canoniques :
+Dans l’interface, la file et les cartes de synthèse distinguent surtout quatre états :
 
 | État visible | Lecture pratique |
 | --- | --- |

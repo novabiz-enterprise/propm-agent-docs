@@ -14,7 +14,7 @@ Esta página explica cómo interpretar una **salida estructurada** en ProPM Agen
 
 ## Por qué es importante
 
-ProPM Agent no solo devuelve un texto libre. Los runs observados pueden exponer además:
+ProPM Agent no solo devuelve un texto libre. Los runs pueden exponer además:
 
 - un **resumen**;
 - **hallazgos**;
@@ -151,7 +151,7 @@ Estos campos son particularmente útiles cuando debe relacionar un run, un artef
 
 ## Cuándo transformar la salida en artefacto
 
-El camino normal observado es:
+El camino normal es:
 
 1. pregunta de proyecto;
 2. respuesta estructurada;

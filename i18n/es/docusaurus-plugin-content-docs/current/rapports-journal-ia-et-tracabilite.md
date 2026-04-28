@@ -20,7 +20,7 @@ Esta página explica la diferencia entre **artefacto**, **versión de artefacto*
 | Versión de artefacto | Estado preciso de un artefacto, con historial, diff y linaje |
 | PM Doc | Documento de proyecto revisado, editado, descargado, publicado o reinyectado en el conocimiento |
 
-## Ciclo de vida observado
+## Ciclo de vida
 
 El flujo más común es:
 
@@ -55,7 +55,7 @@ Un proyecto puede mostrar una superficie vacía por varias razones normales:
 - todavía no se ha creado ningún **artefacto** ni **PM Doc**;
 - el run se quedó en la etapa de **salida estructurada** sin transformación posterior;
 - el proyecto equivocado o un filtro ocultan las filas esperadas;
-- el entorno no contiene los mismos datos de demostración que otras capturas o pruebas.
+- el entorno no contiene los mismos ejemplos precargados que las capturas de referencia.
 
 En ese caso, vuelva primero a **Agentes** o al **Registro de IA**, y regrese a **Informes y artefactos** cuando ya exista un objeto gobernado.
 
@@ -98,7 +98,7 @@ La interfaz también permite seleccionar una versión por número e identificar 
 
 ## Aprobación y publicación
 
-Los comportamientos observados muestran que:
+Recuerda estas reglas:
 
 - **Approve** está disponible en una versión en estado `draft`;
 - **Publish** se vuelve disponible cuando la versión está `approved` o ya `published`;
@@ -170,7 +170,7 @@ Según el flujo, **Activity** puede ayudarle a confirmar que un evento posterior
 
 ### Ejemplos concretos de `Type` / `Kind`
 
-Los valores siguientes son ejemplos observados en los flujos seedados y demostraciones. Dan una buena referencia de lectura, sin pretender cubrir todos los eventos futuros.
+Los valores siguientes sirven como referencia para eventos comunes.
 
 | Type | Kind | Lectura práctica |
 | --- | --- | --- |
@@ -183,7 +183,7 @@ Los valores siguientes son ejemplos observados en los flujos seedados y demostra
 
 ### Runs
 
-Filtros observados:
+Filtros disponibles:
 
 - búsqueda sobre agente / estado / run ID;
 - filtro agente;
@@ -207,7 +207,7 @@ Si necesita una señal a nivel de portafolio sobre presión presupuestaria o de 
 
 ### Activity
 
-Filtros observados:
+Filtros disponibles:
 
 - búsqueda sobre type / kind / actor;
 - filtro type;
@@ -237,13 +237,13 @@ La siguiente distinción es importante:
 - **proveedor IA seleccionado en el despliegue**: elección inicial del entorno;
 - **proveedor IA efectivo**: proveedor realmente utilizado para esta ejecución.
 
-Estos dos valores pueden diferir. En caso de duda, el **Registro de IA** es válido para la ejecución observada.
+Estos dos valores pueden diferir. En caso de duda, el **Registro de IA** es válido para la ejecución actual.
 
 ### Lectura simple de `Effective AI Provider`
 
 `Effective AI Provider` responde a la pregunta: **«¿qué proveedor atendió realmente este run concreto?»**
 
-Para una investigación, este valor es más fiable que una suposición basada solo en la configuración administrativa, porque el valor observado en tiempo de ejecución puede diferir del proveedor seleccionado en el despliegue.
+Para una investigación, este valor es más fiable que una suposición basada solo en la configuración administrativa, porque el valor de runtime puede diferir del proveedor seleccionado en el despliegue.
 
 ## Superficie a abrir primero según el síntoma
 

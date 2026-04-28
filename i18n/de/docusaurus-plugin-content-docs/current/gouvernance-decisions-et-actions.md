@@ -18,7 +18,7 @@ Diese Seite erklärt auf einfache Weise, wie ProPM Agent vorgeht:
 4. ggf. einer **Genehmigung** unterzogen;
 5. bevor sie **ausgeführt** und **verfolgt** wird.
 
-Das Ziel ist, dass ein Anfänger klar versteht:
+Diese Seite hilft Ihnen, klar zu verstehen:
 
 - was eine **Governance-Richtlinie** ist;
 - was **`allow`**, **`require_approval`** und **`deny`** bedeuten;
@@ -268,7 +268,7 @@ Die Oberfläche **Actions & approvals** dient dazu, eine Absicht in eine echte *
 
 ### Vier kanonische Lesarten, die Sie im Kopf behalten sollten
 
-In der beobachteten Oberfläche lässt sich diese Fläche am einfachsten über vier unterschiedliche Zustände lesen:
+In der Oberfläche lässt sich diese Fläche am einfachsten über vier unterschiedliche Zustände lesen:
 
 | Kanonische Lesart | Was sie bedeutet |
 | --- | --- |

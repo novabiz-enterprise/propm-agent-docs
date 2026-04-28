@@ -15,14 +15,14 @@ Cette page couvre deux surfaces différentes du produit :
 1. la page **Portfolio** ou **Centre de commande portefeuille**, utilisée pour comparer plusieurs projets ;
 2. **Administration de la plateforme**, utilisée pour préparer les intégrations, les fournisseurs IA, l’abonnement et l’audit.
 
-Pour un utilisateur débutant, il est utile de retenir ceci :
+Pour démarrer, retenez ceci :
 
 - la page **Portfolio** aide à répondre à la question **« quels projets méritent mon attention en priorité ? »** ;
 - l’**Administration de la plateforme** aide à répondre à la question **« la plateforme est-elle correctement préparée pour l’organisation ? »**.
 
 ## Pour quel public cette page est-elle surtout utile ?
 
-Dans l’application observée, **Portfolio** sert d’abord à une lecture transverse de type **PMO / pilotage multi-projets**. Il aide à comparer plusieurs projets avec un même modèle de signaux avant d’ouvrir le détail d’un projet.
+Dans ProPM Agent, **Portfolio** sert d’abord à une lecture transverse de type **PMO / pilotage multi-projets**. Il aide à comparer plusieurs projets avec un même modèle de signaux avant d’ouvrir le détail d’un projet.
 
 Utilisez-le surtout pour :
 
@@ -140,9 +140,9 @@ Le **Overall outlier threshold** détermine à partir de quel niveau combiné un
 - seuil plus bas = plus de projets ressortent ;
 - seuil plus haut = seuls les cas les plus marqués ressortent.
 
-## Paramètres de départ observés
+## Paramètres de départ
 
-La page ne part pas d’une feuille blanche. Les paramètres observés par défaut sont les suivants :
+La page ne part pas d’une feuille blanche. Les paramètres proposés par défaut sont les suivants :
 
 | Signal | Poids par défaut | Seuil par défaut |
 | --- | --- | --- |
@@ -161,7 +161,7 @@ Compléments utiles :
 - **Reset defaults** ramène ces valeurs de départ ;
 - ces valeurs sont un **point de départ sûr**, pas un modèle imposé ;
 - il n’existe pas de preset caché au-delà de ces défauts et des **cohortes sauvegardées** ;
-- certains environnements de démonstration peuvent aussi montrer une cohorte seedée, mais ce contenu varie selon l’environnement.
+- certains environnements peuvent aussi proposer une cohorte préconfigurée, avec un contenu qui varie selon les paramètres disponibles.
 
 ### Étape 7 — Enregistrer une cohorte si besoin
 
@@ -212,7 +212,7 @@ C’est cette étape qui transforme une alerte portefeuille en compréhension co
 
 ## Comprendre les signaux visibles dans Portfolio
 
-Les signaux observés dans le produit incluent notamment :
+Les signaux affichés dans le produit incluent notamment :
 
 - `activity_change`
 - `blocker_density`
@@ -267,7 +267,7 @@ Résultat attendu : seuls les cas les plus marqués resteront visibles.
 
 Un **outlier** n’est pas une note magique ni un jugement définitif.
 
-Dans les flux observés, un projet ressort comme outlier lorsque :
+Dans ProPM Agent, un projet ressort comme outlier lorsque :
 
 - un ou plusieurs signaux sont élevés ;
 - ces signaux portent un poids significatif ;
@@ -356,11 +356,11 @@ Elle peut afficher :
 - relisez les **preuves** ;
 - contrôlez enfin l’**activité récente** pour comprendre si la situation est encore active.
 
-## Comment la comparaison est calculée dans l’application observée
+## Comment la comparaison est calculée
 
 La vue portefeuille n’est pas un simple calcul local figé dans le navigateur.
 
-Comportement observé :
+Comportement attendu :
 
 1. la page charge les projets accessibles ;
 2. elle pré-sélectionne un premier ensemble utilisable quand rien n’a encore été choisi ;
@@ -421,6 +421,14 @@ Une règle importante ressort du produit :
 - **projet** = on autorise le projet à s’en servir ;
 - **gouvernance** = on décide qui peut vraiment agir avec cet outil.
 
+### Ce qui reste centralisé et ce qui passe au paramétrage projet
+
+| Responsabilité | Conservé dans Administration de la plateforme | Exposé dans Intégrations du projet |
+| --- | --- | --- |
+| Configuration technique | URL tenant, stratégie d’authentification, clés API, références de secrets, scopes et définitions de source ou de cible | readiness en lecture seule, health et raisons de blocage |
+| Binding opérationnel | activer ou désactiver le connecteur/fournisseur entreprise et valider la santé technique | **Bind to project**, **Validate binding** et **Disable** pour la disponibilité projet |
+| Guidage utilisateur | audit admin, historique de validation et configuration tenant-scoped | liens contextuels comme **Open Platform Administration** et **Open Knowledge imports** |
+
 Pour le détail complet par famille de connecteurs, voir [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint).
 
 ## Préparation et causes de blocage
@@ -455,9 +463,9 @@ Les familles de fournisseurs visibles dans le produit comprennent notamment :
 | Fournisseur | Quand le choisir | Ce qu’il faut généralement compléter |
 | --- | --- | --- |
 | **OpenRouter** | quand il faut comparer plusieurs familles de modèles via un seul raccordement | Base URL, clé, modèle par défaut |
-| **OpenAI-compatible** | quand le client utilise une gateway ou un endpoint compatible | endpoint exact, auth, clé ou secret, modèle attendu |
-| **OpenAI** | quand le client utilise directement OpenAI | URL, clé ou secret, modèle par défaut |
-| **Azure OpenAI** | quand le client est centré sur Azure et veut choisir ses déploiements Azure OpenAI | endpoint, version API, auth mode, nom de déploiement LLM |
+| **OpenAI-compatible** | quand votre organisation utilise une gateway ou un endpoint compatible | endpoint exact, auth, clé ou secret, modèle attendu |
+| **OpenAI** | quand votre organisation utilise directement OpenAI | URL, clé ou secret, modèle par défaut |
+| **Azure OpenAI** | quand votre organisation est centrée sur Azure et veut choisir ses déploiements Azure OpenAI | endpoint, version API, auth mode, nom de déploiement LLM |
 
 ### Comment lire les statuts d’un fournisseur IA
 
@@ -533,7 +541,7 @@ Exemples pratiques :
 
 ## Repères techniques de plateforme
 
-L’infrastructure Azure observée s’appuie notamment sur :
+L’infrastructure Azure du déploiement s’appuie notamment sur :
 
 - Azure Container Apps ;
 - Storage ;
@@ -544,14 +552,14 @@ L’infrastructure Azure observée s’appuie notamment sur :
 - Document Intelligence.
 
 
-## Variabilité des contenus seedés et de démonstration
+## Variabilité des contenus préchargés
 
-Les environnements de démonstration peuvent varier. En pratique :
+Les contenus préchargés peuvent varier. En pratique :
 
-- tous les environnements n’exposent pas les mêmes projets de démonstration ;
-- les documents seedés, rapports seedés et exemples de recherche peuvent différer ;
+- tous les environnements n’exposent pas les mêmes projets d’exemple ;
+- les documents préchargés, rapports préchargés et exemples de recherche peuvent différer ;
 - un écran vide dans un environnement live ne contredit pas forcément une capture issue d’un autre environnement ;
-- la documentation décrit le comportement observé, pas la promesse que chaque environnement contiendra exactement les mêmes données de démonstration.
+- le contenu décrit le comportement disponible, sans supposer que chaque environnement contient exactement les mêmes exemples préchargés.
 
 ## À retenir
 

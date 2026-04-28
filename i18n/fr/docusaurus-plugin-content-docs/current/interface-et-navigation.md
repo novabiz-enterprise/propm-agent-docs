@@ -14,7 +14,7 @@ Cette page explique comment se repérer dans le shell de ProPM Agent, lire le **
 
 ## Vue d’ensemble
 
-L’interface observée suit une logique simple :
+L’interface suit une logique simple :
 
 1. la **barre latérale** ouvre les grands domaines fonctionnels ;
 2. la **barre supérieure** change le projet courant et ouvre les outils rapides ;
@@ -111,7 +111,7 @@ Elle filtre les pages et entrées disponibles par **nom** et **description**. Ut
 
 Le centre de notifications est accessible depuis l’icône de cloche de la barre supérieure.
 
-Capacités observées :
+Capacités disponibles :
 
 - compteur d’éléments non lus ;
 - panneau déroulant ;
@@ -119,7 +119,7 @@ Capacités observées :
 - **Tout effacer** ;
 - clic sur une notification pour ouvrir la surface liée quand une navigation est fournie.
 
-Les notifications ne viennent pas d’une seule famille d’événements. Dans l’application observée, elles peuvent agréger :
+Les notifications ne viennent pas d’une seule famille d’événements. Dans ProPM Agent, elles peuvent agréger :
 
 - des statuts d’agent ou de run ;
 - des événements de rapport, d’artefact ou de document ;
@@ -136,7 +136,7 @@ L’indicateur de santé ouvre un panneau de lecture rapide. Il permet de consul
 - l’état **API** ;
 - l’état **temps réel** ;
 - l’état **auth** ;
-- la **latence** observée ;
+- la **latence** affichée ;
 - un message affiché si l’interface en présente un ;
 - le projet courant quand le contexte compte dans la lecture de l’état.
 
@@ -177,7 +177,7 @@ La langue d’interface peut être changée depuis la barre supérieure. Le chan
 
 ## Ce qui reste local au navigateur dans la navigation
 
-Au-delà de la continuité de chat et du projet actif mémorisé, d’autres commodités restent locales au navigateur observé :
+Au-delà de la continuité de chat et du projet actif mémorisé, d’autres commodités restent locales au navigateur :
 
 - la langue et le thème d’interface ;
 - la liste des projets récents ;
