@@ -8,7 +8,7 @@ description: Puntos de referencia de operación, verificaciones útiles y respue
 
 ## Superficies útiles para la operación
 
-Los puntos de observación siguientes están confirmados en la aplicación:
+Usa estos puntos de control para orientar rápidamente el diagnóstico:
 
 - **notificaciones** en la barra superior;
 - **indicador de salud** en la barra superior;

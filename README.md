@@ -1,6 +1,6 @@
 # ProPM Agent — End-user documentation (Docusaurus)
 
-This folder contains the **customer-facing** end-user documentation for **ProPM Agent**.
+This folder contains the **end-user** documentation for **ProPM Agent**.
 
 ## Goals
 

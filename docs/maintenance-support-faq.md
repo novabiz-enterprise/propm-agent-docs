@@ -10,7 +10,7 @@ description: Operational references, useful checks and answers to frequently ask
 
 ## Useful surfaces for operation
 
-The following observation points are confirmed in the application:
+Use these checkpoints to route issues quickly:
 
 - **notifications** in the top bar;
 - **health indicator** in the top bar;
@@ -165,7 +165,7 @@ The most frequent causes are:
 - no **artifact** or **PM Doc** has been created yet;
 - the run stayed at the **structured output** stage;
 - the wrong project or a filter hides the rows;
-- the environment does not contain the same sample data as other screenshots or tests.
+- the environment does not contain the same sample data as the reference screenshots.
 
 ### Why is a document visible in the list but not yet searchable?
 
@@ -269,7 +269,7 @@ Because a platform technical definition alone is not enough. You still need a va
 
 ### Why does sample data not always match the documentation exactly?
 
-Live environments can vary. Some projects do not always expose the same preloaded documents, preloaded reports or search examples shown in the documentation or in other tests.
+Live environments can vary. Some projects do not always expose the same preloaded documents, reports or search examples shown in the reference screenshots.
 
 ### Why does the portfolio not return any project or outlier?
 

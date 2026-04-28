@@ -263,7 +263,7 @@ Ein technisches Plattformdefinition reicht nicht aus. Es muss noch ein gültiges
 
 ### Warum stimmen Beispieldaten nicht immer exakt mit der Dokumentation überein?
 
-Live-Umgebungen können sich unterscheiden. Manche Projekte zeigen nicht immer dieselben seedierten Dokumente, seedierten Berichte oder Suchbeispiele wie in der Dokumentation oder in anderen Tests.
+Live-Umgebungen können sich unterscheiden. Manche Projekte zeigen nicht immer dieselben vorab geladenen Dokumente, Berichte oder Suchbeispiele wie in den Referenz-Screenshots.
 
 ### Warum zeigt das Portfolio keine Projekte oder Ausreißer an?
 
