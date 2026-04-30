@@ -32,7 +32,21 @@ const sidebars = {
       type: 'category',
       label: 'Portfolio und Administration',
       items: [
-        'portefeuille-et-administration-technique',
+        {
+          type: 'doc',
+          id: 'portfolio',
+          label: 'Portfolio',
+        },
+        {
+          type: 'doc',
+          id: 'ai-providers-platform-integrations',
+          label: 'KI-Anbieter und Plattformintegrationen',
+        },
+        {
+          type: 'doc',
+          id: 'seats-management-app-updates',
+          label: 'Sitzverwaltung und App-Updates',
+        },
         'maintenance-support-faq',
       ],
     },

@@ -32,7 +32,21 @@ const sidebars = {
       type: 'category',
       label: 'Pilotage et administration',
       items: [
-        'portefeuille-et-administration-technique',
+        {
+          type: 'doc',
+          id: 'portfolio',
+          label: 'Portfolio',
+        },
+        {
+          type: 'doc',
+          id: 'ai-providers-platform-integrations',
+          label: 'Fournisseurs IA et intégrations plateforme',
+        },
+        {
+          type: 'doc',
+          id: 'seats-management-app-updates',
+          label: 'Sièges et mises à jour applicatives',
+        },
         'maintenance-support-faq',
       ],
     },

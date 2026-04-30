@@ -25,8 +25,8 @@ Sie ist für zwei Zielgruppen strukturiert:
 | Ich kann mich nicht anmelden | [Start](./demarrage.md) | [Wartung, Support und FAQ](./maintenance-support-faq.md), um Tenant, `redirect URI`, Lizenzplatz oder Gesundheitszustand zu unterscheiden |
 | Kein Projekt erscheint | [Start](./demarrage.md) | [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md), dann [Wartung, Support und FAQ](./maintenance-support-faq.md), falls die Projektzuordnung oder Rolle unklar bleibt |
 | Eine Seite bleibt leer, solange kein aktives Projekt definiert ist | [Start](./demarrage.md) | [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md), um den Projektkontext zu bestätigen, dann [Wartung, Support und FAQ](./maintenance-support-faq.md), falls der leere Zustand weiter unnormal wirkt |
-| Eine Aktion ist sichtbar, aber blockiert | [Governance, Entscheidungen und Aktionen](./gouvernance-decisions-et-actions.md) | [Connectoren und Integrationen](./connecteurs-jira-et-sharepoint), dann [Portfolio und technische Administration](./portefeuille-et-administration-technique.md), falls die Blockierung von Connector, Binding, Konfiguration, Policy, Rolle, Health-Zustand oder Lizenz-/Sitzverfügbarkeit stammt |
-| Der KI-Anbieter scheint nicht funktionsfähig zu sein | [Portfolio und technische Administration](./portefeuille-et-administration-technique.md) | [Wartung, Support und FAQ](./maintenance-support-faq.md) und [Berichte, KI-Log und Nachvollziehbarkeit](./rapports-journal-ia-et-tracabilite.md), um den tatsächlich verwendeten Anbieter zu bestätigen |
+| Eine Aktion ist sichtbar, aber blockiert | [Governance, Entscheidungen und Aktionen](./gouvernance-decisions-et-actions.md) | [Connectoren und Integrationen](./connecteurs-jira-et-sharepoint), dann [KI-Anbieter und Plattformintegrationen](./ai-providers-platform-integrations.md) für Connector, Binding, Konfiguration, Policy oder Health, oder [Sitzverwaltung und App-Updates](./seats-management-app-updates.md) für Lizenz-/Sitzverfügbarkeit |
+| Der KI-Anbieter scheint nicht funktionsfähig zu sein | [KI-Anbieter und Plattformintegrationen](./ai-providers-platform-integrations.md) | [Wartung, Support und FAQ](./maintenance-support-faq.md) und [Berichte, KI-Log und Nachvollziehbarkeit](./rapports-journal-ia-et-tracabilite.md), um den tatsächlich verwendeten Anbieter zu bestätigen |
 
 Wenn Sie direkt nach einer Prüfprozedur oder einem Betriebshaken suchen, öffnen Sie [Wartung, Support und FAQ](./maintenance-support-faq.md).
 
@@ -44,7 +44,7 @@ Wenn Sie direkt nach einer Prüfprozedur oder einem Betriebshaken suchen, öffne
 | Signale, Governance und Aktionen mit Genehmigung verarbeiten | [Governance, Entscheidungen und Aktionen](./gouvernance-decisions-et-actions.md) |
 | Ein Artefakt überprüfen, ein PM-Dokument veröffentlichen und im KI-Log nachforschen | [Berichte, KI-Log und Nachvollziehbarkeit](./rapports-journal-ia-et-tracabilite.md) |
 | Unterstützte Connectoren und Integrationen verstehen | [Connectoren und Integrationen](./connecteurs-jira-et-sharepoint) |
-| Projekte vergleichen, Integrationen, KI und Lizenzplätze verwalten | [Portfolio und technische Administration](./portefeuille-et-administration-technique.md) |
+| Projekte vergleichen, Integrationen, KI und Lizenzplätze verwalten | [Portfolio](./portfolio.md) · [KI-Anbieter und Plattformintegrationen](./ai-providers-platform-integrations.md) · [Sitzverwaltung und App-Updates](./seats-management-app-updates.md) |
 | Support- und Prüfverfahren konsultieren | [Wartung, Support und FAQ](./maintenance-support-faq.md) |
 | Produktthemen klären | [Glossar](./glossaire.md) |
 
@@ -54,7 +54,7 @@ Wenn Sie direkt nach einer Prüfprozedur oder einem Betriebshaken suchen, öffne
 | --- | --- |
 | Geschäftsanwender / Mitwirkender | [Start](./demarrage.md) → [Oberfläche und Navigation](./interface-et-navigation.md) → [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md) → [Wissen und Agenten](./connaissance-et-agents.md) → [Strukturierte Ausgaben, Beweise und Frische](./sorties-contextuelles-preuves-et-fraicheur.md) |
 | Projektinhaber | [Start](./demarrage.md) → [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md) → [Zugriffskontrolle und Projektrollen](./controle-acces-et-roles.md) → [Governance, Entscheidungen und Aktionen](./gouvernance-decisions-et-actions.md) → [Connectoren und Integrationen](./connecteurs-jira-et-sharepoint) → [Berichte, KI-Log und Nachvollziehbarkeit](./rapports-journal-ia-et-tracabilite.md) |
-| Technischer Administrator | [Azure Marketplace Deployment](./deploiement-azure-marketplace.md) → [Start](./demarrage.md) → [Portfolio und technische Administration](./portefeuille-et-administration-technique.md) → [Connectoren und Integrationen](./connecteurs-jira-et-sharepoint) → [Wartung, Support und FAQ](./maintenance-support-faq.md) |
+| Technischer Administrator | [Azure Marketplace Deployment](./deploiement-azure-marketplace.md) → [Start](./demarrage.md) → [KI-Anbieter und Plattformintegrationen](./ai-providers-platform-integrations.md) → [Sitzverwaltung und App-Updates](./seats-management-app-updates.md) → [Wartung, Support und FAQ](./maintenance-support-faq.md) |
 | Support / Audit | [Start](./demarrage.md) → [Strukturierte Ausgaben, Beweise und Frische](./sorties-contextuelles-preuves-et-fraicheur.md) → [Berichte, KI-Log und Nachvollziehbarkeit](./rapports-journal-ia-et-tracabilite.md) → [Governance, Entscheidungen und Aktionen](./gouvernance-decisions-et-actions.md) → [Glossar](./glossaire.md) |
 
 ## Empfohlener End-to-End-Weg

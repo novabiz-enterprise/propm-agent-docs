@@ -32,7 +32,21 @@ const sidebars = {
       type: 'category',
       label: 'पोर्टफोलियो और प्रशासन',
       items: [
-        'portefeuille-et-administration-technique',
+        {
+          type: 'doc',
+          id: 'portfolio',
+          label: 'पोर्टफोलियो',
+        },
+        {
+          type: 'doc',
+          id: 'ai-providers-platform-integrations',
+          label: 'AI providers और platform integrations',
+        },
+        {
+          type: 'doc',
+          id: 'seats-management-app-updates',
+          label: 'Seats management और app updates',
+        },
         'maintenance-support-faq',
       ],
     },

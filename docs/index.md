@@ -24,8 +24,8 @@ It is organized for two audiences:
 | I cannot log in | [Getting started](./demarrage.md) | [Maintenance, support and FAQ](./maintenance-support-faq.md) to distinguish tenant, `redirect URI`, seat or health status |
 | No projects appear | [Getting started](./demarrage.md) | [Projects and workspace](./projets-et-espace-de-travail.md), then [Maintenance, support and FAQ](./maintenance-support-faq.md) if adding to the project or role remains doubtful |
 | A page stays empty until an active project is defined | [Getting started](./demarrage.md) | [Projects and workspace](./projets-et-espace-de-travail.md) to confirm project context, then [Maintenance, support and FAQ](./maintenance-support-faq.md) if the empty state still seems abnormal |
-| An action is visible but blocked | [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) | [Connectors and integrations](./connecteurs-jira-et-sharepoint), then [Portfolio and technical administration](./portefeuille-et-administration-technique.md) if the block comes from a connector, binding, configuration, policy, role, health state or seat/license availability |
-| The AI provider does not seem operational | [Portfolio and technical administration](./portefeuille-et-administration-technique.md) | [Maintenance, support and FAQ](./maintenance-support-faq.md) and [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) to confirm the actual provider |
+| An action is visible but blocked | [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) | [Connectors and integrations](./connecteurs-jira-et-sharepoint), then [AI providers and platform integrations](./ai-providers-platform-integrations.md) for connector, binding, configuration, policy or health, or [Seats management and app updates](./seats-management-app-updates.md) for seat/license availability |
+| The AI provider does not seem operational | [AI providers and platform integrations](./ai-providers-platform-integrations.md) | [Maintenance, support and FAQ](./maintenance-support-faq.md) and [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) to confirm the actual provider |
 
 If you are looking for a verification procedure or an operational reference, open [Maintenance, support and FAQ](./maintenance-support-faq.md).
 
@@ -43,7 +43,7 @@ If you are looking for a verification procedure or an operational reference, ope
 | Handle signals, governance and actions requiring approval | [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) |
 | Review an artifact, publish a PM Document and investigate in the AI Log | [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) |
 | Understand supported connectors and integrations | [Connectors and integrations](./connecteurs-jira-et-sharepoint) |
-| Compare projects, manage integrations, AI and seats | [Portfolio and technical administration](./portefeuille-et-administration-technique.md) |
+| Compare projects, manage integrations, AI and seats | [Portfolio](./portfolio.md) · [AI providers and platform integrations](./ai-providers-platform-integrations.md) · [Seats management and app updates](./seats-management-app-updates.md) |
 | Consult support and verification procedures | [Maintenance, support and FAQ](./maintenance-support-faq.md) |
 | Clarify product terms | [Glossary](./glossaire.md) |
 
@@ -53,7 +53,7 @@ If you are looking for a verification procedure or an operational reference, ope
 | --- | --- |
 | Business user / contributor | [Getting started](./demarrage.md) → [Interface and navigation](./interface-et-navigation.md) → [Projects and workspace](./projets-et-espace-de-travail.md) → [Knowledge and agents](./connaissance-et-agents.md) → [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md) |
 | Project owner | [Getting started](./demarrage.md) → [Projects and workspace](./projets-et-espace-de-travail.md) → [Access control and project roles](./controle-acces-et-roles.md) → [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) → [Connectors and integrations](./connecteurs-jira-et-sharepoint) → [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) |
-| Technical administrator | [Azure Marketplace deployment](./deploiement-azure-marketplace.md) → [Getting started](./demarrage.md) → [Portfolio and technical administration](./portefeuille-et-administration-technique.md) → [Connectors and integrations](./connecteurs-jira-et-sharepoint) → [Maintenance, support and FAQ](./maintenance-support-faq.md) |
+| Technical administrator | [Azure Marketplace deployment](./deploiement-azure-marketplace.md) → [Getting started](./demarrage.md) → [AI providers and platform integrations](./ai-providers-platform-integrations.md) → [Seats management and app updates](./seats-management-app-updates.md) → [Maintenance, support and FAQ](./maintenance-support-faq.md) |
 | Support / audit | [Getting started](./demarrage.md) → [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md) → [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) → [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) → [Glossary](./glossaire.md) |
 
 ## Recommended end‑to‑end path
