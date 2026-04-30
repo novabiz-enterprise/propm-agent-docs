@@ -54,11 +54,11 @@ description: परियोजना ज्ञान आधार को पो
 
 कोई आयात विकल्प इन कारणों से उपलब्ध न हो सकता है:
 
-- entitlement;
-- permission;
-- policy;
-- उपलब्धता स्थिति, जिसे जाँचना पड़े;
-- missing या not-ready project binding।
+- missing permission;
+- restrictive policy;
+- availability या health status, जिसे जाँचना पड़े;
+- missing या not-ready project binding;
+- incomplete provider configuration।
 
 ## आयात इतिहास
 

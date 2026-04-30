@@ -343,7 +343,7 @@ En práctica:
 
 - **available / healthy** = opción explotable ;
 - **blocked by health** = conector a verificar en la plataforma ;
-- **blocked by entitlement** = capacidad no incluida en el plan o no abierta ;
+- **blocked by entitlement** = wording heredado para un bloqueo no ligado al plan; verifica configuración, binding, policy, permiso, aprobación o health ;
 - **blocked by policy** = gobernanza del proyecto restrictiva ;
 - **blocked by permission** = tu rol no es suficiente ;
 - **ninguna opción visible** = falta un conector compatible, falta el binding de proyecto o la opción no está abierta a tu rol.
@@ -363,7 +363,7 @@ En los tres casos, esto es distinto de una cola simplemente vacía porque nadie 
 | ningún conector seleccionable | no hay ningún conector compatible y saludable listo | revisar **Integraciones del proyecto** y luego **Administración de la plataforma** |
 | acción visible pero botón bloqueado | permiso insuficiente, política restrictiva o aprobación requerida | revisar el rol y luego la gobernanza |
 | cola visible pero nada sale | la solicitud sigue esperando aprobación o ejecución posterior | releer el estado real de la cola |
-| conector presente pero no utilizable | binding de proyecto, `health` o `entitlement` insuficientes | verificar la cadena completa plataforma -> proyecto -> política |
+| conector presente pero no utilizable | binding de proyecto, `health`, configuración, policy o permiso insuficientes | verificar la cadena completa plataforma -> proyecto -> política |
 
 Recuerda además que aquí solo aparecen las opciones de ejecución aprobadas a nivel de empresa y abiertas al proyecto. La preparación técnica del conector se gestiona en **Administración de la plataforma**, mientras que su exposición al proyecto se lee en **Integraciones del proyecto**.
 
@@ -532,7 +532,7 @@ Una acción puede ser visible en la interfaz pero permanecer bloqueada si:
 - la política del proyecto prohíbe ese nivel de acción ;
 - tu rol no permite proponer o ejecutar ;
 - una aprobación aún está pendiente ;
-- la capacidad o el plan bloquea el flujo.
+- el conector, binding, policy, permiso, aprobación o estado de salud bloquea el flujo.
 
 ## Qué hacer si no aparece ninguna opción de ejecución
 
@@ -541,7 +541,7 @@ Sigue este orden:
 1. verifica primero **Políticas de gobernanza** ;
 2. verifica luego **Integraciones del proyecto** ;
 3. abre después **Administración de la plataforma** ;
-4. controla finalmente la **entitlement**, la **permission** y el estado de salud del conector.
+4. controla finalmente la **configuración**, el **binding**, la **permission** y el estado de salud del conector.
 
 ## Escenario completo — de la señal a la acción ejecutada
 

@@ -345,7 +345,7 @@ In der Praxis:
 
 - **available / healthy** = Option nutzbar;
 - **blocked by health** = Connector auf Plattformseite prüfen;
-- **blocked by entitlement** = Fähigkeit ist im Plan nicht enthalten oder nicht freigeschaltet;
+- **blocked by entitlement** = Legacy-Bezeichnung für eine Blockierung ohne Planbezug; prüfen Sie Konfiguration, Binding, Policy, Berechtigung, Genehmigung oder Health;
 - **blocked by policy** = restriktive Projekt-Governance;
 - **blocked by permission** = Ihre Rolle reicht nicht aus;
 - keine sichtbare Option = kompatibler Connector fehlt, die Projektbindung fehlt oder die Option ist für Ihre Rolle nicht geöffnet.
@@ -365,7 +365,7 @@ In allen drei Fällen ist dies etwas anderes als eine Warteschlange, die einfach
 | kein auswählbarer Connector | kein kompatibler und gesunder Connector ist bereit | zuerst **Projektintegrationen**, dann **Plattformverwaltung** prüfen |
 | sichtbare Aktion, aber blockierter Button | Berechtigung, Richtlinie oder Genehmigung erforderlich | zuerst die Rolle, dann die Governance prüfen |
 | sichtbare Warteschlange, aber nichts geht raus | die Anfrage wartet noch auf Genehmigung oder nachgelagerte Ausführung | den tatsächlichen Warteschlangenstatus erneut lesen |
-| Connector vorhanden, aber nicht nutzbar | Bindung, Gesundheit oder Berechtigung reichen nicht aus | die gesamte Kette Plattform -> Projekt -> Richtlinie prüfen |
+| Connector vorhanden, aber nicht nutzbar | Binding, Health, Konfiguration, Policy oder Berechtigung reichen nicht aus | die gesamte Kette Plattform -> Projekt -> Richtlinie prüfen |
 
 Beachten Sie außerdem: Hier erscheinen nur Ausführungsoptionen, die unternehmensseitig freigegeben sind. Die technische Vorbereitung des Connectors erfolgt in **Plattformverwaltung**, die Projektexponierung lesen Sie über **Projektintegrationen**.
 
@@ -534,7 +534,7 @@ Eine Aktion kann in der Oberfläche sichtbar sein, aber blockiert bleiben, wenn:
 - die Projekt-Richtlinie dieses Aktionsniveau verbietet;
 - Ihre Rolle nicht erlaubt, vorzuschlagen oder auszuführen;
 - eine Genehmigung noch aussteht;
-- die Berechtigung oder die Plankapazität den Fluss blockiert.
+- Connector, Binding, Policy, Berechtigung, Genehmigung oder Health-Zustand den Fluss blockiert.
 
 ## Was tun, wenn keine Ausführungsoption angezeigt wird
 
@@ -543,7 +543,7 @@ Folgen Sie dieser Reihenfolge:
 1. prüfen Sie zuerst **Governance-Richtlinien**;
 2. prüfen Sie dann **Projektintegrationen**;
 3. öffnen Sie anschließend **Plattformverwaltung**;
-4. prüfen Sie schließlich **entitlement**, **permission** und den Gesundheitszustand des Connectors.
+4. prüfen Sie schließlich **Konfiguration**, **Binding**, **Berechtigung** und den Gesundheitszustand des Connectors.
 
 ## Vollständiges Szenario – vom Signal zur ausgeführten Aktion
 

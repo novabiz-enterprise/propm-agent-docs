@@ -252,13 +252,13 @@ Suele mostrar varias familias de información:
 - **conectores de ejecución**: opciones de salida gobernada hacia sistemas externos ;
 - **proveedores de ingestión**: fuentes de importación consumidas después por **Conocimiento** ;
 - **transparencia del runtime de IA**: proveedor de IA efectivo y proveedor seleccionado en el despliegue ;
-- **postura de `entitlement`**: plan, licencias o capacidades premium visibles para el proyecto.
+- **postura de licencias y asientos**: plan activo, licencias compradas, licencias usadas y asientos disponibles visibles para el proyecto.
 
 ### Qué muestra la pantalla Integraciones del proyecto
 
 La pantalla separa la preparación técnica de la disponibilidad del proyecto:
 
-- la configuración de plataforma, el `binding` del proyecto, la `policy`, la `permission`, el `entitlement` y el `health` son **causas separadas**. Un conector puede seguir visible en solo lectura para que el equipo entienda por qué está bloqueado, en lugar de asumir que falta;
+- la configuración de plataforma, el `binding` del proyecto, la `policy`, la `permission`, el `health` y la disponibilidad de licencia para acceder a la app son **causas separadas**. Un conector puede seguir visible en solo lectura para que el equipo entienda por qué está bloqueado, en lugar de asumir que falta;
 - la configuración técnica permanece en **Administración de la plataforma**. Los responsables de configuración del proyecto pueden vincular integraciones habilitadas y listas, mientras que las URL del tenant, la estrategia de autenticación, las claves API y las referencias de secretos permanecen centralizadas.
 
 | Zona | Qué puedes ver | Cómo actuar |
@@ -268,32 +268,34 @@ La pantalla separa la preparación técnica de la disponibilidad del proyecto:
 
 Las tarjetas de proveedor pueden mostrar **Ready**, **Healthy** o **Not configured**. **Not configured** significa que el proveedor existe en el catálogo de plataforma, pero aún necesita fuente, credenciales o validación de preparación antes de que el proyecto pueda usarlo.
 
+Para campos obligatorios, probes, mapping de acciones y límites de ejecución live, usa [Conectores e integraciones](./connecteurs-jira-et-sharepoint.md). **Ready** o **Healthy** indica una preparación coherente, pero por sí solo no prueba que ya se haya ejecutado un ticket, mensaje o importación externa completa.
+
 ### Causas de bloqueo mostradas por el producto
 
 Una integración del proyecto o una opción de importación puede quedar bloqueada por:
 
-- `entitlement` ;
 - `policy` ;
 - `permission` ;
 - un estado de `health` que debe verificarse ;
 - una definición de plataforma ausente o desactivada ;
-- un `binding` del proyecto desactivado o sin configurar.
+- un `binding` del proyecto desactivado o sin configurar ;
+- una configuración o validación específica del proveedor incompleta.
 
 ### Cómo interpretar un bloqueo de `binding`
 
 | Causa visible | Lectura práctica | Reflejo recomendado |
 | --- | --- | --- |
-| `entitlement` | el plan o la capacidad autorizados no cubren este conector o esta familia de uso | verifica la suscripción y las capacidades en [Portafolio y administración técnica](./portefeuille-et-administration-technique.md) |
+| `entitlement` | wording heredado para una integración bloqueada, no una diferencia de funcionalidades Marketplace | verifica configuración, validación, health, binding, policy, rol y disponibilidad de licencia si el bloqueo es de acceso |
 | `policy` | la gobernanza del proyecto prohíbe o limita este flujo | relee **Políticas de gobernanza** antes de cambiar el `binding` |
 | `permission` | el conector existe, pero tu rol no permite activarlo ni usarlo | comprueba el rol del proyecto en [Control de acceso y roles del proyecto](./controle-acces-et-roles.md) |
 | `health` | la definición de la plataforma existe, pero su preparación o disponibilidad exigen verificación | abre **Administración de la plataforma** para confirmar la definición técnica |
 | definición ausente o desactivada | nada está realmente listo a nivel de inquilino | solicita primero la puesta en marcha o la reactivación en la plataforma |
 | `binding` del proyecto ausente | la plataforma está lista, pero el proyecto aún no consume la integración | activa explícitamente el `binding` desde el proyecto |
 
-### Sentido práctico de `binding` y `entitlement`
+### Sentido práctico de `binding` y licencias
 
 - `binding` significa que el conector o proveedor existe a nivel de plataforma, pero todavía debe vincularse y habilitarse para el proyecto antes de que el proyecto pueda usarlo ;
-- `entitlement` significa que, incluso con un `binding` listo, el plan puede mantener la opción visible en solo lectura mientras bloquea el uso operativo ;
+- la **licencia** determina si el usuario tiene un asiento disponible para acceder a la app. Los planes Marketplace no desbloquean ni bloquean familias de conectores distintas ;
 - por eso, un conector visible pero bloqueado no implica necesariamente que esté averiado: la interfaz puede mostrarlo precisamente para explicar la causa del bloqueo.
 
 Si un bloqueo persiste, abre luego **Administración de la plataforma** para verificar la definición técnica y vuelve después al proyecto para confirmar el `binding` y la preparación.
@@ -322,7 +324,7 @@ En la interfaz, la cola y las tarjetas de síntesis distinguen sobre todo cuatro
 
 | Estado visible | Lectura práctica |
 | --- | --- |
-| **Execution prerequisites** | pueden existir conectores compatibles, pero la ejecución sigue bloqueada por `health`, `entitlement`, `permission`, `policy` o por una preparación todavía no disponible |
+| **Execution prerequisites** | pueden existir conectores compatibles, pero la ejecución sigue bloqueada por `health`, configuración, `binding`, `permission`, `policy`, aprobación o preparación todavía no disponible |
 | **Pending approval** | la solicitud ya se propuso y sigue esperando una decisión de gobernanza |
 | **Ready to execute** | la solicitud ya está **approved**, pero la ejecución sigue siendo un paso aparte |
 | **Executed history** | la acción ya se ejecutó realmente y permanece visible como historial o prueba de auditoría |
@@ -355,7 +357,7 @@ Lectura útil:
 
 - **available / healthy**: opción teóricamente utilizable ;
 - **blocked by health**: el conector existe, pero no tiene un estado operativo suficiente ;
-- **blocked by entitlement**: la suscripción no cubre ese flujo ;
+- **blocked by entitlement**: wording heredado que indica un bloqueo; verifica configuración, validación, binding, policy, rol y disponibilidad de licencia si el acceso a la app está bloqueado ;
 - **blocked by policy**: la gobernanza del proyecto bloquea el paso ;
 - **blocked by permission**: tu rol no basta ;
 - ninguna opción visible: ningún conector compatible y aprobado está expuesto actualmente al proyecto.

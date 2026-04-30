@@ -346,7 +346,7 @@ En pratique :
 - **available / healthy** = option exploitable ;
 - **blocked by health** = connecteur à vérifier côté plateforme ;
 - **blocked by policy** = le cadre de gouvernance bloque encore le passage ;
-- **blocked by entitlement** = le plan ou la capacité autorisée ne couvre pas ce flux ;
+- **blocked by entitlement** = libellé hérité pour un blocage non lié au plan ; vérifiez configuration, binding, policy, permission, approbation ou health ;
 - aucune option visible = connecteur compatible absent, binding projet manquant ou option non ouverte à votre rôle.
 
 ### Lecture pédagogique d’un écran qui semble vide
@@ -364,7 +364,7 @@ Dans les trois cas, cet état doit être distingué d’une file simplement vide
 | aucun connecteur sélectionnable | aucun connecteur compatible et sain n’est prêt | vérifier **Intégrations du projet** puis **Administration de la plateforme** |
 | action visible mais bouton bloqué | permission, policy ou approbation requise | contrôler le rôle puis la gouvernance |
 | file visible mais rien ne part | la demande reste en attente d’approbation ou d’exécution aval | relire le statut réel de la file |
-| connecteur présent mais inutilisable | binding projet, health ou entitlement insuffisant | vérifier la chaîne complète plateforme → projet → policy |
+| connecteur présent mais inutilisable | binding projet, health, configuration, policy ou permission insuffisants | vérifier la chaîne complète plateforme → projet → policy |
 
 Rappelez-vous aussi que seules les options d’exécution approuvées côté entreprise/projet apparaissent ici. La préparation technique du connecteur reste dans **Administration de la plateforme**, tandis que l’exposition au projet se lit dans **Intégrations du projet**.
 
@@ -533,7 +533,7 @@ Une action peut être visible dans l’interface mais rester bloquée si :
 - la politique du projet interdit ce niveau d’action ;
 - votre rôle ne permet pas de proposer ou d’exécuter ;
 - une approbation est encore en attente ;
-- l’entitlement ou la capacité du plan bloque le flux.
+- le connecteur, le binding, la policy, la permission, l’approbation ou l’état health bloque le flux.
 
 ## Que faire si aucune option d’exécution n’apparaît
 
@@ -542,7 +542,7 @@ Suivez cet ordre :
 1. vérifiez d’abord **Politiques de gouvernance** ;
 2. vérifiez ensuite **Intégrations du projet** ;
 3. ouvrez ensuite **Administration de la plateforme** ;
-4. contrôlez enfin l’**entitlement**, la **permission** et l’état de santé du connecteur.
+4. contrôlez enfin la **configuration**, le **binding**, la **permission** et l’état de santé du connecteur.
 
 ## Scénario complet — du signal à l’action exécutée
 

@@ -54,11 +54,11 @@ Depending on the source, the interface may display:
 
 An import option may be unavailable due to:
 
-- entitlement;
-- permission;
-- policy;
-- availability status to check;
-- missing or not ready project binding.
+- missing permission;
+- restrictive policy;
+- availability or health status to check;
+- missing or not-ready project binding;
+- incomplete provider configuration.
 
 ## Import history
 

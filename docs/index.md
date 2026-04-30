@@ -24,7 +24,7 @@ It is organized for two audiences:
 | I cannot log in | [Getting started](./demarrage.md) | [Maintenance, support and FAQ](./maintenance-support-faq.md) to distinguish tenant, `redirect URI`, seat or health status |
 | No projects appear | [Getting started](./demarrage.md) | [Projects and workspace](./projets-et-espace-de-travail.md), then [Maintenance, support and FAQ](./maintenance-support-faq.md) if adding to the project or role remains doubtful |
 | A page stays empty until an active project is defined | [Getting started](./demarrage.md) | [Projects and workspace](./projets-et-espace-de-travail.md) to confirm project context, then [Maintenance, support and FAQ](./maintenance-support-faq.md) if the empty state still seems abnormal |
-| An action is visible but blocked | [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) | [Connectors and integrations](./connecteurs-jira-et-sharepoint), then [Portfolio and technical administration](./portefeuille-et-administration-technique.md) if the block comes from a connector, a binding or an entitlement |
+| An action is visible but blocked | [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) | [Connectors and integrations](./connecteurs-jira-et-sharepoint), then [Portfolio and technical administration](./portefeuille-et-administration-technique.md) if the block comes from a connector, binding, configuration, policy, role, health state or seat/license availability |
 | The AI provider does not seem operational | [Portfolio and technical administration](./portefeuille-et-administration-technique.md) | [Maintenance, support and FAQ](./maintenance-support-faq.md) and [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) to confirm the actual provider |
 
 If you are looking for a verification procedure or an operational reference, open [Maintenance, support and FAQ](./maintenance-support-faq.md).
@@ -164,7 +164,7 @@ Use the appropriate channel depending on the request type:
 | --- | --- |
 | Technical support | Deployment URL, project in question, encountered situation, approximate time, `Trace ID` if visible |
 | Access, tenant or identity question | Expected tenant, account used, actual URL opened, Microsoft message or screenshot |
-| Commercial or subscription question | Account context, plan in question, number of seats or capacity need |
+| Commercial or subscription question | Account context, plan in question, purchased seats, used seats and seat need |
 
 All these requests can be sent to the following contact point:
 

@@ -306,6 +306,16 @@ Avant de lancer la création :
 5. ouvrez **Administration de la plateforme > Paramètres du fournisseur IA** et confirmez que le fournisseur choisi est bien préparé ;
 6. vérifiez ensuite que l’état attendu passe par **Configuration**, **Validation**, **Test** puis **Operational**.
 
+### Mises à jour après installation sans repasser par Marketplace
+
+Une fois l’environnement installé, les mises à jour applicatives courantes se font depuis **Administration de la plateforme > Déploiement & mises à jour**. Cette opération met à jour les images des Container Apps existantes et crée de nouvelles révisions sur les ressources déjà en place.
+
+Ce flux ne relance pas l’offre Azure Marketplace, ne crée pas de nouveau groupe de ressources et ne recrée pas les ressources Azure du déploiement. Il sert à appliquer des images ACR approuvées, vérifier les services candidats, rafraîchir des tags mutables si l’environnement l’autorise et revenir à l’image précédente via rollback lorsque les références sont disponibles.
+
+Avant de l’utiliser, confirmez que l’identité runtime peut lire et patcher les Container Apps via Azure Resource Manager, que `AZURE_SUBSCRIPTION_ID` et l’une des variables `AZURE_RESOURCE_GROUP_ID`, `AZURE_RESOURCE_GROUP` ou `AZURE_RESOURCE_GROUP_NAME` sont configurées, et que les images cibles viennent d’un manifest de mise à jour, d’une configuration d’images cibles ou d’un tag applicatif autorisé.
+
+Gardez toutefois séparés ces deux sujets : Marketplace installe l’environnement initial ; **Déploiement & mises à jour** maintient l’installation existante. Les migrations de schéma base de données et les changements d’architecture ne sont pas couverts par ce bouton d’administration.
+
 ### Authentification Entra
 
 Selon votre mode de déploiement, vérifiez ou finalisez l’inscription d’application Entra :

@@ -25,7 +25,7 @@ Está organizada para dos públicos:
 | No puedo iniciar sesión | [Inicio](./demarrage.md) | [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) para distinguir inquilino, `redirect URI`, sede o estado de salud |
 | No aparece ningún proyecto | [Inicio](./demarrage.md) | [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md), luego [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) si la adición al proyecto o el rol siguen dudosos |
 | Una página permanece vacía mientras no se defina un proyecto activo | [Inicio](./demarrage.md) | [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md) para confirmar el contexto de proyecto, luego [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) si el estado vacío sigue pareciendo anormal |
-| Una acción es visible pero bloqueada | [Gobernanza, decisiones y acciones](./gouvernance-decisions-et-actions.md) | [Conectores e integraciones](./connecteurs-jira-et-sharepoint), luego [Portafolio y administración técnica](./portefeuille-et-administration-technique.md) si el bloqueo proviene de un conector, un binding o un entitlement |
+| Una acción es visible pero bloqueada | [Gobernanza, decisiones y acciones](./gouvernance-decisions-et-actions.md) | [Conectores e integraciones](./connecteurs-jira-et-sharepoint), luego [Portafolio y administración técnica](./portefeuille-et-administration-technique.md) si el bloqueo proviene de un conector, binding, configuración, policy, rol, estado de salud o disponibilidad de licencia/asiento |
 | El proveedor IA no parece operativo | [Portafolio y administración técnica](./portefeuille-et-administration-technique.md) | [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) y [Informes, Registro IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md) para confirmar el proveedor efectivo |
 
 Si buscas directamente un procedimiento de verificación o un punto de referencia de operación, abre [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md).
@@ -161,7 +161,7 @@ Utiliza el canal adecuado según la naturaleza de la solicitud:
 | --- | --- |
 | Soporte técnico | URL del despliegue, proyecto concerniente, situación encontrada, hora aproximada, `Trace ID` si es visible |
 | Pregunta de acceso, inquilino o identidad | inquilino esperado, cuenta usada, URL realmente abierta, mensaje de Microsoft o captura de pantalla |
-| Pregunta comercial o suscripción | contexto de la cuenta, plan concerniente, número de sedes o necesidad de capacidad |
+| Pregunta comercial o suscripción | contexto de la cuenta, plan concerniente, asientos comprados, asientos usados y necesidad de asientos |
 
 Todas estas solicitudes pueden enviarse al siguiente punto de contacto:
 

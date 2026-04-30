@@ -86,7 +86,7 @@ Provider actually used for a given run. This is the reference value in the AI Lo
 
 **Entitlement**
 
-Commercial or technical capacity authorized by the plan, can unlock or block a connector, provider or premium feature.
+Legacy technical label for an access or execution block. Marketplace plans do not use it to unlock different product features; check license/seat availability, binding, role, policy, configuration and health instead.
 
 **Activity event**
 

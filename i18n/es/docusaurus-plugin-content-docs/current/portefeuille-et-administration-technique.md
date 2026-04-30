@@ -389,6 +389,7 @@ Aquí es donde se configuran principalmente:
 
 - las **integraciones de la plataforma**;
 - los **proveedores IA**;
+- las **actualizaciones del despliegue de la aplicación**;
 - la **suscripción** y los **asientos**;
 - la **auditoría de actividad**.
 
@@ -401,7 +402,8 @@ Aquí es donde se configuran principalmente:
 | Visión general | resumen del estado general de preparación |
 | Integraciones de la plataforma | definiciones técnicas de los conectores y proveedores de ingestión |
 | Parámetros del proveedor IA | configuración, validación, prueba y activación del proveedor IA |
-| Marketplace & suscripción | plan, derechos, asientos y estado comercial |
+| Despliegue y actualizaciones | inventario de imágenes de Container Apps, verificación de actualizaciones, despliegue de imágenes ACR aprobadas y rollback |
+| Marketplace & suscripción | plan activo, asientos comprados, usados, disponibles y estado comercial |
 | Auditoría / actividad | historial de acciones administrativas |
 
 ## Integraciones de la plataforma vs Integraciones del proyecto
@@ -427,15 +429,19 @@ Una regla importante sale del producto:
 
 Para el detalle completo por familia de conectores, ver [Conectores e integraciones](./connecteurs-jira-et-sharepoint).
 
+Las validaciones de plataforma aplican requisitos propios de cada proveedor: campos obligatorios, estrategia de autenticación compatible, URLs HTTPS cuando sean necesarias, puerto SFTP válido y fuente o destino explícito. Los probes de conectividad real solo se ejecutan si el administrador o la configuración de plataforma los activan.
+
+Los secretos, claves y referencias sensibles deben permanecer en la configuración de plataforma prevista para ese uso. No los coloques en una nota, payload de acción o descripción visible por usuarios del proyecto.
+
 ## Preparación y causas de bloqueo
 
 Una integración puede estar bloqueada por:
 
-- **entitlement**;
 - **policy**;
 - **permission**;
 - **health** a verificar;
 - definición plataforma faltante;
+- configuración o validación específica del proveedor incompleta;
 - binding proyecto no abierto.
 
 ### Circuito de verificación recomendado
@@ -495,14 +501,37 @@ Con **Azure OpenAI**, a menudo se debe completar en la administración:
 
 Para el detalle de la elección de proveedor IA durante el despliegue Marketplace, ver [Despliegue Azure Marketplace](./deploiement-azure-marketplace.md).
 
-## Suscripción, entitlement y asientos
+## Actualizaciones de aplicación sin redespliegue Marketplace
 
-El producto gestiona un modelo de licencia con asientos y capacidades.
+La sección **Despliegue y actualizaciones** permite actualizar una instalación existente **in place**. No vuelve a ejecutar el asistente de Azure Marketplace, no crea un nuevo grupo de recursos y no recrea los recursos Azure ya desplegados.
+
+En la práctica, la administración lee el inventario de imágenes de las **Azure Container Apps** existentes mediante Azure Resource Manager, compara las imágenes actuales con imágenes objetivo aprobadas en ACR y envía nuevas revisiones sobre las Container Apps existentes.
+
+Acciones disponibles:
+
+- **Check for updates**: verifica imágenes actuales, imágenes objetivo, candidatos de refresh para tags mutables y versión opcional del manifest;
+- **Apply update**: aplica las nuevas imágenes a los servicios seleccionados creando nuevas revisiones Container Apps;
+- **Rollback last update**: vuelve a imágenes anteriores cuando la última operación capturó las referencias necesarias;
+- **Container App image inventory**: revisa grupo de recursos administrado, servicios seguidos, imágenes actuales, imágenes objetivo y estado de revisiones.
+
+Prerrequisitos importantes:
+
+- el usuario debe tener derechos de administración del despliegue o de la plataforma;
+- la identidad runtime debe poder leer y parchear Container Apps en Azure Resource Manager;
+- el entorno debe conocer la suscripción y el grupo de recursos mediante `AZURE_SUBSCRIPTION_ID` y `AZURE_RESOURCE_GROUP_ID`, `AZURE_RESOURCE_GROUP` o `AZURE_RESOURCE_GROUP_NAME`;
+- las imágenes objetivo deben venir de un manifest de actualización, una configuración de imágenes objetivo o un tag de aplicación autorizado.
+
+Esta operación cubre el **rollout de imágenes de aplicación**. Las migraciones de esquema de base de datos, la creación de nuevos recursos Azure y los cambios de arquitectura quedan fuera de alcance. Si la actualización incluye el propio servicio orchestrator, la interfaz puede indicar que la solicitud fue enviada mientras el servicio se reemplaza.
+
+## Suscripción y asientos
+
+El producto gestiona un modelo de licencia por asientos. Todos los planes Marketplace dan acceso a las mismas funcionalidades de la aplicación; solo cambia la cantidad de licencias/asientos.
 
 ### Qué puede ver un administrador
 
 - el **plan** activo;
 - el número de **asientos comprados**;
+- el número de **asientos usados**;
 - el número de **asientos disponibles**;
 - los usuarios ya licenciados;
 - el estado comercial, por ejemplo `billing state`, `payment state` o `subscription status`.
@@ -511,9 +540,11 @@ El producto gestiona un modelo de licencia con asientos y capacidades.
 
 Un usuario bloqueado no necesariamente tiene un problema de conexión. El bloqueo puede venir:
 
-- de una falta de asientos;
-- de un entitlement faltante;
-- de una funcionalidad no incluida en el plan.
+- de una falta de asiento disponible;
+- de un usuario retirado que debe reasignar un administrador;
+- de un rol insuficiente, un proyecto inaccesible, un binding, una policy, una configuración o un estado de salud que corregir.
+
+Los planes Marketplace no bloquean conectores, proveedores IA ni funcionalidades del producto. Si una etiqueta técnica `entitlement` sigue apareciendo en la interfaz o los logs, trátala como un indicador heredado/no asociado a una diferencia funcional de plan.
 
 ## Referencias técnicas de la plataforma
 

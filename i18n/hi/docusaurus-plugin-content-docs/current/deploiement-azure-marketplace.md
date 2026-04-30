@@ -306,6 +306,16 @@ Marketplace में, आप संकेत देते हैं कि व�
 5. **प्लेटफ़ॉर्म प्रशासन > AI प्रदाता सेटिंग्स** खोलें और पुष्टि करें कि चुना गया प्रदाता तैयार है;
 6. फिर जाँचें कि अपेक्षित स्थिति **Configuration → Validation → Test → Operational** से गुजरती है।
 
+### Marketplace पर वापस जाए बिना installation के बाद updates
+
+Environment install होने के बाद regular application updates **Platform Administration > Deployment & Updates** से की जाती हैं। यह operation existing Container Apps की images update करता है और पहले से मौजूद resources पर नई revisions बनाता है।
+
+यह flow Azure Marketplace offer फिर से नहीं चलाता, नया resource group नहीं बनाता और deployment resources recreate नहीं करता। इसका उपयोग approved ACR images apply करने, candidate services check करने, environment allow करे तो mutable tags refresh करने और references available हों तो rollback से previous image पर लौटने के लिए होता है।
+
+इसे उपयोग करने से पहले पुष्टि करें कि runtime identity Azure Resource Manager के माध्यम से Container Apps read और patch कर सकती है, `AZURE_SUBSCRIPTION_ID` और `AZURE_RESOURCE_GROUP_ID`, `AZURE_RESOURCE_GROUP` या `AZURE_RESOURCE_GROUP_NAME` में से कोई resource group variable configured है, और target images update manifest, target-image configuration या authorized application tag से आती हैं।
+
+दो steps अलग रखें: Marketplace initial environment install करता है; **Deployment & Updates** existing installation maintain करता है। Database schema migrations और architecture changes इस administration button के scope में नहीं आते।
+
 ### Entra प्रमाणीकरण
 
 आपके तैनाती मोड के अनुसार, Entra एप्लिकेशन पंजीकरण को अंतिम रूप दें:

@@ -10,7 +10,7 @@ description: ProPM Agent में दिखाई देने वाले स
 
 ## उद्देश्य
 
-यह पृष्ठ **ProPM Agent में दिखाई देने वाले सभी कनेक्टर्स और इन्जेशन प्रदाताओं**, उनके लाभ, व्यावसायिक उपयोग और उत्पाद में उनके एकीकरण के तरीके को समझाता है।
+यह पृष्ठ **ProPM Agent में समर्थित ऑपरेशनल कनेक्टर और इन्जेशन प्रदाता कैटलॉग**, उनके लाभ, व्यावसायिक उपयोग और उत्पाद में उनके एकीकरण के तरीके को समझाता है। कुछ प्रशासनिक सूचियाँ अतिरिक्त extensible या custom families भी दिखा सकती हैं, जिन्हें वास्तविक उपयोग से पहले अतिरिक्त configuration और validation चाहिए।
 
 उद्देश्य तीन सरल प्रश्नों का उत्तर देना है:
 
@@ -41,7 +41,7 @@ description: ProPM Agent में दिखाई देने वाले स
 किसी भी कनेक्टर के लिए, तार्किक पथ हमेशा समान रहता है:
 
 1. प्रशासक इसे **प्लेटफ़ॉर्म प्रशासन** में तैयार करता है;
-2. वह कॉन्फ़िगरेशन और कनेक्टिविटी को मान्य करता है;
+2. वह configuration और, enabled होने पर, वास्तविक connectivity को validate करता है;
 3. कनेक्टर **प्रोजेक्ट इंटीग्रेशन** में उपलब्ध कराया जाता है;
 4. **गवर्नेंस नीतियाँ** तय करती हैं कि कौन इसका उपयोग कर सकता है और किस स्तर पर;
 5. टीम इसे **ज्ञान**, **PM दस्तावेज़** या **Actions & approbations** में उपयोग करती है;
@@ -51,11 +51,11 @@ description: ProPM Agent में दिखाई देने वाले स
 
 | सतह | वहाँ क्या किया जाता है |
 | --- | --- |
-| **प्लेटफ़ॉर्म प्रशासन** | तकनीकी परिभाषा बनाना, प्रमाणीकरण भरना, मान्य और परीक्षण करना |
+| **प्लेटफ़ॉर्म प्रशासन** | तकनीकी definition बनाना, authentication भरना, validate करना, provider के अनुसार test करना और जरूरत हो तो probes enable करना |
 | **प्रोजेक्ट इंटीग्रेशन** | यह जाँचना कि कौन से कनेक्टर्स वास्तव में वर्तमान प्रोजेक्ट के लिए खुले हैं |
-| **ज्ञान** | दस्तावेज़, पेज, टिकट, वर्क आइटम या अन्य स्रोत आयात करना |
-| **गवर्नेंस नीतियाँ** | यह तय करना कि कौन से रोल्स निरीक्षण, प्रस्ताव या एक्शन निष्पादन कर सकते हैं |
-| **Actions & approbations** | एक वास्तविक एक्शन बनाना, उसे अनुमोदित करना और फिर निष्पादित करना |
+| **ज्ञान** | उपलब्ध provider के अनुसार documents, pages, tickets, work items या अन्य sources import करना |
+| **गवर्नेंस नीतियाँ** | यह तय करना कि कौन से roles observe, propose या execute कर सकते हैं |
+| **Actions & approbations** | action request तैयार करना, approval लेना और connector mode अनुमति दे तो execute करना |
 | **Journal IA / गतिविधि** | प्रवाह और निष्पादन का ट्रेस रखना |
 
 ## तीन स्तर जिन्हें भ्रमित नहीं करना चाहिए
@@ -124,6 +124,111 @@ Project screen bound providers को **Available to bind** providers से अ
 | **ADF / Blob / Confluence / SFTP** | केवल ingestion provider | — | ये **Knowledge** को enrich करते हैं और अपने-आप action destinations नहीं बनते |
 | **Teams / Outlook / Webhook** | — | केवल execution connector | ये governed messages या events भेजते हैं और अपने-आप Knowledge import नहीं करते |
 
+## Supported catalog बनाम extensible options
+
+ऊपर दिया गया catalog वह operational catalog है जो अभी seed, check और **Project Integrations** में expose होता है। **Platform Administration** अतिरिक्त या custom families भी दिखा सकता है, जैसे GitHub, GitLab, ServiceNow, Slack, Notion, Google Drive, OneDrive, Box या Dropbox।
+
+इन अतिरिक्त entries को extensions मानें जब तक administrator technical definition, required fields, authentication strategy, validation, project binding और लागू governance policy confirm न कर दे।
+
+## Execution connector के लिए minimum configuration
+
+नीचे दिए गए fields `test` या `live` use से पहले न्यूनतम रूप से पूरे होने चाहिए। Form में field names थोड़े बदल सकते हैं, लेकिन logic समान है: destination, authentication identity और explicit project target।
+
+| Connector | test/live use से पहले minimum fields | Typical authentication | Connectivity probe enabled होने पर |
+| --- | --- | --- | --- |
+| **Jira delivery workspace** | `base_url` या `site_url`, `project_key` | API key, basic, PAT, bearer token या OAuth | target Jira project पढ़ता है |
+| **Azure DevOps delivery project** | `organization_url` या `organization`, `project`, `work_item_type` | PAT, bearer token या OAuth | project में work item type check करता है |
+| **Microsoft Teams collaboration** | `team_id`, `channel_id` | Microsoft Graph with bearer token, OAuth, client credentials या managed identity | target Teams channel पढ़ता है |
+| **Outlook executive notifications** | `mailbox`, `user_id` या `user_principal_name` | Microsoft Graph with bearer token, OAuth, client credentials या managed identity | Graph mailbox या user check करता है |
+| **SharePoint publication library** | `site_id` या `site_url`, `drive_id` या `library` | Microsoft Graph with bearer token, OAuth, client credentials या managed identity | site और library check करता है |
+| **Webhook event delivery** | HTTPS में `webhook_url` या `endpoint_url` | no auth, API key, bearer token, basic या OAuth | `HEAD` भेजता है, जरूरत पर `GET` |
+| **Microsoft Project schedule sync** | `project_id`, `portfolio` या `workspace` | Microsoft Graph with bearer token, OAuth, client credentials या managed identity | configured probe endpoint या path use करता है |
+| **Smartsheet portfolio workspace** | `sheet_id` या `workspace_id` | API key, bearer token, OAuth या PAT | Smartsheet sheet या workspace पढ़ता है |
+| **Wrike delivery workspace** | `folder_id`, `space_id` या `task_id` | bearer token या OAuth | Wrike task या folder पढ़ता है |
+| **Asta Powerproject schedule sync** | `base_url` या `endpoint_url`, फिर `project_id`, `portfolio` या `schedule_id` | API key, bearer token, OAuth या basic | configured probe endpoint या path use करता है |
+
+## Ingestion provider के लिए minimum configuration
+
+Ingestion provider को source, import mode और उस source को पढ़ने वाली identity बतानी होती है। Scheduled imports के लिए compatible cadence या orchestration भी चाहिए।
+
+| Provider | real use से पहले minimum fields | Typical authentication | Connectivity probe enabled होने पर |
+| --- | --- | --- | --- |
+| **SharePoint knowledge import** | `site_id` या `site_url`, `drive_id` या `library` | Microsoft Graph with bearer token, OAuth, client credentials या managed identity | library और root children check करता है |
+| **Azure Data Factory evidence pipeline** | `subscription_id`, `resource_group_name`, `factory` या `factory_name`, `pipeline` या `pipeline_name` | managed identity, client credentials या bearer token | pipeline definition पढ़ता है |
+| **Azure Blob document ingest** | `account_url`, `storage_account` या `account_name`, फिर `container` | managed identity, SAS, bearer token या client credentials | container से कुछ blobs list करता है |
+| **Confluence knowledge import** | `base_url`, `space`, `space_key` या `space_id` | basic, bearer token या OAuth | Confluence space check करता है |
+| **Jira issue import** | `base_url` या `site_url`, फिर `project`, `project_key` या `jql` | API key, basic, PAT, bearer token या OAuth | limited Jira search चलाता है |
+| **SFTP document intake** | `host` या `base_url`, `username` या `user`, `folder` या `path`, provided हो तो valid port | basic, password या SSH private key | SFTP server तक TCP reachability check करता है |
+| **Microsoft Project schedule import** | `project_id`, `portfolio` या `workspace` | Microsoft Graph with bearer token, OAuth, client credentials या managed identity | configured probe endpoint या path use करता है |
+| **Smartsheet sheet import** | `sheet_id` या `workspace_id` | API key, bearer token, OAuth या PAT | Smartsheet sheet या workspace पढ़ता है |
+| **Wrike task import** | `folder_id` या `space_id` | bearer token या OAuth | folder या space की tasks पढ़ता है |
+| **Asta Powerproject schedule import** | `base_url` या `endpoint_url`, फिर `project_id`, `portfolio` या `schedule_id` | API key, bearer token, OAuth या basic | configured probe endpoint या path use करता है |
+
+## Validation, probes और runtime limits
+
+| Step | क्या confirm होता है | क्या guarantee नहीं होती |
+| --- | --- | --- |
+| **Save** | definition platform level पर save है | external source जरूरी नहीं कि contact हुई हो |
+| **Validate** | required fields, mode, authentication और HTTPS URLs coherent हैं | real network call केवल probes enabled होने पर चलता है |
+| **Connectivity probe** | ProPM Agent provider के non-destructive endpoint तक पहुँच सकता है | ticket creation, message sending या full import trigger नहीं होते |
+| **Bind to project** | project platform definition consume कर सकता है | policy, user role, health, validation और binding readiness अभी भी use block कर सकते हैं |
+| **Validate binding** | project binding platform definition से aligned रहता है | यह real business action या import का replacement नहीं है |
+
+Connectivity probes जानबूझकर opt-in हैं। Administrator इन्हें `connectivity_probe_enabled`, `run_connectivity_probe`, `live_connectivity_check`, equivalent metadata या platform environment variable से enable कर सकता है। इसके बिना validation consistency और readiness check ही रहता है।
+
+यदि connector `mock` या `test` mode में रहता है, तो ProPM Agent request, governance, approval और trace manage कर सकता है, लेकिन final call external system को जरूरी नहीं भेजता। Real vendor execution के लिए compatible connector mode, complete configuration, allowing policy और ऐसा environment चाहिए जो उस path को enable करे।
+
+## Governed actions और required connector
+
+| User action | Internal action type | Required connector | Minimum business fields |
+| --- | --- | --- | --- |
+| SharePoint में artifact publish करना | `publish_artifact_to_sharepoint` | `sharepoint_publish` | `artifact_id`, `destination_id` |
+| Teams message भेजना | `send_teams_message` | `teams` | `body` |
+| Outlook message भेजना | `send_outlook_message` | `outlook` | `body`, `recipients` |
+| Jira ticket बनाना | `create_jira_ticket` | `jira` | `title` |
+| Azure DevOps work item बनाना | `create_azure_devops_ticket` | `azure_devops` | `title` |
+
+कुछ legacy labels automatically normalize होते हैं। उदाहरण: `send_message` से `send_teams_message`, `send_email` से `send_outlook_message`, `create_work_item` से `create_azure_devops_ticket`, और `publish_sharepoint_artifact` से `publish_artifact_to_sharepoint`।
+
+## Status, blockers और diagnostic order
+
+| Visible status या blocker | Practical reading | पहले क्या करें |
+| --- | --- | --- |
+| **Ready** या **available** | definition bind या use हो सकती है अगर बाकी chain खुली है | project binding और policy check करें |
+| **Healthy** | latest known validation positive है | confirm करें कि project bound है |
+| **Not configured** | fields, source, target या credentials missing हैं | Platform Administration में definition complete करें |
+| **Not validated** या **not_tested** | definition मौजूद है लेकिन expected validation या test pass नहीं हुआ | Validate या सही probe चलाएँ |
+| **Blocked by health** | platform health degraded या invalid है | endpoint, auth, scopes और network check करें |
+| **Blocked by entitlement** | blocked integration के लिए legacy wording; Marketplace plans में यह feature-tier difference नहीं है | access issue हो तो configuration, health, binding, policy, role और license availability check करें |
+| **Blocked by policy** | project governance इस action या usage type को रोकती है | policy या role adjust करें |
+| **Binding disabled** | project binding मौजूद है लेकिन disabled है | allowed हो तो binding re-enable या recreate करें |
+| **Missing platform definition** | project missing या deleted definition reference कर रहा है | platform definition recreate या fix करें |
+
+सबसे उपयोगी diagnostic order है: platform definition, required configuration, validation या probe, project binding, policy, user permission, action या import payload, फिर app access blocked हो तो license availability।
+
+## Import, external output और audit
+
+| Topic | ProPM Agent क्या trace करता है | External tool में क्या check करें |
+| --- | --- | --- |
+| Knowledge import | ingestion run, provider, binding, source label, freshness, counts और Trace ID | available volume, source rights, filters, skipped files और deduplication |
+| SharePoint publication | action request, approval, connector, destination और Trace ID | final URL, library, write permissions और published version |
+| Jira या Azure DevOps | action, rationale, business payload और Trace ID | created ticket या work item key, target project और item type |
+| Teams या Outlook | request, logical recipients या channel, approval और Trace ID | actual delivery, channel, mailbox और possible Graph refusals |
+| Webhook | logical endpoint, attempt status, response या error और Trace ID | HTTP status, truncated response, signature validation और downstream retry |
+
+किसी action business payload या user note में कभी secret न डालें। Secrets, keys और sensitive references हमेशा platform configuration में रहें जो इसी use के लिए बनी है।
+
+## Security और authentication
+
+| Family | Generally accepted authentication | ध्यान देने योग्य बिंदु |
+| --- | --- | --- |
+| Microsoft Graph, Teams, Outlook, SharePoint और Microsoft Project | bearer token, OAuth, client credentials या managed identity | scopes को जरूरी sites, mailboxes, channels या projects तक सीमित रखें |
+| Jira और Confluence | API key, basic, PAT, bearer token या OAuth, product के अनुसार | least-privilege technical accounts use करें |
+| Azure DevOps | PAT, bearer token या OAuth | rights को project और expected work item types तक सीमित रखें |
+| Azure Data Factory और Blob Storage | managed identity, client credentials, SAS या bearer token, service के अनुसार | managed identities prefer करें और accessible containers या pipelines सीमित रखें |
+| SFTP | basic, password या SSH private key | key rotation, port और authorized root folder check करें |
+| Webhook | no auth, API key, bearer token, basic या OAuth | risk justify करे तो HTTPS, signature या endpoint-side secret require करें |
+
 ## उदाहरण 1 — SharePoint एंड-टू-एंड
 
 SharePoint पूर्ण लॉजिक को समझने के लिए सबसे अच्छे उदाहरणों में से एक है।
@@ -165,7 +270,7 @@ SharePoint पूर्ण लॉजिक को समझने के लि�
 3. टीम सिग्नल या निर्णय देखती है;
 4. वह **Create a Jira ticket** एक्शन बनाती है;
 5. गवर्नेंस तय करती है कि एक्शन सीधा है या अनुमोदन के अधीन;
-6. टिकट निष्पादित होता है और उत्पाद में ट्रेस किया जाता है।
+6. live vendor execution enabled हो तो ticket बनाया जाता है; हर स्थिति में request और decision product में trace रहते हैं।
 
 ### Jira के ProPM Agent में लाभ
 
@@ -186,28 +291,28 @@ SharePoint पूर्ण लॉजिक को समझने के लि�
 2. प्रोजेक्ट इसे निष्पादन विकल्प के रूप में देखता है;
 3. नीति तय करती है कि कौन संदेश भेज सकता है;
 4. टीम **Actions & approbations** में संदेश तैयार करती है;
-5. जोखिम के आधार पर एक्शन अनुमोदित और निष्पादित होता है;
-6. संदेश का ट्रेस इतिहासित रहता है।
+5. risk के आधार पर action approve होता है और connector mode allow करे तो execute होता है;
+6. external delivery blocked या deferred हो तब भी message trace historized रहता है।
 
 ### मुख्य लाभ
 
 प्रसार एक स्वतंत्र संदेश के रूप में नहीं जाता: यह **गवर्न्ड, समीक्षा और ट्रेस योग्य** रहता है।
 
-## उदाहरण 4 — Webhook किसी विशिष्ट एंटरप्राइज़ टूल के लिए
+## उदाहरण 4 — Webhook event delivery
 
 ### कब उपयोग करें
 
-जब कंपनी किसी ऐसे टूल से डेटा भेजना या प्राप्त करना चाहती है जिसके पास समर्पित कनेक्टर नहीं है, तब **Webhook** का उपयोग करें।
+जब ProPM Agent को governed decision के बाद किसी specific internal या third-party endpoint को call करना हो, तब **Webhook event delivery** use करें।
 
-### ProPM Agent के साथ एकीकरण
+### ProPM Agent के साथ integration
 
-- **इन्जेशन** के रूप में, webhook ज्ञान में सामग्री पुश कर सकता है;
-- **निष्पादन** के रूप में, webhook किसी तृतीय पक्ष टूल को एक्शन भेज सकता है;
-- दोनों मामलों में, इसे **गवर्न्ड फ़्लो** के रूप में मानना बेहतर है, न कि स्वतंत्र आउटपुट।
+- current catalog में Webhook एक **execution connector** है;
+- इसे project से तभी bind करें जब platform endpoint और health validate हो जाएँ;
+- यदि भविष्य में inbound webhook ingestion जोड़ी जाती है, तो उसे अलग ingestion provider मानें, जिसकी अपनी validation और project binding होगी।
 
 ### मुख्य लाभ
 
-Webhook लचीलापन प्रदान करता है बिना उत्पाद को सभी एंटरप्राइज़ टूल को मूल रूप से जानने के लिए बाध्य किए।
+Webhook event delivery custom automation के लिए लचीलापन देता है, लेकिन flow को uncontrolled output में नहीं बदलता।
 
 ## कैसे पहचानें कि एक कनेक्टर वास्तव में तैयार है
 
@@ -224,7 +329,7 @@ connector status को सही पढ़ने के लिए तीन स
 एक कनेक्टर दृश्य हो सकता है लेकिन उपयोग योग्य नहीं यदि:
 
 - उसका **health** स्थिति जाँच की आवश्यकता रखता है;
-- प्रोजेक्ट के पास सही **entitlement** नहीं है;
+- project binding open, healthy या configured नहीं है;
 - प्रोजेक्ट की **policy** उपयोग को ब्लॉक करती है;
 - उपयोगकर्ता के पास सही **permission** नहीं है;
 - प्रोजेक्ट बाइंडिंग अभी तक खुला नहीं है;
@@ -246,7 +351,7 @@ connector status को सही पढ़ने के लिए तीन स
 2. **प्लेटफ़ॉर्म प्रशासन** में कनेक्टर्स तैयार करें;
 3. केवल तैयार कनेक्टर्स को प्रोजेक्ट में खोलें;
 4. रोल के अनुसार **गवर्नेंस नीतियाँ** सेट करें;
-5. पहला आयात या पहला एक्शन परीक्षण करें;
+5. पहला import या action test करें और readiness, probe तथा real vendor execution को अलग-अलग पढ़ें;
 6. अंतिम ट्रेस **Journal IA** में जाँचें।
 
 ## याद रखने योग्य बातें

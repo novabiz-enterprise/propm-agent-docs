@@ -25,7 +25,7 @@ description: "प्रोपीएम एजेंट के लिए हि�
 | मैं लॉग इन नहीं कर पा रहा/रही हूँ | [शुरुआत](./demarrage.md) | [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md), ताकि `tenant`, `redirect URI`, सीट, या स्वास्थ्य स्थिति से जुड़ी समस्या को अलग किया जा सके |
 | कोई परियोजना दिखाई नहीं दे रही | [शुरुआत](./demarrage.md) | [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md), फिर [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md), यदि परियोजना में जोड़े जाने या भूमिका को लेकर संदेह बना रहे |
 | कोई पृष्ठ तब तक खाली रहता है जब तक सक्रिय परियोजना तय न हो | [शुरुआत](./demarrage.md) | [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md), ताकि परियोजना संदर्भ की पुष्टि हो सके; यदि खाली स्थिति फिर भी असामान्य लगे तो [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md) |
-| कोई कार्रवाई दिखाई दे रही है, पर अवरुद्ध है | [गवर्नेंस, निर्णय और क्रियाएँ](./gouvernance-decisions-et-actions.md) | [कनेक्टर्स और एकीकरण](./connecteurs-jira-et-sharepoint), फिर [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md), यदि अवरोध connector, `binding` या `entitlement` से आ रहा हो |
+| कोई कार्रवाई दिखाई दे रही है, पर अवरुद्ध है | [गवर्नेंस, निर्णय और क्रियाएँ](./gouvernance-decisions-et-actions.md) | [कनेक्टर्स और एकीकरण](./connecteurs-jira-et-sharepoint), फिर [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md), यदि अवरोध connector, binding, configuration, policy, role, health state या license/seat availability से जुड़ा हो |
 | AI प्रदाता काम करता नहीं दिख रहा | [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md) | [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md) और [रिपोर्ट, AI Log और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md), ताकि वास्तविक प्रदाता की पुष्टि हो सके |
 
 यदि आप सीधे किसी सत्यापन प्रक्रिया या संचालन संबंधी संदर्भ की तलाश में हैं, तो [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md) खोलें।
@@ -168,7 +168,7 @@ Preloaded examples environment के अनुसार बदल सकते 
 | --- | --- |
 | तकनीकी समर्थन | deployment URL, संबंधित परियोजना, सामने आई स्थिति, अनुमानित समय, और यदि दिखाई दे तो `Trace ID` |
 | पहुंच, `tenant` या पहचान से जुड़े प्रश्न | अपेक्षित `tenant`, उपयोग किया गया account, वास्तविक खुला URL, Microsoft संदेश या screenshot |
-| व्यावसायिक या सदस्यता संबंधी प्रश्न | खाता संदर्भ, संबंधित plan, seat count, या capacity need |
+| व्यावसायिक या सदस्यता संबंधी प्रश्न | account context, संबंधित plan, purchased seats, used seats और seat need |
 
 इन सभी अनुरोधों को इस संपर्क बिंदु पर भेजा जा सकता है:
 

@@ -87,7 +87,7 @@ Proveedor realmente utilizado para un run dado. Es el valor de referencia en el 
 
 **Entitlement**
 
-Capacidad comercial o técnica autorizada por el plan, que puede desbloquear o bloquear un conector, un proveedor o una funcionalidad premium.
+Etiqueta técnica heredada para un bloqueo de acceso o ejecución. Los planes Marketplace no la usan para abrir funcionalidades diferentes; verifica más bien disponibilidad de licencia/asiento, binding, rol, policy, configuración y estado de salud.
 
 **Evento de actividad**
 

@@ -306,6 +306,16 @@ Antes de lanzar la creación:
 5. abre **Administration de la plateforme > Paramètres du fournisseur IA** y confirma que el proveedor elegido esté bien preparado ;
 6. verifica que el estado esperado pase por **Configuration**, **Validation**, **Test** y luego **Operational**.
 
+### Actualizaciones después de la instalación sin volver a Marketplace
+
+Después de instalar el entorno, las actualizaciones habituales de la aplicación se gestionan desde **Administración de la plataforma > Despliegue y actualizaciones**. Esta operación actualiza las imágenes de las Container Apps existentes y crea nuevas revisiones sobre recursos que ya están desplegados.
+
+Este flujo no vuelve a ejecutar la oferta de Azure Marketplace, no crea un nuevo grupo de recursos y no recrea los recursos del despliegue. Sirve para aplicar imágenes ACR aprobadas, verificar servicios candidatos, refrescar tags mutables cuando el entorno lo permite y volver a una imagen anterior mediante rollback cuando las referencias están disponibles.
+
+Antes de usarlo, confirma que la identidad runtime puede leer y parchear Container Apps mediante Azure Resource Manager, que `AZURE_SUBSCRIPTION_ID` y una de las variables `AZURE_RESOURCE_GROUP_ID`, `AZURE_RESOURCE_GROUP` o `AZURE_RESOURCE_GROUP_NAME` están configuradas, y que las imágenes objetivo vienen de un manifest de actualización, una configuración de imágenes objetivo o un tag de aplicación autorizado.
+
+Mantén separadas ambas etapas: Marketplace instala el entorno inicial; **Despliegue y actualizaciones** mantiene la instalación existente. Las migraciones de esquema de base de datos y los cambios de arquitectura no están cubiertos por este botón de administración.
+
 ### Autenticación Entra
 
 Según tu modo de despliegue, verifica o finaliza la inscripción de la aplicación Entra:

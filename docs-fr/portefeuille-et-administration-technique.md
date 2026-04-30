@@ -393,6 +393,7 @@ C’est ici que l’on configure notamment :
 
 - les **intégrations de la plateforme** ;
 - les **fournisseurs IA** ;
+- les **mises à jour du déploiement applicatif** ;
 - l’**abonnement** et les **sièges** ;
 - l’**audit d’activité**.
 
@@ -405,7 +406,8 @@ C’est ici que l’on configure notamment :
 | Vue d’ensemble | résumé de l’état général de préparation |
 | Intégrations de la plateforme | définitions techniques des connecteurs et fournisseurs d’ingestion |
 | Paramètres du fournisseur IA | configuration, validation, test et activation du fournisseur IA |
-| Marketplace & abonnement | plan, entitlements, sièges et état commercial |
+| Déploiement & mises à jour | inventaire des images Container Apps, vérification des mises à jour, application d’images ACR approuvées et rollback |
+| Marketplace & abonnement | plan actif, sièges achetés, sièges utilisés, sièges disponibles et état commercial |
 | Audit / activité | historique des actions administratives |
 
 ## Intégrations de la plateforme vs Intégrations du projet
@@ -431,15 +433,19 @@ Une règle importante ressort du produit :
 
 Pour le détail complet par famille de connecteurs, voir [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint).
 
+Les validations plateforme appliquent des exigences propres à chaque provider : champs obligatoires, stratégie d’authentification compatible, URL HTTPS quand nécessaire, port valide pour SFTP et source ou cible explicite. Les probes de connectivité réelle ne sont lancées que si elles sont activées par l’administrateur ou par la configuration plateforme.
+
+Les secrets, clés et références sensibles doivent rester dans la configuration plateforme prévue pour cet usage. Ne les placez pas dans une note, un payload d’action ou une description visible par les utilisateurs projet.
+
 ## Préparation et causes de blocage
 
 Une intégration peut être bloquée pour cause de :
 
-- **entitlement** ;
 - **policy** ;
 - **permission** ;
 - **health** à vérifier ;
 - définition plateforme manquante ;
+- configuration ou validation provider-specific incomplète ;
 - binding projet non ouvert.
 
 ### Circuit de vérification recommandé
@@ -509,14 +515,37 @@ Deux notions sont à distinguer :
 
 La valeur **effective** est la référence la plus fiable quand vous enquêtez sur un run concret. Elle peut être relue dans le **Journal IA** et peut différer de la valeur sélectionnée au déploiement.
 
-## Abonnement, entitlement et sièges
+## Mises à jour applicatives sans redéploiement Marketplace
 
-Le produit gère un modèle de licence avec sièges et capacités.
+La section **Déploiement & mises à jour** permet de mettre à jour une installation existante **sur place**. Elle ne relance pas l’assistant Azure Marketplace, ne crée pas de nouveau groupe de ressources et ne recrée pas les ressources Azure déjà déployées.
+
+Concrètement, l’administration lit l’inventaire des images des **Azure Container Apps** existantes via Azure Resource Manager, compare les images courantes aux images cibles approuvées dans ACR, puis soumet de nouvelles révisions sur les Container Apps existantes.
+
+Actions disponibles :
+
+- **Check for updates** : vérifier les images courantes, les images cibles, les refresh de tags mutables et la version éventuelle du manifest ;
+- **Apply update** : appliquer les nouvelles images aux services sélectionnés en créant de nouvelles révisions Container Apps ;
+- **Rollback last update** : revenir aux images précédentes si la dernière opération a enregistré les références nécessaires ;
+- **Container App image inventory** : lire le groupe de ressources géré, les services suivis, les images courantes, les images cibles et l’état des révisions.
+
+Prérequis importants :
+
+- l’utilisateur doit avoir les droits d’administration du déploiement ou de la plateforme ;
+- l’identité runtime doit pouvoir lire et patcher les Container Apps dans Azure Resource Manager ;
+- l’environnement doit connaître l’abonnement et le groupe de ressources via `AZURE_SUBSCRIPTION_ID` et `AZURE_RESOURCE_GROUP_ID`, `AZURE_RESOURCE_GROUP` ou `AZURE_RESOURCE_GROUP_NAME` ;
+- les images cibles doivent venir d’un manifest de mise à jour, d’une configuration d’images cibles ou d’un tag applicatif autorisé.
+
+Cette opération couvre le **rollout d’images applicatives**. Les migrations de schéma base de données, la création de nouvelles ressources Azure et les changements d’architecture restent hors périmètre. Si la mise à jour inclut le service orchestrateur lui-même, l’interface peut indiquer que la requête est soumise pendant que le service se remplace.
+
+## Abonnement et sièges
+
+Le produit gère un modèle de licence par sièges. Tous les plans Marketplace donnent accès aux mêmes fonctionnalités applicatives ; seule la quantité de licences/sièges diffère.
 
 ### Ce qu’un administrateur peut voir
 
 - le **plan** actif ;
 - le nombre de **sièges achetés** ;
+- le nombre de **sièges utilisés** ;
 - le nombre de **sièges disponibles** ;
 - les utilisateurs déjà licenciés ;
 - l’état commercial, par exemple `billing state`, `payment state` ou `subscription status`.
@@ -525,19 +554,11 @@ Le produit gère un modèle de licence avec sièges et capacités.
 
 Un utilisateur bloqué n’a pas forcément une question de connexion. Le blocage peut venir :
 
-- d’un manque de sièges ;
-- d’un entitlement manquant ;
-- d’une fonctionnalité non incluse dans le plan.
+- d’un manque de siège disponible ;
+- d’un utilisateur retiré qui doit être réassigné par un administrateur ;
+- d’un rôle insuffisant, d’un projet non accessible, d’un binding, d’une policy, d’une configuration ou d’un état health à corriger.
 
-### Lecture simple de `entitlement`
-
-`Entitlement` signifie ici : **ce que le plan couvre réellement comme capacité utilisable**.
-
-Exemples pratiques :
-
-- un connecteur premium peut rester visible mais bloqué en usage opérationnel ;
-- un fournisseur IA peut être configuré mais non utilisable si le plan ne l’autorise pas ;
-- un projet peut voir l’option mais rester en lecture seule tant que la capacité n’est pas ouverte.
+Les plans Marketplace ne bloquent pas les connecteurs, les fournisseurs IA ou les fonctionnalités produit. Si un libellé technique `entitlement` apparaît encore dans l’interface ou les logs, traitez-le comme un indicateur hérité/non lié à une différence fonctionnelle de plan.
 
 ## Repères techniques de plateforme
 

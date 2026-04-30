@@ -22,7 +22,7 @@ Die folgenden Beobachtungspunkte sind in der Anwendung bestätigt:
 2. unterscheiden Sie **leere Ansicht**, **schreibgeschützt**, **Zugriff verweigert** oder **angezeigte Meldung**;
 3. öffnen Sie das **KI-Protokoll**, wenn das Thema einen Agenten, ein Ergebnis oder ein Artefakt betrifft;
 4. behalten Sie die **Trace ID** bei und, falls sichtbar, die `Context snapshot ID` oder die `Structured output ID`;
-5. prüfen Sie Rechte, Integrationen, Entitlements und Sitzplätze, falls der Zugriff oder die Ausführung blockiert ist.
+5. prüfen Sie Rechte, Integrationen, Projekt-Bindings, Health und Sitzverfügbarkeit, falls Zugriff oder Ausführung blockiert sind.
 
 ## Schnelle Referenzen nach Situation
 
@@ -38,7 +38,7 @@ Die folgenden Beobachtungspunkte sind in der Anwendung bestätigt:
 
 ### Zugriff zu bestätigen
 
-Prüfen Sie die URL, den Mandanten, das Gastkonto bei Guest-Nutzung, die tatsächlich konfigurierte `redirectUri` und die Verfügbarkeit eines Sitzplatzes, falls der Plan einen verbraucht.
+Prüfen Sie die URL, den Mandanten, das Gastkonto bei Guest-Nutzung, die tatsächlich konfigurierte `redirectUri` und die Verfügbarkeit eines Sitzplatzes, wenn der Anwendungszugriff eine Lizenz verbraucht.
 
 ### Seite sichtbar, aber nicht bearbeitbar
 
@@ -50,7 +50,7 @@ Beginnen Sie damit, den Dokumentstatus (`Indexed`, `Ingesting`, `Failed`) zu pr�
 
 ### Import aus einer ausgegrauten oder fehlenden Quelle
 
-Die nützlichsten Prüfungen sind: nicht validierter Anbieter, fehlendes Projekt-Binding, blockierendes Entitlement, unzureichende Berechtigung oder ein noch zu bestätigender Gesundheitsstatus.
+Die nützlichsten Prüfungen sind: nicht validierter Anbieter, fehlendes Projekt-Binding, unzureichende Berechtigung, restriktive Richtlinie, unvollständige Konfiguration oder ein noch zu bestätigender Gesundheitsstatus.
 
 ### Aktion sichtbar, aber nicht ausführbar
 
@@ -79,7 +79,7 @@ Weil das Produkt **schreibgeschützt** und **Zugriff verweigert** unterscheidet.
 
 ### Warum gelingt meine Microsoft-Anmeldung, aber der Zugriff ist noch nicht wie erwartet?
 
-Prüfen Sie den Mandanten, die Kontoberechtigung, die Existenz eines zugänglichen Projekts und die Verfügbarkeit eines Sitzplatzes, falls der Plan einen erfordert.
+Prüfen Sie den Mandanten, die Kontoberechtigung, die Existenz eines zugänglichen Projekts und die Verfügbarkeit eines Sitzplatzes, wenn der Anwendungszugriff eine Lizenz erfordert.
 
 ### Warum gelingt meine Anmeldung, aber kein Projekt erscheint?
 
@@ -105,7 +105,7 @@ Weil die Authentifizierung weiterhin gültig sein kann, während eine **API** od
 
 ### Was tun, wenn die Anmeldung gelingt, ein Projekt sichtbar ist, aber die Runs nicht starten?
 
-Prüfen Sie in dieser Reihenfolge: aktives Projekt, Gesundheitsindikator, vermeintlich betriebsbereiter KI-Anbieter, mögliches Entitlement, dann **KI-Protokoll**, um zu sehen, ob ein Run zumindest erstellt wurde. Wenn der Anbieter weiterhin verdächtig ist, gehen Sie zu [Portfolio und technische Administration](./portefeuille-et-administration-technique.md).
+Prüfen Sie in dieser Reihenfolge: aktives Projekt, Gesundheitsindikator, vermeintlich betriebsbereiter KI-Anbieter, Anbieter-Readiness, dann **KI-Protokoll**, um zu sehen, ob ein Run zumindest erstellt wurde. Wenn der Anbieter weiterhin verdächtig ist, gehen Sie zu [Portfolio und technische Administration](./portefeuille-et-administration-technique.md).
 
 ## FAQ — Projekt, Arbeitsbereich und Agenten
 
@@ -257,7 +257,13 @@ Bestätigen Sie anschließend die nachgelagerte Phase in **Aktionen & Genehmigun
 
 ### Warum ist eine Integration in der Plattform verfügbar, aber in meinem Projekt gesperrt?
 
-Ein technisches Plattformdefinition reicht nicht aus. Es muss noch ein gültiges **Projekt-Binding**, passende Berechtigungen, eine kompatible Richtlinie, ein akzeptabler Gesundheitsstatus und ggf. das entsprechende Entitlement vorhanden sein.
+Eine technische Plattformdefinition reicht nicht aus. Es müssen noch ein gültiges **Projekt-Binding**, passende Berechtigungen, eine kompatible Richtlinie, ein akzeptabler Gesundheitsstatus und eine vollständige anbieterspezifische Konfiguration vorhanden sein.
+
+### Warum beweist `Validate` nicht immer, dass ein vollständiger externer Aufruf erfolgreich war?
+
+Für Connectoren und Ingestionsanbieter bestätigt `Validate` zuerst die Konsistenz der Konfiguration: Pflichtfelder, Modus, Auth, URL und Quelle oder Ziel. Ein echter Netzwerkaufruf erfolgt nur, wenn ein Connectivity-Probe aktiviert ist. Auch dann bleibt der Probe nicht destruktiv: Er erstellt nicht zwingend ein Ticket, sendet keine Nachricht und führt keinen Vollimport aus.
+
+Wenn eine Aktion oder ein Import bereit wirkt, aber kein externes Ergebnis sichtbar ist, prüfen Sie in dieser Reihenfolge: Plattformdefinition, anbieterspezifische Konfiguration, Validierung oder Probe, Projekt-Binding, Policy, Benutzerberechtigung, Health-Zustand, danach Aktions- oder Import-Payload. Siehe auch [Connectors und Integrationen](./connecteurs-jira-et-sharepoint.md).
 
 ## FAQ — Portfolio und Verwaltung
 
@@ -283,7 +289,7 @@ Nein. Die Oberfläche bietet vor allem **Standardwerte**, die Aktion **Reset def
 
 ### Wie löse ich einen Sitzplatz oder weise ihn neu zu?
 
-Dies geschieht über **Plattformverwaltung** durch ein autorisiertes Profil. Die Rücknahme gibt die Kapazität für eine spätere Neuverteilung frei, vorbehaltlich der Postenposture und des Entnahmefensters des Plans.
+Dies geschieht über **Plattformverwaltung** durch ein autorisiertes Profil. Die Rücknahme gibt den Sitz für eine spätere Neuzuweisung frei, vorbehaltlich der Abonnement-/Lizenzregeln und eines möglichen Rücknahmefensters.
 
 ### Was bedeutet es, wenn `Validate` erfolgreich ist, `Test` aber in den KI-Anbieter-Einstellungen fehlschlägt?
 
@@ -291,7 +297,7 @@ Die administrative Konfiguration wirkt konsistent, aber die reale Konnektivität
 
 ### Warum ist mein Anbieter sichtbar, aber nie `Operational`?
 
-Ein Anbieter kann konfiguriert oder sogar validiert sein, ohne die gesamte Kette **Configuration → Validation → Test → Activate** durchlaufen zu haben. Prüfen Sie auch das Entitlement, die `allowed providers` und die allgemeine Bereitschaft, bevor Sie ihn als nutzbar betrachten.
+Ein Anbieter kann konfiguriert oder sogar validiert sein, ohne die gesamte Kette **Configuration → Validation → Test → Activate** durchlaufen zu haben. Prüfen Sie auch Aktivierungsstatus, Laufzeitauswahl, Health und allgemeine Readiness, bevor Sie ihn als nutzbar betrachten.
 
 ### Was tun, wenn in den KI-Anbieter-Einstellungen kein Azure OpenAI Deployment erscheint?
 
@@ -299,7 +305,7 @@ Das bedeutet in der Regel, dass in der konfigurierten Azure-OpenAI-Ressource kei
 
 ### Warum ist der KI-Anbieter sichtbar, aber nicht editierbar oder nutzbar?
 
-Der Anbieter kann lesbar sein, während seine Änderung einem Admin-Rolle vorbehalten ist. Seine Nutzung kann auch durch den Plan, die `allowed providers`, das Entitlement oder die Laufzeitauflösung des tatsächlichen Anbieters eingeschränkt sein.
+Der Anbieter kann lesbar sein, während seine Änderung einer Admin-Rolle vorbehalten ist. Seine tatsächliche Nutzung hängt auch von Readiness, Health-Zustand, Berechtigungen und der Laufzeitauflösung des tatsächlichen Anbieters ab.
 
 ## Weiter
 

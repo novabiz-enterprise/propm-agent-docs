@@ -393,6 +393,7 @@ Hier konfigurieren Sie insbesondere:
 
 - die **Plattformintegrationen**;
 - die **KI-Anbieter**;
+- die **Anwendungs-Deployment-Updates**;
 - das **Abonnement** und die **Sitze**;
 - das **Aktivitätsaudit**.
 
@@ -405,7 +406,8 @@ Hier konfigurieren Sie insbesondere:
 | Überblick | Zusammenfassung des allgemeinen Vorbereitungsstatus |
 | Plattformintegrationen | Technische Definitionen von Connectors und Ingestionsanbietern |
 | KI-Anbieter‑Einstellungen | Konfiguration, Validierung, Test und Aktivierung des KI-Anbieters |
-| Marketplace & Abonnement | Plan, Berechtigungen, Sitze und kommerzieller Status |
+| Deployment & Updates | Container-Apps-Image-Inventar, Update-Prüfung, Rollout genehmigter ACR-Images und Rollback |
+| Marketplace & Abonnement | aktiver Plan, gekaufte Sitze, genutzte Sitze, verfügbare Sitze und kommerzieller Status |
 | Audit / Aktivität | Historie der administrativen Aktionen |
 
 ## Plattformintegrationen vs Projektintegrationen
@@ -431,15 +433,19 @@ Eine wichtige Regel im Produkt:
 
 Für die vollständige Detailbeschreibung pro Connector-Familie siehe [Connectors und Integrationen](./connecteurs-jira-et-sharepoint).
 
+Plattformvalidierungen wenden anbieterspezifische Anforderungen an: Pflichtfelder, kompatible Authentifizierungsstrategie, HTTPS-URLs falls erforderlich, gültiger SFTP-Port und explizite Quelle oder explizites Ziel. Reale Connectivity-Probes laufen nur, wenn sie durch Administrator oder Plattformkonfiguration aktiviert wurden.
+
+Secrets, Schlüssel und sensible Referenzen müssen in der dafür vorgesehenen Plattformkonfiguration bleiben. Platzieren Sie sie nicht in Notizen, Aktions-Payloads oder Beschreibungen, die Projektbenutzer sehen können.
+
 ## Vorbereitung und Blockierungsursachen
 
 Eine Integration kann aus folgenden Gründen blockiert sein:
 
-- **Entitlement**;
 - **Policy**;
 - **Permission**;
 - **Health** zu prüfen;
 - fehlende Plattformdefinition;
+- unvollständige anbieterspezifische Konfiguration oder Validierung;
 - nicht geöffneter Projekt‑Binding.
 
 ### Empfohlener Prüfungszyklus
@@ -499,14 +505,37 @@ Bei **Azure OpenAI** müssen Sie häufig in der Administration ausfüllen:
 
 Für die Detailauswahl eines KI‑Anbieters während der Marketplace‑Bereitstellung siehe [Azure Marketplace‑Bereitstellung](./deploiement-azure-marketplace.md).
 
-## Abonnement, Berechtigung und Sitze
+## Anwendungsupdates ohne Marketplace-Neubereitstellung
 
-Das Produkt verwaltet ein Lizenzmodell mit Sitzen und Kapazitäten.
+Der Abschnitt **Deployment & Updates** aktualisiert eine bestehende Installation **direkt am bestehenden Deployment**. Er startet den Azure-Marketplace-Assistenten nicht erneut, erstellt keine neue Ressourcengruppe und erzeugt die bereits vorhandenen Azure-Ressourcen nicht neu.
+
+Praktisch liest die Administration das Image-Inventar der bestehenden **Azure Container Apps** über Azure Resource Manager, vergleicht aktuelle Images mit genehmigten Ziel-Images in ACR und legt neue Revisionen auf den bestehenden Container Apps an.
+
+Verfügbare Aktionen:
+
+- **Check for updates**: aktuelle Images, Ziel-Images, Refresh-Kandidaten für mutable Tags und optionale Manifest-Version prüfen;
+- **Apply update**: neue Images auf ausgewählte Services anwenden, indem neue Container-Apps-Revisionen erstellt werden;
+- **Rollback last update**: auf vorherige Images zurückgehen, wenn die letzte Operation die nötigen Referenzen erfasst hat;
+- **Container App image inventory**: verwaltete Ressourcengruppe, verfolgte Services, aktuelle Images, Ziel-Images und Revisionsstatus prüfen.
+
+Wichtige Voraussetzungen:
+
+- der Benutzer benötigt Rechte für Deployment-Operationen oder Plattformadministration;
+- die Runtime-Identität muss Container Apps über Azure Resource Manager lesen und patchen dürfen;
+- die Umgebung muss Subscription und Ressourcengruppe über `AZURE_SUBSCRIPTION_ID` und `AZURE_RESOURCE_GROUP_ID`, `AZURE_RESOURCE_GROUP` oder `AZURE_RESOURCE_GROUP_NAME` kennen;
+- Ziel-Images müssen aus einem Update-Manifest, einer Ziel-Image-Konfiguration oder einem autorisierten Anwendungstag kommen.
+
+Diese Operation deckt den **Rollout von Anwendungs-Images** ab. Datenbank-Schemamigrationen, die Erstellung neuer Azure-Ressourcen und Architekturänderungen sind nicht enthalten. Wenn das Update den Orchestrator-Service selbst einschließt, kann die Oberfläche melden, dass die Anfrage übermittelt wurde, während der Service sich selbst ersetzt.
+
+## Abonnement und Sitze
+
+Das Produkt verwaltet ein sitzbasiertes Lizenzmodell. Alle Marketplace-Pläne stellen dieselben Anwendungsfunktionen bereit; nur die Anzahl der Lizenzen/Sitze unterscheidet sich.
 
 ### Was ein Administrator sehen kann
 
 - den **aktiven Plan**;
 - die Anzahl der **gekauften Sitze**;
+- die Anzahl der **genutzten Sitze**;
 - die Anzahl der **verfügbaren Sitze**;
 - bereits lizenzierte Benutzer;
 - den kommerziellen Status, z. B. `billing state`, `payment state` oder `subscription status`.
@@ -515,9 +544,11 @@ Das Produkt verwaltet ein Lizenzmodell mit Sitzen und Kapazitäten.
 
 Ein blockierter Benutzer hat nicht unbedingt ein Verbindungsproblem. Die Blockierung kann von:
 
-- fehlenden Sitzen;
-- fehlender Berechtigung;
-- einer Funktion, die im Plan nicht enthalten ist, herrühren.
+- keinem verfügbaren Sitz;
+- einem entfernten Benutzer, der durch einen Administrator erneut zugewiesen werden muss;
+- einer unzureichenden Rolle, einem nicht zugänglichen Projekt, Binding, einer Policy, Konfiguration oder einem Health-Zustand herrühren, der zu korrigieren ist.
+
+Marketplace-Pläne blockieren keine Connectoren, KI-Anbieter oder Produktfunktionen. Wenn eine technische `entitlement`-Bezeichnung noch in der Oberfläche oder in Logs erscheint, behandeln Sie sie als Legacy-/Nicht-Plan-Indikator und nicht als funktionalen Planunterschied.
 
 ## Technische Plattform‑Anhaltspunkte
 

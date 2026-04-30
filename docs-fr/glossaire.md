@@ -86,7 +86,7 @@ Fournisseur réellement utilisé pour un run donné. C’est la valeur de réfé
 
 **Entitlement**
 
-Capacité commerciale ou technique autorisée par le plan, pouvant débloquer ou bloquer un connecteur, un fournisseur ou une fonctionnalité premium.
+Libellé technique hérité pour un blocage d’accès ou d’exécution. Les plans Marketplace ne l’utilisent pas pour ouvrir des fonctionnalités différentes ; vérifiez plutôt disponibilité de licence/siège, binding, rôle, policy, configuration et état de santé.
 
 **Événement d’activité**
 

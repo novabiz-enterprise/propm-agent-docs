@@ -87,7 +87,7 @@ description: ProPM Agent में उपयोग किए जाने वा
 
 **Entitlement**
 
-वाणिज्यिक या तकनीकी क्षमता जिसे योजना द्वारा अधिकृत किया गया है, जो किसी कनेक्टर, प्रदाता या प्रीमियम सुविधा को अनलॉक या ब्लॉक कर सकता है।
+access या execution block के लिए legacy technical label। Marketplace plans इसे अलग product features खोलने के लिए उपयोग नहीं करते; इसके बजाय license/seat availability, binding, role, policy, configuration और health state जाँचें।
 
 **Événement d’activité**
 

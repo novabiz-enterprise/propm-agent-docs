@@ -54,11 +54,11 @@ Según la fuente, la interfaz puede mostrar:
 
 Una opción de importación puede estar indisponible por causa de:
 
-- entitlement ;
-- permiso ;
-- política ;
-- estado de disponibilidad a verificar ;
-- enlace de proyecto ausente o no listo.
+- permiso faltante ;
+- policy restrictiva ;
+- estado de disponibilidad o salud a verificar ;
+- enlace de proyecto ausente o no listo ;
+- configuración de proveedor incompleta.
 
 ## Historial de importación
 

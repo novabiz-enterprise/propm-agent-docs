@@ -54,11 +54,11 @@ Selon la source, l’interface peut afficher :
 
 Une option d’import peut être indisponible pour cause de :
 
-- entitlement ;
-- permission ;
-- policy ;
-- état de disponibilité à vérifier ;
-- binding projet absent ou non prêt.
+- permission manquante ;
+- policy restrictive ;
+- état de disponibilité ou de santé à vérifier ;
+- binding projet absent ou non prêt ;
+- configuration fournisseur incomplète.
 
 ## Historique d’import
 

@@ -10,7 +10,7 @@ description: Comprender todos los conectores visibles en ProPM Agent, sus ventaj
 
 ## Objetivo
 
-Esta página explica **todos los conectores y proveedores de ingestión visibles en ProPM Agent**, sus ventajas, utilidad empresarial y la forma en que se integran en el producto.
+Esta página explica el **catálogo operativo de conectores y proveedores de ingestión soportados en ProPM Agent**, sus ventajas, utilidad empresarial y la forma en que se integran en el producto. Algunas listas de administración también pueden mostrar familias extensibles o personalizadas que requieren configuración y validación adicionales antes de un uso real.
 
 El objetivo es responder a tres preguntas simples:
 
@@ -41,7 +41,7 @@ En el producto, un conector puede servir a tres cosas diferentes:
 Cualquiera que sea el conector, el recorrido lógico es siempre el mismo:
 
 1. el administrador lo prepara en **Administration de la plataforma** ;
-2. valida la configuración y la conectividad ;
+2. valida la configuración y, cuando está activada, la conectividad real ;
 3. el conector se hace disponible en **Intégrations du projet** ;
 4. las **Políticas de gobernanza** definen quién puede usarlo y a qué nivel ;
 5. el equipo lo utiliza luego en **Connaissance**, **Documents PM** o **Actions & approbations** ;
@@ -51,11 +51,11 @@ Cualquiera que sea el conector, el recorrido lógico es siempre el mismo:
 
 | Superficie | Lo que se hace allí |
 | --- | --- |
-| **Administration de la plateforme** | crear la definición técnica, rellenar la autenticación, validar y probar |
-| **Intégrations du projet** | verificar qué conectores están realmente abiertos al proyecto actual |
-| **Connaissance** | importar documentos, páginas, tickets, work items u otras fuentes |
-| **Politiques de gouvernance** | decidir qué roles pueden observar, proponer o ejecutar acciones |
-| **Actions & approbations** | crear una acción real, hacerla aprobar y luego ejecutarla |
+| **Administración de la plataforma** | crear la definición técnica, completar la autenticación, validar, probar según el proveedor y activar probes cuando sea necesario |
+| **Integraciones del proyecto** | verificar qué conectores están realmente abiertos al proyecto actual |
+| **Conocimiento** | importar documentos, páginas, tickets, work items u otras fuentes según el proveedor disponible |
+| **Políticas de gobernanza** | decidir qué roles pueden observar, proponer o ejecutar acciones |
+| **Acciones y aprobaciones** | preparar una solicitud de acción, hacerla aprobar y ejecutarla cuando el modo del conector lo permita |
 | **Journal IA / actividad** | mantener la trazabilidad del flujo y las ejecuciones |
 
 ## Tres niveles a no confundir
@@ -124,6 +124,111 @@ Algunos nombres aparecen en varios lugares del producto. Es normal: el proveedor
 | **ADF / Blob / Confluence / SFTP** | solo proveedor de ingestión | — | enriquecen el **Conocimiento** y no se convierten automáticamente en destinos de acción |
 | **Teams / Outlook / Webhook** | — | solo conector de ejecución | envían mensajes o eventos gobernados y no importan automáticamente Conocimiento |
 
+## Catálogo soportado vs opciones extensibles
+
+El catálogo anterior corresponde al catálogo operativo actualmente inicializado, controlado y expuesto en **Integraciones del proyecto**. **Administración de la plataforma** también puede mostrar familias adicionales o personalizadas como GitHub, GitLab, ServiceNow, Slack, Notion, Google Drive, OneDrive, Box o Dropbox.
+
+Trata esas entradas adicionales como extensiones hasta que un administrador haya confirmado la definición técnica, los campos obligatorios, la estrategia de autenticación, la validación, el binding de proyecto y la política de gobernanza aplicable.
+
+## Configuración mínima por conector de ejecución
+
+Los campos siguientes son los mínimos que deben completarse antes de un uso `test` o `live`. Los nombres pueden variar ligeramente según el formulario, pero la idea es la misma: un destino, una identidad de autenticación y un objetivo de proyecto explícito.
+
+| Conector | Campos mínimos antes de uso test/live | Autenticación típica | Probe de conectividad si está activada |
+| --- | --- | --- | --- |
+| **Jira delivery workspace** | `base_url` o `site_url`, `project_key` | API key, basic, PAT, bearer token u OAuth | lee el proyecto Jira objetivo |
+| **Azure DevOps delivery project** | `organization_url` u `organization`, `project`, `work_item_type` | PAT, bearer token u OAuth | verifica el tipo de work item en el proyecto |
+| **Microsoft Teams collaboration** | `team_id`, `channel_id` | Microsoft Graph con bearer token, OAuth, client credentials o managed identity | lee el canal Teams objetivo |
+| **Outlook executive notifications** | `mailbox`, `user_id` o `user_principal_name` | Microsoft Graph con bearer token, OAuth, client credentials o managed identity | verifica el buzón o usuario Graph |
+| **SharePoint publication library** | `site_id` o `site_url`, `drive_id` o `library` | Microsoft Graph con bearer token, OAuth, client credentials o managed identity | verifica el sitio y la biblioteca |
+| **Webhook event delivery** | `webhook_url` o `endpoint_url` en HTTPS | sin auth, API key, bearer token, basic u OAuth | envía `HEAD`, luego `GET` si es necesario |
+| **Microsoft Project schedule sync** | `project_id`, `portfolio` o `workspace` | Microsoft Graph con bearer token, OAuth, client credentials o managed identity | usa el endpoint o path de probe configurado |
+| **Smartsheet portfolio workspace** | `sheet_id` o `workspace_id` | API key, bearer token, OAuth o PAT | lee la hoja o workspace Smartsheet |
+| **Wrike delivery workspace** | `folder_id`, `space_id` o `task_id` | bearer token u OAuth | lee la tarea o carpeta Wrike |
+| **Asta Powerproject schedule sync** | `base_url` o `endpoint_url`, luego `project_id`, `portfolio` o `schedule_id` | API key, bearer token, OAuth o basic | usa el endpoint o path de probe configurado |
+
+## Configuración mínima por proveedor de ingestión
+
+Un proveedor de ingestión debe identificar la fuente, el modo de importación y la identidad usada para leer esa fuente. Las importaciones programadas también requieren una cadencia u orquestación compatible.
+
+| Proveedor | Campos mínimos antes de uso real | Autenticación típica | Probe de conectividad si está activada |
+| --- | --- | --- | --- |
+| **SharePoint knowledge import** | `site_id` o `site_url`, `drive_id` o `library` | Microsoft Graph con bearer token, OAuth, client credentials o managed identity | verifica la biblioteca y los hijos raíz |
+| **Azure Data Factory evidence pipeline** | `subscription_id`, `resource_group_name`, `factory` o `factory_name`, `pipeline` o `pipeline_name` | managed identity, client credentials o bearer token | lee la definición del pipeline |
+| **Azure Blob document ingest** | `account_url`, `storage_account` o `account_name`, luego `container` | managed identity, SAS, bearer token o client credentials | lista algunos blobs del contenedor |
+| **Confluence knowledge import** | `base_url`, `space`, `space_key` o `space_id` | basic, bearer token u OAuth | verifica el espacio Confluence |
+| **Jira issue import** | `base_url` o `site_url`, luego `project`, `project_key` o `jql` | API key, basic, PAT, bearer token u OAuth | ejecuta una búsqueda Jira limitada |
+| **SFTP document intake** | `host` o `base_url`, `username` o `user`, `folder` o `path`, puerto válido si se proporciona | basic, password o clave privada SSH | verifica el acceso TCP al servidor SFTP |
+| **Microsoft Project schedule import** | `project_id`, `portfolio` o `workspace` | Microsoft Graph con bearer token, OAuth, client credentials o managed identity | usa el endpoint o path de probe configurado |
+| **Smartsheet sheet import** | `sheet_id` o `workspace_id` | API key, bearer token, OAuth o PAT | lee la hoja o workspace Smartsheet |
+| **Wrike task import** | `folder_id` o `space_id` | bearer token u OAuth | lee tareas de la carpeta o espacio |
+| **Asta Powerproject schedule import** | `base_url` o `endpoint_url`, luego `project_id`, `portfolio` o `schedule_id` | API key, bearer token, OAuth o basic | usa el endpoint o path de probe configurado |
+
+## Validación, probes y límites de runtime
+
+| Paso | Qué confirma | Qué no garantiza |
+| --- | --- | --- |
+| **Save** | la definición se guarda a nivel de plataforma | la fuente externa no necesariamente fue contactada |
+| **Validate** | campos obligatorios, modo, autenticación y URLs HTTPS son coherentes | solo hay llamada real de red si los probes están activados |
+| **Connectivity probe** | ProPM Agent puede llegar a un endpoint no destructivo del proveedor | no crea tickets, no envía mensajes y no dispara una importación completa |
+| **Bind to project** | el proyecto puede consumir la definición de plataforma | policy, rol de usuario, health, validación y readiness del binding todavía pueden bloquear el uso |
+| **Validate binding** | el binding del proyecto sigue alineado con la definición de plataforma | no reemplaza una acción o importación de negocio real |
+
+Los probes de conectividad son intencionalmente opt-in. Un administrador puede activarlos con `connectivity_probe_enabled`, `run_connectivity_probe`, `live_connectivity_check`, metadatos equivalentes o una variable de entorno de plataforma. Sin esa activación, la validación sigue siendo un control de coherencia y readiness.
+
+Si un conector permanece en modo `mock` o `test`, ProPM Agent puede gestionar la solicitud, la gobernanza, la aprobación y la trazabilidad sin enviar necesariamente la llamada final al sistema externo. La ejecución real del proveedor requiere un modo de conector compatible, configuración completa, una policy que lo permita y un entorno que habilite ese camino.
+
+## Acciones gobernadas y conector requerido
+
+| Acción de usuario | Tipo de acción interno | Conector requerido | Campos mínimos de negocio |
+| --- | --- | --- | --- |
+| Publicar un artefacto en SharePoint | `publish_artifact_to_sharepoint` | `sharepoint_publish` | `artifact_id`, `destination_id` |
+| Enviar un mensaje Teams | `send_teams_message` | `teams` | `body` |
+| Enviar un mensaje Outlook | `send_outlook_message` | `outlook` | `body`, `recipients` |
+| Crear un ticket Jira | `create_jira_ticket` | `jira` | `title` |
+| Crear un work item Azure DevOps | `create_azure_devops_ticket` | `azure_devops` | `title` |
+
+Algunas etiquetas heredadas se normalizan automáticamente. Por ejemplo, `send_message` se convierte en `send_teams_message`, `send_email` en `send_outlook_message`, `create_work_item` en `create_azure_devops_ticket`, y `publish_sharepoint_artifact` en `publish_artifact_to_sharepoint`.
+
+## Estados, bloqueos y orden de diagnóstico
+
+| Estado o bloqueo visible | Lectura práctica | Primera acción recomendada |
+| --- | --- | --- |
+| **Ready** o **available** | la definición puede vincularse o usarse si el resto de la cadena está abierto | verificar binding de proyecto y policy |
+| **Healthy** | la última validación conocida es positiva | confirmar que el proyecto está vinculado |
+| **Not configured** | faltan campos, fuente, destino o credenciales | completar la definición en Administración de la plataforma |
+| **Not validated** o **not_tested** | la definición existe pero aún no pasó la validación o prueba esperada | ejecutar Validate o el probe apropiado |
+| **Blocked by health** | la salud de plataforma está degradada o inválida | verificar endpoint, auth, scopes y red |
+| **Blocked by entitlement** | wording heredado para una integración bloqueada; en los planes Marketplace no es una diferencia de funcionalidad | verificar configuración, health, binding, policy, rol y disponibilidad de licencia si el bloqueo es de acceso |
+| **Blocked by policy** | la gobernanza del proyecto prohíbe esta acción o tipo de uso | ajustar la política o el rol |
+| **Binding disabled** | el binding de proyecto existe pero está desactivado | reactivarlo o recrearlo si está permitido |
+| **Missing platform definition** | el proyecto referencia una definición ausente o eliminada | recrear o corregir la definición de plataforma |
+
+El orden más útil para diagnosticar es: definición de plataforma, configuración obligatoria, validación o probe, binding de proyecto, policy, permiso del usuario, payload de acción o importación y luego disponibilidad de licencia si el usuario no puede acceder a la app.
+
+## Importación, salida externa y auditoría
+
+| Tema | Lo que ProPM Agent traza | Qué verificar en la herramienta externa |
+| --- | --- | --- |
+| Importación Knowledge | run de ingestión, proveedor, binding, source label, frescura, contadores y Trace ID | volumen disponible, derechos fuente, filtros, archivos omitidos y deduplicación |
+| Publicación SharePoint | solicitud de acción, aprobación, conector, destino y Trace ID | URL final, biblioteca, permisos de escritura y versión publicada |
+| Jira o Azure DevOps | acción, justificación, payload de negocio y Trace ID | clave del ticket o work item creado, proyecto objetivo y tipo de item |
+| Teams u Outlook | solicitud, destinatarios o canal lógico, aprobación y Trace ID | entrega real, canal, mailbox y posibles rechazos Graph |
+| Webhook | endpoint lógico, estado de intento, respuesta o error y Trace ID | código HTTP, respuesta truncada, validación de firma y reintento posterior |
+
+Nunca pongas un secreto en el payload de negocio de una acción ni en una nota de usuario. Los secretos, claves y referencias sensibles deben permanecer en la configuración de plataforma prevista para ese uso.
+
+## Seguridad y autenticación
+
+| Familia | Autenticaciones generalmente aceptadas | Punto de atención |
+| --- | --- | --- |
+| Microsoft Graph, Teams, Outlook, SharePoint y Microsoft Project | bearer token, OAuth, client credentials o managed identity | limitar scopes a los sitios, buzones, canales o proyectos necesarios |
+| Jira y Confluence | API key, basic, PAT, bearer token u OAuth según el producto | usar cuentas técnicas de privilegio mínimo |
+| Azure DevOps | PAT, bearer token u OAuth | limitar derechos al proyecto y a los work item types esperados |
+| Azure Data Factory y Blob Storage | managed identity, client credentials, SAS o bearer token según el servicio | preferir identidades administradas y limitar contenedores o pipelines accesibles |
+| SFTP | basic, password o clave privada SSH | verificar rotación de clave, puerto y carpeta raíz autorizada |
+| Webhook | sin auth, API key, bearer token, basic u OAuth | exigir HTTPS, firma o secreto del lado endpoint cuando el riesgo lo justifique |
+
 ## Ejemplo 1 — SharePoint de extremo a extremo
 
 SharePoint es uno de los mejores ejemplos para comprender la lógica completa.
@@ -165,7 +270,7 @@ SharePoint es uno de los mejores ejemplos para comprender la lógica completa.
 3. el equipo consulta una señal o decisión ;
 4. crea una acción **Crear un ticket Jira** ;
 5. la gobernanza decide si la acción es directa o sujeta a aprobación ;
-6. el ticket se ejecuta y se registra en el producto.
+6. el ticket se crea cuando la ejecución live del proveedor está activada; en todos los casos, la solicitud y la decisión quedan trazadas en el producto.
 
 ### Ventajas de Jira en ProPM Agent
 
@@ -186,8 +291,8 @@ SharePoint es uno de los mejores ejemplos para comprender la lógica completa.
 2. el proyecto lo ve como opción de ejecución ;
 3. una política define qué roles pueden enviar un mensaje ;
 4. el equipo prepara el mensaje en **Actions & approbations** ;
-5. según el riesgo, la acción se aprueba y luego se ejecuta ;
-6. la trazabilidad del mensaje permanece historizada.
+5. según el riesgo, la acción se aprueba y luego se ejecuta cuando el modo del conector lo permite ;
+6. la trazabilidad del mensaje permanece historizada aunque el envío externo esté bloqueado o diferido.
 
 ### Ventaja principal
 
@@ -224,7 +329,7 @@ Para leer correctamente el estado de un conector, distingue tres estados simples
 Un conector puede ser visible pero no utilizables si:
 
 - su estado **health** requiere verificación ;
-- el proyecto no tiene el buen **entitlement** ;
+- el binding del proyecto no está abierto, sano o configurado ;
 - la **policy** del proyecto bloquea el uso ;
 - el usuario no tiene la buena **permission** ;
 - el binding del proyecto aún no se abrió ;
@@ -246,7 +351,7 @@ Un conector puede ser visible pero no utilizables si:
 2. preparar los conectores en **Administration de la plateforme** ;
 3. abrir al proyecto solo los conectores listos ;
 4. configurar las **Políticas de gobernanza** por rol ;
-5. probar una primera importación o acción ;
+5. probar una primera importación o acción distinguiendo readiness, probe y ejecución real del proveedor ;
 6. verificar la trazabilidad final en el **Journal IA**.
 
 ## A recordar

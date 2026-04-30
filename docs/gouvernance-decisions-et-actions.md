@@ -345,7 +345,7 @@ In practice:
 
 - **available / healthy** = option usable;
 - **blocked by health** = connector to check on the platform side;
-- **blocked by entitlement** = capacity not included in the plan or not open;
+- **blocked by entitlement** = legacy wording for a non-plan block; check configuration, binding, policy, permission, approval or health;
 - **blocked by policy** = restrictive project governance;
 - **blocked by permission** = your role is insufficient;
 - no visible option = compatible connector missing, missing project binding or option not opened to your role.
@@ -365,11 +365,10 @@ In all three cases, this is different from a queue that is simply empty because 
 | no selectable connector | no compatible healthy connector is ready | check **Project integrations** then **Platform Administration** |
 | visible action but blocked button | permission, policy, or approval required | check the role, then governance |
 | visible queue but nothing goes out | the request is still waiting for approval or downstream execution | reread the actual queue status |
-| connector present but unusable | insufficient binding, health, or entitlement | verify the full platform → project → policy chain |
+| connector present but unusable | insufficient binding, health, configuration, policy or permission | verify the full platform → project → policy chain |
 
 Remember as well that only enterprise-approved execution options appear here. Technical connector preparation stays in **Platform Administration**, while project exposure is read through **Project integrations**.
 
-#### Step 5 — Fill in the title and justification
 #### Step 5 — Fill in the title and justification
 
 Then complete:
@@ -535,7 +534,7 @@ An action can be visible in the interface but remain blocked if:
 - the project policy forbids this level of action;
 - your role does not allow proposing or executing;
 - an approval is still pending;
-- the entitlement or plan capacity blocks the flow.
+- the connector, binding, policy, permission, approval or health state blocks the flow.
 
 ### What to do if no execution option appears
 
@@ -544,7 +543,7 @@ Follow this order:
 1. first check **Governance policies**;
 2. then check **Project integrations**;
 3. open **Platform administration**;
-4. finally check **entitlement**, **permission** and connector health.
+4. finally check **configuration**, **binding**, **permission** and connector health.
 
 ### Full scenario — from signal to executed action
 

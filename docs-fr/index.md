@@ -24,7 +24,7 @@ Elle est organisée pour deux publics :
 | Je ne peux pas me connecter | [Démarrage](./demarrage.md) | [Maintenance, support et FAQ](./maintenance-support-faq.md) pour distinguer tenant, `redirect URI`, siège ou état de santé |
 | Aucun projet n’apparaît | [Démarrage](./demarrage.md) | [Projets et espace de travail](./projets-et-espace-de-travail.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) si l’ajout au projet ou le rôle restent douteux |
 | Une page reste vide tant qu’aucun projet actif n’est défini | [Démarrage](./demarrage.md) | [Projets et espace de travail](./projets-et-espace-de-travail.md) pour confirmer le contexte projet, puis [Maintenance, support et FAQ](./maintenance-support-faq.md) si l’état vide paraît anormal |
-| Une action est visible mais bloquée | [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) | [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint), puis [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) si le blocage vient d’un connecteur, d’un binding ou d’un entitlement |
+| Une action est visible mais bloquée | [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) | [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint), puis [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) si le blocage vient d’un connecteur, d’un binding, d’une configuration, d’une policy, d’un rôle, de l’état de santé ou de la disponibilité de licence/siège |
 | Le fournisseur IA ne semble pas opérationnel | [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) | [Maintenance, support et FAQ](./maintenance-support-faq.md) et [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) pour confirmer le fournisseur effectif |
 
 Si vous cherchez directement une procédure de vérification ou un repère d’exploitation, ouvrez [Maintenance, support et FAQ](./maintenance-support-faq.md).
@@ -83,7 +83,7 @@ Dans un usage réel, le flux le plus fréquent est le suivant :
 | **Projet actif** | projet actuellement appliqué aux pages projet, à la recherche, aux runs et aux revues |
 | **All projects** | portée d’un agent personnalisé visible dans tous les projets accessibles par **le même compte** ; ce n’est ni un super-projet ni un portefeuille fusionné |
 | **Binding** | rattachement opérationnel entre une définition plateforme et un projet donné |
-| **Entitlement** | capacité réellement couverte par le plan / l’abonnement pour utiliser un connecteur, un fournisseur ou un flux |
+| **Entitlement** | libellé technique hérité pour un blocage opérationnel ; ce n’est pas une différence fonctionnelle entre plans Marketplace |
 | **Structured output** | sortie structurée produite par un run d’agent, distincte d’un document final publié |
 | **Lineage / lignée** | liens de traçabilité entre run, context snapshot, structured output, artefact, version et PM Doc |
 | **Context snapshot** | capture du contexte projet / documentaire utilisé pendant le run |
@@ -180,7 +180,7 @@ Utilisez le bon canal selon la nature de la demande :
 | --- | --- |
 | Support technique | URL du déploiement, projet concerné, situation rencontrée, heure approximative, `Trace ID` si visible |
 | Question d’accès, de tenant ou d’identité | tenant attendu, compte utilisé, URL réellement ouverte, message Microsoft ou capture d’écran |
-| Question commerciale ou abonnement | contexte du compte, plan concerné, nombre de sièges ou besoin de capacité |
+| Question commerciale ou abonnement | contexte du compte, plan concerné, sièges achetés, sièges utilisés et besoin de sièges |
 
 Toutes ces demandes peuvent être envoyées au point de contact suivant :
 

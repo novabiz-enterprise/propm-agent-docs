@@ -254,13 +254,13 @@ On y retrouve plusieurs familles d’informations :
 - **Execution connectors** : options de sortie gouvernée vers des systèmes externes ;
 - **Ingestion providers** : sources d’import consommées ensuite par **Connaissance** ;
 - **AI runtime transparency** : fournisseur IA effectif et fournisseur sélectionné au déploiement ;
-- **Entitlement posture** : posture plan / sièges / blocages premium visibles.
+- **Posture licences et sièges** : plan actif, licences achetées, licences utilisées et sièges disponibles visibles.
 
 ### Ce que montre l’écran Intégrations du projet
 
 L’écran sépare la readiness technique de la disponibilité projet :
 
-- la configuration plateforme, le binding projet, la policy, la permission, l’entitlement et le health sont des **causes distinctes**. Un connecteur peut rester visible en lecture seule pour expliquer pourquoi il est bloqué au lieu de laisser croire qu’il manque ;
+- la configuration plateforme, le binding projet, la policy, la permission, le health et la disponibilité de licence pour l’accès à l’app sont des **causes distinctes**. Un connecteur peut rester visible en lecture seule pour expliquer pourquoi il est bloqué au lieu de laisser croire qu’il manque ;
 - la configuration technique reste dans **Administration de la plateforme**. Les responsables des paramètres projet peuvent binder les intégrations activées et prêtes, tandis que les URL tenant, la stratégie d’authentification, les clés API et les références de secrets restent centralisées.
 
 | Zone | Ce que vous pouvez voir | Comment agir |
@@ -270,32 +270,34 @@ L’écran sépare la readiness technique de la disponibilité projet :
 
 Les cartes fournisseur peuvent afficher **Ready**, **Healthy** ou **Not configured**. **Not configured** signifie que le fournisseur existe dans le catalogue plateforme, mais qu’il manque encore une source, des identifiants ou une validation de readiness avant l’usage projet.
 
+Pour les champs obligatoires, les probes, le mapping des actions et les limites d’exécution live, utilisez la page [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint.md). **Ready** ou **Healthy** indique une préparation cohérente, mais ne prouve pas à lui seul qu’un ticket, un message ou un import externe complet a déjà été exécuté.
+
 ### Causes de blocage affichées
 
 Une intégration projet ou une option d’import peut être bloquée pour cause de :
 
-- entitlement ;
 - policy ;
 - permission ;
 - état health à vérifier ;
 - définition plateforme absente ou désactivée ;
-- binding projet désactivé ou non configuré.
+- binding projet désactivé ou non configuré ;
+- configuration ou validation provider-specific incomplète.
 
 ### Comment interpréter un blocage de binding
 
 | Cause visible | Lecture pratique | Réflexe recommandé |
 | --- | --- | --- |
-| `entitlement` | le plan ou la capacité autorisée ne couvre pas ce connecteur ou cette famille d’usage | vérifiez l’abonnement et les capacités dans [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) |
+| `entitlement` | libellé hérité pour une intégration bloquée, pas une différence de fonctionnalité Marketplace | vérifiez configuration, validation, health, binding, policy, rôle et disponibilité de licence en cas de blocage d’accès |
 | `policy` | la gouvernance projet interdit ou limite ce flux | relisez **Politiques de gouvernance** avant de modifier le binding |
 | `permission` | le connecteur existe mais votre rôle ne permet pas de l’activer ou de l’utiliser | contrôlez le rôle projet dans [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md) |
 | `health` | la définition plateforme existe mais sa préparation ou sa disponibilité demandent une vérification | ouvrez l’**Administration de la plateforme** pour confirmer la définition technique |
 | définition absente ou désactivée | rien n’est réellement prêt au niveau tenant | demandez d’abord la mise en place ou la réactivation plateforme |
 | binding projet absent | la plateforme est prête mais le projet ne consomme pas encore l’intégration | activez explicitement le binding côté projet |
 
-### Lecture pratique de `binding` et `entitlement`
+### Lecture pratique de `binding` et des licences
 
 - **binding** : le connecteur ou fournisseur existe au niveau plateforme, mais il faut encore le rattacher et l’ouvrir au projet pour qu’il soit consommable dans ce projet ;
-- **entitlement** : même avec un binding prêt, le plan peut encore laisser l’option visible en lecture seule tout en bloquant l’usage opérationnel ;
+- **licence** : elle détermine si l’utilisateur dispose d’un siège pour accéder à l’app. Les plans Marketplace ne débloquent ni ne bloquent des familles de connecteurs différentes ;
 - un connecteur visible mais bloqué ne signifie donc pas qu’il est cassé : l’interface peut justement le laisser visible pour expliquer la raison du blocage.
 
 Si un blocage persiste, ouvrez ensuite **Administration de la plateforme** pour vérifier la définition technique, puis revenez sur le projet pour confirmer le binding et la préparation.
@@ -324,7 +326,7 @@ Dans l’interface, la file et les cartes de synthèse distinguent surtout quatr
 
 | État visible | Lecture pratique |
 | --- | --- |
-| **Execution prerequisites** | des connecteurs compatibles peuvent exister, mais l’exécution reste bloquée par health, entitlement, permission, policy ou readiness indisponible |
+| **Execution prerequisites** | des connecteurs compatibles peuvent exister, mais l’exécution reste bloquée par health, configuration, binding, permission, policy, approbation ou readiness indisponible |
 | **Pending approval** | la demande a été proposée et attend encore une décision de gouvernance |
 | **Ready to execute** | la demande est **approved** mais l’exécution reste une étape distincte |
 | **Executed history** | l’action a réellement été exécutée et reste visible comme historique / preuve d’audit |
@@ -357,7 +359,7 @@ Lecture utile :
 
 - **available / healthy** : option théoriquement utilisable ;
 - **blocked by health** : le connecteur existe mais n’est pas dans un état opérationnel suffisant ;
-- **blocked by entitlement** : l’abonnement ne couvre pas ce flux ;
+- **blocked by entitlement** : libellé hérité indiquant un blocage ; vérifiez plutôt configuration, validation, binding, policy, rôle et disponibilité de licence si l’accès à l’app est bloqué ;
 - **blocked by policy** : la gouvernance du projet bloque le passage ;
 - **blocked by permission** : votre rôle ne suffit pas ;
 - aucune option visible : aucun connecteur compatible approuvé n’est actuellement exposé au projet.

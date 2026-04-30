@@ -253,13 +253,13 @@ Sie können dort typischerweise mehrere Informationsfamilien ablesen:
 - **Ausführungs-Connectoren**: gesteuerte Ausführungsoptionen zu externen Systemen;
 - **Ingestionsanbieter**: Importquellen, die anschließend von **Wissen** genutzt werden;
 - **Transparenz der KI-Laufzeit**: effektiver KI-Anbieter und der beim Deployment ausgewählte Anbieter;
-- **Entitlement-Status**: sichtbare Plan-, Lizenzplatz- oder Premium-Funktionslage des Projekts.
+- **Lizenz- und Sitzplatzstatus**: sichtbarer aktiver Plan, gekaufte Lizenzen, genutzte Lizenzen und verfügbare Sitzplätze.
 
 ### Was der Bildschirm „Projektintegrationen“ zeigt
 
 Der Bildschirm trennt technische Readiness von Projektverfügbarkeit:
 
-- Plattform-Setup, Projektbindung, Policy, Permission, Entitlement und Health sind **getrennte Ursachen**. Ein Connector kann schreibgeschützt sichtbar bleiben, damit das Projektteam versteht, warum er blockiert ist, statt anzunehmen, dass er fehlt;
+- Plattform-Setup, Projektbindung, Policy, Permission, Health und Lizenzverfügbarkeit für den App-Zugriff sind **getrennte Ursachen**. Ein Connector kann schreibgeschützt sichtbar bleiben, damit das Projektteam versteht, warum er blockiert ist, statt anzunehmen, dass er fehlt;
 - die technische Konfiguration bleibt in **Plattformadministration**. Projektverantwortliche können aktivierte und bereite Integrationen binden, während Tenant-URLs, Authentifizierungsstrategie, API-Schlüssel und Secret-Referenzen zentral kontrolliert bleiben.
 
 | Bereich | Was sichtbar sein kann | Wie handeln |
@@ -269,32 +269,34 @@ Der Bildschirm trennt technische Readiness von Projektverfügbarkeit:
 
 Anbieterkarten können **Ready**, **Healthy** oder **Not configured** anzeigen. **Not configured** bedeutet, dass der Anbieter im Plattformkatalog existiert, aber Quelle, Zugangsdaten oder Readiness-Prüfung noch fehlen, bevor das Projekt ihn nutzen kann.
 
+Für Pflichtfelder, Probes, Aktions-Mapping und Grenzen der Live-Ausführung nutzen Sie [Connectoren und Integrationen](./connecteurs-jira-et-sharepoint.md). **Ready** oder **Healthy** bedeutet kohärente Vorbereitung, beweist aber für sich allein nicht, dass ein vollständiges externes Ticket, eine Nachricht oder ein Import bereits ausgeführt wurde.
+
 ### Angezeigte Blockierungsgründe
 
 Eine Projektintegration oder eine Importoption kann aus folgenden Gründen blockiert sein:
 
-- Entitlement;
 - Policy;
 - Permission;
 - zu prüfender Gesundheitszustand;
 - fehlende oder deaktivierte Plattformdefinition;
-- fehlende oder nicht konfigurierte Projektbindung.
+- fehlende oder nicht konfigurierte Projektbindung;
+- unvollständige anbieterspezifische Konfiguration oder Validierung.
 
 ### Wie man eine Bindungsblockade interpretiert
 
 | Sichtbare Ursache | Praktische Lesung | Empfohlene Reflexion |
 | --- | --- | --- |
-| `entitlement` | Die abonnierten oder autorisierten Kapazitäten decken diesen Connector oder diese Nutzungsfamilie nicht ab | Prüfen Sie das Abonnement und die Kapazitäten in [Portfolio und technische Administration](./portefeuille-et-administration-technique.md) |
+| `entitlement` | Legacy-Bezeichnung für eine blockierte Integration, kein Funktionsunterschied zwischen Marketplace-Plänen | Konfiguration, Validierung, Health, Binding, Policy, Rolle und Lizenzverfügbarkeit bei Zugriffsproblemen prüfen |
 | `policy` | Die Projektgovernance verbietet oder limitiert diesen Fluss | Lesen Sie **Governance-Richtlinien** vor der Änderung der Bindung |
 | `permission` | Der Connector existiert, aber Ihre Rolle erlaubt es nicht, ihn zu aktivieren oder zu nutzen | Prüfen Sie die Projektrolle in [Zugriffskontrolle und Rollen Projekt](./controle-acces-et-roles.md) |
 | `health` | Die Plattformdefinition existiert, aber ihre Vorbereitung oder Verfügbarkeit erfordert Prüfung | Öffnen Sie die **Plattformadministration** zur Bestätigung der technischen Definition |
 | fehlende oder deaktivierte Definition | Nichts ist auf Tenant-Ebene wirklich bereit | Bitten Sie zunächst um Einrichtung oder Reaktivierung der Plattform |
 | fehlende oder nicht konfigurierte Projektbindung | Die Plattform ist bereit, aber das Projekt nutzt die Integration noch nicht | Aktivieren Sie die Bindung explizit auf Projektebene |
 
-### Praktische Bedeutung von `binding` und `entitlement`
+### Praktische Bedeutung von `binding` und Lizenzierung
 
 - **binding** bedeutet, dass der Connector oder Anbieter auf Plattformebene existiert, aber erst noch mit dem Projekt verknüpft und für dieses Projekt freigegeben werden muss, bevor das Projekt ihn nutzen kann;
-- **entitlement** bedeutet, dass selbst bei vorhandenem Binding der Plan die Option weiterhin sichtbar lassen kann, während die operative Nutzung blockiert bleibt;
+- **Lizenzierung** bestimmt, ob ein Benutzer einen verfügbaren Sitzplatz für den App-Zugriff hat. Marketplace-Pläne schalten keine unterschiedlichen Connector-Familien frei oder aus;
 - ein sichtbarer, aber blockierter Connector ist daher nicht automatisch defekt: Die Oberfläche kann ihn gerade deshalb sichtbar lassen, um die Blockierungsursache zu erklären.
 
 Wenn eine Blockade anhält, öffnen Sie anschließend **Plattformadministration**, um die technische Definition zu prüfen, und kehren Sie zum Projekt zurück, um die Bindung und Vorbereitung zu bestätigen.
@@ -328,7 +330,7 @@ In der Oberfläche unterscheiden Warteschlange und Übersichtskarten vor allem v
 
 | Sichtbarer Zustand | Praktische Lesart |
 | --- | --- |
-| **Execution prerequisites** | kompatible Connectoren können existieren, aber die Ausführung bleibt durch Health, Entitlement, Permission, Policy oder fehlende Readiness blockiert |
+| **Execution prerequisites** | kompatible Connectoren können existieren, aber die Ausführung bleibt durch Health, Konfiguration, Binding, Permission, Policy, Genehmigung oder fehlende Readiness blockiert |
 | **Pending approval** | die Anfrage wurde vorgeschlagen und wartet noch auf eine Governance-Entscheidung |
 | **Ready to execute** | die Anfrage ist bereits **approved**, die eigentliche Ausführung bleibt aber ein eigener Schritt |
 | **Executed history** | die Aktion wurde tatsächlich ausgeführt und bleibt als Verlauf bzw. Audit-Nachweis sichtbar |

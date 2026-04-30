@@ -87,7 +87,7 @@ Anbieter, der tatsächlich für einen bestimmten Lauf verwendet wird. Dies ist d
 
 **Berechtigung**
 
-Geschäftliche oder technische Berechtigung, die durch den Plan autorisiert ist und einen Connector, einen Anbieter oder eine Premium-Funktion freischalten oder blockieren kann.
+Legacy-technische Bezeichnung für eine Zugriffs- oder Ausführungsblockierung. Marketplace-Pläne nutzen sie nicht, um unterschiedliche Produktfunktionen freizuschalten; prüfen Sie stattdessen Lizenz-/Sitzverfügbarkeit, Binding, Rolle, Policy, Konfiguration und Health-Zustand.
 
 **Aktivitätsereignis**
 

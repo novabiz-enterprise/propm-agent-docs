@@ -254,13 +254,13 @@ taxonomy को छोटा और स्थिर रखें। उदाह
 - **Execution connectors**: external systems की ओर controlled outbound options;
 - **Ingestion providers**: वे import sources जिन्हें बाद में **Knowledge** उपयोग करती है;
 - **AI runtime transparency**: actual AI provider और deployment-selected provider;
-- **Entitlement posture**: plan, seat, या premium capability की project-visible स्थिति।
+- **License और seat posture**: active plan, purchased licenses, used licenses और available seats की project-visible स्थिति।
 
 ### Project integrations स्क्रीन क्या दिखाती है
 
 यह स्क्रीन technical readiness और project availability को अलग करती है:
 
-- platform setup, project binding, policy, permission, entitlement और health **अलग-अलग कारण** हैं। कोई connector read-only रूप में visible रह सकता है ताकि project team समझ सके कि वह क्यों blocked है, न कि यह माने कि वह missing है;
+- platform setup, project binding, policy, permission, health और app access के लिए license availability **अलग-अलग कारण** हैं। कोई connector read-only रूप में visible रह सकता है ताकि project team समझ सके कि वह क्यों blocked है, न कि यह माने कि वह missing है;
 - technical setup **Platform Administration** में रहता है। project settings managers enabled और ready integrations को bind कर सकते हैं, जबकि tenant URLs, authentication strategy, API keys और secret references centrally controlled रहते हैं।
 
 | क्षेत्र | क्या दिखाई दे सकता है | कैसे कार्य करें |
@@ -270,32 +270,34 @@ taxonomy को छोटा और स्थिर रखें। उदाह
 
 Provider cards **Ready**, **Healthy** या **Not configured** दिखा सकते हैं। **Not configured** का अर्थ है कि provider platform catalog में मौजूद है, लेकिन project use से पहले source, credentials या readiness validation अभी पूरी होनी है।
 
+Required fields, probes, action mapping और live execution limits के लिए [कनेक्टर्स और एकीकरण](./connecteurs-jira-et-sharepoint.md) देखें। **Ready** या **Healthy** coherent preparation दिखाता है, लेकिन इससे अकेले यह साबित नहीं होता कि full external ticket, message या import पहले से execute हो चुका है।
+
 ### उत्पाद में दिखाए गए अवरोध कारण
 
 कोई project integration या import option इन कारणों से blocked हो सकता है:
 
-- entitlement;
 - policy;
 - permission;
 - health status, जिसे जाँचना हो;
 - missing या disabled platform definition;
-- disabled या unconfigured project binding।
+- disabled या unconfigured project binding;
+- incomplete provider-specific configuration या validation।
 
 ### binding block को कैसे समझें
 
 | दिखाई देने वाला कारण | व्यावहारिक अर्थ | अनुशंसित प्रतिक्रिया |
 | --- | --- | --- |
-| `entitlement` | plan या authorized capacity इस connector या usage family को कवर नहीं करती | [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md) में subscription और capacities जाँचें |
+| `entitlement` | blocked integration के लिए legacy wording, Marketplace feature-tier difference नहीं | access issue हो तो configuration, validation, health, binding, policy, role और license availability check करें |
 | `policy` | project governance इस flow को रोकती या सीमित करती है | binding बदलने से पहले **Governance Policies** दोबारा पढ़ें |
 | `permission` | connector मौजूद है, पर आपका role activation या usage की अनुमति नहीं देता | [पहुँच नियंत्रण और परियोजना भूमिकाएँ](./controle-acces-et-roles.md) में project role जाँचें |
 | `health` | platform definition मौजूद है, पर उसकी readiness या availability की पुष्टि बाकी है | **Platform Administration** खोलकर technical definition देखें |
 | missing या disabled definition | tenant स्तर पर वास्तव में कुछ भी तैयार नहीं है | पहले platform setup या re-activation का अनुरोध करें |
 | missing project binding | platform तैयार है, पर परियोजना ने अभी integration को अपनाया नहीं है | परियोजना की ओर से binding को स्पष्ट रूप से enable करें |
 
-### `binding` और `entitlement` का व्यावहारिक अर्थ
+### `binding` और licensing का व्यावहारिक अर्थ
 
 - **binding** का अर्थ है कि connector या provider platform पर मौजूद है, लेकिन परियोजना के उपयोग के लिए उसे परियोजना से जोड़ना और परियोजना के लिए खोलना अभी बाकी हो सकता है;
-- **entitlement** का अर्थ है कि binding ready होने पर भी plan operational usage को block कर सकता है, जबकि option visibility बनी रहे;
+- **licensing** तय करती है कि user के पास app access के लिए available seat है या नहीं। Marketplace plans अलग connector families unlock या block नहीं करते;
 - इसलिए कोई connector visible लेकिन blocked हो, तो इसका अर्थ यह नहीं कि वह टूटा हुआ है; कई बार इंटरफ़ेस उसे इसलिए visible रखता है ताकि block का कारण साफ़ दिखे।
 
 यदि block बना रहे, तो पहले **Platform Administration** में technical definition की पुष्टि करें, फिर परियोजना पर लौटकर binding और readiness जाँचें।
@@ -324,7 +326,7 @@ interface में queue और summary cards मुख्य रूप से 
 
 | दिखाई देने वाली स्थिति | व्यावहारिक अर्थ |
 | --- | --- |
-| **Execution prerequisites** | compatible connectors मौजूद हो सकते हैं, पर execution अभी भी health, entitlement, permission, policy, या unavailable readiness से blocked है |
+| **Execution prerequisites** | compatible connectors मौजूद हो सकते हैं, पर execution अभी भी health, configuration, binding, permission, policy, approval या unavailable readiness से blocked है |
 | **Pending approval** | request propose की जा चुकी है, पर governance decision अभी बाकी है |
 | **Ready to execute** | request पहले से **approved** है, पर execution अभी भी अलग step है |
 | **Executed history** | action वास्तव में execute हो चुकी है और audit history के रूप में visible है |

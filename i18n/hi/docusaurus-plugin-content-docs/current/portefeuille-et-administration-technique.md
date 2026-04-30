@@ -393,6 +393,7 @@ ProPM Agent में, एक परियोजना आउट्लायर 
 
 - **प्लेटफ़ॉर्म एकीकरण**;
 - **एआई प्रदाता**;
+- **application deployment updates**;
 - **सदस्यता** और **सीटें**;
 - **गतिविधि ऑडिट**.
 
@@ -405,7 +406,8 @@ ProPM Agent में, एक परियोजना आउट्लायर 
 | अवलोकन | तैयारी की सामान्य स्थिति का सारांश |
 | प्लेटफ़ॉर्म एकीकरण | कनेक्टर और इन्जेशन प्रदाताओं की तकनीकी परिभाषाएँ |
 | एआई प्रदाता सेटिंग्स | एआई प्रदाता का कॉन्फ़िगरेशन, सत्यापन, परीक्षण और सक्रियण |
-| मार्केटप्लेस & सदस्यता | योजना, अधिकार, सीटें और व्यावसायिक स्थिति |
+| Deployment & Updates | Container Apps image inventory, update checks, approved ACR image rollout और rollback |
+| मार्केटप्लेस & सदस्यता | active plan, purchased seats, used seats, available seats और commercial status |
 | ऑडिट / गतिविधि | प्रशासनिक क्रियाओं का इतिहास |
 
 ## प्लेटफ़ॉर्म एकीकरण बनाम परियोजना एकीकरण
@@ -431,16 +433,20 @@ ProPM Agent में, एक परियोजना आउट्लायर 
 
 पूर्ण कनेक्टर परिवार के विवरण के लिए देखें [कनेक्टर्स और एकीकरण](./connecteurs-jira-et-sharepoint).
 
+Platform validations provider-specific requirements लागू करती हैं: mandatory fields, compatible authentication strategy, जरूरत होने पर HTTPS URLs, valid SFTP port और explicit source या target। Real connectivity probes केवल तब चलते हैं जब administrator या platform configuration उन्हें enable करे।
+
+Secrets, keys और sensitive references उसी platform configuration में रहने चाहिए जो इस use के लिए बनी है। इन्हें notes, action payloads या project users को दिखने वाली descriptions में न डालें।
+
 ## तैयारी और अवरोध के कारण
 
-एक एकीकरण निम्न कारणों से अवरुद्ध हो सकता है:
+एक integration निम्न कारणों से blocked हो सकता है:
 
-- **entitlement**;
 - **policy**;
 - **permission**;
 - **health** की जाँच;
-- प्लेटफ़ॉर्म परिभाषा गायब;
-- परियोजना बाइंडिंग खुली नहीं।
+- missing platform definition;
+- incomplete provider-specific configuration या validation;
+- project binding खुली नहीं।
 
 ### अनुशंसित जाँच प्रक्रिया
 
@@ -499,14 +505,37 @@ ProPM Agent में, एक परियोजना आउट्लायर 
 
 मार्केटप्लेस डिप्लॉयमेंट के दौरान एआई प्रदाता चयन के विवरण के लिए देखें [Azure Marketplace पर तैनाती](./deploiement-azure-marketplace.md).
 
-## सदस्यता, अधिकार और सीटें
+## Marketplace redeployment के बिना application updates
 
-उत्पाद एक लाइसेंस मॉडल को सीटों और क्षमताओं के साथ प्रबंधित करता है।
+**Deployment & Updates** section existing installation को **in place** update करता है। यह Azure Marketplace wizard दोबारा नहीं चलाता, नया resource group नहीं बनाता और पहले से deployed Azure resources recreate नहीं करता।
+
+व्यवहार में administration Azure Resource Manager के माध्यम से existing **Azure Container Apps** की image inventory पढ़ती है, current images को ACR में approved target images से compare करती है, और existing Container Apps पर नई revisions submit करती है।
+
+Available actions:
+
+- **Check for updates**: current images, target images, mutable tag refresh candidates और optional manifest version check करना;
+- **Apply update**: selected services पर नई images apply करना और नई Container Apps revisions बनाना;
+- **Rollback last update**: last operation ने जरूरी references capture किए हों तो previous images पर वापस जाना;
+- **Container App image inventory**: managed resource group, tracked services, current images, target images और revision state पढ़ना।
+
+Important prerequisites:
+
+- user के पास deployment-operation या platform-administration rights होने चाहिए;
+- runtime identity को Azure Resource Manager में Container Apps read और patch करने की अनुमति चाहिए;
+- environment को subscription और resource group `AZURE_SUBSCRIPTION_ID` और `AZURE_RESOURCE_GROUP_ID`, `AZURE_RESOURCE_GROUP` या `AZURE_RESOURCE_GROUP_NAME` से पता होना चाहिए;
+- target images update manifest, target-image configuration या authorized application tag से आनी चाहिए।
+
+यह operation **application image rollout** के लिए है। Database schema migrations, नए Azure resources बनाना और architecture changes इसके scope में नहीं हैं। यदि update orchestrator service को भी include करता है, तो interface बता सकता है कि request submit हो गई है जबकि service खुद को replace कर रहा है।
+
+## सदस्यता और सीटें
+
+उत्पाद सीट-आधारित लाइसेंस मॉडल प्रबंधित करता है। सभी Marketplace plans समान application features देते हैं; अंतर केवल licenses/seats की संख्या में होता है।
 
 ### एक प्रशासक क्या देख सकता है
 
 - सक्रिय **plan**;
 - खरीदी गई **सीटों की संख्या**;
+- उपयोग की गई **सीटों की संख्या**;
 - उपलब्ध **सीटों की संख्या**;
 - पहले से लाइसेंस प्राप्त उपयोगकर्ता;
 - व्यावसायिक स्थिति, जैसे `billing state`, `payment state` या `subscription status`.
@@ -515,9 +544,11 @@ ProPM Agent में, एक परियोजना आउट्लायर 
 
 एक अवरुद्ध उपयोगकर्ता का मतलब अनिवार्य रूप से कनेक्शन समस्या नहीं है। अवरोध निम्न कारणों से हो सकता है:
 
-- सीटों की कमी;
-- अधिकार का अभाव;
-- योजना में शामिल नहीं की गई सुविधा।
+- कोई उपलब्ध seat न होना;
+- हटाए गए user को administrator द्वारा फिर से assign करना पड़ना;
+- role, project access, binding, policy, configuration या health state में सुधार की आवश्यकता।
+
+Marketplace plans connectors, AI providers या product features को block नहीं करते। यदि interface या logs में technical `entitlement` label अभी भी दिखे, तो उसे legacy/non-plan indicator मानें, functional plan difference नहीं।
 
 ## प्लेटफ़ॉर्म के तकनीकी संदर्भ
 

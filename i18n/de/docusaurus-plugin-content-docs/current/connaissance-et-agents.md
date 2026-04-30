@@ -54,11 +54,11 @@ Je nach Quelle kann die Oberfläche Folgendes anzeigen:
 
 Eine Importoption kann aus folgenden Gründen nicht verfügbar sein:
 
-- Rechte;
-- Berechtigung;
-- Richtlinie;
-- zu prüfender Gesundheitszustand;
-- fehlende oder nicht bereitgestellte Projektbindung.
+- fehlende Rechte;
+- restriktive Richtlinie;
+- zu prüfender Verfügbarkeits- oder Gesundheitszustand;
+- fehlende oder nicht bereite Projektbindung;
+- unvollständige Anbieterkonfiguration.
 
 ## Importverlauf
 

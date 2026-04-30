@@ -254,13 +254,13 @@ You can typically read several information families there:
 - **Execution connectors**: governed outbound options toward external systems;
 - **Ingestion providers**: import sources later consumed by **Knowledge**;
 - **AI runtime transparency**: effective AI provider and deployment-selected provider;
-- **Entitlement posture**: plan, seat, or premium-capability posture visible to the project.
+- **License and seat posture**: active plan, purchased licenses, used licenses and available seats visible to the project.
 
 ### What the Project integrations screen shows
 
 The screen separates technical readiness from project availability:
 
-- platform setup, project binding, policy, permission, entitlement and health are **separate causes**. A connector can stay visible in read-only mode so the project team understands why it is blocked instead of assuming it is missing;
+- platform setup, project binding, policy, permission, health and license availability for app access are **separate causes**. A connector can stay visible in read-only mode so the project team understands why it is blocked instead of assuming it is missing;
 - technical setup remains in **Platform Administration**. Project settings managers can bind integrations that are enabled and ready, while tenant URLs, authentication strategy, API keys and secret references stay centrally controlled.
 
 | Area | What you may see | How to act |
@@ -270,6 +270,8 @@ The screen separates technical readiness from project availability:
 
 Provider cards can show **Ready**, **Healthy** or **Not configured**. **Not configured** means the provider exists in the platform catalog but still needs source, credential or readiness setup before the project can use it.
 
+For required fields, probes, action mapping and live execution limits, use [Connectors and integrations](./connecteurs-jira-et-sharepoint.md). **Ready** or **Healthy** means preparation is coherent, but does not by itself prove that a full external ticket, message or import has already been executed.
+
 
 ### Blocking causes shown by the product
 
@@ -277,28 +279,28 @@ Provider cards can show **Ready**, **Healthy** or **Not configured**. **Not conf
 
 A project integration or import option may be blocked due to:
 
-- entitlement;
 - policy;
 - permission;
 - health status to check;
 - missing or disabled platform definition;
-- disabled or unconfigured project binding.
+- disabled or unconfigured project binding;
+- incomplete provider-specific configuration or validation.
 
 ### Interpreting a binding block
 
 | Visible cause | Practical reading | Recommended reflex |
 | --- | --- | --- |
-| `entitlement` | the plan or capacity authorized does not cover this connector or usage family | check the subscription and capacities in [Portfolio and technical administration](./portefeuille-et-administration-technique.md) |
+| `entitlement` | legacy wording for a blocked integration, not a Marketplace feature-tier difference | check configuration, validation, health, binding, policy, role and license availability for access issues |
 | `policy` | project governance forbids or limits this flow | reread **Governance Policies** before changing the binding |
 | `permission` | the connector exists but your role does not allow activation or use | check the project role in [Access control and project roles](./controle-acces-et-roles.md) |
 | `health` | the platform definition exists but its preparation or availability requires verification | open **Platform Administration** to confirm the technical definition |
 | missing or disabled definition | nothing is actually ready at tenant level | first request setup or re‑activation from the platform |
 | missing project binding | the platform is ready but the project has not yet consumed the integration | explicitly enable the binding on the project side |
 
-### Practical reading of `binding` and `entitlement`
+### Practical reading of `binding` and licensing
 
 - **binding** means the connector or provider exists at platform level, but must still be attached and opened to the project before the project can consume it;
-- **entitlement** means that even with a ready binding, the plan can still keep the option visible in read-only while blocking operational use;
+- **licensing** controls whether a user has an available seat to access the app. Marketplace plans do not unlock or block different connector families;
 - a visible but blocked connector therefore does not automatically mean it is broken: the interface can keep it visible precisely to explain the blocking reason.
 
 If a block persists, open **Platform Administration** to verify the technical definition, then return to the project to confirm binding and readiness.
@@ -327,7 +329,7 @@ In the interface, the queue and synthesis cards mainly distinguish four states:
 
 | Visible state | Practical reading |
 | --- | --- |
-| **Execution prerequisites** | compatible connectors may exist, but execution is still blocked by health, entitlement, permission, policy, or unavailable readiness |
+| **Execution prerequisites** | compatible connectors may exist, but execution is still blocked by health, configuration, binding, permission, policy, approval or unavailable readiness |
 | **Pending approval** | the request has been proposed and is still awaiting a governance decision |
 | **Ready to execute** | the request is already **approved**, but execution remains a distinct step |
 | **Executed history** | the action has actually been executed and remains visible as audit history |

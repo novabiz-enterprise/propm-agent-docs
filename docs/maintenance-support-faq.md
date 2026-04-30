@@ -24,7 +24,7 @@ Use these checkpoints to route issues quickly:
 2. distinguish **empty state**, **read‑only**, **access denied** or **message displayed**;
 3. open the **AI Log** if the subject concerns an agent, a result or an artifact;
 4. keep the **Trace ID** and, if visible, the `Context snapshot ID` or the `Structured output ID`;
-5. check rights, integrations, entitlements and seats if access or execution is blocked.
+5. check rights, integrations, project bindings, health and seat availability if access or execution is blocked.
 
 ## Quick references by situation
 
@@ -40,7 +40,7 @@ Use these checkpoints to route issues quickly:
 
 ### Access to confirm
 
-Check the URL, tenant, guest account if using guest, the actually configured `redirectUri`, and seat availability if the plan consumes one.
+Check the URL, tenant, guest account if using guest, the actually configured `redirectUri`, and seat availability when application access consumes a license.
 
 ### Page visible but not editable
 
@@ -52,7 +52,7 @@ Start by checking the document status (`Indexed`, `Ingesting`, `Failed`), import
 
 ### Import from a grayed or missing source
 
-The most useful checks are: unvalidated provider, missing project binding, blocking entitlement, insufficient permission, or health status to confirm.
+The most useful checks are: unvalidated provider, missing project binding, insufficient permission, restrictive policy, incomplete configuration, or health status to confirm.
 
 ### Action visible but not executable
 
@@ -81,7 +81,7 @@ Because the product distinguishes **read‑only** and **access denied**. A page 
 
 ### Why does my Microsoft login succeed but access hasn’t yet worked as expected?
 
-Check the tenant, account authorization, existence of an accessible project and seat availability if the plan requires one.
+Check the tenant, account authorization, existence of an accessible project and seat availability when application access requires a license.
 
 ### Why does my login succeed but no project appears?
 
@@ -107,7 +107,7 @@ Because authentication may remain valid while an API component or provider still
 
 ### What to do if login succeeds, a project is visible, but runs do not start?
 
-Check in this order: active project, health indicator, assumed operational AI provider, possible entitlement, then **AI Log** to see if a run has at least been created. If the provider remains suspect, proceed to **Portfolio and technical administration**.
+Check in this order: active project, health indicator, assumed operational AI provider, provider readiness, then **AI Log** to see if a run has at least been created. If the provider remains suspect, proceed to **Portfolio and technical administration**.
 
 ## FAQ — project, workspace and agents
 
@@ -263,7 +263,13 @@ Confirm the downstream step in **Actions & approvals**, then in **Activity**. If
 
 ### Why is an integration available at platform level but locked in my project?
 
-Because a platform technical definition alone is not enough. You still need a valid project binding, adequate permissions, a compatible policy, acceptable health status and, if applicable, the corresponding entitlement.
+Because a platform technical definition alone is not enough. You still need a valid project binding, adequate permissions, a compatible policy, acceptable health status and complete provider-specific configuration.
+
+### Why does `Validate` not always prove that a full external call succeeded?
+
+For connectors and ingestion providers, `Validate` first confirms configuration consistency: mandatory fields, mode, auth, URL and source or target. A real network call happens only when a connectivity probe is enabled. Even then, the probe remains non-destructive: it does not necessarily create a ticket, send a message or perform a full import.
+
+If an action or import appears ready but produces no visible external result, check in this order: platform definition, provider-specific configuration, validation or probe, project binding, policy, user permission, health state, then action or import payload. See also [Connectors and integrations](./connecteurs-jira-et-sharepoint.md).
 
 ## FAQ — portfolio and administration
 
@@ -289,7 +295,7 @@ No. The interface mainly provides **default values**, a **Reset defaults** actio
 
 ### How to release or reassign a seat?
 
-This is done from **Platform administration** by an authorized profile. Removal frees capacity for later reallocation, subject to plan posture and withdrawal window.
+This is done from **Platform administration** by an authorized profile. Removal frees the seat for later reassignment, subject to subscription/license rules and any withdrawal window.
 
 ### What does “Validate succeeded but Test failed” mean in AI Provider settings?
 
@@ -297,7 +303,7 @@ The administrative configuration appears coherent, but real connectivity or remo
 
 ### Why is my provider visible but never `Operational`?
 
-A provider can be configured or even validated without having passed the full chain **Configuration → Validation → Test → Activate**. Also check entitlement, `allowed providers` and overall readiness before considering it usable.
+A provider can be configured or even validated without having passed the full chain **Configuration → Validation → Test → Activate**. Also check activation state, runtime selection, health and overall readiness before considering it usable.
 
 ### What to do if no Azure OpenAI deployment appears in AI Provider settings?
 
@@ -305,7 +311,7 @@ This usually means no deployment is visible in the configured Azure OpenAI resou
 
 ### Why is the AI provider visible but not modifiable or usable?
 
-The provider may be visible in read‑only but its modification remains reserved for an admin role. Its usage may also be limited by plan, `allowed providers`, entitlement or runtime resolution of the effective provider.
+The provider may be visible in read‑only but its modification remains reserved for an admin role. Its actual usage also depends on provider readiness, health state, permissions and runtime resolution of the effective provider.
 
 ## Next
 

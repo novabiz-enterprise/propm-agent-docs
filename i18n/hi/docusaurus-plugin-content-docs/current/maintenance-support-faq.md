@@ -22,7 +22,7 @@ description: ऑपरेशन के संदर्भ, उपयोगी �
 2. यह स्पष्ट करें कि मामला **empty state**, **read-only**, **access denied** या किसी दिखाई देने वाले संदेश से जुड़ा है;
 3. यदि विषय agent, result या artifact से जुड़ा है, तो **AI Log** खोलें;
 4. **Trace ID** सुरक्षित रखें और यदि दिखे तो `Context snapshot ID` या `Structured output ID` भी नोट करें;
-5. यदि access या execution रुका हुआ है, तो permissions, integrations, entitlements और seats जाँचें।
+5. यदि access या execution रुका हुआ है, तो permissions, integrations, project bindings, health और seat availability जाँचें।
 
 ## स्थिति के अनुसार त्वरित संदर्भ
 
@@ -38,7 +38,7 @@ description: ऑपरेशन के संदर्भ, उपयोगी �
 
 ### पुष्टि करने योग्य access
 
-URL, tenant, `guest` access की स्थिति में guest account, वास्तव में configured `redirectUri`, और जहाँ plan seat की माँग करता हो वहाँ seat availability जाँचें।
+URL, tenant, `guest` access की स्थिति में guest account, वास्तव में configured `redirectUri`, और application access license consume करे तो seat availability जाँचें।
 
 ### पृष्ठ दिखता है लेकिन edit नहीं होता
 
@@ -50,7 +50,7 @@ URL, tenant, `guest` access की स्थिति में guest account, �
 
 ### धुंधले या अनुपलब्ध source से import
 
-सबसे उपयोगी जाँचें हैं: unvalidated provider, missing project binding, blocking entitlement, अपर्याप्त permission या ऐसा health status जिसे पहले confirm करना हो।
+सबसे उपयोगी जाँचें हैं: unvalidated provider, missing project binding, अपर्याप्त permission, restrictive policy, incomplete configuration या ऐसा health status जिसे पहले confirm करना हो।
 
 ### action दिखती है लेकिन execute नहीं होती
 
@@ -79,7 +79,7 @@ voice browser पर निर्भर करती है। दूसरा b
 
 ### Microsoft sign-in सफल है, फिर भी access अपेक्षित रूप से क्यों नहीं मिल रहा?
 
-tenant, account authorization, उपलब्ध project access और जहाँ लागू हो वहाँ seat availability जाँचें।
+tenant, account authorization, उपलब्ध project access और application access license माँगे तो seat availability जाँचें।
 
 ### sign-in सफल है, लेकिन कोई project क्यों नहीं दिखाई देता?
 
@@ -105,7 +105,7 @@ authentication वैध रह सकती है, जबकि कोई **AP
 
 ### यदि sign-in सफल है, project visible है, लेकिन runs शुरू नहीं हो रहे, तो क्या करें?
 
-इस क्रम में जाँचें: active project, **Health indicator**, provider का `Operational` होना, संभावित entitlement, फिर **AI Log** ताकि यह देखा जा सके कि कम-से-कम कोई run बना भी है या नहीं। यदि provider पर संदेह बना रहे, तो [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md) पर जाएँ।
+इस क्रम में जाँचें: active project, **Health indicator**, provider का `Operational` होना, provider readiness, फिर **AI Log** ताकि यह देखा जा सके कि कम-से-कम कोई run बना भी है या नहीं। यदि provider पर संदेह बना रहे, तो [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md) पर जाएँ।
 
 ## FAQ - project, workspace और agents
 
@@ -268,7 +268,13 @@ interface में `in_app` सबसे सीधा path है। external c
 
 ### कोई integration platform level पर available है, लेकिन मेरे project में locked क्यों है?
 
-क्योंकि केवल platform-level तकनीकी परिभाषा पर्याप्त नहीं होती। आपको valid project binding, पर्याप्त permissions, compatible policy, स्वीकार्य health status और जहाँ लागू हो वहाँ संबंधित entitlement भी चाहिए।
+क्योंकि केवल platform-level तकनीकी परिभाषा पर्याप्त नहीं होती। आपको valid project binding, पर्याप्त permissions, compatible policy, स्वीकार्य health status और complete provider-specific configuration भी चाहिए।
+
+### `Validate` हमेशा यह क्यों साबित नहीं करता कि full external call सफल हुआ?
+
+Connectors और ingestion providers के लिए `Validate` पहले configuration consistency confirm करता है: mandatory fields, mode, auth, URL और source या target। Real network call केवल connectivity probe enabled होने पर होता है। Probe enabled हो तब भी यह non-destructive रहता है: यह जरूरी नहीं कि ticket बनाए, message भेजे या full import करे।
+
+यदि action या import ready दिखता है लेकिन external result visible नहीं है, तो इस क्रम में जाँचें: platform definition, provider-specific configuration, validation या probe, project binding, policy, user permission, health state, फिर action या import payload। यह भी देखें: [कनेक्टर्स और एकीकरण](./connecteurs-jira-et-sharepoint.md).
 
 ## FAQ - portfolio और administration
 
@@ -294,7 +300,7 @@ live environments अलग हो सकते हैं। कुछ projects 
 
 ### seat को release या reassign कैसे करें?
 
-यह **Platform administration** में किसी authorized profile द्वारा किया जाता है। removal के बाद capacity plan posture और withdrawal window के अनुसार बाद की reallocation के लिए उपलब्ध हो जाती है।
+यह **Platform administration** में किसी authorized profile द्वारा किया जाता है। removal के बाद seat subscription/license rules और किसी withdrawal window के अनुसार बाद की reassignment के लिए उपलब्ध हो जाती है।
 
 ### `AI Provider settings` में `Validate` सफल लेकिन `Test` fail क्यों होता है?
 
@@ -302,7 +308,7 @@ live environments अलग हो सकते हैं। कुछ projects 
 
 ### मेरा provider visible है, लेकिन कभी `Operational` क्यों नहीं होता?
 
-कोई provider configure या `Validate` हो सकता है, फिर भी उसने पूरी **Configuration -> Validation -> Test -> Activate** chain पूरी न की हो। इसे उपयोग योग्य मानने से पहले entitlement, `allowed providers` और समग्र तैयारी भी जाँचें।
+कोई provider configure या `Validate` हो सकता है, फिर भी उसने पूरी **Configuration -> Validation -> Test -> Activate** chain पूरी न की हो। इसे उपयोग योग्य मानने से पहले activation state, runtime selection, health और overall readiness भी जाँचें।
 
 ### `AI Provider settings` में कोई Azure OpenAI deployment नहीं दिखे तो क्या करें?
 
@@ -310,7 +316,7 @@ live environments अलग हो सकते हैं। कुछ projects 
 
 ### AI provider visible है, लेकिन modify या use क्यों नहीं किया जा सकता?
 
-provider **read-only** mode में दिखाई दे सकता है, जबकि modification admin role तक सीमित हो। इसका actual use plan, `allowed providers`, entitlement या effective runtime resolution से भी सीमित हो सकता है।
+provider **read-only** mode में दिखाई दे सकता है, जबकि modification admin role तक सीमित हो। इसका actual use provider readiness, health state, permissions और effective runtime resolution पर भी निर्भर करता है।
 
 ## आगे
 

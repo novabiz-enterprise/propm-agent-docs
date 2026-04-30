@@ -10,7 +10,7 @@ description: Understand all visible connectors in ProPM Agent, their benefits, u
 
 ## Objective
 
-This page explains **all the connectors and ingestion providers visible in ProPM Agent**, their benefits, business usefulness, and how they are integrated into the product.
+This page explains the **operational catalog of connectors and ingestion providers supported in ProPM Agent**, their benefits, business usefulness, and how they are integrated into the product. Some administration lists can also show extensible or custom families that require additional configuration and validation before real use.
 
 The goal is to answer three simple questions:
 
@@ -41,7 +41,7 @@ In the product, a connector can serve three different purposes:
 Regardless of the connector, the logical path is always the same:
 
 1. the administrator prepares it in **Platform Administration**;
-2. they validate the configuration and connectivity;
+2. they validate the configuration and, when enabled, real connectivity;
 3. the connector becomes available in **Project Integrations**;
 4. **Governance Policies** define who can use it and at what level;
 5. the team uses it in **Knowledge**, **PM Documents** or **Actions & approvals**;
@@ -51,11 +51,11 @@ Regardless of the connector, the logical path is always the same:
 
 | Surface | What you do there |
 | --- | --- |
-| **Platform Administration** | create the technical definition, provide authentication, validate and test |
+| **Platform Administration** | create the technical definition, provide authentication, validate, test by provider and enable probes when needed |
 | **Project Integrations** | check which connectors are actually open to the current project |
-| **Knowledge** | import documents, pages, tickets, work items or other sources |
+| **Knowledge** | import documents, pages, tickets, work items or other sources according to the available provider |
 | **Governance Policies** | decide which roles can observe, propose or execute actions |
-| **Actions & approvals** | create a real action, have it approved, then execute it |
+| **Actions & approvals** | prepare an action request, have it approved, then execute it when the connector mode allows it |
 | **AI Log / activity** | keep the trace of the flow and executions |
 
 ## Three levels not to be confused
@@ -124,6 +124,111 @@ Some names appear in several places in the product. That is normal: the import p
 | **ADF / Blob / Confluence / SFTP** | ingestion provider only | — | they enrich **Knowledge** and do not automatically become action destinations |
 | **Teams / Outlook / Webhook** | — | execution connector only | they send governed messages or events and do not automatically import Knowledge |
 
+## Supported catalog vs extensible options
+
+The catalog above is the operational catalog currently seeded, checked and exposed in **Project Integrations**. **Platform Administration** can also show additional or custom families such as GitHub, GitLab, ServiceNow, Slack, Notion, Google Drive, OneDrive, Box or Dropbox.
+
+Treat those additional entries as extensions until an administrator has confirmed the technical definition, required fields, authentication strategy, validation, project binding and applicable governance policy.
+
+## Minimum configuration by execution connector
+
+The fields below are the minimum fields to complete before `test` or `live` use. Field names can vary slightly by form, but the idea is the same: a destination, an authentication identity and an explicit project target.
+
+| Connector | Minimum fields before test/live use | Typical authentication | Connectivity probe when enabled |
+| --- | --- | --- | --- |
+| **Jira delivery workspace** | `base_url` or `site_url`, `project_key` | API key, basic, PAT, bearer token or OAuth | reads the target Jira project |
+| **Azure DevOps delivery project** | `organization_url` or `organization`, `project`, `work_item_type` | PAT, bearer token or OAuth | checks the work item type in the project |
+| **Microsoft Teams collaboration** | `team_id`, `channel_id` | Microsoft Graph with bearer token, OAuth, client credentials or managed identity | reads the target Teams channel |
+| **Outlook executive notifications** | `mailbox`, `user_id` or `user_principal_name` | Microsoft Graph with bearer token, OAuth, client credentials or managed identity | checks the Graph mailbox or user |
+| **SharePoint publication library** | `site_id` or `site_url`, `drive_id` or `library` | Microsoft Graph with bearer token, OAuth, client credentials or managed identity | checks the site and library |
+| **Webhook event delivery** | `webhook_url` or `endpoint_url` over HTTPS | no auth, API key, bearer token, basic or OAuth | sends `HEAD`, then `GET` when needed |
+| **Microsoft Project schedule sync** | `project_id`, `portfolio` or `workspace` | Microsoft Graph with bearer token, OAuth, client credentials or managed identity | uses the configured probe endpoint or path |
+| **Smartsheet portfolio workspace** | `sheet_id` or `workspace_id` | API key, bearer token, OAuth or PAT | reads the Smartsheet sheet or workspace |
+| **Wrike delivery workspace** | `folder_id`, `space_id` or `task_id` | bearer token or OAuth | reads the Wrike task or folder |
+| **Asta Powerproject schedule sync** | `base_url` or `endpoint_url`, then `project_id`, `portfolio` or `schedule_id` | API key, bearer token, OAuth or basic | uses the configured probe endpoint or path |
+
+## Minimum configuration by ingestion provider
+
+An ingestion provider must identify the source, import mode and identity used to read that source. Scheduled imports also require a compatible cadence or orchestration.
+
+| Provider | Minimum fields before real use | Typical authentication | Connectivity probe when enabled |
+| --- | --- | --- | --- |
+| **SharePoint knowledge import** | `site_id` or `site_url`, `drive_id` or `library` | Microsoft Graph with bearer token, OAuth, client credentials or managed identity | checks the library and root children |
+| **Azure Data Factory evidence pipeline** | `subscription_id`, `resource_group_name`, `factory` or `factory_name`, `pipeline` or `pipeline_name` | managed identity, client credentials or bearer token | reads the pipeline definition |
+| **Azure Blob document ingest** | `account_url`, `storage_account` or `account_name`, then `container` | managed identity, SAS, bearer token or client credentials | lists a few blobs from the container |
+| **Confluence knowledge import** | `base_url`, `space`, `space_key` or `space_id` | basic, bearer token or OAuth | checks the Confluence space |
+| **Jira issue import** | `base_url` or `site_url`, then `project`, `project_key` or `jql` | API key, basic, PAT, bearer token or OAuth | runs a limited Jira search |
+| **SFTP document intake** | `host` or `base_url`, `username` or `user`, `folder` or `path`, valid port if provided | basic, password or SSH private key | checks TCP reachability to the SFTP server |
+| **Microsoft Project schedule import** | `project_id`, `portfolio` or `workspace` | Microsoft Graph with bearer token, OAuth, client credentials or managed identity | uses the configured probe endpoint or path |
+| **Smartsheet sheet import** | `sheet_id` or `workspace_id` | API key, bearer token, OAuth or PAT | reads the Smartsheet sheet or workspace |
+| **Wrike task import** | `folder_id` or `space_id` | bearer token or OAuth | reads tasks from the folder or space |
+| **Asta Powerproject schedule import** | `base_url` or `endpoint_url`, then `project_id`, `portfolio` or `schedule_id` | API key, bearer token, OAuth or basic | uses the configured probe endpoint or path |
+
+## Validation, probes and runtime limits
+
+| Step | What it confirms | What it does not guarantee |
+| --- | --- | --- |
+| **Save** | the definition is stored at platform level | the external source has not necessarily been contacted |
+| **Validate** | required fields, mode, authentication and HTTPS URLs are coherent | a real network call runs only when probes are enabled |
+| **Connectivity probe** | ProPM Agent can reach a non-destructive provider endpoint | ticket creation, message sending or full import are not triggered |
+| **Bind to project** | the project can consume the platform definition | policy, user role, health, validation and binding readiness can still block usage |
+| **Validate binding** | the project binding remains aligned with the platform definition | it does not replace a real business action or import |
+
+Connectivity probes are intentionally opt-in. An administrator can enable them with `connectivity_probe_enabled`, `run_connectivity_probe`, `live_connectivity_check`, equivalent metadata or a platform environment variable. Without that activation, validation remains a consistency and readiness check.
+
+If a connector stays in `mock` or `test` mode, ProPM Agent can manage the request, governance, approval and trace without necessarily sending the final call to the external system. Real vendor execution requires a compatible connector mode, complete configuration, an allowing policy and an environment that enables that path.
+
+## Governed actions and required connector
+
+| User action | Internal action type | Required connector | Minimum business fields |
+| --- | --- | --- | --- |
+| Publish an artifact to SharePoint | `publish_artifact_to_sharepoint` | `sharepoint_publish` | `artifact_id`, `destination_id` |
+| Send a Teams message | `send_teams_message` | `teams` | `body` |
+| Send an Outlook message | `send_outlook_message` | `outlook` | `body`, `recipients` |
+| Create a Jira ticket | `create_jira_ticket` | `jira` | `title` |
+| Create an Azure DevOps work item | `create_azure_devops_ticket` | `azure_devops` | `title` |
+
+Some legacy labels are normalized automatically. For example, `send_message` becomes `send_teams_message`, `send_email` becomes `send_outlook_message`, `create_work_item` becomes `create_azure_devops_ticket`, and `publish_sharepoint_artifact` becomes `publish_artifact_to_sharepoint`.
+
+## Statuses, blockers and diagnostic order
+
+| Visible status or blocker | Practical reading | First recommended action |
+| --- | --- | --- |
+| **Ready** or **available** | the definition can be bound or used if the rest of the chain is open | check project binding and policy |
+| **Healthy** | the last known validation is positive | confirm that the project is bound |
+| **Not configured** | fields, source, target or credentials are missing | complete the definition in Platform Administration |
+| **Not validated** or **not_tested** | the definition exists but has not passed expected validation or test | run Validate or the appropriate probe |
+| **Blocked by health** | platform health is degraded or invalid | check endpoint, auth, scopes and network |
+| **Blocked by entitlement** | legacy wording for a blocked integration; in Marketplace plans this is not a feature-tier difference | check configuration, health, binding, policy, role and license availability for access issues |
+| **Blocked by policy** | project governance forbids this action or usage type | adjust the policy or role |
+| **Binding disabled** | the project binding exists but is disabled | re-enable or recreate the binding if allowed |
+| **Missing platform definition** | the project references a missing or deleted definition | recreate or fix the platform definition |
+
+The most useful diagnostic order is: platform definition, required configuration, validation or probe, project binding, policy, user permission, action or import payload, then license availability if the user cannot access the app.
+
+## Import, external output and audit
+
+| Topic | What ProPM Agent traces | What to check in the external tool |
+| --- | --- | --- |
+| Knowledge import | ingestion run, provider, binding, source label, freshness, counts and Trace ID | available volume, source rights, filters, skipped files and deduplication |
+| SharePoint publication | action request, approval, connector, destination and Trace ID | final URL, library, write permissions and published version |
+| Jira or Azure DevOps | action, rationale, business payload and Trace ID | created ticket or work item key, target project and item type |
+| Teams or Outlook | request, logical recipients or channel, approval and Trace ID | actual delivery, channel, mailbox and Graph refusals |
+| Webhook | logical endpoint, attempt status, response or error and Trace ID | HTTP status, truncated response, signature validation and downstream retry |
+
+Never place a secret in an action business payload or user note. Secrets, keys and sensitive references must stay in the platform configuration designed for that purpose.
+
+## Security and authentication
+
+| Family | Generally accepted authentication | Point of attention |
+| --- | --- | --- |
+| Microsoft Graph, Teams, Outlook, SharePoint and Microsoft Project | bearer token, OAuth, client credentials or managed identity | limit scopes to the required sites, mailboxes, channels or projects |
+| Jira and Confluence | API key, basic, PAT, bearer token or OAuth depending on the product | use least-privilege technical accounts |
+| Azure DevOps | PAT, bearer token or OAuth | limit rights to the project and expected work item types |
+| Azure Data Factory and Blob Storage | managed identity, client credentials, SAS or bearer token depending on the service | prefer managed identities and limit accessible containers or pipelines |
+| SFTP | basic, password or SSH private key | check key rotation, port and authorized root folder |
+| Webhook | no auth, API key, bearer token, basic or OAuth | require HTTPS, signature or endpoint-side secret when risk justifies it |
+
 ## Example 1 — SharePoint end‑to‑end
 
 SharePoint is one of the best examples to understand the full logic.
@@ -165,7 +270,7 @@ SharePoint is one of the best examples to understand the full logic.
 3. the team consults a signal or decision;
 4. they create a **Create Jira ticket** action;
 5. governance decides if the action is direct or subject to approval;
-6. the ticket is executed and traced in the product.
+6. the ticket is created when live vendor execution is enabled; in all cases, the request and decision remain traced in the product.
 
 ### Benefits of Jira in ProPM Agent
 
@@ -186,8 +291,8 @@ SharePoint is one of the best examples to understand the full logic.
 2. the project sees it as an execution option;
 3. a policy defines which roles can send a message;
 4. the team prepares the message in **Actions & approvals**;
-5. depending on risk, the action is approved then executed;
-6. the message trace remains logged.
+5. depending on risk, the action is approved and then executed when the connector mode allows it;
+6. the message trace remains logged even if external delivery is blocked or deferred.
 
 ### Main advantage
 
@@ -224,7 +329,7 @@ To read connector status correctly, distinguish three simple states:
 A connector can be visible but unusable if:
 
 - its **health** state requires a check;
-- the project does not have the correct **entitlement**;
+- the project binding is not open, healthy or configured;
 - the project's **policy** blocks usage;
 - the user does not have the correct **permission**;
 - the project binding has not yet been opened;
@@ -246,7 +351,7 @@ A connector can be visible but unusable if:
 2. prepare connectors in **Platform Administration**;
 3. open only ready connectors to the project;
 4. set **Governance Policies** by role;
-5. test a first import or action;
+5. test a first import or action while distinguishing readiness, probe and real vendor execution;
 6. verify the final trace in the **AI Log**.
 
 ## Takeaways

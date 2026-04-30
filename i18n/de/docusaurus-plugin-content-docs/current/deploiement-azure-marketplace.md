@@ -299,12 +299,22 @@ Bevor Sie die Erstellung starten:
 
 ### Minimale technische Überprüfungen
 
-1. Ermitteln Sie die tatsächlich veröffentlichte **Web‑URL**;  
-2. Prüfen Sie die **API‑URL**;  
-3. Prüfen Sie die Verfügbarkeit von **`/runtime-config.json`**;  
-4. Validieren Sie die Konsistenz zwischen der veröffentlichten URL und den **Entra Redirect URIs**;  
-5. Öffnen Sie **Platform Administration > KI-Anbieter-Einstellungen** und bestätigen Sie, dass der gewählte Anbieter korrekt vorbereitet ist;  
+1. Ermitteln Sie die tatsächlich veröffentlichte **Web‑URL**;
+2. Prüfen Sie die **API‑URL**;
+3. Prüfen Sie die Verfügbarkeit von **`/runtime-config.json`**;
+4. Validieren Sie die Konsistenz zwischen der veröffentlichten URL und den **Entra Redirect URIs**;
+5. Öffnen Sie **Platform Administration > KI-Anbieter-Einstellungen** und bestätigen Sie, dass der gewählte Anbieter korrekt vorbereitet ist;
 6. Prüfen Sie anschließend, ob der erwartete Zustand durch **Configuration**, **Validation**, **Test** und **Operational** läuft.
+
+### Updates nach der Installation ohne Rückkehr zum Marketplace
+
+Nach der Installation werden reguläre Anwendungsupdates über **Platform Administration > Deployment & Updates** durchgeführt. Diese Operation aktualisiert Images auf den bestehenden Container Apps und erstellt neue Revisionen auf bereits vorhandenen Ressourcen.
+
+Dieser Ablauf startet das Azure-Marketplace-Angebot nicht erneut, erstellt keine neue Ressourcengruppe und erzeugt die Deployment-Ressourcen nicht neu. Er dient dazu, genehmigte ACR-Images anzuwenden, Kandidatenservices zu prüfen, mutable Tags bei entsprechender Umgebungseinstellung zu aktualisieren und bei verfügbaren Referenzen per Rollback auf ein vorheriges Image zurückzugehen.
+
+Vor der Nutzung prüfen Sie, dass die Runtime-Identität Container Apps über Azure Resource Manager lesen und patchen darf, dass `AZURE_SUBSCRIPTION_ID` und eine der Variablen `AZURE_RESOURCE_GROUP_ID`, `AZURE_RESOURCE_GROUP` oder `AZURE_RESOURCE_GROUP_NAME` konfiguriert sind, und dass Ziel-Images aus einem Update-Manifest, einer Ziel-Image-Konfiguration oder einem autorisierten Anwendungstag stammen.
+
+Halten Sie beide Schritte getrennt: Marketplace installiert die initiale Umgebung; **Deployment & Updates** wartet die bestehende Installation. Datenbank-Schemamigrationen und Architekturänderungen werden durch diesen Administrationsbutton nicht abgedeckt.
 
 ### Entra‑Authentifizierung
 

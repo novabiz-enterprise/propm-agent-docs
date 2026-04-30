@@ -24,7 +24,7 @@ Les points suivants servent de repères dans l’application :
 2. distinguez **état vide**, **lecture seule**, **accès refusé** ou **message affiché** ;
 3. ouvrez le **Journal IA** si le sujet concerne un agent, un résultat ou un artefact ;
 4. conservez le **Trace ID** et, si visible, le `Context snapshot ID` ou le `Structured output ID` ;
-5. vérifiez droits, intégrations, entitlements et sièges si l’accès ou l’exécution est bloqué.
+5. vérifiez droits, intégrations, bindings projet, état de santé et disponibilité de siège si l’accès ou l’exécution est bloqué.
 
 ## Repères rapides par situation
 
@@ -40,7 +40,7 @@ Les points suivants servent de repères dans l’application :
 
 ### Accès à confirmer
 
-Vérifiez l’URL, le tenant, le compte invité si usage guest, la `redirectUri` réellement configurée et la disponibilité d’un siège si le plan en consomme un.
+Vérifiez l’URL, le tenant, le compte invité si usage guest, la `redirectUri` réellement configurée et la disponibilité d’un siège lorsque l’accès à l’application consomme une licence.
 
 ### Page visible mais non modifiable
 
@@ -52,7 +52,7 @@ Commencez par vérifier le statut du document (`Indexed`, `Ingesting`, `Failed`)
 
 ### Import depuis une source grisé ou absent
 
-Les vérifications les plus utiles sont : fournisseur non validé, binding projet absent, entitlement bloquant, permission insuffisante ou état health à confirmer.
+Les vérifications les plus utiles sont : fournisseur non validé, binding projet absent, permission insuffisante, policy restrictive, configuration incomplète ou état health à confirmer.
 
 ### Action visible mais non exécutable
 
@@ -81,7 +81,7 @@ Parce que le produit distingue **lecture seule** et **accès refusé**. Une page
 
 ### Pourquoi ma connexion Microsoft réussit-elle mais l’accès n’aboutit pas encore comme prévu ?
 
-Vérifiez le tenant, l’autorisation du compte, l’existence d’un projet accessible et la disponibilité d’un siège si le plan en impose un.
+Vérifiez le tenant, l’autorisation du compte, l’existence d’un projet accessible et la disponibilité d’un siège lorsque l’accès à l’application requiert une licence.
 
 ### Pourquoi ma connexion réussit-elle mais aucun projet n’apparaît ?
 
@@ -107,7 +107,7 @@ Parce que l’authentification peut rester valide alors qu’un composant **API*
 
 ### Que faire si la connexion réussit, qu’un projet est visible, mais que les runs ne démarrent pas ?
 
-Vérifiez dans cet ordre : projet actif, indicateur de santé, fournisseur IA supposé opérationnel, entitlement éventuel, puis **Journal IA** pour voir si un run a au moins été créé. Si le fournisseur reste suspect, poursuivez vers [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
+Vérifiez dans cet ordre : projet actif, indicateur de santé, fournisseur IA supposé opérationnel, readiness du fournisseur, puis **Journal IA** pour voir si un run a au moins été créé. Si le fournisseur reste suspect, poursuivez vers [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
 
 ## FAQ — projet, espace de travail et agents
 
@@ -270,7 +270,13 @@ Confirmez ensuite l’étape aval dans **Actions & approbations**, puis dans **A
 
 ### Pourquoi une intégration est-elle disponible en plateforme mais verrouillée dans mon projet ?
 
-Parce qu’une définition technique plateforme ne suffit pas. Il faut encore un **binding projet** valide, des permissions adéquates, une policy compatible, un état de santé acceptable et, selon les cas, l’entitlement correspondant.
+Parce qu’une définition technique plateforme ne suffit pas. Il faut encore un **binding projet** valide, des permissions adéquates, une policy compatible, un état de santé acceptable et une configuration fournisseur complète.
+
+### Pourquoi `Validate` ne prouve-t-il pas toujours qu’un appel externe complet a réussi ?
+
+Pour les connecteurs et fournisseurs d’ingestion, `Validate` confirme d’abord la cohérence de la configuration : champs obligatoires, mode, auth, URL et source ou cible. Un appel réseau réel ne se produit que si un probe de connectivité est activé. Même dans ce cas, le probe reste non destructif : il ne crée pas forcément de ticket, n’envoie pas de message et ne réalise pas un import complet.
+
+Si une action ou un import semble prêt mais ne produit pas de résultat externe visible, vérifiez dans cet ordre : définition plateforme, configuration provider-specific, validation ou probe, binding projet, policy, permission utilisateur, état health, puis payload de l’action ou de l’import. Voir aussi [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint.md).
 
 ## FAQ — portefeuille et administration
 
@@ -296,7 +302,7 @@ Non : l’interface fournit surtout des **valeurs par défaut**, un bouton **Res
 
 ### Comment libérer ou réattribuer un siège ?
 
-Cela se fait depuis **Administration de la plateforme** par un profil autorisé. Le retrait libère la capacité pour une réattribution ultérieure, sous réserve de la posture et de la fenêtre de retrait du plan.
+Cela se fait depuis **Administration de la plateforme** par un profil autorisé. Le retrait libère le siège pour une réattribution ultérieure, sous réserve des règles d’abonnement/licence et d’une éventuelle fenêtre de retrait.
 
 ### Que signifie `Validate` réussi mais `Test` non abouti dans `Paramètres du fournisseur IA` ?
 
@@ -304,7 +310,7 @@ La configuration administrative paraît cohérente, mais la connectivité réell
 
 ### Pourquoi mon fournisseur est-il visible mais jamais `Operational` ?
 
-Un fournisseur peut être configuré ou même validé sans avoir passé toute la chaîne **Configuration → Validation → Test → Activate**. Vérifiez aussi l’entitlement, les `allowed providers` et la readiness générale avant de le considérer exploitable.
+Un fournisseur peut être configuré ou même validé sans avoir passé toute la chaîne **Configuration → Validation → Test → Activate**. Vérifiez aussi l’état d’activation, la sélection runtime, l’état health et la readiness générale avant de le considérer exploitable.
 
 ### Que faire si aucun deployment Azure OpenAI n’apparaît dans `Paramètres du fournisseur IA` ?
 
@@ -312,7 +318,7 @@ Cela signifie généralement qu’aucun déploiement n’est visible dans la res
 
 ### Pourquoi le fournisseur IA est-il visible mais non modifiable ou non utilisable ?
 
-Le fournisseur peut être visible en lecture alors que sa modification reste réservée à un rôle admin. Son usage peut aussi être limité par le plan, les `allowed providers`, l’entitlement ou la résolution runtime du fournisseur effectif.
+Le fournisseur peut être visible en lecture alors que sa modification reste réservée à un rôle admin. Son usage réel dépend aussi de sa readiness, de l’état health, des permissions et de la résolution runtime du fournisseur effectif.
 
 ## Suite
 
