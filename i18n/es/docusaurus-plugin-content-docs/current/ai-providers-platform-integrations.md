@@ -4,7 +4,7 @@ slug: /ai-providers-platform-integrations
 description: Preparar integraciones de plataforma, configurar proveedores de IA, validar readiness y entender la diferencia entre configuración de plataforma y uso de proyecto.
 ---
 
-[Inicio](./index.md) · [Portafolio](./portfolio.md) · [Gestión de asientos y actualizaciones de la app](./seats-management-app-updates.md)
+[Inicio](./index.md) · [Portafolio](./portfolio.md) · [Plan del tenant, usuarios licenciados y actualizaciones de la app](./seats-management-app-updates.md)
 
 ![Administración de plataforma](/img/screenshots/localized/es/18-platform-administration-overview.jpg)
 
@@ -25,9 +25,10 @@ Esta página cubre la preparación técnica de ProPM Agent a nivel de plataforma
 | Overview | resumen del estado general de preparación |
 | Platform integrations | definiciones técnicas de conectores y proveedores de ingestión |
 | AI provider settings | configuración, validación, prueba y activación del proveedor de IA |
+| Tenant plan and licensed users | plan Marketplace, asientos pedidos, licencias suplementarias y usuarios licenciados |
 | Audit / activity | historial de acciones administrativas |
 
-Para asientos y rollout de imágenes de aplicación, use [Gestión de asientos y actualizaciones de la app](./seats-management-app-updates.md).
+Para plan Marketplace, licencias y rollout de imágenes de aplicación, use [Plan del tenant, usuarios licenciados y actualizaciones de la app](./seats-management-app-updates.md).
 
 ## Integraciones de plataforma vs integraciones de proyecto
 
@@ -145,6 +146,6 @@ El valor efectivo es la referencia más fiable al investigar un run concreto. Ap
 ## Siguiente
 
 - [Portafolio](./portfolio.md)
-- [Gestión de asientos y actualizaciones de la app](./seats-management-app-updates.md)
+- [Plan del tenant, usuarios licenciados y actualizaciones de la app](./seats-management-app-updates.md)
 - [Conectores e integraciones](./connecteurs-jira-et-sharepoint)
 - [Informes, Registro IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md)

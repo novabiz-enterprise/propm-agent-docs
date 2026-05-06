@@ -21,10 +21,10 @@ Elle est organisée pour deux publics :
 
 | Situation rencontrée | Ouvrez d’abord | Puis |
 | --- | --- | --- |
-| Je ne peux pas me connecter | [Démarrage](./demarrage.md) | [Maintenance, support et FAQ](./maintenance-support-faq.md) pour distinguer tenant, `redirect URI`, siège ou état de santé |
+| Je ne peux pas me connecter | [Démarrage](./demarrage.md) | [Maintenance, support et FAQ](./maintenance-support-faq.md) pour distinguer tenant, `redirect URI`, licence disponible ou état de santé |
 | Aucun projet n’apparaît | [Démarrage](./demarrage.md) | [Projets et espace de travail](./projets-et-espace-de-travail.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) si l’ajout au projet ou le rôle restent douteux |
 | Une page reste vide tant qu’aucun projet actif n’est défini | [Démarrage](./demarrage.md) | [Projets et espace de travail](./projets-et-espace-de-travail.md) pour confirmer le contexte projet, puis [Maintenance, support et FAQ](./maintenance-support-faq.md) si l’état vide paraît anormal |
-| Une action est visible mais bloquée | [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) | [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint), puis [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) pour connecteur, binding, configuration, policy ou health, ou [Sièges et mises à jour applicatives](./seats-management-app-updates.md) pour disponibilité licence/siège |
+| Une action est visible mais bloquée | [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) | [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint), puis [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) pour connecteur, binding, configuration, policy ou health, ou [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md) pour disponibilité des licences restantes |
 | Le fournisseur IA ne semble pas opérationnel | [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) | [Maintenance, support et FAQ](./maintenance-support-faq.md) et [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) pour confirmer le fournisseur effectif |
 
 Si vous cherchez directement une procédure de vérification ou un repère d’exploitation, ouvrez [Maintenance, support et FAQ](./maintenance-support-faq.md).
@@ -43,7 +43,7 @@ Si vous cherchez directement une procédure de vérification ou un repère d’e
 | Traiter les signaux, la gouvernance et les actions nécessitant approbation | [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) |
 | Réviser un artefact, publier un Document PM et enquêter dans le Journal IA | [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) |
 | Comprendre les connecteurs et intégrations prises en charge | [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint) |
-| Comparer les projets, gérer les intégrations, l’IA et les sièges | [Portfolio](./portfolio.md) · [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) · [Sièges et mises à jour applicatives](./seats-management-app-updates.md) |
+| Comparer les projets, gérer les intégrations, l’IA et les licences | [Portfolio](./portfolio.md) · [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) · [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md) |
 | Consulter les procédures support et de vérification | [Maintenance, support et FAQ](./maintenance-support-faq.md) |
 | Clarifier les termes produit | [Glossaire](./glossaire.md) |
 
@@ -53,7 +53,7 @@ Si vous cherchez directement une procédure de vérification ou un repère d’e
 | --- | --- |
 | Utilisateur métier / contributeur | [Démarrage](./demarrage.md) → [Interface et navigation](./interface-et-navigation.md) → [Projets et espace de travail](./projets-et-espace-de-travail.md) → [Connaissance et agents](./connaissance-et-agents.md) → [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md) |
 | Propriétaire de projet | [Démarrage](./demarrage.md) → [Projets et espace de travail](./projets-et-espace-de-travail.md) → [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md) → [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) → [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint) → [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) |
-| Administrateur technique | [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md) → [Démarrage](./demarrage.md) → [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) → [Sièges et mises à jour applicatives](./seats-management-app-updates.md) → [Maintenance, support et FAQ](./maintenance-support-faq.md) |
+| Administrateur technique | [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md) → [Démarrage](./demarrage.md) → [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) → [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md) → [Maintenance, support et FAQ](./maintenance-support-faq.md) |
 | Support / audit | [Démarrage](./demarrage.md) → [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md) → [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) → [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) → [Glossaire](./glossaire.md) |
 
 ## Parcours bout en bout recommandé
@@ -135,7 +135,7 @@ Quand un libellé anglais reste utile pour lever une ambiguïté, il est cité p
 | Journal IA | Inspecter les runs, l’activité, les IDs techniques et la transparence du runtime IA |
 | Connecteurs et intégrations | Séparer définitions plateforme, bindings projet, politiques d’action et exécution gouvernée |
 | Centre de commande portefeuille | Comparer plusieurs projets avec signaux, poids, seuils et cohortes sauvegardées |
-| Administration de la plateforme | Gérer intégrations, fournisseur IA, abonnement, sièges et activité plateforme |
+| Administration de la plateforme | Gérer intégrations, fournisseur IA, plan du tenant, licences et activité plateforme |
 
 ## Ce qui distingue l’application
 
@@ -155,7 +155,7 @@ Les éléments suivants sont visibles dans l’interface ou les exemples précha
 | Chef de projet / PMO | Contexte projet, agents, livrables, signaux, gouvernance et traçabilité |
 | Contributeur | Recherche dans la connaissance, génération de contenu, revue des sorties et suivi des runs |
 | Propriétaire du projet | Paramétrage projet, délégation des rôles, catégories de documents, intégrations projet et politiques de gouvernance |
-| Administrateur technique / abonnement | Déploiement, authentification, intégrations plateforme, fournisseur IA, abonnement, sièges et supervision |
+| Administrateur technique / abonnement | Déploiement, authentification, intégrations plateforme, fournisseur IA, plan du tenant, licences et supervision |
 
 ## Captures d’écran et schémas
 
@@ -180,7 +180,7 @@ Utilisez le bon canal selon la nature de la demande :
 | --- | --- |
 | Support technique | URL du déploiement, projet concerné, situation rencontrée, heure approximative, `Trace ID` si visible |
 | Question d’accès, de tenant ou d’identité | tenant attendu, compte utilisé, URL réellement ouverte, message Microsoft ou capture d’écran |
-| Question commerciale ou abonnement | contexte du compte, plan concerné, sièges achetés, sièges utilisés et besoin de sièges |
+| Question commerciale ou abonnement | contexte du compte, plan actuel, licences commandées, licences supplémentaires, licences utilisées et besoin de licences |
 
 Toutes ces demandes peuvent être envoyées au point de contact suivant :
 

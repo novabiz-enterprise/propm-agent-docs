@@ -4,7 +4,7 @@ slug: /ai-providers-platform-integrations
 description: Prepare platform integrations, configure AI providers, validate readiness, and understand how platform setup differs from project usage.
 ---
 
-[Home](./index.md) · [Portfolio](./portfolio.md) · [Seats management and app updates](./seats-management-app-updates.md)
+[Home](./index.md) · [Portfolio](./portfolio.md) · [Tenant plan, licensed users, and app updates](./seats-management-app-updates.md)
 
 ![Platform administration](/img/screenshots/localized/en/18-platform-administration-overview.jpg)
 
@@ -25,9 +25,10 @@ Use it to answer: **is the platform properly prepared for the organization befor
 | Overview | summary of the overall preparation state |
 | Platform integrations | technical definitions of connectors and ingestion providers |
 | AI provider settings | configuration, validation, test and activation of the AI provider |
+| Tenant plan and licensed users | Marketplace plan, ordered seats, supplemental licenses and licensed users |
 | Audit / activity | history of administrative actions |
 
-For seats and application image rollout, use [Seats management and app updates](./seats-management-app-updates.md).
+For Marketplace plan, licenses and application image rollout, use [Tenant plan, licensed users, and app updates](./seats-management-app-updates.md).
 
 ## Platform integrations vs project integrations
 
@@ -145,6 +146,6 @@ The effective value is the most reliable reference when investigating a concrete
 ## Next
 
 - [Portfolio](./portfolio.md)
-- [Seats management and app updates](./seats-management-app-updates.md)
+- [Tenant plan, licensed users, and app updates](./seats-management-app-updates.md)
 - [Connectors and integrations](./connecteurs-jira-et-sharepoint.md)
 - [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md)

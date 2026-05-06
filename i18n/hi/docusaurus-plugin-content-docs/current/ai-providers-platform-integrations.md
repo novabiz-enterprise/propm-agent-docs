@@ -4,7 +4,7 @@ slug: /ai-providers-platform-integrations
 description: Platform integrations तैयार करें, AI providers configure करें, readiness validate करें, और platform setup को project usage से अलग समझें।
 ---
 
-[मुखपृष्ठ](./index.md) · [पोर्टफोलियो](./portfolio.md) · [Seats management और app updates](./seats-management-app-updates.md)
+[मुखपृष्ठ](./index.md) · [पोर्टफोलियो](./portfolio.md) · [Tenant plan, licensed users और app updates](./seats-management-app-updates.md)
 
 ![Platform administration](/img/screenshots/localized/hi/18-platform-administration-overview.jpg)
 
@@ -25,9 +25,10 @@ description: Platform integrations तैयार करें, AI providers co
 | Overview | overall preparation state का summary |
 | Platform integrations | connectors और ingestion providers की technical definitions |
 | AI provider settings | AI provider की configuration, validation, test और activation |
+| Tenant plan and licensed users | Marketplace plan, ordered seats, supplemental licenses और licensed users |
 | Audit / activity | administrative actions का history |
 
-Seats और application image rollout के लिए [Seats management और app updates](./seats-management-app-updates.md) देखें।
+Marketplace plan, licenses और application image rollout के लिए [Tenant plan, licensed users और app updates](./seats-management-app-updates.md) देखें।
 
 ## Platform integrations vs project integrations
 
@@ -145,6 +146,6 @@ Concrete run investigate करते समय effective value सबसे rel
 ## आगे
 
 - [पोर्टफोलियो](./portfolio.md)
-- [Seats management और app updates](./seats-management-app-updates.md)
+- [Tenant plan, licensed users और app updates](./seats-management-app-updates.md)
 - [कनेक्टर्स और एकीकरण](./connecteurs-jira-et-sharepoint)
 - [रिपोर्ट, AI Log और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md)

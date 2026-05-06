@@ -87,7 +87,7 @@ Fournisseur réellement utilisé pour un run donné. C’est la valeur de réfé
 
 **Entitlement**
 
-Libellé technique hérité pour un blocage d’accès ou d’exécution. Les plans Marketplace ne l’utilisent pas pour ouvrir des fonctionnalités différentes ; vérifiez plutôt disponibilité de licence/siège, binding, rôle, policy, configuration et état de santé.
+Libellé technique hérité pour un blocage d’accès ou d’exécution. Les plans Marketplace ne l’utilisent pas pour ouvrir des fonctionnalités différentes ; vérifiez plutôt disponibilité des licences restantes, binding, rôle, policy, configuration et état de santé.
 
 **Événement d’activité**
 

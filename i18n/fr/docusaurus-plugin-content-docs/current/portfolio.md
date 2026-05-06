@@ -4,7 +4,7 @@ slug: /portfolio
 description: Comparer les projets, configurer les signaux portefeuille, lire les cohortes et outliers, puis décider quel projet traiter en priorité.
 ---
 
-[Accueil](./index.md) · [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) · [Sièges et mises à jour applicatives](./seats-management-app-updates.md)
+[Accueil](./index.md) · [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) · [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md)
 
 ![Centre de commande portefeuille](/img/screenshots/localized/fr/02-portfolio-command-center.jpg)
 
@@ -107,6 +107,6 @@ La page charge les projets accessibles, pré-sélectionne un ensemble initial si
 ## Suite
 
 - [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md)
-- [Sièges et mises à jour applicatives](./seats-management-app-updates.md)
+- [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md)
 - [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
 - [Maintenance, support et FAQ](./maintenance-support-faq.md)

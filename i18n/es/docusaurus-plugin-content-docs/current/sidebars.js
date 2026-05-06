@@ -45,7 +45,7 @@ const sidebars = {
         {
           type: 'doc',
           id: 'seats-management-app-updates',
-          label: 'Gestión de asientos y actualizaciones de la app',
+          label: 'Plan del tenant, usuarios licenciados y actualizaciones',
         },
         'maintenance-support-faq',
       ],

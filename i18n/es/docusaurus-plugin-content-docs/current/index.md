@@ -25,7 +25,7 @@ Está organizada para dos públicos:
 | No puedo iniciar sesión | [Inicio](./demarrage.md) | [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) para distinguir inquilino, `redirect URI`, sede o estado de salud |
 | No aparece ningún proyecto | [Inicio](./demarrage.md) | [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md), luego [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) si la adición al proyecto o el rol siguen dudosos |
 | Una página permanece vacía mientras no se defina un proyecto activo | [Inicio](./demarrage.md) | [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md) para confirmar el contexto de proyecto, luego [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) si el estado vacío sigue pareciendo anormal |
-| Una acción es visible pero bloqueada | [Gobernanza, decisiones y acciones](./gouvernance-decisions-et-actions.md) | [Conectores e integraciones](./connecteurs-jira-et-sharepoint), luego [Proveedores de IA e integraciones de plataforma](./ai-providers-platform-integrations.md) para conector, binding, configuración, policy o health, o [Gestión de asientos y actualizaciones de la app](./seats-management-app-updates.md) para disponibilidad de licencia/asiento |
+| Una acción es visible pero bloqueada | [Gobernanza, decisiones y acciones](./gouvernance-decisions-et-actions.md) | [Conectores e integraciones](./connecteurs-jira-et-sharepoint), luego [Proveedores de IA e integraciones de plataforma](./ai-providers-platform-integrations.md) para conector, binding, configuración, policy o health, o [Plan del tenant, usuarios licenciados y actualizaciones de la app](./seats-management-app-updates.md) para disponibilidad de licencias restantes |
 | El proveedor IA no parece operativo | [Proveedores de IA e integraciones de plataforma](./ai-providers-platform-integrations.md) | [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) y [Informes, Registro IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md) para confirmar el proveedor efectivo |
 
 Si buscas directamente un procedimiento de verificación o un punto de referencia de operación, abre [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md).
@@ -44,7 +44,7 @@ Si buscas directamente un procedimiento de verificación o un punto de referenci
 | Procesar señales, gobernanza y acciones que requieren aprobación | [Gobernanza, decisiones y acciones](./gouvernance-decisions-et-actions.md) |
 | Revisar un artefacto, publicar un Documento PM e investigar en el Registro IA | [Informes, Registro IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md) |
 | Entender los conectores e integraciones soportados | [Conectores e integraciones](./connecteurs-jira-et-sharepoint) |
-| Comparar proyectos, gestionar integraciones, IA y asientos | [Portafolio](./portfolio.md) · [Proveedores de IA e integraciones de plataforma](./ai-providers-platform-integrations.md) · [Gestión de asientos y actualizaciones de la app](./seats-management-app-updates.md) |
+| Comparar proyectos, gestionar integraciones, IA y licencias | [Portafolio](./portfolio.md) · [Proveedores de IA e integraciones de plataforma](./ai-providers-platform-integrations.md) · [Plan del tenant, usuarios licenciados y actualizaciones de la app](./seats-management-app-updates.md) |
 | Consultar los procedimientos de soporte y verificación | [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) |
 | Aclarar los términos del producto | [Glosario](./glossaire.md) |
 
@@ -54,7 +54,7 @@ Si buscas directamente un procedimiento de verificación o un punto de referenci
 | --- | --- |
 | Usuario de negocio / colaborador | [Inicio](./demarrage.md) → [Interfaz y navegación](./interface-et-navigation.md) → [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md) → [Conocimiento y agentes](./connaissance-et-agents.md) → [Salidas estructuradas, pruebas y frescura](./sorties-contextuelles-preuves-et-fraicheur.md) |
 | Propietario de proyecto | [Inicio](./demarrage.md) → [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md) → [Control de acceso y roles de proyecto](./controle-acces-et-roles.md) → [Gobernanza, decisiones y acciones](./gouvernance-decisions-et-actions.md) → [Conectores e integraciones](./connecteurs-jira-et-sharepoint) → [Informes, Registro IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md) |
-| Administrador técnico | [Despliegue Azure Marketplace](./deploiement-azure-marketplace.md) → [Inicio](./demarrage.md) → [Proveedores de IA e integraciones de plataforma](./ai-providers-platform-integrations.md) → [Gestión de asientos y actualizaciones de la app](./seats-management-app-updates.md) → [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) |
+| Administrador técnico | [Despliegue Azure Marketplace](./deploiement-azure-marketplace.md) → [Inicio](./demarrage.md) → [Proveedores de IA e integraciones de plataforma](./ai-providers-platform-integrations.md) → [Plan del tenant, usuarios licenciados y actualizaciones de la app](./seats-management-app-updates.md) → [Mantenimiento, soporte y FAQ](./maintenance-support-faq.md) |
 | Soporte / auditoría | [Inicio](./demarrage.md) → [Salidas estructuradas, pruebas y frescura](./sorties-contextuelles-preuves-et-fraicheur.md) → [Informes, Registro IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md) → [Gobernanza, decisiones y acciones](./gouvernance-decisions-et-actions.md) → [Glosario](./glossaire.md) |
 
 ## Ruta de extremo a extremo recomendada
@@ -161,7 +161,7 @@ Utiliza el canal adecuado según la naturaleza de la solicitud:
 | --- | --- |
 | Soporte técnico | URL del despliegue, proyecto concerniente, situación encontrada, hora aproximada, `Trace ID` si es visible |
 | Pregunta de acceso, inquilino o identidad | inquilino esperado, cuenta usada, URL realmente abierta, mensaje de Microsoft o captura de pantalla |
-| Pregunta comercial o suscripción | contexto de la cuenta, plan concerniente, asientos comprados, asientos usados y necesidad de asientos |
+| Pregunta comercial o suscripción | contexto de la cuenta, plan actual, asientos pedidos, licencias suplementarias, asientos usados y necesidad de licencias |
 
 Todas estas solicitudes pueden enviarse al siguiente punto de contacto:
 

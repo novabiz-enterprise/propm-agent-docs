@@ -1,10 +1,10 @@
 ---
 title: पोर्टफोलियो और प्रशासन गाइड
 slug: /portefeuille-et-administration-technique
-description: पुराने portfolio और technical administration URL के लिए orientation page, जिसे अब Portfolio, AI providers और platform integrations, तथा seats management और app updates में बाँटा गया है।
+description: पुराने portfolio और technical administration URL के लिए orientation page, जिसे अब Portfolio, AI providers और platform integrations, तथा tenant plan, licensed users और app updates में बाँटा गया है।
 ---
 
-[मुखपृष्ठ](./index.md) · [पोर्टफोलियो](./portfolio.md) · [AI providers और platform integrations](./ai-providers-platform-integrations.md) · [Seats management और app updates](./seats-management-app-updates.md)
+[मुखपृष्ठ](./index.md) · [पोर्टफोलियो](./portfolio.md) · [AI providers और platform integrations](./ai-providers-platform-integrations.md) · [Tenant plan, licensed users और app updates](./seats-management-app-updates.md)
 
 ## यह पेज reorganized किया गया है
 
@@ -16,19 +16,19 @@ Content अब तीन अधिक स्पष्ट administration sections
 | --- | --- |
 | प्रोजेक्टों की तुलना करना, portfolio signals configure करना, cohorts, outliers और project drill-downs पढ़ना | [पोर्टफोलियो](./portfolio.md) |
 | AI providers configure करना, readiness validate करना, platform integrations, bindings, health और technical blocking causes समझना | [AI providers और platform integrations](./ai-providers-platform-integrations.md) |
-| subscription seats, assigned users, app updates, image inventory और existing Azure Container Apps पर rollback manage करना | [Seats management और app updates](./seats-management-app-updates.md) |
+| tenant plan, licensed users, supplemental licenses, app updates, image inventory और existing Azure Container Apps पर rollback manage करना | [Tenant plan, licensed users और app updates](./seats-management-app-updates.md) |
 
 ## Marketplace plans के बारे में product rule
 
-सभी Marketplace plans वही product features देते हैं। केवल purchased licenses/seats की संख्या अलग होती है।
+सभी Marketplace plans वही product features देते हैं। केवल ordered license capacity अलग होती है।
 
-यदि user blocked है, तो seats, roles, project access, bindings, policy, configuration या health check करें। Plan को feature tier न मानें।
+यदि user blocked है, तो remaining licenses, roles, project access, bindings, policy, configuration या health check करें। Plan को feature tier न मानें।
 
 ## Recommended reading order
 
 1. यदि सवाल project comparison का है, तो [पोर्टफोलियो](./portfolio.md) से शुरू करें।
 2. यदि सवाल technical preparation, providers, connectors या bindings का है, तो [AI providers और platform integrations](./ai-providers-platform-integrations.md) पढ़ें।
-3. यदि सवाल access allocation, subscription seats या existing installation update करने का है, तो [Seats management और app updates](./seats-management-app-updates.md) उपयोग करें।
+3. यदि सवाल access allocation, tenant licenses, supplemental licenses या existing installation update करने का है, तो [Tenant plan, licensed users और app updates](./seats-management-app-updates.md) उपयोग करें।
 
 ## Related pages
 

@@ -25,7 +25,7 @@ description: "प्रोपीएम एजेंट के लिए हि�
 | मैं लॉग इन नहीं कर पा रहा/रही हूँ | [शुरुआत](./demarrage.md) | [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md), ताकि `tenant`, `redirect URI`, सीट, या स्वास्थ्य स्थिति से जुड़ी समस्या को अलग किया जा सके |
 | कोई परियोजना दिखाई नहीं दे रही | [शुरुआत](./demarrage.md) | [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md), फिर [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md), यदि परियोजना में जोड़े जाने या भूमिका को लेकर संदेह बना रहे |
 | कोई पृष्ठ तब तक खाली रहता है जब तक सक्रिय परियोजना तय न हो | [शुरुआत](./demarrage.md) | [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md), ताकि परियोजना संदर्भ की पुष्टि हो सके; यदि खाली स्थिति फिर भी असामान्य लगे तो [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md) |
-| कोई कार्रवाई दिखाई दे रही है, पर अवरुद्ध है | [गवर्नेंस, निर्णय और क्रियाएँ](./gouvernance-decisions-et-actions.md) | [कनेक्टर्स और एकीकरण](./connecteurs-jira-et-sharepoint), फिर connector, binding, configuration, policy या health के लिए [AI providers और platform integrations](./ai-providers-platform-integrations.md), या license/seat availability के लिए [Seats management और app updates](./seats-management-app-updates.md) |
+| कोई कार्रवाई दिखाई दे रही है, पर अवरुद्ध है | [गवर्नेंस, निर्णय और क्रियाएँ](./gouvernance-decisions-et-actions.md) | [कनेक्टर्स और एकीकरण](./connecteurs-jira-et-sharepoint), फिर connector, binding, configuration, policy या health के लिए [AI providers और platform integrations](./ai-providers-platform-integrations.md), या remaining license availability के लिए [Tenant plan, licensed users और app updates](./seats-management-app-updates.md) |
 | AI प्रदाता काम करता नहीं दिख रहा | [AI providers और platform integrations](./ai-providers-platform-integrations.md) | [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md) और [रिपोर्ट, AI Log और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md), ताकि वास्तविक प्रदाता की पुष्टि हो सके |
 
 यदि आप सीधे किसी सत्यापन प्रक्रिया या संचालन संबंधी संदर्भ की तलाश में हैं, तो [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md) खोलें।
@@ -44,7 +44,7 @@ description: "प्रोपीएम एजेंट के लिए हि�
 | संकेत, शासन और अनुमोदन-आधारित कार्रवाइयाँ सँभालना | [गवर्नेंस, निर्णय और क्रियाएँ](./gouvernance-decisions-et-actions.md) |
 | किसी आर्टिफैक्ट की समीक्षा, PM Document प्रकाशित करना और AI Log में जाँच करना | [रिपोर्ट, AI Log और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md) |
 | समर्थित कनेक्टर और एकीकरण समझना | [कनेक्टर्स और एकीकरण](./connecteurs-jira-et-sharepoint) |
-| परियोजनाओं की तुलना करना, एकीकरण, AI और सीटें प्रबंधित करना | [पोर्टफोलियो](./portfolio.md) · [AI providers और platform integrations](./ai-providers-platform-integrations.md) · [Seats management और app updates](./seats-management-app-updates.md) |
+| परियोजनाओं की तुलना करना, एकीकरण, AI और licenses प्रबंधित करना | [पोर्टफोलियो](./portfolio.md) · [AI providers और platform integrations](./ai-providers-platform-integrations.md) · [Tenant plan, licensed users और app updates](./seats-management-app-updates.md) |
 | समर्थन और सत्यापन प्रक्रियाएँ देखना | [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md) |
 | उत्पाद संबंधी शब्द स्पष्ट करना | [शब्दावली](./glossaire.md) |
 
@@ -54,7 +54,7 @@ description: "प्रोपीएम एजेंट के लिए हि�
 | --- | --- |
 | व्यावसायिक उपयोगकर्ता / योगदानकर्ता | [शुरुआत](./demarrage.md) → [इंटरफ़ेस और नेविगेशन](./interface-et-navigation.md) → [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md) → [ज्ञान और एजेंट्स](./connaissance-et-agents.md) → [संरचित आउटपुट, साक्ष्य और ताजगी](./sorties-contextuelles-preuves-et-fraicheur.md) |
 | परियोजना स्वामी | [शुरुआत](./demarrage.md) → [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md) → [पहुँच नियंत्रण और परियोजना भूमिकाएँ](./controle-acces-et-roles.md) → [गवर्नेंस, निर्णय और क्रियाएँ](./gouvernance-decisions-et-actions.md) → [कनेक्टर्स और एकीकरण](./connecteurs-jira-et-sharepoint) → [रिपोर्ट, AI Log और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md) |
-| तकनीकी प्रशासक | [Azure Marketplace डिप्लॉयमेंट](./deploiement-azure-marketplace.md) → [शुरुआत](./demarrage.md) → [AI providers और platform integrations](./ai-providers-platform-integrations.md) → [Seats management और app updates](./seats-management-app-updates.md) → [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md) |
+| तकनीकी प्रशासक | [Azure Marketplace डिप्लॉयमेंट](./deploiement-azure-marketplace.md) → [शुरुआत](./demarrage.md) → [AI providers और platform integrations](./ai-providers-platform-integrations.md) → [Tenant plan, licensed users और app updates](./seats-management-app-updates.md) → [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md) |
 | समर्थन / ऑडिट | [शुरुआत](./demarrage.md) → [संरचित आउटपुट, साक्ष्य और ताजगी](./sorties-contextuelles-preuves-et-fraicheur.md) → [रिपोर्ट, AI Log और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md) → [गवर्नेंस, निर्णय और क्रियाएँ](./gouvernance-decisions-et-actions.md) → [शब्दावली](./glossaire.md) |
 
 ## अनुशंसित शुरुआत-से-अंत तक का मार्ग
@@ -168,7 +168,7 @@ Preloaded examples environment के अनुसार बदल सकते 
 | --- | --- |
 | तकनीकी समर्थन | deployment URL, संबंधित परियोजना, सामने आई स्थिति, अनुमानित समय, और यदि दिखाई दे तो `Trace ID` |
 | पहुंच, `tenant` या पहचान से जुड़े प्रश्न | अपेक्षित `tenant`, उपयोग किया गया account, वास्तविक खुला URL, Microsoft संदेश या screenshot |
-| व्यावसायिक या सदस्यता संबंधी प्रश्न | account context, संबंधित plan, purchased seats, used seats और seat need |
+| व्यावसायिक या सदस्यता संबंधी प्रश्न | account context, current plan, ordered seats, supplemental licenses, used seats और license need |
 
 इन सभी अनुरोधों को इस संपर्क बिंदु पर भेजा जा सकता है:
 

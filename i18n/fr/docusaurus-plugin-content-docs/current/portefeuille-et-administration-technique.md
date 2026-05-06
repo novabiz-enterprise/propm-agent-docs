@@ -1,10 +1,10 @@
 ---
 title: Guide portefeuille et administration
 slug: /portefeuille-et-administration-technique
-description: Page d’orientation pour l’ancienne URL portefeuille et administration technique, désormais séparée en Portfolio, fournisseurs IA et intégrations plateforme, puis sièges et mises à jour applicatives.
+description: Page d’orientation pour l’ancienne URL portefeuille et administration technique, désormais séparée en Portfolio, fournisseurs IA et intégrations plateforme, puis plan du tenant, utilisateurs licenciés et mises à jour applicatives.
 ---
 
-[Accueil](./index.md) · [Portfolio](./portfolio.md) · [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) · [Sièges et mises à jour applicatives](./seats-management-app-updates.md)
+[Accueil](./index.md) · [Portfolio](./portfolio.md) · [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) · [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md)
 
 ## Cette page a été réorganisée
 
@@ -16,19 +16,19 @@ Le contenu est maintenant séparé en trois sections d’administration plus cla
 | --- | --- |
 | Comparer les projets, configurer les signaux portefeuille, lire les cohortes, outliers et drill-downs projet | [Portfolio](./portfolio.md) |
 | Configurer les fournisseurs IA, valider la readiness, comprendre les intégrations plateforme, bindings, health et causes de blocage technique | [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) |
-| Gérer les sièges d’abonnement, utilisateurs assignés, mises à jour applicatives, inventaire d’images et rollback sur les Azure Container Apps existantes | [Sièges et mises à jour applicatives](./seats-management-app-updates.md) |
+| Gérer le plan du tenant, les utilisateurs licenciés, les licences supplémentaires, les mises à jour applicatives, l’inventaire d’images et le rollback sur les Azure Container Apps existantes | [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md) |
 
 ## Règle produit sur les plans Marketplace
 
-Tous les plans Marketplace exposent les mêmes fonctionnalités produit. Seul le nombre de licences/sièges achetés diffère.
+Tous les plans Marketplace exposent les mêmes fonctionnalités produit. Seule la capacité de licences commandées diffère.
 
-Si un utilisateur est bloqué, vérifiez les sièges, rôles, accès projet, bindings, policy, configuration ou health. N’interprétez pas le plan comme un niveau fonctionnel.
+Si un utilisateur est bloqué, vérifiez les licences restantes, rôles, accès projet, bindings, policy, configuration ou health. N’interprétez pas le plan comme un niveau fonctionnel.
 
 ## Ordre de lecture conseillé
 
 1. Commencez par [Portfolio](./portfolio.md) si la question porte sur la comparaison de projets.
 2. Continuez avec [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) si la question porte sur la préparation technique, les fournisseurs, connecteurs ou bindings.
-3. Utilisez [Sièges et mises à jour applicatives](./seats-management-app-updates.md) si la question porte sur l’allocation d’accès, les sièges d’abonnement ou la mise à jour d’une installation existante.
+3. Utilisez [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md) si la question porte sur l’allocation d’accès, les licences du tenant, les licences supplémentaires ou la mise à jour d’une installation existante.
 
 ## Pages liées
 

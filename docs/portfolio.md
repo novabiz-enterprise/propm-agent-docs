@@ -4,7 +4,7 @@ slug: /portfolio
 description: Compare projects, configure portfolio signals, read cohorts and outliers, and decide which project needs attention first.
 ---
 
-[Home](./index.md) · [AI providers and platform integrations](./ai-providers-platform-integrations.md) · [Seats management and app updates](./seats-management-app-updates.md)
+[Home](./index.md) · [AI providers and platform integrations](./ai-providers-platform-integrations.md) · [Tenant plan, licensed users, and app updates](./seats-management-app-updates.md)
 
 ![Portfolio command center](/img/screenshots/localized/en/02-portfolio-command-center.jpg)
 
@@ -173,6 +173,6 @@ Saved **cohorts** persist a reusable comparison profile, but they do not replace
 ## Next
 
 - [AI providers and platform integrations](./ai-providers-platform-integrations.md)
-- [Seats management and app updates](./seats-management-app-updates.md)
+- [Tenant plan, licensed users, and app updates](./seats-management-app-updates.md)
 - [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md)
 - [Maintenance, support and FAQ](./maintenance-support-faq.md)

@@ -24,13 +24,13 @@ Les points suivants servent de repères dans l’application :
 2. distinguez **état vide**, **lecture seule**, **accès refusé** ou **message affiché** ;
 3. ouvrez le **Journal IA** si le sujet concerne un agent, un résultat ou un artefact ;
 4. conservez le **Trace ID** et, si visible, le `Context snapshot ID` ou le `Structured output ID` ;
-5. vérifiez droits, intégrations, bindings projet, état de santé et disponibilité de siège si l’accès ou l’exécution est bloqué.
+5. vérifiez droits, intégrations, bindings projet, état de santé et disponibilité d’une licence restante si l’accès ou l’exécution est bloqué.
 
 ## Repères rapides par situation
 
 | Situation rencontrée | Surface de premier niveau | Étape suivante |
 | --- | --- | --- |
-| Connexion ou retour Microsoft anormal | [Démarrage](./demarrage.md) | vérifier Entra, tenant, `redirectUri` et sièges |
+| Connexion ou retour Microsoft anormal | [Démarrage](./demarrage.md) | vérifier Entra, tenant, `redirectUri` et licences restantes |
 | Aucun projet visible après connexion | **Projets** / sélecteur de projet | **Contrôle d’accès** ou ajout du compte au projet |
 | Réponse agent, artefact ou publication douteuse | **Journal IA** → `Runs` | **Activity**, puis **Rapports & artefacts** |
 | Import ou recherche incohérente | **Connaissance** et historique d’import | **Intégrations du projet**, puis **Administration de la plateforme** |
@@ -40,7 +40,7 @@ Les points suivants servent de repères dans l’application :
 
 ### Accès à confirmer
 
-Vérifiez l’URL, le tenant, le compte invité si usage guest, la `redirectUri` réellement configurée et la disponibilité d’un siège lorsque l’accès à l’application consomme une licence.
+Vérifiez l’URL, le tenant, le compte invité si usage guest, la `redirectUri` réellement configurée et la disponibilité d’une licence restante lorsque l’accès à l’application consomme une licence.
 
 ### Page visible mais non modifiable
 
@@ -91,12 +91,12 @@ Cette situation n’indique pas forcément une question d’authentification. V�
 
 Lorsque le compte appartient à un autre tenant que celui qui héberge l’application. Le compte doit alors être invité dans le tenant cible, puis autorisé sur l’application ou via le groupe attendu.
 
-### Comment distinguer rapidement tenant, `redirect URI`, application Entra ou siège ?
+### Comment distinguer rapidement tenant, `redirect URI`, application Entra ou licence disponible ?
 
 Suivez cet ordre :
 
 1. si Microsoft échoue **avant** le retour dans l’application, suspectez d’abord tenant, `clientId` ou `redirect URI` ;
-2. si la connexion réussit mais que l’application reste bloquée, vérifiez ensuite les **sièges** et l’accès à un projet ;
+2. si la connexion réussit mais que l’application reste bloquée, vérifiez ensuite les **licences restantes** et l’accès à un projet ;
 3. si seule une surface précise reste verrouillée, le sujet est souvent côté **rôle** ou **permission** plutôt que côté authentification.
 
 ## FAQ — disponibilité, runtime et connectivité
@@ -300,9 +300,9 @@ Un portefeuille « calme » peut donc venir d’une sélection restrictive, d’
 
 Non : l’interface fournit surtout des **valeurs par défaut**, un bouton **Reset defaults** et des **cohortes sauvegardées**. Les valeurs par défaut servent de point de départ sûr, pas de modèle imposé. Votre environnement peut aussi proposer une cohorte préconfigurée, avec un contenu qui varie selon les paramètres disponibles.
 
-### Comment libérer ou réattribuer un siège ?
+### Comment libérer une licence utilisée par un utilisateur ?
 
-Cela se fait depuis **Administration de la plateforme** par un profil autorisé. Le retrait libère le siège pour une réattribution ultérieure, sous réserve des règles d’abonnement/licence et d’une éventuelle fenêtre de retrait.
+Cela se fait depuis **Platform Administration > Overview > Tenant plan and licensed users** par un profil autorisé. Le retrait d’un utilisateur licencié libère une licence pour un usage ultérieur, sous réserve des règles de licence du tenant.
 
 ### Que signifie `Validate` réussi mais `Test` non abouti dans `Paramètres du fournisseur IA` ?
 

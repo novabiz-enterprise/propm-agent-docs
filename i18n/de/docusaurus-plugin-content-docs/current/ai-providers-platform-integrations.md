@@ -4,7 +4,7 @@ slug: /ai-providers-platform-integrations
 description: Plattformintegrationen vorbereiten, KI-Anbieter konfigurieren, Readiness validieren und Plattform-Setup von Projektnutzung unterscheiden.
 ---
 
-[Startseite](./index.md) · [Portfolio](./portfolio.md) · [Sitzverwaltung und App-Updates](./seats-management-app-updates.md)
+[Startseite](./index.md) · [Portfolio](./portfolio.md) · [Tenant-Plan, lizenzierte Benutzer und App-Updates](./seats-management-app-updates.md)
 
 ![Plattformadministration](/img/screenshots/localized/de/18-platform-administration-overview.jpg)
 
@@ -25,9 +25,10 @@ Nutzen Sie sie für die Frage: **ist die Plattform für die Organisation richtig
 | Overview | Zusammenfassung des allgemeinen Vorbereitungsstands |
 | Platform integrations | technische Definitionen von Konnektoren und Ingestion-Anbietern |
 | AI provider settings | Konfiguration, Validierung, Test und Aktivierung des KI-Anbieters |
+| Tenant plan and licensed users | Marketplace-Plan, bestellte Sitze, Zusatzlizenzen und lizenzierte Benutzer |
 | Audit / activity | Verlauf administrativer Aktionen |
 
-Für Sitze und Rollout von Anwendungsimages verwenden Sie [Sitzverwaltung und App-Updates](./seats-management-app-updates.md).
+Für Marketplace-Plan, Lizenzen und Rollout von Anwendungsimages verwenden Sie [Tenant-Plan, lizenzierte Benutzer und App-Updates](./seats-management-app-updates.md).
 
 ## Plattformintegrationen vs Projektintegrationen
 
@@ -145,6 +146,6 @@ Der effektive Wert ist die zuverlässigste Referenz bei der Untersuchung eines k
 ## Weiter
 
 - [Portfolio](./portfolio.md)
-- [Sitzverwaltung und App-Updates](./seats-management-app-updates.md)
+- [Tenant-Plan, lizenzierte Benutzer und App-Updates](./seats-management-app-updates.md)
 - [Konnektoren und Integrationen](./connecteurs-jira-et-sharepoint)
 - [Berichte, KI-Log und Nachvollziehbarkeit](./rapports-journal-ia-et-tracabilite.md)

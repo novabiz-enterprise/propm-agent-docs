@@ -4,7 +4,7 @@ slug: /portfolio
 description: प्रोजेक्टों की तुलना करें, पोर्टफोलियो signals कॉन्फ़िगर करें, cohorts और outliers पढ़ें, और तय करें कि किस प्रोजेक्ट पर पहले ध्यान देना है।
 ---
 
-[मुखपृष्ठ](./index.md) · [AI providers और platform integrations](./ai-providers-platform-integrations.md) · [Seats management और app updates](./seats-management-app-updates.md)
+[मुखपृष्ठ](./index.md) · [AI providers और platform integrations](./ai-providers-platform-integrations.md) · [Tenant plan, licensed users और app updates](./seats-management-app-updates.md)
 
 ![पोर्टफोलियो command center](/img/screenshots/localized/hi/02-portfolio-command-center.jpg)
 
@@ -173,6 +173,6 @@ Saved **cohorts** reusable comparison profile preserve करते हैं, �
 ## आगे
 
 - [AI providers और platform integrations](./ai-providers-platform-integrations.md)
-- [Seats management और app updates](./seats-management-app-updates.md)
+- [Tenant plan, licensed users और app updates](./seats-management-app-updates.md)
 - [रिपोर्ट, AI Log और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md)
 - [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md)

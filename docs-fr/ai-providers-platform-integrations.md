@@ -4,7 +4,7 @@ slug: /ai-providers-platform-integrations
 description: Préparer les intégrations plateforme, configurer les fournisseurs IA, valider la readiness et distinguer configuration plateforme et usage projet.
 ---
 
-[Accueil](./index.md) · [Portfolio](./portfolio.md) · [Sièges et mises à jour applicatives](./seats-management-app-updates.md)
+[Accueil](./index.md) · [Portfolio](./portfolio.md) · [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md)
 
 ![Administration de la plateforme](/img/screenshots/localized/fr/18-platform-administration-overview.jpg)
 
@@ -25,9 +25,10 @@ Elle répond à la question : **la plateforme est-elle correctement préparée p
 | Vue d’ensemble | résumé de l’état général de préparation |
 | Intégrations de la plateforme | définitions techniques des connecteurs et fournisseurs d’ingestion |
 | Paramètres du fournisseur IA | configuration, validation, test et activation du fournisseur IA |
+| Tenant plan and licensed users | plan Marketplace, licences commandées, licences supplémentaires et utilisateurs licenciés |
 | Audit / activité | historique des actions administratives |
 
-Pour les sièges et le rollout d’images applicatives, ouvrez [Sièges et mises à jour applicatives](./seats-management-app-updates.md).
+Pour le plan Marketplace, les licences et le rollout d’images applicatives, ouvrez [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md).
 
 ## Intégrations plateforme vs intégrations projet
 
@@ -145,6 +146,6 @@ La valeur effective est la référence la plus fiable lors d’une enquête sur 
 ## Suite
 
 - [Portfolio](./portfolio.md)
-- [Sièges et mises à jour applicatives](./seats-management-app-updates.md)
+- [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md)
 - [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint.md)
 - [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)

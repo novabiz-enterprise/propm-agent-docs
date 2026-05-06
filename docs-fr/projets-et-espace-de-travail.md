@@ -254,7 +254,7 @@ On y retrouve plusieurs familles d’informations :
 - **Execution connectors** : options de sortie gouvernée vers des systèmes externes ;
 - **Ingestion providers** : sources d’import consommées ensuite par **Connaissance** ;
 - **AI runtime transparency** : fournisseur IA effectif et fournisseur sélectionné au déploiement ;
-- **Posture licences et sièges** : plan actif, licences achetées, licences utilisées et sièges disponibles visibles.
+- **Posture licences** : plan actif, licences commandées, licences utilisées et licences restantes visibles.
 
 ### Ce que montre l’écran Intégrations du projet
 
@@ -297,7 +297,7 @@ Une intégration projet ou une option d’import peut être bloquée pour cause 
 ### Lecture pratique de `binding` et des licences
 
 - **binding** : le connecteur ou fournisseur existe au niveau plateforme, mais il faut encore le rattacher et l’ouvrir au projet pour qu’il soit consommable dans ce projet ;
-- **licence** : elle détermine si l’utilisateur dispose d’un siège pour accéder à l’app. Les plans Marketplace ne débloquent ni ne bloquent des familles de connecteurs différentes ;
+- **licence** : elle détermine si l’utilisateur dispose d’une licence disponible pour accéder à l’app. Les plans Marketplace ne débloquent ni ne bloquent des familles de connecteurs différentes ;
 - un connecteur visible mais bloqué ne signifie donc pas qu’il est cassé : l’interface peut justement le laisser visible pour expliquer la raison du blocage.
 
 Si un blocage persiste, ouvrez ensuite **Administration de la plateforme** pour vérifier la définition technique, puis revenez sur le projet pour confirmer le binding et la préparation.
