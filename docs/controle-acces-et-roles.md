@@ -4,7 +4,7 @@ slug: /controle-acces-et-roles
 description: Manage members, delegate project roles and understand the RBAC safeguards applied to the creator and other members.
 ---
 
-[Home](./index.md) · [Projects and workspace](./projets-et-espace-de-travail.md) · [Maintenance, support and FAQ](./maintenance-support-faq.md)
+[Home](./index.md) · Access control and project roles
 
 ![Creator delegation and RBAC roles](/img/diagrams/en/delegation-createur-rbac.svg)
 

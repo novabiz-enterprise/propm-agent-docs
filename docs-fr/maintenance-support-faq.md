@@ -4,7 +4,7 @@ slug: /maintenance-support-faq
 description: Repères d’exploitation, vérifications utiles et réponses aux questions fréquentes.
 ---
 
-[Accueil](./index.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) · [Glossaire](./glossaire.md)
+[Accueil](./index.md) · Maintenance, support et FAQ
 
 ![Journal IA et repères d’investigation](/img/screenshots/localized/fr/09-ai-log-runs.jpg)
 

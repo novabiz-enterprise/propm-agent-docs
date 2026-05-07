@@ -4,7 +4,7 @@ slug: /gouvernance-decisions-et-actions
 description: "सिग्नलों को समझें, शासन नीतियों को कॉन्फ़िगर करें और व्यावहारिक उदाहरणों के साथ Actions & approvals का चरण-दर-चरण उपयोग सीखें।"
 ---
 
-[मुख्य पृष्ठ](./index.md) · [प्रोजेक्ट्स और कार्यक्षेत्र](./projets-et-espace-de-travail.md) · [रिपोर्ट्स, AI Journal और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md)
+[मुखपृष्ठ](./index.md) · शासन, निर्णय और क्रियाएँ
 
 ![प्रोएक्टिविटी, डाइजेस्ट और शासनित क्रियाएँ](/img/diagrams/hi/proactivite-et-gouvernance.svg)
 

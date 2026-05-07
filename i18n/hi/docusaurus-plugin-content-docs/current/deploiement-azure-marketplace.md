@@ -4,7 +4,7 @@ slug: /deploiement-azure-marketplace
 description: Azure Marketplace से ProPM Agent को तैनात करें, स्थापना के दौरान AI प्रदाता चुनें और प्रशासन में सेवा को अंतिम रूप दें।
 ---
 
-[मुखपृष्ठ](./index.md) · [प्रारम्भ](./demarrage.md) · [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md)
+[मुखपृष्ठ](./index.md) · Azure Marketplace पर तैनाती
 
 ## उद्देश्य
 

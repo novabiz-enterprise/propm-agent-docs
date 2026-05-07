@@ -5,7 +5,7 @@ slug: /glossaire
 description: Définitions cohérentes des principaux termes utilisés dans ProPM Agent.
 ---
 
-[Accueil](./index.md) · [Maintenance, support et FAQ](./maintenance-support-faq.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
+[Accueil](./index.md) · Glossaire
 
 ## A
 

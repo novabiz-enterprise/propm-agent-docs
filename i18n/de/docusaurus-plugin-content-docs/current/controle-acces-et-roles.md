@@ -4,7 +4,7 @@ slug: /controle-acces-et-roles
 description: Verwalten Sie Mitglieder, delegieren Sie Projektrollen und verstehen Sie die RBAC‑Sicherheitsmechanismen für Ersteller und andere Mitglieder.
 ---
 
-[Startseite](./index.md) · [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md) · [Wartung, Support und FAQ](./maintenance-support-faq.md)
+[Startseite](./index.md) · Zugriffskontrolle und Projektrollen
 
 ![Delegation des Erstellers und Projektrollen](/img/diagrams/de/delegation-createur-rbac.svg)
 

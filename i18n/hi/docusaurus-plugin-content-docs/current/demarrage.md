@@ -4,7 +4,7 @@ slug: /demarrage
 description: पूर्वापेक्षाएँ, पहुँच, प्रमाणीकरण और पहली कॉन्फ़िगरेशन।
 ---
 
-[होम](./index.md) · [Azure Marketplace पर तैनाती](./deploiement-azure-marketplace.md) · [इंटरफ़ेस और नेविगेशन](./interface-et-navigation.md)
+[मुखपृष्ठ](./index.md) · प्रारम्भ
 
 ![प्रोजेक्ट निर्देशिका](/img/screenshots/localized/hi/07-projects-directory.jpg)
 

@@ -4,7 +4,7 @@ slug: /maintenance-support-faq
 description: Operational references, useful checks and answers to frequently asked questions.
 ---
 
-[Home](./index.md) · [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) · [Glossary](./glossaire.md)
+[Home](./index.md) · Maintenance, support and FAQ
 
 ![AI Log investigation cues](/img/screenshots/localized/en/09-ai-log-runs.jpg)
 

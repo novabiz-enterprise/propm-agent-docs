@@ -4,7 +4,7 @@ slug: /sorties-contextuelles-preuves-et-fraicheur
 description: Cómo leer correctamente una salida estructurada, sus evidencias, sus estados de actualidad y sus IDs de trazabilidad.
 ---
 
-[Inicio](./index.md) · [Conocimiento y agentes](./connaissance-et-agents.md) · [Informes, registro de IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md)
+[Inicio](./index.md) · Salidas estructuradas, evidencias y actualidad
 
 ![Vista Agentes](/img/screenshots/localized/es/04-agents.jpg)
 

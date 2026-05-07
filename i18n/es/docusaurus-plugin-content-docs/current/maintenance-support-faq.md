@@ -4,7 +4,7 @@ slug: /maintenance-support-faq
 description: Puntos de referencia de operación, verificaciones útiles y respuestas a preguntas frecuentes.
 ---
 
-[Inicio](./index.md) · [Informes, Registro IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md) · [Glosario](./glossaire.md)
+[Inicio](./index.md) · Mantenimiento, soporte y FAQ
 
 ## Superficies útiles para la operación
 

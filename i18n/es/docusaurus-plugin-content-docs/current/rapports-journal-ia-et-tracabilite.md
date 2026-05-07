@@ -4,7 +4,7 @@ slug: /rapports-journal-ia-et-tracabilite
 description: Revisar los PM Docs, publicar entregables y seguir la trazabilidad completa de las ejecuciones de IA.
 ---
 
-[Inicio](./index.md) · [Salidas estructuradas, evidencias y actualidad](./sorties-contextuelles-preuves-et-fraicheur.md) · [Portafolio y administración técnica](./portefeuille-et-administration-technique.md)
+[Inicio](./index.md) · Informes, registro de IA y trazabilidad
 
 ![Informes y artefactos](/img/screenshots/localized/es/08-reports-overview.jpg)
 

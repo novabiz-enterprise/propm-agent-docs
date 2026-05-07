@@ -4,7 +4,7 @@ slug: /sorties-contextuelles-preuves-et-fraicheur
 description: Lire correctement une sortie structurée, ses preuves, ses états de fraîcheur et ses IDs de traçabilité.
 ---
 
-[Accueil](./index.md) · [Connaissance et agents](./connaissance-et-agents.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
+[Accueil](./index.md) · Sorties structurées, preuves et fraîcheur
 
 ![Vue Agents](/img/screenshots/localized/fr/04-agents.jpg)
 

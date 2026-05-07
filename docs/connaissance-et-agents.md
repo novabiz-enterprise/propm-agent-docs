@@ -4,7 +4,7 @@ slug: /connaissance-et-agents
 description: Feed the project knowledge base, understand agent proactivity, and leverage results up to PM Documents.
 ---
 
-[Home](./index.md) · [Projects and workspace](./projets-et-espace-de-travail.md) · [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md)
+[Home](./index.md) · Knowledge and Agents
 
 ![Project knowledge](/img/screenshots/localized/en/05-knowledge.jpg)
 

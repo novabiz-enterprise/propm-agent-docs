@@ -4,7 +4,7 @@ slug: /ai-providers-platform-integrations
 description: Prepare platform integrations, configure AI providers, validate readiness, and understand how platform setup differs from project usage.
 ---
 
-[Home](./index.md) · [Portfolio](./portfolio.md) · [Tenant plan, licensed users, and app updates](./seats-management-app-updates.md)
+[Home](./index.md) · AI providers and platform integrations
 
 ![Platform administration](/img/screenshots/localized/en/18-platform-administration-overview.jpg)
 

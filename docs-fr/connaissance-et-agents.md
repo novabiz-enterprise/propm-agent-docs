@@ -4,7 +4,7 @@ slug: /connaissance-et-agents
 description: Alimenter la base de connaissance projet, comprendre la proactivité des agents et exploiter les résultats jusqu’aux Documents PM.
 ---
 
-[Accueil](./index.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md) · [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
+[Accueil](./index.md) · Connaissance et agents
 
 ![Connaissance projet](/img/screenshots/localized/fr/05-knowledge.jpg)
 

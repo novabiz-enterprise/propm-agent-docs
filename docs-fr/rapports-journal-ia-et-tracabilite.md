@@ -4,7 +4,7 @@ slug: /rapports-journal-ia-et-tracabilite
 description: Réviser les Documents PM, générer des sorties DOCX/XLSX et suivre la traçabilité complète des runs IA.
 ---
 
-[Accueil](./index.md) · [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md) · [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
+[Accueil](./index.md) · Rapports, Journal IA et traçabilité
 
 ![Flux Documents PM, DOCX et XLSX](/img/diagrams/fr/documents-pm-docx-xlsx-workflow.svg)
 

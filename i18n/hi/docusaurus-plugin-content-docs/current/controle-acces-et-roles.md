@@ -4,7 +4,7 @@ slug: /controle-acces-et-roles
 description: सदस्यों का प्रबंधन, प्रोजेक्ट भूमिकाओं का प्रतिनिधि और निर्माता व अन्य सदस्यों पर लागू RBAC गार्ड्स को समझें।
 ---
 
-[होम](./index.md) · [प्रोजेक्ट और वर्कस्पेस](./projets-et-espace-de-travail.md) · [रखरखाव, समर्थन और FAQ](./maintenance-support-faq.md)
+[मुखपृष्ठ](./index.md) · प्रवेश नियंत्रण और प्रोजेक्ट भूमिकाएँ
 
 ![निर्माता प्रतिनिधि और प्रोजेक्ट भूमिकाएँ](/img/diagrams/hi/delegation-createur-rbac.svg)
 

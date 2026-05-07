@@ -4,7 +4,7 @@ slug: /portefeuille-et-administration-technique
 description: Orientation page for the former portfolio and technical administration URL, now split into Portfolio, AI providers and platform integrations, and tenant plan, licensed users and app updates.
 ---
 
-[Home](./index.md) · [Portfolio](./portfolio.md) · [AI providers and platform integrations](./ai-providers-platform-integrations.md) · [Tenant plan, licensed users, and app updates](./seats-management-app-updates.md)
+[Home](./index.md) · Portfolio and administration guide
 
 ## This page has been reorganized
 

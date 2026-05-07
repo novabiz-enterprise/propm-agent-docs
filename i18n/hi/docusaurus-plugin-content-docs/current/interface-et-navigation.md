@@ -4,7 +4,7 @@ slug: /interface-et-navigation
 description: "मुख्य स्क्रीन, साइडबार, शीर्ष बार और डैशबोर्ड को समझें।"
 ---
 
-[होम](./index.md) · [शुरुआत](./demarrage.md) · [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md)
+[मुखपृष्ठ](./index.md) · इंटरफ़ेस और नेविगेशन
 
 ![प्रोपीएम एजेंट डैशबोर्ड](/img/screenshots/localized/hi/01-dashboard.jpg)
 

@@ -4,7 +4,7 @@ slug: /projets-et-espace-de-travail
 description: एक परियोजना बनाना, प्रारंभिक भूमिकाएँ सौंपना और कार्यक्षेत्र को नियंत्रण केंद्र के रूप में उपयोग करना।
 ---
 
-[होम](./index.md) · [इंटरफ़ेस और नेविगेशन](./interface-et-navigation.md) · [पहुँच नियंत्रण और परियोजना भूमिकाएँ](./controle-acces-et-roles.md)
+[मुखपृष्ठ](./index.md) · परियोजनाएँ और कार्यक्षेत्र
 
 ![परियोजना कार्यक्षेत्र अवलोकन](/img/screenshots/localized/hi/03-workspace-overview.jpg)
 

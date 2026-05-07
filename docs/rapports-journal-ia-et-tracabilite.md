@@ -4,7 +4,7 @@ slug: /rapports-journal-ia-et-tracabilite
 description: Review PM Docs, publish deliverables, and track the complete traceability of AI runs.
 ---
 
-[Home](./index.md) · [Structured Outputs, Evidence, and Freshness](./sorties-contextuelles-preuves-et-fraicheur.md) · [Portfolio and Technical Administration](./portefeuille-et-administration-technique.md)
+[Home](./index.md) · Reports, AI Log, and Traceability
 
 ![Reports and Artifacts](/img/screenshots/localized/en/08-reports-overview.jpg)
 

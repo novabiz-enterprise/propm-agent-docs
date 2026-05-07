@@ -4,7 +4,7 @@ slug: /controle-acces-et-roles
 description: Administrer les membres, déléguer les rôles projet et comprendre les garde-fous RBAC appliqués au créateur et aux autres membres.
 ---
 
-[Accueil](./index.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md) · [Maintenance, support et FAQ](./maintenance-support-faq.md)
+[Accueil](./index.md) · Contrôle d’accès et rôles projet
 
 ![Délégation du créateur et rôles projet](/img/diagrams/fr/delegation-createur-rbac.svg)
 

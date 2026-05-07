@@ -4,7 +4,7 @@ slug: /portfolio
 description: Comparar proyectos, configurar señales de portafolio, leer cohortes y outliers, y decidir qué proyecto requiere atención primero.
 ---
 
-[Inicio](./index.md) · [Proveedores de IA e integraciones de plataforma](./ai-providers-platform-integrations.md) · [Plan del tenant, usuarios licenciados y actualizaciones de la app](./seats-management-app-updates.md)
+[Inicio](./index.md) · Portafolio
 
 ![Centro de mando del portafolio](/img/screenshots/localized/es/02-portfolio-command-center.jpg)
 

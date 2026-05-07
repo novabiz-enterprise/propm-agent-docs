@@ -4,7 +4,7 @@ slug: /sorties-contextuelles-preuves-et-fraicheur
 description: Eine strukturierte Ausgabe, ihre Nachweise, Aktualitätszustände und Trace-IDs korrekt lesen.
 ---
 
-[Startseite](./index.md) · [Wissen und Agenten](./connaissance-et-agents.md) · [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md)
+[Startseite](./index.md) · Strukturierte Ausgaben, Nachweise und Aktualität
 
 ![Vue Agents](/img/screenshots/localized/de/04-agents.jpg)
 

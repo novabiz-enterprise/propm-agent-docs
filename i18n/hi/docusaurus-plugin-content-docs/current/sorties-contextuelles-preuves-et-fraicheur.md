@@ -4,7 +4,7 @@ slug: /sorties-contextuelles-preuves-et-fraicheur
 description: एक संरचित आउटपुट, उसके प्रमाण, नवीनता स्थितियों और ट्रेसबिलिटी IDs को सही ढंग से पढ़ना।
 ---
 
-[मुखपृष्ठ](./index.md) · [ज्ञान और एजेंट](./connaissance-et-agents.md) · [रिपोर्ट, AI लॉग और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md)
+[मुखपृष्ठ](./index.md) · संरचित आउटपुट, प्रमाण और नवीनता
 
 ![एजेंट्स व्यू](/img/screenshots/localized/hi/04-agents.jpg)
 

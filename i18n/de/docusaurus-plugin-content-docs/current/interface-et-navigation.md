@@ -4,7 +4,7 @@ slug: /interface-et-navigation
 description: "Verstehen Sie die Hauptbildschirme, die Seitenleiste, die obere Leiste und das Dashboard."
 ---
 
-[Startseite](./index.md) · [Start](./demarrage.md) · [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md)
+[Startseite](./index.md) · Schnittstelle und Navigation
 
 ![ProPM-Agent-Dashboard](/img/screenshots/localized/de/01-dashboard.jpg)
 

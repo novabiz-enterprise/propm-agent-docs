@@ -4,7 +4,7 @@ slug: /connecteurs-jira-et-sharepoint
 description: ProPM Agent में दिखाई देने वाले सभी कनेक्टर्स, उनके लाभ, उपयोग और प्लेटफ़ॉर्म में एकीकरण के तरीके को समझें।
 ---
 
-[मुखपृष्ठ](./index.md) · [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md) · [शासन, निर्णय और क्रियाएँ](./gouvernance-decisions-et-actions.md) · [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md)
+[मुखपृष्ठ](./index.md) · कनेक्टर्स और एकीकरण
 
 ![प्लेटफ़ॉर्म, प्रोजेक्ट और एक्शन के बीच Jira और SharePoint वर्कफ़्लो](/img/diagrams/hi/connecteurs-jira-sharepoint-workflow.svg)
 

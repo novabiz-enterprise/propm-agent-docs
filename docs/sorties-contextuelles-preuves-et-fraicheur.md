@@ -4,7 +4,7 @@ slug: /sorties-contextuelles-preuves-et-fraicheur
 description: How to correctly read a structured output, its evidence, freshness states, and traceability IDs.
 ---
 
-[Home](./index.md) · [Knowledge and Agents](./connaissance-et-agents.md) · [Reports, AI Log, and Traceability](./rapports-journal-ia-et-tracabilite.md)
+[Home](./index.md) · Structured Outputs, Evidence, and Freshness
 
 ![Agents View](/img/screenshots/localized/en/04-agents.jpg)
 

@@ -1,10 +1,10 @@
 ---
-title: Inicio
+title: Inicio rápido
 slug: /demarrage
 description: Requisitos previos, acceso, autenticación y primera configuración.
 ---
 
-[Inicio](./index.md) · [Despliegue Azure Marketplace](./deploiement-azure-marketplace.md) · [Interfaz y navegación](./interface-et-navigation.md)
+[Inicio](./index.md) · Inicio rápido
 
 ![Directorio de proyectos](/img/screenshots/localized/es/07-projects-directory.jpg)
 

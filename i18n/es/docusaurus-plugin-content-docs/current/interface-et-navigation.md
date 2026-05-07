@@ -4,7 +4,7 @@ slug: /interface-et-navigation
 description: Comprender las pantallas principales, la barra lateral, la barra superior y el tablero de control.
 ---
 
-[Inicio](./index.md) · [Inicio](./demarrage.md) · [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md)
+[Inicio](./index.md) · Interfaz y navegación
 
 ![Tablero de ProPM Agent](/img/screenshots/localized/es/01-dashboard.jpg)
 

@@ -4,7 +4,7 @@ slug: /projets-et-espace-de-travail
 description: Erstellen Sie ein Projekt, delegieren Sie die ersten Rollen und nutzen Sie den Arbeitsbereich als Steuerzentrale.
 ---
 
-[Startseite](./index.md) · [Oberfläche und Navigation](./interface-et-navigation.md) · [Zugriffskontrolle und Projektrollen](./controle-acces-et-roles.md)
+[Startseite](./index.md) · Projekte und Arbeitsbereich
 
 ![Projektarbeitsbereich](/img/screenshots/localized/de/03-workspace-overview.jpg)
 

@@ -4,7 +4,7 @@ slug: /interface-et-navigation
 description: Understand the main screens, the sidebar, the top bar, and the dashboard.
 ---
 
-[Home](./index.md) · [Getting started](./demarrage.md) · [Projects and workspace](./projets-et-espace-de-travail.md)
+[Home](./index.md) · Interface and navigation
 
 ![ProPM Agent Dashboard](/img/screenshots/localized/en/01-dashboard.jpg)
 

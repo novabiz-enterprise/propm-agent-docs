@@ -4,7 +4,7 @@ slug: /portfolio
 description: Compare projects, configure portfolio signals, read cohorts and outliers, and decide which project needs attention first.
 ---
 
-[Home](./index.md) · [AI providers and platform integrations](./ai-providers-platform-integrations.md) · [Tenant plan, licensed users, and app updates](./seats-management-app-updates.md)
+[Home](./index.md) · Portfolio
 
 ![Portfolio command center](/img/screenshots/localized/en/02-portfolio-command-center.jpg)
 

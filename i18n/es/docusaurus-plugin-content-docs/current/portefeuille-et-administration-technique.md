@@ -4,7 +4,7 @@ slug: /portefeuille-et-administration-technique
 description: Página de orientación para la URL anterior de portafolio y administración técnica, ahora dividida en Portafolio, proveedores de IA e integraciones de plataforma, y plan del tenant, usuarios licenciados y actualizaciones de la app.
 ---
 
-[Inicio](./index.md) · [Portafolio](./portfolio.md) · [Proveedores de IA e integraciones de plataforma](./ai-providers-platform-integrations.md) · [Plan del tenant, usuarios licenciados y actualizaciones de la app](./seats-management-app-updates.md)
+[Inicio](./index.md) · Guía de portafolio y administración
 
 ## Esta página fue reorganizada
 

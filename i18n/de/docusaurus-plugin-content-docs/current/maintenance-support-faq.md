@@ -4,7 +4,7 @@ slug: /maintenance-support-faq
 description: Betriebsreferenzen, nützliche Prüfungen und Antworten auf häufig gestellte Fragen.
 ---
 
-[Startseite](./index.md) · [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md) · [Glossar](./glossaire.md)
+[Startseite](./index.md) · Wartung, Support und FAQ
 
 ## Nützliche Oberflächen für den Betrieb
 

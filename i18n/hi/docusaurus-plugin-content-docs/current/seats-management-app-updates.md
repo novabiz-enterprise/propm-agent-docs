@@ -1,24 +1,27 @@
 ---
 title: Tenant plan, licensed users और app updates
 slug: /seats-management-app-updates
-description: Platform Administration से Marketplace tenant plan, ordered seats, supplemental licenses, licensed users और app updates manage करें।
+description: ProPM में दिख रहे Marketplace plan को समझें, Azure Marketplace information synchronize करें, licenses manage करें और existing data खोए बिना ProPM deployment update करें।
 ---
 
-[मुखपृष्ठ](./index.md) · [पोर्टफोलियो](./portfolio.md) · [AI providers और platform integrations](./ai-providers-platform-integrations.md)
+[मुखपृष्ठ](./index.md) · Tenant plan, licensed users और app updates
 
 ![Tenant plan and licensed users दिखाता Platform Administration overview](/img/screenshots/localized/hi/18-platform-administration-overview.jpg)
 
 ## उद्देश्य
 
-यह पेज **Platform Administration > Overview > Tenant plan and licensed users** के end-user administration flow को समझाता है।
+यह पेज **Platform Administration > Overview > Tenant plan and licensed users** के end-user administration flow और उस recommended flow को समझाता है जिसमें customer Azure Marketplace plan बदलना चाहता है या existing data खोए बिना major update करना चाहता है।
 
-इसे इन सवालों के लिए उपयोग करें:
+इसे इन बातों को समझने के लिए उपयोग करें:
 
 - tenant के लिए वर्तमान में कौन सा Marketplace plan detect हुआ है;
 - कितनी licenses ordered, included, supplemental, used और remaining हैं;
-- ProPM से supplemental licenses कैसे खरीदें या remove करें;
-- Azure Marketplace redeployment के माध्यम से plan upgrade कैसे prepare करें;
-- application image updates, Marketplace plan upgrades से कैसे अलग हैं।
+- plans, pricing और billing के लिए Azure Marketplace official source क्यों रहता है;
+- supplemental licenses Azure Marketplace में `seats` billing dimension के साथ कैसे manage होती हैं;
+- Azure Marketplace से **Attach existing ProPM data resources** mode में नया ProPM deployment कैसे create करें;
+- in-place application update, plan change या major update से कैसे अलग है।
+
+मुख्य बात सरल है: plan बदलने या existing data खोए बिना major update करने के लिए **Azure Marketplace से नया ProPM deployment** create करें, **Attach existing ProPM data resources** चुनें, और previous deployment के existing data resources attach करें। यह manual database migration नहीं है।
 
 ## यह पेज कहाँ मिलता है
 
@@ -26,11 +29,21 @@ description: Platform Administration से Marketplace tenant plan, ordered sea
 2. **Overview** पर रहें।
 3. **Tenant plan and licensed users** खोलें।
 
-यह administration area पुराने user-facing Marketplace subscription selection screens को replace करता है। नया upgrade prepare करते समय users को legacy या internal plan identifiers select नहीं करने चाहिए।
+ProPM में यह area currently detected plan दिखाता है और Marketplace information refresh करने देता है। Plan select करने, price देखने, billing बदलने या commercial transaction finalize करने के लिए यह Azure Marketplace को replace नहीं करता।
 
-## Official Marketplace plans
+## Marketplace plans, pricing और billing
 
-ProPM administration में **Target plan** list केवल ये official Marketplace plans दिखानी चाहिए:
+Azure Marketplace official source है:
+
+- available ProPM plans की list के लिए;
+- हर plan की price के लिए;
+- plan billing के लिए;
+- commercial plan changes के लिए;
+- `seats` dimension से bill होने वाली supplemental licenses के लिए।
+
+ProPM current plan दिखाता है ताकि administrator tenant status समझ सके, लेकिन plan changes अब ProPM administration से directly नहीं किए जाते। Managed Application के ARM plan को manually modify न करें।
+
+Reference के लिए known ProPM Marketplace plans ये हैं:
 
 | Plan ID | Display name | Included seats |
 | --- | --- | ---: |
@@ -42,9 +55,11 @@ ProPM administration में **Target plan** list केवल ये official
 | `propm-500` | ProPM-500 | 500 |
 | `propm-1000` | ProPM-1000 | 1000 |
 
-`propm0`, `pro`, `enterprise`, `pm-*` जैसे पुराने या internal identifiers, या dynamically generated plans, administration में नए user upgrade के लिए choices नहीं हैं।
+नया deployment start करने से पहले plan, price और billing terms हमेशा Azure Marketplace में confirm करें।
 
-`propm0` पुराने existing deployments पर अभी भी दिख सकता है। इसे historical compatibility मानें, नए upgrade के लिए select करने वाला plan नहीं।
+`propm0`, `pro`, `enterprise`, `pm-*` जैसे पुराने या internal identifiers, या dynamically generated plans, नए upgrade के लिए choices नहीं हैं। `propm0` पुराने existing deployments पर अभी भी दिख सकता है; इसे historical compatibility मानें, नए upgrade के लिए select करने वाला plan नहीं।
+
+Marketplace plans license capacity control करते हैं। वे connectors, AI providers या product features unlock या block नहीं करते।
 
 ## Plan और license fields पढ़ना
 
@@ -57,77 +72,197 @@ ProPM administration में **Target plan** list केवल ये official
 | **Used seats** | connected या licensed users द्वारा currently consumed licenses. |
 | **Remaining seats** | अभी भी available licenses. |
 
-Marketplace plans license capacity control करते हैं। वे connectors, AI providers या product features unlock या block नहीं करते।
+अगर displayed information recent Azure Marketplace action से match नहीं करती, तो detected Marketplace information के साथ ProPM synchronize करने के लिए **Refresh Marketplace plan** उपयोग करें।
 
-## Supplemental licenses जोड़ना
+## Supplemental licenses
 
-जब tenant को base plan में included capacity से अधिक licenses चाहिए हों, तो **Add licenses and bill in Azure** उपयोग करें।
+Supplemental licenses Azure Marketplace में `seats` billing dimension के साथ manage होती हैं।
 
-1. **Tenant plan and licensed users** में जोड़ने वाली supplemental licenses की quantity enter करें।
-2. **Add licenses and bill in Azure** select करें।
-3. ProPM consumption को Azure Marketplace Metering पर भेजता है।
-4. Azure Marketplace usage को custom meter dimension `seats` के माध्यम से bill करता है।
-5. Azure Marketplace request accept करने के बाद ही ProPM supplemental licenses को tenant capacity में जोड़ता है।
-6. Acceptance के बाद **Ordered seats**, **Supplemental licenses** और **Remaining seats** review करें।
+जब tenant को base plan में included licenses से अधिक capacity चाहिए हो, तो यह flow उपयोग करें:
 
-Azure Marketplace पर प्रति घंटे केवल एक supplemental license order submit किया जा सकता है।
+1. ProPM में **Ordered seats**, **Included seats**, **Supplemental licenses**, **Used seats** और **Remaining seats** review करें।
+2. Additional capacity Azure Marketplace से manage करें या ProPM action से manage करें जो Azure में licenses bill करता है, अगर वह आपके environment में available है।
+3. Azure Marketplace को request accept और `seats` dimension से bill करने दें।
+4. ProPM पर लौटें।
+5. अगर counters अभी update नहीं हैं, तो **Refresh Marketplace plan** select करें।
+6. Synchronization के बाद **Ordered seats**, **Supplemental licenses** और **Remaining seats** review करें।
 
-Supplemental licenses ProPM में तब तक active रहती हैं जब तक उन्हें manually remove न किया जाए।
+Supplemental licenses जोड़ने से base plan नहीं बदलता। Supplemental licenses remove या reduce करने से Azure Marketplace billing automatically cancel या refund नहीं होती।
 
-## Supplemental licenses remove करना
+## Data खोए बिना अपना ProPM plan update करें
 
-ProPM से supplemental license capacity हटाने के लिए **Remove licenses** उपयोग करें।
+Azure Marketplace plan बदलने या major update करने के लिए recommended flow है: नया ProPM deployment create करें और उसे previous deployment के existing data resources से attach करें।
 
-Removal ProPM में available capacity को कम करता है, लेकिन Azure Marketplace पर पहले भेजे गए consumption को automatically cancel या refund नहीं करता।
+New deployment selected plan के लिए नया application tier create करता है, लेकिन existing data reuse करता है। इसलिए validation के बाद users, documents, configurations, agents, reports और business data available रहने चाहिए।
 
-## Azure Marketplace redeployment से plan upgrade करना
+### यह flow कब उपयोग करें
 
-Marketplace plan upgrade existing Managed Application instance पर directly apply नहीं होता।
+यह flow उपयोग करें जब:
 
-Azure Managed Application के लिए upgrade ProPM में prepare होता है और guided Azure Marketplace redeployment से complete होता है।
+- आप Azure Marketplace में दूसरे ProPM plan पर switch करना चाहते हैं;
+- major update के लिए नया Marketplace deployment required है;
+- आप existing data रखते हुए ProPM application tier recreate करना चाहते हैं;
+- ProPM support आपको existing data resource attachment mode में redeploy करने को कहता है।
 
-1. **Platform Administration > Overview > Tenant plan and licensed users** खोलें।
-2. **Target plan** में कोई higher official Marketplace plan चुनें।
-3. **Prepare upgrade by redeploying in Azure Marketplace** select करें।
-4. ProPM upgrade prepare करता है और pending upgrade request store करता है।
-5. Link दिखने पर **Open Azure Marketplace redeployment** select करें।
-6. Azure Marketplace में अलग name के साथ नई ProPM Managed Application create करें।
-7. Azure में नया Marketplace plan select करें।
-8. Azure Marketplace commercial transaction finalize करता है और new deployment create करता है।
-9. Marketplace action complete होने के बाद ProPM में **Refresh Marketplace plan** उपयोग करें, ताकि detected plan और license information synchronize हो जाए।
+Simple in-place application image update के लिए यह flow उपयोग न करें। उस case में ProPM में **Deployment & Updates** उपयोग करें, अगर available है और release notes नया Marketplace deployment require नहीं करते।
 
-Plan upgrade existing Managed Application instance को directly modify नहीं करता। नया plan apply करने के लिए Azure Marketplace new redeployment require करता है।
+### शुरू करने से पहले
+
+ये चीजें तैयार रखें:
+
+- previous ProPM deployment का Azure access;
+- Azure Marketplace से नई ProPM Managed Application create करने की permission;
+- Azure Marketplace में selected target ProPM plan;
+- previous ProPM Managed Application की full **Resource ID**;
+- cutover window जिसमें administrators new deployment verify कर सकें;
+- users, documents, configurations, agents, reports और data के लिए checklist।
+
+किसी भी action से पहले ये precautions follow करें:
+
+- new deployment validate होने से पहले previous Managed Resource Group delete न करें;
+- existing data resources delete न करें, क्योंकि new deployment उन्हें reuse करता है;
+- Managed Application के ARM plan को manually modify न करें;
+- advanced override options तब तक न भरें जब तक previous installation ने custom resource names use न किए हों या ProPM support ऐसा न कहे।
+
+### Step 1 - Azure Marketplace में नया plan चुनें
+
+Azure Marketplace खोलें और desired new ProPM plan select करें।
+
+Plan selection, pricing और billing Azure Marketplace में manage होते हैं। ProPM current plan दिखा सकता है और detected information refresh कर सकता है, लेकिन commercial transaction के लिए ProPM official source नहीं है।
+
+### Step 2 - नया ProPM deployment create करें
+
+Azure Marketplace में previous deployment को directly modify करने के बजाय नया ProPM deployment create करें।
+
+**Basics** tab में subscription, resource group, region, new Managed Application name और new Managed Resource Group चुनें।
+
+![Azure Marketplace से नया ProPM deployment create करना](/img/deploiement/fr/propm-plan-update-01-new-deployment-basics.png)
+
+New Managed Application के लिए अलग name use करें, ताकि cutover के दौरान previous और new environments clearly अलग दिखें।
+
+### Step 3 - Attach existing ProPM data resources select करें
+
+**Application Settings** tab में **Installation mode** field में **Attach existing ProPM data resources** select करें।
+
+![Attach existing ProPM data resources mode select करना](/img/deploiement/fr/propm-plan-update-03-attach-existing-data-resources.png)
+
+यह mode new deployment को बताता है कि वह empty environment से start करने के बजाय previous deployment के data resources से connect करे।
+
+Most cases में advanced override fields empty रखें। New deployment previous Managed Application से standard resources discover कर सकता है। ये fields केवल तब भरें जब previous installation ने custom resource names use किए हों या ProPM support आपसे ऐसा कहे।
+
+### Step 4 - Previous Managed Application enter करें
+
+Azure Portal में previous ProPM Managed Application खोलें और **Properties** पर जाएँ।
+
+Managed Application का full **Id** field copy करें। यह previous Managed Application की **Resource ID** है, managed resource group name नहीं।
+
+![Previous ProPM Managed Application की Resource ID copy करना](/img/deploiement/fr/propm-plan-update-02-copy-previous-managed-application-id.png)
+
+New deployment wizard पर लौटें और यह value **Previous ProPM Managed Application resource ID** में paste करें।
+
+अगर जरूरत हो, तो **Block previous deployment during cutover** enable करें। यह option new deployment use और validate करते समय previous environment में changes रोकने में मदद करता है।
+
+![Cutover के दौरान previous deployment block करना](/img/deploiement/fr/propm-plan-update-04-readonly-and-overrides.png)
+
+Wizard में बाकी required parameters enter करने के बाद **Review + create** select करें, configuration review करें और deployment start करें।
+
+### Step 5 - New deployment verify करें
+
+New deployment complete होने के बाद नई ProPM instance खोलें और users को permanently move करने से पहले essential items verify करें।
+
+कम से कम ये check करें:
+
+- users और उनका access;
+- documents और knowledge spaces;
+- platform configuration;
+- agents और उनकी settings;
+- reports;
+- projects, portfolios और business data;
+- expected connectors और integrations;
+- AI provider और required settings;
+- Marketplace synchronization के बाद plan और license counters।
+
+अगर Azure Marketplace action के बाद ProPM में दिख रहा plan अभी update नहीं है, तो **Refresh Marketplace plan** उपयोग करें। यह button केवल detected state synchronize करता है; यह plan change नहीं करता और purchase trigger नहीं करता।
+
+### Step 6 - Cutover finalize करें
+
+Full validation के बाद users को new ProPM deployment पर direct करें।
+
+अगर आपकी organization चाहे, तो previous deployment को temporary safety के रूप में रखें। Previous Managed Application को केवल तब delete करें जब आप sure हों कि cutover complete है और chosen deletion procedure reused data resources को remove नहीं करता।
+
+जब तक existing data resources new deployment द्वारा use हो रहे हों, उन्हें manually delete न करें।
+
+### Best practices और precautions
+
+यह करें:
+
+- Azure Marketplace में नया plan चुनें;
+- नया ProPM deployment create करें;
+- **Attach existing ProPM data resources** select करें;
+- previous ProPM Managed Application की full Resource ID enter करें;
+- जरूरत हो तो cutover के दौरान previous deployment block या read-only करें;
+- कुछ भी delete करने से पहले new deployment verify करें;
+- Marketplace action के बाद ProPM resynchronize करने के लिए **Refresh Marketplace plan** उपयोग करें।
+
+यह न करें:
+
+- new deployment validate होने से पहले previous Managed Resource Group delete न करें;
+- existing data accounts, databases या services delete न करें;
+- Managed Application के ARM plan को manually modify न करें;
+- इस flow को manual database migration की तरह present न करें;
+- identified need के बिना advanced overrides न भरें।
+
+### FAQ
+
+**क्या मैं ProPM में directly plan change कर सकता हूँ?**
+
+नहीं। ProPM current plan दिखाता है और Marketplace information refresh कर सकता है, लेकिन plan changes, pricing और billing Azure Marketplace में manage होते हैं।
+
+**Refresh Marketplace plan क्या करता है?**
+
+**Refresh Marketplace plan** Azure-side action के बाद detected Marketplace information के साथ ProPM synchronize करता है। यह plan change नहीं करता, licenses नहीं खरीदता और licenses remove नहीं करता।
+
+**क्या यह manual database migration है?**
+
+नहीं। जब आप **Attach existing ProPM data resources** select करते हैं और previous Managed Application enter करते हैं, तो new ProPM deployment existing data resources से automatically connect हो जाता है।
+
+**कौन सी Resource ID enter करनी चाहिए?**
+
+Previous **ProPM Managed Application** की full Resource ID enter करें। केवल application name, resource group name या Managed Resource Group enter न करें।
+
+**Advanced override options कब उपयोग करें?**
+
+केवल तब उपयोग करें जब previous installation में custom resource names हों या ProPM support आपसे ऐसा कहे। Standard case में ये fields empty रखें।
+
+**क्या new deployment के बाद previous Managed Resource Group delete कर सकता हूँ?**
+
+New deployment validate होने से पहले delete न करें। अगर new deployment existing data resources reuse करता है, तो उन्हें delete न करें। Doubt होने पर previous deployment temporary रखें और सही deletion procedure के लिए ProPM support से पूछें।
+
+**Supplemental licenses कैसे manage होती हैं?**
+
+Supplemental licenses Azure Marketplace में `seats` billing dimension के साथ manage होती हैं। ProPM counters दिखा और synchronize कर सकता है, लेकिन billing reference Azure Marketplace रहता है।
 
 ## Downgrade restrictions
 
-ProPM application के अंदर downgrades की technical application block करता है:
+ProPM application के अंदर downgrade की technical application prevent कर सकता है:
 
-- current plan से lower plan refuse होता है;
-- ordered licenses की reduction refuse होती है;
-- capacity घटाने वाले Marketplace changes automatically apply नहीं होते।
+- current plan से lower plan refuse हो सकता है;
+- ordered licenses की reduction refuse हो सकती है;
+- capacity घटाने वाले Marketplace changes application में automatically apply नहीं होते।
 
-ProPM application में downgrade की technical application रोकता है, लेकिन Marketplace billing Azure/Microsoft manage करते हैं। कोई भी commercial modification Azure Marketplace में perform और validate होना चाहिए।
+Marketplace billing Azure/Microsoft manage करते हैं। कोई भी commercial modification Azure Marketplace में perform और validate होना चाहिए।
 
 ## Refresh Marketplace plan
 
-Tenant के currently detected Marketplace state के साथ ProPM synchronize करने के लिए **Refresh Marketplace plan** उपयोग करें।
+Tenant के detected Marketplace state के साथ ProPM synchronize करने के लिए **Refresh Marketplace plan** उपयोग करें।
 
 यह action:
 
 - Marketplace action के बाद plan और license information refresh करता है;
 - अपने आप plan upgrade नहीं करता;
 - supplemental licenses नहीं खरीदता;
-- licenses remove या cancel नहीं करता।
-
-## Plan upgrade के दौरान supplemental licenses
-
-पहले खरीदी गई supplemental licenses source Marketplace resource से linked रहती हैं।
-
-Plan upgrade के लिए redeployment के दौरान:
-
-- existing supplemental licenses पुराने Marketplace deployment या source resource से attached रहती हैं;
-- new plan अपनी base capacity include करता है;
-- customer को new deployment पर supplemental licenses केवल तब खरीदनी चाहिए जब new plan में included capacity पर्याप्त न हो।
+- licenses remove या cancel नहीं करता;
+- Azure deployment resources modify नहीं करता।
 
 ## Licensed connected users
 
@@ -137,14 +272,15 @@ Licensed user को remove करने से बाद के उपयोग
 
 ## Marketplace redeployment के बिना app updates
 
-**Deployment & Updates** section existing installation को in place update करता है।
+**Deployment & Updates** section current deployment के साथ compatible होने पर existing installation को in place update करता है।
 
 यह नहीं करता:
 
 - Azure Marketplace offer फिर चलाना;
 - नया resource group बनाना;
 - पहले से मौजूद Azure resources recreate करना;
-- Marketplace plan upgrade apply करना।
+- Marketplace plan upgrade apply करना;
+- ऐसा major update करना जिसे नया Marketplace deployment चाहिए।
 
 व्यवहार में administration Azure Resource Manager के माध्यम से existing **Azure Container Apps** का image inventory पढ़ता है, current images को ACR में approved target images से compare करता है, और existing Container Apps पर new revisions submit करता है।
 
@@ -166,14 +302,17 @@ Update buttons ये cover नहीं करते:
 - database schema migrations;
 - नए Azure resources creation;
 - architecture changes;
-- Marketplace plan upgrades।
+- Marketplace plan upgrades;
+- existing data resources के साथ new deployment पर cutover।
 
 ## याद रखने योग्य बातें
 
-- Marketplace plan और license capacity administration के लिए **Tenant plan and licensed users** उपयोग करें।
-- Target upgrades के लिए केवल official Marketplace plans उपयोग करें।
-- Azure Marketplace द्वारा billed supplemental licenses के लिए **Add licenses and bill in Azure** उपयोग करें।
-- Plan upgrades के लिए **Prepare upgrade by redeploying in Azure Marketplace** उपयोग करें।
+- Plans, pricing और billing के लिए Azure Marketplace official source है।
+- ProPM current plan और license counters दिखाता है, लेकिन plan changes के लिए Azure Marketplace को replace नहीं करता।
+- Plan बदलने या data खोए बिना major update करने के लिए Azure Marketplace से नया ProPM deployment create करें।
+- Deployment wizard में **Attach existing ProPM data resources** select करें।
+- Previous ProPM Managed Application की full Resource ID enter करें।
+- New deployment की full validation से पहले previous Managed Resource Group या data resources delete न करें।
 - Detected Marketplace state synchronize करने के लिए ही **Refresh Marketplace plan** उपयोग करें।
 - Commercial plan changes के लिए नहीं, in-place application image rollout के लिए **Deployment & Updates** उपयोग करें।
 

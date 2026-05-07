@@ -4,7 +4,7 @@ slug: /portfolio
 description: Projekte vergleichen, Portfolio-Signale konfigurieren, Kohorten und Ausreißer lesen und entscheiden, welches Projekt zuerst Aufmerksamkeit braucht.
 ---
 
-[Startseite](./index.md) · [KI-Anbieter und Plattformintegrationen](./ai-providers-platform-integrations.md) · [Tenant-Plan, lizenzierte Benutzer und App-Updates](./seats-management-app-updates.md)
+[Startseite](./index.md) · Portfolio
 
 ![Portfolio-Kommandozentrale](/img/screenshots/localized/de/02-portfolio-command-center.jpg)
 

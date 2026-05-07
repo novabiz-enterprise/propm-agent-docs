@@ -4,7 +4,7 @@ slug: /connecteurs-jira-et-sharepoint
 description: Understand all visible connectors in ProPM Agent, their benefits, use cases, and how they integrate into the platform.
 ---
 
-[Home](./index.md) · [Projects and workspace](./projets-et-espace-de-travail.md) · [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) · [Portfolio and technical administration](./portefeuille-et-administration-technique.md)
+[Home](./index.md) · Connectors and Integrations
 
 ![Jira and SharePoint flow between platform, project and actions](/img/diagrams/en/connecteurs-jira-sharepoint-workflow.svg)
 

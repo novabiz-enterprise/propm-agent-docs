@@ -4,7 +4,7 @@ slug: /gouvernance-decisions-et-actions
 description: "Verstehen Sie die Signale, konfigurieren Sie Governance-Richtlinien und nutzen Sie Aktionen & Genehmigungen Schritt für Schritt mit anfängerfreundlichen Beispielen."
 ---
 
-[Startseite](./index.md) · [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md) · [Berichte, KI-Protokoll und Nachverfolgbarkeit](./rapports-journal-ia-et-tracabilite.md)
+[Startseite](./index.md) · Governance, Entscheidungen und Aktionen
 
 ![Proaktivität, Digests und gesteuerte Aktionen](/img/diagrams/de/proactivite-et-gouvernance.svg)
 

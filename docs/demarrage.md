@@ -4,7 +4,7 @@ slug: /demarrage
 description: Prerequisites, access, authentication and first configuration.
 ---
 
-[Home](./index.md) · [Azure Marketplace Deployment](./deploiement-azure-marketplace.md) · [Interface and navigation](./interface-et-navigation.md)
+[Home](./index.md) · Getting Started
 
 ![Projects directory](/img/screenshots/localized/en/07-projects-directory.jpg)
 

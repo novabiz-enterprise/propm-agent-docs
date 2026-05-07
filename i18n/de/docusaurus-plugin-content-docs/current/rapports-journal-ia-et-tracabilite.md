@@ -4,7 +4,7 @@ slug: /rapports-journal-ia-et-tracabilite
 description: PM Docs überprüfen, Liefergegenstände veröffentlichen und die vollständige Nachverfolgbarkeit von KI-Runs verfolgen.
 ---
 
-[Startseite](./index.md) · [Strukturierte Ausgaben, Nachweise und Aktualität](./sorties-contextuelles-preuves-et-fraicheur.md) · [Portfolio und technische Administration](./portefeuille-et-administration-technique.md)
+[Startseite](./index.md) · Berichte, KI-Protokoll und Nachverfolgbarkeit
 
 ![Berichte und Artefakte](/img/screenshots/localized/de/08-reports-overview.jpg)
 

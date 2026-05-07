@@ -4,7 +4,7 @@ slug: /interface-et-navigation
 description: Comprendre les écrans principaux, la barre latérale, la barre supérieure et le tableau de bord.
 ---
 
-[Accueil](./index.md) · [Démarrage](./demarrage.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md)
+[Accueil](./index.md) · Interface et navigation
 
 ![Tableau de bord ProPM Agent](/img/screenshots/localized/fr/01-dashboard.jpg)
 

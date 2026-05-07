@@ -4,7 +4,7 @@ slug: /ai-providers-platform-integrations
 description: Plattformintegrationen vorbereiten, KI-Anbieter konfigurieren, Readiness validieren und Plattform-Setup von Projektnutzung unterscheiden.
 ---
 
-[Startseite](./index.md) · [Portfolio](./portfolio.md) · [Tenant-Plan, lizenzierte Benutzer und App-Updates](./seats-management-app-updates.md)
+[Startseite](./index.md) · KI-Anbieter und Plattformintegrationen
 
 ![Plattformadministration](/img/screenshots/localized/de/18-platform-administration-overview.jpg)
 

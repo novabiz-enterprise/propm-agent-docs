@@ -4,7 +4,7 @@ slug: /portefeuille-et-administration-technique
 description: Orientierungsseite für die frühere URL Portfolio und technische Administration, jetzt aufgeteilt in Portfolio, KI-Anbieter und Plattformintegrationen sowie Tenant-Plan, lizenzierte Benutzer und App-Updates.
 ---
 
-[Startseite](./index.md) · [Portfolio](./portfolio.md) · [KI-Anbieter und Plattformintegrationen](./ai-providers-platform-integrations.md) · [Tenant-Plan, lizenzierte Benutzer und App-Updates](./seats-management-app-updates.md)
+[Startseite](./index.md) · Portfolio- und Administrationsleitfaden
 
 ## Diese Seite wurde neu organisiert
 

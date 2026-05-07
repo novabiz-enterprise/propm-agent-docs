@@ -4,7 +4,7 @@ slug: /gouvernance-decisions-et-actions
 description: Comprendre les signaux, configurer les politiques de gouvernance et utiliser Actions & approbations pas à pas avec des exemples pratiques.
 ---
 
-[Accueil](./index.md) · [Projets et espace de travail](./projets-et-espace-de-travail.md) · [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
+[Accueil](./index.md) · Gouvernance, décisions et actions
 
 ![Proactivité, digests et actions gouvernées](/img/diagrams/fr/proactivite-et-gouvernance.svg)
 

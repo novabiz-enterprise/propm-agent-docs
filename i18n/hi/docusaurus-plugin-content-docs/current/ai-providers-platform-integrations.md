@@ -4,7 +4,7 @@ slug: /ai-providers-platform-integrations
 description: Platform integrations तैयार करें, AI providers configure करें, readiness validate करें, और platform setup को project usage से अलग समझें।
 ---
 
-[मुखपृष्ठ](./index.md) · [पोर्टफोलियो](./portfolio.md) · [Tenant plan, licensed users और app updates](./seats-management-app-updates.md)
+[मुखपृष्ठ](./index.md) · AI providers और platform integrations
 
 ![Platform administration](/img/screenshots/localized/hi/18-platform-administration-overview.jpg)
 

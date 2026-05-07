@@ -4,7 +4,7 @@ slug: /deploiement-azure-marketplace
 description: Deploy ProPM Agent from Azure Marketplace, choose the AI provider during installation, and finalize the onboarding in the administration.
 ---
 
-[Home](./index.md) · [Getting Started](./demarrage.md) · [Portfolio and technical administration](./portefeuille-et-administration-technique.md)
+[Home](./index.md) · Azure Marketplace Deployment
 
 ## Objective
 

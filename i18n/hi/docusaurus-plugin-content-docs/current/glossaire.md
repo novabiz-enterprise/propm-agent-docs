@@ -5,7 +5,7 @@ slug: /glossaire
 description: ProPM Agent में उपयोग किए जाने वाले प्रमुख शब्दों की सुसंगत परिभाषाएँ।
 ---
 
-[मुखपृष्ठ](./index.md) · [रखरखाव, समर्थन और अक्सर पूछे जाने वाले प्रश्न](./maintenance-support-faq.md) · [रिपोर्ट, AI लॉग और ट्रेसबिलिटी](./rapports-journal-ia-et-tracabilite.md)
+[मुखपृष्ठ](./index.md) · शब्दकोश
 
 ## A
 

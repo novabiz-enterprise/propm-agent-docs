@@ -4,7 +4,7 @@ slug: /projets-et-espace-de-travail
 description: Create a project, delegate initial roles and use the workspace as a command center.
 ---
 
-[Home](./index.md) · [Interface and navigation](./interface-et-navigation.md) · [Access control and project roles](./controle-acces-et-roles.md)
+[Home](./index.md) · Projects and workspace
 
 ![Project workspace overview](/img/screenshots/localized/en/03-workspace-overview.jpg)
 

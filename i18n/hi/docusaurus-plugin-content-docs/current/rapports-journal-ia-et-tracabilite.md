@@ -4,7 +4,7 @@ slug: /rapports-journal-ia-et-tracabilite
 description: PM Docs की समीक्षा करें, डिलिवरेबल्स प्रकाशित करें और AI run की पूरी ट्रेसबिलिटी को समझें।
 ---
 
-[मुखपृष्ठ](./index.md) · [संरचित आउटपुट, प्रमाण और नवीनता](./sorties-contextuelles-preuves-et-fraicheur.md) · [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md)
+[मुखपृष्ठ](./index.md) · रिपोर्ट, AI लॉग और ट्रेसबिलिटी
 
 ![रिपोर्ट और आर्टिफैक्ट](/img/screenshots/localized/hi/08-reports-overview.jpg)
 

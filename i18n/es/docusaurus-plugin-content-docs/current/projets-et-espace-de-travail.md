@@ -4,7 +4,7 @@ slug: /projets-et-espace-de-travail
 description: Crear un proyecto, delegar los primeros roles y usar el espacio de trabajo como centro de pilotaje.
 ---
 
-[Inicio](./index.md) · [Interfaz y navegación](./interface-et-navigation.md) · [Control de acceso y roles de proyecto](./controle-acces-et-roles.md)
+[Inicio](./index.md) · Proyectos y espacio de trabajo
 
 ![Espacio de trabajo del proyecto](/img/screenshots/localized/es/03-workspace-overview.jpg)
 

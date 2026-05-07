@@ -4,7 +4,7 @@ slug: /connaissance-et-agents
 description: परियोजना ज्ञान आधार को पोषण दें, एजेंट्स की सक्रियता को समझें और परिणामों का उपयोग दस्तावेज़ PM तक करें।
 ---
 
-[होम](./index.md) · [परियोजनाएँ और कार्यक्षेत्र](./projets-et-espace-de-travail.md) · [संरचित आउटपुट, साक्ष्य और ताजगी](./sorties-contextuelles-preuves-et-fraicheur.md)
+[मुखपृष्ठ](./index.md) · ज्ञान और एजेंट्स
 
 ![ज्ञान परियोजना](/img/screenshots/localized/hi/05-knowledge.jpg)
 

@@ -4,7 +4,7 @@ slug: /gouvernance-decisions-et-actions
 description: Comprender las señales, configurar las políticas de gobernanza y usar Acciones y aprobaciones paso a paso con ejemplos prácticos.
 ---
 
-[Inicio](./index.md) · [Proyectos y espacio de trabajo](./projets-et-espace-de-travail.md) · [Informes, registro de IA y trazabilidad](./rapports-journal-ia-et-tracabilite.md)
+[Inicio](./index.md) · Gobernanza, decisiones y acciones
 
 ![Proactividad, resúmenes y acciones gobernadas](/img/diagrams/es/proactivite-et-gouvernance.svg)
 

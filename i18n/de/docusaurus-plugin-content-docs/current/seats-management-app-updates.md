@@ -1,24 +1,27 @@
 ---
 title: Tenant-Plan, lizenzierte Benutzer und App-Updates
 slug: /seats-management-app-updates
-description: Marketplace-Tenant-Plan, bestellte Sitze, Zusatzlizenzen, lizenzierte Benutzer und App-Updates in Platform Administration verwalten.
+description: Den in ProPM angezeigten Marketplace-Plan verstehen, Azure-Marketplace-Informationen synchronisieren, Lizenzen verwalten und eine ProPM-Bereitstellung ohne Verlust vorhandener Daten aktualisieren.
 ---
 
-[Startseite](./index.md) · [Portfolio](./portfolio.md) · [KI-Anbieter und Plattformintegrationen](./ai-providers-platform-integrations.md)
+[Startseite](./index.md) · Tenant-Plan, lizenzierte Benutzer und App-Updates
 
 ![Platform Administration overview mit Tenant plan and licensed users](/img/screenshots/localized/de/18-platform-administration-overview.jpg)
 
 ## Ziel
 
-Diese Seite erklärt den Benutzerablauf für **Platform Administration > Overview > Tenant plan and licensed users**.
+Diese Seite erklärt den Benutzerablauf für **Platform Administration > Overview > Tenant plan and licensed users** und den empfohlenen Ablauf, wenn ein Kunde einen Azure-Marketplace-Plan ändern oder ein größeres Update ohne Verlust vorhandener Daten durchführen möchte.
 
-Sie beantwortet:
+Sie erklärt:
 
 - welcher Marketplace-Plan aktuell für den Tenant erkannt wird;
 - wie viele Lizenzen bestellt, enthalten, zusätzlich, genutzt und verbleibend sind;
-- wie Zusatzlizenzen direkt aus ProPM gekauft oder entfernt werden;
-- wie ein Plan-Upgrade durch eine Azure-Marketplace-Neubereitstellung vorbereitet wird;
-- wie sich App-Image-Updates von Marketplace-Plan-Upgrades unterscheiden.
+- warum Azure Marketplace die offizielle Quelle für Pläne, Preise und Abrechnung bleibt;
+- wie Zusatzlizenzen über Azure Marketplace mit der Abrechnungsdimension `seats` verwaltet werden;
+- wie Sie eine neue ProPM-Bereitstellung aus Azure Marketplace im Modus **Attach existing ProPM data resources** erstellen;
+- wie sich ein in-place App-Update von einer Planänderung oder einem größeren Update unterscheidet.
+
+Die wichtigste Botschaft ist einfach: Um den Plan zu ändern oder ein größeres Update ohne Datenverlust durchzuführen, erstellen Sie eine **neue ProPM-Bereitstellung aus Azure Marketplace**, wählen **Attach existing ProPM data resources** und hängen die vorhandenen Datenressourcen der vorherigen Bereitstellung an. Dies ist keine manuelle Datenbankmigration.
 
 ## Wo Sie die Seite finden
 
@@ -26,11 +29,21 @@ Sie beantwortet:
 2. Bleiben Sie auf **Overview**.
 3. Öffnen Sie **Tenant plan and licensed users**.
 
-Dieser Administrationsbereich ersetzt ältere benutzerseitige Marketplace-Abonnement-Auswahldialoge. Benutzer sollten keine alten oder internen Plan-IDs auswählen, wenn sie ein neues Upgrade vorbereiten.
+In ProPM zeigt dieser Bereich den aktuell erkannten Plan an und ermöglicht das Aktualisieren der Marketplace-Informationen. Er ersetzt Azure Marketplace nicht für Planauswahl, Preisprüfung, Abrechnungsänderungen oder den Abschluss einer kommerziellen Transaktion.
 
-## Offizielle Marketplace-Pläne
+## Marketplace-Pläne, Preise und Abrechnung
 
-Die Liste **Target plan** in der ProPM-Administration darf nur diese offiziellen Marketplace-Pläne anzeigen:
+Azure Marketplace ist die offizielle Quelle für:
+
+- die Liste der verfügbaren ProPM-Pläne;
+- den Preis jedes Plans;
+- die Planabrechnung;
+- kommerzielle Planänderungen;
+- Zusatzlizenzen, die mit der Dimension `seats` abgerechnet werden.
+
+ProPM zeigt den aktuellen Plan an, damit Administratoren den Tenant-Status verstehen können. Planänderungen werden aber nicht mehr direkt in der ProPM-Administration durchgeführt. Ändern Sie den ARM-Plan der Managed Application nicht manuell.
+
+Zur Orientierung sind die bekannten ProPM-Marketplace-Pläne:
 
 | Plan-ID | Anzeigename | Enthaltene Sitze |
 | --- | --- | ---: |
@@ -42,9 +55,11 @@ Die Liste **Target plan** in der ProPM-Administration darf nur diese offiziellen
 | `propm-500` | ProPM-500 | 500 |
 | `propm-1000` | ProPM-1000 | 1000 |
 
-Alte oder interne Kennungen wie `propm0`, `pro`, `enterprise`, `pm-*` oder dynamisch erzeugte Pläne sind keine Benutzerauswahl für ein neues Upgrade in der Administration.
+Prüfen Sie Plan, Preis und Abrechnungsbedingungen immer in Azure Marketplace, bevor Sie eine neue Bereitstellung starten.
 
-`propm0` kann bei älteren bestehenden Bereitstellungen weiterhin erscheinen. Behandeln Sie ihn als historische Kompatibilität, nicht als Plan für ein neues Upgrade.
+Alte oder interne Kennungen wie `propm0`, `pro`, `enterprise`, `pm-*` oder dynamisch erzeugte Pläne sind keine Auswahl für ein neues Upgrade. `propm0` kann bei älteren bestehenden Bereitstellungen weiterhin erscheinen; behandeln Sie ihn als historische Kompatibilität, nicht als Plan für ein neues Upgrade.
+
+Marketplace-Pläne steuern Lizenzkapazität. Sie schalten keine Konnektoren, KI-Anbieter oder Produktfunktionen frei oder aus.
 
 ## Plan- und Lizenzfelder lesen
 
@@ -57,77 +72,197 @@ Alte oder interne Kennungen wie `propm0`, `pro`, `enterprise`, `pm-*` oder dynam
 | **Used seats** | Lizenzen, die aktuell von verbundenen oder lizenzierten Benutzern verbraucht werden. |
 | **Remaining seats** | Noch verfügbare Lizenzen. |
 
-Marketplace-Pläne steuern Lizenzkapazität. Sie schalten keine Konnektoren, KI-Anbieter oder Produktfunktionen frei oder aus.
+Wenn die angezeigten Informationen nicht zu einer kürzlich ausgeführten Azure-Marketplace-Aktion passen, nutzen Sie **Refresh Marketplace plan**, um ProPM mit den erkannten Marketplace-Informationen zu synchronisieren.
 
-## Zusatzlizenzen hinzufügen
+## Zusatzlizenzen
 
-Nutzen Sie **Add licenses and bill in Azure**, wenn der Tenant mehr Kapazität benötigt, als der Basisplan enthält.
+Zusatzlizenzen werden über Azure Marketplace mit der Abrechnungsdimension `seats` verwaltet.
 
-1. Geben Sie in **Tenant plan and licensed users** die Anzahl der hinzuzufügenden Zusatzlizenzen ein.
-2. Wählen Sie **Add licenses and bill in Azure**.
-3. ProPM sendet den Verbrauch an Azure Marketplace Metering.
-4. Azure Marketplace rechnet die Nutzung über die Custom-Meter-Dimension `seats` ab.
-5. ProPM fügt die Zusatzlizenzen erst zur Tenant-Kapazität hinzu, nachdem Azure Marketplace die Anfrage akzeptiert hat.
-6. Prüfen Sie danach **Ordered seats**, **Supplemental licenses** und **Remaining seats**.
+Nutzen Sie diesen Ablauf, wenn der Tenant mehr Kapazität benötigt, als der Basisplan enthält:
 
-Pro Stunde kann nur eine Bestellung von Zusatzlizenzen an Azure Marketplace übermittelt werden.
+1. Prüfen Sie **Ordered seats**, **Included seats**, **Supplemental licenses**, **Used seats** und **Remaining seats** in ProPM.
+2. Verwalten Sie zusätzliche Kapazität in Azure Marketplace oder über die ProPM-Aktion zur Abrechnung von Lizenzen in Azure, sofern sie in Ihrer Umgebung verfügbar ist.
+3. Lassen Sie Azure Marketplace die Anfrage mit der Dimension `seats` akzeptieren und abrechnen.
+4. Kehren Sie zu ProPM zurück.
+5. Wählen Sie **Refresh Marketplace plan**, wenn die Zähler noch nicht aktuell sind.
+6. Prüfen Sie **Ordered seats**, **Supplemental licenses** und **Remaining seats** nach der Synchronisierung.
 
-Zusatzlizenzen bleiben in ProPM aktiv, bis sie manuell entfernt werden.
+Das Hinzufügen von Zusatzlizenzen ändert den Basisplan nicht. Das Entfernen oder Reduzieren von Zusatzlizenzen storniert oder erstattet die Abrechnung in Azure Marketplace nicht automatisch.
 
-## Zusatzlizenzen entfernen
+## ProPM-Plan aktualisieren, ohne Daten zu verlieren
 
-Nutzen Sie **Remove licenses**, um Zusatzlizenz-Kapazität aus ProPM zu entfernen.
+Um einen Azure-Marketplace-Plan zu ändern oder ein größeres Update durchzuführen, erstellen Sie eine neue ProPM-Bereitstellung und hängen diese an die vorhandenen Datenressourcen der vorherigen Bereitstellung an.
 
-Das Entfernen verringert die in ProPM verfügbare Kapazität, storniert oder erstattet aber nicht automatisch Verbrauch, der bereits an Azure Marketplace gesendet wurde.
+Die neue Bereitstellung erstellt eine neue Anwendungsschicht für den ausgewählten Plan, verwendet aber vorhandene Daten weiter. Benutzer, Dokumente, Konfigurationen, Agenten, Berichte und Geschäftsdaten sollten daher nach der Validierung weiterhin verfügbar sein.
 
-## Plan per Azure-Marketplace-Neubereitstellung upgraden
+### Wann Sie diesen Ablauf nutzen
 
-Ein Marketplace-Plan-Upgrade wird nicht direkt auf die bestehende Managed-Application-Instanz angewendet.
+Nutzen Sie diesen Ablauf, wenn:
 
-Für Azure Managed Application wird das Upgrade in ProPM vorbereitet und über eine geführte Azure-Marketplace-Neubereitstellung abgeschlossen.
+- Sie zu einem anderen ProPM-Plan in Azure Marketplace wechseln möchten;
+- Sie ein größeres Update benötigen, das eine neue Marketplace-Bereitstellung erfordert;
+- Sie die ProPM-Anwendungsschicht neu erstellen möchten, ohne vorhandene Daten zu verlieren;
+- der ProPM-Support Sie bittet, im Modus zum Anhängen vorhandener Datenressourcen neu bereitzustellen.
 
-1. Öffnen Sie **Platform Administration > Overview > Tenant plan and licensed users**.
-2. Wählen Sie in **Target plan** einen höheren offiziellen Marketplace-Plan.
-3. Wählen Sie **Prepare upgrade by redeploying in Azure Marketplace**.
-4. ProPM bereitet das Upgrade vor und speichert eine ausstehende Upgrade-Anfrage.
-5. Wählen Sie **Open Azure Marketplace redeployment**, sobald der Link angezeigt wird.
-6. Erstellen Sie in Azure Marketplace eine neue ProPM Managed Application mit einem anderen Namen.
-7. Wählen Sie in Azure den neuen Marketplace-Plan.
-8. Azure Marketplace finalisiert die kommerzielle Transaktion und erstellt die neue Bereitstellung.
-9. Verwenden Sie nach der Marketplace-Aktion **Refresh Marketplace plan** in ProPM, um die erkannten Plan- und Lizenzinformationen zu synchronisieren.
+Nutzen Sie diesen Ablauf nicht für ein einfaches in-place App-Image-Update. Verwenden Sie dafür **Deployment & Updates** in ProPM, wenn diese Funktion verfügbar ist und die Release Notes keine neue Marketplace-Bereitstellung verlangen.
 
-Das Plan-Upgrade ändert die bestehende Managed-Application-Instanz nicht direkt. Azure Marketplace erfordert eine neue Bereitstellung, um den neuen Plan anzuwenden.
+### Bevor Sie beginnen
+
+Bereiten Sie Folgendes vor:
+
+- Azure-Zugriff auf die vorherige ProPM-Bereitstellung;
+- die Berechtigung, eine neue ProPM Managed Application aus Azure Marketplace zu erstellen;
+- den Zielplan für ProPM, ausgewählt in Azure Marketplace;
+- die vollständige **Resource ID** der vorherigen ProPM Managed Application;
+- ein Cutover-Zeitfenster, in dem Administratoren die neue Bereitstellung prüfen können;
+- eine Prüfliste für Benutzer, Dokumente, Konfigurationen, Agenten, Berichte und Daten.
+
+Beachten Sie vor jeder Aktion diese Vorsichtsmaßnahmen:
+
+- löschen Sie die vorherige Managed Resource Group nicht, bevor die neue Bereitstellung validiert wurde;
+- löschen Sie keine vorhandenen Datenressourcen, da sie von der neuen Bereitstellung wiederverwendet werden;
+- ändern Sie den ARM-Plan der Managed Application nicht manuell;
+- füllen Sie erweiterte Override-Optionen nur aus, wenn die vorherige Installation benutzerdefinierte Ressourcennamen verwendet hat oder ProPM-Support Sie dazu auffordert.
+
+### Schritt 1 - Neuen Plan in Azure Marketplace auswählen
+
+Öffnen Sie Azure Marketplace und wählen Sie den gewünschten neuen ProPM-Plan.
+
+Planauswahl, Preise und Abrechnung werden in Azure Marketplace verwaltet. ProPM kann den aktuellen Plan anzeigen und erkannte Informationen aktualisieren, ist aber nicht die offizielle Quelle für die kommerzielle Transaktion.
+
+### Schritt 2 - Neue ProPM-Bereitstellung erstellen
+
+Erstellen Sie in Azure Marketplace eine neue ProPM-Bereitstellung, anstatt die vorherige Bereitstellung direkt zu ändern.
+
+Wählen Sie auf der Registerkarte **Basics** Abonnement, Ressourcengruppe, Region, Namen der neuen Managed Application und die neue Managed Resource Group.
+
+![Neue ProPM-Bereitstellung aus Azure Marketplace erstellen](/img/deploiement/fr/propm-plan-update-01-new-deployment-basics.png)
+
+Verwenden Sie einen anderen Namen für die neue Managed Application, damit vorherige und neue Umgebung während des Cutovers klar unterscheidbar sind.
+
+### Schritt 3 - Attach existing ProPM data resources auswählen
+
+Wählen Sie auf der Registerkarte **Application Settings** im Feld **Installation mode** die Option **Attach existing ProPM data resources**.
+
+![Modus Attach existing ProPM data resources auswählen](/img/deploiement/fr/propm-plan-update-03-attach-existing-data-resources.png)
+
+Dieser Modus weist die neue Bereitstellung an, sich mit den Datenressourcen der vorherigen Bereitstellung zu verbinden, anstatt mit einer leeren Umgebung zu starten.
+
+Lassen Sie erweiterte Override-Felder in den meisten Fällen leer. Die neue Bereitstellung kann Standardressourcen aus der vorherigen Managed Application erkennen. Füllen Sie diese Felder nur aus, wenn die vorherige Installation benutzerdefinierte Ressourcennamen genutzt hat oder ProPM-Support Sie dazu auffordert.
+
+### Schritt 4 - Vorherige Managed Application eintragen
+
+Öffnen Sie im Azure Portal die vorherige ProPM Managed Application und wechseln Sie zu **Properties**.
+
+Kopieren Sie das vollständige Feld **Id** der Managed Application. Dies ist die **Resource ID** der vorherigen Managed Application, nicht der Name der verwalteten Ressourcengruppe.
+
+![Resource ID der vorherigen ProPM Managed Application kopieren](/img/deploiement/fr/propm-plan-update-02-copy-previous-managed-application-id.png)
+
+Kehren Sie zum Assistenten der neuen Bereitstellung zurück und fügen Sie diesen Wert in **Previous ProPM Managed Application resource ID** ein.
+
+Aktivieren Sie bei Bedarf **Block previous deployment during cutover**. Diese Option hilft zu verhindern, dass Änderungen in der vorherigen Umgebung vorgenommen werden, während die neue Bereitstellung genutzt und validiert wird.
+
+![Vorherige Bereitstellung während des Cutovers blockieren](/img/deploiement/fr/propm-plan-update-04-readonly-and-overrides.png)
+
+Nachdem Sie die weiteren vom Assistenten geforderten Parameter eingegeben haben, wählen Sie **Review + create**, prüfen die Konfiguration und starten die Bereitstellung.
+
+### Schritt 5 - Neue Bereitstellung prüfen
+
+Nach Abschluss der neuen Bereitstellung öffnen Sie die neue ProPM-Instanz und prüfen die wesentlichen Punkte, bevor Benutzer dauerhaft umgestellt werden.
+
+Prüfen Sie mindestens:
+
+- Benutzer und ihre Zugriffe;
+- Dokumente und Wissensbereiche;
+- Plattformkonfiguration;
+- Agenten und ihre Einstellungen;
+- Berichte;
+- Projekte, Portfolios und Geschäftsdaten;
+- erwartete Konnektoren und Integrationen;
+- den KI-Anbieter und erforderliche Einstellungen;
+- Plan- und Lizenzzähler nach Marketplace-Synchronisierung.
+
+Wenn der in ProPM angezeigte Plan nach der Azure-Marketplace-Aktion noch nicht aktuell ist, nutzen Sie **Refresh Marketplace plan**. Diese Schaltfläche synchronisiert nur den erkannten Zustand; sie ändert keinen Plan und löst keinen Kauf aus.
+
+### Schritt 6 - Cutover abschließen
+
+Leiten Sie die Benutzer nach vollständiger Validierung zur neuen ProPM-Bereitstellung.
+
+Behalten Sie die vorherige Bereitstellung bei Bedarf vorübergehend als Sicherheit. Löschen Sie die vorherige Managed Application erst, wenn Sie sicher sind, dass der Cutover abgeschlossen ist und das gewählte Löschverfahren keine wiederverwendeten Datenressourcen entfernt.
+
+Löschen Sie vorhandene Datenressourcen niemals manuell, solange sie von der neuen Bereitstellung verwendet werden.
+
+### Best Practices und Vorsichtsmaßnahmen
+
+Tun Sie Folgendes:
+
+- wählen Sie den neuen Plan in Azure Marketplace;
+- erstellen Sie eine neue ProPM-Bereitstellung;
+- wählen Sie **Attach existing ProPM data resources**;
+- tragen Sie die vollständige Resource ID der vorherigen ProPM Managed Application ein;
+- blockieren Sie die vorherige Bereitstellung während des Cutovers oder setzen Sie sie auf Nur-Lesen, falls erforderlich;
+- validieren Sie die neue Bereitstellung, bevor Sie etwas löschen;
+- nutzen Sie **Refresh Marketplace plan** nach einer Marketplace-Aktion, um ProPM erneut zu synchronisieren.
+
+Vermeiden Sie Folgendes:
+
+- löschen Sie die vorherige Managed Resource Group nicht vor Validierung der neuen Bereitstellung;
+- löschen Sie keine vorhandenen Datenkonten, Datenbanken oder Datendienste;
+- ändern Sie den ARM-Plan der Managed Application nicht manuell;
+- stellen Sie diesen Ablauf nicht als manuelle Datenbankmigration dar;
+- füllen Sie erweiterte Overrides nicht ohne bekannten Bedarf aus.
+
+### FAQ
+
+**Kann ich den Plan direkt in ProPM ändern?**
+
+Nein. ProPM zeigt den aktuellen Plan an und kann Marketplace-Informationen aktualisieren. Planänderungen, Preise und Abrechnung werden aber in Azure Marketplace verwaltet.
+
+**Was macht Refresh Marketplace plan?**
+
+**Refresh Marketplace plan** synchronisiert ProPM mit Marketplace-Informationen, die nach einer Azure-seitigen Aktion erkannt wurden. Es ändert keinen Plan, kauft keine Lizenzen und entfernt keine Lizenzen.
+
+**Ist dies eine manuelle Datenbankmigration?**
+
+Nein. Die neue ProPM-Bereitstellung verbindet sich automatisch mit vorhandenen Datenressourcen, wenn Sie **Attach existing ProPM data resources** auswählen und die vorherige Managed Application angeben.
+
+**Welche Resource ID muss ich eintragen?**
+
+Tragen Sie die vollständige Resource ID der vorherigen **ProPM Managed Application** ein. Tragen Sie nicht nur den Anwendungsnamen, Ressourcengruppennamen oder die Managed Resource Group ein.
+
+**Wann sollte ich erweiterte Override-Optionen nutzen?**
+
+Nutzen Sie sie nur, wenn die vorherige Installation benutzerdefinierte Ressourcennamen hat oder ProPM-Support Sie dazu auffordert. Im Standardfall lassen Sie diese Felder leer.
+
+**Kann ich die vorherige Managed Resource Group nach der neuen Bereitstellung löschen?**
+
+Löschen Sie sie nicht, bevor die neue Bereitstellung validiert wurde. Löschen Sie keine vorhandenen Datenressourcen, wenn die neue Bereitstellung sie wiederverwendet. Wenn Zweifel bestehen, behalten Sie die vorherige Bereitstellung vorübergehend und fragen Sie ProPM-Support nach dem richtigen Löschverfahren.
+
+**Wie werden Zusatzlizenzen verwaltet?**
+
+Zusatzlizenzen werden über Azure Marketplace mit der Abrechnungsdimension `seats` verwaltet. ProPM kann Zähler anzeigen und synchronisieren, aber Azure Marketplace bleibt die Abrechnungsreferenz.
 
 ## Einschränkungen für Downgrades
 
-ProPM blockiert die technische Anwendung von Downgrades in der Anwendung:
+ProPM kann die technische Anwendung eines Downgrades in der Anwendung verhindern:
 
-- ein niedrigerer Plan als der aktuelle Plan wird abgelehnt;
-- eine Reduzierung der bestellten Lizenzen wird abgelehnt;
-- Marketplace-Änderungen, die Kapazität verringern, werden nicht automatisch angewendet.
+- ein niedrigerer Plan als der aktuelle Plan kann abgelehnt werden;
+- eine Reduzierung der bestellten Lizenzen kann abgelehnt werden;
+- Marketplace-Änderungen, die Kapazität verringern, werden nicht automatisch in der Anwendung angewendet.
 
-ProPM verhindert die technische Anwendung eines Downgrades in der Anwendung, aber Marketplace-Abrechnung wird von Azure und Microsoft verwaltet. Jede kommerzielle Änderung muss in Azure Marketplace durchgeführt und validiert werden.
+Marketplace-Abrechnung wird von Azure und Microsoft verwaltet. Jede kommerzielle Änderung muss in Azure Marketplace durchgeführt und validiert werden.
 
 ## Refresh Marketplace plan
 
-Nutzen Sie **Refresh Marketplace plan**, um ProPM mit dem aktuell erkannten Marketplace-Zustand des Tenants zu synchronisieren.
+Nutzen Sie **Refresh Marketplace plan**, um ProPM mit dem erkannten Marketplace-Zustand des Tenants zu synchronisieren.
 
 Diese Aktion:
 
 - aktualisiert Plan- und Lizenzinformationen nach einer Marketplace-Aktion;
 - führt selbst kein Plan-Upgrade aus;
 - kauft keine Zusatzlizenzen;
-- entfernt oder storniert keine Lizenzen.
-
-## Zusatzlizenzen während eines Plan-Upgrades
-
-Bereits gekaufte Zusatzlizenzen bleiben mit der Marketplace-Quellressource verbunden.
-
-Bei einer Neubereitstellung für ein Plan-Upgrade gilt:
-
-- bestehende Zusatzlizenzen bleiben an die alte Marketplace-Bereitstellung oder Quellressource gebunden;
-- der neue Plan enthält seine eigene Basiskapazität;
-- der Kunde sollte auf der neuen Bereitstellung nur dann Zusatzlizenzen kaufen, wenn die im neuen Plan enthaltene Kapazität nicht ausreicht.
+- entfernt oder storniert keine Lizenzen;
+- ändert keine Azure-Bereitstellungsressourcen.
 
 ## Lizenzierte verbundene Benutzer
 
@@ -137,14 +272,15 @@ Das Entfernen eines lizenzierten Benutzers gibt Anwendungskapazität für späte
 
 ## App-Updates ohne Marketplace-Neubereitstellung
 
-Der Bereich **Deployment & Updates** aktualisiert eine bestehende Installation in place.
+Der Bereich **Deployment & Updates** aktualisiert eine bestehende Installation in place, wenn das Update mit der aktuellen Bereitstellung kompatibel ist.
 
 Er führt nicht aus:
 
 - das Azure-Marketplace-Angebot erneut starten;
 - eine neue Ressourcengruppe erstellen;
 - bereits vorhandene Azure-Ressourcen neu erstellen;
-- ein Marketplace-Plan-Upgrade anwenden.
+- ein Marketplace-Plan-Upgrade anwenden;
+- ein größeres Update durchführen, das eine neue Marketplace-Bereitstellung erfordert.
 
 Praktisch liest die Administration das Image-Inventar der vorhandenen **Azure Container Apps** über Azure Resource Manager, vergleicht aktuelle Images mit genehmigten Zielimages in ACR und erstellt neue Revisionen auf den vorhandenen Container Apps.
 
@@ -166,14 +302,17 @@ Die Update-Schaltflächen decken nicht ab:
 - Datenbankschema-Migrationen;
 - Erstellung neuer Azure-Ressourcen;
 - Architekturänderungen;
-- Marketplace-Plan-Upgrades.
+- Marketplace-Plan-Upgrades;
+- Cutovers zu einer neuen Bereitstellung mit vorhandenen Datenressourcen.
 
 ## Merkpunkte
 
-- Nutzen Sie **Tenant plan and licensed users** für Marketplace-Plan- und Lizenzkapazitätsverwaltung.
-- Nutzen Sie nur offizielle Marketplace-Pläne als Zielpläne.
-- Nutzen Sie **Add licenses and bill in Azure** für über Azure Marketplace abgerechnete Zusatzlizenzen.
-- Nutzen Sie **Prepare upgrade by redeploying in Azure Marketplace** für Plan-Upgrades.
+- Azure Marketplace ist die offizielle Quelle für Pläne, Preise und Abrechnung.
+- ProPM zeigt den aktuellen Plan und Lizenzzähler, ersetzt Azure Marketplace aber nicht für Planänderungen.
+- Um den Plan zu ändern oder ein größeres Update ohne Datenverlust durchzuführen, erstellen Sie eine neue ProPM-Bereitstellung aus Azure Marketplace.
+- Wählen Sie im Bereitstellungsassistenten **Attach existing ProPM data resources**.
+- Tragen Sie die vollständige Resource ID der vorherigen ProPM Managed Application ein.
+- Löschen Sie die vorherige Managed Resource Group oder Datenressourcen nicht vor vollständiger Validierung der neuen Bereitstellung.
 - Nutzen Sie **Refresh Marketplace plan** nur zur Synchronisierung des erkannten Marketplace-Zustands.
 - Nutzen Sie **Deployment & Updates** für in-place App-Image-Rollout, nicht für kommerzielle Planänderungen.
 

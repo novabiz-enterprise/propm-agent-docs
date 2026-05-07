@@ -4,7 +4,7 @@ slug: /demarrage
 description: Prérequis, accès, authentification et première configuration.
 ---
 
-[Accueil](./index.md) · [Déploiement Azure Marketplace](./deploiement-azure-marketplace.md) · [Interface et navigation](./interface-et-navigation.md)
+[Accueil](./index.md) · Démarrage
 
 ![Répertoire des projets](/img/screenshots/localized/fr/07-projects-directory.jpg)
 

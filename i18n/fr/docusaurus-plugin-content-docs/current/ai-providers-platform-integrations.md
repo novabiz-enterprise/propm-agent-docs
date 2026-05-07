@@ -4,7 +4,7 @@ slug: /ai-providers-platform-integrations
 description: Préparer les intégrations plateforme, configurer les fournisseurs IA, valider la readiness et distinguer configuration plateforme et usage projet.
 ---
 
-[Accueil](./index.md) · [Portfolio](./portfolio.md) · [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md)
+[Accueil](./index.md) · Fournisseurs IA et intégrations plateforme
 
 ![Administration de la plateforme](/img/screenshots/localized/fr/18-platform-administration-overview.jpg)
 

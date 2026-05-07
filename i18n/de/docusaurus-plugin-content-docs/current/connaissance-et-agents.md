@@ -4,7 +4,7 @@ slug: /connaissance-et-agents
 description: Die Projekt-Wissensdatenbank füttern, die Proaktivität der Agenten verstehen und die Ergebnisse bis zu den PM-Dokumenten nutzen.
 ---
 
-[Startseite](./index.md) · [Projekte und Arbeitsbereich](./projets-et-espace-de-travail.md) · [Strukturierte Ausgaben, Beweise und Frische](./sorties-contextuelles-preuves-et-fraicheur.md)
+[Startseite](./index.md) · Wissen und Agenten
 
 ![Projektwissen](/img/screenshots/localized/de/05-knowledge.jpg)
 

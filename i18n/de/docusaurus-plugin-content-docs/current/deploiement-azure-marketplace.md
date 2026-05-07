@@ -4,7 +4,7 @@ slug: /deploiement-azure-marketplace
 description: ProPM Agent über Azure Marketplace bereitstellen, den KI-Anbieter während der Installation auswählen und die Inbetriebnahme anschließend in der Administration abschließen.
 ---
 
-[Startseite](./index.md) · [Start](./demarrage.md) · [Portfolio und technische Verwaltung](./portefeuille-et-administration-technique.md)
+[Startseite](./index.md) · Azure Marketplace-Bereitstellung
 
 ## Ziel
 
