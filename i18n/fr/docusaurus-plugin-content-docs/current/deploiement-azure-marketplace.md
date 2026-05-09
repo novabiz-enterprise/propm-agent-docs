@@ -75,7 +75,9 @@ La première étape définit le périmètre Azure du déploiement.
 
 Cet écran regroupe les paramètres d’identité, de fournisseur IA, de sécurité initiale, de supervision et de réseau.
 
-![Paramètres d’application actuels du déploiement](/img/deploiement/fr/deploiement-02-application-settings-actuel.png)
+Pour un premier déploiement, gardez l’option **Nouvelle installation** sélectionnée et choisissez **Créer de nouvelles ressources** afin que l’assistant Marketplace crée les ressources du nouvel environnement ProPM.
+
+![Paramètres d’application actuels du déploiement](/img/deploiement/deploiement-02-parametres-application.png)
 
 ### Champs visibles dans la capture
 

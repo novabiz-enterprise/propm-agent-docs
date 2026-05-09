@@ -31,7 +31,7 @@ Le flux le plus courant est :
 5. il relit le contenu, consulte le **diff** et la **lignée** ;
 6. il décide d’**Approve**, **Publish**, **Download** ou **Add to knowledge**.
 
-Autrement dit, une réponse d’agent ne devient pas automatiquement un document final : la chaîne reste **run → structured output → artifact / PM Doc → revue → décision aval**.
+Autrement dit, une réponse d’agent ne devient pas automatiquement un document final : la chaîne reste **exécution → sortie structurée → artefact / Document PM → revue → décision aval**.
 
 ## De l’agent au DOCX ou XLSX
 
@@ -102,7 +102,7 @@ Le hub expose des actions telles que :
 - **publish** ;
 - **delete**.
 
-## Diff, lignée et versioning
+## Diff, lignée et gestion des versions
 
 ### Diff
 
@@ -128,7 +128,7 @@ Le **context snapshot** est la capture du contexte effectivement utilisé pendan
 
 Il aide à répondre à la question : **« sur quelle base contextuelle cette sortie a-t-elle été produite ? »**
 
-### Versioning
+### Gestion des versions
 
 L’interface permet aussi de sélectionner une version par numéro et d’identifier la version précédente, la base de comparaison ou une version remplacée.
 
@@ -236,15 +236,15 @@ Colonnes visibles : **Created**, **Agent**, **Status**, **Cost**, **Run ID**, **
 
 Le champ **Cost** expose au moins les **tokens** et le nombre de **calls** quand ces informations sont disponibles.
 
-### Comment lire `Trace ID`, `Cost`, `Confidence` et `Source freshness`
+### Comment lire `Trace ID`, le coût, la confiance et la fraîcheur des sources
 
 Gardez cette lecture simple :
 
 - **Run ID** reste la poignée la plus pratique pour retrouver une ligne visible dans **Runs** ;
 - **Trace ID** sert surtout au diagnostic transverse, au support et à l’audit ;
-- **Cost** (`tokens` / `calls`) montre l’usage runtime pour la transparence et l’enquête, pas un signal d’approbation métier à lui seul ;
-- **Confidence** est un indice de relecture, pas une preuve autonome ;
-- **Source freshness** indique à quel point les preuves citées sont encore actuelles.
+- **Cost** (`tokens` / `calls`) montre l’usage à l’exécution pour la transparence et l’enquête, pas un signal d’approbation métier à lui seul ;
+- **Confiance** est un indice de relecture, pas une preuve autonome ;
+- **Fraîcheur des sources** indique à quel point les preuves citées sont encore actuelles.
 
 Si vous cherchez un signal de pression budgétaire ou de consommation à arbitrer au niveau portefeuille, l’indicateur pertinent est plutôt **`cost_pressure`** dans **Portfolio**, pas la carte brute **Cost** d’un run.
 
@@ -270,8 +270,8 @@ Le détail d’un run peut exposer :
 - `Effective AI Provider` ;
 - `Deployment-selected AI Provider` ;
 - `Model family` ;
-- `Confidence` ;
-- `Source freshness` ;
+- confiance ;
+- fraîcheur des sources ;
 - artefacts liés.
 
 ## Transparence runtime IA

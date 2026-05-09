@@ -45,7 +45,7 @@ Le mécanisme d’import dépend des **fournisseurs d’ingestion** validés au 
 Selon la source, l’interface peut afficher :
 
 - le nom de la source ;
-- un **source label** lisible ;
+- un **libellé de source** lisible ;
 - la date du dernier import ;
 - un état de fraîcheur ou de santé ;
 - une explication de blocage quand la source n’est pas utilisable.
@@ -55,9 +55,9 @@ Selon la source, l’interface peut afficher :
 Une option d’import peut être indisponible pour cause de :
 
 - permission manquante ;
-- policy restrictive ;
+- politique restrictive ;
 - état de disponibilité ou de santé à vérifier ;
-- binding projet absent ou non prêt ;
+- rattachement projet absent ou non prêt ;
 - configuration fournisseur incomplète.
 
 ## Historique d’import
@@ -88,19 +88,19 @@ Un document visible mais non encore retrouvable en recherche est souvent encore 
 Les résultats de recherche peuvent afficher :
 
 - titre ;
-- snippet ;
+- extrait ;
 - score ;
 - section ;
 - badge de fraîcheur ;
-- badge **source system** ;
-- badge **source label** ;
+- badge **système source** ;
+- badge **libellé de source** ;
 - lien **Open source** ;
 - `Trace ID` de la recherche.
 
 Lecture pratique :
 
-- **source label** désigne surtout le fournisseur ou l’origine d’ingestion visible pour cette preuve, par exemple `manual`, `SharePoint`, `ADF`, `Blob`, `Confluence` ou `Jira` ;
-- **source system** aide à reconnaître le système ou le flux métier lisible derrière cette preuve, par exemple `Knowledge`, `Schedule`, `Finance` ou `Operations` ;
+- **libellé de source** désigne surtout le fournisseur ou l’origine d’ingestion visible pour cette preuve, par exemple `manual`, `SharePoint`, `ADF`, `Blob`, `Confluence` ou `Jira` ;
+- **système source** aide à reconnaître le système ou le flux métier lisible derrière cette preuve, par exemple `Knowledge`, `Schedule`, `Finance` ou `Operations` ;
 - le `Trace ID` de recherche reste surtout un identifiant de diagnostic, de support et d’audit plutôt qu’une clé métier de pilotage quotidien.
 
 Utilisez `source label` et `source system` ensemble quand vous devez arbitrer rapidement la provenance d’un extrait avant réutilisation.
@@ -165,7 +165,7 @@ Quand plusieurs cartes paraissent plausibles, partez d’abord du domaine couver
 | `status` | disponibilité pratique de l’agent | privilégiez les agents actifs pour le projet sélectionné avant d’escalader |
 | `kind` | caractère standard ou personnalisé de la carte | traitez `kind` comme un contexte descriptif, pas comme le premier critère de choix |
 
-En pratique, recherchez d’abord dans le roster par nom ou par domaine. Privilégiez un agent actif pour le projet sélectionné, et gardez les agents transverses ou personnalisés pour les cas où leur couverture correspond vraiment à la demande.
+En pratique, recherchez d’abord dans la liste des agents par nom ou par domaine. Privilégiez un agent actif pour le projet sélectionné, et gardez les agents transverses ou personnalisés pour les cas où leur couverture correspond vraiment à la demande.
 
 ## Comment travailler avec les agents
 
@@ -174,7 +174,7 @@ En pratique, recherchez d’abord dans le roster par nom ou par domaine. Privil�
 3. formulez une demande exploitable avec objectif, périmètre et format attendu ;
 4. relisez la **sortie structurée** avant toute réutilisation.
 
-L’interface permet aussi de rechercher dans le roster d’agents pour atteindre plus vite le bon spécialiste.
+L’interface permet aussi de rechercher dans la liste des agents pour atteindre plus vite le bon spécialiste.
 
 ### Parcours recommandé
 
@@ -203,14 +203,14 @@ Les agents ne sautent pas directement vers un fichier final diffusé. Le flux es
 
 1. le chat courant reste d’abord **local au navigateur** ;
 2. l’envoi du message lance un **run** dans le projet actif ;
-3. le run produit une **structured output / sortie structurée** ;
-4. selon le flux et les droits, cette sortie peut exposer des liens de **lineage**, un **artifact** ou un **PM Doc** ;
+3. l’exécution produit une **sortie structurée** ;
+4. selon le flux et les droits, cette sortie peut exposer des liens de **lignée**, un **artefact** ou un **PM Doc** ;
 5. la revue se poursuit ensuite dans **Rapports & artefacts / Documents PM** ;
 6. le document relu peut enfin être **Add to knowledge**, **Download** ou **Publish** selon la gouvernance.
 
 ### Ce que signifie `structured output`
 
-Une **structured output** est la sortie structurée produite par le run d’agent. Elle peut porter :
+Une **sortie structurée** est le résultat structuré produit par l’exécution d’agent. Elle peut porter :
 
 - une synthèse ;
 - des sections ;
@@ -222,12 +222,12 @@ Ce n’est pas encore, à elle seule, un document final publié.
 
 ### Ce que signifie `lineage`
 
-La **lineage / lignée** relie entre eux :
+La **lignée** relie entre eux :
 
-- le **run** ;
+- l’**exécution** ;
 - le **structured output ID** ;
 - le **context snapshot ID** ;
-- l’**artifact** et sa version ;
+- l’**artefact** et sa version ;
 - le **PM Doc** si un document gouverné existe.
 
 Cette lignée aide à comprendre d’où vient un livrable et quel contexte a été utilisé.
@@ -255,8 +255,8 @@ La création d’agents personnalisés dépend du niveau de droit. Les points à
 
 - tous les utilisateurs ne peuvent pas créer un agent ;
 - le dialogue de création rappelle le **contexte projet** actif avant l’enregistrement ;
-- les champs visibles couvrent au minimum **Name**, **Role / instructions** et **Scope** ;
-- choisissez **Project only** par défaut, sauf si l’environnement expose explicitement un scope plus large ;
+- les champs visibles couvrent au minimum **Nom**, **Rôle / instructions** et **Portée** ;
+- choisissez **Projet uniquement** par défaut, sauf si l’environnement expose explicitement une portée plus large ;
 - si l’option **All projects** est disponible, l’agent est créé depuis le projet courant mais peut rester visible dans d’autres projets pour le même compte ;
 - si un agent multi-projets n’apparaît pas ailleurs, vérifiez d’abord le même compte et l’accès au projet cible ;
 - la suppression d’un agent personnalisé reste contrôlée ;
@@ -268,14 +268,14 @@ La création d’agents personnalisés dépend du niveau de droit. Les points à
 | --- | --- |
 | usage nominal, équipe large, comportement prévisible | agent standard |
 | consignes spécifiques, ton d’équipe, workflow spécialisé | agent personnalisé |
-| usage limité à un seul contexte projet | **Project only** |
+| usage limité à un seul contexte projet | **Projet uniquement** |
 | même agent réutilisable dans plusieurs projets du même compte | **All projects** si l’option est réellement exposée |
 
 ![Création d’un agent personnalisé](/img/screenshots/localized/fr/04-custom-agent-create.jpg)
 
 ## Saisie vocale dans Agents
 
-Cette documentation ne décrit plus de point d’entrée **voix** séparé dans l’**Espace de travail**. Lorsqu’une saisie vocale reste disponible, elle est limitée à l’expérience **Agents** et dépend explicitement de la prise en charge navigateur des API de reconnaissance vocale. Son absence n’empêche pas le parcours nominal, qui reste la saisie texte.
+L’**Espace de travail** ne présente plus de point d’entrée **voix** séparé. Lorsqu’une saisie vocale reste disponible, elle est limitée à l’expérience **Agents** et dépend explicitement de la prise en charge navigateur des API de reconnaissance vocale. Son absence n’empêche pas le parcours nominal, qui reste la saisie texte.
 
 Si la saisie vocale n’est pas disponible :
 

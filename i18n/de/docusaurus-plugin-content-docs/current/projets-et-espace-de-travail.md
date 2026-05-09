@@ -98,7 +98,7 @@ Der **Arbeitsbereich** bündelt in einer Oberfläche:
 - die **Signale** des Projekts;
 - Registerkarten für Projekteinstellungen.
 
-Diese Dokumentation zeigt keine eigene **Sprach**-Karte mehr im **Arbeitsbereich**. Wenn Spracheingabe in einigen Umgebungen noch vorhanden ist, erfolgt sie in **Agenten** und nicht als separater Einstiegspunkt hier.
+Der **Arbeitsbereich** zeigt keinen eigenen Einstiegspunkt für **Spracheingabe** mehr. Wenn Spracheingabe in einigen Umgebungen noch vorhanden ist, ist sie in **Agenten** verfügbar, nicht als separater Einstiegspunkt im Arbeitsbereich.
 
 ## Operative Transparenz und Vorbereitung
 

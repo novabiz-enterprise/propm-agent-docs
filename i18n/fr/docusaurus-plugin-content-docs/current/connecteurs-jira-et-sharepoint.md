@@ -51,9 +51,9 @@ Quel que soit le connecteur, le parcours logique est toujours le même :
 
 | Surface | Ce que l’on y fait |
 | --- | --- |
-| **Administration de la plateforme** | créer la définition technique, renseigner l’authentification, valider, tester selon le provider et activer les probes si besoin |
+| **Administration de la plateforme** | créer la définition technique, renseigner l’authentification, valider, tester selon le fournisseur et activer les sondes si besoin |
 | **Intégrations du projet** | vérifier quels connecteurs sont réellement ouverts au projet courant |
-| **Connaissance** | importer des documents, pages, tickets, work items ou autres sources selon le provider disponible |
+| **Connaissance** | importer des documents, pages, tickets, éléments de travail ou autres sources selon le fournisseur disponible |
 | **Politiques de gouvernance** | décider quels rôles peuvent observer, proposer ou exécuter des actions |
 | **Actions & approbations** | préparer une demande d’action, la faire approuver puis l’exécuter si le mode du connecteur le permet |
 | **Journal IA / activité** | garder la trace du flux et des exécutions |
@@ -70,43 +70,43 @@ Quel que soit le connecteur, le parcours logique est toujours le même :
 
 Les connecteurs d’exécution servent à **envoyer une action** depuis ProPM Agent vers un outil externe.
 
-L’écran **Intégrations du projet** montre ces connecteurs d’exécution activés comme disponibles à binder lorsqu’ils ne sont pas déjà rattachés au projet.
+L’écran **Intégrations du projet** montre ces connecteurs d’exécution activés comme disponibles au rattachement lorsqu’ils ne sont pas déjà rattachés au projet.
 
 ### Catalogue actuel des connecteurs d’exécution
 
 | Connecteur dans l’interface | Utilité principale | Action projet typique |
 | --- | --- | --- |
-| **Asta Powerproject schedule sync** | synchroniser les plannings et baselines d’entreprise | binder lorsque les mises à jour de planning doivent passer par un canal projet gouverné |
-| **Azure DevOps delivery project** | créer ou mettre à jour des work items et suivre la livraison | binder pour les équipes qui utilisent Boards, sprints ou backlogs delivery |
-| **Jira delivery workspace** | créer ou mettre à jour des tickets et suivis delivery | binder lorsque risques, blocages ou décisions doivent devenir des tickets Jira gouvernés |
-| **Microsoft Project schedule sync** | synchroniser les plannings Microsoft Project | binder lorsque le planning maître est géré dans Microsoft Project |
-| **Microsoft Teams collaboration** | envoyer des messages collaboratifs et notifications d’approbation gouvernés | binder pour les notifications d’équipe contrôlées |
-| **Outlook executive notifications** | envoyer des e-mails ou relances gouvernées aux parties prenantes | binder pour les communications formelles à des destinataires nommés |
-| **SharePoint publication library** | publier des artefacts relus vers une bibliothèque SharePoint | binder lorsque les livrables PM approuvés doivent être diffusés via SharePoint |
-| **Smartsheet portfolio workspace** | mettre à jour les feuilles et données de portefeuille | binder lorsque le suivi portefeuille est géré dans Smartsheet |
-| **Webhook event delivery** | appeler un endpoint d’entreprise ou interne spécifique | binder pour une automatisation aval personnalisée |
-| **Wrike delivery workspace** | mettre à jour tâches, responsables et coordination delivery | binder lorsque Wrike porte le travail opérationnel |
+| **Asta Powerproject schedule sync** | synchroniser les plannings et références d’entreprise | rattacher lorsque les mises à jour de planning doivent passer par un canal projet gouverné |
+| **Azure DevOps delivery project** | créer ou mettre à jour des éléments de travail et suivre la livraison | rattacher pour les équipes qui utilisent Boards, sprints ou backlogs de livraison |
+| **Jira delivery workspace** | créer ou mettre à jour des tickets et suivis de livraison | rattacher lorsque risques, blocages ou décisions doivent devenir des tickets Jira gouvernés |
+| **Microsoft Project schedule sync** | synchroniser les plannings Microsoft Project | rattacher lorsque le planning maître est géré dans Microsoft Project |
+| **Microsoft Teams collaboration** | envoyer des messages collaboratifs et notifications d’approbation gouvernés | rattacher pour les notifications d’équipe contrôlées |
+| **Outlook executive notifications** | envoyer des e-mails ou relances gouvernées aux parties prenantes | rattacher pour les communications formelles à des destinataires nommés |
+| **SharePoint publication library** | publier des artefacts relus vers une bibliothèque SharePoint | rattacher lorsque les livrables PM approuvés doivent être diffusés via SharePoint |
+| **Smartsheet portfolio workspace** | mettre à jour les feuilles et données de portefeuille | rattacher lorsque le suivi portefeuille est géré dans Smartsheet |
+| **Webhook event delivery** | appeler un point de terminaison d’entreprise ou interne spécifique | rattacher pour une automatisation aval personnalisée |
+| **Wrike delivery workspace** | mettre à jour tâches, responsables et coordination de livraison | rattacher lorsque Wrike porte le travail opérationnel |
 
 ## Fournisseurs d’ingestion visibles
 
 Les fournisseurs d’ingestion servent à **faire entrer du contenu** dans ProPM Agent pour enrichir la **Connaissance**.
 
-L’écran projet sépare les fournisseurs déjà bindés des fournisseurs **Available to bind**. Les compteurs varient selon le tenant, mais l’écran distingue les bindings sains des entrées de catalogue qui demandent encore un binding projet ou une configuration plateforme.
+L’écran projet sépare les fournisseurs déjà rattachés des fournisseurs **disponibles au rattachement**. Les compteurs varient selon le tenant, mais l’écran distingue les rattachements sains des entrées de catalogue qui demandent encore un rattachement projet ou une configuration plateforme.
 
 ### Catalogue actuel des fournisseurs d’ingestion
 
-| Fournisseur dans l’interface | Mode ou source affiché | Utilité principale | Note de readiness |
+| Fournisseur dans l’interface | Mode ou source affiché | Utilité principale | Note de préparation |
 | --- | --- | --- | --- |
-| **Smartsheet sheet import** | Smartsheet · Scheduled | rafraîchir des feuilles portefeuille dans la Connaissance | peut apparaître comme bindé et **Healthy** |
-| **Azure Data Factory evidence pipeline** | ADF · Pipeline | importer des preuves, RAID et rafraîchissements de reporting | peut apparaître comme bindé et **Healthy** |
-| **Asta Powerproject schedule import** | Asta Powerproject Import · Manual | importer des snapshots et baselines de planning | disponible à binder quand **Ready** |
-| **Azure Blob document ingest** | Blob Storage · Scheduled | ingérer des dépôts documentaires gouvernés et archives | disponible à binder quand **Ready** |
+| **Smartsheet sheet import** | Smartsheet · Scheduled | rafraîchir des feuilles portefeuille dans la Connaissance | peut apparaître comme rattaché et **Healthy** |
+| **Azure Data Factory evidence pipeline** | ADF · Pipeline | importer des preuves, RAID et rafraîchissements de reporting | peut apparaître comme rattaché et **Healthy** |
+| **Asta Powerproject schedule import** | Asta Powerproject Import · Manual | importer des snapshots et baselines de planning | disponible au rattachement quand **Ready** |
+| **Azure Blob document ingest** | Blob Storage · Scheduled | ingérer des dépôts documentaires gouvernés et archives | disponible au rattachement quand **Ready** |
 | **Confluence knowledge import** | Confluence · Manual | importer des pages wiki et connaissances procédurales | peut afficher **Not configured** tant que la source n’est pas complétée |
 | **Jira issue import** | Jira · Scheduled | importer issues, blocages et preuves de suivi | peut afficher **Not configured** tant que la source n’est pas complétée |
-| **Microsoft Project schedule import** | MS Project Import · Manual | importer des baselines et mises à jour de planning | disponible à binder quand **Ready** |
+| **Microsoft Project schedule import** | MS Project Import · Manual | importer des baselines et mises à jour de planning | disponible au rattachement quand **Ready** |
 | **SFTP document intake** | SFTP · Scheduled | importer des dépôts de documents tiers | peut afficher **Not configured** tant que l’hôte, le dossier et les identifiants ne sont pas complétés |
-| **SharePoint knowledge import** | SharePoint · Manual | importer des bibliothèques de connaissance et artefacts de reporting | disponible à binder après configuration du site et de la bibliothèque |
-| **Wrike task import** | Wrike · Scheduled | importer tâches, responsables et preuves de workflow | disponible à binder après configuration de l’espace |
+| **SharePoint knowledge import** | SharePoint · Manual | importer des bibliothèques de connaissance et artefacts de reporting | disponible au rattachement après configuration du site et de la bibliothèque |
+| **Wrike task import** | Wrike · Scheduled | importer tâches, responsables et preuves de flux de travail | disponible au rattachement après configuration de l’espace |
 
 ## Connecteurs présents dans plusieurs rôles
 
@@ -114,8 +114,8 @@ Certains noms apparaissent dans plusieurs endroits du produit. C’est normal : 
 
 | Famille | Rôle d’import | Rôle d’exécution | Lecture correcte |
 | --- | --- | --- | --- |
-| **SharePoint** | **SharePoint knowledge import** | **SharePoint publication library** | peut lire des documents et publier un artefact relu, mais chaque rôle a son propre setup et binding |
-| **Jira** | **Jira issue import** | **Jira delivery workspace** | peut importer le contexte Jira puis créer un ticket gouverné si le connecteur d’exécution est aussi bindé |
+| **SharePoint** | **SharePoint knowledge import** | **SharePoint publication library** | peut lire des documents et publier un artefact relu, mais chaque rôle a sa propre configuration et son propre rattachement |
+| **Jira** | **Jira issue import** | **Jira delivery workspace** | peut importer le contexte Jira puis créer un ticket gouverné si le connecteur d’exécution est aussi rattaché |
 | **Microsoft Project** | **Microsoft Project schedule import** | **Microsoft Project schedule sync** | peut faire entrer des preuves de planning dans la Connaissance et synchroniser des changements gouvernés |
 | **Smartsheet** | **Smartsheet sheet import** | **Smartsheet portfolio workspace** | peut rafraîchir les preuves portefeuille et mettre à jour Smartsheet comme destination d’exécution |
 | **Wrike** | **Wrike task import** | **Wrike delivery workspace** | peut importer des preuves de tâches opérationnelles et mettre à jour Wrike via des actions gouvernées |
@@ -164,19 +164,19 @@ Un fournisseur d’ingestion doit identifier la source, le mode d’import et l�
 | **Wrike task import** | `folder_id` ou `space_id` | bearer token ou OAuth | lit les tâches du dossier ou de l’espace |
 | **Asta Powerproject schedule import** | `base_url` ou `endpoint_url`, puis `project_id`, `portfolio` ou `schedule_id` | API key, bearer token, OAuth ou basic | utilise l’endpoint ou le chemin de probe configuré |
 
-## Validation, probes et limites d’exécution
+## Validation, sondes et limites d’exécution
 
 | Étape | Ce que cela confirme | Ce que cela ne garantit pas |
 | --- | --- | --- |
 | **Save** | la définition est enregistrée au niveau plateforme | la source externe n’a pas forcément été contactée |
 | **Validate** | les champs obligatoires, le mode, l’authentification et les URL HTTPS sont cohérents | un appel réseau réel n’est lancé que si les probes sont activées |
-| **Connectivity probe** | ProPM Agent peut joindre un endpoint non destructif du provider | la création d’un ticket, l’envoi d’un message ou l’import complet ne sont pas déclenchés |
-| **Bind to project** | le projet peut consommer la définition plateforme | la policy, le rôle utilisateur, le health, la validation et le binding peuvent encore bloquer l’usage |
-| **Validate binding** | le binding projet reste aligné avec la définition plateforme | cela ne remplace pas une action ou un import métier réel |
+| **Sonde de connectivité** | ProPM Agent peut joindre un point de terminaison non destructif du fournisseur | la création d’un ticket, l’envoi d’un message ou l’import complet ne sont pas déclenchés |
+| **Bind to project** | le projet peut consommer la définition plateforme | la politique, le rôle utilisateur, l’état de santé, la validation et le rattachement peuvent encore bloquer l’usage |
+| **Validate binding** | le rattachement projet reste aligné avec la définition plateforme | cela ne remplace pas une action ou un import métier réel |
 
-Les probes de connectivité sont volontairement opt-in. Elles peuvent être activées par l’administrateur avec `connectivity_probe_enabled`, `run_connectivity_probe`, `live_connectivity_check`, une métadonnée équivalente ou une variable d’environnement plateforme. Sans cette activation, la validation reste un contrôle de cohérence et de readiness.
+Les sondes de connectivité sont volontairement optionnelles. Elles peuvent être activées par l’administrateur avec `connectivity_probe_enabled`, `run_connectivity_probe`, `live_connectivity_check`, une métadonnée équivalente ou une variable d’environnement plateforme. Sans cette activation, la validation reste un contrôle de cohérence et de préparation.
 
-Si un connecteur reste en mode `mock` ou `test`, ProPM Agent peut gérer la demande, la gouvernance, l’approbation et la trace sans nécessairement envoyer l’appel final au système externe. Une exécution vendor réelle demande un mode de connecteur compatible, une configuration complète, une policy autorisante et un environnement qui active ce chemin.
+Si un connecteur reste en mode `mock` ou `test`, ProPM Agent peut gérer la demande, la gouvernance, l’approbation et la trace sans nécessairement envoyer l’appel final au système externe. Une exécution réelle côté fournisseur demande un mode de connecteur compatible, une configuration complète, une politique autorisante et un environnement qui active ce chemin.
 
 ## Actions gouvernées et connecteur requis
 
@@ -190,33 +190,33 @@ Si un connecteur reste en mode `mock` ou `test`, ProPM Agent peut gérer la dema
 
 Certains libellés hérités sont normalisés automatiquement. Par exemple `send_message` devient `send_teams_message`, `send_email` devient `send_outlook_message`, `create_work_item` devient `create_azure_devops_ticket`, et `publish_sharepoint_artifact` devient `publish_artifact_to_sharepoint`.
 
-## Statuts, blockers et ordre de diagnostic
+## Statuts, blocages et ordre de diagnostic
 
-| Statut ou blocker visible | Lecture pratique | Première action recommandée |
+| Statut ou blocage visible | Lecture pratique | Première action recommandée |
 | --- | --- | --- |
-| **Ready** ou **available** | la définition peut être bindée ou utilisée si le reste de la chaîne est ouvert | vérifier le binding projet et la policy |
-| **Healthy** | la dernière validation connue est positive | confirmer que le projet est bien bindé |
+| **Ready** ou **available** | la définition peut être rattachée ou utilisée si le reste de la chaîne est ouvert | vérifier le rattachement projet et la politique |
+| **Healthy** | la dernière validation connue est positive | confirmer que le projet est bien rattaché |
 | **Not configured** | il manque des champs, une source, une cible ou des identifiants | compléter la définition dans Administration de la plateforme |
-| **Not validated** ou **not_tested** | la définition existe mais n’a pas encore passé la validation ou le test attendu | lancer Validate ou le probe approprié |
-| **Blocked by health** | la santé plateforme est dégradée ou invalide | vérifier endpoint, auth, scopes et réseau |
-| **Blocked by entitlement** | libellé hérité pour une intégration bloquée ; dans les plans Marketplace, ce n’est pas une différence de fonctionnalité | vérifier configuration, health, binding, policy, rôle et disponibilité de licence en cas de blocage d’accès |
+| **Not validated** ou **not_tested** | la définition existe mais n’a pas encore passé la validation ou le test attendu | lancer Validate ou la sonde appropriée |
+| **Blocked by health** | la santé plateforme est dégradée ou invalide | vérifier point de terminaison, authentification, périmètres et réseau |
+| **Blocked by entitlement** | libellé hérité pour une intégration bloquée ; dans les plans Marketplace, ce n’est pas une différence de fonctionnalité | vérifier configuration, état de santé, rattachement, politique, rôle et disponibilité de licence en cas de blocage d’accès |
 | **Blocked by policy** | la gouvernance projet interdit cette action ou ce type d’usage | ajuster la politique ou le rôle |
-| **Binding disabled** | le binding projet existe mais est désactivé | réactiver ou recréer le binding si autorisé |
+| **Binding disabled** | le rattachement projet existe mais est désactivé | réactiver ou recréer le rattachement si autorisé |
 | **Missing platform definition** | le projet référence une définition absente ou supprimée | recréer ou corriger la définition plateforme |
 
-L’ordre le plus utile pour diagnostiquer est : définition plateforme, configuration obligatoire, validation ou probe, binding projet, policy, permission utilisateur, payload de l’action ou de l’import, puis disponibilité de licence si l’utilisateur ne peut pas accéder à l’app.
+L’ordre le plus utile pour diagnostiquer est : définition plateforme, configuration obligatoire, validation ou sonde, rattachement projet, politique, permission utilisateur, charge utile de l’action ou de l’import, puis disponibilité de licence si l’utilisateur ne peut pas accéder à l’app.
 
 ## Import, sortie externe et audit
 
 | Sujet | Ce que ProPM Agent trace | Ce qu’il faut vérifier côté outil externe |
 | --- | --- | --- |
-| Import Knowledge | run d’ingestion, provider, binding, source label, fraîcheur, compteurs et Trace ID | volume réellement disponible, droits source, filtres, fichiers ignorés et déduplication |
+| Import Knowledge | exécution d’ingestion, fournisseur, rattachement, libellé de source, fraîcheur, compteurs et Trace ID | volume réellement disponible, droits source, filtres, fichiers ignorés et déduplication |
 | Publication SharePoint | demande d’action, approbation, connecteur, destination et Trace ID | URL finale, bibliothèque, droits d’écriture et version publiée |
-| Jira ou Azure DevOps | action, justification, payload métier et Trace ID | clé du ticket ou work item créé, projet cible et type d’item |
-| Teams ou Outlook | demande, destinataires ou canal logique, approbation et Trace ID | message réellement remis, canal, mailbox et éventuels refus Graph |
-| Webhook | endpoint logique, statut de tentative, réponse ou erreur et Trace ID | code HTTP, réponse tronquée, validation de signature et retraitement aval |
+| Jira ou Azure DevOps | action, justification, charge utile métier et Trace ID | clé du ticket ou élément de travail créé, projet cible et type d’élément |
+| Teams ou Outlook | demande, destinataires ou canal logique, approbation et Trace ID | message réellement remis, canal, boîte aux lettres et éventuels refus Graph |
+| Webhook | point de terminaison logique, statut de tentative, réponse ou erreur et Trace ID | code HTTP, réponse tronquée, validation de signature et retraitement aval |
 
-Ne placez jamais de secret dans le payload métier d’une action ou dans une note utilisateur. Les secrets, clés et références sensibles doivent rester dans la configuration plateforme prévue pour cet usage.
+Ne placez jamais de secret dans la charge utile métier d’une action ou dans une note utilisateur. Les secrets, clés et références sensibles doivent rester dans la configuration plateforme prévue pour cet usage.
 
 ## Sécurité et authentification
 
@@ -270,7 +270,7 @@ SharePoint est l’un des meilleurs exemples pour comprendre la logique complèt
 3. l’équipe consulte un signal ou une décision ;
 4. elle crée une action **Créer un ticket Jira** ;
 5. la gouvernance décide si l’action est directe ou soumise à approbation ;
-6. le ticket est créé si l’exécution vendor live est activée ; dans tous les cas, la demande et sa décision restent tracées dans le produit.
+6. le ticket est créé si l’exécution réelle côté fournisseur est activée ; dans tous les cas, la demande et sa décision restent tracées dans le produit.
 
 ### Avantages de Jira dans ProPM Agent
 
@@ -302,13 +302,13 @@ La diffusion ne part pas comme un message libre : elle reste **gouvernée, relue
 
 ### Quand l’utiliser
 
-Utilisez **Webhook event delivery** lorsque ProPM Agent doit appeler un endpoint interne ou tiers précis après une décision gouvernée.
+Utilisez **Webhook event delivery** lorsque ProPM Agent doit appeler un point de terminaison interne ou tiers précis après une décision gouvernée.
 
 ### Intégration avec ProPM Agent
 
 - dans le catalogue actuel, Webhook est un **connecteur d’exécution** ;
-- bindez-le au projet seulement après validation de l’endpoint plateforme et du health ;
-- si une ingestion webhook entrante est ajoutée plus tard, traitez-la comme un fournisseur d’ingestion séparé, avec sa propre validation et son propre binding projet.
+- rattachez-le au projet seulement après validation du point de terminaison plateforme et de l’état de santé ;
+- si une ingestion webhook entrante est ajoutée plus tard, traitez-la comme un fournisseur d’ingestion séparé, avec sa propre validation et son propre rattachement projet.
 
 ### Avantage principal
 
@@ -328,11 +328,11 @@ Pour lire correctement l’état d’un connecteur, distinguez trois situations 
 
 Un connecteur peut être visible mais non utilisable si :
 
-- son état **health** appelle une vérification ;
-- le binding projet n’est pas ouvert, sain ou configuré ;
-- la **policy** du projet bloque l’usage ;
+- son état de santé appelle une vérification ;
+- le rattachement projet n’est pas ouvert, sain ou configuré ;
+- la **politique** du projet bloque l’usage ;
 - l’utilisateur n’a pas la bonne **permission** ;
-- le binding projet n’a pas encore été ouvert ;
+- le rattachement projet n’a pas encore été ouvert ;
 - la destination d’artefact attendue n’est pas configurée.
 
 ## Lecture simple
@@ -341,17 +341,17 @@ Un connecteur peut être visible mais non utilisable si :
 | --- | --- |
 | le connecteur existe au niveau plateforme mais n’apparaît pas dans le projet | **Intégrations du projet** |
 | il apparaît dans le projet mais aucune action ne part | **Politiques de gouvernance** et permissions du rôle |
-| l’action est visible mais aucune option saine n’apparaît | santé du connecteur, binding projet et option d’exécution compatible |
+| l’action est visible mais aucune option saine n’apparaît | santé du connecteur, rattachement projet et option d’exécution compatible |
 | l’import est proposé mais ne retourne rien | fournisseur d’ingestion, source réellement accessible et fraîcheur des données |
 | la publication SharePoint n’aboutit pas encore | destination d’artefact, politique, approbation et connecteur **SharePoint publish** |
 
-## Workflow recommandé pour votre équipe
+## Flux recommandé pour votre équipe
 
 1. identifier les outils réellement utiles au projet ;
 2. préparer les connecteurs dans **Administration de la plateforme** ;
 3. n’ouvrir au projet que les connecteurs prêts ;
 4. régler les **Politiques de gouvernance** par rôle ;
-5. tester un premier import ou une première action en distinguant readiness, probe et exécution vendor réelle ;
+5. tester un premier import ou une première action en distinguant préparation, sonde et exécution réelle côté fournisseur ;
 6. vérifier la trace finale dans le **Journal IA**.
 
 ## À retenir

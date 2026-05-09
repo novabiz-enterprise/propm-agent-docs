@@ -27,11 +27,11 @@ L’interface suit une logique simple :
 | --- | --- |
 | Tableau de bord | Lire l’état général et les prochaines étapes suggérées |
 | Projets | Créer un projet, ouvrir un projet existant, choisir le projet actif |
-| Espace de travail | Résumé projet, signaux, readiness et réglages projet |
+| Espace de travail | Résumé projet, signaux, préparation et réglages projet |
 | Connaissance | Rechercher, téléverser et importer les documents de référence |
 | Agents | Interagir avec les agents disponibles et lire les sorties structurées |
 | Rapports & artefacts | Réviser, comparer, publier ou télécharger les Documents PM |
-| Journal IA | Inspecter les runs, événements et métadonnées de traçabilité |
+| Journal IA | Inspecter les exécutions, événements et métadonnées de traçabilité |
 | Centre de commande portefeuille | Comparer plusieurs projets via des signaux configurables |
 | Administration de la plateforme | Gérer intégrations, fournisseur IA, abonnement et activité plateforme |
 
@@ -54,11 +54,11 @@ Utilisez-le comme une **page d’orientation** : si un projet n’est pas actif,
 | Zone | Ce qu’elle synthétise | Réflexe utile |
 | --- | --- | --- |
 | Tuiles de synthèse | compteurs de projets, de connaissance, d’agents actifs, de signaux ouverts, de brouillons de notifications et d’actions en attente | repérer immédiatement si le sujet est un manque de contexte, un retard de revue ou une file d’attente gouvernée |
-| Cartes de score | état général de la delivery, du rythme d’exécution, de la couverture de gouvernance et de la profondeur de connaissance | lire ces cartes comme des repères d’orientation avant d’ouvrir un écran de détail |
-| Blocs de readiness | fondation connaissance, couverture d’automatisation, posture de gouvernance et flux de livraison | identifier quel pilier bloque l’usage normal du projet |
-| Panneau **Attention** | signaux, actions gouvernées et watchlist connecteurs | aller vers l’**Espace de travail** pour traiter les blocages actifs |
+| Cartes de score | état général de la livraison, du rythme d’exécution, de la couverture de gouvernance et de la profondeur de connaissance | lire ces cartes comme des repères d’orientation avant d’ouvrir un écran de détail |
+| Blocs de préparation | fondation connaissance, couverture d’automatisation, posture de gouvernance et flux de livraison | identifier quel pilier bloque l’usage normal du projet |
+| Panneau **Attention** | signaux, actions gouvernées et liste de surveillance des connecteurs | aller vers l’**Espace de travail** pour traiter les blocages actifs |
 | Panneau **Pulse** | dernier digest, notifications récentes, activité récente et état connecteurs | vérifier ce qui vient de changer sans relire tout l’historique du projet |
-| Quick links | raccourcis vers **Workspace**, **Knowledge**, **Agents**, **Reports & artifacts**, **AI Log** et **Portfolio** | ouvrir directement la bonne surface au lieu de naviguer écran par écran |
+| Liens rapides | raccourcis vers **Espace de travail**, **Connaissance**, **Agents**, **Rapports & artefacts**, **Journal IA** et **Portfolio** | ouvrir directement la bonne surface au lieu de naviguer écran par écran |
 
 Les scores et indicateurs du tableau de bord doivent être lus comme des **repères de priorisation**, pas comme une conclusion isolée à eux seuls.
 
@@ -66,8 +66,8 @@ Les scores et indicateurs du tableau de bord doivent être lus comme des **repè
 
 1. confirmez d’abord le **projet actif** dans la barre supérieure ;
 2. traitez ensuite les cartes comme des **signaux d’orientation**, pas comme la seule source de vérité ;
-3. ouvrez l’**Espace de travail** pour vérifier signaux, readiness et blocages projet ;
-4. ouvrez le **Journal IA** si le doute porte sur un run, une sortie ou un fournisseur réellement utilisé ;
+3. ouvrez l’**Espace de travail** pour vérifier signaux, préparation et blocages projet ;
+4. ouvrez le **Journal IA** si le doute porte sur une exécution, une sortie ou un fournisseur réellement utilisé ;
 5. si le tableau de bord charge mais appelle une vérification complémentaire, ouvrez l’**indicateur de santé** avant de conclure sur les données affichées.
 
 ![Barre supérieure et navigation globale](/img/screenshots/localized/fr/01-navigation-topbar.jpg)
@@ -148,7 +148,7 @@ Si le panneau indique un état dégradé alors que l’interface charge encore, 
 | --- | --- | --- |
 | l’**authentification** | [Démarrage](./demarrage.md) | pour distinguer tenant, compte, `redirect URI`, groupe admin ou siège |
 | le **runtime**, l’API ou la connectivité | [Maintenance, support et FAQ](./maintenance-support-faq.md) | pour suivre le parcours de vérification entre santé, fournisseur IA, intégrations et exécution |
-| le **contexte projet**, un écran vide ou une action absente | [Projets et espace de travail](./projets-et-espace-de-travail.md) | pour vérifier le projet actif, le binding, la readiness et les droits projet |
+| le **contexte projet**, un écran vide ou une action absente | [Projets et espace de travail](./projets-et-espace-de-travail.md) | pour vérifier le projet actif, le rattachement, la préparation et les droits projet |
 
 Avant d’escalader, relevez l’état affiché pour **API**, **realtime**, **auth**, la **latence**, le **projet courant** et l’heure approximative du test. Ces éléments facilitent fortement le traitement par l’équipe en charge.
 

@@ -57,7 +57,7 @@ Reference के लिए known ProPM Marketplace plans ये हैं:
 
 नया deployment start करने से पहले plan, price और billing terms हमेशा Azure Marketplace में confirm करें।
 
-`propm0`, `pro`, `enterprise`, `pm-*` जैसे पुराने या internal identifiers, या dynamically generated plans, नए upgrade के लिए choices नहीं हैं। `propm0` पुराने existing deployments पर अभी भी दिख सकता है; इसे historical compatibility मानें, नए upgrade के लिए select करने वाला plan नहीं।
+किसी भी नए deployment या upgrade के लिए केवल Azure Marketplace में currently available ProPM plans का उपयोग करें।
 
 Marketplace plans license capacity control करते हैं। वे connectors, AI providers या product features unlock या block नहीं करते।
 
@@ -241,16 +241,6 @@ New deployment validate होने से पहले delete न करें
 **Supplemental licenses कैसे manage होती हैं?**
 
 Supplemental licenses Azure Marketplace में `seats` billing dimension के साथ manage होती हैं। ProPM counters दिखा और synchronize कर सकता है, लेकिन billing reference Azure Marketplace रहता है।
-
-## Downgrade restrictions
-
-ProPM application के अंदर downgrade की technical application prevent कर सकता है:
-
-- current plan से lower plan refuse हो सकता है;
-- ordered licenses की reduction refuse हो सकती है;
-- capacity घटाने वाले Marketplace changes application में automatically apply नहीं होते।
-
-Marketplace billing Azure/Microsoft manage करते हैं। कोई भी commercial modification Azure Marketplace में perform और validate होना चाहिए।
 
 ## Refresh Marketplace plan
 

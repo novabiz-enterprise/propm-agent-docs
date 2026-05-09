@@ -75,7 +75,9 @@ La primera etapa define el alcance de Azure del despliegue.
 
 Esta pantalla agrupa los parámetros de identidad, proveedor IA, seguridad inicial, supervisión y red.
 
-![Parámetros actuales de la aplicación del despliegue](/img/deploiement/fr/deploiement-02-application-settings-actuel.png)
+Para un primer despliegue, mantén **New installation** seleccionado y elige **Create new resources** para que el asistente Marketplace cree los recursos del nuevo entorno ProPM.
+
+![Parámetros actuales de la aplicación del despliegue](/img/deploiement/deploiement-02-parametres-application.png)
 
 ### Campos visibles en la captura
 

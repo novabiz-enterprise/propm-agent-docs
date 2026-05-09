@@ -75,7 +75,9 @@ Der erste Schritt definiert den Azure-Bereich der Bereitstellung.
 
 Dieser Bildschirm fasst die Identitäts-, KI-Anbieter-, Sicherheits-, Überwachungs- und Netzwerkparameter zusammen.
 
-![Aktuelle Anwendungs-Einstellungen der Bereitstellung](/img/deploiement/fr/deploiement-02-application-settings-actuel.png)
+Für eine Erstbereitstellung lassen Sie **New installation** ausgewählt und wählen **Create new resources**, damit der Marketplace-Assistent die Ressourcen für die neue ProPM-Umgebung erstellt.
+
+![Aktuelle Anwendungs-Einstellungen der Bereitstellung](/img/deploiement/deploiement-02-parametres-application.png)
 
 ### Sichtbare Felder in der Aufnahme
 

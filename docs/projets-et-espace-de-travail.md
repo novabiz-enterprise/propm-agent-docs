@@ -99,7 +99,7 @@ The **Workspace** brings together in a single surface:
 - the project’s **signals**;
 - project‑level setting tabs.
 
-This documentation no longer presents a dedicated **voice** entry point in the **Workspace**. When voice input still exists in some environments, it is done in **Agents**, not as a separate entry point here.
+The **Workspace** no longer presents a dedicated **voice** entry point. When voice input still exists in some environments, it is available in **Agents**, not as a separate workspace entry point.
 
 ## Operational transparency and preparation
 

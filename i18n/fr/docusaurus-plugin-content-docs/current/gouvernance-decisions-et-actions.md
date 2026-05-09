@@ -272,12 +272,12 @@ Dans l’interface, cette surface se lit plus facilement à travers quatre état
 
 | Lecture canonique | Ce que cela veut dire |
 | --- | --- |
-| **Execution prerequisites** | des options d’exécution compatibles peuvent exister, mais leur usage opérationnel reste bloqué ou indisponible |
-| **Pending approval** | une demande gouvernée a été proposée et attend encore une décision |
-| **Ready to execute** | la demande est déjà **approved**, mais l’exécution contrôlée reste une étape séparée |
-| **Executed history** | l’action a réellement été exécutée et reste visible comme historique d’audit |
+| **Prérequis d’exécution** | des options d’exécution compatibles peuvent exister, mais leur usage opérationnel reste bloqué ou indisponible |
+| **En attente d’approbation** | une demande gouvernée a été proposée et attend encore une décision |
+| **Prêt à exécuter** | la demande est déjà en état `approved`, mais l’exécution contrôlée reste une étape séparée |
+| **Historique d’exécution** | l’action a réellement été exécutée et reste visible comme historique d’audit |
 
-Une demande **approved** n’est donc pas encore une demande **executed**.
+Une demande en état `approved` n’est donc pas encore une demande en état `executed`.
 
 ### Quand tout est correctement prêt, que devrait-on voir ?
 
@@ -285,9 +285,9 @@ Dans un cas nominal, l’utilisateur autorisé retrouve en général :
 
 - au moins un **type d’action** pertinent ;
 - une **option d’exécution compatible et saine** ;
-- un **binding projet** réellement actif ;
-- une **policy** qui autorise la proposition ou route vers l’approbation ;
-- une file où les demandes passent ensuite en **pending approval**, **approved**, **executed** ou **rejected** selon le cas.
+- un **rattachement projet** réellement actif ;
+- une **politique** qui autorise la proposition ou route vers l’approbation ;
+- une file où les demandes passent ensuite par `pending approval`, `approved`, `executed` ou `rejected` selon le cas.
 
 Si un de ces maillons manque, l’écran peut paraître vide, incomplet ou purement informatif sans qu’il s’agisse forcément d’une panne.
 
@@ -298,8 +298,8 @@ Un utilisateur y retrouve généralement :
 - un formulaire **Proposer une action gouvernée** ;
 - le choix du **type d’action** ;
 - le choix du **connecteur d’exécution** ou de l’**option d’exécution** ;
-- un résumé de **readiness** indiquant ce qui est disponible ou bloqué ;
-- des champs comme **titre**, **rationale**, **destination**, **message**, **ticket description** ;
+- un résumé de **préparation** indiquant ce qui est disponible ou bloqué ;
+- des champs comme **titre**, **justification**, **destination**, **message**, **description du ticket** ;
 - une **file d’approbation et d’exécution** avec les demandes déjà soumises.
 
 ## Pas à pas — créer une action gouvernée
@@ -333,13 +333,13 @@ Si aucune option saine n’apparaît, la vérification porte souvent sur :
 
 - du connecteur lui-même ;
 - de son état de santé ;
-- du binding projet ;
+- du rattachement projet ;
 - de la politique ;
 - ou de votre permission.
 
-### Étape 4 — Lire la readiness
+### Étape 4 — Lire la préparation
 
-La zone **Execution readiness** sert à vérifier que vous n’êtes pas en train de préparer une action théorique seulement.
+La zone **Préparation d’exécution** sert à vérifier que vous n’êtes pas en train de préparer une action théorique seulement.
 
 En pratique :
 

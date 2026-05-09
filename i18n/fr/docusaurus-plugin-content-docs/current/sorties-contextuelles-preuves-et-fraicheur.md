@@ -41,51 +41,51 @@ Les sorties structurées et leurs métadonnées sont visibles dans plusieurs sur
 
 ### Ordre de lecture recommandé
 
-1. lisez le **Summary** ;
-2. ouvrez ensuite **Decisions needed** ou **Actions** ;
-3. vérifiez la section **Evidence** ;
-4. relisez la **Confidence** et la **Source freshness** ;
+1. lisez le **Résumé** ;
+2. ouvrez ensuite **Décisions à prendre** ou **Actions** ;
+3. vérifiez la section **Preuves** ;
+4. relisez la **Confiance** et la **Fraîcheur des sources** ;
 5. décidez ensuite si la réponse peut rester dans le chat, devenir un brouillon d’artefact ou nécessiter une revue humaine.
 
 ### Signification des sections
 
 | Section | À quoi elle sert |
 | --- | --- |
-| Summary | Version la plus courte du résultat, prête à être relue rapidement |
-| Findings | Faits, motifs ou constats mis en avant par le run |
-| Decisions needed | Points qui demandent un arbitrage humain |
+| Résumé | Version la plus courte du résultat, prête à être relue rapidement |
+| Constats | Faits, motifs ou constats mis en avant par l’exécution |
+| Décisions à prendre | Points qui demandent un arbitrage humain |
 | Actions | Suites recommandées à exécuter ou planifier |
-| Assumptions | Conditions implicites dont dépend la réponse |
-| Missing information | Informations absentes qui réduisent la solidité du résultat |
-| Watchpoints | Risques, contradictions ou sujets à surveiller |
-| Evidence | Références servant de preuve ou de justification |
-| Artifact status / Artifact proposals | Indications sur la transformation possible du résultat en artefact gouverné |
-| Follow-ups | Étapes de continuation proposées |
+| Hypothèses | Conditions implicites dont dépend la réponse |
+| Informations manquantes | Informations absentes qui réduisent la solidité du résultat |
+| Points de vigilance | Risques, contradictions ou sujets à surveiller |
+| Preuves | Références servant de preuve ou de justification |
+| Statut de l’artefact / Propositions d’artefact | Indications sur la transformation possible du résultat en artefact gouverné |
+| Suites à donner | Étapes de continuation proposées |
 | Notifications | Brouillons ou notifications suggérées par le flux |
 
 ## Exemple simplifié de lecture
 
 L’exemple ci-dessous est **illustratif**. Il sert à montrer comment relire une carte structurée avant réutilisation :
 
-> - **Summary** : le lot critique semble en retard de deux semaines.
-> - **Findings** : la dernière note planning est plus récente que le connecteur calendrier gouverné.
-> - **Decisions needed** : faut-il rebaseliner le jalon sponsor ou demander une revalidation planning ?
-> - **Evidence** : note planning, extrait de rapport hebdomadaire, état du connecteur source.
-> - **Source freshness** : connaissance `fresh`, connecteur planning `stale`.
-> - **Watchpoints** : contradiction possible entre la communication projet et la dernière donnée synchronisée.
+> - **Résumé** : le lot critique semble en retard de deux semaines.
+> - **Constats** : la dernière note planning est plus récente que le connecteur calendrier gouverné.
+> - **Décisions à prendre** : faut-il rebaseliner le jalon sponsor ou demander une revalidation planning ?
+> - **Preuves** : note planning, extrait de rapport hebdomadaire, état du connecteur source.
+> - **Fraîcheur des sources** : connaissance `fresh`, connecteur planning `stale`.
+> - **Points de vigilance** : contradiction possible entre la communication projet et la dernière donnée synchronisée.
 
 Lecture recommandée dans ce cas :
 
-1. le **Summary** vous dit quoi relire en priorité ;
-2. la combinaison **Evidence** + **Source freshness** vous empêche de publier trop vite ;
-3. la présence d’un **Watchpoint** et d’une décision à prendre pousse vers une revue humaine, puis vers un artefact si le sujet devient formel.
+1. le **Résumé** vous dit quoi relire en priorité ;
+2. la combinaison **Preuves** + **Fraîcheur des sources** vous empêche de publier trop vite ;
+3. la présence d’un **point de vigilance** et d’une décision à prendre pousse vers une revue humaine, puis vers un artefact si le sujet devient formel.
 
 ## Deux cas fréquents à distinguer
 
 | Cas | Lecture pratique | Décision recommandée |
 | --- | --- | --- |
-| **Confidence correcte mais fraîcheur insuffisante** | le raisonnement paraît cohérent, mais une partie des sources est `stale` ou `aging` | ne diffusez pas sans revalidation ou sans rafraîchissement documentaire |
-| **Confidence faible mais sources récentes** | les sources sont récentes, mais le run signale encore des manques, contradictions ou hypothèses trop fortes | gardez la sortie comme travail exploratoire, puis relancez la revue ou le run avant de formaliser |
+| **Confiance correcte mais fraîcheur insuffisante** | le raisonnement paraît cohérent, mais une partie des sources est `stale` ou `aging` | ne diffusez pas sans revalidation ou sans rafraîchissement documentaire |
+| **Confiance faible mais sources récentes** | les sources sont récentes, mais l’exécution signale encore des manques, contradictions ou hypothèses trop fortes | gardez la sortie comme travail exploratoire, puis relancez la revue ou l’exécution avant de formaliser |
 
 Cette distinction évite de traiter la **confiance** comme une note unique. Une réponse peut sembler solide tout en s’appuyant sur des sources trop anciennes, ou l’inverse.
 
@@ -95,10 +95,10 @@ Chaque preuve ou citation peut exposer plusieurs éléments utiles :
 
 - un **titre** ou nom de source ;
 - un **URI source** ou un nom documentaire ;
-- un **snippet** ;
+- un **extrait** ;
 - une **page** ou une **section** quand elle est disponible ;
 - une date de **synchronisation** ;
-- un **source system** ;
+- un **système source** ;
 - un badge de **fraîcheur** ;
 - un rang d’**autorité** quand il est exposé.
 
@@ -121,21 +121,21 @@ Chaque preuve ou citation peut exposer plusieurs éléments utiles :
 
 ## Confiance
 
-La **Confidence** est un signal global de solidité du résultat. Elle doit être interprétée avec la fraîcheur et les preuves, jamais isolément.
+La **confiance** est un signal global de solidité du résultat. Elle doit être interprétée avec la fraîcheur et les preuves, jamais isolément.
 
 Prévoyez une revue humaine supplémentaire si vous voyez :
 
 - confiance faible ;
 - preuves absentes ou peu spécifiques ;
 - états `stale`, `conflicting` ou `unavailable` ;
-- section **Missing information** importante ;
+- section **Informations manquantes** importante ;
 - décision ou action à impact externe.
 
 ## Niveau de relecture selon l’impact
 
 | Niveau d’impact | Relecture minimale | Escalade recommandée |
 | --- | --- | --- |
-| Brouillon interne de travail | vérifier `Summary`, `Findings` et au moins une preuve réouvrable | garder la sortie dans le chat si elle reste exploratoire |
+| Brouillon interne de travail | vérifier le résumé, les constats et au moins une preuve réouvrable | garder la sortie dans le chat si elle reste exploratoire |
 | Coordination d’équipe ou action projet interne | vérifier preuves, fraîcheur, informations manquantes et actions proposées | créer un artefact si le résultat doit être partagé ou historisé |
 | Décision sponsor, publication, notification externe ou action gouvernée | relire toutes les preuves, arbitrer les états `conflicting` / `stale`, conserver les IDs techniques | passer par **Rapports & artefacts**, le **diff**, la **lignée** et le **Journal IA** avant diffusion |
 
@@ -155,7 +155,7 @@ Le chemin normal est :
 
 1. question projet ;
 2. réponse structurée ;
-3. création d’un **draft artifact** ;
+3. création d’un **brouillon d’artefact** ;
 4. revue du **diff** et de la **lignée** ;
 5. approbation ou publication.
 

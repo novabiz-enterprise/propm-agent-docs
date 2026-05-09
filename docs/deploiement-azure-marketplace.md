@@ -75,7 +75,9 @@ The first step defines the Azure scope of the deployment.
 
 This screen groups identity, AI provider, initial security, monitoring and network settings.
 
-![Current application settings of the deployment](/img/deploiement/fr/deploiement-02-application-settings-actuel.png)
+For a first deployment, keep **New installation** selected and choose **Create new resources** so the Marketplace wizard creates the resources for the new ProPM environment.
+
+![Current application settings of the deployment](/img/deploiement/deploiement-02-parametres-application.png)
 
 ### Visible fields in the screenshot
 

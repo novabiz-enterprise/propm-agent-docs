@@ -186,7 +186,7 @@ Ce cas indique souvent que l’authentification a réussi mais qu’une vérific
 | Microsoft renvoie une erreur avant le retour dans l’application | `authority`, tenant utilisé, `clientId`, `redirectUri`, `postLogoutRedirectUri`, `allowedTenantId` | comparez la configuration runtime et l’inscription Entra, puis refaites un test avec le bon compte |
 | La connexion Microsoft réussit mais l’application reste bloquée | disponibilité d’un **siège**, indicateur de santé, URL API | vérifiez ensuite l’accès à un projet et les droits réels du compte |
 | La connexion réussit, le tableau de bord charge, mais un contrôle de disponibilité est recommandé | états **auth**, **API**, latence et projet actif | ouvrez [Interface et navigation](./interface-et-navigation.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) pour distinguer auth, runtime et contexte projet |
-| L’application s’ouvre mais aucun projet n’apparaît | sélecteur de projet, liste **Projets**, appartenance au projet, droit de création | demandez au **Project Owner** d’ajouter le compte au bon projet si nécessaire |
+| L’application s’ouvre mais aucun projet n’apparaît | sélecteur de projet, liste **Projets**, appartenance au projet, droit de création | demandez au **propriétaire du projet** d’ajouter le compte au bon projet si nécessaire |
 | Une page est visible mais non modifiable | rôle projet ou rôle admin, état **lecture seule** vs **accès refusé** | contrôlez ensuite le groupe d’administration ou les permissions projet concernées |
 
 ## Situation, éléments à relever et page suivante

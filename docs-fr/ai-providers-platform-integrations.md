@@ -1,7 +1,7 @@
 ---
 title: Fournisseurs IA et intégrations plateforme
 slug: /ai-providers-platform-integrations
-description: Préparer les intégrations plateforme, configurer les fournisseurs IA, valider la readiness et distinguer configuration plateforme et usage projet.
+description: Préparer les intégrations plateforme, configurer les fournisseurs IA, valider la préparation et distinguer configuration plateforme et usage projet.
 ---
 
 [Accueil](./index.md) · Fournisseurs IA et intégrations plateforme
@@ -14,7 +14,7 @@ Cette page couvre la préparation technique de ProPM Agent au niveau plateforme 
 
 - les **intégrations de la plateforme** pour connecteurs et fournisseurs d’ingestion ;
 - les **paramètres du fournisseur IA** pour le runtime modèle ;
-- les règles de readiness, validation, test, health et binding projet.
+- les règles de préparation, validation, test, santé et rattachement projet.
 
 Elle répond à la question : **la plateforme est-elle correctement préparée pour l’organisation avant l’usage par les projets ?**
 
@@ -40,42 +40,42 @@ La règle centrale du produit est :
 
 | Responsabilité | Conservé dans Administration de la plateforme | Exposé dans Intégrations du projet |
 | --- | --- | --- |
-| Configuration technique | URL tenant, stratégie d’authentification, clés API, références de secrets, scopes et définitions de source ou de cible | readiness en lecture seule, health et raisons de blocage |
-| Binding opérationnel | activer ou désactiver le connecteur/fournisseur entreprise et valider la santé technique | **Bind to project**, **Validate binding** et **Disable** pour la disponibilité projet |
-| Guidage utilisateur | audit admin, historique de validation et configuration tenant-scoped | liens contextuels comme **Open Platform Administration** et **Open Knowledge imports** |
+| Configuration technique | URL tenant, stratégie d’authentification, clés API, références de secrets, périmètres et définitions de source ou de cible | préparation en lecture seule, santé et raisons de blocage |
+| Rattachement opérationnel | activer ou désactiver le connecteur/fournisseur entreprise et valider la santé technique | **Bind to project**, **Validate binding** et **Disable** pour la disponibilité projet |
+| Guidage utilisateur | audit admin, historique de validation et configuration à l’échelle du tenant | liens contextuels comme **Open Platform Administration** et **Open Knowledge imports** |
 
 Pour le détail par famille de connecteurs, voir [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint).
 
 ## Validation et sécurité
 
-Les validations plateforme appliquent des exigences propres à chaque provider :
+Les validations plateforme appliquent des exigences propres à chaque fournisseur :
 
 - champs obligatoires ;
 - stratégie d’authentification compatible ;
 - URL HTTPS quand nécessaire ;
 - port SFTP valide ;
 - source ou cible explicite ;
-- probe de connectivité seulement s’il est activé par l’administrateur ou la configuration plateforme.
+- sonde de connectivité seulement si elle est activée par l’administrateur ou la configuration plateforme.
 
-Les secrets, clés et références sensibles doivent rester dans la configuration plateforme prévue pour cet usage. Ne les placez pas dans une note, un payload d’action ou une description visible par les utilisateurs projet.
+Les secrets, clés et références sensibles doivent rester dans la configuration plateforme prévue pour cet usage. Ne les placez pas dans une note, une charge utile d’action ou une description visible par les utilisateurs projet.
 
 ## Préparation et causes de blocage
 
 Une intégration peut être bloquée pour cause de :
 
-- **policy** ;
-- **permission** ;
-- **health** à vérifier ;
+- politique ;
+- permission ;
+- santé à vérifier ;
 - définition plateforme manquante ;
-- configuration ou validation provider-specific incomplète ;
-- binding projet non ouvert.
+- configuration ou validation spécifique au fournisseur incomplète ;
+- rattachement projet non ouvert.
 
 Circuit recommandé :
 
 1. relire le blocage côté projet ;
 2. ouvrir **Administration de la plateforme** ;
 3. vérifier la définition technique du connecteur ou fournisseur ;
-4. revenir dans le projet pour confirmer le binding et l’usage autorisé.
+4. revenir dans le projet pour confirmer le rattachement et l’usage autorisé.
 
 ## Familles de fournisseurs IA
 
@@ -89,11 +89,11 @@ Les familles visibles dans le produit comprennent notamment :
 | Fournisseur | Quand le choisir | Ce qu’il faut généralement compléter |
 | --- | --- | --- |
 | **OpenRouter** | quand il faut comparer plusieurs familles de modèles via un seul raccordement | Base URL, clé, modèle par défaut |
-| **OpenAI-compatible** | quand votre organisation utilise une gateway ou un endpoint compatible | endpoint exact, auth, clé ou secret, modèle attendu |
+| **OpenAI-compatible** | quand votre organisation utilise une passerelle ou un point de terminaison compatible | point de terminaison exact, authentification, clé ou secret, modèle attendu |
 | **OpenAI** | quand votre organisation utilise directement OpenAI | URL, clé ou secret, modèle par défaut |
-| **Azure OpenAI** | quand votre organisation est centrée sur Azure et veut choisir ses déploiements Azure OpenAI | endpoint, version API, auth mode, nom de déploiement LLM |
+| **Azure OpenAI** | quand votre organisation est centrée sur Azure et veut choisir ses déploiements Azure OpenAI | point de terminaison, version API, mode d’authentification, nom de déploiement LLM |
 
-## Readiness d’un fournisseur IA
+## Préparation d’un fournisseur IA
 
 | Statut | Ce que cela veut dire |
 | --- | --- |

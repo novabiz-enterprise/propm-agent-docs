@@ -46,17 +46,17 @@ Vérifiez l’URL, le tenant, le compte invité si usage guest, la `redirectUri`
 
 Vous êtes probablement en **lecture seule**. Vérifiez votre rôle avant de conclure à une restriction de permission.
 
-### Document visible mais non searchable
+### Document visible mais non retrouvable en recherche
 
 Commencez par vérifier le statut du document (`Indexed`, `Ingesting`, `Failed`), l’historique d’import, le rafraîchissement de la page et le `Trace ID` de recherche si un appel a échoué.
 
 ### Import depuis une source grisé ou absent
 
-Les vérifications les plus utiles sont : fournisseur non validé, binding projet absent, permission insuffisante, policy restrictive, configuration incomplète ou état health à confirmer.
+Les vérifications les plus utiles sont : fournisseur non validé, rattachement projet absent, permission insuffisante, politique restrictive, configuration incomplète ou état de santé à confirmer.
 
 ### Action visible mais non exécutable
 
-Vérifiez le connecteur compatible, le binding projet, l’approbation requise, le rôle utilisateur et la politique applicable.
+Vérifiez le connecteur compatible, le rattachement projet, l’approbation requise, le rôle utilisateur et la politique applicable.
 
 ### Voix indisponible
 
@@ -107,7 +107,7 @@ Parce que l’authentification peut rester valide alors qu’un composant **API*
 
 ### Que faire si la connexion réussit, qu’un projet est visible, mais que les runs ne démarrent pas ?
 
-Vérifiez dans cet ordre : projet actif, indicateur de santé, fournisseur IA supposé opérationnel, readiness du fournisseur, puis **Journal IA** pour voir si un run a au moins été créé. Si le fournisseur reste suspect, poursuivez vers [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
+Vérifiez dans cet ordre : projet actif, indicateur de santé, fournisseur IA supposé opérationnel, préparation du fournisseur, puis **Journal IA** pour voir si une exécution a au moins été créée. Si le fournisseur reste suspect, poursuivez vers [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
 
 ## FAQ — projet, espace de travail et agents
 
@@ -136,7 +136,7 @@ Il est donc normal qu’un historique de chat disparaisse en changeant de naviga
 
 ### Pourquoi un agent personnalisé n’apparaît-il pas dans un autre projet ?
 
-Vérifiez d’abord son **scope**. Un agent `Project only` reste limité au projet courant. Si l’environnement expose un agent `All projects`, il doit en plus être consulté avec le **même compte** dans un projet auquel ce compte a accès.
+Vérifiez d’abord sa **portée**. Un agent `Project only` reste limité au projet courant. Si l’environnement expose un agent `All projects`, il doit en plus être consulté avec le **même compte** dans un projet auquel ce compte a accès.
 
 ### L’historique de chat est-il conservé par projet, par agent ou seulement par navigateur ?
 
@@ -176,7 +176,7 @@ Parce qu’il peut encore être en état **Ingesting** ou en attente de fin de p
 Ces deux champs servent à juger rapidement la provenance d’une preuve :
 
 - **source label** désigne surtout le fournisseur ou l’origine d’ingestion affichée (`manual`, `SharePoint`, `ADF`, `Blob`, `Confluence`, `Jira`, etc.) ;
-- **source system** aide à reconnaître le système ou le flux métier lisible derrière cette preuve (`Knowledge`, `Schedule`, `Finance`, `Operations`, etc.).
+- **système source** aide à reconnaître le système ou le flux métier lisible derrière cette preuve (`Knowledge`, `Schedule`, `Finance`, `Operations`, etc.).
 
 Utilisez-les ensemble quand vous devez arbitrer un extrait sans rouvrir toute la configuration détaillée.
 
@@ -229,10 +229,10 @@ Ce cas signifie souvent que le run a bien existé, mais qu’aucun brouillon, ar
 
 Traitez `Cost` comme un repère de transparence runtime : `tokens` et `calls` servent surtout à l’enquête, au support et à la compréhension de l’usage, pas à une décision d’approbation métier à eux seuls. Si vous cherchez un signal transversal de pression budgétaire, ouvrez plutôt `cost_pressure` dans **Portfolio**.
 
-### Que faut-il vraiment faire avec `Confidence` et `Source freshness` ?
+### Que faut-il vraiment faire avec la confiance et la fraîcheur des sources ?
 
-- **Confidence** = indice de relecture, pas preuve autonome ;
-- **Source freshness** = degré d’actualité des preuves citées ;
+- **Confiance** = indice de relecture, pas preuve autonome ;
+- **Fraîcheur des sources** = degré d’actualité des preuves citées ;
 - si l’un des deux paraît faible, ancien, `conflicting` ou `unavailable`, revenez aux preuves, au run et à la lignée avant diffusion.
 
 ## FAQ — rapports, artefacts et gouvernance
@@ -243,7 +243,7 @@ L’artefact est l’objet gouverné, la version d’artefact est son état hist
 
 ### Pourquoi une action est-elle visible mais non exécutable ?
 
-Vérifiez droits, connecteur, binding projet, politique de gouvernance et approbation requise. Voir aussi [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md).
+Vérifiez droits, connecteur, rattachement projet, politique de gouvernance et approbation requise. Voir aussi [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md).
 
 ### Quand faut-il **Approve**, **Publish** ou **Add to knowledge** ?
 
@@ -270,13 +270,13 @@ Confirmez ensuite l’étape aval dans **Actions & approbations**, puis dans **A
 
 ### Pourquoi une intégration est-elle disponible en plateforme mais verrouillée dans mon projet ?
 
-Parce qu’une définition technique plateforme ne suffit pas. Il faut encore un **binding projet** valide, des permissions adéquates, une policy compatible, un état de santé acceptable et une configuration fournisseur complète.
+Parce qu’une définition technique plateforme ne suffit pas. Il faut encore un **rattachement projet** valide, des permissions adéquates, une politique compatible, un état de santé acceptable et une configuration fournisseur complète.
 
 ### Pourquoi `Validate` ne prouve-t-il pas toujours qu’un appel externe complet a réussi ?
 
-Pour les connecteurs et fournisseurs d’ingestion, `Validate` confirme d’abord la cohérence de la configuration : champs obligatoires, mode, auth, URL et source ou cible. Un appel réseau réel ne se produit que si un probe de connectivité est activé. Même dans ce cas, le probe reste non destructif : il ne crée pas forcément de ticket, n’envoie pas de message et ne réalise pas un import complet.
+Pour les connecteurs et fournisseurs d’ingestion, `Validate` confirme d’abord la cohérence de la configuration : champs obligatoires, mode, auth, URL et source ou cible. Un appel réseau réel ne se produit que si une sonde de connectivité est activée. Même dans ce cas, la sonde reste non destructive : il ne crée pas forcément de ticket, n’envoie pas de message et ne réalise pas un import complet.
 
-Si une action ou un import semble prêt mais ne produit pas de résultat externe visible, vérifiez dans cet ordre : définition plateforme, configuration provider-specific, validation ou probe, binding projet, policy, permission utilisateur, état health, puis payload de l’action ou de l’import. Voir aussi [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint.md).
+Si une action ou un import semble prêt mais ne produit pas de résultat externe visible, vérifiez dans cet ordre : définition plateforme, configuration spécifique au fournisseur, validation ou sonde, rattachement projet, politique, permission utilisateur, état de santé, puis charge utile de l’action ou de l’import. Voir aussi [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint.md).
 
 ## FAQ — portefeuille et administration
 
@@ -292,11 +292,11 @@ Plusieurs lectures sont normales :
 - aucun projet ou aucun signal n’est actuellement sélectionné ;
 - la comparaison n’a pas renvoyé de résumés projet exploitables ;
 - certains signaux sont indisponibles faute de preuves ;
-- aucun projet ne dépasse le seuil global d’outlier avec la configuration active.
+- aucun projet ne dépasse le seuil global de valeur atypique avec la configuration active.
 
 Un portefeuille « calme » peut donc venir d’une sélection restrictive, d’un manque de preuves ou d’une situation réellement stable.
 
-### Existe-t-il des presets implicites pour Portfolio ?
+### Existe-t-il des préréglages implicites pour Portfolio ?
 
 Non : l’interface fournit surtout des **valeurs par défaut**, un bouton **Reset defaults** et des **cohortes sauvegardées**. Les valeurs par défaut servent de point de départ sûr, pas de modèle imposé. Votre environnement peut aussi proposer une cohorte préconfigurée, avec un contenu qui varie selon les paramètres disponibles.
 
@@ -306,19 +306,19 @@ Cela se fait depuis **Platform Administration > Overview > Tenant plan and licen
 
 ### Que signifie `Validate` réussi mais `Test` non abouti dans `Paramètres du fournisseur IA` ?
 
-La configuration administrative paraît cohérente, mais la connectivité réelle ou l’accès distant ne passent pas encore. Vérifiez endpoint, secret ou auth réelle, accessibilité du fournisseur et contraintes réseau, puis reprenez la séquence décrite dans [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
+La configuration administrative paraît cohérente, mais la connectivité réelle ou l’accès distant ne passent pas encore. Vérifiez le point de terminaison, le secret ou l’authentification réelle, l’accessibilité du fournisseur et les contraintes réseau, puis reprenez la séquence décrite dans [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
 
 ### Pourquoi mon fournisseur est-il visible mais jamais `Operational` ?
 
-Un fournisseur peut être configuré ou même validé sans avoir passé toute la chaîne **Configuration → Validation → Test → Activate**. Vérifiez aussi l’état d’activation, la sélection runtime, l’état health et la readiness générale avant de le considérer exploitable.
+Un fournisseur peut être configuré ou même validé sans avoir passé toute la chaîne **Configuration → Validation → Test → Activate**. Vérifiez aussi l’état d’activation, la sélection d’exécution, l’état de santé et la préparation générale avant de le considérer exploitable.
 
 ### Que faire si aucun deployment Azure OpenAI n’apparaît dans `Paramètres du fournisseur IA` ?
 
-Cela signifie généralement qu’aucun déploiement n’est visible dans la ressource Azure OpenAI configurée, ou que la découverte ne peut pas aboutir avec les paramètres actuels. Vérifiez endpoint, auth, version d’API et présence réelle des déploiements côté Azure, puis reprenez le contrôle détaillé dans [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
+Cela signifie généralement qu’aucun déploiement n’est visible dans la ressource Azure OpenAI configurée, ou que la découverte ne peut pas aboutir avec les paramètres actuels. Vérifiez le point de terminaison, l’authentification, la version d’API et la présence réelle des déploiements côté Azure, puis reprenez le contrôle détaillé dans [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
 
 ### Pourquoi le fournisseur IA est-il visible mais non modifiable ou non utilisable ?
 
-Le fournisseur peut être visible en lecture alors que sa modification reste réservée à un rôle admin. Son usage réel dépend aussi de sa readiness, de l’état health, des permissions et de la résolution runtime du fournisseur effectif.
+Le fournisseur peut être visible en lecture alors que sa modification reste réservée à un rôle admin. Son usage réel dépend aussi de sa préparation, de l’état de santé, des permissions et de la résolution d’exécution du fournisseur effectif.
 
 ## Suite
 

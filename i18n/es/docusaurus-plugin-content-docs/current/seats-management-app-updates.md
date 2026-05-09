@@ -57,7 +57,7 @@ Como referencia, los planes ProPM Marketplace conocidos son:
 
 Confirme siempre el plan, el precio y las condiciones de facturación en Azure Marketplace antes de iniciar un nuevo despliegue.
 
-Los identificadores antiguos o internos como `propm0`, `pro`, `enterprise`, `pm-*` o los planes generados dinámicamente no son opciones para una nueva actualización. `propm0` todavía puede aparecer en despliegues existentes antiguos; trátelo como compatibilidad histórica, no como un plan para seleccionar en una nueva actualización.
+Para cualquier nuevo despliegue o actualización, use solo los planes ProPM disponibles actualmente en Azure Marketplace.
 
 Los planes Marketplace controlan la capacidad de licencias. No habilitan ni bloquean conectores, proveedores de IA ni funcionalidades del producto.
 
@@ -241,16 +241,6 @@ No lo elimine antes de validar el nuevo despliegue. No elimine los recursos de d
 **¿Cómo se gestionan las licencias suplementarias?**
 
 Las licencias suplementarias se gestionan mediante Azure Marketplace con la dimensión de facturación `seats`. ProPM puede mostrar y sincronizar contadores, pero Azure Marketplace sigue siendo la referencia de facturación.
-
-## Restricciones de downgrade
-
-ProPM puede impedir la aplicación técnica de un downgrade dentro de la aplicación:
-
-- un plan inferior al plan actual puede rechazarse;
-- una reducción de las licencias pedidas puede rechazarse;
-- los cambios Marketplace que disminuyen la capacidad no se aplican automáticamente en la aplicación.
-
-La facturación Marketplace la gestionan Azure y Microsoft. Cualquier modificación comercial debe realizarse y validarse en Azure Marketplace.
 
 ## Refresh Marketplace plan
 

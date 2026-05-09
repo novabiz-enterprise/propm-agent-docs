@@ -57,7 +57,7 @@ ProPM affiche le plan courant pour aider l’administrateur à comprendre l’é
 
 Vérifiez toujours le plan, le prix et les conditions de facturation dans Azure Marketplace avant de lancer un nouveau déploiement.
 
-Les anciens plans ou plans internes comme `propm0`, `pro`, `enterprise`, `pm-*` ou les plans dynamiques ne sont pas des choix utilisateur pour une nouvelle mise à niveau. `propm0` peut encore apparaître pour d’anciens déploiements existants ; il s’agit d’une compatibilité historique, pas d’un plan à sélectionner pour une nouvelle mise à niveau.
+Pour tout nouveau déploiement ou toute mise à niveau, utilisez uniquement les plans ProPM actuellement disponibles dans Azure Marketplace.
 
 Les plans Marketplace pilotent la capacité de licences. Ils ne débloquent pas et ne bloquent pas les connecteurs, les fournisseurs IA ou les fonctionnalités produit.
 
@@ -241,16 +241,6 @@ Ne le supprimez pas avant d’avoir validé le nouveau déploiement. Ne supprime
 **Comment sont gérées les licences supplémentaires ?**
 
 Les licences supplémentaires sont gérées via Azure Marketplace avec la dimension de facturation `seats`. ProPM peut afficher les compteurs et les synchroniser, mais Azure Marketplace reste la référence pour la facturation.
-
-## Restrictions sur les downgrades
-
-ProPM peut empêcher l’application technique d’un downgrade dans l’application :
-
-- un plan inférieur au plan courant peut être refusé ;
-- une réduction du nombre de licences commandées peut être refusée ;
-- les changements Marketplace qui diminuent la capacité ne sont pas appliqués automatiquement dans l’application.
-
-La facturation Marketplace reste gérée par Azure/Microsoft. Toute modification commerciale doit être effectuée et validée dans Azure Marketplace.
 
 ## Refresh Marketplace plan
 

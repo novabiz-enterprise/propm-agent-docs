@@ -1,7 +1,7 @@
 ---
 title: Portfolio
 slug: /portfolio
-description: Comparer les projets, configurer les signaux portefeuille, lire les cohortes et outliers, puis décider quel projet traiter en priorité.
+description: Comparer les projets, configurer les signaux portefeuille, lire les cohortes et valeurs atypiques, puis décider quel projet traiter en priorité.
 ---
 
 [Accueil](./index.md) · Portfolio
@@ -18,7 +18,7 @@ Utilisez-la surtout pour :
 
 - prioriser le projet qui mérite l’attention en premier ;
 - comparer des signaux cohérents entre plusieurs projets ;
-- décider quel projet mérite ensuite un drill-down plus détaillé.
+- décider quel projet mérite ensuite une analyse détaillée.
 
 Ne la traitez ni comme une vue sponsor purement narrative, ni comme un remplacement de l’**Espace de travail** détaillé d’un projet.
 
@@ -26,7 +26,7 @@ Ne la traitez ni comme une vue sponsor purement narrative, ni comme un remplacem
 
 La page compare plusieurs projets avec des **signaux configurables**, pas avec un tableau rouge / orange / vert figé.
 
-Elle permet de sélectionner plusieurs projets, choisir les signaux, régler poids et seuils, filtrer la sévérité minimale, enregistrer une cohorte, repérer les **outliers** et ouvrir le détail d’un projet.
+Elle permet de sélectionner plusieurs projets, choisir les signaux, régler poids et seuils, filtrer la sévérité minimale, enregistrer une cohorte, repérer les **valeurs atypiques** et ouvrir le détail d’un projet.
 
 ## Ce que voit l’utilisateur
 
@@ -35,8 +35,8 @@ Elle permet de sélectionner plusieurs projets, choisir les signaux, régler poi
 | **Sélection des projets** | choisir quels projets entrent dans la comparaison |
 | **Profil de signaux** | choisir les signaux, leurs poids, leurs seuils et la sévérité minimale |
 | **Cohortes** | enregistrer ou recharger une configuration de comparaison réutilisable |
-| **Résultats de comparaison** | lire le résumé, les outliers et les écarts entre projets |
-| **Project drill-down** | ouvrir les preuves, l’activité récente et le détail par signal pour un projet |
+| **Résultats de comparaison** | lire le résumé, les valeurs atypiques et les écarts entre projets |
+| **Analyse détaillée du projet** | ouvrir les preuves, l’activité récente et le détail par signal pour un projet |
 
 ## Exemple guidé
 
@@ -48,8 +48,8 @@ Elle permet de sélectionner plusieurs projets, choisir les signaux, régler poi
 6. Réglez le **Overall outlier threshold** pour contrôler le niveau de sélectivité.
 7. Enregistrez la configuration comme **cohorte** si elle doit être réutilisée.
 8. Cliquez sur **Refresh comparison** pour recalculer la vue.
-9. Lisez le **Narrative comparison**, puis les **Outliers**.
-10. Ouvrez le **Project drill-down** pour relire preuves, activité récente et liens vers Workspace, Knowledge, Reports ou AI Log.
+9. Lisez la **comparaison narrative**, puis les **valeurs atypiques**.
+10. Ouvrez l’**analyse détaillée du projet** pour relire preuves, activité récente et liens vers l’Espace de travail, la Connaissance, les Rapports ou le Journal IA.
 
 ![Éditeur de cohorte portefeuille](/img/screenshots/localized/fr/02-portfolio-cohort-editor.jpg)
 
@@ -101,8 +101,8 @@ La page charge les projets accessibles, pré-sélectionne un ensemble initial si
 - commencez par choisir les bons projets ;
 - activez seulement les signaux utiles à votre revue ;
 - réglez poids, seuils et sévérité avec intention ;
-- utilisez les **outliers** comme point de départ d’investigation, pas comme verdict final ;
-- ouvrez le **Project drill-down** pour comprendre le résultat.
+- utilisez les **valeurs atypiques** comme point de départ d’investigation, pas comme verdict final ;
+- ouvrez l’**analyse détaillée du projet** pour comprendre le résultat.
 
 ## Suite
 

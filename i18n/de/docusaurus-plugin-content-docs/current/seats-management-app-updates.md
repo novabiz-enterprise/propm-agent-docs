@@ -57,7 +57,7 @@ Zur Orientierung sind die bekannten ProPM-Marketplace-Pläne:
 
 Prüfen Sie Plan, Preis und Abrechnungsbedingungen immer in Azure Marketplace, bevor Sie eine neue Bereitstellung starten.
 
-Alte oder interne Kennungen wie `propm0`, `pro`, `enterprise`, `pm-*` oder dynamisch erzeugte Pläne sind keine Auswahl für ein neues Upgrade. `propm0` kann bei älteren bestehenden Bereitstellungen weiterhin erscheinen; behandeln Sie ihn als historische Kompatibilität, nicht als Plan für ein neues Upgrade.
+Verwenden Sie für jede neue Bereitstellung oder jedes Upgrade nur die ProPM-Pläne, die aktuell in Azure Marketplace verfügbar sind.
 
 Marketplace-Pläne steuern Lizenzkapazität. Sie schalten keine Konnektoren, KI-Anbieter oder Produktfunktionen frei oder aus.
 
@@ -241,16 +241,6 @@ Löschen Sie sie nicht, bevor die neue Bereitstellung validiert wurde. Löschen 
 **Wie werden Zusatzlizenzen verwaltet?**
 
 Zusatzlizenzen werden über Azure Marketplace mit der Abrechnungsdimension `seats` verwaltet. ProPM kann Zähler anzeigen und synchronisieren, aber Azure Marketplace bleibt die Abrechnungsreferenz.
-
-## Einschränkungen für Downgrades
-
-ProPM kann die technische Anwendung eines Downgrades in der Anwendung verhindern:
-
-- ein niedrigerer Plan als der aktuelle Plan kann abgelehnt werden;
-- eine Reduzierung der bestellten Lizenzen kann abgelehnt werden;
-- Marketplace-Änderungen, die Kapazität verringern, werden nicht automatisch in der Anwendung angewendet.
-
-Marketplace-Abrechnung wird von Azure und Microsoft verwaltet. Jede kommerzielle Änderung muss in Azure Marketplace durchgeführt und validiert werden.
 
 ## Refresh Marketplace plan
 

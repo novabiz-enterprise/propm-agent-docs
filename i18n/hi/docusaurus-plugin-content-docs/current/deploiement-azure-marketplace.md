@@ -75,7 +75,9 @@ Marketplace सहायक के दौरान, प्रशासक वि
 
 यह स्क्रीन पहचान, AI प्रदाता, प्रारंभिक सुरक्षा, निगरानी और नेटवर्क सेटिंग्स को एकत्रित करती है।
 
-![Paramètres d’application actuels du déploiement](/img/deploiement/fr/deploiement-02-application-settings-actuel.png)
+पहले deployment के लिए **New installation** चयनित रखें और **Create new resources** चुनें, ताकि Marketplace assistant नए ProPM environment के resources बनाए।
+
+![Paramètres d’application actuels du déploiement](/img/deploiement/deploiement-02-parametres-application.png)
 
 ### कैप्चर में दृश्य फ़ील्ड
 

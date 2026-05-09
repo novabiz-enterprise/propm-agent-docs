@@ -99,7 +99,7 @@ El **Espacio de trabajo** reúne en una misma superficie:
 - las **señales** del proyecto ;
 - las pestañas de ajuste de nivel de proyecto.
 
-Esta documentación ya no presenta una tarjeta **voz** dedicada en el **Espacio de trabajo**. Cuando la entrada de voz sigue existiendo en algunos entornos, se hace en **Agentes**, no como punto de entrada separado aquí.
+El **Espacio de trabajo** ya no presenta una tarjeta **voz** dedicada. Cuando la entrada de voz sigue existiendo en algunos entornos, está disponible en **Agentes**, no como punto de entrada separado del espacio de trabajo.
 
 ## Transparencia operativa y preparación
 

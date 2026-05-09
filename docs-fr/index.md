@@ -24,7 +24,7 @@ Elle est organisée pour deux publics :
 | Je ne peux pas me connecter | [Démarrage](./demarrage.md) | [Maintenance, support et FAQ](./maintenance-support-faq.md) pour distinguer tenant, `redirect URI`, licence disponible ou état de santé |
 | Aucun projet n’apparaît | [Démarrage](./demarrage.md) | [Projets et espace de travail](./projets-et-espace-de-travail.md), puis [Maintenance, support et FAQ](./maintenance-support-faq.md) si l’ajout au projet ou le rôle restent douteux |
 | Une page reste vide tant qu’aucun projet actif n’est défini | [Démarrage](./demarrage.md) | [Projets et espace de travail](./projets-et-espace-de-travail.md) pour confirmer le contexte projet, puis [Maintenance, support et FAQ](./maintenance-support-faq.md) si l’état vide paraît anormal |
-| Une action est visible mais bloquée | [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) | [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint), puis [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) pour connecteur, binding, configuration, policy ou health, ou [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md) pour disponibilité des licences restantes |
+| Une action est visible mais bloquée | [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) | [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint), puis [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) pour connecteur, rattachement, configuration, politique ou santé, ou [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md) pour disponibilité des licences restantes |
 | Le fournisseur IA ne semble pas opérationnel | [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) | [Maintenance, support et FAQ](./maintenance-support-faq.md) et [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) pour confirmer le fournisseur effectif |
 
 Si vous cherchez directement une procédure de vérification ou un repère d’exploitation, ouvrez [Maintenance, support et FAQ](./maintenance-support-faq.md).
@@ -58,7 +58,7 @@ Si vous cherchez directement une procédure de vérification ou un repère d’e
 
 ## Parcours bout en bout recommandé
 
-Chaîne courte à retenir : **chat local navigateur → run → structured output → artifact → PM Doc → review / diff / lineage → Add to knowledge / Publish**.
+Chaîne courte à retenir : **chat local navigateur → exécution → sortie structurée → artefact → PM Doc → revue / diff / lignée → Add to knowledge / Publish**.
 
 Dans un usage réel, le flux le plus fréquent est le suivant :
 
@@ -74,7 +74,7 @@ Dans un usage réel, le flux le plus fréquent est le suivant :
 10. traiter les **signaux proactifs**, les **Actions & approbations** et, si besoin, les flux d’intégrations externes ;
 11. administrer au niveau plateforme uniquement lorsque le sujet dépasse le projet.
 
-> Une conversation d’agent ne crée pas à elle seule un document final partagé. Le passage vers **artifact** puis **PM Doc** dépend du flux réellement produit et des droits disponibles.
+> Une conversation d’agent ne crée pas à elle seule un document final partagé. Le passage vers **artefact** puis **PM Doc** dépend du flux réellement produit et des droits disponibles.
 
 ## Définitions rapides à retenir
 
@@ -82,12 +82,12 @@ Dans un usage réel, le flux le plus fréquent est le suivant :
 | --- | --- |
 | **Projet actif** | projet actuellement appliqué aux pages projet, à la recherche, aux runs et aux revues |
 | **All projects** | portée d’un agent personnalisé visible dans tous les projets accessibles par **le même compte** ; ce n’est ni un super-projet ni un portefeuille fusionné |
-| **Binding** | rattachement opérationnel entre une définition plateforme et un projet donné |
+| **Rattachement** | rattachement opérationnel entre une définition plateforme et un projet donné |
 | **Entitlement** | libellé technique hérité pour un blocage opérationnel ; ce n’est pas une différence fonctionnelle entre plans Marketplace |
-| **Structured output** | sortie structurée produite par un run d’agent, distincte d’un document final publié |
-| **Lineage / lignée** | liens de traçabilité entre run, context snapshot, structured output, artefact, version et PM Doc |
-| **Context snapshot** | capture du contexte projet / documentaire utilisé pendant le run |
-| **Effective AI provider** | fournisseur réellement utilisé au runtime pour un run donné |
+| **Sortie structurée** | sortie structurée produite par une exécution d’agent, distincte d’un document final publié |
+| **Lignée** | liens de traçabilité entre exécution, capture de contexte, sortie structurée, artefact, version et PM Doc |
+| **Capture de contexte** | capture du contexte projet / documentaire utilisé pendant l’exécution |
+| **Fournisseur IA effectif** | fournisseur réellement utilisé à l’exécution pour une exécution donnée |
 
 ## Convention de libellés
 
@@ -117,7 +117,7 @@ Quand un libellé anglais reste utile pour lever une ambiguïté, il est cité p
 5. vous transformez certains résultats en **Documents PM** et en artefacts ;
 6. vous vérifiez la **traçabilité** dans le **Journal IA** ;
 7. vous traitez les **signaux**, les **digests**, les **brouillons** et les **actions gouvernées** ;
-8. vous utilisez les **connecteurs** et les **intégrations** uniquement lorsqu’ils sont validés et bindés au projet ;
+8. vous utilisez les **connecteurs** et les **intégrations** uniquement lorsqu’ils sont validés et rattachés au projet ;
 9. les administrateurs pilotent la couche technique dans **Administration de la plateforme**.
 
 ## Architecture fonctionnelle

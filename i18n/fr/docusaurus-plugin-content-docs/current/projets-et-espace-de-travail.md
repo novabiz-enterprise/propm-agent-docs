@@ -99,7 +99,7 @@ L’**Espace de travail** réunit dans une même surface :
 - les **signaux** du projet ;
 - les onglets de réglage de niveau projet.
 
-Cette documentation française ne présente plus de carte **voix** dédiée dans l’**Espace de travail**. Quand une saisie vocale existe encore dans certains environnements, elle se fait dans **Agents**, pas comme point d’entrée séparé ici.
+L’**Espace de travail** ne présente plus de carte **voix** dédiée. Quand une saisie vocale existe encore dans certains environnements, elle est disponible dans **Agents**, pas comme point d’entrée séparé de l’espace de travail.
 
 ## Transparence opérationnelle et préparation
 
@@ -235,7 +235,7 @@ Pour un projet où toute diffusion externe doit être contrôlée, un réglage c
 2. **Politiques d’action** : `allow` pour `observe` et `draft`, mais `require_approval` pour `execute` sur les publications et notifications externes ;
 3. **Connecteurs d’exécution** : connecteurs externes visibles seulement pour les rôles réellement autorisés ;
 4. **Préférences de notification** : `signal_digest` en `daily` pour l’équipe, `signal_alert` seulement pour les cas les plus sensibles ;
-5. **Intégrations du projet** : bindings activés uniquement pour les connecteurs déjà validés au niveau plateforme.
+5. **Intégrations du projet** : rattachements activés uniquement pour les connecteurs déjà validés au niveau plateforme.
 
 Cette combinaison évite qu’un brouillon, un digest ou une action apparaisse comme directement diffusable alors que le projet attend encore une approbation humaine.
 
@@ -247,60 +247,60 @@ Cet onglet sépare les intégrations **techniquement définies** au niveau plate
 
 ### Comment lire cet onglet
 
-L’onglet **Intégrations du projet** n’est pas l’endroit où l’on configure toute la technique du tenant. Il sert surtout à lire la **readiness opérationnelle** projet : ce qui est visible pour ce projet, ce qui est prêt, et ce qui reste bloqué avec une raison explicite.
+L’onglet **Intégrations du projet** n’est pas l’endroit où l’on configure toute la technique du tenant. Il sert surtout à lire la **préparation opérationnelle** projet : ce qui est visible pour ce projet, ce qui est prêt, et ce qui reste bloqué avec une raison explicite.
 
 On y retrouve plusieurs familles d’informations :
 
-- **Execution connectors** : options de sortie gouvernée vers des systèmes externes ;
-- **Ingestion providers** : sources d’import consommées ensuite par **Connaissance** ;
-- **AI runtime transparency** : fournisseur IA effectif et fournisseur sélectionné au déploiement ;
+- **Connecteurs d’exécution** : options de sortie gouvernée vers des systèmes externes ;
+- **Fournisseurs d’ingestion** : sources d’import consommées ensuite par **Connaissance** ;
+- **Transparence d’exécution IA** : fournisseur IA effectif et fournisseur sélectionné au déploiement ;
 - **Posture licences** : plan actif, licences commandées, licences utilisées et licences restantes visibles.
 
 ### Ce que montre l’écran Intégrations du projet
 
-L’écran sépare la readiness technique de la disponibilité projet :
+L’écran sépare la préparation technique de la disponibilité projet :
 
-- la configuration plateforme, le binding projet, la policy, la permission, le health et la disponibilité de licence pour l’accès à l’app sont des **causes distinctes**. Un connecteur peut rester visible en lecture seule pour expliquer pourquoi il est bloqué au lieu de laisser croire qu’il manque ;
-- la configuration technique reste dans **Administration de la plateforme**. Les responsables des paramètres projet peuvent binder les intégrations activées et prêtes, tandis que les URL tenant, la stratégie d’authentification, les clés API et les références de secrets restent centralisées.
+- la configuration plateforme, le rattachement projet, la politique, la permission, l’état de santé et la disponibilité de licence pour l’accès à l’app sont des **causes distinctes**. Un connecteur peut rester visible en lecture seule pour expliquer pourquoi il est bloqué au lieu de laisser croire qu’il manque ;
+- la configuration technique reste dans **Administration de la plateforme**. Les responsables des paramètres projet peuvent rattacher les intégrations activées et prêtes, tandis que les URL tenant, la stratégie d’authentification, les clés API et les références de secrets restent centralisées.
 
 | Zone | Ce que vous pouvez voir | Comment agir |
 | --- | --- | --- |
-| **Execution Connectors** | une liste courante parfois vide, puis un catalogue **Available to bind** avec Asta Powerproject schedule sync, Azure DevOps delivery project, Jira delivery workspace, Microsoft Project schedule sync, Microsoft Teams collaboration, Outlook executive notifications, SharePoint publication library, Smartsheet portfolio workspace, Webhook event delivery et Wrike delivery workspace | utilisez **Bind to project** seulement pour les connecteurs déjà activés et prêts au niveau plateforme |
-| **Ingestion Providers** | des fournisseurs comme **Smartsheet sheet import** et **Azure Data Factory evidence pipeline** marqués **Healthy**, puis des fournisseurs disponibles comme SharePoint knowledge import, Azure Blob document ingest, Confluence knowledge import, Jira issue import, SFTP document intake, Microsoft Project schedule import, Wrike task import et Asta Powerproject schedule import | utilisez **Validate binding** pour revérifier un fournisseur bindé, **Disable** pour le fermer côté projet, ou **Bind to project** pour un fournisseur approuvé |
+| **Connecteurs d’exécution** | une liste courante parfois vide, puis un catalogue **disponible au rattachement** avec Asta Powerproject schedule sync, Azure DevOps delivery project, Jira delivery workspace, Microsoft Project schedule sync, Microsoft Teams collaboration, Outlook executive notifications, SharePoint publication library, Smartsheet portfolio workspace, Webhook event delivery et Wrike delivery workspace | utilisez **Bind to project** seulement pour les connecteurs déjà activés et prêts au niveau plateforme |
+| **Fournisseurs d’ingestion** | des fournisseurs comme **Smartsheet sheet import** et **Azure Data Factory evidence pipeline** marqués **Healthy**, puis des fournisseurs disponibles comme SharePoint knowledge import, Azure Blob document ingest, Confluence knowledge import, Jira issue import, SFTP document intake, Microsoft Project schedule import, Wrike task import et Asta Powerproject schedule import | utilisez **Validate binding** pour revérifier un fournisseur rattaché, **Disable** pour le fermer côté projet, ou **Bind to project** pour un fournisseur approuvé |
 
-Les cartes fournisseur peuvent afficher **Ready**, **Healthy** ou **Not configured**. **Not configured** signifie que le fournisseur existe dans le catalogue plateforme, mais qu’il manque encore une source, des identifiants ou une validation de readiness avant l’usage projet.
+Les cartes fournisseur peuvent afficher **Ready**, **Healthy** ou **Not configured**. **Not configured** signifie que le fournisseur existe dans le catalogue plateforme, mais qu’il manque encore une source, des identifiants ou une validation de préparation avant l’usage projet.
 
-Pour les champs obligatoires, les probes, le mapping des actions et les limites d’exécution live, utilisez la page [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint.md). **Ready** ou **Healthy** indique une préparation cohérente, mais ne prouve pas à lui seul qu’un ticket, un message ou un import externe complet a déjà été exécuté.
+Pour les champs obligatoires, les probes, le mapping des actions et les limites d’exécution réelle, utilisez la page [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint.md). **Ready** ou **Healthy** indique une préparation cohérente, mais ne prouve pas à lui seul qu’un ticket, un message ou un import externe complet a déjà été exécuté.
 
 ### Causes de blocage affichées
 
 Une intégration projet ou une option d’import peut être bloquée pour cause de :
 
-- policy ;
+- politique ;
 - permission ;
-- état health à vérifier ;
+- état de santé à vérifier ;
 - définition plateforme absente ou désactivée ;
-- binding projet désactivé ou non configuré ;
-- configuration ou validation provider-specific incomplète.
+- rattachement projet désactivé ou non configuré ;
+- configuration ou validation spécifique au fournisseur incomplète.
 
-### Comment interpréter un blocage de binding
+### Comment interpréter un blocage de rattachement
 
 | Cause visible | Lecture pratique | Réflexe recommandé |
 | --- | --- | --- |
-| `entitlement` | libellé hérité pour une intégration bloquée, pas une différence de fonctionnalité Marketplace | vérifiez configuration, validation, health, binding, policy, rôle et disponibilité de licence en cas de blocage d’accès |
-| `policy` | la gouvernance projet interdit ou limite ce flux | relisez **Politiques de gouvernance** avant de modifier le binding |
+| `entitlement` | libellé hérité pour une intégration bloquée, pas une différence de fonctionnalité Marketplace | vérifiez configuration, validation, état de santé, rattachement, politique, rôle et disponibilité de licence en cas de blocage d’accès |
+| `policy` | la gouvernance projet interdit ou limite ce flux | relisez **Politiques de gouvernance** avant de modifier le rattachement |
 | `permission` | le connecteur existe mais votre rôle ne permet pas de l’activer ou de l’utiliser | contrôlez le rôle projet dans [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md) |
 | `health` | la définition plateforme existe mais sa préparation ou sa disponibilité demandent une vérification | ouvrez l’**Administration de la plateforme** pour confirmer la définition technique |
 | définition absente ou désactivée | rien n’est réellement prêt au niveau tenant | demandez d’abord la mise en place ou la réactivation plateforme |
-| binding projet absent | la plateforme est prête mais le projet ne consomme pas encore l’intégration | activez explicitement le binding côté projet |
+| rattachement projet absent | la plateforme est prête mais le projet ne consomme pas encore l’intégration | activez explicitement le rattachement côté projet |
 
-### Lecture pratique de `binding` et des licences
+### Lecture pratique du rattachement et des licences
 
-- **binding** : le connecteur ou fournisseur existe au niveau plateforme, mais il faut encore le rattacher et l’ouvrir au projet pour qu’il soit consommable dans ce projet ;
+- **rattachement** : le connecteur ou fournisseur existe au niveau plateforme, mais il faut encore le rattacher et l’ouvrir au projet pour qu’il soit consommable dans ce projet ;
 - **licence** : elle détermine si l’utilisateur dispose d’une licence disponible pour accéder à l’app. Les plans Marketplace ne débloquent ni ne bloquent des familles de connecteurs différentes ;
 - un connecteur visible mais bloqué ne signifie donc pas qu’il est cassé : l’interface peut justement le laisser visible pour expliquer la raison du blocage.
 
-Si un blocage persiste, ouvrez ensuite **Administration de la plateforme** pour vérifier la définition technique, puis revenez sur le projet pour confirmer le binding et la préparation.
+Si un blocage persiste, ouvrez ensuite **Administration de la plateforme** pour vérifier la définition technique, puis revenez sur le projet pour confirmer le rattachement et la préparation.
 
 ### Jira, SharePoint et chaîne des connecteurs
 
@@ -309,7 +309,7 @@ Si un blocage persiste, ouvrez ensuite **Administration de la plateforme** pour 
 Gardez cette logique simple :
 
 1. **Intégrations de la plateforme** définit le connecteur ou le fournisseur d’ingestion ;
-2. **Intégrations du projet** expose seulement le binding approuvé et prêt ;
+2. **Intégrations du projet** expose seulement le rattachement approuvé et prêt ;
 3. **Politiques de gouvernance** décide ce que chaque rôle peut observer, préparer, proposer ou exécuter ;
 4. **Actions & approbations** applique ensuite ces règles lors de la demande réelle ;
 5. **Documents PM** et **Journal IA** conservent la trace du flux.
@@ -326,19 +326,19 @@ Dans l’interface, la file et les cartes de synthèse distinguent surtout quatr
 
 | État visible | Lecture pratique |
 | --- | --- |
-| **Execution prerequisites** | des connecteurs compatibles peuvent exister, mais l’exécution reste bloquée par health, configuration, binding, permission, policy, approbation ou readiness indisponible |
-| **Pending approval** | la demande a été proposée et attend encore une décision de gouvernance |
-| **Ready to execute** | la demande est **approved** mais l’exécution reste une étape distincte |
-| **Executed history** | l’action a réellement été exécutée et reste visible comme historique / preuve d’audit |
+| **Prérequis d’exécution** | des connecteurs compatibles peuvent exister, mais l’exécution reste bloquée par santé, configuration, rattachement, permission, politique, approbation ou préparation indisponible |
+| **En attente d’approbation** | la demande a été proposée et attend encore une décision de gouvernance |
+| **Prêt à exécuter** | la demande est en état `approved`, mais l’exécution reste une étape distincte |
+| **Historique d’exécution** | l’action a réellement été exécutée et reste visible comme historique / preuve d’audit |
 
-Une action peut donc être **approved** sans être encore **executed**.
+Une action peut donc être en état `approved` sans être encore en état `executed`.
 
 ### Comment lire un onglet qui paraît vide ou incomplet
 
 La visibilité de l’onglet ne signifie pas qu’une action est déjà exécutable. Quand rien de concret ne semble disponible, la lecture la plus utile est souvent :
 
 1. aucun **connecteur d’exécution compatible et sain** n’est prêt pour ce type d’action ;
-2. le **binding projet** n’expose pas encore l’option au projet ;
+2. le **rattachement projet** n’expose pas encore l’option au projet ;
 3. une **policy** autorise la consultation mais pas la proposition ou l’exécution ;
 4. votre **permission** permet de voir la file, mais pas d’agir ;
 5. une approbation est requise et aucune décision n’a encore été prise.
@@ -347,19 +347,19 @@ Quand tout est correctement prêt, on s’attend au minimum à voir :
 
 - un type d’action compatible ;
 - au moins une option d’exécution saine ;
-- un binding projet valide ;
+- un rattachement projet valide ;
 - une policy cohérente ;
 - un utilisateur autorisé à proposer, approuver ou exécuter selon le cas.
 
-### Ce qu’il faut lire dans `Execution readiness`
+### Ce qu’il faut lire dans `Execution préparation`
 
-Le bloc **Execution readiness** n’administre pas toute la plateforme. Il résume simplement ce qui est actuellement proposable dans ce projet.
+Le bloc **Execution préparation** n’administre pas toute la plateforme. Il résume simplement ce qui est actuellement proposable dans ce projet.
 
 Lecture utile :
 
 - **available / healthy** : option théoriquement utilisable ;
 - **blocked by health** : le connecteur existe mais n’est pas dans un état opérationnel suffisant ;
-- **blocked by entitlement** : libellé hérité indiquant un blocage ; vérifiez plutôt configuration, validation, binding, policy, rôle et disponibilité de licence si l’accès à l’app est bloqué ;
+- **blocked by entitlement** : libellé hérité indiquant un blocage ; vérifiez plutôt configuration, validation, rattachement, politique, rôle et disponibilité de licence si l’accès à l’app est bloqué ;
 - **blocked by policy** : la gouvernance du projet bloque le passage ;
 - **blocked by permission** : votre rôle ne suffit pas ;
 - aucune option visible : aucun connecteur compatible approuvé n’est actuellement exposé au projet.
@@ -403,7 +403,7 @@ Pour un projet exposé à des notifications externes ou à une publication docum
 2. préparez une destination SharePoint ou équivalent dans **Destinations des artefacts** ;
 3. appliquez `require_approval` sur les niveaux d’action qui peuvent produire une diffusion externe ;
 4. privilégiez `signal_digest` pour le suivi courant et réservez les alertes instantanées aux cas critiques ;
-5. ne rendez visibles dans **Intégrations du projet** que les bindings dont la préparation et la politique sont déjà conformes.
+5. ne rendez visibles dans **Intégrations du projet** que les rattachements dont la préparation et la politique sont déjà conformes.
 
 Ce second scénario aligne lecture des signaux, diffusion, approbation et exécution réelle au lieu de laisser l’équipe traiter chaque écran comme une surface indépendante.
 

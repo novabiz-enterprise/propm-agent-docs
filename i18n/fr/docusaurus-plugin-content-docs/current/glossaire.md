@@ -161,7 +161,7 @@ Statut indiquant qu’un fournisseur peut être considéré comme exploitable ap
 
 Mécanisme d’accès rapide aux pages et actions courantes depuis la barre supérieure.
 
-**Pending approval**
+**En attente d’approbation**
 
 État d’une demande ou d’une action gouvernée qui attend encore une validation humaine avant exécution.
 
