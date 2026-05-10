@@ -8,47 +8,67 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Discover ProPM Agent',
+      items: ['publics-roles-et-perimetres'],
+    },
+    {
+      type: 'category',
       label: 'Getting Started',
+      items: ['demarrage', 'interface-et-navigation', 'tableau-de-bord', 'projet-actif-et-creation-projet'],
+    },
+    {
+      type: 'category',
+      label: 'Use ProPM Agent',
       items: [
-        'demarrage',
-        'deploiement-azure-marketplace',
-        'interface-et-navigation',
+        'connaissance-documents-et-imports',
+        'agents',
+        'sorties-contextuelles-preuves-et-fraicheur',
+        'documents-pm-et-artefacts',
+        'journal-ia',
       ],
     },
     {
       type: 'category',
-      label: 'Project Work',
+      label: 'Project Governance',
       items: [
-        'projets-et-espace-de-travail',
-        'controle-acces-et-roles',
-        'connaissance-et-agents',
-        'sorties-contextuelles-preuves-et-fraicheur',
+        'signaux-et-notifications',
         'gouvernance-decisions-et-actions',
-        'rapports-journal-ia-et-tracabilite',
+        'actions-et-approbations',
         'connecteurs-jira-et-sharepoint',
       ],
     },
     {
       type: 'category',
-      label: 'Portfolio and Administration',
+      label: 'Project Administration',
+      items: ['projets-et-espace-de-travail', 'controle-acces-et-roles'],
+    },
+    {
+      type: 'category',
+      label: 'Portfolio',
+      items: ['portfolio'],
+    },
+    {
+      type: 'category',
+      label: 'Azure and Platform Administration',
       items: [
-        {
-          type: 'doc',
-          id: 'portfolio',
-          label: 'Portfolio',
-        },
-        {
-          type: 'doc',
-          id: 'ai-providers-platform-integrations',
-          label: 'AI providers and platform integrations',
-        },
-        {
-          type: 'doc',
-          id: 'seats-management-app-updates',
-          label: 'Tenant plan, licensed users, and app updates',
-        },
-        'maintenance-support-faq',
+        'deploiement-azure-marketplace',
+        'admin-deploiement-marketplace-et-entra',
+        'admin-fournisseur-ia',
+        'admin-integrations-plateforme',
+        'admin-licences-plans-et-mises-a-jour',
+        'ai-providers-platform-integrations',
+        'seats-management-app-updates',
       ],
+    },
+    {
+      type: 'category',
+      label: 'Security and Compliance',
+      items: ['securite-et-conformite', 'limitations-connues'],
+    },
+    {
+      type: 'category',
+      label: 'Support and FAQ',
+      items: ['maintenance-support-faq', 'support-audit-et-diagnostic', 'checklist-revue-documentaire', 'release-notes'],
     },
     {
       type: 'doc',
@@ -59,4 +79,3 @@ const sidebars = {
 };
 
 module.exports = sidebars;
-

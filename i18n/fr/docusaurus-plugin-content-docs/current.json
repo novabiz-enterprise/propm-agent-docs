@@ -3,21 +3,45 @@
     "message": "À venir",
     "description": "The label for version current"
   },
+  "sidebar.guide.doc.Home": {
+    "message": "Accueil",
+    "description": "The label for the doc item 'Home' in sidebar 'guide', linking to the doc index"
+  },
+  "sidebar.guide.category.Discover ProPM Agent": {
+    "message": "Découvrir ProPM Agent",
+    "description": "The label for category 'Discover ProPM Agent' in sidebar 'guide'"
+  },
   "sidebar.guide.category.Getting Started": {
     "message": "Prise en main",
     "description": "The label for category 'Getting Started' in sidebar 'guide'"
   },
-  "sidebar.guide.category.Project Work": {
-    "message": "Travail projet",
-    "description": "The label for category 'Project Work' in sidebar 'guide'"
+  "sidebar.guide.category.Use ProPM Agent": {
+    "message": "Utiliser ProPM Agent",
+    "description": "The label for category 'Use ProPM Agent' in sidebar 'guide'"
   },
-  "sidebar.guide.category.Portfolio and Administration": {
-    "message": "Pilotage et administration",
-    "description": "The label for category 'Portfolio and Administration' in sidebar 'guide'"
+  "sidebar.guide.category.Project Governance": {
+    "message": "Gouvernance projet",
+    "description": "The label for category 'Project Governance' in sidebar 'guide'"
   },
-  "sidebar.guide.doc.Home": {
-    "message": "Accueil",
-    "description": "The label for the doc item 'Home' in sidebar 'guide', linking to the doc index"
+  "sidebar.guide.category.Project Administration": {
+    "message": "Administration projet",
+    "description": "The label for category 'Project Administration' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Portfolio": {
+    "message": "Portfolio",
+    "description": "The label for category 'Portfolio' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Azure and Platform Administration": {
+    "message": "Administration Azure et plateforme",
+    "description": "The label for category 'Azure and Platform Administration' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Security and Compliance": {
+    "message": "Sécurité et conformité",
+    "description": "The label for category 'Security and Compliance' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Support and FAQ": {
+    "message": "Support et FAQ",
+    "description": "The label for category 'Support and FAQ' in sidebar 'guide'"
   },
   "sidebar.guide.doc.Glossary": {
     "message": "Glossaire",

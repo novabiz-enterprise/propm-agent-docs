@@ -1,37 +1,32 @@
 ---
-title: Portfolio and administration guide
+title: Legacy portfolio and administration page
 slug: /portefeuille-et-administration-technique
-description: Orientation page for the former portfolio and technical administration URL, now split into Portfolio, AI providers and platform integrations, and tenant plan, licensed users and app updates.
+description: Former URL kept for compatibility, replaced by specialized Portfolio, Azure administration, AI provider, integrations, licenses and support pages.
 ---
 
-[Home](./index.md) · Portfolio and administration guide
+[Home](./index.md) · Legacy portfolio and administration page
 
-## This page has been reorganized
+## This page is kept for compatibility
 
-This URL is kept as an orientation page so existing links to **Portfolio and technical administration** do not break.
+The former **Portfolio and technical administration** page has been replaced by specialized pages to separate end-user guidance, project administration, Azure administration and support diagnostics.
 
-The content is now split into three clearer administration sections.
+## Where to go now
 
-| Need | Go to |
+| Need | Recommended page |
 | --- | --- |
-| Compare projects, configure portfolio signals, read cohorts, outliers and project drill-downs | [Portfolio](./portfolio.md) |
-| Configure AI providers, validate readiness, understand platform integrations, bindings, health and technical blocking causes | [AI providers and platform integrations](./ai-providers-platform-integrations.md) |
-| Manage tenant plan, licensed users, supplemental licenses, app updates, image inventory and rollback on existing Azure Container Apps | [Tenant plan, licensed users, and app updates](./seats-management-app-updates.md) |
+| Compare projects, cohorts, signal profiles and outliers | [Portfolio](./portfolio.md) |
+| Deploy from Azure Marketplace and finalize Entra | [Azure and Entra administration](./admin-deploiement-marketplace-et-entra.md) |
+| Configure Save / Validate / Test / Activate for the AI provider | [AI provider](./admin-fournisseur-ia.md) |
+| Define, validate or bind connectors | [Platform integrations](./admin-integrations-plateforme.md) |
+| Manage seats, Marketplace plan, refresh and updates | [Licenses, plans and updates](./admin-licences-plans-et-mises-a-jour.md) |
+| Diagnose with Run ID, Trace ID or AI Log | [Support, audit and diagnostics](./support-audit-et-diagnostic.md) |
 
-## Product rule about Marketplace plans
+## Marketplace plan rule
 
-All Marketplace plans expose the same product features. Only the ordered license capacity differs.
-
-If a user is blocked, check remaining licenses, roles, project access, bindings, policy, configuration or health. Do not interpret the plan as a feature tier.
-
-## Suggested reading order
-
-1. Start with [Portfolio](./portfolio.md) if the question is about comparing projects.
-2. Continue with [AI providers and platform integrations](./ai-providers-platform-integrations.md) if the question is about technical preparation, providers, connectors or bindings.
-3. Use [Tenant plan, licensed users, and app updates](./seats-management-app-updates.md) if the question is about access allocation, tenant licenses, supplemental licenses or updating an existing installation.
+Marketplace plans alone do not explain whether an action is available or blocked. When something is blocked, check remaining licenses, role, project access, binding, policy, health and effective AI provider.
 
 ## Related pages
 
-- [Connectors and integrations](./connecteurs-jira-et-sharepoint)
-- [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md)
+- [Audiences, roles and scopes](./publics-roles-et-perimetres.md)
+- [AI Log](./journal-ia.md)
 - [Maintenance, support and FAQ](./maintenance-support-faq.md)

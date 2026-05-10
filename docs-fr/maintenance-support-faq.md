@@ -1,327 +1,112 @@
 ---
 title: Maintenance, support et FAQ
 slug: /maintenance-support-faq
-description: Repères d’exploitation, vérifications utiles et réponses aux questions fréquentes.
+description: Réponses courtes aux incidents fréquents et orientation vers les pages support, audit ou administration.
 ---
 
 [Accueil](./index.md) · Maintenance, support et FAQ
 
 ![Journal IA et repères d’investigation](/img/screenshots/localized/fr/09-ai-log-runs.jpg)
 
-## Surfaces utiles pour l’exploitation
+## Objectif
 
-Les points suivants servent de repères dans l’application :
+Cette FAQ aide à reconnaître les symptômes courants et à ouvrir la bonne page sans exposer de détails internes ou sensibles.
 
-- **notifications** dans la barre supérieure ;
-- **indicateur de santé** dans la barre supérieure ;
-- **signaux** dans l’espace de travail projet ;
-- **Journal IA** pour les runs et l’activité ;
-- **Audit / activity** dans l’administration de plateforme.
+## Pour qui
 
-## Procédure de vérification rapide
-
-1. vérifiez que le bon **projet** est actif ;
-2. distinguez **état vide**, **lecture seule**, **accès refusé** ou **message affiché** ;
-3. ouvrez le **Journal IA** si le sujet concerne un agent, un résultat ou un artefact ;
-4. conservez le **Trace ID** et, si visible, le `Context snapshot ID` ou le `Structured output ID` ;
-5. vérifiez droits, intégrations, bindings projet, état de santé et disponibilité d’une licence restante si l’accès ou l’exécution est bloqué.
-
-## Repères rapides par situation
-
-| Situation rencontrée | Surface de premier niveau | Étape suivante |
-| --- | --- | --- |
-| Connexion ou retour Microsoft anormal | [Démarrage](./demarrage.md) | vérifier Entra, tenant, `redirectUri` et licences restantes |
-| Aucun projet visible après connexion | **Projets** / sélecteur de projet | **Contrôle d’accès** ou ajout du compte au projet |
-| Réponse agent, artefact ou publication douteuse | **Journal IA** → `Runs` | **Activity**, puis **Rapports & artefacts** |
-| Import ou recherche incohérente | **Connaissance** et historique d’import | **Intégrations du projet**, puis **Administration de la plateforme** |
-| Action externe visible mais bloquée | **Actions & approbations** | **Intégrations du projet**, puis **Administration de la plateforme** |
-
-## Fiches de vérification rapide
-
-### Accès à confirmer
-
-Vérifiez l’URL, le tenant, le compte invité si usage guest, la `redirectUri` réellement configurée et la disponibilité d’une licence restante lorsque l’accès à l’application consomme une licence.
-
-### Page visible mais non modifiable
-
-Vous êtes probablement en **lecture seule**. Vérifiez votre rôle avant de conclure à une restriction de permission.
-
-### Document visible mais non retrouvable en recherche
-
-Commencez par vérifier le statut du document (`Indexed`, `Ingesting`, `Failed`), l’historique d’import, le rafraîchissement de la page et le `Trace ID` de recherche si un appel a échoué.
-
-### Import depuis une source grisé ou absent
-
-Les vérifications les plus utiles sont : fournisseur non validé, rattachement projet absent, permission insuffisante, politique restrictive, configuration incomplète ou état de santé à confirmer.
-
-### Action visible mais non exécutable
-
-Vérifiez le connecteur compatible, le rattachement projet, l’approbation requise, le rôle utilisateur et la politique applicable.
-
-### Voix indisponible
-
-La voix dépend du navigateur. Essayez un autre navigateur, vérifiez les permissions micro et utilisez la saisie texte si la reconnaissance vocale n’est pas supportée.
-
-## Données à transmettre au support
-
-| Élément | Pourquoi c’est utile |
+| Profil | Usage de cette page |
 | --- | --- |
-| URL du déploiement | Identifier l’environnement concerné |
-| Projet concerné | Rejouer le contexte |
-| Trace ID | Retrouver précisément le run ou l’événement |
-| Context snapshot ID / Structured output ID | Rapprocher un run, une sortie et un artefact |
-| Capture d’écran | Comprendre l’état visible au moment du blocage |
-| Heure approximative | Croiser l’événement avec les journaux |
+| Utilisateur métier | Comprendre quoi vérifier avant de demander de l’aide |
+| Project Owner | Distinguer rôle, projet, politique et intégration |
+| Administrateur tenant | Identifier quand passer aux pages admin |
+| Support | Collecter les informations utiles à l’investigation |
 
-## FAQ — accès et sécurité
+## Avant de commencer
 
-### Pourquoi puis-je voir une page d’administration sans pouvoir la modifier ?
+- Vérifiez le projet actif.
+- Notez l’heure approximative du problème.
+- Conservez le message affiché et une capture masquée si nécessaire.
+- Ne partagez jamais de secret, clé, jeton ou payload sensible.
 
-Parce que le produit distingue **lecture seule** et **accès refusé**. Une page peut être exposée pour inspection sans autoriser la modification.
+## Symptôme vers première action
 
-### Pourquoi ma connexion Microsoft réussit-elle mais l’accès n’aboutit pas encore comme prévu ?
+| Symptôme | Première action | Page utile |
+| --- | --- | --- |
+| Connexion impossible | Vérifier compte, tenant, consentement et URL | [Démarrage](./demarrage.md) |
+| Aucun projet visible | Vérifier appartenance au projet et rôle | [Projet actif](./projet-actif-et-creation-projet.md) |
+| Page vide | Vérifier projet actif, filtre et rôle | [Interface et navigation](./interface-et-navigation.md) |
+| Document non indexé | Vérifier statut `Indexed`, `Ingesting` ou `Failed` | [Connaissance](./connaissance-documents-et-imports.md) |
+| Agent sans réponse | Vérifier si un run existe dans le Journal IA | [Journal IA](./journal-ia.md) |
+| Réponse incomplète | Vérifier preuves, fraîcheur et informations manquantes | [Sorties structurées](./sorties-contextuelles-preuves-et-fraicheur.md) |
+| Fournisseur IA non opérationnel | Vérifier fournisseur effectif et page admin IA | [Fournisseur IA](./admin-fournisseur-ia.md) |
+| Connecteur bloqué | Vérifier plateforme, projet, politique, santé | [Connecteurs](./connecteurs-jira-et-sharepoint.md) |
+| Action en attente | Vérifier approbation, politique et exécution | [Actions et approbations](./actions-et-approbations.md) |
+| Licence indisponible | Vérifier seats restants et utilisateur licencié | [Licences, plans et mises à jour](./admin-licences-plans-et-mises-a-jour.md) |
 
-Vérifiez le tenant, l’autorisation du compte, l’existence d’un projet accessible et la disponibilité d’un siège lorsque l’accès à l’application requiert une licence.
+## FAQ accès et projet
 
-### Pourquoi ma connexion réussit-elle mais aucun projet n’apparaît ?
+### La connexion Microsoft réussit mais aucun projet n’apparaît
 
-Cette situation n’indique pas forcément une question d’authentification. Vérifiez d’abord le **sélecteur de projet**, puis la page **Projets**. Si la liste reste vide, le compte n’a probablement pas encore été ajouté au bon projet ou ne dispose pas du droit de création.
+Le compte est authentifié mais n’est probablement pas encore membre d’un projet, ou le projet actif n’est pas sélectionné. Demandez au Project Owner de vérifier votre présence dans [Contrôle d’accès et rôles](./controle-acces-et-roles.md).
 
-### Quand faut-il inviter un compte externe comme utilisateur `guest` ?
+### Une page est visible mais tous les boutons sont grisés
 
-Lorsque le compte appartient à un autre tenant que celui qui héberge l’application. Le compte doit alors être invité dans le tenant cible, puis autorisé sur l’application ou via le groupe attendu.
+Vous êtes probablement en lecture seule. Ce n’est pas une panne : le rôle permet de consulter mais pas de modifier. Vérifiez le rôle attendu avec le Project Owner.
 
-### Comment distinguer rapidement tenant, `redirect URI`, application Entra ou licence disponible ?
+### Le projet actif change-t-il les résultats ?
 
-Suivez cet ordre :
+Oui. Connaissance, Agents, Documents PM, Signaux et Journal IA dépendent du projet actif. Vérifiez-le dans la barre supérieure avant toute enquête.
 
-1. si Microsoft échoue **avant** le retour dans l’application, suspectez d’abord tenant, `clientId` ou `redirect URI` ;
-2. si la connexion réussit mais que l’application reste bloquée, vérifiez ensuite les **licences restantes** et l’accès à un projet ;
-3. si seule une surface précise reste verrouillée, le sujet est souvent côté **rôle** ou **permission** plutôt que côté authentification.
+## FAQ connaissance et agents
 
-## FAQ — disponibilité, runtime et connectivité
+### Un document est visible mais pas retrouvable dans la recherche
 
-### Comment lire le panneau de santé lorsque certaines pages chargent encore ?
+Il peut encore être en traitement. Attendez le statut **Indexed** avant de l’utiliser comme preuve. Si le statut passe **Failed**, consultez [Connaissance, documents et imports](./connaissance-documents-et-imports.md).
 
-Parce que l’authentification peut rester valide alors qu’un composant **API** ou un fournisseur demande encore une vérification de disponibilité. Relevez d’abord l’état affiché dans l’indicateur de santé, puis poursuivez vers [Interface et navigation](./interface-et-navigation.md) pour la lecture du panneau et [Portefeuille et administration technique](./portefeuille-et-administration-technique.md) si le doute porte sur le fournisseur ou l’intégration admin.
+### Un agent répond sans preuve visible
 
-### Que faire si la connexion réussit, qu’un projet est visible, mais que les runs ne démarrent pas ?
+Traitez la réponse comme exploratoire. Avant diffusion ou décision, vérifiez les preuves, la fraîcheur et les informations manquantes dans [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md).
 
-Vérifiez dans cet ordre : projet actif, indicateur de santé, fournisseur IA supposé opérationnel, préparation du fournisseur, puis **Journal IA** pour voir si une exécution a au moins été créée. Si le fournisseur reste suspect, poursuivez vers [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
+### L’historique de chat a disparu
 
-## FAQ — projet, espace de travail et agents
+La continuité de chat peut être locale au navigateur. Elle n’est pas une archive centrale partagée. Les Documents PM, artefacts, actions et runs tracés restent côté plateforme selon vos droits.
 
-### Quand faut-il utiliser Espace de travail plutôt qu’Agents ?
+## FAQ Documents PM et actions
 
-Utilisez **Espace de travail** pour régler et piloter le projet ; utilisez **Agents** pour converser avec un agent et produire une sortie structurée.
+### Quelle différence entre Download, Publish et Add to knowledge ?
 
-### Où est stocké l’historique de chat ?
+| Action | Effet |
+| --- | --- |
+| Download | Télécharge une copie locale |
+| Publish | Publie vers une destination gouvernée |
+| Add to knowledge | Réinjecte un document relu dans la connaissance projet |
 
-L’historique visible est local au navigateur. Il n’est pas une archive partagée centrale.
+### Une action est approved mais rien ne s’est passé
 
-### Qu’est-ce qui est local au navigateur et qu’est-ce qui est partagé dans la plateforme ?
+`approved` signifie que l’action est autorisée. `executed` signifie que l’action a réellement été lancée. Vérifiez l’état dans [Actions et approbations](./actions-et-approbations.md).
 
-Dans l’état actuel :
+### Un connecteur est visible mais inutilisable
 
-- la **continuité de chat** est sauvegardée localement, par couple **projet + agent**, dans le navigateur courant ;
-- le **projet actif mémorisé** relève aussi du navigateur et parfois de la session locale ;
-- d’autres commodités locales incluent aussi la **langue d’interface**, le **thème**, la liste des **projets récents**, l’état lu/effacé du **centre de notifications** et certaines préférences de **tableaux** ;
-- les **documents**, **imports**, **artefacts**, **approbations**, **rapports publiés**, **notifications projet**, **signaux**, **digests**, **brouillons** et **actions gouvernées** relèvent de la **plateforme partagée**.
+Un connecteur doit être défini côté plateforme, rattaché au projet, autorisé par la politique, sain, et utilisable par votre rôle. Consultez [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint.md).
 
-Il est donc normal qu’un historique de chat disparaisse en changeant de navigateur ou de machine alors que les objets gouvernés du projet restent visibles aux autres utilisateurs autorisés.
+## FAQ Portfolio
 
-### Que signifie exactement `All projects` ?
+### Aucun outlier n’apparaît
 
-`All projects` est une **portée d’agent personnalisé**, pas un projet unique ni une vue portefeuille. Cela signifie qu’un agent personnalisé peut rester visible dans tous les projets accessibles par le **même compte**. Chaque run continue néanmoins à s’exécuter dans le **projet actif** au moment du chat.
+Cela peut signifier que le seuil global est élevé, que la sélection est trop restrictive, que les preuves manquent ou que la situation est réellement stable. Ouvrez [Portfolio](./portfolio.md) et vérifiez le snapshot, les projets sélectionnés et le profil de signaux.
 
-### Pourquoi un agent personnalisé n’apparaît-il pas dans un autre projet ?
+### Un signal est indisponible
 
-Vérifiez d’abord sa **portée**. Un agent `Project only` reste limité au projet courant. Si l’environnement expose un agent `All projects`, il doit en plus être consulté avec le **même compte** dans un projet auquel ce compte a accès.
+Indisponible ne veut pas dire sans risque. Cela signale souvent un manque de preuve ou de données exploitables.
 
-### L’historique de chat est-il conservé par projet, par agent ou seulement par navigateur ?
+## Support et audit avancé
 
-La continuité est **locale au navigateur** et rattachée au couple **projet + agent**. Elle n’est donc ni globale à tout le tenant ni partagée automatiquement entre navigateurs.
+Pour une enquête, fournissez uniquement les informations utiles : URL, projet actif, heure, action tentée, message affiché, Run ID, Trace ID ou Action ID si visibles. Les identifiants comme `Trace ID`, `Context snapshot ID` ou `Structured output ID` sont des repères de support, pas des informations nécessaires à tous les utilisateurs.
 
-### Quels navigateurs ou permissions faut-il vérifier en priorité pour la voix ?
-
-Commencez par la prise en charge navigateur de `SpeechRecognition` / `webkitSpeechRecognition`, puis contrôlez l’autorisation d’accès au micro. Si le bouton reste indisponible ou si la reconnaissance échoue, revenez à la saisie texte sans bloquer le parcours projet.
-
-### Pourquoi la voix n’apparaît-elle pas dans tous les environnements ?
-
-Parce que cette capacité dépend du navigateur et de son support de reconnaissance vocale. La saisie vocale reste optionnelle : son absence ne bloque pas le workflow nominal, qui reste la saisie texte dans **Agents**.
-
-## FAQ — connaissance et recherche
-
-### Pourquoi **Espace de travail**, **Connaissance** ou **Journal IA** semble vide ?
-
-Commencez par vérifier s’il existe bien un **projet actif**. Dans l’état actuel de l’application, ces surfaces peuvent afficher un **état vide normal** tant qu’aucun projet n’est sélectionné.
-
-Si un projet est déjà actif, distinguez ensuite un vide normal de l’absence réelle de données : projet neuf, aucun run, aucun document, aucun artefact ou filtre actif.
-
-### Pourquoi **Rapports & artefacts** est-il vide ?
-
-Les causes les plus fréquentes sont :
-
-- aucun **artefact** ou **PM Doc** n’a encore été créé ;
-- le run est resté au stade de **sortie structurée** ;
-- le mauvais projet ou un filtre masque les lignes ;
-- l’environnement ne contient pas les mêmes exemples préchargés que les captures de référence.
-
-### Pourquoi un document est-il visible dans la liste mais pas encore retrouvable dans la recherche ?
-
-Parce qu’il peut encore être en état **Ingesting** ou en attente de fin de pipeline d’indexation.
-
-### Que signifient `source label` et `source system` ?
-
-Ces deux champs servent à juger rapidement la provenance d’une preuve :
-
-- **source label** désigne surtout le fournisseur ou l’origine d’ingestion affichée (`manual`, `SharePoint`, `ADF`, `Blob`, `Confluence`, `Jira`, etc.) ;
-- **système source** aide à reconnaître le système ou le flux métier lisible derrière cette preuve (`Knowledge`, `Schedule`, `Finance`, `Operations`, etc.).
-
-Utilisez-les ensemble quand vous devez arbitrer un extrait sans rouvrir toute la configuration détaillée.
-
-### Pourquoi un import peut-il sembler terminé alors que certains documents ne sont pas encore retrouvables ?
-
-Parce que l’ingestion visible ne signifie pas toujours que toute l’indexation est terminée. Contrôlez le statut documentaire (`Indexed`, `Ingesting`, `Failed`), puis relancez la recherche quand le document est réellement indexé.
-
-### Pourquoi un document est-il `Indexed` alors qu’une preuve reste `unavailable` dans une sortie structurée ?
-
-Le document peut être bien présent dans la **Connaissance** alors que la preuve liée au run n’a pas pu être confirmée, réouverte ou stabilisée au moment de la génération. Reprenez la lecture dans [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md), puis contrôlez le run dans [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) si nécessaire.
-
-### Que signifient les badges de fraîcheur dans la recherche et dans les preuves ?
-
-Ils indiquent l’état de confiance temporelle de la source : `fresh`, `aging`, `stale`, `conflicting` ou `unavailable`. Utilisez-les comme un signal de relecture avant publication, pas comme un détail cosmétique.
-
-### Quelle différence entre `Trace ID`, `Context snapshot ID` et `Structured output ID` ?
-
-- **Trace ID** : identifiant de suivi principal pour retrouver un run ou un événement ;
-- **Context snapshot ID** : capture du contexte documentaire/projet utilisé pendant le run ;
-- **Structured output ID** : identifiant de la sortie structurée réellement produite.
-
-Dans la lecture quotidienne, gardez surtout en tête que le **Run ID** reste la poignée la plus pratique dans l’écran, alors que le **Trace ID** devient surtout utile pour le support, l’audit et la corrélation transverse entre services.
-
-## FAQ — sorties IA et Journal IA
-
-### Quelle différence entre Runs et Activity ?
-
-**Runs** montre les exécutions d’agent et leurs métadonnées ; **Activity** montre une timeline d’événements projet et le payload brut associé.
-
-### Comment savoir quel fournisseur IA a réellement été utilisé ?
-
-Ouvrez le détail du run dans **Journal IA** et lisez **Effective AI Provider**. C’est la valeur de référence pour ce run.
-
-### Pourquoi `Validate` et `Test` ne garantissent-ils pas toujours que ce fournisseur sera celui réellement utilisé ?
-
-Parce que `Validate` et `Test` contrôlent surtout la cohérence et la connectivité de la configuration administrative. Le fournisseur effectivement utilisé sur un run donné reste celui résolu au runtime et exposé dans le **Journal IA**.
-
-### Que signifient `lineage` et `context snapshot` dans une enquête ?
-
-- **lineage** : chaîne de traçabilité entre run, sortie structurée, artefact, version et PM Doc ;
-- **context snapshot** : capture du contexte utilisé au moment du run.
-
-Ces deux notions aident à comprendre **d’où vient** un livrable et **sur quelle base** il a été produit.
-
-### Un run est visible dans `Runs`, mais aucune suite claire n’apparaît dans `Activity`. Que faire ?
-
-Ce cas signifie souvent que le run a bien existé, mais qu’aucun brouillon, artefact, notification ou action aval n’a encore été créé, ou que vous n’ouvrez pas le bon projet / bon filtre dans **Activity**. Reprenez l’enquête via [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md) en suivant l’ordre **diff / lignée / Runs / Activity**.
-
-### Comment lire le champ `Cost` ?
-
-Traitez `Cost` comme un repère de transparence runtime : `tokens` et `calls` servent surtout à l’enquête, au support et à la compréhension de l’usage, pas à une décision d’approbation métier à eux seuls. Si vous cherchez un signal transversal de pression budgétaire, ouvrez plutôt `cost_pressure` dans **Portfolio**.
-
-### Que faut-il vraiment faire avec la confiance et la fraîcheur des sources ?
-
-- **Confiance** = indice de relecture, pas preuve autonome ;
-- **Fraîcheur des sources** = degré d’actualité des preuves citées ;
-- si l’un des deux paraît faible, ancien, `conflicting` ou `unavailable`, revenez aux preuves, au run et à la lignée avant diffusion.
-
-## FAQ — rapports, artefacts et gouvernance
-
-### Quelle différence entre PM Doc, artefact et version d’artefact ?
-
-L’artefact est l’objet gouverné, la version d’artefact est son état historisé, et le PM Doc est le document projet revu, édité ou publié à partir de cet objet.
-
-### Pourquoi une action est-elle visible mais non exécutable ?
-
-Vérifiez droits, connecteur, rattachement projet, politique de gouvernance et approbation requise. Voir aussi [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md).
-
-### Quand faut-il **Approve**, **Publish** ou **Add to knowledge** ?
-
-- **Approve** valide une version d’artefact encore en `draft` ;
-- **Publish** déclenche la diffusion gouvernée vers une destination ou un format cible ;
-- **Add to knowledge** réinjecte un document relu dans la recherche projet.
-
-Ces trois actions ne sont pas interchangeables.
-
-### Comment arbitrer une preuve `conflicting` avant publication ?
-
-Rouvrez les sources contradictoires, comparez le snippet, la date, la provenance et la fraîcheur, puis documentez l’arbitrage dans l’artefact, la note de revue ou le flux de gouvernance. Si besoin, rapprochez ensuite le tout du **Journal IA**.
-
-### Pourquoi un brouillon de notification reste-t-il `held` ou ne part-il jamais vers un canal externe ?
-
-Dans l’interface, `in_app` est le chemin le plus direct. Les canaux externes peuvent rester en posture **held / draft** tant que la diffusion gouvernée, la policy, le connecteur ou l’approbation ne sont pas réunis. Reprenez la chaîne dans [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) : signal, digest éventuel, brouillon, policy, connecteur, puis approbation.
-
-### Pourquoi une action reste-t-elle `pending approval` ou `approved` sans exécution visible ?
-
-- `pending approval` signifie que l’accord n’a pas encore été donné ;
-- `approved` signifie que l’accord existe, mais pas forcément que l’exécution a déjà eu lieu.
-
-Confirmez ensuite l’étape aval dans **Actions & approbations**, puis dans **Activity**. Si besoin, utilisez la méthode décrite dans [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md).
-
-### Pourquoi une intégration est-elle disponible en plateforme mais verrouillée dans mon projet ?
-
-Parce qu’une définition technique plateforme ne suffit pas. Il faut encore un **rattachement projet** valide, des permissions adéquates, une politique compatible, un état de santé acceptable et une configuration fournisseur complète.
-
-### Pourquoi `Validate` ne prouve-t-il pas toujours qu’un appel externe complet a réussi ?
-
-Pour les connecteurs et fournisseurs d’ingestion, `Validate` confirme d’abord la cohérence de la configuration : champs obligatoires, mode, auth, URL et source ou cible. Un appel réseau réel ne se produit que si une sonde de connectivité est activée. Même dans ce cas, la sonde reste non destructive : il ne crée pas forcément de ticket, n’envoie pas de message et ne réalise pas un import complet.
-
-Si une action ou un import semble prêt mais ne produit pas de résultat externe visible, vérifiez dans cet ordre : définition plateforme, configuration spécifique au fournisseur, validation ou sonde, rattachement projet, politique, permission utilisateur, état de santé, puis charge utile de l’action ou de l’import. Voir aussi [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint.md).
-
-## FAQ — portefeuille et administration
-
-### Pourquoi les exemples préchargés ne correspondent-ils pas toujours exactement aux captures ?
-
-Les environnements peuvent varier. Certains projets n’exposent pas toujours les mêmes documents préchargés, rapports préchargés ou exemples de recherche que ceux montrés dans les captures.
-
-### Pourquoi le portefeuille ne remonte-t-il aucun projet ou aucun outlier ?
-
-Plusieurs lectures sont normales :
-
-- aucun projet accessible n’a été chargé ;
-- aucun projet ou aucun signal n’est actuellement sélectionné ;
-- la comparaison n’a pas renvoyé de résumés projet exploitables ;
-- certains signaux sont indisponibles faute de preuves ;
-- aucun projet ne dépasse le seuil global de valeur atypique avec la configuration active.
-
-Un portefeuille « calme » peut donc venir d’une sélection restrictive, d’un manque de preuves ou d’une situation réellement stable.
-
-### Existe-t-il des préréglages implicites pour Portfolio ?
-
-Non : l’interface fournit surtout des **valeurs par défaut**, un bouton **Reset defaults** et des **cohortes sauvegardées**. Les valeurs par défaut servent de point de départ sûr, pas de modèle imposé. Votre environnement peut aussi proposer une cohorte préconfigurée, avec un contenu qui varie selon les paramètres disponibles.
-
-### Comment libérer une licence utilisée par un utilisateur ?
-
-Cela se fait depuis **Platform Administration > Overview > Tenant plan and licensed users** par un profil autorisé. Le retrait d’un utilisateur licencié libère une licence pour un usage ultérieur, sous réserve des règles de licence du tenant.
-
-### Que signifie `Validate` réussi mais `Test` non abouti dans `Paramètres du fournisseur IA` ?
-
-La configuration administrative paraît cohérente, mais la connectivité réelle ou l’accès distant ne passent pas encore. Vérifiez le point de terminaison, le secret ou l’authentification réelle, l’accessibilité du fournisseur et les contraintes réseau, puis reprenez la séquence décrite dans [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
-
-### Pourquoi mon fournisseur est-il visible mais jamais `Operational` ?
-
-Un fournisseur peut être configuré ou même validé sans avoir passé toute la chaîne **Configuration → Validation → Test → Activate**. Vérifiez aussi l’état d’activation, la sélection d’exécution, l’état de santé et la préparation générale avant de le considérer exploitable.
-
-### Que faire si aucun deployment Azure OpenAI n’apparaît dans `Paramètres du fournisseur IA` ?
-
-Cela signifie généralement qu’aucun déploiement n’est visible dans la ressource Azure OpenAI configurée, ou que la découverte ne peut pas aboutir avec les paramètres actuels. Vérifiez le point de terminaison, l’authentification, la version d’API et la présence réelle des déploiements côté Azure, puis reprenez le contrôle détaillé dans [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
-
-### Pourquoi le fournisseur IA est-il visible mais non modifiable ou non utilisable ?
-
-Le fournisseur peut être visible en lecture alors que sa modification reste réservée à un rôle admin. Son usage réel dépend aussi de sa préparation, de l’état de santé, des permissions et de la résolution d’exécution du fournisseur effectif.
+Pour le détail, ouvrez [Support, audit et diagnostic](./support-audit-et-diagnostic.md).
 
 ## Suite
 
+- [Support, audit et diagnostic](./support-audit-et-diagnostic.md)
+- [Journal IA](./journal-ia.md)
 - [Glossaire](./glossaire.md)
-- [Démarrage](./demarrage.md)
-- [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)

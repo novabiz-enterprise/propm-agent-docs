@@ -261,7 +261,7 @@ On y retrouve plusieurs familles d’informations :
 L’écran sépare la préparation technique de la disponibilité projet :
 
 - la configuration plateforme, le rattachement projet, la politique, la permission, l’état de santé et la disponibilité de licence pour l’accès à l’app sont des **causes distinctes**. Un connecteur peut rester visible en lecture seule pour expliquer pourquoi il est bloqué au lieu de laisser croire qu’il manque ;
-- la configuration technique reste dans **Administration de la plateforme**. Les responsables des paramètres projet peuvent rattacher les intégrations activées et prêtes, tandis que les URL tenant, la stratégie d’authentification, les clés API et les références de secrets restent centralisées.
+- la configuration technique reste dans **Administration de la plateforme**. Les responsables des paramètres projet peuvent rattacher les intégrations activées et prêtes, tandis que les informations sensibles restent centralisées dans l’administration sécurisée.
 
 | Zone | Ce que vous pouvez voir | Comment agir |
 | --- | --- | --- |
@@ -410,7 +410,7 @@ Ce second scénario aligne lecture des signaux, diffusion, approbation et exécu
 ## Suite
 
 - [Contrôle d’accès et rôles projet](./controle-acces-et-roles.md)
-- [Connaissance et agents](./connaissance-et-agents.md)
+- [Connaissance, documents et imports](./connaissance-documents-et-imports.md)
 - [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md)
 - [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
-- [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
+- [Administration Azure et plateforme](./admin-deploiement-marketplace-et-entra.md)

@@ -1,202 +1,125 @@
 ---
 title: Interface et navigation
 slug: /interface-et-navigation
-description: Comprendre les écrans principaux, la barre latérale, la barre supérieure et le tableau de bord.
+description: Comprendre le shell ProPM Agent, changer de projet, lire les notifications, la santé, la langue et le thème.
 ---
 
 [Accueil](./index.md) · Interface et navigation
 
-![Tableau de bord ProPM Agent](/img/screenshots/localized/fr/01-dashboard.jpg)
+![Barre supérieure et navigation globale](/img/screenshots/localized/fr/01-navigation-topbar.jpg)
 
 ## Objectif
 
-Cette page explique comment se repérer dans le shell de ProPM Agent, lire le **Tableau de bord**, utiliser la **palette de commandes**, interpréter les **notifications** et utiliser le panneau **santé** pour une vérification rapide lorsque nécessaire.
+Cette page explique comment se repérer dans ProPM Agent : navigation principale, projet actif, centre de notifications, indicateur de santé, palette de commandes, langue, thème et aide.
+
+## Pour qui
+
+| Profil | Usage de cette page |
+| --- | --- |
+| Utilisateur métier | Trouver la bonne page et comprendre les états vides |
+| Project Manager | Changer de projet avant d’agir et suivre les notifications |
+| Propriétaire de projet | Diagnostiquer rapidement rôle, projet, santé ou intégration |
+| Support | Collecter les premiers indices sans entrer dans l’administration technique |
+
+## Avant de commencer
+
+- Vous êtes connecté à ProPM Agent.
+- Votre compte a accès à au moins un projet.
+- Vous savez quel projet vous devez consulter.
 
 ## Vue d’ensemble
 
-L’interface suit une logique simple :
-
-1. la **barre latérale** ouvre les grands domaines fonctionnels ;
-2. la **barre supérieure** change le projet courant et ouvre les outils rapides ;
-3. la surface centrale affiche le **contexte courant** ;
-4. plusieurs écrans changent d’état selon le **projet actif** et vos **droits**.
-
-## Navigation principale
-
-| Entrée | Usage principal |
+| Zone | Usage principal |
 | --- | --- |
-| Tableau de bord | Lire l’état général et les prochaines étapes suggérées |
-| Projets | Créer un projet, ouvrir un projet existant, choisir le projet actif |
-| Espace de travail | Résumé projet, signaux, préparation et réglages projet |
-| Connaissance | Rechercher, téléverser et importer les documents de référence |
-| Agents | Interagir avec les agents disponibles et lire les sorties structurées |
-| Rapports & artefacts | Réviser, comparer, publier ou télécharger les Documents PM |
-| Journal IA | Inspecter les exécutions, événements et métadonnées de traçabilité |
-| Centre de commande portefeuille | Comparer plusieurs projets via des signaux configurables |
-| Administration de la plateforme | Gérer intégrations, fournisseur IA, abonnement et activité plateforme |
+| Barre latérale | Ouvrir les grands domaines : Dashboard, Projets, Connaissance, Agents, Documents PM, Journal IA, Portfolio, Administration |
+| Barre supérieure | Changer de projet, ouvrir la palette, consulter notifications, santé, langue, thème et aide |
+| Surface centrale | Afficher les données du projet actif ou de l’administration choisie |
+| États vides | Signaler un projet absent, un rôle insuffisant, un filtre actif ou une donnée non encore créée |
 
-## Tableau de bord
+![Tableau de bord ProPM Agent](/img/screenshots/localized/fr/01-dashboard.jpg)
 
-Le **Tableau de bord** est l’écran le plus utile juste après la connexion.
+## Ouvrir la bonne surface
 
-Il consolide :
-
-- des métriques de situation ;
-- des éléments d’attention ;
-- des prochaines étapes recommandées ;
-- des raccourcis vers les zones où agir ;
-- un aperçu des signaux ouverts et des éléments en revue.
-
-Utilisez-le comme une **page d’orientation** : si un projet n’est pas actif, certains blocs restent vides ; si un projet est sélectionné, les indicateurs se contextualisent.
-
-### Comment lire les grandes zones du tableau de bord
-
-| Zone | Ce qu’elle synthétise | Réflexe utile |
-| --- | --- | --- |
-| Tuiles de synthèse | compteurs de projets, de connaissance, d’agents actifs, de signaux ouverts, de brouillons de notifications et d’actions en attente | repérer immédiatement si le sujet est un manque de contexte, un retard de revue ou une file d’attente gouvernée |
-| Cartes de score | état général de la livraison, du rythme d’exécution, de la couverture de gouvernance et de la profondeur de connaissance | lire ces cartes comme des repères d’orientation avant d’ouvrir un écran de détail |
-| Blocs de préparation | fondation connaissance, couverture d’automatisation, posture de gouvernance et flux de livraison | identifier quel pilier bloque l’usage normal du projet |
-| Panneau **Attention** | signaux, actions gouvernées et liste de surveillance des connecteurs | aller vers l’**Espace de travail** pour traiter les blocages actifs |
-| Panneau **Pulse** | dernier digest, notifications récentes, activité récente et état connecteurs | vérifier ce qui vient de changer sans relire tout l’historique du projet |
-| Liens rapides | raccourcis vers **Espace de travail**, **Connaissance**, **Agents**, **Rapports & artefacts**, **Journal IA** et **Portfolio** | ouvrir directement la bonne surface au lieu de naviguer écran par écran |
-
-Les scores et indicateurs du tableau de bord doivent être lus comme des **repères de priorisation**, pas comme une conclusion isolée à eux seuls.
-
-### Que faire si le tableau de bord semble contradictoire ?
-
-1. confirmez d’abord le **projet actif** dans la barre supérieure ;
-2. traitez ensuite les cartes comme des **signaux d’orientation**, pas comme la seule source de vérité ;
-3. ouvrez l’**Espace de travail** pour vérifier signaux, préparation et blocages projet ;
-4. ouvrez le **Journal IA** si le doute porte sur une exécution, une sortie ou un fournisseur réellement utilisé ;
-5. si le tableau de bord charge mais appelle une vérification complémentaire, ouvrez l’**indicateur de santé** avant de conclure sur les données affichées.
-
-![Barre supérieure et navigation globale](/img/screenshots/localized/fr/01-navigation-topbar.jpg)
-
-## Barre supérieure
-
-| Élément | Fonction |
+| Besoin | Page à ouvrir |
 | --- | --- |
-| Sélecteur de projet | Change le projet courant sans repasser par la liste complète |
-| Palette de commandes | Recherche rapide sur les pages et actions courantes |
-| Notifications | Affiche les éléments d’attention remontés par le produit |
-| Indicateur de santé | Ouvre une lecture rapide de l’état API, temps réel et auth |
-| Langue | Change la langue de l’interface |
-| Thème | Bascule l’apparence claire/sombre |
-| Aide | Ouvre les messages d’aide intégrés |
+| Lire l’état général du projet | [Tableau de bord](./tableau-de-bord.md) |
+| Sélectionner ou créer un projet | [Projet actif et création de projet](./projet-actif-et-creation-projet.md) |
+| Ajouter ou rechercher des documents | [Connaissance, documents et imports](./connaissance-documents-et-imports.md) |
+| Lancer un run IA | [Agents](./agents.md) |
+| Relire un livrable | [Documents PM et artefacts](./documents-pm-et-artefacts.md) |
+| Auditer un run | [Journal IA](./journal-ia.md) |
+| Traiter un signal | [Signaux et notifications](./signaux-et-notifications.md) |
+| Proposer ou approuver une action | [Actions et approbations](./actions-et-approbations.md) |
 
-### Comment lire le projet actif depuis la barre supérieure
+## Changer de projet actif
 
-Le sélecteur de projet de la barre supérieure sert à définir le **projet actif**. Ce projet est ensuite utilisé comme contexte par les pages projet.
+1. Ouvrez le sélecteur de projet dans la barre supérieure.
+2. Recherchez le projet par nom si la liste est longue.
+3. Sélectionnez le projet voulu.
+4. Vérifiez que son nom apparaît dans la barre supérieure.
+5. Ouvrez **Tableau de bord** pour confirmer que les métriques correspondent.
+6. Reprenez ensuite votre action dans **Connaissance**, **Agents**, **Documents PM**, **Signaux** ou **Journal IA**.
 
-En pratique :
+## Impact du projet actif
 
-- **Connaissance** recherche dans le projet actif ;
-- **Agents** lance les runs dans le projet actif ;
-- **Rapports & artefacts** relit les PM Docs et artefacts du projet actif ;
-- **Journal IA** montre les runs et l’activité du projet actif ;
-- **Espace de travail** affiche les signaux, réglages et intégrations du projet actif.
+| Surface | Effet du projet actif |
+| --- | --- |
+| Connaissance | Limite les documents, imports et résultats de recherche au projet |
+| Agents | Lance les runs dans le contexte du projet sélectionné |
+| Documents PM | Affiche les artefacts et livrables du projet |
+| Journal IA | Filtre les runs et activités du projet |
+| Signaux | Affiche les alertes, digests, brouillons et actions du projet |
 
-Le projet retenu peut être mémorisé localement dans le navigateur. Ce confort de navigation n’est pas un réglage partagé à toute la plateforme.
+`All projects` n’est pas un projet sélectionnable dans la barre supérieure. C’est une portée contrôlée, par exemple pour certains agents personnalisés, limitée aux projets déjà accessibles par le même compte.
 
-## Palette de commandes
+## Utiliser la palette de commandes
 
-La palette de commandes est conçue pour la navigation rapide.
+1. Appuyez sur `Ctrl+K` sous Windows/Linux ou `Cmd+K` sous macOS.
+2. Saisissez le nom d’une page ou d’une action.
+3. Sélectionnez l’entrée voulue.
+4. Vérifiez le projet actif si vous ouvrez une page projet.
 
-- **Windows / Linux** : `Ctrl+K`
-- **macOS** : `Cmd+K`
+La palette accélère la navigation, mais elle ne donne pas de droits supplémentaires.
 
-Elle filtre les pages et entrées disponibles par **nom** et **description**. Utilisez-la pour revenir vite vers **Journal IA**, **Administration de la plateforme** ou toute route rarement ouverte.
+## Utiliser le centre de notifications
 
-## Notifications
+1. Ouvrez l’icône de cloche dans la barre supérieure.
+2. Lisez les notifications non lues.
+3. Sélectionnez une notification pour ouvrir la page liée, si une navigation est fournie.
+4. Utilisez **Mark all read** ou **Marquer tout comme lu** pour vider le compteur sans supprimer l’historique local.
+5. Utilisez **Clear** ou **Tout effacer** uniquement si vous n’avez plus besoin de la liste locale.
+6. Si la notification ouvre une page vide, vérifiez le projet actif et vos droits.
 
-Le centre de notifications est accessible depuis l’icône de cloche de la barre supérieure.
+## Comprendre l’indicateur de santé
 
-Capacités disponibles :
-
-- compteur d’éléments non lus ;
-- panneau déroulant ;
-- **Marquer tout comme lu** ;
-- **Tout effacer** ;
-- clic sur une notification pour ouvrir la surface liée quand une navigation est fournie.
-
-Les notifications ne viennent pas d’une seule famille d’événements. Dans ProPM Agent, elles peuvent agréger :
-
-- des statuts d’agent ou de run ;
-- des événements de rapport, d’artefact ou de document ;
-- des notifications projet relues côté serveur ;
-- des suites de gouvernance ou d’approbation ;
-- des mises à jour d’intégration, de Marketplace, d’abonnement ou de coût.
-
-Le centre de la barre supérieure peut donc mélanger des événements quasi temps réel et des notifications projet relues côté plateforme.
-
-## Indicateur de santé
-
-L’indicateur de santé ouvre un panneau de lecture rapide. Il permet de consulter :
-
-- l’état **API** ;
-- l’état **temps réel** ;
-- l’état **auth** ;
-- la **latence** affichée ;
-- un message affiché si l’interface en présente un ;
-- le projet courant quand le contexte compte dans la lecture de l’état.
-
-Ouvrez-le si un agent paraît **offline**, si les notifications ne se rafraîchissent plus ou si une vérification de disponibilité est utile.
-
-Si le panneau indique un état dégradé alors que l’interface charge encore, gardez cet ordre de lecture :
-
-| Si le signal concerne surtout… | Ouvrez ensuite | Pourquoi |
+| État ou indice | Lecture pratique | Action recommandée |
 | --- | --- | --- |
-| l’**authentification** | [Démarrage](./demarrage.md) | pour distinguer tenant, compte, `redirect URI`, groupe admin ou siège |
-| le **runtime**, l’API ou la connectivité | [Maintenance, support et FAQ](./maintenance-support-faq.md) | pour suivre le parcours de vérification entre santé, fournisseur IA, intégrations et exécution |
-| le **contexte projet**, un écran vide ou une action absente | [Projets et espace de travail](./projets-et-espace-de-travail.md) | pour vérifier le projet actif, le rattachement, la préparation et les droits projet |
+| API saine | Les services répondent | Continuer le travail normal |
+| API dégradée | Certaines pages peuvent charger lentement ou rester vides | Patienter, relever l’heure et réessayer |
+| Temps réel dégradé | Notifications et mises à jour peuvent arriver en retard | Rafraîchir la page si nécessaire |
+| Auth à vérifier | La session ou le tenant demande une attention | Revenir à [Démarrage](./demarrage.md) |
+| Latence élevée | Les actions peuvent sembler lentes | Éviter les doubles clics et attendre la fin des traitements |
+| Message bloquant | Une page peut être indisponible si l’API live n’est pas saine | Ouvrir [Support, audit et diagnostic](./support-audit-et-diagnostic.md) |
 
-Avant d’escalader, relevez l’état affiché pour **API**, **realtime**, **auth**, la **latence**, le **projet courant** et l’heure approximative du test. Ces éléments facilitent fortement le traitement par l’équipe en charge.
+## Quand escalader
 
-## Contexte projet et états vides
-
-Plusieurs écrans de ProPM Agent sont liés au projet actif. En pratique :
-
-- **sans projet sélectionné**, certaines pages affichent un état vide normal ;
-- **avec projet sélectionné**, la même page charge les données et actions de ce projet ;
-- le changement de projet modifie le contenu de **Connaissance**, **Agents**, **Rapports & artefacts** et **Journal IA**.
-
-Cette dépendance au contexte évite de mélanger preuves, conversations et livrables de plusieurs projets.
-
-### Ce que la navigation ne veut pas dire
-
-Quelques malentendus reviennent souvent :
-
-- ouvrir **Portfolio** ne change pas automatiquement le projet actif des pages projet ;
-- `All projects` n’est pas un projet sélectionnable dans la barre supérieure ;
-- voir une page vide ne prouve pas une panne : cela peut simplement signifier qu’aucun projet actif n’est défini ou qu’aucune donnée n’existe encore pour ce projet ;
-- retrouver un historique de chat dans votre navigateur ne signifie pas qu’il est partagé à tous les utilisateurs.
+Escaladez au support ou à l’administrateur lorsque l’indicateur de santé reste dégradé après rafraîchissement, lorsqu’un run n’est pas créé dans le Journal IA, ou lorsqu’une action critique reste bloquée malgré un projet actif et un rôle attendu.
 
 ## Langue, thème et aide
 
-La langue d’interface peut être changée depuis la barre supérieure. Le changement de thème améliore le confort de lecture, sans effet sur les données projet. Les catalogues d’aide intégrés couvrent la navigation générale, les pages de projet, le Journal IA et les rappels de gouvernance.
+- La langue modifie l’interface et les libellés disponibles, pas les données projet.
+- Le thème clair/sombre est une préférence de confort locale.
+- L’aide ouvre les repères intégrés et les liens vers la documentation.
+- Certaines préférences comme le projet récent, la langue, le thème ou l’état lu des notifications peuvent rester locales au navigateur.
 
-## Ce qui reste local au navigateur dans la navigation
+## Résultat attendu
 
-Au-delà de la continuité de chat et du projet actif mémorisé, d’autres commodités restent locales au navigateur :
-
-- la langue et le thème d’interface ;
-- la liste des projets récents ;
-- l’état lu / effacé du centre de notifications ;
-- certaines préférences de tableaux ou de vues enregistrées localement.
-
-À l’inverse, les notifications projet, les signaux, les digests, les brouillons de notification, les actions gouvernées, les documents et les artefacts relèvent de la plateforme partagée.
-
-## Conseils de navigation
-
-- changez de projet **avant** d’ouvrir un agent ou un rapport ;
-- utilisez la **palette de commandes** pour retrouver rapidement une surface rarement utilisée ;
-- revenez au **Tableau de bord** lorsque vous perdez le fil du parcours ;
-- si une action semble absente, distinguez bien **lecture seule** et **accès refusé** ;
-- ouvrez l’**indicateur de santé** avant de conclure à une question de disponibilité de service.
+- Vous savez quel projet est actif.
+- Vous pouvez ouvrir la bonne page sans parcourir toute la navigation.
+- Vous savez distinguer notification, état vide, rôle insuffisant et santé dégradée.
 
 ## Suite
 
-- [Projets et espace de travail](./projets-et-espace-de-travail.md)
-- [Connaissance et agents](./connaissance-et-agents.md)
-- [Sorties structurées, preuves et fraîcheur](./sorties-contextuelles-preuves-et-fraicheur.md)
-- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
+- [Tableau de bord](./tableau-de-bord.md)
+- [Projet actif et création de projet](./projet-actif-et-creation-projet.md)
+- [Support, audit et diagnostic](./support-audit-et-diagnostic.md)

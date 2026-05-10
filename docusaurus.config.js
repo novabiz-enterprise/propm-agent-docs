@@ -13,7 +13,6 @@ const logoImage = 'img/propm-agent-marketplace-logo.png';
 
 const searchDocsDirs = [
   'docs',
-  'docs-fr',
   'i18n/fr/docusaurus-plugin-content-docs/current',
   'i18n/de/docusaurus-plugin-content-docs/current',
   'i18n/es/docusaurus-plugin-content-docs/current',

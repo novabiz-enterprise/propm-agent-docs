@@ -1,112 +1,130 @@
 ---
 title: Portfolio
 slug: /portfolio
-description: Comparer les projets, configurer les signaux portefeuille, lire les cohortes et valeurs atypiques, puis décider quel projet traiter en priorité.
+description: Comparer les projets, gérer les cohortes, régler les profils de signaux et lire les outliers portefeuille.
 ---
 
 [Accueil](./index.md) · Portfolio
 
 ![Centre de commande portefeuille](/img/screenshots/localized/fr/02-portfolio-command-center.jpg)
 
+![Portfolio annoté : sélection projets, profil de signaux, cohortes, seuil et outliers](/img/annotated/fr/portfolio-annote.svg)
+
 ## Objectif
 
-La page **Portfolio** est une surface de pilotage PMO transverse. Elle compare plusieurs projets avec un même modèle de signaux avant d’ouvrir le détail d’un projet.
+La page **Portfolio** aide les PMO et responsables de portefeuille à comparer plusieurs projets avec les mêmes signaux, puis à identifier les projets qui méritent une analyse prioritaire.
 
-Elle répond à la question : **quels projets méritent mon attention en priorité maintenant ?**
+## Pour qui
 
-Utilisez-la surtout pour :
-
-- prioriser le projet qui mérite l’attention en premier ;
-- comparer des signaux cohérents entre plusieurs projets ;
-- décider quel projet mérite ensuite une analyse détaillée.
-
-Ne la traitez ni comme une vue sponsor purement narrative, ni comme un remplacement de l’**Espace de travail** détaillé d’un projet.
-
-## À quoi sert Portfolio
-
-La page compare plusieurs projets avec des **signaux configurables**, pas avec un tableau rouge / orange / vert figé.
-
-Elle permet de sélectionner plusieurs projets, choisir les signaux, régler poids et seuils, filtrer la sévérité minimale, enregistrer une cohorte, repérer les **valeurs atypiques** et ouvrir le détail d’un projet.
-
-## Ce que voit l’utilisateur
-
-| Zone | Ce que l’on y fait |
+| Profil | Usage de cette page |
 | --- | --- |
-| **Sélection des projets** | choisir quels projets entrent dans la comparaison |
-| **Profil de signaux** | choisir les signaux, leurs poids, leurs seuils et la sévérité minimale |
-| **Cohortes** | enregistrer ou recharger une configuration de comparaison réutilisable |
-| **Résultats de comparaison** | lire le résumé, les valeurs atypiques et les écarts entre projets |
-| **Analyse détaillée du projet** | ouvrir les preuves, l’activité récente et le détail par signal pour un projet |
+| PMO | Comparer plusieurs projets et préparer une revue portefeuille |
+| Direction projet | Identifier les projets atypiques ou en tension |
+| Project Manager | Comprendre pourquoi son projet ressort dans une comparaison |
+| Auditeur | Vérifier les preuves manquantes, contradictions et signaux indisponibles |
 
-## Exemple guidé
+## Avant de commencer
 
-1. Dans **Projects**, sélectionnez les projets qui appartiennent à une même conversation de pilotage.
-2. Dans **Signal profile**, activez les signaux utiles, par exemple `blocker_density`, `freshness_issues`, `failed_runs` et `schedule_pressure`.
-3. Réglez les poids pour exprimer ce qui compte le plus dans cette revue.
-4. Réglez les seuils pour décider à partir de quand un signal mérite attention.
-5. Choisissez la sévérité minimale pour masquer le bruit faible si besoin.
-6. Réglez le **Overall outlier threshold** pour contrôler le niveau de sélectivité.
-7. Enregistrez la configuration comme **cohorte** si elle doit être réutilisée.
-8. Cliquez sur **Refresh comparison** pour recalculer la vue.
-9. Lisez la **comparaison narrative**, puis les **valeurs atypiques**.
-10. Ouvrez l’**analyse détaillée du projet** pour relire preuves, activité récente et liens vers l’Espace de travail, la Connaissance, les Rapports ou le Journal IA.
+- Vous avez accès à plusieurs projets.
+- Les projets à comparer ont suffisamment de données, signaux ou preuves.
+- Les seuils et poids doivent être adaptés à l’objectif de la revue.
+
+## Mots clés
+
+| Terme | Signification |
+| --- | --- |
+| `Projects` | Projets sélectionnés pour la comparaison |
+| `Signal profile` | Ensemble de signaux, poids, seuils et sévérité minimale |
+| `Overall outlier threshold` | Seuil global à partir duquel un projet ressort comme atypique |
+| `Refresh comparison` | Recalcule la comparaison avec les paramètres courants |
+| `Reset defaults` | Restaure les valeurs par défaut du profil |
+| Cohorte | Configuration sauvegardée de projets et paramètres de comparaison |
+| Snapshot | Résultat horodaté d’une comparaison à un moment donné |
+
+## Sélectionner les projets
+
+1. Ouvrez **Portfolio**.
+2. Dans **Projects**, sélectionnez les projets à comparer.
+3. Utilisez **Select all** si tous les projets accessibles doivent entrer dans la revue.
+4. Utilisez **Clear all** pour repartir d’une sélection vide.
+5. Vérifiez que les projets sélectionnés appartiennent au même objectif de pilotage.
+
+## Régler le profil de signaux
+
+1. Ouvrez **Signal profile**.
+2. Activez uniquement les signaux utiles à la revue.
+3. Réglez le poids de chaque signal.
+4. Réglez le seuil à partir duquel le signal devient significatif.
+5. Choisissez la sévérité minimale pour réduire le bruit.
+6. Réglez **Overall outlier threshold**.
+7. Lancez **Refresh comparison**.
+
+## Exemples de profils PMO
+
+| Revue | Signaux à renforcer | Objectif |
+| --- | --- | --- |
+| Revue hebdomadaire delivery | `schedule_pressure`, `blocker_density`, `activity_change` | Repérer dérives et blocages opérationnels |
+| Revue risques | `contradiction_count`, `freshness_issues`, `blocker_density` | Identifier preuves faibles et contradictions |
+| Revue coûts | `cost_pressure`, `failed_runs`, `activity_change` | Voir les tensions budgétaires ou de consommation |
+| Revue qualité des preuves | `freshness_issues`, `contradiction_count`, `failed_runs` | Prioriser les projets dont la base de preuve est fragile |
+
+## Créer une cohorte
+
+1. Sélectionnez les projets.
+2. Réglez le profil de signaux.
+3. Ouvrez l’éditeur de cohorte.
+4. Donnez un nom clair, par exemple `Revue PMO hebdo delivery`.
+5. Enregistrez.
+6. Vérifiez que la cohorte est disponible pour une prochaine session.
 
 ![Éditeur de cohorte portefeuille](/img/screenshots/localized/fr/02-portfolio-cohort-editor.jpg)
 
-## Profil de signaux par défaut
+## Modifier, supprimer ou recharger une cohorte
 
-| Signal | Poids par défaut | Seuil par défaut |
-| --- | --- | --- |
-| `activity_change` | `1.0` | `45` |
-| `blocker_density` | `1.2` | `35` |
-| `freshness_issues` | `1.0` | `35` |
-| `contradiction_count` | `1.1` | `35` |
-| `failed_runs` | `1.3` | `40` |
-| `schedule_pressure` | `1.2` | `40` |
-| `cost_pressure` | `1.2` | `40` |
-| `overall_outlier_score` | - | `55` |
+| Action | Étapes |
+| --- | --- |
+| Modifier | Chargez la cohorte, ajustez projets ou signaux, enregistrez à nouveau |
+| Supprimer | Ouvrez la cohorte et utilisez l’action de suppression si disponible |
+| Recharger | Sélectionnez la cohorte sauvegardée puis lancez **Refresh comparison** |
+| Repartir des valeurs par défaut | Utilisez **Reset defaults** avant d’enregistrer une nouvelle cohorte |
 
-Les valeurs par défaut sont un point de départ sûr. **Reset defaults** les restaure, et les **cohortes** sauvegardées mémorisent les profils réutilisables.
-
-## Signaux Portfolio
-
-| Signal | Question à laquelle il répond | Comment l’interpréter |
-| --- | --- | --- |
-| `activity_change` | l’activité récente est-elle très différente de la période précédente ? | élevé = variation inhabituelle à expliquer |
-| `blocker_density` | le projet montre-t-il beaucoup de blocages ou d’escalades ? | élevé = blocages fréquents ou concentrés |
-| `freshness_issues` | les preuves et sources sont-elles trop anciennes ou indisponibles ? | élevé = la vue projet devient moins fiable |
-| `contradiction_count` | les sources se contredisent-elles ? | élevé = arbitrage ou clarification nécessaire |
-| `failed_runs` | les automatisations ou runs échouent-ils souvent ? | élevé = friction technique ou opérationnelle |
-| `schedule_pressure` | le planning montre-t-il des signes de tension ? | élevé = pression planning ou dérive calendrier |
-| `cost_pressure` | le budget ou la consommation montrent-ils une tension ? | élevé = risque budget / coûts |
+Une cohorte préconfigurée peut varier selon les environnements. Ne l’interprétez pas comme un modèle imposé si elle ne correspond pas à votre gouvernance.
 
 ## Lire un outlier
 
-Un **outlier** n’est pas une note magique ni un jugement définitif. Il signifie que le projet ressort plus que les autres selon les règles actuelles : signaux élevés, poids significatifs, seuils dépassés et score combiné au-dessus du seuil global.
+Un **outlier** est un projet qui ressort selon les poids, seuils et signaux actifs. Ce n’est pas un verdict automatique.
 
-Un signal **indisponible** ne signifie pas zéro risque. Il indique que le portefeuille n’a pas assez de preuve fiable pour calculer l’indicateur.
+### Exemple métier
+
+Un projet ressort fortement car `schedule_pressure` et `freshness_issues` dépassent les seuils. Lecture recommandée :
+
+1. ouvrez le détail du projet dans Portfolio ;
+2. vérifiez quels signaux expliquent le score ;
+3. lisez les preuves et leur fraîcheur ;
+4. ouvrez [Tableau de bord](./tableau-de-bord.md) ou [Signaux et notifications](./signaux-et-notifications.md) pour le projet ;
+5. ouvrez [Connaissance](./connaissance-documents-et-imports.md) si les preuves sont absentes ou anciennes ;
+6. ouvrez [Journal IA](./journal-ia.md) si le problème porte sur les runs ou le fournisseur IA effectif.
+
+## Signaux indisponibles et evidence gaps
+
+Un signal indisponible ne signifie pas absence de risque. Il indique un manque de preuve ou de données exploitables pour calculer l’indicateur. Traitez les **evidence gaps** comme une demande de vérification, pas comme un feu vert.
 
 ## Quand Portfolio paraît vide ou calme
 
-Plusieurs lectures sont normales : aucun projet accessible, aucun signal sélectionné, résumé inexploitable, preuves manquantes ou seuil global d’outlier non dépassé.
+| Situation | Lecture probable | Action recommandée |
+| --- | --- | --- |
+| Aucun projet | Accès insuffisant ou sélection vide | Vérifiez les projets accessibles |
+| Aucun outlier | Seuil trop élevé ou situation stable | Ajustez le seuil ou confirmez la stabilité |
+| Résumé inexploitable | Données projet insuffisantes | Ouvrez la connaissance ou le tableau de bord |
+| Snapshot ancien | Comparaison non recalculée récemment | Lancez **Refresh comparison** |
 
-Un résultat calme peut donc venir d’une sélection restrictive, d’un manque de preuves ou d’une situation réellement stable.
+## Calcul et horodatage
 
-## Comment la comparaison est calculée
-
-La page charge les projets accessibles, pré-sélectionne un ensemble initial si nécessaire, demande la comparaison à un service lorsque la configuration est valide, puis **Refresh comparison** relance un recalcul asynchrone et met à jour le **snapshot** visible.
-
-## À retenir
-
-- commencez par choisir les bons projets ;
-- activez seulement les signaux utiles à votre revue ;
-- réglez poids, seuils et sévérité avec intention ;
-- utilisez les **valeurs atypiques** comme point de départ d’investigation, pas comme verdict final ;
-- ouvrez l’**analyse détaillée du projet** pour comprendre le résultat.
+Portfolio charge les projets accessibles, applique le profil de signaux, calcule les écarts et affiche un snapshot horodaté. Gardez l’explication simple : les poids expriment l’importance relative, les seuils déclenchent l’attention et le score global sert à prioriser l’analyse.
 
 ## Suite
 
-- [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md)
-- [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md)
-- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
-- [Maintenance, support et FAQ](./maintenance-support-faq.md)
+- [Tableau de bord](./tableau-de-bord.md)
+- [Signaux et notifications](./signaux-et-notifications.md)
+- [Journal IA](./journal-ia.md)
+- [Support, audit et diagnostic](./support-audit-et-diagnostic.md)

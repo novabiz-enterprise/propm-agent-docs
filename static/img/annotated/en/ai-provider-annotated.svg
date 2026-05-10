@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Annotated AI provider administration</title>
+  <desc id="desc">Annotated screenshot showing provider catalog, configuration, Save, Validate, Test, Activate and history.</desc>
+  <rect width="1200" height="720" fill="#0f172a"/>
+  <image href="/img/screenshots/localized/en/18-platform-administration-azure-openai-settings.jpg" x="0" y="0" width="1200" height="720" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>
+  <g font-family="Arial, sans-serif" font-size="21" font-weight="700">
+    <rect x="38" y="78" width="345" height="50" rx="10" fill="#2563eb" opacity="0.95"/><text x="56" y="111" fill="white">1 Provider catalog</text>
+    <line x1="383" y1="103" x2="620" y2="150" stroke="#2563eb" stroke-width="5"/>
+    <rect x="38" y="205" width="345" height="50" rx="10" fill="#16a34a" opacity="0.95"/><text x="56" y="238" fill="white">2 Configuration</text>
+    <line x1="383" y1="230" x2="690" y2="285" stroke="#16a34a" stroke-width="5"/>
+    <rect x="44" y="550" width="390" height="50" rx="10" fill="#ea580c" opacity="0.95"/><text x="62" y="583" fill="white">3 Save / Validate / Test</text>
+    <line x1="434" y1="575" x2="780" y2="570" stroke="#ea580c" stroke-width="5"/>
+    <rect x="740" y="90" width="365" height="50" rx="10" fill="#dc2626" opacity="0.95"/><text x="758" y="123" fill="white">4 Activate / history</text>
+    <line x1="922" y1="140" x2="985" y2="360" stroke="#dc2626" stroke-width="5"/>
+  </g>
+</svg>

@@ -571,6 +571,6 @@ This scenario summarizes the product logic: **see, decide, control, execute, tra
 ## Next
 
 - [Connectors and integrations](./connecteurs-jira-et-sharepoint)
-- [Reports, AI Journal and traceability](./rapports-journal-ia-et-tracabilite.md)
-- [Portfolio and technical administration](./portefeuille-et-administration-technique.md)
+- [AI Log](./journal-ia.md)
+- [Actions and approvals](./actions-et-approbations.md)
 - [Maintenance, support and FAQ](./maintenance-support-faq.md)

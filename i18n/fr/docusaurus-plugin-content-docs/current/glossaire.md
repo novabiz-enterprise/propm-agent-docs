@@ -2,245 +2,225 @@
 title: Glossaire
 pagination_label: Glossaire
 slug: /glossaire
-description: Définitions cohérentes des principaux termes utilisés dans ProPM Agent.
+description: Définitions harmonisées des termes ProPM Agent, avec convention français et libellés UI.
 ---
 
 [Accueil](./index.md) · Glossaire
+
+## Convention de libellés
+
+Le glossaire utilise le terme français principal, puis le libellé exact de l’interface lorsqu’il évite une ambiguïté. Exemple : **Ajouter à la connaissance** (`Add to knowledge`) ou **Fournisseur IA effectif** (`Effective AI Provider`). Les termes marqués **support/admin** ne sont pas nécessaires au parcours utilisateur quotidien.
 
 ## A
 
 **Action gouvernée**
 
-Opération préparée dans l’application puis soumise à approbation avant exécution, par exemple une publication SharePoint ou une création de ticket.
+Action préparée dans ProPM Agent puis soumise à rôle, politique, approbation ou connecteur avant exécution.
+
+**Add to knowledge / Ajouter à la connaissance**
+
+Action qui réinjecte un Document PM relu dans la connaissance du projet pour les recherches et agents futurs.
 
 **Agent**
 
-Composant conversationnel spécialisé qui travaille dans le contexte du projet courant et peut produire une sortie structurée, des citations et des recommandations.
+Assistant spécialisé qui travaille dans le contexte du projet actif et peut produire une sortie structurée avec preuves.
+
+**All projects / Tous les projets**
+
+Portée limitée aux projets auxquels le même compte a déjà accès. Ce n’est pas un super-projet.
 
 **Approvals / approbations**
 
-Étape de validation utilisée pour accepter, rejeter ou encadrer une action avant son exécution.
+Étape de validation humaine avant exécution ou diffusion d’une action gouvernée.
 
 **Artefact**
 
-Objet gouverné intermédiaire ou final exploitable dans **Rapports & artefacts**.
-
-**Artifact destination / destination d’artefact**
-
-Cible gouvernée utilisée lors d’une publication ou d’une diffusion documentaire, par exemple SharePoint.
-
-## B
-
-**Binding projet**
-
-Lien de niveau projet qui rend une intégration plateforme réellement utilisable dans un projet donné.
+Objet gouverné issu d’un run ou d’une revue, utilisé pour version, diff, lignée ou Document PM.
 
 ## C
 
-**Centre de commande portefeuille**
+**Centre de commande portefeuille / Portfolio**
 
-Surface de comparaison multi-projets basée sur des signaux, des poids, des seuils et des cohortes sauvegardées.
+Surface de comparaison multi-projets. Le terme principal de cette documentation est **Portfolio** ; **Centre de commande portefeuille** désigne la même surface lorsque le libellé UI le montre.
 
-**Citations**
+**Citation**
 
-Références affichées avec certains résultats d’agents ou runs pour montrer les preuves ou sources utilisées.
+Référence affichée avec une réponse, un résultat de recherche ou un run pour justifier le contenu.
 
 **Cohorte**
 
-Ensemble sauvegardé de projets et de paramètres de comparaison portefeuille.
+Configuration sauvegardée de projets, signaux, poids et seuils dans Portfolio.
 
 **Confiance**
 
-Indication attachée à une sortie structurée afin d’aider à juger la solidité du résultat.
+Indice de solidité d’une sortie structurée. Elle doit toujours être lue avec les preuves et la fraîcheur.
 
 **Connaissance**
 
-Espace où sont recherchés, téléversés, importés et filtrés les documents de référence du projet.
+Espace projet où les documents sont téléversés, importés, indexés, recherchés et utilisés par les agents.
 
-**Context snapshot**
+**Context snapshot / capture de contexte**
 
-Capture du contexte associée à un run dans le Journal IA.
+Terme **support/admin**. Capture du contexte utilisé pendant un run, utile pour audit et diagnostic.
 
 ## D
 
-**Deployment-selected AI Provider / fournisseur IA sélectionné au déploiement**
-
-Fournisseur choisi lors de l’installation ou du déploiement de l’environnement.
-
 **Diff**
 
-Comparaison entre deux versions d’artefact pour relire les écarts avant approbation ou publication.
+Comparaison entre deux versions d’artefact ou de Document PM.
 
 **Digest**
 
-Synthèse gouvernée de plusieurs signaux, visible dans l’Espace de travail et pouvant servir de base à un brouillon de notification. Voir aussi la page [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md).
+Synthèse de signaux pouvant servir de base à un brouillon de notification ou à une revue projet.
 
-**Document categories / catégories documentaires**
+**Document PM / PM Doc**
 
-Classification utilisée pour organiser les contenus du projet et améliorer leur exploitation.
+Livrable projet relu, versionné et gouverné, pouvant être téléchargé, publié ou ajouté à la connaissance.
+
+**Download / Télécharger**
+
+Action qui produit une copie locale d’un document ou artefact.
 
 ## E
 
 **Effective AI Provider / fournisseur IA effectif**
 
-Fournisseur réellement utilisé pour un run donné. C’est la valeur de référence dans le Journal IA.
+Fournisseur réellement utilisé par un run donné. La valeur de référence se lit dans le Journal IA.
 
 **Entitlement**
 
-Libellé technique hérité pour un blocage d’accès ou d’exécution. Les plans Marketplace ne l’utilisent pas pour ouvrir des fonctionnalités différentes ; vérifiez plutôt disponibilité des licences restantes, binding, rôle, policy, configuration et état de santé.
+Terme **support/admin**. Blocage opérationnel lié à licence, rôle, politique, intégration, santé ou configuration. Ce n’est pas un niveau fonctionnel de plan Marketplace.
 
-**Événement d’activité**
+**Evidence gap / manque de preuve**
 
-Entrée de la timeline **Activity** dans le Journal IA, avec type, kind, acteur et payload brut.
-
-**Espace de travail**
-
-Page centrale du projet regroupant résumé, transparence opérationnelle, signaux et réglages de niveau projet.
-
-**Execution connector / connecteur d’exécution**
-
-Connecteur gouverné utilisé pour lancer une action externe, par exemple Teams, Jira ou SharePoint publish.
-
-**Executed / exécuté**
-
-État indiquant qu’une action gouvernée a réellement été lancée et journalisée, au-delà de la seule approbation.
+Signal indiquant que les preuves sont insuffisantes ou indisponibles pour conclure.
 
 ## F
 
-**Famille de modèle**
+**Fraîcheur**
 
-Information de transparence visible dans le Journal IA pour indiquer le type de modèle réellement utilisé.
-
-**Fresh / aging / stale / conflicting / unavailable**
-
-États de fraîcheur utilisés pour qualifier une preuve ou une source : fraîche, vieillissante, périmée, contradictoire ou indisponible.
+État temporel d’une preuve : `fresh`, `aging`, `stale`, `conflicting` ou `unavailable`.
 
 **Fournisseur d’ingestion**
 
-Source technique permettant d’importer du contenu vers la Connaissance.
+Source approuvée qui importe du contenu vers la connaissance projet.
+
+**Fournisseur IA sélectionné au déploiement**
+
+Intention initiale choisie pendant Azure Marketplace. Elle peut différer du fournisseur IA effectif observé dans un run.
 
 ## H
 
-**Health / état de santé**
+**Health / santé**
 
-Indication de disponibilité ou d’état à vérifier appliquée à un connecteur, un fournisseur ou au panneau de santé global.
-
-**Held**
-
-État de retenue d’un brouillon ou d’un flux de diffusion qui ne doit pas encore partir vers son canal cible.
+État de disponibilité d’un composant, connecteur, fournisseur ou service visible dans l’interface.
 
 ## J
 
-**Journal IA**
+**Journal IA / AI Log**
 
-Page qui expose les runs et l’activité associés aux traitements IA, avec trace ID, contexte, citations et artefacts liés.
+Page qui expose les runs, activités, statuts, fournisseur IA effectif et identifiants utiles à l’audit.
 
 ## L
 
 **Lecture seule**
 
-État dans lequel une page ou un onglet reste visible mais non modifiable.
+État où une page reste visible mais non modifiable.
 
-**Lignée**
+**Lignée / lineage**
 
-Chaîne de traçabilité reliant un run, une sortie structurée, un artefact, un PM Doc et les preuves associées.
+Chaîne de traçabilité entre run, sortie structurée, artefact, version, Document PM et preuves.
 
 **LLM deployment name**
 
-Nom exact du déploiement LLM attendu par certains fournisseurs, notamment Azure OpenAI, dans l’administration de la plateforme.
-
-## O
-
-**Operational**
-
-Statut indiquant qu’un fournisseur peut être considéré comme exploitable après configuration, validation et test réussis.
+Terme **support/admin**. Nom de déploiement modèle utilisé dans certains paramétrages fournisseur IA.
 
 ## P
 
 **Palette de commandes**
 
-Mécanisme d’accès rapide aux pages et actions courantes depuis la barre supérieure.
+Accès rapide aux pages et actions, généralement via `Ctrl+K` ou `Cmd+K`.
 
-**En attente d’approbation**
+**Pending approval / en attente d’approbation**
 
-État d’une demande ou d’une action gouvernée qui attend encore une validation humaine avant exécution.
+État d’une action ou version qui attend une validation humaine.
 
-**PM Doc**
+**Projet actif**
 
-Document de gestion de projet révisé, édité, téléchargé, publié ou réinjecté dans la connaissance depuis **Rapports & artefacts**.
+Projet actuellement appliqué aux pages Tableau de bord, Connaissance, Agents, Documents PM, Signaux, Actions et Journal IA.
 
-**Profil de rendu**
+**Publish / Publier**
 
-Paramètre utilisé pour déterminer le format ou le comportement de rendu d’un document généré.
+Action qui diffuse un Document PM ou artefact vers une destination gouvernée, par exemple SharePoint.
 
 ## R
 
-**Rapports & artefacts**
+**Rattachement projet (`binding`)**
 
-Surface utilisée pour réviser, comparer, éditer, publier et télécharger les livrables projet.
+Lien qui rend une intégration plateforme réellement utilisable dans un projet donné.
 
-**Readiness**
+**Readiness / préparation**
 
-Niveau de préparation d’un projet, d’une intégration ou d’un flux gouverné pour fonctionner sans blocage opérationnel. Voir aussi [Portefeuille et administration technique](./portefeuille-et-administration-technique.md).
+Niveau de préparation d’un projet, d’une intégration ou d’un flux gouverné.
+
+**Refresh Marketplace plan**
+
+Action admin qui synchronise les informations Marketplace connues par ProPM Agent. Elle n’achète pas de licence et ne change pas de plan.
 
 **Run**
 
-Exécution enregistrée d’un traitement IA ou d’un échange agent, consultable ensuite dans le Journal IA.
+Exécution enregistrée d’un agent ou d’un traitement IA.
 
 ## S
 
-**Siège**
+**Siège / seat**
 
-Unité de licence consommée par un utilisateur dans les déploiements où l’accès est limité par abonnement.
+Unité de licence utilisateur dans les déploiements qui limitent l’accès par capacité commandée.
 
 **Signal**
 
-Élément proactif remontant un sujet d’attention, par exemple une contradiction, un blocage, une faible fraîcheur ou une suite à donner.
+Élément proactif qui attire l’attention sur un risque, une contradiction, un blocage ou une opportunité.
 
 **Source label**
 
-Libellé de provenance qui aide à identifier de manière lisible d’où vient un document ou un import.
+Libellé lisible de provenance d’une preuve ou d’un document.
 
 **Source system**
 
-Système source affiché avec une preuve ou un résultat de recherche.
+Système source affiché avec une preuve ou un résultat.
 
 **Structured output / sortie structurée**
 
-Résultat formaté d’un agent ou d’un run, pouvant inclure résumé, décisions, citations, confiance et métadonnées.
+Résultat formaté d’un run pouvant inclure résumé, constats, décisions, preuves, confiance et actions.
 
 ## T
 
 **Tableau de bord**
 
-Page d’orientation qui expose l’état général, les métriques et les prochaines actions suggérées.
-
-**Test**
-
-Contrôle de connectivité exécuté après validation d’un fournisseur afin de confirmer que la plateforme peut réellement l’utiliser.
+Page de synthèse du projet actif : métriques, activité récente, signaux, actions et raccourcis.
 
 **Trace ID**
 
-Identifiant technique d’un run ou d’un événement, indispensable pour l’investigation et le support.
+Terme **support/admin**. Identifiant utile pour corréler un incident, un run ou un événement.
 
 ## V
 
 **Validate / validation**
 
-Étape administrative qui vérifie la cohérence d’une configuration avant le test de connectivité ou l’activation d’un fournisseur.
+Étape admin qui vérifie la cohérence d’une configuration avant test ou activation.
 
 **Version d’artefact**
 
-État historisé d’un artefact, utilisé pour le diff, la lignée, l’approbation et la publication. Voir aussi [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md).
+État historisé d’un artefact utilisé pour diff, approbation, publication et lignée.
 
 ## W
 
-**Watchpoint**
+**Watchpoint / point de vigilance**
 
-Point d’attention explicite dans une sortie structurée, souvent utilisé pour signaler un risque, une contradiction ou une zone à surveiller.
+Point d’attention signalé dans une sortie structurée, souvent lié à un risque ou une contradiction.
 
 ## Suite
 
-- [Maintenance, support et FAQ](./maintenance-support-faq.md)
-- [Accueil](./index.md)
-- [Démarrage](./demarrage.md)
+- [Publics, rôles et périmètres](./publics-roles-et-perimetres.md)
+- [Support, audit et diagnostic](./support-audit-et-diagnostic.md)
+- [Sécurité et conformité](./securite-et-conformite.md)

@@ -1,37 +1,32 @@
 ---
-title: Guide portefeuille et administration
+title: Page legacy portefeuille et administration
 slug: /portefeuille-et-administration-technique
-description: Page d’orientation pour l’ancienne URL portefeuille et administration technique, désormais séparée en Portfolio, fournisseurs IA et intégrations plateforme, puis plan du tenant, utilisateurs licenciés et mises à jour applicatives.
+description: Ancienne URL conservée pour compatibilité, remplacée par des pages spécialisées Portfolio, administration Azure, fournisseur IA, intégrations, licences et support.
 ---
 
-[Accueil](./index.md) · Guide portefeuille et administration
+[Accueil](./index.md) · Page legacy portefeuille et administration
 
-## Cette page a été réorganisée
+## Cette page est conservée pour compatibilité
 
-Cette URL est conservée comme page d’orientation afin de ne pas casser les liens existants vers **Portefeuille et administration technique**.
+L’ancienne page **Portefeuille et administration technique** a été remplacée par des pages spécialisées afin de séparer le guide utilisateur, l’administration projet, l’administration Azure et le diagnostic support.
 
-Le contenu est maintenant séparé en trois sections d’administration plus claires.
+## Où aller maintenant
 
-| Besoin | Aller vers |
+| Besoin | Page recommandée |
 | --- | --- |
-| Comparer les projets, configurer les signaux portefeuille, lire les cohortes, valeurs atypiques et analyses détaillées projet | [Portfolio](./portfolio.md) |
-| Configurer les fournisseurs IA, valider la préparation, comprendre les intégrations plateforme, rattachements, santé et causes de blocage technique | [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) |
-| Gérer le plan du tenant, les utilisateurs licenciés, les licences supplémentaires, les mises à jour applicatives, l’inventaire d’images et le rollback sur les Azure Container Apps existantes | [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md) |
+| Comparer les projets, cohortes, profils de signaux et outliers | [Portfolio](./portfolio.md) |
+| Déployer depuis Azure Marketplace et finaliser Entra | [Administration Azure et Entra](./admin-deploiement-marketplace-et-entra.md) |
+| Configurer Save / Validate / Test / Activate du fournisseur IA | [Fournisseur IA](./admin-fournisseur-ia.md) |
+| Définir, valider ou rattacher des connecteurs | [Intégrations plateforme](./admin-integrations-plateforme.md) |
+| Gérer seats, plan Marketplace, refresh et mises à jour | [Licences, plans et mises à jour](./admin-licences-plans-et-mises-a-jour.md) |
+| Diagnostiquer avec Run ID, Trace ID ou Journal IA | [Support, audit et diagnostic](./support-audit-et-diagnostic.md) |
 
 ## Règle produit sur les plans Marketplace
 
-Tous les plans Marketplace exposent les mêmes fonctionnalités produit. Seule la capacité de licences commandées diffère.
-
-Si un utilisateur est bloqué, vérifiez les licences restantes, rôles, accès projet, rattachements, politique, configuration ou santé. N’interprétez pas le plan comme un niveau fonctionnel.
-
-## Ordre de lecture conseillé
-
-1. Commencez par [Portfolio](./portfolio.md) si la question porte sur la comparaison de projets.
-2. Continuez avec [Fournisseurs IA et intégrations plateforme](./ai-providers-platform-integrations.md) si la question porte sur la préparation technique, les fournisseurs, connecteurs ou rattachements.
-3. Utilisez [Plan du tenant, utilisateurs licenciés et mises à jour applicatives](./seats-management-app-updates.md) si la question porte sur l’allocation d’accès, les licences du tenant, les licences supplémentaires ou la mise à jour d’une installation existante.
+Les plans Marketplace n’expliquent pas, à eux seuls, qu’une action soit disponible ou bloquée. En cas de blocage, vérifiez plutôt licences restantes, rôle, accès projet, rattachement, politique, santé et fournisseur IA effectif.
 
 ## Pages liées
 
-- [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
-- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
+- [Publics, rôles et périmètres](./publics-roles-et-perimetres.md)
+- [Journal IA](./journal-ia.md)
 - [Maintenance, support et FAQ](./maintenance-support-faq.md)

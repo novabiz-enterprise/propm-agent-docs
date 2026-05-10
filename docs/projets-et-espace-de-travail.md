@@ -261,7 +261,7 @@ You can typically read several information families there:
 The screen separates technical readiness from project availability:
 
 - platform setup, project binding, policy, permission, health and license availability for app access are **separate causes**. A connector can stay visible in read-only mode so the project team understands why it is blocked instead of assuming it is missing;
-- technical setup remains in **Platform Administration**. Project settings managers can bind integrations that are enabled and ready, while tenant URLs, authentication strategy, API keys and secret references stay centrally controlled.
+- technical setup remains in **Platform Administration**. Project settings managers can bind integrations that are enabled and ready, while sensitive information stays centrally controlled in secured administration.
 
 | Area | What you may see | How to act |
 | --- | --- | --- |
@@ -400,7 +400,7 @@ This second scenario aligns signal reading, distribution, approval and real exec
 ## Next
 
 - [Access control and project roles](./controle-acces-et-roles.md)
-- [Knowledge and agents](./connaissance-et-agents.md)
+- [Knowledge, documents and imports](./connaissance-documents-et-imports.md)
 - [Governance, decisions and actions](./gouvernance-decisions-et-actions.md)
 - [Connectors and integrations](./connecteurs-jira-et-sharepoint)
-- [Portfolio and technical administration](./portefeuille-et-administration-technique.md)
+- [Azure and platform administration](./admin-deploiement-marketplace-et-entra.md)

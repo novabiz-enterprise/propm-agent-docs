@@ -1,197 +1,101 @@
 ---
 title: Sorties structurées, preuves et fraîcheur
 slug: /sorties-contextuelles-preuves-et-fraicheur
-description: Lire correctement une sortie structurée, ses preuves, ses états de fraîcheur et ses IDs de traçabilité.
+description: Lire une sortie structurée, vérifier preuves, fraîcheur, confiance et décider du passage vers Document PM ou audit.
 ---
 
 [Accueil](./index.md) · Sorties structurées, preuves et fraîcheur
 
-![Vue Agents](/img/screenshots/localized/fr/04-agents.jpg)
+![Exemple de sortie structurée](/img/screenshots/localized/fr/03-workspace-structured-output.jpg)
+
+![Sortie structurée annotée : résumé, décisions, preuves, fraîcheur, confiance et actions aval](/img/annotated/fr/sortie-structuree-annotee.svg)
 
 ## Objectif
 
-Cette page explique comment interpréter une **sortie structurée** dans ProPM Agent afin de décider si le résultat est directement exploitable, s’il doit être relu ou s’il doit être transformé en artefact gouverné.
+Cette page explique comment relire une sortie structurée produite par un agent avant de l’utiliser dans une décision, un Document PM, une publication ou une action gouvernée.
 
-## Pourquoi c’est important
+## Pour qui
 
-ProPM Agent ne renvoie pas seulement un texte libre. Les runs peuvent exposer en plus :
-
-- un **résumé** ;
-- des **findings** ;
-- des **décisions à prendre** ;
-- des **actions** ;
-- des **hypothèses** ;
-- des **informations manquantes** ;
-- des **watchpoints** ;
-- des **preuves** ;
-- des métadonnées de **fraîcheur** et de **confiance** ;
-- des **propositions d’artefacts**, des **follow-ups** et des **notifications**.
-
-## Où ces informations apparaissent
-
-Les sorties structurées et leurs métadonnées sont visibles dans plusieurs surfaces :
-
-- **Agents**, juste après un run ;
-- **Journal IA**, dans le détail d’un run ;
-- **Rapports & artefacts**, via la lignée entre run, artefact et PM Doc.
-
-![Exemple de sortie structurée dans l’espace projet](/img/screenshots/localized/fr/03-workspace-structured-output.jpg)
-
-## Comment lire une sortie structurée
-
-### Ordre de lecture recommandé
-
-1. lisez le **Résumé** ;
-2. ouvrez ensuite **Décisions à prendre** ou **Actions** ;
-3. vérifiez la section **Preuves** ;
-4. relisez la **Confiance** et la **Fraîcheur des sources** ;
-5. décidez ensuite si la réponse peut rester dans le chat, devenir un brouillon d’artefact ou nécessiter une revue humaine.
-
-### Signification des sections
-
-| Section | À quoi elle sert |
+| Profil | Usage de cette page |
 | --- | --- |
-| Résumé | Version la plus courte du résultat, prête à être relue rapidement |
-| Constats | Faits, motifs ou constats mis en avant par l’exécution |
-| Décisions à prendre | Points qui demandent un arbitrage humain |
-| Actions | Suites recommandées à exécuter ou planifier |
-| Hypothèses | Conditions implicites dont dépend la réponse |
-| Informations manquantes | Informations absentes qui réduisent la solidité du résultat |
-| Points de vigilance | Risques, contradictions ou sujets à surveiller |
-| Preuves | Références servant de preuve ou de justification |
-| Statut de l’artefact / Propositions d’artefact | Indications sur la transformation possible du résultat en artefact gouverné |
-| Suites à donner | Étapes de continuation proposées |
-| Notifications | Brouillons ou notifications suggérées par le flux |
+| Utilisateur métier | Lire une réponse IA sans la surinterpréter |
+| Project Manager | Vérifier preuves, fraîcheur, confiance et informations manquantes |
+| Propriétaire de projet | Décider si une revue, un Document PM ou une action gouvernée est nécessaire |
+| Auditeur ou support | Comprendre les repères de traçabilité et le lien vers le Journal IA |
 
-## Exemple simplifié de lecture
+## Avant de commencer
 
-L’exemple ci-dessous est **illustratif**. Il sert à montrer comment relire une carte structurée avant réutilisation :
+- Un projet actif est sélectionné.
+- La sortie vient d’un run d’agent ou d’un flux de revue identifié.
+- Vous avez accès aux preuves ou au Journal IA si l’analyse demande une traçabilité.
 
-> - **Résumé** : le lot critique semble en retard de deux semaines.
-> - **Constats** : la dernière note planning est plus récente que le connecteur calendrier gouverné.
-> - **Décisions à prendre** : faut-il rebaseliner le jalon sponsor ou demander une revalidation planning ?
-> - **Preuves** : note planning, extrait de rapport hebdomadaire, état du connecteur source.
-> - **Fraîcheur des sources** : connaissance `fresh`, connecteur planning `stale`.
-> - **Points de vigilance** : contradiction possible entre la communication projet et la dernière donnée synchronisée.
+## Lire une sortie structurée
 
-Lecture recommandée dans ce cas :
+1. Lisez le **Résumé** pour comprendre le message principal.
+2. Lisez les **Constats** et **Décisions à prendre**.
+3. Ouvrez les **Preuves** et citations.
+4. Vérifiez la **Fraîcheur des sources**.
+5. Lisez la **Confiance** et les **Informations manquantes**.
+6. Décidez si la sortie reste exploratoire, devient un Document PM ou doit être escaladée.
 
-1. le **Résumé** vous dit quoi relire en priorité ;
-2. la combinaison **Preuves** + **Fraîcheur des sources** vous empêche de publier trop vite ;
-3. la présence d’un **point de vigilance** et d’une décision à prendre pousse vers une revue humaine, puis vers un artefact si le sujet devient formel.
+## Zones à repérer sur la capture
 
-## Deux cas fréquents à distinguer
+| Zone | Ce qu’elle apporte |
+| --- | --- |
+| Résumé | Lecture rapide du résultat |
+| Constats | Faits ou motifs identifiés |
+| Décisions | Points demandant arbitrage humain |
+| Preuves | Sources qui justifient la réponse |
+| Fraîcheur | État temporel des sources utilisées |
+| Confiance | Indice de solidité à relire avec les preuves |
+| Actions aval | Copie, artefact, Document PM, Journal IA ou action gouvernée selon le contexte |
 
-| Cas | Lecture pratique | Décision recommandée |
+## Décider quoi faire
+
+| Situation observée | Risque | Décision recommandée |
 | --- | --- | --- |
-| **Confiance correcte mais fraîcheur insuffisante** | le raisonnement paraît cohérent, mais une partie des sources est `stale` ou `aging` | ne diffusez pas sans revalidation ou sans rafraîchissement documentaire |
-| **Confiance faible mais sources récentes** | les sources sont récentes, mais l’exécution signale encore des manques, contradictions ou hypothèses trop fortes | gardez la sortie comme travail exploratoire, puis relancez la revue ou l’exécution avant de formaliser |
-
-Cette distinction évite de traiter la **confiance** comme une note unique. Une réponse peut sembler solide tout en s’appuyant sur des sources trop anciennes, ou l’inverse.
-
-## Comment lire les preuves
-
-Chaque preuve ou citation peut exposer plusieurs éléments utiles :
-
-- un **titre** ou nom de source ;
-- un **URI source** ou un nom documentaire ;
-- un **extrait** ;
-- une **page** ou une **section** quand elle est disponible ;
-- une date de **synchronisation** ;
-- un **système source** ;
-- un badge de **fraîcheur** ;
-- un rang d’**autorité** quand il est exposé.
-
-### Ce qu’il faut vérifier avant de réutiliser une preuve
-
-1. le snippet soutient-il bien le message affiché ?
-2. la source est-elle identifiable et réouvrable ?
-3. la fraîcheur est-elle acceptable pour le niveau de décision attendu ?
-4. plusieurs preuves racontent-elles la même chose, ou y a-t-il contradiction ?
+| Preuve absente | Le résultat n’est pas justifiable | Ne pas publier ; demander une source ou relancer avec contexte |
+| Source `stale` | Source trop ancienne | Rafraîchir, réimporter ou confirmer manuellement |
+| Source `conflicting` | Sources contradictoires | Arbitrer humainement et documenter la décision |
+| Source `unavailable` | Preuve non récupérée | Traiter comme alerte, pas comme preuve exploitable |
+| Confiance faible | Résultat incertain | Garder en exploration ou demander une revue |
+| Informations manquantes | Hypothèses fortes | Compléter la connaissance ou reformuler la demande |
+| Action externe proposée | Impact hors ProPM Agent | Passer par [Actions et approbations](./actions-et-approbations.md) |
+| Livrable à partager | Besoin de version et gouvernance | Ouvrir [Documents PM et artefacts](./documents-pm-et-artefacts.md) |
 
 ## États de fraîcheur
 
 | État | Signification pratique | Réaction recommandée |
 | --- | --- | --- |
-| `fresh` | Source assez récente pour un usage normal | Peut être réutilisée après revue normale |
-| `aging` | Source encore exploitable mais qui approche d’un besoin de revalidation | Vérifier rapidement avant diffusion large |
-| `stale` | Source trop ancienne pour être considérée fiable sans contrôle complémentaire | Rafraîchir, réimporter ou confirmer avant décision |
-| `conflicting` | La source contredit une autre source pertinente | Ne pas arbitrer automatiquement ; relire les preuves |
-| `unavailable` | La source n’a pas pu être confirmée ou récupérée | Traiter comme une alerte, pas comme une preuve exploitable |
+| `fresh` | Source assez récente pour un usage normal | Relecture normale |
+| `aging` | Source encore exploitable mais à surveiller | Vérifier avant diffusion large |
+| `stale` | Source trop ancienne | Rafraîchir ou confirmer |
+| `conflicting` | Source contradictoire | Arbitrage humain obligatoire |
+| `unavailable` | Source non confirmée | Ne pas l’utiliser comme preuve principale |
 
-## Confiance
+## Relecture humaine obligatoire
 
-La **confiance** est un signal global de solidité du résultat. Elle doit être interprétée avec la fraîcheur et les preuves, jamais isolément.
+Une sortie IA doit être relue avant publication, décision externe, communication sponsor, notification client, ticket externe ou action gouvernée. La confiance n’est pas une approbation et la fraîcheur n’est pas une preuve à elle seule.
 
-Prévoyez une revue humaine supplémentaire si vous voyez :
+## Passer vers un Document PM
 
-- confiance faible ;
-- preuves absentes ou peu spécifiques ;
-- états `stale`, `conflicting` ou `unavailable` ;
-- section **Informations manquantes** importante ;
-- décision ou action à impact externe.
+Transformez la sortie en Document PM lorsque le résultat doit être partagé, versionné, approuvé, publié, téléchargé ou ajouté à la connaissance. Le flux recommandé est : **run → sortie structurée → artefact → version → Document PM → Download / Publish / Add to knowledge**.
 
-## Niveau de relecture selon l’impact
+Consultez [Documents PM et artefacts](./documents-pm-et-artefacts.md) pour la revue, le diff, la lignée et les actions aval.
 
-| Niveau d’impact | Relecture minimale | Escalade recommandée |
-| --- | --- | --- |
-| Brouillon interne de travail | vérifier le résumé, les constats et au moins une preuve réouvrable | garder la sortie dans le chat si elle reste exploratoire |
-| Coordination d’équipe ou action projet interne | vérifier preuves, fraîcheur, informations manquantes et actions proposées | créer un artefact si le résultat doit être partagé ou historisé |
-| Décision sponsor, publication, notification externe ou action gouvernée | relire toutes les preuves, arbitrer les états `conflicting` / `stale`, conserver les IDs techniques | passer par **Rapports & artefacts**, le **diff**, la **lignée** et le **Journal IA** avant diffusion |
+## Repères support et audit
 
-## IDs de traçabilité à conserver
+Les champs comme `Trace ID`, `Structured output ID` ou `Context snapshot ID` sont utiles au support et à l’audit, mais ne doivent pas remplacer la lecture métier des preuves. Pour une enquête, ouvrez [Journal IA](./journal-ia.md) et [Support, audit et diagnostic](./support-audit-et-diagnostic.md).
 
-| Champ | Usage |
-| --- | --- |
-| `Trace ID` | Retrouver précisément le run ou l’événement côté support |
-| `Structured output ID` | Identifier la sortie structurée réellement produite |
-| `Context snapshot ID` | Comprendre dans quel contexte documentaire ou projet le run a tourné |
+## Résultat attendu
 
-Ces champs sont particulièrement utiles quand vous devez rapprocher un run, un artefact et un événement du **Journal IA**.
-
-## Quand transformer la sortie en artefact
-
-Le chemin normal est :
-
-1. question projet ;
-2. réponse structurée ;
-3. création d’un **brouillon d’artefact** ;
-4. revue du **diff** et de la **lignée** ;
-5. approbation ou publication.
-
-Transformez une sortie en artefact lorsque :
-
-- elle doit devenir un livrable formel ;
-- elle doit passer par une validation ou publication ;
-- vous devez conserver une lignée explicite vers un run et ses preuves ;
-- le contenu doit sortir du chat pour une diffusion externe, une approbation ou une traçabilité durable.
-
-Règle simple : tant que vous explorez, le chat peut suffire ; dès qu’un résultat doit être **partagé, approuvé, publié ou conservé comme trace**, passez par **Rapports & artefacts**.
-
-## Checklist avant réutilisation dans un livrable
-
-1. le résumé correspond-il bien aux findings détaillés ?
-2. les actions proposées sont-elles cohérentes avec la situation projet ?
-3. les preuves sont-elles assez précises pour justifier la décision ?
-4. les états de fraîcheur sont-ils acceptables ?
-5. faut-il créer un artefact ou suffit-il de garder la sortie dans le chat ?
-
-## Problèmes courants
-
-### La réponse semble propre mais aucune preuve n’apparaît
-
-Traitez le résultat comme un élément à relire avant usage externe. L’absence de preuve visible réduit la capacité à justifier le contenu.
-
-### Une preuve est `conflicting`
-
-Ne publiez pas directement. Ouvrez la source, comparez les références en désaccord et documentez l’arbitrage dans l’artefact ou dans la gouvernance. Si le sujet demande une décision formalisée, poursuivez vers [Gouvernance, décisions et actions](./gouvernance-decisions-et-actions.md) plutôt que de laisser le conflit dans le seul chat.
-
-### Une preuve est `unavailable`
-
-Considérez que la justification n’est pas stabilisée. Vérifiez la source dans **Connaissance**, l’import ou le détail du run dans **Journal IA**.
+- Vous savez si la sortie est exploitable, exploratoire ou bloquée.
+- Vous avez vérifié les preuves et leur fraîcheur.
+- Vous savez quand créer un Document PM ou ouvrir une action gouvernée.
 
 ## Suite
 
-- [Connaissance et agents](./connaissance-et-agents.md)
-- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
-- [Maintenance, support et FAQ](./maintenance-support-faq.md)
+- [Agents](./agents.md)
+- [Documents PM et artefacts](./documents-pm-et-artefacts.md)
+- [Journal IA](./journal-ia.md)
+- [Support, audit et diagnostic](./support-audit-et-diagnostic.md)

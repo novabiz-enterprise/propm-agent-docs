@@ -1,181 +1,74 @@
 ---
 title: ProPM Agent User Guide
 slug: /
-description: "English user documentation for ProPM Agent, covering AI-assisted project execution, governance, connectors, traceability and Azure Marketplace deployment."
+description: ProPM Agent user documentation organized by business workflows, project administration, Azure administration and support.
 ---
 
-> **Highly recommended reading**
->
-> To successfully adopt ProPM Agent in the organization and fully leverage the application, it is strongly recommended to read this guide from the start of the project, then refer to it during deployment, connector setup, governance and daily operation.
+# ProPM Agent User Guide
 
-This documentation helps you use ProPM Agent day to day: navigation, projects, knowledge, agents, governance, reports, administration and deployment.
+This documentation helps Azure customers use ProPM Agent without mixing daily usage, project administration, platform administration and support diagnostics.
 
-It is organized for two audiences:
+![Application overview](/img/screenshots/localized/en/01-dashboard.jpg)
 
-- **Business users** who work on a project;
-- **Technical administrators** who manage access, integrations, AI provider, subscription and supervision.
+## Start with the right path
 
-![Overview of the application](/img/screenshots/localized/en/01-dashboard.jpg)
-
-## I want to find the right page quickly
-
-| Encountered situation | First open | Then |
+| Situation | Open first | Goal |
 | --- | --- | --- |
-| I cannot log in | [Getting started](./demarrage.md) | [Maintenance, support and FAQ](./maintenance-support-faq.md) to distinguish tenant, `redirect URI`, seat or health status |
-| No projects appear | [Getting started](./demarrage.md) | [Projects and workspace](./projets-et-espace-de-travail.md), then [Maintenance, support and FAQ](./maintenance-support-faq.md) if adding to the project or role remains doubtful |
-| A page stays empty until an active project is defined | [Getting started](./demarrage.md) | [Projects and workspace](./projets-et-espace-de-travail.md) to confirm project context, then [Maintenance, support and FAQ](./maintenance-support-faq.md) if the empty state still seems abnormal |
-| An action is visible but blocked | [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) | [Connectors and integrations](./connecteurs-jira-et-sharepoint), then [AI providers and platform integrations](./ai-providers-platform-integrations.md) for connector, binding, configuration, policy or health, or [Tenant plan, licensed users, and app updates](./seats-management-app-updates.md) for remaining license availability |
-| The AI provider does not seem operational | [AI providers and platform integrations](./ai-providers-platform-integrations.md) | [Maintenance, support and FAQ](./maintenance-support-faq.md) and [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) to confirm the actual provider |
+| I am discovering ProPM Agent | [Audiences, roles and scopes](./publics-roles-et-perimetres.md) | Choose the right reading path |
+| I need to sign in | [Getting started](./demarrage.md) | Access the app and understand empty states |
+| I want project status | [Dashboard](./tableau-de-bord.md) | Read metrics, shortcuts and recent activity |
+| I need to select or create a project | [Active project](./projet-actif-et-creation-projet.md) | Set the working context |
+| I need documents or evidence | [Knowledge](./connaissance-documents-et-imports.md) | Upload, import and search evidence |
+| I want to use AI | [Agents](./agents.md) | Choose an agent, run it and read results |
+| I need to review a deliverable | [PM Documents](./documents-pm-et-artefacts.md) | Review, approve, download, publish or add to knowledge |
+| I need to audit a run | [AI Log](./journal-ia.md) | Find the run and effective AI provider |
+| I need to handle an alert | [Signals and notifications](./signaux-et-notifications.md) | Read, snooze, dismiss or draft from a signal |
+| I need to approve an action | [Actions and approvals](./actions-et-approbations.md) | Understand approved vs executed |
 
-If you are looking for a verification procedure or an operational reference, open [Maintenance, support and FAQ](./maintenance-support-faq.md).
+## Paths by profile
 
-## Recommended reading path
-
-| If you’re looking for… | Start here |
+| Profile | Main pages |
 | --- | --- |
-| Deploy a new instance in Azure | [Azure Marketplace deployment](./deploiement-azure-marketplace.md) |
-| Log in, verify authentication and create your first project | [Getting started](./demarrage.md) |
-| Understand the interface, palette, notifications and health | [Interface and navigation](./interface-et-navigation.md) |
-| Manage project context and workspace settings | [Projects and workspace](./projets-et-espace-de-travail.md) |
-| Administer members, roles, delegations and project RBAC guardrails | [Access control and project roles](./controle-acces-et-roles.md) |
-| Import documents, search evidence and work with agents | [Knowledge and agents](./connaissance-et-agents.md) |
-| Read a structured output correctly, its evidence and freshness | [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md) |
-| Handle signals, governance and actions requiring approval | [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) |
-| Review an artifact, publish a PM Document and investigate in the AI Log | [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) |
-| Understand supported connectors and integrations | [Connectors and integrations](./connecteurs-jira-et-sharepoint) |
-| Compare projects, manage integrations, AI and licenses | [Portfolio](./portfolio.md) · [AI providers and platform integrations](./ai-providers-platform-integrations.md) · [Tenant plan, licensed users, and app updates](./seats-management-app-updates.md) |
-| Consult support and verification procedures | [Maintenance, support and FAQ](./maintenance-support-faq.md) |
-| Clarify product terms | [Glossary](./glossaire.md) |
+| Business user | [Getting started](./demarrage.md) → [Dashboard](./tableau-de-bord.md) → [Knowledge](./connaissance-documents-et-imports.md) → [Agents](./agents.md) → [PM Documents](./documents-pm-et-artefacts.md) |
+| Project Manager | [Active project](./projet-actif-et-creation-projet.md) → [Signals](./signaux-et-notifications.md) → [Actions and approvals](./actions-et-approbations.md) → [AI Log](./journal-ia.md) |
+| Project Owner | [Access control](./controle-acces-et-roles.md) → [Project workspace](./projets-et-espace-de-travail.md) → [Governance](./gouvernance-decisions-et-actions.md) → [Connectors](./connecteurs-jira-et-sharepoint.md) |
+| PMO or leadership | [Portfolio](./portfolio.md) → [PM Documents](./documents-pm-et-artefacts.md) → [AI Log](./journal-ia.md) |
+| Azure or tenant administrator | [Azure and Entra administration](./admin-deploiement-marketplace-et-entra.md) → [AI provider](./admin-fournisseur-ia.md) → [Platform integrations](./admin-integrations-plateforme.md) → [Licenses, plans and updates](./admin-licences-plans-et-mises-a-jour.md) |
+| Support or audit | [Support, audit and diagnostics](./support-audit-et-diagnostic.md) → [AI Log](./journal-ia.md) → [Maintenance, support and FAQ](./maintenance-support-faq.md) |
 
-## Quick path by profile
+## Workflow to remember
 
-| Profile | Pages to open first |
+The common flow is **active project → knowledge → agent → structured output → artifact → PM Document → Download / Publish / Add to knowledge → AI Log**.
+
+An agent conversation does not automatically create a final shared document. A PM Document must be reviewed, governed and published or added to knowledge according to project rights and policies.
+
+## Essential concepts
+
+| Term | Short definition |
 | --- | --- |
-| Business user / contributor | [Getting started](./demarrage.md) → [Interface and navigation](./interface-et-navigation.md) → [Projects and workspace](./projets-et-espace-de-travail.md) → [Knowledge and agents](./connaissance-et-agents.md) → [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md) |
-| Project owner | [Getting started](./demarrage.md) → [Projects and workspace](./projets-et-espace-de-travail.md) → [Access control and project roles](./controle-acces-et-roles.md) → [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) → [Connectors and integrations](./connecteurs-jira-et-sharepoint) → [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) |
-| Technical administrator | [Azure Marketplace deployment](./deploiement-azure-marketplace.md) → [Getting started](./demarrage.md) → [AI providers and platform integrations](./ai-providers-platform-integrations.md) → [Tenant plan, licensed users, and app updates](./seats-management-app-updates.md) → [Maintenance, support and FAQ](./maintenance-support-faq.md) |
-| Support / audit | [Getting started](./demarrage.md) → [Structured outputs, evidence and freshness](./sorties-contextuelles-preuves-et-fraicheur.md) → [Reports, AI Log and traceability](./rapports-journal-ia-et-tracabilite.md) → [Governance, decisions and actions](./gouvernance-decisions-et-actions.md) → [Glossary](./glossaire.md) |
+| Active project | Current context for Knowledge, Agents, PM Documents, Signals and AI Log |
+| All projects | Scope limited to projects already accessible by the same account |
+| Project binding | Link that makes a platform integration usable in a project |
+| Structured output | Agent run result, distinct from a final document |
+| PM Document | Reviewed, versioned and governed project deliverable |
+| Effective AI provider | Provider actually used by a run, visible in AI Log |
+| Entitlement | Operational blocker related to license, role, policy, integration or health |
 
-## Recommended end‑to‑end path
+## Azure and platform administration
 
-Short chain to remember: **Active project → Agents → structured output → artifact / PM Doc → review / diff / lineage → Approve / Publish / Add to knowledge**.
+Azure, Entra, AI provider, connector, license and update details are separated from the end-user guide:
 
-In real usage, the most frequent flow is:
-
-1. deploy or retrieve the published URL;
-2. log in with an authorized Microsoft Entra ID account;
-3. create or select an **active project**;
-4. let the **project creator** delegate the first useful roles;
-5. load the **Knowledge** of the project;
-6. launch an exchange in **Agents**;
-7. review the **structured output**, its evidence, freshness and confidence;
-8. transform the result into an **artifact** or a **PM Document**, then review before downloading **DOCX / XLSX**, publishing or adding to knowledge;
-9. handle **proactive signals**, **Actions & approvals** and, if needed, external integration flows;
-10. administer at the platform level only when the subject goes beyond the project.
-
-## Label convention
-
-When the platform exposes a French translation, this documentation prefers this label:
-
-- **Workspace**;
-- **Knowledge**;
-- **PM Documents**;
-- **AI Log**;
-- **Access control**;
-- **Governance policies**;
-- **Project integrations**;
-- **Platform integrations**;
-- **AI provider settings**;
-- **Actions & approvals**.
-
-When an English label is useful to remove ambiguity, it is cited occasionally in code, e.g. `Trace ID` or `OpenAI-compatible`.
-
-## What ProPM Agent covers
-
-Based on verified behaviours, ProPM Agent organizes work around the **project context**:
-
-1. you open or create a project;
-2. you feed the **Knowledge**;
-3. you query the **Agents**;
-4. you review the **structured outputs**;
-5. you transform those results into **PM Documents** and artifacts;
-6. you verify **traceability** in the **AI Log**;
-7. you handle **signals**, **digests**, **drafts** and governed **actions**;
-8. you use **connectors** and **integrations** only when they are validated and bound to the project;
-9. administrators steer the technical layer in **Platform Administration**.
-
-## Functional architecture
-
-| Domain | What it allows |
+| Topic | Page |
 | --- | --- |
-| Dashboard | See overall status, metrics, points of attention and next steps |
-| Projects | Create, open and remember project context |
-| Workspace | Group project summary, operational transparency, signals, shortcuts and project settings |
-| Access control | Manage members, standard roles, custom roles and project permissions |
-| Knowledge | Search, upload, import, re‑read metadata and track ingestion history |
-| Agents | Choose an agent, launch an exchange, use voice input in **Agents** if the environment still exposes it, and manage custom agents according to rights |
-| Structured outputs | Read summary, evidence, freshness, confidence, artifact proposals and next steps |
-| PM Documents / Reports & artifacts | Review, compare, approve, publish, download and reinject deliverables into knowledge |
-| AI Log | Inspect runs, activity, technical IDs and AI runtime transparency |
-| Connectors and integrations | Separate platform definitions, project bindings, action policies and governed execution |
-| Portfolio command centre | Compare multiple projects with signals, weights, thresholds and saved cohorts |
-| Platform Administration | Manage integrations, AI provider, subscription, seats and platform activity |
+| Deploy and finalize access | [Azure and Entra administration](./admin-deploiement-marketplace-et-entra.md) |
+| Configure Save / Validate / Test / Activate | [AI provider](./admin-fournisseur-ia.md) |
+| Define, validate and bind integrations | [Platform integrations](./admin-integrations-plateforme.md) |
+| Manage seats, Marketplace plan and updates | [Licenses, plans and updates](./admin-licences-plans-et-mises-a-jour.md) |
 
-## What distinguishes the application
+## Support
 
-The following elements are explicitly visible in the interface, preloaded data or tests:
+For an incident, provide page URL, active project, time, attempted action, visible message and visible IDs such as Run ID or Trace ID. Never share secrets, keys, tokens or sensitive payloads.
 
-- **structured outputs** with sections, evidence, freshness, confidence and follow‑up decisions;
-- **lineage** between a run, a structured output, an artifact, an artifact version and a PM Document;
-- **proactive signals** for contradictions, freshness, blockages, follow‑ups and certain portfolio pressures;
-- **governed documentary chain** from an agent result to **DOCX / XLSX** downloads, publication and reinjection into knowledge;
-- **governed connectors** separated between **Platform integrations**, **Project integrations** and **Actions & approvals**;
-- **AI runtime transparency** with actual provider, provider selected at deployment and model family.
-
-## Audiences and responsibilities
-
-| Profile | Main needs |
-| --- | --- |
-| Project manager / PMO | Project context, agents, deliverables, signals, governance and traceability |
-| Contributor | Search in knowledge, generate content, review outputs and track runs |
-| Project owner | Project settings, role delegation, document categories, project integrations and governance policies |
-| Technical administrator / subscription | Deployment, authentication, platform integrations, AI provider, subscription, seats and supervision |
-
-## Screenshots and diagrams
-
-Screenshots and diagrams are visual references. They illustrate the main screens and may vary slightly depending on your data, permissions and environment configuration.
-
-Demo content can also vary by environment: some projects do not always expose the same preloaded documents, preloaded reports or examples shown in the documentation.
-
-## What stays local to the browser and what is shared
-
-Two logics coexist in the product:
-
-- some convenience features, such as the **remembered current project** or **saved chat continuity**, stay local to the browser;
-- project data, documents, artifacts, approvals and publications belong to the **shared platform**.
-
-A visible chat history in one browser should therefore not be treated as a central archive shared by all users.
-
-## Support and contact
-
-Use the appropriate channel depending on the request type:
-
-| Request type | Priority to forward |
-| --- | --- |
-| Technical support | Deployment URL, project in question, encountered situation, approximate time, `Trace ID` if visible |
-| Access, tenant or identity question | Expected tenant, account used, actual URL opened, Microsoft message or screenshot |
-| Commercial or subscription question | Account context, current plan, ordered seats, supplemental licenses, used seats and license need |
-
-All these requests can be sent to the following contact point:
-
-- **NovaBiz**
-- 131 Continental Dr, Suite 305
-- Newark, DE 19713 · United States
-- [support@navabiz.pro](mailto:support@navabiz.pro)
-
-## Next
-
-- [Getting started](./demarrage.md)
-- [Projects and workspace](./projets-et-espace-de-travail.md)
-- [Connectors and integrations](./connecteurs-jira-et-sharepoint)
+- [Support, audit and diagnostics](./support-audit-et-diagnostic.md)
+- [Maintenance, support and FAQ](./maintenance-support-faq.md)
 - [Glossary](./glossaire.md)

@@ -472,7 +472,7 @@ Un signal remonte un blocage récurrent avec impact planning.
 1. ouvrir **Actions & approbations** ;
 2. choisir **Create Jira ticket** ;
 3. sélectionner un connecteur Jira disponible ;
-4. saisir un titre clair, par exemple : « Bloquage fournisseur sur lot critique » ;
+4. saisir un titre clair, par exemple : « Blocage fournisseur sur lot critique » ;
 5. compléter la **description** du ticket ;
 6. ajouter la **justification** et les preuves utiles ;
 7. proposer la demande ;
@@ -570,6 +570,6 @@ Ce scénario résume bien la logique du produit : **voir, décider, contrôler, 
 ## Suite
 
 - [Connecteurs et intégrations](./connecteurs-jira-et-sharepoint)
-- [Rapports, Journal IA et traçabilité](./rapports-journal-ia-et-tracabilite.md)
-- [Portefeuille et administration technique](./portefeuille-et-administration-technique.md)
+- [Journal IA](./journal-ia.md)
+- [Actions et approbations](./actions-et-approbations.md)
 - [Maintenance, support et FAQ](./maintenance-support-faq.md)
