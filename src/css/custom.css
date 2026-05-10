@@ -215,19 +215,25 @@ html.docs-doc-page .theme-layout-main main {
 html.docs-doc-page .theme-doc-sidebar-container {
   border-right: none;
   padding: 1rem 0 2rem 1rem;
+  overflow: hidden;
 }
 
-html.docs-doc-page .theme-doc-sidebar-menu {
-  padding-right: 1rem;
-}
-
-html.docs-doc-page .theme-doc-sidebar-menu .menu {
+html.docs-doc-page .theme-doc-sidebar-container nav.menu.thin-scrollbar {
+  max-height: calc(100vh - var(--ifm-navbar-height) - 2rem);
   padding: 0.8rem;
   border: 1px solid var(--site-border-color);
   border-radius: 1.75rem;
   background: var(--site-glass-background);
   backdrop-filter: blur(18px);
   box-shadow: var(--site-card-shadow);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+html.docs-doc-page .theme-doc-sidebar-menu {
+  padding-right: 1rem;
 }
 
 .menu__caret,
@@ -581,8 +587,52 @@ html.docs-doc-page .pagination-nav__sublabel {
     display: none;
   }
 
+  .navbar-sidebar {
+    width: min(100vw, 24rem);
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+  }
+
+  .navbar-sidebar__brand {
+    min-height: var(--ifm-navbar-height);
+    border-bottom: 1px solid var(--site-soft-border-color);
+  }
+
+  .navbar-sidebar__items {
+    height: calc(100dvh - var(--ifm-navbar-height));
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .navbar-sidebar__item,
+  .theme-layout-navbar-sidebar-panel {
+    height: 100%;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .navbar-sidebar .menu,
+  .navbar-sidebar .theme-doc-sidebar-menu {
+    width: 100%;
+    padding-right: 0;
+  }
+
   html.docs-doc-page .theme-doc-sidebar-container {
     padding: 0;
+  }
+
+  html.docs-doc-page .theme-doc-sidebar-container nav.menu.thin-scrollbar {
+    max-height: none;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
   }
 
   html.docs-doc-page .theme-doc-sidebar-menu {

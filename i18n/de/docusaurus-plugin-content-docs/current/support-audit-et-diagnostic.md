@@ -8,6 +8,13 @@ description: Supportinformationen sammeln, ohne Secrets oder sensible Details of
 
 Diese Seite erklärt, welche Informationen bei einem Incident nützlich sind.
 
+## NovaBiz Kontakt
+
+Für den NovaBiz Support:
+
+- E-Mail: [support@navabiz.pro](mailto:support@navabiz.pro)
+- Adresse: NovaBiz, 131 Continental Dr, Suite 305, Newark, DE 19713, United States
+
 ## Zu liefern
 
 | Information | Beispiel |

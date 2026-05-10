@@ -10,6 +10,22 @@ const siteFullUrl = `${siteUrl}${baseUrl}`;
 const marketplaceUrl = 'https://marketplace.microsoft.com/en-us/product/azure-application/novabiz.propm-agentx?tab=Overview';
 const socialImage = 'img/screenshots/localized/en/01-dashboard.jpg';
 const logoImage = 'img/propm-agent-marketplace-logo.png';
+const supportEmail = 'support@navabiz.pro';
+const postalAddress = {
+  '@type': 'PostalAddress',
+  streetAddress: '131 Continental Dr, Suite 305',
+  addressLocality: 'Newark',
+  addressRegion: 'DE',
+  postalCode: '19713',
+  addressCountry: 'US',
+};
+const contactPoint = {
+  '@type': 'ContactPoint',
+  contactType: 'customer support',
+  email: supportEmail,
+  availableLanguage: ['en', 'fr', 'de', 'es', 'hi'],
+};
+const footerAddressHtml = '131 Continental Dr, Suite 305<br />Newark, DE 19713 &middot; United States';
 
 const searchDocsDirs = [
   'docs',
@@ -32,6 +48,9 @@ const structuredDataTags = [
     publisher: {
       '@type': 'Organization',
       name: 'NovaBiz',
+      email: supportEmail,
+      address: postalAddress,
+      contactPoint,
       logo: {
         '@type': 'ImageObject',
         url: `${siteFullUrl}${logoImage}`,
@@ -62,6 +81,9 @@ const structuredDataTags = [
     publisher: {
       '@type': 'Organization',
       name: 'NovaBiz',
+      email: supportEmail,
+      address: postalAddress,
+      contactPoint,
     },
     offers: {
       '@type': 'Offer',
@@ -183,7 +205,7 @@ const config = {
       docs: {
         sidebar: {
           hideable: true,
-          autoCollapseCategories: false,
+          autoCollapseCategories: true,
         },
       },
       navbar: {
@@ -212,6 +234,19 @@ const config = {
       },
       footer: {
         style: 'dark',
+        links: [
+          {
+            title: 'NovaBiz',
+            items: [
+              {
+                html: footerAddressHtml,
+              },
+              {
+                html: `<a href="mailto:${supportEmail}">${supportEmail}</a>`,
+              },
+            ],
+          },
+        ],
         copyright: `Copyright \u00a9 ${new Date().getFullYear()} ProPM Agent`,
       },
       prism: {

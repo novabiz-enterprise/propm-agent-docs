@@ -12,6 +12,13 @@ description: Short answers to common incidents and links to support, audit or ad
 
 This FAQ helps recognize common symptoms and open the right page without exposing internal or sensitive details.
 
+## NovaBiz Contact
+
+For NovaBiz support:
+
+- Email: [support@navabiz.pro](mailto:support@navabiz.pro)
+- Address: NovaBiz, 131 Continental Dr, Suite 305, Newark, DE 19713, United States
+
 ## Symptom to first action
 
 | Symptom | First action | Useful page |

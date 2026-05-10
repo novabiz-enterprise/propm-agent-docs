@@ -26,6 +26,13 @@ Cette page centralise les informations à collecter lorsqu’un utilisateur renc
 - Vérifiez le projet actif.
 - Préparez une capture sans données sensibles.
 
+## Coordonnées NovaBiz
+
+Pour joindre le support NovaBiz :
+
+- Email : [support@navabiz.pro](mailto:support@navabiz.pro)
+- Adresse : NovaBiz, 131 Continental Dr, Suite 305, Newark, DE 19713, United States
+
 ## Checklist à transmettre
 
 | Information | Exemple utile |

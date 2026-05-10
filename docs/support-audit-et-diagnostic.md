@@ -10,6 +10,13 @@ description: Collect useful ProPM Agent support information without exposing sec
 
 This page centralizes the information to collect for access, project, knowledge, agents, AI provider, connectors, actions, licenses or update issues.
 
+## NovaBiz Contact
+
+For NovaBiz support:
+
+- Email: [support@navabiz.pro](mailto:support@navabiz.pro)
+- Address: NovaBiz, 131 Continental Dr, Suite 305, Newark, DE 19713, United States
+
 ## What to provide
 
 | Information | Useful example |

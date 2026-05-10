@@ -6,6 +6,13 @@ description: Puntos de referencia de operación, verificaciones útiles y respue
 
 [Inicio](./index.md) · Mantenimiento, soporte y FAQ
 
+## Contacto NovaBiz
+
+Para contactar con el soporte de NovaBiz:
+
+- Email: [support@navabiz.pro](mailto:support@navabiz.pro)
+- Dirección: NovaBiz, 131 Continental Dr, Suite 305, Newark, DE 19713, United States
+
 ## Superficies útiles para la operación
 
 Usa estos puntos de control para orientar rápidamente el diagnóstico:

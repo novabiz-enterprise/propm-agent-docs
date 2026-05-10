@@ -8,6 +8,13 @@ description: Recopilar información útil sin exponer secrets ni datos sensibles
 
 Esta página explica qué información ayuda durante un incidente.
 
+## Contacto NovaBiz
+
+Para contactar con el soporte de NovaBiz:
+
+- Email: [support@navabiz.pro](mailto:support@navabiz.pro)
+- Dirección: NovaBiz, 131 Continental Dr, Suite 305, Newark, DE 19713, United States
+
 ## Qué proporcionar
 
 | Información | Ejemplo |

@@ -8,6 +8,13 @@ description: secrets या sensitive details expose किए बिना supp
 
 यह पृष्ठ incident के समय useful information बताता है।
 
+## NovaBiz contact
+
+NovaBiz support के लिए:
+
+- Email: [support@navabiz.pro](mailto:support@navabiz.pro)
+- Address: NovaBiz, 131 Continental Dr, Suite 305, Newark, DE 19713, United States
+
 ## क्या दें
 
 | Information | Example |

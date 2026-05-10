@@ -28,6 +28,13 @@ Cette FAQ aide à reconnaître les symptômes courants et à ouvrir la bonne pag
 - Conservez le message affiché et une capture masquée si nécessaire.
 - Ne partagez jamais de secret, clé, jeton ou payload sensible.
 
+## Coordonnées NovaBiz
+
+Pour joindre le support NovaBiz :
+
+- Email : [support@navabiz.pro](mailto:support@navabiz.pro)
+- Adresse : NovaBiz, 131 Continental Dr, Suite 305, Newark, DE 19713, United States
+
 ## Symptôme vers première action
 
 | Symptôme | Première action | Page utile |

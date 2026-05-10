@@ -6,6 +6,13 @@ description: ऑपरेशन के संदर्भ, उपयोगी �
 
 [मुखपृष्ठ](./index.md) · रखरखाव, समर्थन और अक्सर पूछे जाने वाले प्रश्न
 
+## NovaBiz contact
+
+NovaBiz support के लिए:
+
+- Email: [support@navabiz.pro](mailto:support@navabiz.pro)
+- Address: NovaBiz, 131 Continental Dr, Suite 305, Newark, DE 19713, United States
+
 ## ऑपरेशन के लिए उपयोगी स्क्रीनें
 
 एप्लिकेशन में निम्न अवलोकन बिंदु स्पष्ट रूप से दिखाई देते हैं:
