@@ -1,18 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">Annotated ProPM Agent dashboard</title>
-  <desc id="desc">Annotated screenshot showing active project, metrics, recent activity, shortcuts and health.</desc>
-  <rect width="1200" height="720" fill="#0f172a"/>
-  <image href="../../screenshots/localized/en/01-dashboard.jpg" x="0" y="0" width="1200" height="720" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>
-  <g font-family="Arial, sans-serif" font-size="22" font-weight="700">
-    <rect x="30" y="24" width="330" height="54" rx="10" fill="#2563eb" opacity="0.95"/><text x="48" y="59" fill="white">1 Active project</text>
-    <line x1="360" y1="52" x2="650" y2="70" stroke="#2563eb" stroke-width="5"/>
-    <rect x="58" y="150" width="360" height="54" rx="10" fill="#16a34a" opacity="0.95"/><text x="76" y="185" fill="white">2 Project metrics</text>
-    <line x1="418" y1="177" x2="705" y2="210" stroke="#16a34a" stroke-width="5"/>
-    <rect x="52" y="548" width="370" height="54" rx="10" fill="#ea580c" opacity="0.95"/><text x="70" y="583" fill="white">3 Recent activity</text>
-    <line x1="422" y1="575" x2="760" y2="585" stroke="#ea580c" stroke-width="5"/>
-    <rect x="742" y="95" width="385" height="54" rx="10" fill="#7c3aed" opacity="0.95"/><text x="760" y="130" fill="white">4 Action shortcuts</text>
-    <line x1="934" y1="149" x2="1000" y2="250" stroke="#7c3aed" stroke-width="5"/>
-    <rect x="805" y="24" width="330" height="54" rx="10" fill="#dc2626" opacity="0.95"/><text x="823" y="59" fill="white">5 Health and alerts</text>
-    <line x1="970" y1="78" x2="1120" y2="55" stroke="#dc2626" stroke-width="5"/>
-  </g>
+  <title id="title">ProPM Agent dashboard overview</title>
+  <desc id="desc">Diagram explaining the dashboard areas: active project, health, metrics, recent activity, action shortcuts and next steps.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eff6ff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .title{font:700 34px Arial,sans-serif;fill:#0f172a}.subtitle{font:400 18px Arial,sans-serif;fill:#475569}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2}.head{font:700 22px Arial,sans-serif;fill:#0f172a}.body{font:400 17px Arial,sans-serif;fill:#475569}.step{font:700 18px Arial,sans-serif;fill:#fff}.note{font:700 20px Arial,sans-serif;fill:#1e3a8a}
+    </style>
+  </defs>
+  <rect width="1200" height="720" rx="28" fill="url(#bg)"/>
+  <text x="60" y="72" class="title">Dashboard reading order</text>
+  <text x="60" y="108" class="subtitle">Start by confirming the project context, then read status, activity and available shortcuts.</text>
+
+  <rect x="70" y="155" width="275" height="150" rx="22" class="card"/>
+  <circle cx="108" cy="195" r="24" fill="#2563eb"/><text x="101" y="202" class="step">1</text>
+  <text x="145" y="198" class="head">Active project</text>
+  <text x="108" y="242" class="body">Every metric, agent run and</text>
+  <text x="108" y="267" class="body">document depends on the</text>
+  <text x="108" y="292" class="body">selected project.</text>
+
+  <rect x="465" y="155" width="275" height="150" rx="22" class="card"/>
+  <circle cx="503" cy="195" r="24" fill="#16a34a"/><text x="496" y="202" class="step">2</text>
+  <text x="540" y="198" class="head">Project metrics</text>
+  <text x="503" y="242" class="body">Check progress, blockers,</text>
+  <text x="503" y="267" class="body">risk indicators and missing</text>
+  <text x="503" y="292" class="body">evidence signals.</text>
+
+  <rect x="855" y="155" width="275" height="150" rx="22" class="card"/>
+  <circle cx="893" cy="195" r="24" fill="#dc2626"/><text x="886" y="202" class="step">3</text>
+  <text x="930" y="198" class="head">Health and alerts</text>
+  <text x="893" y="242" class="body">Confirm platform health,</text>
+  <text x="893" y="267" class="body">notifications and warnings</text>
+  <text x="893" y="292" class="body">before troubleshooting.</text>
+
+  <rect x="155" y="405" width="300" height="150" rx="22" class="card"/>
+  <circle cx="193" cy="445" r="24" fill="#ea580c"/><text x="186" y="452" class="step">4</text>
+  <text x="230" y="448" class="head">Recent activity</text>
+  <text x="193" y="492" class="body">Review recent runs, imports,</text>
+  <text x="193" y="517" class="body">documents and actions to</text>
+  <text x="193" y="542" class="body">understand what changed.</text>
+
+  <rect x="745" y="405" width="300" height="150" rx="22" class="card"/>
+  <circle cx="783" cy="445" r="24" fill="#7c3aed"/><text x="776" y="452" class="step">5</text>
+  <text x="820" y="448" class="head">Action shortcuts</text>
+  <text x="783" y="492" class="body">Open knowledge, agents,</text>
+  <text x="783" y="517" class="body">PM documents or actions</text>
+  <text x="783" y="542" class="body">from the current context.</text>
+
+  <line x1="348" y1="230" x2="457" y2="230" stroke="#2563eb" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="743" y1="230" x2="847" y2="230" stroke="#2563eb" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="605" y1="310" x2="330" y2="398" stroke="#2563eb" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="605" y1="310" x2="875" y2="398" stroke="#2563eb" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="330" y="615" width="540" height="58" rx="18" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+  <text x="600" y="651" text-anchor="middle" class="note">If the page looks empty, first verify the active project and your role</text>
 </svg>
