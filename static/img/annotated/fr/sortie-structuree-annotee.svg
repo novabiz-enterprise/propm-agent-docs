@@ -71,6 +71,6 @@
   <text x="950" y="508" class="body">Approbation</text>
 
   <line x1="975" y1="548" x2="975" y2="608" stroke="#2563eb" stroke-width="4" marker-end="url(#arrow)"/>
-  <rect x="365" y="610" width="470" height="60" rx="20" fill="#0f172a"/>
-  <text x="404" y="648" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#fff">Relecture humaine obligatoire avant publication</text>
+  <rect x="270" y="610" width="660" height="60" rx="20" fill="#0f172a"/>
+  <text x="325" y="648" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#fff">Relecture humaine obligatoire avant publication</text>
 </svg>

@@ -2,7 +2,7 @@
   <title id="title">Portfolio annoté</title>
   <desc id="desc">Capture annotée du centre Portfolio avec sélection projets, profil signaux, cohortes, seuil et outliers.</desc>
   <rect width="1200" height="720" fill="#0f172a"/>
-  <image href="/img/screenshots/localized/fr/02-portfolio-command-center.jpg" x="0" y="0" width="1200" height="720" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>
+  <image href="../../screenshots/localized/fr/02-portfolio-command-center.jpg" x="0" y="0" width="1200" height="720" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>
   <g font-family="Arial, sans-serif" font-size="21" font-weight="700">
     <rect x="36" y="92" width="310" height="50" rx="10" fill="#2563eb" opacity="0.95"/><text x="54" y="125" fill="white">1 Projects</text>
     <line x1="346" y1="117" x2="560" y2="165" stroke="#2563eb" stroke-width="5"/>

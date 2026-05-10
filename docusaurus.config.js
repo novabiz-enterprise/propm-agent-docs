@@ -26,17 +26,6 @@ const contactPoint = {
   availableLanguage: ['en', 'fr', 'de', 'es', 'hi'],
 };
 const footerAddressHtml = '131 Continental Dr, Suite 305<br />Newark, DE 19713 &middot; United States';
-const pdfExportItems = [
-  { label: 'English PDF', href: `${baseUrl}pdf/propm-agent-docs-en.pdf` },
-  { label: 'French PDF', href: `${baseUrl}pdf/propm-agent-docs-fr.pdf` },
-  { label: 'German PDF', href: `${baseUrl}pdf/propm-agent-docs-de.pdf` },
-  { label: 'Hindi PDF', href: `${baseUrl}pdf/propm-agent-docs-hi.pdf` },
-  { label: 'Spanish PDF', href: `${baseUrl}pdf/propm-agent-docs-es.pdf` },
-].map((item) => ({
-  ...item,
-  target: '_blank',
-  rel: 'noopener noreferrer',
-}));
 
 const searchDocsDirs = [
   'docs',
@@ -238,12 +227,6 @@ const config = {
             position: 'left',
             target: '_blank',
             rel: 'noopener noreferrer',
-          },
-          {
-            type: 'dropdown',
-            label: 'Export PDF',
-            position: 'right',
-            items: pdfExportItems,
           },
           {
             type: 'search',

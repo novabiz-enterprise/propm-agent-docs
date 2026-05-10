@@ -14,6 +14,7 @@ const tempDir = path.join(buildDir, '.pdf-pages');
 const defaultLocale = siteConfig.i18n.defaultLocale;
 const locales = siteConfig.i18n.locales;
 const baseUrl = normalizeUrlPath(siteConfig.baseUrl || '/');
+const docImageSelector = 'article .markdown img, article .theme-doc-markdown img';
 
 const localeLabels = {
   en: 'English',
@@ -37,7 +38,7 @@ const printCss = `
   .markdown h2::before { display: none !important; }
   .markdown h3, .markdown h4 { break-after: avoid; color: #111827 !important; }
   .markdown p, .markdown li, .markdown td, .markdown th { color: #111827 !important; }
-  .markdown img { max-width: 100% !important; height: auto !important; margin: 12px auto 16px !important; box-shadow: none !important; border: 1px solid #d1d5db !important; break-inside: avoid; }
+  .markdown img { max-width: 100% !important; max-height: 220mm !important; height: auto !important; object-fit: contain !important; margin: 10px auto 14px !important; box-shadow: none !important; border: 1px solid #d1d5db !important; page-break-inside: avoid; break-inside: avoid; }
   .markdown table { width: 100% !important; font-size: 11px !important; break-inside: auto; }
   .markdown tr, .markdown img, .markdown pre, .markdown blockquote, .theme-code-block { break-inside: avoid; }
   a { color: #1d4ed8 !important; text-decoration: none !important; }
@@ -200,6 +201,7 @@ async function printDocPage(browser, url, pdfPath, locale, title) {
 
     await page.emulateMedia({ media: 'print' });
     await page.addStyleTag({ content: printCss });
+    await waitForDocImages(page, url);
     await page.pdf({
       path: pdfPath,
       format: 'A4',
@@ -212,6 +214,58 @@ async function printDocPage(browser, url, pdfPath, locale, title) {
     });
   } finally {
     await page.close();
+  }
+}
+
+async function waitForDocImages(page, url) {
+  await page.evaluate((selector) => {
+    for (const img of document.querySelectorAll(selector)) {
+      img.loading = 'eager';
+      img.decoding = 'sync';
+      if (img.src) {
+        img.src = img.src;
+      }
+    }
+  }, docImageSelector);
+
+  await page.evaluate(async (selector) => {
+    const images = Array.from(document.querySelectorAll(selector));
+    for (const img of images) {
+      img.scrollIntoView({ block: 'center', inline: 'nearest' });
+      await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    }
+    window.scrollTo(0, 0);
+  }, docImageSelector);
+
+  await page.waitForFunction(
+    (selector) => Array.from(document.querySelectorAll(selector)).every((img) => img.complete && img.naturalWidth > 0),
+    docImageSelector,
+    { timeout: 60000 },
+  );
+
+  const failures = await page.evaluate(async (selector) => {
+    const images = Array.from(document.querySelectorAll(selector));
+    const failed = [];
+
+    await Promise.all(images.map(async (img) => {
+      try {
+        if (typeof img.decode === 'function') {
+          await img.decode();
+        }
+      } catch {
+        // The complete/naturalWidth check below is the final source of truth.
+      }
+
+      if (!img.complete || img.naturalWidth === 0) {
+        failed.push({ alt: img.alt || '', src: img.currentSrc || img.src || '' });
+      }
+    }));
+
+    return failed;
+  }, docImageSelector);
+
+  if (failures.length > 0) {
+    throw new Error(`Images failed to load before PDF for ${url}: ${JSON.stringify(failures)}`);
   }
 }
 

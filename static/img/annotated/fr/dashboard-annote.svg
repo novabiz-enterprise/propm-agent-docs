@@ -2,7 +2,7 @@
   <title id="title">Tableau de bord ProPM Agent annoté</title>
   <desc id="desc">Capture annotée montrant projet actif, métriques, activité récente, raccourcis et santé.</desc>
   <rect width="1200" height="720" fill="#0f172a"/>
-  <image href="/img/screenshots/localized/fr/01-dashboard.jpg" x="0" y="0" width="1200" height="720" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>
+  <image href="../../screenshots/localized/fr/01-dashboard.jpg" x="0" y="0" width="1200" height="720" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>
   <g font-family="Arial, sans-serif" font-size="22" font-weight="700">
     <rect x="30" y="24" width="330" height="54" rx="10" fill="#2563eb" opacity="0.95"/><text x="48" y="59" fill="white">1 Projet actif</text>
     <line x1="360" y1="52" x2="650" y2="70" stroke="#2563eb" stroke-width="5"/>
