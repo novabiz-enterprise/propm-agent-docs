@@ -1,18 +1,77 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">Annotated structured output</title>
-  <desc id="desc">Annotated screenshot showing summary, decisions, evidence, freshness, confidence and downstream actions.</desc>
-  <rect width="1200" height="720" fill="#111827"/>
-  <image href="/img/screenshots/localized/en/03-workspace-structured-output.jpg" x="0" y="0" width="1200" height="720" preserveAspectRatio="xMidYMid slice" opacity="0.78"/>
-  <g font-family="Arial, sans-serif" font-size="21" font-weight="700">
-    <rect x="36" y="38" width="260" height="50" rx="10" fill="#2563eb" opacity="0.95"/><text x="54" y="71" fill="white">1 Summary</text>
-    <line x1="296" y1="63" x2="565" y2="128" stroke="#2563eb" stroke-width="5"/>
-    <rect x="38" y="140" width="310" height="50" rx="10" fill="#16a34a" opacity="0.95"/><text x="56" y="173" fill="white">2 Decisions</text>
-    <line x1="348" y1="165" x2="640" y2="260" stroke="#16a34a" stroke-width="5"/>
-    <rect x="45" y="560" width="310" height="50" rx="10" fill="#ea580c" opacity="0.95"/><text x="63" y="593" fill="white">3 Evidence</text>
-    <line x1="355" y1="585" x2="730" y2="585" stroke="#ea580c" stroke-width="5"/>
-    <rect x="776" y="76" width="360" height="50" rx="10" fill="#7c3aed" opacity="0.95"/><text x="794" y="109" fill="white">4 Freshness / confidence</text>
-    <line x1="955" y1="126" x2="990" y2="350" stroke="#7c3aed" stroke-width="5"/>
-    <rect x="770" y="606" width="360" height="50" rx="10" fill="#dc2626" opacity="0.95"/><text x="788" y="639" fill="white">5 Downstream actions</text>
-    <line x1="945" y1="606" x2="930" y2="515" stroke="#dc2626" stroke-width="5"/>
-  </g>
+  <title id="title">Structured output review diagram</title>
+  <desc id="desc">Diagram showing how to review summary, findings, decisions, evidence, freshness, confidence, missing information and downstream actions.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eff6ff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .title{font:700 34px Arial,sans-serif;fill:#0f172a}.subtitle{font:400 18px Arial,sans-serif;fill:#475569}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2}.num{font:700 20px Arial,sans-serif;fill:#fff}.head{font:700 22px Arial,sans-serif;fill:#0f172a}.body{font:400 17px Arial,sans-serif;fill:#475569}.pill{font:700 14px Arial,sans-serif;fill:#0f172a}
+    </style>
+  </defs>
+  <rect width="1200" height="720" rx="28" fill="url(#bg)"/>
+  <text x="60" y="70" class="title">Review a structured output before reuse</text>
+  <text x="60" y="105" class="subtitle">Evidence and human judgement decide whether the answer becomes a PM Document, action or audit item.</text>
+
+  <rect x="60" y="150" width="320" height="150" rx="22" class="card"/>
+  <circle cx="95" cy="190" r="23" fill="#2563eb"/><text x="88" y="197" class="num">1</text>
+  <text x="130" y="190" class="head">Summary and findings</text>
+  <text x="95" y="230" class="body">Read the main message,</text>
+  <text x="95" y="255" class="body">then separate facts from</text>
+  <text x="95" y="280" class="body">model interpretation.</text>
+
+  <rect x="440" y="150" width="320" height="150" rx="22" class="card"/>
+  <circle cx="475" cy="190" r="23" fill="#16a34a"/><text x="468" y="197" class="num">2</text>
+  <text x="510" y="190" class="head">Decisions to take</text>
+  <text x="475" y="230" class="body">Identify what requires</text>
+  <text x="475" y="255" class="body">approval, arbitration or</text>
+  <text x="475" y="280" class="body">project owner review.</text>
+
+  <rect x="820" y="150" width="320" height="150" rx="22" class="card"/>
+  <circle cx="855" cy="190" r="23" fill="#ea580c"/><text x="848" y="197" class="num">3</text>
+  <text x="890" y="190" class="head">Evidence and citations</text>
+  <text x="855" y="230" class="body">Open cited sources and</text>
+  <text x="855" y="255" class="body">check whether they justify</text>
+  <text x="855" y="280" class="body">the conclusion.</text>
+
+  <line x1="382" y1="225" x2="432" y2="225" stroke="#2563eb" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="762" y1="225" x2="812" y2="225" stroke="#2563eb" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="60" y="375" width="245" height="170" rx="22" class="card"/>
+  <circle cx="95" cy="415" r="23" fill="#7c3aed"/><text x="88" y="422" class="num">4</text>
+  <text x="130" y="415" class="head">Freshness</text>
+  <rect x="92" y="450" width="65" height="30" rx="15" fill="#d1fae5"/><text x="108" y="470" class="pill">Fresh</text>
+  <rect x="165" y="450" width="65" height="30" rx="15" fill="#fef3c7"/><text x="180" y="470" class="pill">Aging</text>
+  <rect x="92" y="490" width="65" height="30" rx="15" fill="#fee2e2"/><text x="110" y="510" class="pill">Stale</text>
+  <rect x="165" y="490" width="95" height="30" rx="15" fill="#ede9fe"/><text x="178" y="510" class="pill">Conflict</text>
+
+  <rect x="345" y="375" width="245" height="170" rx="22" class="card"/>
+  <circle cx="380" cy="415" r="23" fill="#0f766e"/><text x="373" y="422" class="num">5</text>
+  <text x="415" y="415" class="head">Confidence</text>
+  <text x="380" y="458" class="body">Use it as a signal,</text>
+  <text x="380" y="483" class="body">not as approval.</text>
+  <text x="380" y="515" class="body">Low confidence means</text>
+  <text x="380" y="540" class="body">more review is needed.</text>
+
+  <rect x="630" y="375" width="245" height="170" rx="22" class="card"/>
+  <circle cx="665" cy="415" r="23" fill="#dc2626"/><text x="658" y="422" class="num">6</text>
+  <text x="700" y="415" class="head">Missing information</text>
+  <text x="665" y="458" class="body">Complete knowledge,</text>
+  <text x="665" y="483" class="body">ask for source detail</text>
+  <text x="665" y="508" class="body">or keep exploratory.</text>
+
+  <rect x="915" y="375" width="225" height="170" rx="22" class="card"/>
+  <circle cx="950" cy="415" r="23" fill="#1d4ed8"/><text x="943" y="422" class="num">7</text>
+  <text x="985" y="415" class="head">Downstream action</text>
+  <text x="950" y="458" class="body">PM Document</text>
+  <text x="950" y="483" class="body">AI Log</text>
+  <text x="950" y="508" class="body">Approval action</text>
+
+  <line x1="975" y1="548" x2="975" y2="608" stroke="#2563eb" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="380" y="610" width="440" height="60" rx="20" fill="#0f172a"/>
+  <text x="422" y="648" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#fff">Human review is required before publication</text>
 </svg>

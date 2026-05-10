@@ -6,7 +6,7 @@ description: Configure, validate, test and activate the AI provider in ProPM Age
 
 [Home](./index.md) · AI provider
 
-![Annotated AI provider settings: catalog, configuration, Save, Validate, Test, Activate and history](/img/annotated/en/ai-provider-annotated.svg)
+![Annotated AI provider workflow: provider type, configuration, Save, Validate, Test, Activate and AI Log verification](/img/annotated/en/ai-provider-annotated.svg)
 
 ## Goal
 

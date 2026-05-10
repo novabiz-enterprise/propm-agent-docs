@@ -18,6 +18,10 @@ Sie ist für zwei Zielgruppen strukturiert:
 
 ![Übersicht der Anwendung](/img/screenshots/localized/de/01-dashboard.jpg)
 
+## PDF exportieren
+
+<a className="button button--primary" href="/propm-agent-docs/pdf/propm-agent-docs-de.pdf" target="_blank" rel="noopener noreferrer">Deutsches PDF herunterladen</a>
+
 ## Ich suche die richtige Seite schnell
 
 | Angetroffene Situation | Öffnen Sie zuerst | Dann |

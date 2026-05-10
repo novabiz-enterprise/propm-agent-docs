@@ -8,7 +8,7 @@ description: Read a structured output, verify evidence, freshness, confidence an
 
 ![Structured output example](/img/screenshots/localized/en/03-workspace-structured-output.jpg)
 
-![Annotated structured output: summary, decisions, evidence, freshness, confidence and downstream actions](/img/annotated/en/structured-output-annotated.svg)
+![Annotated structured-output review flow: summary, decisions, evidence, freshness, confidence, missing information and downstream actions](/img/annotated/en/structured-output-annotated.svg)
 
 ## Goal
 

@@ -8,7 +8,7 @@ description: Lire une sortie structurée, vérifier preuves, fraîcheur, confian
 
 ![Exemple de sortie structurée](/img/screenshots/localized/fr/03-workspace-structured-output.jpg)
 
-![Sortie structurée annotée : résumé, décisions, preuves, fraîcheur, confiance et actions aval](/img/annotated/fr/sortie-structuree-annotee.svg)
+![Schéma de relecture d’une sortie structurée : résumé, décisions, preuves, fraîcheur, confiance, informations manquantes et actions aval](/img/annotated/fr/sortie-structuree-annotee.svg)
 
 ## Objectif
 

@@ -8,7 +8,7 @@ description: Ajouter des membres, attribuer des rôles, créer des rôles person
 
 ![Contrôle d’accès projet](/img/screenshots/localized/fr/11-access-control.jpg)
 
-![Contrôle d’accès annoté : membres, rôles standards, rôles personnalisés et garde-fous RBAC](/img/annotated/fr/controle-acces-annote.svg)
+![Schéma de contrôle d’accès : membres, rôles standards, rôles personnalisés, garde-fous RBAC et trace d’audit](/img/annotated/fr/controle-acces-annote.svg)
 
 ## Objectif
 

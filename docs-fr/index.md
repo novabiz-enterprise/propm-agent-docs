@@ -10,6 +10,10 @@ Cette documentation aide les clients Azure à utiliser ProPM Agent sans confusio
 
 ![Vue d’ensemble de l’application](/img/screenshots/localized/fr/01-dashboard.jpg)
 
+## Export PDF
+
+<a className="button button--primary" href="/propm-agent-docs/pdf/propm-agent-docs-fr.pdf" target="_blank" rel="noopener noreferrer">Télécharger le PDF français</a>
+
 ## Commencer par le bon parcours
 
 | Votre situation | Ouvrez d’abord | Objectif |

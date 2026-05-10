@@ -236,6 +236,73 @@ html.docs-doc-page .theme-doc-sidebar-menu {
   padding-right: 1rem;
 }
 
+.pdf-sidebar-export {
+  position: sticky;
+  top: 0.75rem;
+  z-index: 5;
+  margin-bottom: 0.85rem;
+  padding: 0.15rem 0 0.75rem;
+  border-bottom: 1px solid var(--site-soft-border-color);
+  background: linear-gradient(180deg, var(--site-glass-background-strong) 70%, rgba(255, 255, 255, 0));
+  backdrop-filter: blur(18px);
+}
+
+.pdf-sidebar-export__link {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid rgba(220, 38, 38, 0.18);
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.12), rgba(249, 115, 22, 0.1));
+  color: var(--ifm-heading-color);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+}
+
+.pdf-sidebar-export__link:hover {
+  border-color: rgba(220, 38, 38, 0.32);
+  color: var(--ifm-heading-color);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.pdf-sidebar-export__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 2.05rem;
+  height: 2.05rem;
+  border-radius: 0.65rem;
+  background: #dc2626;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  box-shadow: 0 10px 22px rgba(220, 38, 38, 0.24);
+}
+
+html[lang='en'] .pdf-sidebar-export__link--en,
+html[lang='fr'] .pdf-sidebar-export__link--fr,
+html[lang='de'] .pdf-sidebar-export__link--de,
+html[lang='hi'] .pdf-sidebar-export__link--hi,
+html[lang='es'] .pdf-sidebar-export__link--es {
+  display: flex;
+}
+
+html[data-theme='dark'] .pdf-sidebar-export {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.96) 70%, rgba(15, 23, 42, 0));
+}
+
+html[data-theme='dark'] .pdf-sidebar-export__link {
+  background: linear-gradient(135deg, rgba(248, 113, 113, 0.16), rgba(251, 146, 60, 0.12));
+}
+
 .menu__caret,
 .menu__link,
 .menu__list-item-collapsible {
@@ -588,7 +655,8 @@ html.docs-doc-page .pagination-nav__sublabel {
   }
 
   .navbar-sidebar {
-    width: min(100vw, 24rem);
+    --ifm-navbar-sidebar-width: min(100vw, 24rem);
+    width: var(--ifm-navbar-sidebar-width);
     height: 100dvh;
     max-height: 100dvh;
     overflow: hidden;
@@ -615,7 +683,7 @@ html.docs-doc-page .pagination-nav__sublabel {
     -webkit-overflow-scrolling: touch;
   }
 
-  .navbar-sidebar .menu,
+  .navbar-sidebar .menu__list,
   .navbar-sidebar .theme-doc-sidebar-menu {
     width: 100%;
     padding-right: 0;

@@ -18,6 +18,10 @@ Está organizada para dos públicos:
 
 ![Vista general de la aplicación](/img/screenshots/localized/es/01-dashboard.jpg)
 
+## Exportar PDF
+
+<a className="button button--primary" href="/propm-agent-docs/pdf/propm-agent-docs-es.pdf" target="_blank" rel="noopener noreferrer">Descargar el PDF en español</a>
+
 ## Busco la página correcta rápidamente
 
 | Situación encontrada | Abrir primero | Luego |

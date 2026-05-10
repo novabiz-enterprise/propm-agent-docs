@@ -8,7 +8,7 @@ description: Add members, assign roles, create custom roles and understand proje
 
 ![Project access control](/img/screenshots/localized/en/11-access-control.jpg)
 
-![Annotated access control: members, standard roles, custom roles and RBAC guardrails](/img/annotated/en/access-control-annotated.svg)
+![Annotated access-control flow: members, standard roles, custom roles, RBAC guardrails and audit trace](/img/annotated/en/access-control-annotated.svg)
 
 ## Goal
 

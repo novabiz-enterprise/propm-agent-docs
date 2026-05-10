@@ -8,7 +8,7 @@ description: Configurer, valider, tester et activer le fournisseur IA dans l’a
 
 ![Administration de la plateforme](/img/screenshots/localized/fr/18-platform-administration-overview.jpg)
 
-![Paramètres fournisseur IA annotés : catalogue, configuration, Save, Validate, Test, Activate et historique](/img/annotated/fr/fournisseur-ia-annote.svg)
+![Schéma fournisseur IA : type fournisseur, configuration, Save, Validate, Test, Activate et vérification dans le Journal IA](/img/annotated/fr/fournisseur-ia-annote.svg)
 
 ## Objectif
 

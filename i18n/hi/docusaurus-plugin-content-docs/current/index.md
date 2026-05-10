@@ -18,6 +18,10 @@ description: "प्रोपीएम एजेंट के लिए हि�
 
 ![एप्लिकेशन का अवलोकन](/img/screenshots/localized/hi/01-dashboard.jpg)
 
+## PDF export
+
+<a className="button button--primary" href="/propm-agent-docs/pdf/propm-agent-docs-hi.pdf" target="_blank" rel="noopener noreferrer">Hindi PDF डाउनलोड करें</a>
+
 ## मैं सही पृष्ठ जल्दी खोजना चाहता हूँ
 
 | सामने आई स्थिति | पहले खोलें | फिर |

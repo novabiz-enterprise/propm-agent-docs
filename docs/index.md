@@ -10,6 +10,10 @@ This documentation helps Azure customers use ProPM Agent without mixing daily us
 
 ![Application overview](/img/screenshots/localized/en/01-dashboard.jpg)
 
+## Export PDF
+
+<a className="button button--primary" href="/propm-agent-docs/pdf/propm-agent-docs-en.pdf" target="_blank" rel="noopener noreferrer">Download the English PDF</a>
+
 ## Start with the right path
 
 | Situation | Open first | Goal |

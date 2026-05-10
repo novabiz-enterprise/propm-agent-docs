@@ -7,8 +7,36 @@
     "message": "ProPM Agent",
     "description": "The alt text of navbar logo"
   },
+  "item.label.Documentation": {
+    "message": "Documentación",
+    "description": "Navbar item with label Documentation"
+  },
   "item.label.Marketplace": {
     "message": "Marketplace de Azure",
     "description": "Navbar item with label Marketplace"
+  },
+  "item.label.Export PDF": {
+    "message": "Exportar PDF",
+    "description": "Navbar item with label Export PDF"
+  },
+  "item.label.English PDF": {
+    "message": "PDF en ingles",
+    "description": "Navbar item with label English PDF"
+  },
+  "item.label.French PDF": {
+    "message": "PDF en frances",
+    "description": "Navbar item with label French PDF"
+  },
+  "item.label.German PDF": {
+    "message": "PDF en aleman",
+    "description": "Navbar item with label German PDF"
+  },
+  "item.label.Hindi PDF": {
+    "message": "PDF en hindi",
+    "description": "Navbar item with label Hindi PDF"
+  },
+  "item.label.Spanish PDF": {
+    "message": "PDF en espanol",
+    "description": "Navbar item with label Spanish PDF"
   }
 }
