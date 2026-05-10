@@ -26,6 +26,16 @@ const contactPoint = {
   availableLanguage: ['en', 'fr', 'de', 'es', 'hi'],
 };
 const footerAddressHtml = '131 Continental Dr, Suite 305<br />Newark, DE 19713 &middot; United States';
+const mobileLanguageSwitcherHtml = `
+  <div class="mobile-language-switcher__title">Language / Langue</div>
+  <div class="mobile-language-switcher__links" aria-label="Language selection">
+    <a data-locale="en" href="${baseUrl}">English</a>
+    <a data-locale="fr" href="${baseUrl}fr/">Français</a>
+    <a data-locale="de" href="${baseUrl}de/">Deutsch</a>
+    <a data-locale="hi" href="${baseUrl}hi/">हिन्दी</a>
+    <a data-locale="es" href="${baseUrl}es/">Español</a>
+  </div>
+`;
 
 const searchDocsDirs = [
   'docs',
@@ -220,6 +230,7 @@ const config = {
             sidebarId: 'guide',
             label: 'Documentation',
             position: 'left',
+            className: 'docs-sidebar-navbar-item',
           },
           {
             href: marketplaceUrl,
@@ -233,8 +244,15 @@ const config = {
             position: 'right',
           },
           {
+            type: 'html',
+            position: 'right',
+            className: 'mobile-language-switcher',
+            value: mobileLanguageSwitcherHtml,
+          },
+          {
             type: 'localeDropdown',
             position: 'right',
+            className: 'desktop-locale-dropdown',
           },
         ],
       },
