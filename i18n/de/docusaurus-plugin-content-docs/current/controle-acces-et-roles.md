@@ -6,6 +6,8 @@ description: Verwalten Sie Mitglieder, delegieren Sie Projektrollen und verstehe
 
 [Startseite](./index.md) · Zugriffskontrolle und Projektrollen
 
+![Projektzugriff steuern](/img/annotated/de/access-control-annotated.svg)
+
 ![Delegation des Erstellers und Projektrollen](/img/diagrams/de/delegation-createur-rbac.svg)
 
 ## Ziel

@@ -6,6 +6,8 @@ description: प्रोजेक्टों की तुलना करे�
 
 [मुखपृष्ठ](./index.md) · पोर्टफोलियो
 
+![Portfolio review flow](/img/annotated/hi/portfolio-annotated.svg)
+
 ![पोर्टफोलियो command center](/img/screenshots/localized/hi/02-portfolio-command-center.jpg)
 
 ## उद्देश्य

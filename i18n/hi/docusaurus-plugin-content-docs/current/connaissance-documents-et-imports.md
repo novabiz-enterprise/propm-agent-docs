@@ -1,5 +1,5 @@
 ---
-title: Knowledge, documents और imports
+title: ज्ञान, दस्तावेज़ और आयात
 slug: /connaissance-documents-et-imports
 description: project knowledge documents upload, import, search और indexing verify करें।
 ---

@@ -6,6 +6,8 @@ description: Leer el dashboard de ProPM Agent, entender métricas del proyecto y
 
 # Dashboard
 
+![Orden de lectura del dashboard](/img/annotated/es/dashboard-annotated.svg)
+
 El dashboard resume el proyecto activo: actividad reciente, conocimiento, agentes, Documentos PM, señales, acciones y accesos rápidos.
 
 ## Antes de empezar

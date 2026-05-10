@@ -1,5 +1,5 @@
 ---
-title: Actions और approvals
+title: कार्रवाइयाँ और अनुमोदन
 slug: /actions-et-approbations
 description: governed actions propose, approve, reject और execute करें।
 ---

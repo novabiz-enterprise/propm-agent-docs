@@ -1,5 +1,5 @@
 ---
-title: PM Documents और artifacts
+title: PM दस्तावेज़ और आर्टिफ़ैक्ट्स
 slug: /documents-pm-et-artefacts
 description: PM Documents और artifacts review, edit, download, publish या knowledge में add करें।
 ---

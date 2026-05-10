@@ -6,6 +6,8 @@ description: Das ProPM-Agent-Dashboard lesen, Projektkennzahlen verstehen und di
 
 # Dashboard
 
+![Dashboard-Lesereihenfolge](/img/annotated/de/dashboard-annotated.svg)
+
 Das Dashboard fasst den aktiven Projektkontext zusammen: Aktivität, Wissen, Agenten, PM-Dokumente, Signale, Aktionen und Schnellzugriffe.
 
 ## Voraussetzungen

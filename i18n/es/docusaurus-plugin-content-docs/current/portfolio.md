@@ -6,6 +6,8 @@ description: Comparar proyectos, configurar señales de portafolio, leer cohorte
 
 [Inicio](./index.md) · Portafolio
 
+![Flujo de revisión de portafolio](/img/annotated/es/portfolio-annotated.svg)
+
 ![Centro de mando del portafolio](/img/screenshots/localized/es/02-portfolio-command-center.jpg)
 
 ## Objetivo

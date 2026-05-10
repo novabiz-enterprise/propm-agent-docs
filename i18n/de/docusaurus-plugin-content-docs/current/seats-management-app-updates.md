@@ -136,7 +136,7 @@ Erstellen Sie in Azure Marketplace eine neue ProPM-Bereitstellung, anstatt die v
 
 Wählen Sie auf der Registerkarte **Basics** Abonnement, Ressourcengruppe, Region, Namen der neuen Managed Application und die neue Managed Resource Group.
 
-![Neue ProPM-Bereitstellung aus Azure Marketplace erstellen](/img/deploiement/fr/propm-plan-update-01-new-deployment-basics.png)
+![Neue ProPM-Bereitstellung aus Azure Marketplace erstellen](/img/deploiement/fr/propm-plan-update-01-new-deployment-basics-annotated.svg)
 
 Verwenden Sie einen anderen Namen für die neue Managed Application, damit vorherige und neue Umgebung während des Cutovers klar unterscheidbar sind.
 
@@ -144,7 +144,7 @@ Verwenden Sie einen anderen Namen für die neue Managed Application, damit vorhe
 
 Wählen Sie auf der Registerkarte **Application Settings** im Feld **Installation mode** die Option **Attach existing ProPM data resources**.
 
-![Modus Attach existing ProPM data resources auswählen](/img/deploiement/fr/propm-plan-update-03-attach-existing-data-resources.png)
+![Modus Attach existing ProPM data resources auswählen](/img/deploiement/fr/propm-plan-update-03-attach-existing-data-resources-annotated.svg)
 
 Dieser Modus weist die neue Bereitstellung an, sich mit den Datenressourcen der vorherigen Bereitstellung zu verbinden, anstatt mit einer leeren Umgebung zu starten.
 
@@ -156,13 +156,13 @@ Lassen Sie erweiterte Override-Felder in den meisten Fällen leer. Die neue Bere
 
 Kopieren Sie das vollständige Feld **Id** der Managed Application. Dies ist die **Resource ID** der vorherigen Managed Application, nicht der Name der verwalteten Ressourcengruppe.
 
-![Resource ID der vorherigen ProPM Managed Application kopieren](/img/deploiement/fr/propm-plan-update-02-copy-previous-managed-application-id.png)
+![Resource ID der vorherigen ProPM Managed Application kopieren](/img/deploiement/fr/propm-plan-update-02-copy-previous-managed-application-id-annotated.svg)
 
 Kehren Sie zum Assistenten der neuen Bereitstellung zurück und fügen Sie diesen Wert in **Previous ProPM Managed Application resource ID** ein.
 
 Aktivieren Sie bei Bedarf **Block previous deployment during cutover**. Diese Option hilft zu verhindern, dass Änderungen in der vorherigen Umgebung vorgenommen werden, während die neue Bereitstellung genutzt und validiert wird.
 
-![Vorherige Bereitstellung während des Cutovers blockieren](/img/deploiement/fr/propm-plan-update-04-readonly-and-overrides.png)
+![Vorherige Bereitstellung während des Cutovers blockieren](/img/deploiement/fr/propm-plan-update-04-readonly-and-overrides-annotated.svg)
 
 Nachdem Sie die weiteren vom Assistenten geforderten Parameter eingegeben haben, wählen Sie **Review + create**, prüfen die Konfiguration und starten die Bereitstellung.
 

@@ -1,5 +1,5 @@
 ---
-title: Agents
+title: एजेंट्स
 slug: /agents
 description: standard agents चुनें, run शुरू करें, answer पढ़ें और custom agents बनाएँ।
 ---

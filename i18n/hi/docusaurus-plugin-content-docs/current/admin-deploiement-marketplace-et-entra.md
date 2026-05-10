@@ -1,5 +1,5 @@
 ---
-title: Azure और Entra administration
+title: Azure और Entra प्रशासन
 slug: /admin-deploiement-marketplace-et-entra
 description: Azure Marketplace से ProPM Agent deploy करें और Entra access final करें।
 ---

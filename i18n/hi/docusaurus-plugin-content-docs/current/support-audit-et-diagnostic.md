@@ -1,5 +1,5 @@
 ---
-title: Support, audit और diagnostics
+title: सहायता, ऑडिट और निदान
 slug: /support-audit-et-diagnostic
 description: secrets या sensitive details expose किए बिना support information collect करें।
 ---

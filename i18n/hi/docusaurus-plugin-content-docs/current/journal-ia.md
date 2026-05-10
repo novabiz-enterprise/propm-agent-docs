@@ -1,5 +1,5 @@
 ---
-title: AI Log
+title: AI लॉग
 slug: /journal-ia
 description: runs खोजें, effective AI provider verify करें और support information तैयार करें।
 ---

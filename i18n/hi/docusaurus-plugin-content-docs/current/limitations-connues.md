@@ -1,5 +1,5 @@
 ---
-title: Known limitations
+title: ज्ञात सीमाएँ
 slug: /limitations-connues
 description: Azure customer context में ProPM Agent की known functional limits।
 ---

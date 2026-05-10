@@ -1,5 +1,5 @@
 ---
-title: Documentation review checklist
+title: दस्तावेज़ समीक्षा चेकलिस्ट
 slug: /checklist-revue-documentaire
 description: customer publication या release से पहले documentation review checklist।
 ---

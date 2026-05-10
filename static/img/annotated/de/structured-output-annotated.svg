@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1080" viewBox="0 0 1200 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Strukturierte Ausgabe prüfen</title>
+  <desc id="desc">Vertikaler Ablauf zur Prüfung strukturierter Ausgaben.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eff6ff"/><stop offset="0.55" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2ff"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dbeafe"/><stop offset="1" stop-color="#dcfce7"/></linearGradient>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="7" refY="11" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L13,1 L7,13 Z" fill="#2563eb"/></marker>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.12"/></filter>
+    <style>.title{font:700 34px Arial,sans-serif;fill:#0f172a}.subtitle{font:400 18px Arial,sans-serif;fill:#475569}.rail{stroke:#bfdbfe;stroke-width:8;stroke-linecap:round}.flow{stroke:#2563eb;stroke-width:5;stroke-linecap:round;marker-end:url(#arrow)}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2;filter:url(#shadow)}.action-card{fill:url(#accent);stroke:#2563eb;stroke-width:3;filter:url(#shadow)}.guard-card{fill:#fee2e2;stroke:#dc2626;stroke-width:3;filter:url(#shadow)}.num{font:700 21px Arial,sans-serif;fill:#fff;text-anchor:middle}.head{font:700 23px Arial,sans-serif;fill:#0f172a}.body{font:400 18px Arial,sans-serif;fill:#475569}.final{font:700 22px Arial,sans-serif;fill:#fff;text-anchor:middle}.final-sub{font:400 16px Arial,sans-serif;fill:#cbd5e1;text-anchor:middle}</style>
+  </defs>
+  <rect width="1200" height="1080" rx="30" fill="url(#bg)"/>
+  <text x="60" y="64" class="title">Strukturierte Ausgabe vor Wiederverwendung prüfen</text>
+  <text x="60" y="100" class="subtitle">Jede KI-Antwort bleibt ein Entwurf, bis die menschliche Prüfung abgeschlossen ist.</text>
+  <line x1="92" y1="150" x2="92" y2="910" class="rail"/>
+
+  <circle cx="92" cy="185" r="30" fill="#2563eb"/><text x="92" y="193" class="num">1</text>
+  <rect x="150" y="135" width="990" height="100" rx="24" class="card"/>
+  <text x="185" y="172" class="head">Zusammenfassung und Befunde</text>
+  <text x="185" y="207" class="body">Lesen Sie die Kernaussage und trennen Sie Fakten von Interpretation.</text>
+
+  <circle cx="92" cy="295" r="30" fill="#16a34a"/><text x="92" y="303" class="num">2</text>
+  <rect x="150" y="245" width="990" height="100" rx="24" class="card"/>
+  <text x="185" y="282" class="head">Zu treffende Entscheidungen</text>
+  <text x="185" y="317" class="body">Erkennen Sie, was Genehmigung, Eskalation oder Projektprüfung braucht.</text>
+
+  <circle cx="92" cy="405" r="30" fill="#7c3aed"/><text x="92" y="413" class="num">3</text>
+  <rect x="150" y="355" width="990" height="100" rx="24" class="card"/>
+  <text x="185" y="392" class="head">Nachweise und Zitate</text>
+  <text x="185" y="427" class="body">Öffnen Sie Quellen und prüfen Sie, ob sie die Schlussfolgerung tragen.</text>
+
+  <circle cx="92" cy="515" r="30" fill="#ea580c"/><text x="92" y="523" class="num">4</text>
+  <rect x="150" y="465" width="990" height="100" rx="24" class="card"/>
+  <text x="185" y="502" class="head">Aktualität</text>
+  <text x="185" y="537" class="body">Bewerten Sie Informationen als aktuell, alternd, veraltet oder widersprüchlich.</text>
+
+  <circle cx="92" cy="625" r="30" fill="#dc2626"/><text x="92" y="633" class="num">5</text>
+  <rect x="150" y="575" width="990" height="100" rx="24" class="card"/>
+  <text x="185" y="612" class="head">Vertrauen</text>
+  <text x="185" y="647" class="body">Nutzen Sie Vertrauen als Signal, niemals als automatische Freigabe.</text>
+
+  <circle cx="92" cy="735" r="30" fill="#0f766e"/><text x="92" y="743" class="num">6</text>
+  <rect x="150" y="685" width="990" height="100" rx="24" class="action-card"/>
+  <text x="185" y="722" class="head">Fehlende Informationen</text>
+  <text x="185" y="757" class="body">Ergänzen Sie Wissen, fordern Sie Quellen an oder lassen Sie es explorativ.</text>
+
+  <circle cx="92" cy="850" r="32" fill="#1d4ed8"/><text x="92" y="858" class="num">7</text>
+  <rect x="150" y="800" width="990" height="100" rx="24" class="action-card"/>
+  <text x="185" y="837" class="head">Nächste Aktionen</text>
+  <text x="185" y="872" class="body">Wählen Sie PM-Dokument, KI-Journal, Freigabeaktion oder Projektfolge.</text>
+
+  <line x1="92" y1="219" x2="92" y2="259" class="flow"/>
+  <line x1="92" y1="329" x2="92" y2="369" class="flow"/>
+  <line x1="92" y1="439" x2="92" y2="479" class="flow"/>
+  <line x1="92" y1="549" x2="92" y2="589" class="flow"/>
+  <line x1="92" y1="659" x2="92" y2="699" class="flow"/>
+  <line x1="92" y1="769" x2="92" y2="814" class="flow"/>
+  <line x1="92" y1="888" x2="92" y2="916" class="flow"/>
+
+  <rect x="150" y="940" width="990" height="92" rx="26" fill="#0f172a" filter="url(#shadow)"/>
+  <text x="645" y="980" class="final">Menschliche Prüfung ist vor Veröffentlichung Pflicht</text>
+  <text x="645" y="1010" class="final-sub">Keine KI-Ausgabe wird ohne Nachweise, Kontext und Entscheidungsprüfung final.</text>
+</svg>

@@ -1,10 +1,12 @@
 ---
-title: Dashboard
+title: डैशबोर्ड
 slug: /tableau-de-bord
 description: ProPM Agent dashboard पढ़ें, project metrics समझें और अगला कदम चुनें।
 ---
 
-# Dashboard
+# डैशबोर्ड
+
+![Dashboard पढ़ने का क्रम](/img/annotated/hi/dashboard-annotated.svg)
 
 Dashboard active project का सार दिखाता है: activity, knowledge, agents, PM Documents, signals, actions और shortcuts।
 

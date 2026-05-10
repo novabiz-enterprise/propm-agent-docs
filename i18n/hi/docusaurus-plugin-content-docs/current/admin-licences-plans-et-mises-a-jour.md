@@ -1,5 +1,5 @@
 ---
-title: Licenses, plans और updates
+title: लाइसेंस, योजनाएँ और अपडेट
 slug: /admin-licences-plans-et-mises-a-jour
 description: user licenses, Marketplace plan, plan change और application updates manage करें।
 ---

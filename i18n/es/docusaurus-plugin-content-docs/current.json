@@ -1,23 +1,47 @@
 {
   "version.label": {
-    "message": "Próxima",
+    "message": "Actual",
     "description": "The label for version current"
+  },
+  "sidebar.guide.doc.Home": {
+    "message": "Inicio",
+    "description": "The label for the doc item 'Home' in sidebar 'guide', linking to the doc index"
+  },
+  "sidebar.guide.category.Discover ProPM Agent": {
+    "message": "Descubrir ProPM Agent",
+    "description": "The label for category 'Discover ProPM Agent' in sidebar 'guide'"
   },
   "sidebar.guide.category.Getting Started": {
     "message": "Primeros pasos",
     "description": "The label for category 'Getting Started' in sidebar 'guide'"
   },
-  "sidebar.guide.category.Project Work": {
-    "message": "Trabajo del proyecto",
-    "description": "The label for category 'Project Work' in sidebar 'guide'"
+  "sidebar.guide.category.Use ProPM Agent": {
+    "message": "Usar ProPM Agent",
+    "description": "The label for category 'Use ProPM Agent' in sidebar 'guide'"
   },
-  "sidebar.guide.category.Portfolio and Administration": {
-    "message": "Portafolio y administración",
-    "description": "The label for category 'Portfolio and Administration' in sidebar 'guide'"
+  "sidebar.guide.category.Project Governance": {
+    "message": "Gobernanza del proyecto",
+    "description": "The label for category 'Project Governance' in sidebar 'guide'"
   },
-  "sidebar.guide.doc.Home": {
-    "message": "Inicio",
-    "description": "The label for the doc item 'Home' in sidebar 'guide', linking to the doc index"
+  "sidebar.guide.category.Project Administration": {
+    "message": "Administración del proyecto",
+    "description": "The label for category 'Project Administration' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Portfolio": {
+    "message": "Portafolio",
+    "description": "The label for category 'Portfolio' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Azure and Platform Administration": {
+    "message": "Administración de Azure y plataforma",
+    "description": "The label for category 'Azure and Platform Administration' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Security and Compliance": {
+    "message": "Seguridad y conformidad",
+    "description": "The label for category 'Security and Compliance' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Support and FAQ": {
+    "message": "Soporte y FAQ",
+    "description": "The label for category 'Support and FAQ' in sidebar 'guide'"
   },
   "sidebar.guide.doc.Glossary": {
     "message": "Glosario",

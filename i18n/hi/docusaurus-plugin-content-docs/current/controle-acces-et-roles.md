@@ -6,6 +6,8 @@ description: सदस्यों का प्रबंधन, प्रोज
 
 [मुखपृष्ठ](./index.md) · प्रवेश नियंत्रण और प्रोजेक्ट भूमिकाएँ
 
+![Project access control](/img/annotated/hi/access-control-annotated.svg)
+
 ![निर्माता प्रतिनिधि और प्रोजेक्ट भूमिकाएँ](/img/diagrams/hi/delegation-createur-rbac.svg)
 
 ## उद्देश्य

@@ -6,6 +6,8 @@ description: Cómo leer correctamente una salida estructurada, sus evidencias, s
 
 [Inicio](./index.md) · Salidas estructuradas, evidencias y actualidad
 
+![Revisar una salida estructurada antes de reutilizarla](/img/annotated/es/structured-output-annotated.svg)
+
 ![Vista Agentes](/img/screenshots/localized/es/04-agents.jpg)
 
 ## Objetivo

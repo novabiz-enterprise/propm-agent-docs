@@ -1,5 +1,5 @@
 ---
-title: Signals और notifications
+title: संकेत और सूचनाएँ
 slug: /signaux-et-notifications
 description: signals पढ़ें, digest बनाएँ, draft बनाएँ, snooze या dismiss करें।
 ---

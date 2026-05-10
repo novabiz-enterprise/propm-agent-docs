@@ -59,7 +59,7 @@ Bereiten Sie mindestens vor:
 
 Der erste Schritt definiert den Azure-Bereich der Bereitstellung.
 
-![Basis-Tab der Azure Marketplace Bereitstellung](/img/deploiement/deploiement-01-onglet-base.png)
+![Basis-Tab der Azure Marketplace Bereitstellung](/img/deploiement/deploiement-01-onglet-base-annotated.svg)
 
 ### Sichtbare Felder
 
@@ -77,7 +77,7 @@ Dieser Bildschirm fasst die Identitäts-, KI-Anbieter-, Sicherheits-, Überwachu
 
 Für eine Erstbereitstellung lassen Sie **New installation** ausgewählt und wählen **Create new resources**, damit der Marketplace-Assistent die Ressourcen für die neue ProPM-Umgebung erstellt.
 
-![Aktuelle Anwendungs-Einstellungen der Bereitstellung](/img/deploiement/deploiement-02-parametres-application.png)
+![Aktuelle Anwendungs-Einstellungen der Bereitstellung](/img/deploiement/deploiement-02-parametres-application-annotated.svg)
 
 ### Sichtbare Felder in der Aufnahme
 
@@ -136,7 +136,7 @@ Der Endbenutzer muss jedoch nicht die gesamte Installationsmechanik verstehen. S
 
 Die untenstehende Aufnahme zeigt das Verhalten, wenn **LLM Provider** auf **Azure OpenAI** eingestellt ist.
 
-![Auswahl Azure OpenAI mit Hinweis auf spätere Konfiguration in der Verwaltung](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed.png)
+![Auswahl Azure OpenAI mit Hinweis auf spätere Konfiguration in der Verwaltung](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed-annotated.svg)
 
 ### Wann diese Wahl sinnvoll ist
 

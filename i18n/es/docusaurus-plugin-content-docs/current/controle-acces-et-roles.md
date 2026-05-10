@@ -6,6 +6,8 @@ description: Administrar los miembros, delegar los roles de proyecto y comprende
 
 [Inicio](./index.md) · Control de acceso y roles de proyecto
 
+![Control de acceso del proyecto](/img/annotated/es/access-control-annotated.svg)
+
 ![Delegación del creador y roles de proyecto](/img/diagrams/es/delegation-createur-rbac.svg)
 
 ## Objetivo

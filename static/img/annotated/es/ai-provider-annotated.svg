@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1040" viewBox="0 0 1200 1040" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo del proveedor IA</title>
+  <desc id="desc">Flujo vertical de administración del proveedor IA.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef2ff"/><stop offset="0.55" stop-color="#f8fafc"/><stop offset="1" stop-color="#ecfeff"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dbeafe"/><stop offset="1" stop-color="#dcfce7"/></linearGradient>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="7" refY="11" orient="auto" markerUnits="userSpaceOnUse"><path d="M1,1 L13,1 L7,13 Z" fill="#2563eb"/></marker>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.12"/></filter>
+    <style>.title{font:700 34px Arial,sans-serif;fill:#0f172a}.subtitle{font:400 18px Arial,sans-serif;fill:#475569}.rail{stroke:#bfdbfe;stroke-width:8;stroke-linecap:round}.flow{stroke:#2563eb;stroke-width:5;stroke-linecap:round;marker-end:url(#arrow)}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2;filter:url(#shadow)}.action-card{fill:url(#accent);stroke:#2563eb;stroke-width:3;filter:url(#shadow)}.guard-card{fill:#fee2e2;stroke:#dc2626;stroke-width:3;filter:url(#shadow)}.num{font:700 21px Arial,sans-serif;fill:#fff;text-anchor:middle}.head{font:700 23px Arial,sans-serif;fill:#0f172a}.body{font:400 18px Arial,sans-serif;fill:#475569}.final{font:700 22px Arial,sans-serif;fill:#fff;text-anchor:middle}.final-sub{font:400 16px Arial,sans-serif;fill:#cbd5e1;text-anchor:middle}</style>
+  </defs>
+  <rect width="1200" height="1040" rx="30" fill="url(#bg)"/>
+  <text x="60" y="64" class="title">Configuración del proveedor IA</text>
+  <text x="60" y="100" class="subtitle">Una configuración IA solo es fiable tras validar, probar y activar de forma controlada.</text>
+  <line x1="92" y1="150" x2="92" y2="850" class="rail"/>
+
+  <circle cx="92" cy="175" r="30" fill="#2563eb"/><text x="92" y="183" class="num">1</text>
+  <rect x="150" y="125" width="990" height="100" rx="24" class="card"/>
+  <text x="185" y="162" class="head">Tipo de proveedor</text>
+  <text x="185" y="197" class="body">Elija Azure OpenAI, OpenAI-compatible, OpenRouter u otro permitido.</text>
+
+  <circle cx="92" cy="275" r="30" fill="#16a34a"/><text x="92" y="283" class="num">2</text>
+  <rect x="150" y="225" width="990" height="100" rx="24" class="card"/>
+  <text x="185" y="262" class="head">Configuración</text>
+  <text x="185" y="297" class="body">Indique endpoint, modelo o deployment, versión API y autenticación.</text>
+
+  <circle cx="92" cy="375" r="30" fill="#7c3aed"/><text x="92" y="383" class="num">3</text>
+  <rect x="150" y="325" width="990" height="100" rx="24" class="card"/>
+  <text x="185" y="362" class="head">Save</text>
+  <text x="185" y="397" class="body">Guarde la configuración antes de ejecutar controles técnicos.</text>
+
+  <circle cx="92" cy="475" r="30" fill="#ea580c"/><text x="92" y="483" class="num">4</text>
+  <rect x="150" y="425" width="990" height="100" rx="24" class="card"/>
+  <text x="185" y="462" class="head">Validate</text>
+  <text x="185" y="497" class="body">Compruebe campos obligatorios, formatos, consistencia y requisitos.</text>
+
+  <circle cx="92" cy="575" r="30" fill="#dc2626"/><text x="92" y="583" class="num">5</text>
+  <rect x="150" y="525" width="990" height="100" rx="24" class="card"/>
+  <text x="185" y="562" class="head">Test</text>
+  <text x="185" y="597" class="body">Ejecute una prueba funcional antes de activar el proveedor.</text>
+
+  <circle cx="92" cy="675" r="30" fill="#0f766e"/><text x="92" y="683" class="num">6</text>
+  <rect x="150" y="625" width="990" height="100" rx="24" class="action-card"/>
+  <text x="185" y="662" class="head">Activate</text>
+  <text x="185" y="697" class="body">Active solo una configuración guardada, validada y probada.</text>
+
+  <circle cx="92" cy="785" r="32" fill="#1d4ed8"/><text x="92" y="793" class="num">7</text>
+  <rect x="150" y="735" width="990" height="100" rx="24" class="action-card"/>
+  <text x="185" y="772" class="head">Registro IA</text>
+  <text x="185" y="807" class="body">Confirme el proveedor realmente usado por los runs y la traza de auditoría.</text>
+
+  <line x1="92" y1="209" x2="92" y2="239" class="flow"/>
+  <line x1="92" y1="309" x2="92" y2="339" class="flow"/>
+  <line x1="92" y1="409" x2="92" y2="439" class="flow"/>
+  <line x1="92" y1="509" x2="92" y2="539" class="flow"/>
+  <line x1="92" y1="609" x2="92" y2="639" class="flow"/>
+  <line x1="92" y1="709" x2="92" y2="749" class="flow"/>
+  <line x1="92" y1="823" x2="92" y2="876" class="flow"/>
+
+  <rect x="150" y="900" width="990" height="92" rx="26" fill="#0f172a" filter="url(#shadow)"/>
+  <text x="645" y="940" class="final">Nunca copie secretos, claves API o tokens en tickets</text>
+  <text x="645" y="970" class="final-sub">Use referencias seguras y comparta solo información no sensible.</text>
+</svg>

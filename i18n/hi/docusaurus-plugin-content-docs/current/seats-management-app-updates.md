@@ -1,5 +1,5 @@
 ---
-title: Tenant plan, licensed users और app updates
+title: Tenant योजना, लाइसेंस प्राप्त उपयोगकर्ता और ऐप अपडेट
 slug: /seats-management-app-updates
 description: ProPM में दिख रहे Marketplace plan को समझें, Azure Marketplace information synchronize करें, licenses manage करें और existing data खोए बिना ProPM deployment update करें।
 ---
@@ -136,7 +136,7 @@ Azure Marketplace में previous deployment को directly modify करन
 
 **Basics** tab में subscription, resource group, region, new Managed Application name और new Managed Resource Group चुनें।
 
-![Azure Marketplace से नया ProPM deployment create करना](/img/deploiement/fr/propm-plan-update-01-new-deployment-basics.png)
+![Azure Marketplace से नया ProPM deployment create करना](/img/deploiement/fr/propm-plan-update-01-new-deployment-basics-annotated.svg)
 
 New Managed Application के लिए अलग name use करें, ताकि cutover के दौरान previous और new environments clearly अलग दिखें।
 
@@ -144,7 +144,7 @@ New Managed Application के लिए अलग name use करें, ता
 
 **Application Settings** tab में **Installation mode** field में **Attach existing ProPM data resources** select करें।
 
-![Attach existing ProPM data resources mode select करना](/img/deploiement/fr/propm-plan-update-03-attach-existing-data-resources.png)
+![Attach existing ProPM data resources mode select करना](/img/deploiement/fr/propm-plan-update-03-attach-existing-data-resources-annotated.svg)
 
 यह mode new deployment को बताता है कि वह empty environment से start करने के बजाय previous deployment के data resources से connect करे।
 
@@ -156,13 +156,13 @@ Azure Portal में previous ProPM Managed Application खोलें और
 
 Managed Application का full **Id** field copy करें। यह previous Managed Application की **Resource ID** है, managed resource group name नहीं।
 
-![Previous ProPM Managed Application की Resource ID copy करना](/img/deploiement/fr/propm-plan-update-02-copy-previous-managed-application-id.png)
+![Previous ProPM Managed Application की Resource ID copy करना](/img/deploiement/fr/propm-plan-update-02-copy-previous-managed-application-id-annotated.svg)
 
 New deployment wizard पर लौटें और यह value **Previous ProPM Managed Application resource ID** में paste करें।
 
 अगर जरूरत हो, तो **Block previous deployment during cutover** enable करें। यह option new deployment use और validate करते समय previous environment में changes रोकने में मदद करता है।
 
-![Cutover के दौरान previous deployment block करना](/img/deploiement/fr/propm-plan-update-04-readonly-and-overrides.png)
+![Cutover के दौरान previous deployment block करना](/img/deploiement/fr/propm-plan-update-04-readonly-and-overrides-annotated.svg)
 
 Wizard में बाकी required parameters enter करने के बाद **Review + create** select करें, configuration review करें और deployment start करें।
 

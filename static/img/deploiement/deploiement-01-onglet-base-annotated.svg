@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="860" viewBox="0 0 1920 860" role="img" aria-labelledby="title desc">
+  <title id="title">Annotated Azure deployment Basics tab</title>
+  <desc id="desc">Callouts identify subscription, resource group, region, managed application name, managed resource group, and the create action.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L12,6 L0,12 Z" fill="#2563eb"/></marker>
+    <marker id="flowArrow" markerWidth="16" markerHeight="16" refX="12" refY="8" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L16,8 L0,16 Z" fill="#60a5fa"/></marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.25"/></filter>
+    <style>
+      .focus{fill:#2563eb;fill-opacity:.10;stroke:#2563eb;stroke-width:4;stroke-dasharray:12 8}.arrow{fill:none;stroke:#2563eb;stroke-width:5;marker-end:url(#arrow)}.card{fill:#0f172a;fill-opacity:.94;stroke:#93c5fd;stroke-width:2;filter:url(#shadow)}.badge{fill:#2563eb}.num{font:700 21px Arial,sans-serif;fill:#fff;text-anchor:middle}.head{font:700 22px Arial,sans-serif;fill:#fff}.body{font:400 17px Arial,sans-serif;fill:#e2e8f0}.flow{fill:none;stroke:#60a5fa;stroke-width:5;stroke-linecap:round;marker-end:url(#flowArrow);opacity:1}
+    </style>
+  </defs>
+  <image href="/propm-agent-docs/img/deploiement/deploiement-01-onglet-base.png" xlink:href="/propm-agent-docs/img/deploiement/deploiement-01-onglet-base.png" x="0" y="0" width="1920" height="860"/>
+  <rect class="focus" x="342" y="304" width="565" height="90" rx="10"/>
+  <rect class="focus" x="342" y="476" width="565" height="36" rx="8"/>
+  <rect class="focus" x="342" y="652" width="565" height="78" rx="10"/>
+  <rect class="focus" x="252" y="812" width="182" height="36" rx="8"/>
+  <path class="arrow" d="M1160 174 C1030 218 960 300 900 334"/>
+  <path class="arrow" d="M1160 303 C1015 345 910 430 870 493"/>
+  <path class="arrow" d="M1160 432 C1025 510 940 625 880 688"/>
+  <path class="arrow" d="M1160 585 C945 688 620 804 438 828"/>
+  <path class="flow" d="M1735 218 L1735 246"/>
+  <path class="flow" d="M1735 348 L1735 376"/>
+  <path class="flow" d="M1735 490 L1735 536"/>
+  <g transform="translate(1160 120)"><rect class="card" width="540" height="96" rx="20"/><circle class="badge" cx="40" cy="48" r="24"/><text class="num" x="40" y="56">1</text><text class="head" x="78" y="38">Azure scope</text><text class="body" x="78" y="66">Select subscription and resource group.</text></g>
+  <g transform="translate(1160 250)"><rect class="card" width="540" height="96" rx="20"/><circle class="badge" cx="40" cy="48" r="24"/><text class="num" x="40" y="56">2</text><text class="head" x="78" y="38">Deployment region</text><text class="body" x="78" y="66">Keep the Marketplace instance in the target region.</text></g>
+  <g transform="translate(1160 380)"><rect class="card" width="540" height="108" rx="20"/><circle class="badge" cx="40" cy="54" r="24"/><text class="num" x="40" y="62">3</text><text class="head" x="78" y="42">Managed application names</text><text class="body" x="78" y="70">Name the app and the managed resource group.</text></g>
+  <g transform="translate(1160 540)"><rect class="card" width="540" height="96" rx="20"/><circle class="badge" cx="40" cy="48" r="24"/><text class="num" x="40" y="56">4</text><text class="head" x="78" y="38">Review before create</text><text class="body" x="78" y="66">Validate basics before moving to final creation.</text></g>
+</svg>

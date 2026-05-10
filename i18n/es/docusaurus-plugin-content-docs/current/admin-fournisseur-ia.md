@@ -6,6 +6,8 @@ description: Guardar, validar, probar y activar el proveedor IA.
 
 # Proveedor IA
 
+![Flujo del proveedor IA](/img/annotated/es/ai-provider-annotated.svg)
+
 Esta página explica la administración del proveedor IA a nivel plataforma.
 
 ## Acciones

@@ -1,60 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">Access control and project roles diagram</title>
-  <desc id="desc">Diagram showing members, standard roles, custom roles, RBAC guardrails and audit traces.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Vertical project access control workflow</title>
+  <desc id="desc">Vertical diagram showing project access control steps: members, standard roles, custom roles, RBAC guardrails, audit trace and disabled-button checks.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#ecfeff"/>
-      <stop offset="1" stop-color="#f8fafc"/>
+      <stop offset="0.55" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
     </linearGradient>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#0f766e"/>
+    <linearGradient id="guard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fee2e2"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="7" refY="11" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1,1 L13,1 L7,13 Z" fill="#0f766e"/>
     </marker>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
     <style>
-      .title{font:700 34px Arial,sans-serif;fill:#0f172a}.subtitle{font:400 18px Arial,sans-serif;fill:#475569}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2}.head{font:700 22px Arial,sans-serif;fill:#0f172a}.body{font:400 17px Arial,sans-serif;fill:#475569}.step{font:700 18px Arial,sans-serif;fill:#fff}.small{font:700 15px Arial,sans-serif;fill:#334155}
+      .title{font:700 34px Arial,sans-serif;fill:#0f172a}.subtitle{font:400 18px Arial,sans-serif;fill:#475569}.rail{stroke:#99f6e4;stroke-width:8;stroke-linecap:round}.flow{stroke:#0f766e;stroke-width:5;stroke-linecap:round;marker-end:url(#arrow)}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2;filter:url(#shadow)}.guard-card{fill:url(#guard);stroke:#dc2626;stroke-width:3;filter:url(#shadow)}.audit-card{fill:#eef2ff;stroke:#7c3aed;stroke-width:3;filter:url(#shadow)}.num{font:700 21px Arial,sans-serif;fill:#fff;text-anchor:middle}.head{font:700 23px Arial,sans-serif;fill:#0f172a}.body{font:400 18px Arial,sans-serif;fill:#475569}.final{font:700 22px Arial,sans-serif;fill:#fff;text-anchor:middle}.final-sub{font:400 16px Arial,sans-serif;fill:#cbd5e1;text-anchor:middle}
     </style>
   </defs>
-  <rect width="1200" height="720" rx="28" fill="url(#bg)"/>
-  <text x="60" y="72" class="title">Project access control</text>
-  <text x="60" y="108" class="subtitle">Assign people to business roles first, then use custom roles only when a precise scope is required.</text>
 
-  <rect x="70" y="165" width="250" height="160" rx="22" class="card"/>
-  <circle cx="105" cy="205" r="24" fill="#2563eb"/><text x="98" y="212" class="step">1</text>
-  <text x="140" y="209" class="head">Members</text>
-  <text x="105" y="252" class="body">Add users or groups</text>
-  <text x="105" y="277" class="body">to the active project.</text>
+  <rect width="1200" height="900" rx="30" fill="url(#bg)"/>
+  <text x="60" y="64" class="title">Project access control</text>
+  <text x="60" y="100" class="subtitle">Assign business roles first, then narrow the scope only when the project context requires it.</text>
 
-  <rect x="475" y="145" width="250" height="150" rx="22" class="card"/>
-  <circle cx="510" cy="185" r="24" fill="#16a34a"/><text x="503" y="192" class="step">2</text>
-  <text x="545" y="189" class="head">Standard roles</text>
-  <text x="510" y="232" class="body">Owner, Manager,</text>
-  <text x="510" y="257" class="body">Contributor, Reader,</text>
-  <text x="510" y="282" class="body">Auditor.</text>
+  <line x1="92" y1="150" x2="92" y2="680" class="rail"/>
 
-  <rect x="475" y="380" width="250" height="150" rx="22" class="card"/>
-  <circle cx="510" cy="420" r="24" fill="#ea580c"/><text x="503" y="427" class="step">3</text>
-  <text x="545" y="424" class="head">Custom roles</text>
-  <text x="510" y="467" class="body">Use when standard</text>
-  <text x="510" y="492" class="body">roles are too broad</text>
-  <text x="510" y="517" class="body">or too narrow.</text>
+  <circle cx="92" cy="176" r="30" fill="#2563eb"/><text x="92" y="184" class="num">1</text>
+  <rect x="150" y="130" width="990" height="92" rx="22" class="card"/>
+  <text x="185" y="167" class="head">Members</text>
+  <text x="185" y="198" class="body">Add users or groups to the active project before assigning permissions.</text>
 
-  <rect x="880" y="165" width="250" height="160" rx="22" class="card"/>
-  <circle cx="915" cy="205" r="24" fill="#dc2626"/><text x="908" y="212" class="step">4</text>
-  <text x="950" y="209" class="head">RBAC guardrails</text>
-  <text x="915" y="252" class="body">Prevent self-lockout,</text>
-  <text x="915" y="277" class="body">unexpected elevation</text>
-  <text x="915" y="302" class="body">and policy bypass.</text>
+  <circle cx="92" cy="278" r="30" fill="#16a34a"/><text x="92" y="286" class="num">2</text>
+  <rect x="150" y="232" width="990" height="92" rx="22" class="card"/>
+  <text x="185" y="269" class="head">Standard roles</text>
+  <text x="185" y="300" class="body">Start with Owner, Manager, Contributor, Reader or Auditor before creating exceptions.</text>
 
-  <rect x="880" y="405" width="250" height="125" rx="22" class="card"/>
-  <circle cx="915" cy="443" r="24" fill="#7c3aed"/><text x="908" y="450" class="step">5</text>
-  <text x="950" y="447" class="head">Audit trace</text>
-  <text x="915" y="490" class="body">Record who changed</text>
-  <text x="915" y="515" class="body">access and when.</text>
+  <circle cx="92" cy="380" r="30" fill="#ea580c"/><text x="92" y="388" class="num">3</text>
+  <rect x="150" y="334" width="990" height="92" rx="22" class="card"/>
+  <text x="185" y="371" class="head">Custom roles</text>
+  <text x="185" y="402" class="body">Use them only when standard roles are too broad, too narrow or non-compliant.</text>
 
-  <line x1="322" y1="245" x2="467" y2="220" stroke="#0f766e" stroke-width="4" marker-end="url(#arrow)"/>
-  <line x1="322" y1="245" x2="467" y2="455" stroke="#0f766e" stroke-width="4" marker-end="url(#arrow)"/>
-  <line x1="727" y1="220" x2="872" y2="245" stroke="#0f766e" stroke-width="4" marker-end="url(#arrow)"/>
-  <line x1="727" y1="455" x2="872" y2="468" stroke="#0f766e" stroke-width="4" marker-end="url(#arrow)"/>
+  <circle cx="92" cy="482" r="30" fill="#dc2626"/><text x="92" y="490" class="num">4</text>
+  <rect x="150" y="436" width="990" height="92" rx="22" class="guard-card"/>
+  <text x="185" y="473" class="head">RBAC guardrails</text>
+  <text x="185" y="504" class="body">Prevent self-lockout, unexpected elevation, policy bypass and excessive access.</text>
 
-  <rect x="230" y="610" width="740" height="58" rx="18" fill="#0f172a"/>
-  <text x="285" y="646" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#fff">If a button is disabled, check project role, policy and integration binding</text>
+  <circle cx="92" cy="590" r="32" fill="#7c3aed"/><text x="92" y="598" class="num">5</text>
+  <rect x="150" y="544" width="990" height="100" rx="24" class="audit-card"/>
+  <text x="185" y="582" class="head">Audit trace</text>
+  <text x="185" y="614" class="body">Record who changed access, when it changed and why the scope changed.</text>
+
+  <line x1="92" y1="212" x2="92" y2="240" class="flow"/>
+  <line x1="92" y1="314" x2="92" y2="342" class="flow"/>
+  <line x1="92" y1="416" x2="92" y2="444" class="flow"/>
+  <line x1="92" y1="518" x2="92" y2="550" class="flow"/>
+  <line x1="92" y1="628" x2="92" y2="706" class="flow"/>
+
+  <rect x="150" y="730" width="990" height="92" rx="26" fill="#0f172a" filter="url(#shadow)"/>
+  <text x="645" y="770" class="final">If a button is disabled, check role, policy and integration</text>
+  <text x="645" y="800" class="final-sub">A blocked action usually comes from the project role, RBAC policy or unauthorized integration binding.</text>
 </svg>

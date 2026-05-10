@@ -1,10 +1,12 @@
 ---
-title: AI provider
+title: AI प्रदाता
 slug: /admin-fournisseur-ia
 description: AI provider save, validate, test और activate करें।
 ---
 
-# AI provider
+# AI प्रदाता
+
+![AI provider workflow](/img/annotated/hi/ai-provider-annotated.svg)
 
 यह पृष्ठ platform level पर AI provider administration समझाता है।
 

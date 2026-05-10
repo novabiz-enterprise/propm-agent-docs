@@ -1,70 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
-  <title id="title">Workflow de revue Portfolio</title>
-  <desc id="desc">Schéma expliquant sélection projets, profil de signaux, cohortes, seuil outlier, revue des preuves et actions de suite.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="980" viewBox="0 0 1200 980" role="img" aria-labelledby="title desc">
+  <title id="title">Workflow vertical de revue Portfolio</title>
+  <desc id="desc">Schéma vertical expliquant la revue Portfolio : sélection projets, profil de signaux, cohortes, seuil outlier, revue des preuves, décision de suite et règle d'interprétation.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f0fdf4"/>
-      <stop offset="1" stop-color="#f8fafc"/>
+      <stop offset="0.55" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#ecfeff"/>
     </linearGradient>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/>
+    <linearGradient id="decision" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dcfce7"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="7" refY="11" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1,1 L13,1 L7,13 Z" fill="#16a34a"/>
     </marker>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
     <style>
-      .title{font:700 34px Arial,sans-serif;fill:#0f172a}.subtitle{font:400 18px Arial,sans-serif;fill:#475569}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2}.head{font:700 22px Arial,sans-serif;fill:#0f172a}.body{font:400 17px Arial,sans-serif;fill:#475569}.step{font:700 18px Arial,sans-serif;fill:#fff}.note{font:700 20px Arial,sans-serif;fill:#14532d}
+      .title{font:700 34px Arial,sans-serif;fill:#0f172a}.subtitle{font:400 18px Arial,sans-serif;fill:#475569}.rail{stroke:#bbf7d0;stroke-width:8;stroke-linecap:round}.flow{stroke:#16a34a;stroke-width:5;stroke-linecap:round;marker-end:url(#arrow)}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2;filter:url(#shadow)}.decision-card{fill:url(#decision);stroke:#16a34a;stroke-width:3;filter:url(#shadow)}.num{font:700 21px Arial,sans-serif;fill:#fff;text-anchor:middle}.head{font:700 23px Arial,sans-serif;fill:#0f172a}.body{font:400 18px Arial,sans-serif;fill:#475569}.final{font:700 22px Arial,sans-serif;fill:#fff;text-anchor:middle}.final-sub{font:400 16px Arial,sans-serif;fill:#dcfce7;text-anchor:middle}
     </style>
   </defs>
-  <rect width="1200" height="720" rx="28" fill="url(#bg)"/>
-  <text x="60" y="72" class="title">Workflow de revue Portfolio</text>
-  <text x="60" y="108" class="subtitle">Comparez les projets après validation de la sélection, du profil, du seuil et de la qualité des preuves.</text>
 
-  <rect x="65" y="155" width="250" height="150" rx="22" class="card"/>
-  <circle cx="103" cy="195" r="24" fill="#2563eb"/><text x="96" y="202" class="step">1</text>
-  <text x="140" y="198" class="head">Sélection projets</text>
-  <text x="103" y="242" class="body">Choisissez portefeuille,</text>
-  <text x="103" y="267" class="body">périmètre et projets</text>
-  <text x="103" y="292" class="body">à comparer.</text>
+  <rect width="1200" height="980" rx="30" fill="url(#bg)"/>
+  <text x="60" y="64" class="title">Workflow de revue Portfolio</text>
+  <text x="60" y="100" class="subtitle">Comparez les projets seulement après validation du périmètre, du profil de signaux, du seuil et des preuves.</text>
 
-  <rect x="365" y="155" width="250" height="150" rx="22" class="card"/>
-  <circle cx="403" cy="195" r="24" fill="#16a34a"/><text x="396" y="202" class="step">2</text>
-  <text x="440" y="198" class="head">Profil signaux</text>
-  <text x="403" y="242" class="body">Choisissez les signaux</text>
-  <text x="403" y="267" class="body">utiles : risque, délai,</text>
-  <text x="403" y="292" class="body">preuves et blocages.</text>
+  <line x1="92" y1="150" x2="92" y2="790" class="rail"/>
 
-  <rect x="665" y="155" width="250" height="150" rx="22" class="card"/>
-  <circle cx="703" cy="195" r="24" fill="#7c3aed"/><text x="696" y="202" class="step">3</text>
-  <text x="740" y="198" class="head">Cohortes</text>
-  <text x="703" y="242" class="body">Regroupez les projets</text>
-  <text x="703" y="267" class="body">comparables avant de</text>
-  <text x="703" y="292" class="body">lire les outliers.</text>
+  <circle cx="92" cy="175" r="30" fill="#2563eb"/><text x="92" y="183" class="num">1</text>
+  <rect x="150" y="130" width="990" height="92" rx="22" class="card"/>
+  <text x="185" y="167" class="head">Sélection projets</text>
+  <text x="185" y="198" class="body">Choisissez portefeuille, périmètre et projets à comparer avant de lire les indicateurs.</text>
 
-  <rect x="955" y="155" width="190" height="150" rx="22" class="card"/>
-  <circle cx="993" cy="195" r="24" fill="#ea580c"/><text x="986" y="202" class="step">4</text>
-  <text x="1028" y="198" class="head">Seuil</text>
-  <text x="993" y="242" class="body">Réglez la</text>
-  <text x="993" y="267" class="body">sensibilité de</text>
-  <text x="993" y="292" class="body">classement.</text>
+  <circle cx="92" cy="280" r="30" fill="#16a34a"/><text x="92" y="288" class="num">2</text>
+  <rect x="150" y="235" width="990" height="92" rx="22" class="card"/>
+  <text x="185" y="272" class="head">Profil de signaux</text>
+  <text x="185" y="303" class="body">Sélectionnez les signaux utiles : risques, délais, preuves, blocages et santé projet.</text>
 
-  <rect x="250" y="405" width="300" height="150" rx="22" class="card"/>
-  <circle cx="288" cy="445" r="24" fill="#dc2626"/><text x="281" y="452" class="step">5</text>
-  <text x="325" y="448" class="head">Outliers et preuves</text>
-  <text x="288" y="492" class="body">Inspectez les écarts</text>
-  <text x="288" y="517" class="body">les plus forts et leurs</text>
-  <text x="288" y="542" class="body">preuves associées.</text>
+  <circle cx="92" cy="385" r="30" fill="#7c3aed"/><text x="92" y="393" class="num">3</text>
+  <rect x="150" y="340" width="990" height="92" rx="22" class="card"/>
+  <text x="185" y="377" class="head">Cohortes</text>
+  <text x="185" y="408" class="body">Regroupez les projets comparables pour éviter de mélanger des contextes non équivalents.</text>
 
-  <rect x="650" y="405" width="300" height="150" rx="22" class="card"/>
-  <circle cx="688" cy="445" r="24" fill="#0f766e"/><text x="681" y="452" class="step">6</text>
-  <text x="725" y="448" class="head">Décision de suite</text>
-  <text x="688" y="492" class="body">Ouvrez le projet, créez</text>
-  <text x="688" y="517" class="body">une action de revue ou</text>
-  <text x="688" y="542" class="body">préparez un Document PM.</text>
+  <circle cx="92" cy="490" r="30" fill="#ea580c"/><text x="92" y="498" class="num">4</text>
+  <rect x="150" y="445" width="990" height="92" rx="22" class="card"/>
+  <text x="185" y="482" class="head">Seuil outlier</text>
+  <text x="185" y="513" class="body">Réglez la sensibilité de classement avant d'interpréter les écarts comme prioritaires.</text>
 
-  <line x1="317" y1="230" x2="357" y2="230" stroke="#16a34a" stroke-width="4" marker-end="url(#arrow)"/>
-  <line x1="617" y1="230" x2="657" y2="230" stroke="#16a34a" stroke-width="4" marker-end="url(#arrow)"/>
-  <line x1="917" y1="230" x2="947" y2="230" stroke="#16a34a" stroke-width="4" marker-end="url(#arrow)"/>
-  <line x1="1025" y1="310" x2="405" y2="398" stroke="#16a34a" stroke-width="4" marker-end="url(#arrow)"/>
-  <line x1="552" y1="480" x2="642" y2="480" stroke="#16a34a" stroke-width="4" marker-end="url(#arrow)"/>
+  <circle cx="92" cy="595" r="30" fill="#dc2626"/><text x="92" y="603" class="num">5</text>
+  <rect x="150" y="550" width="990" height="92" rx="22" class="card"/>
+  <text x="185" y="587" class="head">Outliers et preuves</text>
+  <text x="185" y="618" class="body">Inspectez les écarts les plus forts avec leurs preuves avant d'en tirer une conclusion.</text>
 
-  <rect x="265" y="615" width="670" height="58" rx="18" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
-  <text x="600" y="651" text-anchor="middle" class="note">Un outlier est une priorité de revue, pas une conclusion automatique</text>
+  <circle cx="92" cy="710" r="32" fill="#0f766e"/><text x="92" y="718" class="num">6</text>
+  <rect x="150" y="660" width="990" height="100" rx="24" class="decision-card"/>
+  <text x="185" y="698" class="head">Décision de suite</text>
+  <text x="185" y="730" class="body">Ouvrez le projet, créez une action de revue ou préparez un Document PM selon les preuves.</text>
+
+  <line x1="92" y1="208" x2="92" y2="248" class="flow"/>
+  <line x1="92" y1="313" x2="92" y2="353" class="flow"/>
+  <line x1="92" y1="418" x2="92" y2="458" class="flow"/>
+  <line x1="92" y1="523" x2="92" y2="563" class="flow"/>
+  <line x1="92" y1="628" x2="92" y2="672" class="flow"/>
+  <line x1="92" y1="746" x2="92" y2="800" class="flow"/>
+
+  <rect x="150" y="820" width="990" height="92" rx="26" fill="#14532d" filter="url(#shadow)"/>
+  <text x="645" y="860" class="final">Un outlier est une priorité de revue, pas une conclusion automatique</text>
+  <text x="645" y="890" class="final-sub">La décision finale dépend des preuves, du contexte projet et de la validation humaine.</text>
 </svg>

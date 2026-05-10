@@ -59,7 +59,7 @@ Marketplace सहायक के दौरान, प्रशासक वि
 
 पहला चरण Azure तैनाती के दायरे को परिभाषित करता है।
 
-![Onglet de base du déploiement Azure Marketplace](/img/deploiement/deploiement-01-onglet-base.png)
+![Onglet de base du déploiement Azure Marketplace](/img/deploiement/deploiement-01-onglet-base-annotated.svg)
 
 ### दृश्य फ़ील्ड
 
@@ -77,7 +77,7 @@ Marketplace सहायक के दौरान, प्रशासक वि
 
 पहले deployment के लिए **New installation** चयनित रखें और **Create new resources** चुनें, ताकि Marketplace assistant नए ProPM environment के resources बनाए।
 
-![Paramètres d’application actuels du déploiement](/img/deploiement/deploiement-02-parametres-application.png)
+![Paramètres d’application actuels du déploiement](/img/deploiement/deploiement-02-parametres-application-annotated.svg)
 
 ### कैप्चर में दृश्य फ़ील्ड
 
@@ -136,7 +136,7 @@ Marketplace सहायक के दौरान, प्रशासक वि
 
 नीचे कैप्चर दिखाता है कि **LLM Provider** को **Azure OpenAI** पर सेट करने पर क्या व्यवहार देखा गया।
 
-![Azure OpenAI चयन के साथ बाद की प्रशासनिक कॉन्फ़िगरेशन](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed.png)
+![Azure OpenAI चयन के साथ बाद की प्रशासनिक कॉन्फ़िगरेशन](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed-annotated.svg)
 
 ### कब यह विकल्प उपयुक्त है
 

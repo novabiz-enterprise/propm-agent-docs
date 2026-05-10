@@ -1,5 +1,5 @@
 ---
-title: Platform integrations
+title: प्लेटफ़ॉर्म एकीकरण
 slug: /admin-integrations-plateforme
 description: connectors और ingestion providers define, validate, disable और project से bind करें।
 ---

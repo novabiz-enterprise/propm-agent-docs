@@ -6,6 +6,8 @@ description: Eine strukturierte Ausgabe, ihre Nachweise, Aktualitätszustände u
 
 [Startseite](./index.md) · Strukturierte Ausgaben, Nachweise und Aktualität
 
+![Strukturierte Ausgabe vor Wiederverwendung prüfen](/img/annotated/de/structured-output-annotated.svg)
+
 ![Vue Agents](/img/screenshots/localized/de/04-agents.jpg)
 
 ## Ziel

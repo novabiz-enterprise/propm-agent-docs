@@ -1,5 +1,5 @@
 ---
-title: Release notes
+title: रिलीज़ नोट्स
 slug: /release-notes
 description: ProPM Agent documentation changes।
 ---

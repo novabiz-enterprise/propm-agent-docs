@@ -136,7 +136,7 @@ En Azure Marketplace, cree un nuevo despliegue ProPM en lugar de modificar direc
 
 En la pestaña **Basics**, elija la suscripción, el grupo de recursos, la región, el nombre de la nueva Managed Application y el nuevo Managed Resource Group.
 
-![Crear un nuevo despliegue ProPM desde Azure Marketplace](/img/deploiement/fr/propm-plan-update-01-new-deployment-basics.png)
+![Crear un nuevo despliegue ProPM desde Azure Marketplace](/img/deploiement/fr/propm-plan-update-01-new-deployment-basics-annotated.svg)
 
 Use un nombre diferente para la nueva Managed Application para distinguir claramente el entorno anterior del nuevo durante la transición.
 
@@ -144,7 +144,7 @@ Use un nombre diferente para la nueva Managed Application para distinguir claram
 
 En la pestaña **Application Settings**, seleccione **Attach existing ProPM data resources** en **Installation mode**.
 
-![Seleccionar el modo Attach existing ProPM data resources](/img/deploiement/fr/propm-plan-update-03-attach-existing-data-resources.png)
+![Seleccionar el modo Attach existing ProPM data resources](/img/deploiement/fr/propm-plan-update-03-attach-existing-data-resources-annotated.svg)
 
 Este modo indica al nuevo despliegue que debe conectarse a los recursos de datos del despliegue anterior en lugar de comenzar con un entorno vacío.
 
@@ -156,13 +156,13 @@ En Azure Portal, abra la ProPM Managed Application anterior y vaya a **Propertie
 
 Copie el campo **Id** completo de la Managed Application. Este es el **Resource ID** de la Managed Application anterior, no el nombre del grupo de recursos gestionado.
 
-![Copiar el Resource ID de la ProPM Managed Application anterior](/img/deploiement/fr/propm-plan-update-02-copy-previous-managed-application-id.png)
+![Copiar el Resource ID de la ProPM Managed Application anterior](/img/deploiement/fr/propm-plan-update-02-copy-previous-managed-application-id-annotated.svg)
 
 Vuelva al asistente del nuevo despliegue y pegue este valor en **Previous ProPM Managed Application resource ID**.
 
 Si es necesario, active **Block previous deployment during cutover**. Esta opción ayuda a evitar cambios en el entorno anterior mientras se usa y valida el nuevo despliegue.
 
-![Bloquear el despliegue anterior durante la transición](/img/deploiement/fr/propm-plan-update-04-readonly-and-overrides.png)
+![Bloquear el despliegue anterior durante la transición](/img/deploiement/fr/propm-plan-update-04-readonly-and-overrides-annotated.svg)
 
 Después de introducir los demás parámetros solicitados por el asistente, seleccione **Review + create**, revise la configuración e inicie el despliegue.
 

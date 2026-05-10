@@ -1,5 +1,5 @@
 ---
-title: Security और compliance
+title: सुरक्षा और अनुपालन
 slug: /securite-et-conformite
 description: ProPM Agent में security, privacy, traceability और responsible AI principles।
 ---

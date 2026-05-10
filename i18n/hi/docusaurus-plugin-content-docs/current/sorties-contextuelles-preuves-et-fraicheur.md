@@ -6,6 +6,8 @@ description: एक संरचित आउटपुट, उसके प्�
 
 [मुखपृष्ठ](./index.md) · संरचित आउटपुट, प्रमाण और नवीनता
 
+![Structured output reuse से पहले review करें](/img/annotated/hi/structured-output-annotated.svg)
+
 ![एजेंट्स व्यू](/img/screenshots/localized/hi/04-agents.jpg)
 
 ## उद्देश्य

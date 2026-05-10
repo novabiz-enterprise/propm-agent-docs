@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="852" viewBox="0 0 1920 852" role="img" aria-labelledby="title desc">
+  <title id="title">Annotated LLM provider selection</title>
+  <desc id="desc">Callouts identify the LLM Provider dropdown, provider options, credentials, and network fields.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L12,6 L0,12 Z" fill="#2563eb"/></marker>
+    <marker id="flowArrow" markerWidth="16" markerHeight="16" refX="12" refY="8" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L16,8 L0,16 Z" fill="#60a5fa"/></marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.25"/></filter>
+    <style>.focus{fill:#2563eb;fill-opacity:.10;stroke:#2563eb;stroke-width:4;stroke-dasharray:12 8}.arrow{fill:none;stroke:#2563eb;stroke-width:5;marker-end:url(#arrow)}.card{fill:#0f172a;fill-opacity:.94;stroke:#93c5fd;stroke-width:2;filter:url(#shadow)}.badge{fill:#2563eb}.num{font:700 21px Arial,sans-serif;fill:#fff;text-anchor:middle}.head{font:700 22px Arial,sans-serif;fill:#fff}.body{font:400 17px Arial,sans-serif;fill:#e2e8f0}.flow{fill:none;stroke:#60a5fa;stroke-width:5;stroke-linecap:round;marker-end:url(#flowArrow);opacity:1}</style>
+  </defs>
+  <image href="/propm-agent-docs/img/deploiement/deploiement-03-fournisseur-llm.png" xlink:href="/propm-agent-docs/img/deploiement/deploiement-03-fournisseur-llm.png" x="0" y="0" width="1920" height="852"/>
+  <rect class="focus" x="348" y="451" width="570" height="42" rx="8"/>
+  <rect class="focus" x="348" y="492" width="570" height="182" rx="8"/>
+  <rect class="focus" x="348" y="656" width="570" height="128" rx="10"/>
+  <path class="arrow" d="M1150 232 C1025 320 970 438 916 472"/>
+  <path class="arrow" d="M1150 372 C1020 430 950 534 915 558"/>
+  <path class="arrow" d="M1150 520 C1035 590 980 705 918 724"/>
+  <path class="flow" d="M1745 286 L1745 324"/>
+  <path class="flow" d="M1745 442 L1745 476"/>
+  <g transform="translate(1150 180)"><rect class="card" width="560" height="104" rx="20"/><circle class="badge" cx="40" cy="52" r="24"/><text class="num" x="40" y="60">1</text><text class="head" x="78" y="40">LLM Provider field</text><text class="body" x="78" y="68">Open the list before entering provider details.</text></g>
+  <g transform="translate(1150 328)"><rect class="card" width="560" height="112" rx="20"/><circle class="badge" cx="40" cy="56" r="24"/><text class="num" x="40" y="64">2</text><text class="head" x="78" y="42">Provider options</text><text class="body" x="78" y="70">Azure OpenAI, OpenAI, compatible endpoint, or OpenRouter.</text></g>
+  <g transform="translate(1150 480)"><rect class="card" width="560" height="104" rx="20"/><circle class="badge" cx="40" cy="52" r="24"/><text class="num" x="40" y="60">3</text><text class="head" x="78" y="40">Finish runtime settings</text><text class="body" x="78" y="68">Confirm credentials and VNet CIDR before review.</text></g>
+</svg>

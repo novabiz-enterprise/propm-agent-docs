@@ -1,5 +1,5 @@
 ---
-title: AI providers और platform integrations
+title: AI प्रदाता और प्लेटफ़ॉर्म एकीकरण
 slug: /ai-providers-platform-integrations
 description: Platform integrations तैयार करें, AI providers configure करें, readiness validate करें, और platform setup को project usage से अलग समझें।
 ---

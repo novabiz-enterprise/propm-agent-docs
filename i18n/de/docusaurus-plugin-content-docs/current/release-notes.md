@@ -1,5 +1,5 @@
 ---
-title: Release Notes
+title: Versionshinweise
 slug: /release-notes
 description: Dokumentationsänderungen für ProPM Agent.
 ---

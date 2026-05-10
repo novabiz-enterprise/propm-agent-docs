@@ -6,6 +6,8 @@ description: KI-Anbieter speichern, validieren, testen und aktivieren.
 
 # KI-Anbieter
 
+![KI-Anbieter-Workflow](/img/annotated/de/ai-provider-annotated.svg)
+
 Diese Seite erklärt die Administration des KI-Anbieters auf Plattformebene.
 
 ## Aktionen

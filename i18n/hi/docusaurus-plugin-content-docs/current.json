@@ -1,26 +1,50 @@
 {
   "version.label": {
-    "message": "अगला",
+    "message": "वर्तमान",
     "description": "The label for version current"
-  },
-  "sidebar.guide.category.Getting Started": {
-    "message": "शुरुआत",
-    "description": "The label for category 'Getting Started' in sidebar 'guide'"
-  },
-  "sidebar.guide.category.Project Work": {
-    "message": "प्रोजेक्ट कार्य",
-    "description": "The label for category 'Project Work' in sidebar 'guide'"
-  },
-  "sidebar.guide.category.Portfolio and Administration": {
-    "message": "पोर्टफोलियो और प्रशासन",
-    "description": "The label for category 'Portfolio and Administration' in sidebar 'guide'"
   },
   "sidebar.guide.doc.Home": {
     "message": "मुखपृष्ठ",
     "description": "The label for the doc item 'Home' in sidebar 'guide', linking to the doc index"
   },
+  "sidebar.guide.category.Discover ProPM Agent": {
+    "message": "ProPM Agent का परिचय",
+    "description": "The label for category 'Discover ProPM Agent' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Getting Started": {
+    "message": "शुरुआत",
+    "description": "The label for category 'Getting Started' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Use ProPM Agent": {
+    "message": "ProPM Agent का उपयोग",
+    "description": "The label for category 'Use ProPM Agent' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Project Governance": {
+    "message": "परियोजना शासन",
+    "description": "The label for category 'Project Governance' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Project Administration": {
+    "message": "परियोजना प्रशासन",
+    "description": "The label for category 'Project Administration' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Portfolio": {
+    "message": "पोर्टफोलियो",
+    "description": "The label for category 'Portfolio' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Azure and Platform Administration": {
+    "message": "Azure और प्लेटफ़ॉर्म प्रशासन",
+    "description": "The label for category 'Azure and Platform Administration' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Security and Compliance": {
+    "message": "सुरक्षा और अनुपालन",
+    "description": "The label for category 'Security and Compliance' in sidebar 'guide'"
+  },
+  "sidebar.guide.category.Support and FAQ": {
+    "message": "सहायता और FAQ",
+    "description": "The label for category 'Support and FAQ' in sidebar 'guide'"
+  },
   "sidebar.guide.doc.Glossary": {
-    "message": "शब्दकोश",
+    "message": "शब्दावली",
     "description": "The label for the doc item 'Glossary' in sidebar 'guide', linking to the doc glossaire"
   }
 }

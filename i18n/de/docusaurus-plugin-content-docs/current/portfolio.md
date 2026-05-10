@@ -6,6 +6,8 @@ description: Projekte vergleichen, Portfolio-Signale konfigurieren, Kohorten und
 
 [Startseite](./index.md) · Portfolio
 
+![Portfolio-Review-Workflow](/img/annotated/de/portfolio-annotated.svg)
+
 ![Portfolio-Kommandozentrale](/img/screenshots/localized/de/02-portfolio-command-center.jpg)
 
 ## Ziel

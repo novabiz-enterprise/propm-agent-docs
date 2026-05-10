@@ -1,5 +1,5 @@
 ---
-title: Active project और project creation
+title: सक्रिय परियोजना और परियोजना निर्माण
 slug: /projet-actif-et-creation-projet
 description: active project चुनें, project बनाएँ और project context समझें।
 ---

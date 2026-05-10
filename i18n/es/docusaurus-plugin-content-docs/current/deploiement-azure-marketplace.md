@@ -59,7 +59,7 @@ Prepare al menos:
 
 La primera etapa define el alcance de Azure del despliegue.
 
-![Pestaña de base del despliegue Azure Marketplace](/img/deploiement/deploiement-01-onglet-base.png)
+![Pestaña de base del despliegue Azure Marketplace](/img/deploiement/deploiement-01-onglet-base-annotated.svg)
 
 ### Campos visibles
 
@@ -77,7 +77,7 @@ Esta pantalla agrupa los parámetros de identidad, proveedor IA, seguridad inici
 
 Para un primer despliegue, mantén **New installation** seleccionado y elige **Create new resources** para que el asistente Marketplace cree los recursos del nuevo entorno ProPM.
 
-![Parámetros actuales de la aplicación del despliegue](/img/deploiement/deploiement-02-parametres-application.png)
+![Parámetros actuales de la aplicación del despliegue](/img/deploiement/deploiement-02-parametres-application-annotated.svg)
 
 ### Campos visibles en la captura
 
@@ -136,7 +136,7 @@ Sin embargo, el usuario final no debe entender toda la mecánica de instalación
 
 La captura a continuación muestra el comportamiento cuando **LLM Provider** está configurado en **Azure OpenAI**.
 
-![Selección Azure OpenAI con indicación de configuración posterior en la administración](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed.png)
+![Selección Azure OpenAI con indicación de configuración posterior en la administración](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed-annotated.svg)
 
 ### Cuando este elección es pertinente
 
