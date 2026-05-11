@@ -82,7 +82,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Support and FAQ',
-      items: ['maintenance-support-faq', 'support-audit-et-diagnostic', 'checklist-revue-documentaire', 'release-notes'],
+      items: ['maintenance-support-faq', 'support-audit-et-diagnostic'],
     },
     {
       type: 'doc',
