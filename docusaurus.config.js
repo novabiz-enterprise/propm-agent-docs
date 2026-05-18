@@ -23,7 +23,7 @@ const contactPoint = {
   '@type': 'ContactPoint',
   contactType: 'customer support',
   email: supportEmail,
-  availableLanguage: ['en', 'fr', 'de', 'es', 'hi'],
+  availableLanguage: ['en', 'fr', 'de', 'es', 'hi', 'ar'],
 };
 const footerAddressHtml = '131 Continental Dr, Suite 305<br />Newark, DE 19713 &middot; United States';
 const mobileLanguageSwitcherHtml = `
@@ -34,6 +34,7 @@ const mobileLanguageSwitcherHtml = `
     <a data-locale="de" href="${baseUrl}de/">Deutsch</a>
     <a data-locale="hi" href="${baseUrl}hi/">हिन्दी</a>
     <a data-locale="es" href="${baseUrl}es/">Español</a>
+    <a data-locale="ar" href="${baseUrl}ar/" dir="rtl">العربية</a>
   </div>
 `;
 
@@ -43,9 +44,10 @@ const searchDocsDirs = [
   'i18n/de/docusaurus-plugin-content-docs/current',
   'i18n/es/docusaurus-plugin-content-docs/current',
   'i18n/hi/docusaurus-plugin-content-docs/current',
+  'i18n/ar/docusaurus-plugin-content-docs/current',
 ];
 
-const noIndexSearchRoutes = ['/search', '/fr/search', '/de/search', '/es/search', '/hi/search'];
+const noIndexSearchRoutes = ['/search', '/fr/search', '/de/search', '/es/search', '/hi/search', '/ar/search'];
 const ignoredSitemapRoutes = noIndexSearchRoutes.flatMap((route) => [route, `${route}/**`]);
 const structuredDataTags = [
   {
@@ -151,13 +153,14 @@ const config = {
   ],
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'fr', 'de', 'hi', 'es'],
+    locales: ['en', 'fr', 'de', 'hi', 'es', 'ar'],
     localeConfigs: {
       en: { label: 'English' },
       fr: { label: 'Fran\u00e7ais' },
       de: { label: 'Deutsch' },
       hi: { label: '\u0939\u093f\u0928\u094d\u0926\u0940' },
       es: { label: 'Espa\u00f1ol' },
+      ar: { label: '\u0627\u0644\u0639\u0631\u0628\u064a\u0629', direction: 'rtl', htmlLang: 'ar' },
     },
   },
   presets: [
@@ -193,7 +196,7 @@ const config = {
         indexPages: false,
         docsRouteBasePath: '/',
         docsDir: searchDocsDirs,
-        language: ['en', 'fr', 'de', 'es', 'hi'],
+        language: ['en', 'fr', 'de', 'es', 'hi', 'ar'],
         highlightSearchTermsOnTargetPage: true,
         explicitSearchResultPath: true,
         searchResultLimits: 10,

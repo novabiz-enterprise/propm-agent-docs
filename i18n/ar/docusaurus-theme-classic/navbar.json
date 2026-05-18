@@ -1,0 +1,46 @@
+{
+  "title": {
+    "message": "ProPM Agent",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "ProPM Agent",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Documentation": {
+    "message": "التوثيق",
+    "description": "Navbar item with label Documentation"
+  },
+  "item.label.Marketplace": {
+    "message": "Azure Marketplace",
+    "description": "Navbar item with label Marketplace"
+  },
+  "item.label.Export PDF": {
+    "message": "تصدير PDF",
+    "description": "Navbar item with label Export PDF"
+  },
+  "item.label.English PDF": {
+    "message": "PDF بالإنجليزية",
+    "description": "Navbar item with label English PDF"
+  },
+  "item.label.French PDF": {
+    "message": "PDF بالفرنسية",
+    "description": "Navbar item with label French PDF"
+  },
+  "item.label.German PDF": {
+    "message": "PDF بالألمانية",
+    "description": "Navbar item with label German PDF"
+  },
+  "item.label.Hindi PDF": {
+    "message": "PDF بالهندية",
+    "description": "Navbar item with label Hindi PDF"
+  },
+  "item.label.Spanish PDF": {
+    "message": "PDF بالإسبانية",
+    "description": "Navbar item with label Spanish PDF"
+  },
+  "item.label.Arabic PDF": {
+    "message": "PDF بالعربية",
+    "description": "Navbar item with label Arabic PDF"
+  }
+}

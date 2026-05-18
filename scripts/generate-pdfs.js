@@ -22,6 +22,7 @@ const localeLabels = {
   de: 'Deutsch',
   hi: 'Hindi',
   es: 'Espanol',
+  ar: 'Arabic',
 };
 
 const printCss = `
@@ -42,6 +43,8 @@ const printCss = `
   .markdown table { width: 100% !important; font-size: 11px !important; break-inside: auto; }
   .markdown tr, .markdown img, .markdown pre, .markdown blockquote, .theme-code-block { break-inside: avoid; }
   a { color: #1d4ed8 !important; text-decoration: none !important; }
+  html[dir='rtl'], html[dir='rtl'] body, html[lang='ar'], html[lang='ar'] body { direction: rtl !important; text-align: right !important; }
+  html[dir='rtl'] .markdown ul, html[dir='rtl'] .markdown ol, html[lang='ar'] .markdown ul, html[lang='ar'] .markdown ol { padding-left: 0 !important; padding-right: 18px !important; }
 `;
 
 async function main() {

@@ -11,7 +11,7 @@ const liveDir = path.join(webRoot, '.playwright', 'live');
 const requireFromWeb = createRequire(path.join(webRoot, 'package.json'));
 const { chromium } = requireFromWeb('playwright');
 
-const locales = (process.env.SCREENSHOT_LOCALES || 'en,fr,de,hi,es')
+const locales = (process.env.SCREENSHOT_LOCALES || 'en,fr,de,hi,es,ar')
   .split(',')
   .map((value) => value.trim())
   .filter(Boolean);
@@ -19,7 +19,7 @@ const outputRoot = path.join(docsRoot, 'static', 'img', 'screenshots', 'localize
 const DEFAULT_VIEWPORT = { width: 1440, height: 900 };
 const SCREENSHOT_EXTENSION = 'jpg';
 const SCREENSHOT_QUALITY = 0.98;
-const LOADING_TEXT_PATTERN = /(loading|chargement|laden|wird geladen|cargando|carregando|caricamento)/i;
+const LOADING_TEXT_PATTERN = /(loading|chargement|laden|wird geladen|cargando|carregando|caricamento|تحميل|جار(?:ي)? التحميل)/i;
 const STRUCTURED_OUTPUT_PROMPT =
   process.env.PLAYWRIGHT_LIVE_CHAT_PROMPT ||
   'Produce a structured project review with summary, key findings, decisions needed, recommended actions, missing information, watchpoints, and cited evidence for project leadership.';

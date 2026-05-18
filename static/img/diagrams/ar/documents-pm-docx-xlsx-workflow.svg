@@ -1,0 +1,49 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" role="img" aria-labelledby="title desc">
+  <title id="title">PM Documents DOCX XLSX</title>
+  <desc id="desc">Flow from an agent run to artifact, PM Document and export.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/></marker>
+  </defs>
+  <style>
+    .bg { fill: #f8fafc; }
+    .b1 { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2; }
+    .b2 { fill: #e0e7ff; stroke: #4338ca; stroke-width: 2; }
+    .b3 { fill: #dcfce7; stroke: #15803d; stroke-width: 2; }
+    .b4 { fill: #fef3c7; stroke: #b45309; stroke-width: 2; }
+    .t { font: 700 24px Arial, sans-serif; fill: #0f172a; }
+    .s { font: 400 17px Arial, sans-serif; fill: #334155; }
+    .l { stroke: #0f172a; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+  </style>
+  <rect class="bg" x="0" y="0" width="1280" height="520"/>
+  <rect class="b1" x="40" y="200" width="190" height="110" rx="18"/>
+  <text class="t" x="135" y="242" text-anchor="middle">Agents</text>
+  <text class="s" x="135" y="272" text-anchor="middle">run and output</text>
+
+  <rect class="b2" x="300" y="200" width="220" height="110" rx="18"/>
+  <text class="t" x="410" y="242" text-anchor="middle">Structured output</text>
+  <text class="s" x="410" y="272" text-anchor="middle">evidence, freshness, confidence</text>
+
+  <rect class="b2" x="590" y="200" width="220" height="110" rx="18"/>
+  <text class="t" x="700" y="242" text-anchor="middle">Artefact</text>
+  <text class="s" x="700" y="272" text-anchor="middle">version, diff, lineage</text>
+
+  <rect class="b3" x="880" y="120" width="220" height="110" rx="18"/>
+  <text class="t" x="990" y="162" text-anchor="middle">PM Document</text>
+  <text class="s" x="990" y="192" text-anchor="middle">narrative review</text>
+
+  <rect class="b3" x="880" y="290" width="220" height="110" rx="18"/>
+  <text class="t" x="990" y="332" text-anchor="middle">Grid</text>
+  <text class="s" x="990" y="362" text-anchor="middle">tabular review</text>
+
+  <rect class="b4" x="1150" y="120" width="90" height="110" rx="18"/>
+  <text class="t" x="1195" y="182" text-anchor="middle">DOCX</text>
+  <rect class="b4" x="1150" y="290" width="90" height="110" rx="18"/>
+  <text class="t" x="1195" y="352" text-anchor="middle">XLSX</text>
+
+  <path class="l" d="M230 255 L300 255"/>
+  <path class="l" d="M520 255 L590 255"/>
+  <path class="l" d="M810 255 L880 175"/>
+  <path class="l" d="M810 255 L880 345"/>
+  <path class="l" d="M1100 175 L1150 175"/>
+  <path class="l" d="M1100 345 L1150 345"/>
+</svg>

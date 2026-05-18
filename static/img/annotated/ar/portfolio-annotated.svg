@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="980" viewBox="0 0 1200 980" role="img" aria-labelledby="title desc">
+  <title id="title">Vertical Portfolio review workflow</title>
+  <desc id="desc">Vertical diagram explaining Portfolio review: project selection, signal profile, cohorts, outlier threshold, evidence review, follow-up decision and interpretation rule.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0fdf4"/>
+      <stop offset="0.55" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#ecfeff"/>
+    </linearGradient>
+    <linearGradient id="decision" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dcfce7"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="7" refY="11" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1,1 L13,1 L7,13 Z" fill="#16a34a"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .title{font:700 34px Arial,sans-serif;fill:#0f172a}.subtitle{font:400 18px Arial,sans-serif;fill:#475569}.rail{stroke:#bbf7d0;stroke-width:8;stroke-linecap:round}.flow{stroke:#16a34a;stroke-width:5;stroke-linecap:round;marker-end:url(#arrow)}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2;filter:url(#shadow)}.decision-card{fill:url(#decision);stroke:#16a34a;stroke-width:3;filter:url(#shadow)}.num{font:700 21px Arial,sans-serif;fill:#fff;text-anchor:middle}.head{font:700 23px Arial,sans-serif;fill:#0f172a}.body{font:400 18px Arial,sans-serif;fill:#475569}.final{font:700 22px Arial,sans-serif;fill:#fff;text-anchor:middle}.final-sub{font:400 16px Arial,sans-serif;fill:#dcfce7;text-anchor:middle}
+    </style>
+  </defs>
+
+  <rect width="1200" height="980" rx="30" fill="url(#bg)"/>
+  <text x="60" y="64" class="title">Portfolio review workflow</text>
+  <text x="60" y="100" class="subtitle">Compare projects only after confirming scope, signal profile, threshold and evidence quality.</text>
+
+  <line x1="92" y1="150" x2="92" y2="790" class="rail"/>
+
+  <circle cx="92" cy="175" r="30" fill="#2563eb"/><text x="92" y="183" class="num">1</text>
+  <rect x="150" y="130" width="990" height="92" rx="22" class="card"/>
+  <text x="185" y="167" class="head">Project selection</text>
+  <text x="185" y="198" class="body">Choose portfolio, scope and projects to compare before reading indicators.</text>
+
+  <circle cx="92" cy="280" r="30" fill="#16a34a"/><text x="92" y="288" class="num">2</text>
+  <rect x="150" y="235" width="990" height="92" rx="22" class="card"/>
+  <text x="185" y="272" class="head">Signal profile</text>
+  <text x="185" y="303" class="body">Select the signals that matter: risk, schedule, evidence, blockers and project health.</text>
+
+  <circle cx="92" cy="385" r="30" fill="#7c3aed"/><text x="92" y="393" class="num">3</text>
+  <rect x="150" y="340" width="990" height="92" rx="22" class="card"/>
+  <text x="185" y="377" class="head">Cohorts</text>
+  <text x="185" y="408" class="body">Group comparable projects to avoid mixing non-equivalent contexts.</text>
+
+  <circle cx="92" cy="490" r="30" fill="#ea580c"/><text x="92" y="498" class="num">4</text>
+  <rect x="150" y="445" width="990" height="92" rx="22" class="card"/>
+  <text x="185" y="482" class="head">Outlier threshold</text>
+  <text x="185" y="513" class="body">Set ranking sensitivity before interpreting deviations as priorities.</text>
+
+  <circle cx="92" cy="595" r="30" fill="#dc2626"/><text x="92" y="603" class="num">5</text>
+  <rect x="150" y="550" width="990" height="92" rx="22" class="card"/>
+  <text x="185" y="587" class="head">Outliers and evidence</text>
+  <text x="185" y="618" class="body">Inspect the strongest deviations with their evidence before drawing conclusions.</text>
+
+  <circle cx="92" cy="710" r="32" fill="#0f766e"/><text x="92" y="718" class="num">6</text>
+  <rect x="150" y="660" width="990" height="100" rx="24" class="decision-card"/>
+  <text x="185" y="698" class="head">Follow-up decision</text>
+  <text x="185" y="730" class="body">Open project details, create a review action or prepare a PM Document based on evidence.</text>
+
+  <line x1="92" y1="208" x2="92" y2="248" class="flow"/>
+  <line x1="92" y1="313" x2="92" y2="353" class="flow"/>
+  <line x1="92" y1="418" x2="92" y2="458" class="flow"/>
+  <line x1="92" y1="523" x2="92" y2="563" class="flow"/>
+  <line x1="92" y1="628" x2="92" y2="672" class="flow"/>
+  <line x1="92" y1="746" x2="92" y2="800" class="flow"/>
+
+  <rect x="150" y="820" width="990" height="92" rx="26" fill="#14532d" filter="url(#shadow)"/>
+  <text x="645" y="860" class="final">An outlier is a review priority, not an automatic conclusion</text>
+  <text x="645" y="890" class="final-sub">The final decision depends on evidence, project context and human validation.</text>
+</svg>
