@@ -142,27 +142,49 @@ New Managed Application के लिए अलग name use करें, ता
 
 ### Step 3 - Attach existing ProPM data resources select करें
 
-**Application Settings** tab में **Installation mode** field में **Attach existing ProPM data resources** select करें।
+**Application Settings** tab में **Installation mode** field में **Attach existing ProPM data resources** select करें। यह mode नई Marketplace Managed Application और नया application tier बनाता है, लेकिन उसे previous ProPM deployment के data resources से connect करता है।
 
-![Attach existing ProPM data resources mode select करना](/img/deploiement/fr/propm-plan-update-03-attach-existing-data-resources-annotated.svg)
+![Deployment update के लिए Attach existing ProPM data resources](/img/deploiement/propm-update-attach-existing-data.png)
 
-यह mode new deployment को बताता है कि वह empty environment से start करने के बजाय previous deployment के data resources से connect करे।
+#### Existing data fields
 
-Most cases में advanced override fields empty रखें। New deployment previous Managed Application से standard resources discover कर सकता है। ये fields केवल तब भरें जब previous installation ने custom resource names use किए हों या ProPM support आपसे ऐसा कहे।
+| Field | Required | क्या भरें | Recommendation |
+| --- | --- | --- | --- |
+| **Environment Name** | हाँ | Short environment name, जैसे `prod`, `uat` या `test`। | New application tier के लिए stable, non-secret name use करें। |
+| **Installation mode** | हाँ | **Attach existing ProPM data resources**। | Plan change, major update या existing data recovery scenario के लिए use करें। |
+| **Previous ProPM Managed Application resource ID** | हाँ | Previous ProPM Managed Application की full Azure Resource ID। | Previous Managed Application के **Properties** से full **Id** copy करें। सिर्फ name या managed resource group न डालें। |
+| **Existing Storage account resource ID (optional override)** | नहीं | Existing Storage Account की Resource ID। | Default में empty रखें। Auto-discovery possible न हो या support कहे तभी भरें। |
+| **Existing Azure AI Search service resource ID (optional override)** | नहीं | Existing Azure AI Search service की Resource ID। | Previous deployment से service discover हो सकती हो तो empty रखें। |
+| **Existing SQL server resource ID (optional override)** | नहीं | Existing SQL Server की Resource ID। | यह SQL server identify करता है, database name नहीं। Special topology में ही use करें। |
+| **Existing SQL database name (optional override)** | नहीं | Existing SQL database name। | Previous outputs से database name न मिले तभी भरें। |
+| **Existing Cosmos DB account resource ID (optional override)** | नहीं | Existing Cosmos DB account की Resource ID। | Specific existing account force करना हो तभी भरें। |
+| **Existing Document Intelligence account resource ID (optional override)** | नहीं | Existing Document Intelligence account की Resource ID। | External या custom resource हो तभी use करें। |
+| **Existing Service Bus namespace resource ID (optional override)** | नहीं | Existing Service Bus namespace की Resource ID। | Standard case में empty रखें ताकि auto-discovery हो सके। |
 
-### Step 4 - Previous Managed Application enter करें
+Most cases में advanced override fields empty रखें। ये fields केवल तब भरें जब previous installation custom resource names use करता हो, outputs unavailable हों या ProPM support ऐसा कहे।
 
-Azure Portal में previous ProPM Managed Application खोलें और **Properties** पर जाएँ।
+### Step 4 - Cutover और platform settings review करें
 
-Managed Application का full **Id** field copy करें। यह previous Managed Application की **Resource ID** है, managed resource group name नहीं।
+दूसरी screen cutover safety, administration access, AI configuration reuse, CORS, monitoring, SQL password और network control करती है।
 
-![Previous ProPM Managed Application की Resource ID copy करना](/img/deploiement/fr/propm-plan-update-02-copy-previous-managed-application-id-annotated.svg)
+![Deployment update cutover और platform settings](/img/deploiement/propm-update-cutover-settings.png)
 
-New deployment wizard पर लौटें और यह value **Previous ProPM Managed Application resource ID** में paste करें।
+#### Cutover और platform fields
 
-अगर जरूरत हो, तो **Block previous deployment during cutover** enable करें। यह option new deployment use और validate करते समय previous environment में changes रोकने में मदद करता है।
-
-![Cutover के दौरान previous deployment block करना](/img/deploiement/fr/propm-plan-update-04-readonly-and-overrides-annotated.svg)
+| Field | Required | क्या भरें | Recommendation |
+| --- | --- | --- | --- |
+| **Existing Event Grid topic resource ID (optional override)** | नहीं | Existing Event Grid topic की Resource ID। | Auto-discovery fail हो या support कहे तभी भरें। |
+| **Block previous deployment during cutover** | नहीं, recommended | Validation के दौरान previous environment block करने के लिए enable करें। | इससे दो application tiers same data में write नहीं करते। Alternative: previous environment stop या read-only रखें। |
+| **Platform Administration Entra Group Object IDs** | हाँ | Platform administrators के Entra Group Object IDs। | Object IDs डालें, display names नहीं। |
+| **Platform Administration Bootstrap Users (optional)** | नहीं | Bootstrap या recovery users। | First access या controlled recovery के लिए ही use करें। |
+| **Allow Azure RBAC admin recovery** | नहीं | Azure RBAC recovery checkbox। | Operating model allow करे तो enabled रखें। |
+| **Reuse previous AI provider configuration** | Recommended | Previous AI configuration reuse करनी हो तो enable करें। | AI fields hidden हो जाते हैं। बाद में **Platform Administration** से AI settings बदली जा सकती हैं। |
+| **CORS Allowed Origins** | Scenario पर निर्भर | Additional allowed web origins। | Additional origins needed न हों तो empty रखें। |
+| **Enable alerting (Azure Monitor)** | नहीं | Azure Monitor alerts enable या disable करें। | Production में recommended। |
+| **Enable debug logging** | नहीं | Detailed logs enable करें। | Controlled diagnosis के अलावा disabled रखें। |
+| **Password** | हाँ | Existing ProPM SQL admin password। | New application tier reused database से connect कर सके, इसके लिए attach update में यह secure SQL input अभी भी required है। Secret की तरह handle करें। |
+| **Confirm password** | हाँ | **Password** जैसा ही value। | दोनों values match करनी चाहिए। |
+| **VNet CIDR** | हाँ | Private network range, जैसे `10.0.0.0/16`। | Create करने से पहले network team से validate करें और overlap avoid करें। |
 
 Wizard में बाकी required parameters enter करने के बाद **Review + create** select करें, configuration review करें और deployment start करें।
 

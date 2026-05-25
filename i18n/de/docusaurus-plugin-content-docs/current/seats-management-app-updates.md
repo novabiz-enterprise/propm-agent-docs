@@ -142,27 +142,49 @@ Verwenden Sie einen anderen Namen für die neue Managed Application, damit vorhe
 
 ### Schritt 3 - Attach existing ProPM data resources auswählen
 
-Wählen Sie auf der Registerkarte **Application Settings** im Feld **Installation mode** die Option **Attach existing ProPM data resources**.
+Wählen Sie auf der Registerkarte **Application Settings** im Feld **Installation mode** die Option **Attach existing ProPM data resources**. Dieser Modus erstellt eine neue Marketplace Managed Application und einen neuen Anwendungstier, verbindet diese aber mit den Datenressourcen der vorherigen ProPM-Bereitstellung.
 
-![Modus Attach existing ProPM data resources auswählen](/img/deploiement/fr/propm-plan-update-03-attach-existing-data-resources-annotated.svg)
+![Attach existing ProPM data resources für eine Deployment-Aktualisierung](/img/deploiement/propm-update-attach-existing-data.png)
 
-Dieser Modus weist die neue Bereitstellung an, sich mit den Datenressourcen der vorherigen Bereitstellung zu verbinden, anstatt mit einer leeren Umgebung zu starten.
+#### Felder für vorhandene Datenressourcen
 
-Lassen Sie erweiterte Override-Felder in den meisten Fällen leer. Die neue Bereitstellung kann Standardressourcen aus der vorherigen Managed Application erkennen. Füllen Sie diese Felder nur aus, wenn die vorherige Installation benutzerdefinierte Ressourcennamen genutzt hat oder ProPM-Support Sie dazu auffordert.
+| Feld | Pflicht | Was eintragen | Empfehlung |
+| --- | --- | --- | --- |
+| **Environment Name** | Ja | Kurzer Umgebungsname, z. B. `prod`, `uat` oder `test`. | Stabilen, nicht geheimen Namen für den neuen Anwendungstier verwenden. |
+| **Installation mode** | Ja | **Attach existing ProPM data resources**. | Nur für Planwechsel, größere Updates oder Wiederaufnahme mit vorhandenen Daten verwenden. |
+| **Previous ProPM Managed Application resource ID** | Ja | Vollständige Azure Resource ID der vorherigen ProPM Managed Application. | Das Feld **Id** aus **Properties** der vorherigen Managed Application kopieren. Nicht nur Namen oder Managed Resource Group eintragen. |
+| **Existing Storage account resource ID (optional override)** | Nein | Resource ID des vorhandenen Storage Accounts. | Standardmäßig leer lassen. Nur ausfüllen, wenn automatische Erkennung nicht möglich ist oder Support es verlangt. |
+| **Existing Azure AI Search service resource ID (optional override)** | Nein | Resource ID des vorhandenen Azure AI Search-Dienstes. | Leer lassen, sofern der Dienst aus der vorherigen Bereitstellung erkannt werden kann. |
+| **Existing SQL server resource ID (optional override)** | Nein | Resource ID des vorhandenen SQL Servers. | Identifiziert den SQL Server, nicht den Datenbanknamen. Nur bei Sondertopologie verwenden. |
+| **Existing SQL database name (optional override)** | Nein | Name der vorhandenen SQL-Datenbank. | Nur ausfüllen, wenn der Datenbankname nicht aus den vorherigen Outputs ermittelt werden kann. |
+| **Existing Cosmos DB account resource ID (optional override)** | Nein | Resource ID des vorhandenen Cosmos DB Accounts. | Leer lassen, außer ein bestimmter vorhandener Account muss erzwungen werden. |
+| **Existing Document Intelligence account resource ID (optional override)** | Nein | Resource ID des vorhandenen Document Intelligence Accounts. | Nur bei extern verwalteter oder benutzerdefinierter Ressource verwenden. |
+| **Existing Service Bus namespace resource ID (optional override)** | Nein | Resource ID des vorhandenen Service Bus Namespace. | Standardmäßig leer lassen, damit der Namespace automatisch erkannt wird. |
 
-### Schritt 4 - Vorherige Managed Application eintragen
+Lassen Sie erweiterte Override-Felder in den meisten Fällen leer. Füllen Sie diese Felder nur aus, wenn die vorherige Installation benutzerdefinierte Ressourcennamen genutzt hat, die Outputs nicht verfügbar sind oder ProPM-Support Sie dazu auffordert.
 
-Öffnen Sie im Azure Portal die vorherige ProPM Managed Application und wechseln Sie zu **Properties**.
+### Schritt 4 - Cutover- und Plattformparameter prüfen
 
-Kopieren Sie das vollständige Feld **Id** der Managed Application. Dies ist die **Resource ID** der vorherigen Managed Application, nicht der Name der verwalteten Ressourcengruppe.
+Die zweite Hälfte der Seite steuert Cutover-Sicherheit, Administrationszugriff, Wiederverwendung der KI-Konfiguration, CORS, Monitoring, SQL-Passwort und Netzwerk.
 
-![Resource ID der vorherigen ProPM Managed Application kopieren](/img/deploiement/fr/propm-plan-update-02-copy-previous-managed-application-id-annotated.svg)
+![Cutover- und Plattformparameter für Deployment-Aktualisierung](/img/deploiement/propm-update-cutover-settings.png)
 
-Kehren Sie zum Assistenten der neuen Bereitstellung zurück und fügen Sie diesen Wert in **Previous ProPM Managed Application resource ID** ein.
+#### Felder für Cutover und Plattform
 
-Aktivieren Sie bei Bedarf **Block previous deployment during cutover**. Diese Option hilft zu verhindern, dass Änderungen in der vorherigen Umgebung vorgenommen werden, während die neue Bereitstellung genutzt und validiert wird.
-
-![Vorherige Bereitstellung während des Cutovers blockieren](/img/deploiement/fr/propm-plan-update-04-readonly-and-overrides-annotated.svg)
+| Feld | Pflicht | Was eintragen | Empfehlung |
+| --- | --- | --- | --- |
+| **Existing Event Grid topic resource ID (optional override)** | Nein | Resource ID des vorhandenen Event Grid Topics. | Leer lassen, außer automatische Erkennung findet das Topic nicht oder Support verlangt den Wert. |
+| **Block previous deployment during cutover** | Nein, empfohlen | Aktivieren, wenn die vorherige Umgebung während der Validierung blockiert werden soll. | Verhindert, dass zwei Anwendungstiers gleichzeitig in dieselben Daten schreiben. Alternativ vorherige Umgebung stoppen oder auf read-only setzen. |
+| **Platform Administration Entra Group Object IDs** | Ja | Object IDs der Entra-Gruppen für Plattformadministration. | Object IDs eintragen, nicht Anzeigenamen. |
+| **Platform Administration Bootstrap Users (optional)** | Nein | Bootstrap- oder Recovery-Benutzer. | Nur für ersten Zugriff oder kontrollierte Wiederherstellung nutzen. |
+| **Allow Azure RBAC admin recovery** | Nein | Checkbox für Wiederherstellung über Azure RBAC. | Aktiv lassen, wenn das Betriebsmodell dies erlaubt. |
+| **Reuse previous AI provider configuration** | Empfohlen | Aktivieren, wenn die vorherige KI-Konfiguration übernommen werden soll. | KI-Felder werden dann ausgeblendet. Änderungen sind später in **Platform Administration** möglich. |
+| **CORS Allowed Origins** | Szenarioabhängig | Zusätzliche erlaubte Web-Origins. | Leer lassen, wenn keine zusätzlichen Origins benötigt werden. |
+| **Enable alerting (Azure Monitor)** | Nein | Azure Monitor Alerts aktivieren oder deaktivieren. | Für Produktion empfohlen. |
+| **Enable debug logging** | Nein | Detailliertere Logs aktivieren. | Außerhalb kontrollierter Diagnose deaktiviert lassen. |
+| **Password** | Ja | Vorhandenes ProPM SQL-Admin-Passwort. | Für Attach-Updates weiterhin erforderlich, damit der neue Anwendungstier die wiederverwendete Datenbank erreicht. Sicher behandeln. |
+| **Confirm password** | Ja | Derselbe Wert wie **Password**. | Beide Werte müssen übereinstimmen. |
+| **VNet CIDR** | Ja | Privater Netzwerkbereich, z. B. `10.0.0.0/16`. | Vor Erstellung mit dem Netzwerkteam validieren und Überschneidungen vermeiden. |
 
 Nachdem Sie die weiteren vom Assistenten geforderten Parameter eingegeben haben, wählen Sie **Review + create**, prüfen die Konfiguration und starten die Bereitstellung.
 

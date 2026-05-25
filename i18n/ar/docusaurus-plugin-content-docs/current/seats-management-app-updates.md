@@ -142,27 +142,49 @@ Azure Marketplace هو المصدر الرسمي لما يلي:
 
 ### الخطوة 3 - اختيار Attach existing ProPM data resources
 
-في تبويب **Application Settings**، اختر **Attach existing ProPM data resources** في **Installation mode**.
+في تبويب **Application Settings**، اختر **Attach existing ProPM data resources** في **Installation mode**. ينشئ هذا الوضع Managed Application جديدة من Marketplace وطبقة تطبيق جديدة، لكنه يربطها بموارد بيانات نشر ProPM السابق.
 
-![اختيار وضع Attach existing ProPM data resources](/img/deploiement/fr/propm-plan-update-03-attach-existing-data-resources-annotated.svg)
+![Attach existing ProPM data resources لتحديث النشر](/img/deploiement/propm-update-attach-existing-data.png)
 
-يشير هذا الوضع إلى النشر الجديد بأنه يجب أن يتصل بموارد البيانات الخاصة بالنشر السابق بدلا من البدء ببيئة فارغة.
+#### حقول موارد البيانات الموجودة
 
-اترك حقول override المتقدمة فارغة في معظم الحالات. يستطيع النشر الجديد اكتشاف الموارد القياسية انطلاقا من Managed Application السابقة. املأ هذه الحقول فقط إذا كان التثبيت السابق يستخدم أسماء موارد مخصصة أو إذا طلب منك دعم ProPM ذلك.
+| الحقل | إلزامي | ماذا تكتب | التوصية |
+| --- | --- | --- | --- |
+| **Environment Name** | نعم | اسم قصير للبيئة، مثل `prod` أو `uat` أو `test`. | استخدم اسما ثابتا وغير سري لطبقة التطبيق الجديدة. |
+| **Installation mode** | نعم | **Attach existing ProPM data resources**. | استخدمه لتغيير الخطة، أو تحديث رئيسي، أو سيناريو استرداد مع بيانات موجودة. |
+| **Previous ProPM Managed Application resource ID** | نعم | Resource ID الكامل الخاص بـ ProPM Managed Application السابقة. | انسخ **Id** الكامل من **Properties** للتطبيق السابق. لا تدخل الاسم فقط أو Managed Resource Group. |
+| **Existing Storage account resource ID (optional override)** | لا | Resource ID لحساب التخزين الموجود. | اتركه فارغا افتراضيا. املأه فقط إذا تعذر الاكتشاف التلقائي أو طلب الدعم ذلك. |
+| **Existing Azure AI Search service resource ID (optional override)** | لا | Resource ID لخدمة Azure AI Search الموجودة. | اتركه فارغا إذا كان يمكن اكتشاف الخدمة من النشر السابق. |
+| **Existing SQL server resource ID (optional override)** | لا | Resource ID لخادم SQL الموجود. | يحدد خادم SQL، وليس اسم قاعدة البيانات. استخدمه فقط في topology خاصة. |
+| **Existing SQL database name (optional override)** | لا | اسم قاعدة SQL الموجودة. | املأه فقط إذا تعذر الحصول على اسم القاعدة من outputs السابقة. |
+| **Existing Cosmos DB account resource ID (optional override)** | لا | Resource ID لحساب Cosmos DB الموجود. | املأه فقط إذا كان يجب فرض حساب موجود محدد. |
+| **Existing Document Intelligence account resource ID (optional override)** | لا | Resource ID لحساب Document Intelligence الموجود. | استخدمه فقط عند وجود مورد خارجي أو مخصص. |
+| **Existing Service Bus namespace resource ID (optional override)** | لا | Resource ID لـ Service Bus namespace الموجود. | اتركه فارغا في الحالة القياسية للسماح بالاكتشاف التلقائي. |
 
-### الخطوة 4 - تحديد Managed Application السابقة
+اترك حقول override المتقدمة فارغة في معظم الحالات. املأ هذه الحقول فقط إذا كان التثبيت السابق يستخدم أسماء موارد مخصصة، أو إذا كانت outputs غير متاحة، أو إذا طلب دعم ProPM ذلك.
 
-في Azure Portal، افتح ProPM Managed Application السابقة وانتقل إلى **Properties**.
+### الخطوة 4 - مراجعة cutover وإعدادات المنصة
 
-انسخ حقل **Id** الكامل الخاص بـ Managed Application. هذا هو **Resource ID** الخاص بـ Managed Application السابقة، وليس اسم مجموعة الموارد المدارة.
+يتحكم الجزء الثاني في أمان الانتقال، ووصول الإدارة، وإعادة استخدام إعداد الذكاء الاصطناعي، وCORS، والمراقبة، وكلمة مرور SQL، والشبكة.
 
-![نسخ Resource ID الخاص بـ ProPM Managed Application السابقة](/img/deploiement/fr/propm-plan-update-02-copy-previous-managed-application-id-annotated.svg)
+![إعدادات cutover والمنصة لتحديث النشر](/img/deploiement/propm-update-cutover-settings.png)
 
-ارجع إلى معالج النشر الجديد والصق هذه القيمة في **Previous ProPM Managed Application resource ID**.
+#### حقول cutover والمنصة
 
-إذا لزم الأمر، فعّل **Block previous deployment during cutover**. يساعد هذا الخيار على تجنب التغييرات في البيئة السابقة أثناء استخدام النشر الجديد والتحقق منه.
-
-![حظر النشر السابق أثناء الانتقال](/img/deploiement/fr/propm-plan-update-04-readonly-and-overrides-annotated.svg)
+| الحقل | إلزامي | ماذا تكتب | التوصية |
+| --- | --- | --- | --- |
+| **Existing Event Grid topic resource ID (optional override)** | لا | Resource ID لموضوع Event Grid الموجود. | اتركه فارغا إلا إذا فشل الاكتشاف التلقائي أو طلب الدعم القيمة. |
+| **Block previous deployment during cutover** | لا، موصى به | فعّله لحظر البيئة السابقة أثناء التحقق. | يمنع طبقتي تطبيق من الكتابة في البيانات نفسها. كبديل، أوقف البيئة السابقة أو اجعلها للقراءة فقط. |
+| **Platform Administration Entra Group Object IDs** | نعم | Object IDs لمجموعات Entra الخاصة بإدارة المنصة. | أدخل Object IDs، وليس أسماء العرض. |
+| **Platform Administration Bootstrap Users (optional)** | لا | مستخدمو bootstrap أو الاسترداد. | استخدمه فقط للوصول الأول أو الاسترداد المضبوط. |
+| **Allow Azure RBAC admin recovery** | لا | خانة استرداد عبر Azure RBAC. | أبقها مفعلة إذا كان نموذج التشغيل يسمح بذلك. |
+| **Reuse previous AI provider configuration** | موصى به | فعّله إذا كانت إعدادات الذكاء الاصطناعي السابقة ستعاد استخدامها. | تصبح حقول الذكاء الاصطناعي مخفية. يمكن تغيير الإعدادات لاحقا من **Platform Administration**. |
+| **CORS Allowed Origins** | بحسب السيناريو | أصول ويب إضافية مسموحة. | اتركه فارغا إذا لم تكن هناك أصول إضافية مطلوبة. |
+| **Enable alerting (Azure Monitor)** | لا | تفعيل أو تعطيل تنبيهات Azure Monitor. | موصى به للإنتاج. |
+| **Enable debug logging** | لا | تفعيل سجلات مفصلة. | أبقه معطلا خارج تشخيص مضبوط. |
+| **Password** | نعم | كلمة مرور مسؤول SQL الخاصة بـ ProPM الموجودة. | ما تزال مطلوبة في attach update حتى تتصل طبقة التطبيق الجديدة بقاعدة البيانات المعاد استخدامها. تعامل معها كسِر. |
+| **Confirm password** | نعم | القيمة نفسها مثل **Password**. | يجب أن تتطابق القيمتان. |
+| **VNet CIDR** | نعم | نطاق شبكة خاص، مثل `10.0.0.0/16`. | تحقق منه مع فريق الشبكة قبل الإنشاء وتجنب التداخل. |
 
 بعد إدخال المعلمات الأخرى التي يطلبها المعالج، اختر **Review + create**، وراجع التكوين، وابدأ النشر.
 

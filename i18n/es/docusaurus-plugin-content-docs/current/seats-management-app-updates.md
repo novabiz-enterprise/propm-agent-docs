@@ -142,27 +142,49 @@ Use un nombre diferente para la nueva Managed Application para distinguir claram
 
 ### Paso 3 - Seleccionar Attach existing ProPM data resources
 
-En la pestaña **Application Settings**, seleccione **Attach existing ProPM data resources** en **Installation mode**.
+En la pestaña **Application Settings**, seleccione **Attach existing ProPM data resources** en **Installation mode**. Este modo crea una nueva Managed Application de Marketplace y una nueva capa de aplicación, pero la conecta a los recursos de datos del despliegue ProPM anterior.
 
-![Seleccionar el modo Attach existing ProPM data resources](/img/deploiement/fr/propm-plan-update-03-attach-existing-data-resources-annotated.svg)
+![Attach existing ProPM data resources para una actualización de despliegue](/img/deploiement/propm-update-attach-existing-data.png)
 
-Este modo indica al nuevo despliegue que debe conectarse a los recursos de datos del despliegue anterior en lugar de comenzar con un entorno vacío.
+#### Campos de datos existentes
 
-Deje vacíos los campos avanzados de override en la mayoría de los casos. El nuevo despliegue puede descubrir los recursos estándar a partir de la Managed Application anterior. Rellene estos campos solo si la instalación anterior usaba nombres de recursos personalizados o si el soporte ProPM se lo pide.
+| Campo | Obligatorio | Qué introducir | Recomendación |
+| --- | --- | --- | --- |
+| **Environment Name** | Sí | Nombre corto del entorno, por ejemplo `prod`, `uat` o `test`. | Use un valor estable y no secreto para la nueva capa de aplicación. |
+| **Installation mode** | Sí | **Attach existing ProPM data resources**. | Use este modo para cambio de plan, actualización mayor o recuperación con datos existentes. |
+| **Previous ProPM Managed Application resource ID** | Sí | Resource ID Azure completo de la Managed Application ProPM anterior. | Copie el campo **Id** desde **Properties** de la Managed Application anterior. No introduzca solo nombres. |
+| **Existing Storage account resource ID (optional override)** | No | Resource ID del Storage Account existente. | Déjelo vacío por defecto. Rellene solo si no se puede autodescubrir o si soporte lo pide. |
+| **Existing Azure AI Search service resource ID (optional override)** | No | Resource ID del servicio Azure AI Search existente. | Déjelo vacío si el servicio puede descubrirse desde el despliegue anterior. |
+| **Existing SQL server resource ID (optional override)** | No | Resource ID del SQL Server existente. | Identifica el servidor SQL, no el nombre de base de datos. Use solo para topologías especiales. |
+| **Existing SQL database name (optional override)** | No | Nombre de la base SQL existente. | Rellene solo si el nombre no puede obtenerse desde los outputs anteriores. |
+| **Existing Cosmos DB account resource ID (optional override)** | No | Resource ID de la cuenta Cosmos DB existente. | Déjelo vacío salvo necesidad explícita de forzar una cuenta concreta. |
+| **Existing Document Intelligence account resource ID (optional override)** | No | Resource ID de la cuenta Document Intelligence existente. | Use solo si la instalación usa una cuenta externa o personalizada. |
+| **Existing Service Bus namespace resource ID (optional override)** | No | Resource ID del namespace Service Bus existente. | Déjelo vacío para permitir el descubrimiento automático. |
 
-### Paso 4 - Indicar la Managed Application anterior
+En la mayoría de los casos, deje vacíos los campos avanzados de override. Rellénelos solo si la instalación anterior usaba nombres personalizados, los outputs no están disponibles o el soporte ProPM lo solicita.
 
-En Azure Portal, abra la ProPM Managed Application anterior y vaya a **Properties**.
+### Paso 4 - Revisar cutover y parámetros de plataforma
 
-Copie el campo **Id** completo de la Managed Application. Este es el **Resource ID** de la Managed Application anterior, no el nombre del grupo de recursos gestionado.
+La segunda parte controla seguridad de transición, acceso de administración, reutilización de configuración IA, CORS, supervisión, contraseña SQL y red.
 
-![Copiar el Resource ID de la ProPM Managed Application anterior](/img/deploiement/fr/propm-plan-update-02-copy-previous-managed-application-id-annotated.svg)
+![Parámetros de transición y plataforma para actualización de despliegue](/img/deploiement/propm-update-cutover-settings.png)
 
-Vuelva al asistente del nuevo despliegue y pegue este valor en **Previous ProPM Managed Application resource ID**.
+#### Campos de cutover y plataforma
 
-Si es necesario, active **Block previous deployment during cutover**. Esta opción ayuda a evitar cambios en el entorno anterior mientras se usa y valida el nuevo despliegue.
-
-![Bloquear el despliegue anterior durante la transición](/img/deploiement/fr/propm-plan-update-04-readonly-and-overrides-annotated.svg)
+| Campo | Obligatorio | Qué introducir | Recomendación |
+| --- | --- | --- | --- |
+| **Existing Event Grid topic resource ID (optional override)** | No | Resource ID del topic Event Grid existente. | Déjelo vacío salvo que el autodescubrimiento falle o soporte lo pida. |
+| **Block previous deployment during cutover** | No, recomendado | Activar para bloquear el entorno anterior durante la validación. | Evita que dos capas de aplicación escriban en los mismos datos. Como alternativa, detenga o ponga en solo lectura el entorno anterior. |
+| **Platform Administration Entra Group Object IDs** | Sí | Object IDs de grupos Entra para administración de plataforma. | Introduzca Object IDs, no nombres visibles. |
+| **Platform Administration Bootstrap Users (optional)** | No | Usuarios bootstrap o de recuperación. | Use solo para primer acceso o recuperación controlada. |
+| **Allow Azure RBAC admin recovery** | No | Casilla para recuperación vía Azure RBAC. | Manténgala activada si el modelo operativo lo permite. |
+| **Reuse previous AI provider configuration** | Recomendado | Activar si debe reutilizarse la configuración IA anterior. | Los campos IA se ocultan. Puede modificar IA después desde **Platform Administration**. |
+| **CORS Allowed Origins** | Según escenario | Orígenes web adicionales permitidos. | Déjelo vacío si no se requieren orígenes adicionales. |
+| **Enable alerting (Azure Monitor)** | No | Activar o desactivar alertas Azure Monitor. | Recomendado en producción. |
+| **Enable debug logging** | No | Activar logs más detallados. | Manténgalo desactivado salvo diagnóstico controlado. |
+| **Password** | Sí | Contraseña de administrador SQL ProPM existente. | Sigue siendo necesaria para que la nueva capa se conecte a la base reutilizada. Trátela como secreto. |
+| **Confirm password** | Sí | El mismo valor que **Password**. | Ambos valores deben coincidir. |
+| **VNet CIDR** | Sí | Rango de red privada, por ejemplo `10.0.0.0/16`. | Valídelo con el equipo de red antes de crear y evite solapamientos. |
 
 Después de introducir los demás parámetros solicitados por el asistente, seleccione **Review + create**, revise la configuración e inicie el despliegue.
 

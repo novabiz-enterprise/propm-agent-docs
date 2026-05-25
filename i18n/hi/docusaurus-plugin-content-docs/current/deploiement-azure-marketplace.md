@@ -1,368 +1,164 @@
 ---
 title: Azure Marketplace पर तैनाती
 slug: /deploiement-azure-marketplace
-description: Azure Marketplace से ProPM Agent को तैनात करें, स्थापना के दौरान AI प्रदाता चुनें और प्रशासन में सेवा को अंतिम रूप दें।
+description: Azure Marketplace से ProPM Agent deploy करें, ProPM-50 form fields भरें और installation के बाद administration complete करें।
 ---
 
 [मुखपृष्ठ](./index.md) · Azure Marketplace पर तैनाती
 
 ## उद्देश्य
 
-यह पृष्ठ बताता है कि **ProPM Agent** को **Azure Marketplace** से कैसे तैनात करें, फिर क्लाइंट पक्ष पर सेवा को सही ढंग से कैसे समाप्त करें।
+यह पेज बताता है कि **ProPM Agent** को **Azure Marketplace** से कैसे deploy किया जाता है। इसमें Azure form की दो मुख्य screens, हर visible field का purpose और **Review + create** से पहले checks समझाए गए हैं।
 
-मुख्य बिंदु सरल है:
+नीचे की screenshots **Create ProPM-50** form दिखाती हैं। Marketplace plan के अनुसार यह नाम बदल सकता है, जैसे ProPM-50, ProPM-100 या कोई दूसरा available plan।
 
-- **Azure Marketplace प्लेटफ़ॉर्म स्थापित करता है**;
-- **LLM Provider** फ़ील्ड आपको उस **AI प्रदाता परिवार** को चुनने देता है जिसे वातावरण उपयोग करेगा;
-- **अंतिम सेवा सक्रियण** AI प्रदाता को **प्लेटफ़ॉर्म प्रशासन > AI प्रदाता सेटिंग्स** में समाप्त किया जाता है।
+## किसके लिए
 
-दूसरे शब्दों में, तैनाती अकेले ही AI प्रदाता को तुरंत अंतिम उपयोगकर्ताओं के लिए उपयोगी नहीं बनाती।
-
-## तैनाती के दौरान एक प्रशासक क्या तय करता है
-
-Marketplace सहायक के दौरान, प्रशासक विशेष रूप से तय करता है:
-
-- किस **Azure सब्सक्रिप्शन** में समाधान तैनात किया जाए;
-- किस **रिसोर्स ग्रुप** और किस **क्षेत्र** में;
-- कौन से **Entra समूह** प्लेटफ़ॉर्म का प्रबंधन करेंगे;
-- कौन सा **मुख्य AI प्रदाता** वातावरण उपयोग करेगा;
-- प्रारंभिक **CORS**, लॉगिंग, निगरानी और **नेटवर्क** नियम लागू करें।
-
-## तैनाती के बाद क्या समाप्त होता है
-
-इंस्टॉलेशन के बाद, प्लेटफ़ॉर्म प्रशासक को अभी भी करना चाहिए:
-
-1. **प्लेटफ़ॉर्म प्रशासन** खोलें;
-2. **AI प्रदाता सेटिंग्स** पर जाएँ;
-3. चुने हुए प्रदाता के विशिष्ट फ़ील्ड पूरा करें;
-4. कॉन्फ़िगरेशन सहेजें;
-5. **Validate** चलाएँ;
-6. **Test** चलाएँ;
-7. **Activate** चलाएँ;
-8. फिर **Journal IA** में वास्तविक उपयोग किए गए प्रदाता की पुष्टि करें।
-
-## तैनाती शुरू करने से पहले
-
-कम से कम तैयार करें:
-
-- लक्षित **Azure सब्सक्रिप्शन**;
-- मुख्य **रिसोर्स ग्रुप** और **क्षेत्र**;
-- प्लेटफ़ॉर्म प्रशासकों के **Entra Group Object IDs**;
-- संभावित **बूटस्ट्रैप उपयोगकर्ता**;
-- प्रारंभ में उपयोग करने के लिए **AI प्रदाता** का चयन;
-- यदि आप **Azure OpenAI** चुनते हैं, तो प्रशासक बाद में **LLM deployment name** को प्रशासन में अंतिम रूप देगा;
-- अतिरिक्त **CORS origins** यदि एप्लिकेशन को अन्य डोमेन से बुलाया जाना है;
-- **VNet CIDR** के लिए संगत पता योजना;
-- पहला कनेक्शन परीक्षण और **Entra redirect URIs** की तैयारी।
-
-## चरण 1 — **De base** टैब
-
-पहला चरण Azure तैनाती के दायरे को परिभाषित करता है।
-
-![Onglet de base du déploiement Azure Marketplace](/img/deploiement/deploiement-01-onglet-base-annotated.svg)
-
-### दृश्य फ़ील्ड
-
-| फ़ील्ड | इसका क्या काम है |
+| Profile | इस पेज का उपयोग |
 | --- | --- |
-| Abonnement | वह Azure सब्सक्रिप्शन चुनें जो इंस्टॉलेशन को धारण करेगा |
-| Groupe de ressources | तैनाती का मुख्य रिसोर्स ग्रुप परिभाषित करें |
-| Région | Azure Marketplace इंस्टेंस का क्षेत्र परिभाषित करें |
-| Nom de l’application | ProPM Agent इंस्टेंस का नाम दें |
-| Groupe de ressources managé | वह प्रबंधित समूह परिभाषित करें जो समाधान के आंतरिक संसाधनों को प्राप्त करेगा |
+| Azure administrator | Azure Marketplace से Managed Application create करना |
+| Tenant administrator | Entra groups और पहला administrator access तैयार करना |
+| Platform administrator | Installation के बाद कौन से settings complete करने हैं समझना |
+| Support | Secrets या internal variables मांगे बिना workflow verify करना |
+| Business user | नहीं, इसके लिए [शुरुआत](./demarrage.md) देखें |
 
-## चरण 2 — **Application Settings** टैब
+## शुरू करने से पहले
 
-यह स्क्रीन पहचान, AI प्रदाता, प्रारंभिक सुरक्षा, निगरानी और नेटवर्क सेटिंग्स को एकत्रित करती है।
+Marketplace form खोलने से पहले यह जानकारी तैयार रखें।
 
-पहले deployment के लिए **New installation** चयनित रखें और **Create new resources** चुनें, ताकि Marketplace assistant नए ProPM environment के resources बनाए।
-
-![Paramètres d’application actuels du déploiement](/img/deploiement/deploiement-02-parametres-application-annotated.svg)
-
-### कैप्चर में दृश्य फ़ील्ड
-
-| फ़ील्ड | सरल पढ़ना |
+| जानकारी | क्यों जरूरी है |
 | --- | --- |
-| Environment Name | पर्यावरण का संक्षिप्त नाम, उदाहरण के लिए `dev`, `test` या `prod` |
-| Platform Administration Entra Group Object IDs | प्लेटफ़ॉर्म को प्रबंधित करने के लिए अधिकृत Entra समूह |
-| Platform Administration Bootstrap Users (optional) | यदि आप उपयोग करते हैं तो बूटस्ट्रैप या बैकअप उपयोगकर्ता |
-| Allow Azure RBAC admin recovery | Azure RBAC आधारित प्रशासन पुनर्प्राप्ति की अनुमति देता है |
-| LLM Provider | उस AI प्रदाता परिवार को चुनें जिसे वातावरण उपयोग करेगा |
-| CORS Allowed Origins | अतिरिक्त वेब डोमेन की सूची जो अनुमत हैं |
-| Enable alerting (Azure Monitor) | Azure Monitor अलर्टिंग की निगरानी सक्रिय करता है |
-| Enable debug logging | तकनीकी गहन पढ़ने के लिए अधिक विस्तृत लॉग सक्रिय करता है |
-| Mot de passe / Confirmer le mot de passe | सहायक द्वारा मांगा गया प्रारंभिक पासवर्ड सेट करें |
-| VNet CIDR | प्लेटफ़ॉर्म के लिए आरक्षित निजी नेटवर्क रेंज परिभाषित करें |
-
-### महत्वपूर्ण बिंदु
-
-वर्तमान फ़ॉर्म में **क्षेत्र** अब इस टैब में नहीं चुना जाता। यह **De base** टैब में परिभाषित रहता है।
-
-## चरण 3 — तैनाती के दौरान AI प्रदाता चुनें
-
-**LLM Provider** फ़ील्ड केवल Azure OpenAI तक सीमित नहीं है। यह उत्पाद में दिखाई देने वाले किसी भी AI प्रदाता को चुनने की अनुमति देता है।
-
-### चार मामलों को जानें
-
-| AI प्रदाता | कब चुनें | मुख्य लाभ | तैनाती के दौरान आप क्या तय करते हैं | प्रशासन में बाद में क्या समाप्त करते हैं |
-| --- | --- | --- | --- | --- |
-| **Azure OpenAI** | यदि क्लाइंट का वातावरण पहले से Azure, Entra, निजी नेटवर्क और Microsoft शासन पर केंद्रित है | Azure इकोसिस्टम के साथ प्राकृतिक एकीकरण | आप Azure OpenAI को लक्ष्य प्रदाता के रूप में चुनते हैं | आप एंडपॉइंट, API संस्करण, प्रमाणीकरण मोड और विशेष रूप से **LLM deployment name** भरते हैं |
-| **OpenAI** | यदि क्लाइंट सीधे OpenAI प्लेटफ़ॉर्म का उपयोग करना चाहता है | सरल और सीधा मार्ग | आप OpenAI को लक्ष्य प्रदाता के रूप में चुनते हैं | आप उपयोग की गई URL, API कुंजी या सीक्रेट रेफ़रेंस, डिफ़ॉल्ट मॉडल, फिर Validate और Activate पूरा करते हैं |
-| **OpenRouter** | यदि क्लाइंट एक ही एंट्री पॉइंट से कई मॉडल परिवारों की तुलना करना चाहता है | एक ही कनेक्शन कई मॉडल और रूटिंग परिदृश्यों के लिए | आप OpenRouter को लक्ष्य प्रदाता के रूप में चुनते हैं | आप बेस URL, API कुंजी या रेफ़रेंस, डिफ़ॉल्ट मॉडल, फिर Validate और Activate पूरा करते हैं |
-| **OpenAI-compatible** | यदि क्लाइंट एक पार्टनर गेटवे, एंटरप्राइज़ एंडपॉइंट या स्वयं होस्टेड रनटाइम का उपयोग करता है | बिना उत्पाद को बदले संगत कार्यान्वयन को जोड़ने की अनुमति देता है | आप OpenAI-compatible को लक्ष्य प्रदाता के रूप में चुनते हैं | आप सटीक एंडपॉइंट, प्रमाणीकरण और अपेक्षित मॉडल या डिप्लॉयमेंट भरते हैं |
-
-### याद रखने के लिए एक सरल नियम
-
-तैनाती **प्रदाता को निर्दिष्ट करती है**। प्रशासन **प्रदाता को ऑपरेशनल बनाती है**।
-
-## अंतिम उपयोगकर्ता वास्तव में क्या महसूस करता है
-
-अंतिम उपयोगकर्ता के लिए, चुना गया प्रदाता वास्तव में प्रभावित करता है:
-
-- उपयोग किए जाने वाले **मॉडल**;
-- संगठन द्वारा लागू की गई **तकनीकी शासन** का स्तर;
-- प्रशासक टीम द्वारा **कुंजी**, **सीक्रेट** और **डिप्लॉयमेंट** का प्रबंधन;
-- कभी-कभी **सेवा प्रारंभ करने की गति** या **मॉडल परिवर्तन की लचीलापन**।
-
-इसके विपरीत, अंतिम उपयोगकर्ता को पूरी स्थापना तंत्र को समझने की आवश्यकता नहीं है। उनका मुख्य आवश्यकता यह है कि प्रदाता:
-
-- कॉन्फ़िगर किया गया हो;
-- मान्य किया गया हो;
-- परीक्षण किया गया हो;
-- सक्रिय किया गया हो;
-- **Journal IA** में ट्रेस किया गया हो।
-
-## केस 1 — **Azure OpenAI**
-
-नीचे कैप्चर दिखाता है कि **LLM Provider** को **Azure OpenAI** पर सेट करने पर क्या व्यवहार देखा गया।
-
-![Azure OpenAI चयन के साथ बाद की प्रशासनिक कॉन्फ़िगरेशन](/img/deploiement/fr/deploiement-03-azure-openai-marketplace-managed-annotated.svg)
-
-### कब यह विकल्प उपयुक्त है
-
-**Azure OpenAI** चुनें जब क्लाइंट:
-
-- पहले से Azure में मुख्य रूप से काम करता है;
-- **Entra**, नेटवर्क और Microsoft शासन के आसपास मजबूत ढाँचा चाहता है;
-- अपनी Azure OpenAI संसाधन में विशिष्ट **डिप्लॉयमेंट** चुनना चाहता है।
-
-### तैनाती के दौरान इसका क्या मतलब है
-
-Marketplace में:
-
-- आप **Azure OpenAI** को प्रदाता के रूप में चुनते हैं;
-- इंस्टॉलेशन संबंधित Azure कनेक्शन तैयार कर सकता है;
-- managed Azure OpenAI पथ के लिए, तैनाती अब कई Azure OpenAI क्षेत्रों की जाँच करती है और वास्तविक मॉडल उपलब्धता के आधार पर सर्वश्रेष्ठ उपलब्ध क्षेत्र को स्वतः चुनती है;
-- runtime स्थिर Azure OpenAI deployment aliases `chat` और `embeddings` बनाए रखता है;
-- runtime मॉडल का सटीक चयन अब तैनाती के समय वैश्विक रूप से स्थिर नहीं किया जाता।
-
-### इंस्टॉलेशन के बाद क्या करना है
-
-इंस्टॉलेशन के बाद, **प्लेटफ़ॉर्म प्रशासन > AI प्रदाता सेटिंग्स** खोलें और पुष्टि या समीक्षा करें:
-
-- तैनाती द्वारा चुना गया Azure OpenAI **क्षेत्र**;
-- उस क्षेत्र के लिए वास्तव में खोजा गया **मॉडल कैटलॉग**;
-- प्लेटफ़ॉर्म द्वारा सुझाया गया **अनुशंसित मॉडल**;
-- स्थिर `chat` alias के पीछे सिंक्रनाइज़ किया गया वर्तमान चयनित मॉडल;
-- कनेक्टिविटी और validation की स्थिति।
-
-### महत्वपूर्ण विशिष्टता
-
-यदि तैनाती ने पहले ही Azure OpenAI के लिए एक सीक्रेट या कुंजी स्थापित की है, तो इंटरफ़ेस यह संकेत दे सकता है कि उपयोगकर्ता के लिए कोई दृश्य **API key** आवश्यक नहीं है। इस स्थिति में, प्रशासक मुख्य रूप से मॉडल चयन, कनेक्टिविटी परीक्षण और deployment synchronization पर ध्यान केंद्रित करता है।
-
-यदि कोई प्रशासक जानबूझकर **GPT-5** से कम GPT generation चुनता है, तो सहेजने से पहले UI को स्पष्ट चेतावनी दिखानी चाहिए। नया Azure OpenAI मॉडल सहेजने पर फिर वास्तविक Azure OpenAI deployment को `chat` alias के पीछे synchronize होना चाहिए, न कि उपयोगकर्ता से deployments का नाम मैन्युअल रूप से बदलने के लिए कहना चाहिए।
-
-## केस 2 — **OpenAI**
-
-### कब यह विकल्प उपयुक्त है
-
-क्लाइंट सीधे OpenAI API का उपयोग करना चाहता है, बिना Azure OpenAI या किसी मध्यस्थ गेटवे के।
-
-### व्यावहारिक लाभ
-
-- सामान्यतः अधिक सीधा कॉन्फ़िगरेशन;
-- टीम के लिए सरल पढ़ना जो पहले से OpenAI का मानकीकरण कर रही है;
-- **Azure डिप्लॉयमेंट नाम** का प्रबंधन नहीं।
-
-### तैनाती के दौरान आप क्या तय करते हैं
-
-Marketplace में, आप केवल यह तय करते हैं कि वातावरण **OpenAI** को मुख्य प्रदाता के रूप में उपयोग करेगा।
-
-### इंस्टॉलेशन के बाद क्या करना है
-
-**AI प्रदाता सेटिंग्स** में, फिर पूरा करें:
-
-- **Base URL** या उत्पाद द्वारा उपयोग की जाने वाली एंडपॉइंट;
-- **मॉडल डिफ़ॉल्ट**;
-- **API कुंजी** या **सीक्रेट रेफ़रेंस**;
-- **Save → Validate → Test → Activate** अनुक्रम।
-
-### क्लाइंट पर प्रभाव
-
-अंतिम उपयोगकर्ता को इन सेटिंग्स को देखने की आवश्यकता नहीं है। उनके लिए महत्वपूर्ण यह है कि प्रशासक ने कनेक्टिविटी और वास्तविक मॉडल को सही ढंग से पुष्टि की हो।
-
-## केस 3 — **OpenRouter**
-
-### कब यह विकल्प उपयुक्त है
-
-क्लाइंट एक ही एंट्री पॉइंट से कई मॉडल परिवारों तक पहुँच चाहता है, उदाहरण के लिए परिणामों की तुलना या रूटिंग को आसान बनाने के लिए।
-
-### व्यावहारिक लाभ
-
-- प्लेटफ़ॉर्म पर एक ही कनेक्शन;
-- कई मॉडल की तुलना के लिए उपयोगी;
-- जब संगठन रूटिंग में कुछ लचीलापन रखना चाहता है तो व्यावहारिक।
-
-### तैनाती के दौरान आप क्या तय करते हैं
-
-Marketplace में, आप संकेत देते हैं कि वातावरण **OpenRouter** को मुख्य प्रदाता के रूप में उपयोग करेगा।
-
-### इंस्टॉलेशन के बाद क्या करना है
-
-**AI प्रदाता सेटिंग्स** में, फिर पूरा करें:
-
-- **Base URL**;
-- **API कुंजी** या रेफ़रेंस;
-- **डिफ़ॉल्ट मॉडल**;
-- फिर **Save → Validate → Test → Activate** चलाएँ।
-
-### सरल उदाहरण
-
-एक क्लाइंट जल्दी शुरू करना चाहता है, कई मॉडल की तुलना करना और बाद में अपने चयन को स्थिर करना चाहता है। **OpenRouter** प्रारंभिक चरण के लिए एक अच्छा उम्मीदवार है।
-
-## केस 4 — **OpenAI-compatible**
-
-### कब यह विकल्प उपयुक्त है
-
-क्लाइंट सीधे OpenAI या Azure OpenAI का उपयोग नहीं करता, बल्कि एक **संगत एंडपॉइंट** का उपयोग करता है, उदाहरण के लिए:
-
-- एंटरप्राइज़ गेटवे;
-- पार्टनर समाधान;
-- स्वयं होस्टेड रनटाइम।
-
-### व्यावहारिक लाभ
-
-- बिना ProPM Agent को बदले संगत प्रदाता जोड़ने की अनुमति देता है;
-- जब क्लाइंट की आर्किटेक्चर एक विशिष्ट AI एंट्री पॉइंट को लागू करती है तो उपयोगी;
-- टेनेंट के लिए नियंत्रण या रूटिंग परत बनाए रखने का अच्छा विकल्प।
-
-### तैनाती के दौरान आप क्या तय करते हैं
-
-Marketplace में, आप संकेत देते हैं कि वातावरण **OpenAI-compatible** को लक्ष्य प्रदाता के रूप में उपयोग करेगा।
-
-### इंस्टॉलेशन के बाद क्या करना है
-
-**AI प्रदाता सेटिंग्स** में, फिर पूरा करें:
-
-- **सटीक बेस URL** या एंडपॉइंट;
-- अपेक्षित **प्रमाणीकरण मोड**;
-- **कुंजी** या **सीक्रेट रेफ़रेंस**;
-- **मॉडल** या **डिप्लॉयमेंट** अपेक्षित;
-- फिर **Save → Validate → Test → Activate** चलाएँ।
-
-### सावधानी बिंदु
-
-यहाँ मुख्य विषय वास्तविक **एंडपॉइंट संगतता** है। एक पंजीकृत कॉन्फ़िगरेशन पर्याप्त नहीं है: **Validate + Test** अनिवार्य है।
-
-## इंस्टॉलेशन के बाद सभी AI प्रदाताओं के लिए सामान्य पथ
-
-चाहे तैनाती के दौरान कोई भी प्रदाता चुना गया हो, हमेशा इस पथ का पालन करें:
-
-1. **प्लेटफ़ॉर्म प्रशासन** खोलें;
-2. **AI प्रदाता सेटिंग्स** पर जाएँ;
-3. तैयार करने के लिए प्रदाता चुनें;
-4. आवश्यक फ़ील्ड भरें;
-5. **Save** पर क्लिक करके सहेजें;
-6. **Validate** पर क्लिक करके कॉन्फ़िगरेशन की जाँच करें;
-7. **Test** पर क्लिक करके वास्तविक कनेक्टिविटी जाँचें;
-8. **Activate** पर क्लिक करके प्रदाता को अंतिम उपयोगकर्ताओं के लिए सक्रिय करें;
-9. फिर **Journal IA** खोलें ताकि वास्तविक रन पर उपयोग किए गए प्रदाता की पुष्टि हो सके।
-
-### प्रशासनिक बटन कैसे पढ़ें
-
-| बटन | इसका क्या मतलब है |
+| Target Azure subscription | Marketplace transaction और deployed resources को carry करती है |
+| Target resource group | Customer-side Managed Application object को organize करता है |
+| Target Azure region | Primary deployment location define करता है |
+| Application name | Azure में ProPM Agent instance को identify करता है |
+| Managed Resource Group | Application द्वारा managed internal resources receive करता है |
+| Entra Group Object IDs | Platform administration access देते हैं |
+| Optional bootstrap users | First access या controlled recovery में मदद करते हैं |
+| Initial AI provider | बताता है कि इस instance के लिए कौन सा AI provider family prepare करना है |
+| Optional CORS origins | जरूरत होने पर additional web domains allow करते हैं |
+| VNet CIDR plan | Organization network के साथ conflicts से बचाता है |
+| Initial password | Generate करके secret की तरह store करना चाहिए |
+
+Password, secret, API key, token या confidential value को documentation या unsecured support request में कभी copy न करें।
+
+## Deployment flow
+
+1. Azure Marketplace में ProPM Agent offer खोलें।
+2. Required Marketplace plan चुनें।
+3. **Basics** tab भरें।
+4. **Next** चुनें।
+5. **Application Settings** tab भरें।
+6. **Review + create** चुनें।
+7. Validation errors हों तो fix करें।
+8. Creation start करें।
+9. Azure provisioning पूरा होने तक wait करें।
+10. Published URL खोलें और ProPM Agent में administration complete करें।
+
+## Screen 1 - Basics
+
+**Basics** tab deployment का Azure scope define करता है: subscription, resource group, region और Managed Application के Azure names।
+
+![ProPM-50 Azure Marketplace deployment Basics tab](/img/deploiement/propm-50-basics.png)
+
+### Basics fields
+
+| Field | Required | क्या भरें | Impact और recommendations |
+| --- | --- | --- | --- |
+| **Subscription** | हाँ | Azure subscription जो managed application और Marketplace billing receive करेगी। | ऐसा subscription use करें जहाँ आपके पास Managed Application deploy करने और resource groups create या select करने की permissions हों। Internal cost और governance rules भी verify करें। |
+| **Resource group** | हाँ | Customer-side resource group जिसमें Managed Application object रहेगा। | Existing group चुनें या **Create new** use करें। यह internal managed resource group नहीं है जिसमें ProPM Agent technical resources होते हैं। |
+| **Create new** | नहीं | Suitable group न होने पर नया resource group create करने की Azure action। | Environment और region से जुड़ा clear name रखें। Production instances के लिए temporary names avoid करें। |
+| **Region** | हाँ | Primary Azure deployment region। | Organization-approved region चुनें, users के करीब और data residency requirements के compatible। Planned network और AI resources के साथ consistency रखें। |
+| **Application Name** | हाँ | ProPM Agent Managed Application instance का visible name। | Stable और readable name use करें, जैसे `propm-prod-eus`। यह Azure में instance identify करने में मदद करता है। Secrets या sensitive customer data न रखें। |
+| **Managed Resource Group** | हाँ | Managed resource group जो application द्वारा deployed internal resources receive करेगा। | Azure अक्सर generated name propose करता है। इसे unique और recognizable रखें। यह group application द्वारा managed होता है; direct access Managed Application model से limited हो सकता है। |
+| **Previous** | नहीं | पिछले form step पर लौटता है। | यह button deployment start नहीं करता। |
+| **Next** | नहीं | Required fields पर्याप्त रूप से भरने पर next tab पर जाता है। | **Application Settings** पर जाने के लिए use करें। Azure block करे तो `*` वाले required fields review करें। |
+| **Review + create** | नहीं | Creation से पहले final Azure validation चलाता है। | Application settings complete करने के बाद ही use करें। Azure errors या warnings दिखाएगा जिन्हें real creation से पहले fix करना होगा। |
+
+## Screen 2 - Application Settings
+
+**Application Settings** tab ProPM Agent environment configure करता है: administration identity, installation mode, initial AI provider, CORS, monitoring, logging, initial password और network।
+
+![ProPM-50 Azure Marketplace deployment Application Settings tab](/img/deploiement/propm-50-application-settings.png)
+
+### Application Settings fields
+
+| Field | Required | क्या भरें | Impact और recommendations |
+| --- | --- | --- | --- |
+| **Environment Name** | हाँ | Short environment name, जैसे `dev`, `test`, `uat` या `prod`। | Resources, configuration और support exchanges में environment identify करने में मदद करता है। Short, stable, non-secret value use करें जो internal convention follow करे। |
+| **Installation mode** | Scenario पर निर्भर | Installation mode। First installation के लिए **New installation - create new resources** रखें। | New resources के साथ नया instance create करता है। Existing resources attach mode केवल prepared plan change, major update या recovery scenario में use करें। |
+| **Platform Administration Entra Group Object IDs** | हाँ | Entra groups के Object IDs जिन्हें platform administer करने की अनुमति है। | Groups के **Object IDs** डालें, सिर्फ display names नहीं। ये groups deployment के बाद **Platform Administration** access determine करते हैं। Broad groups के बजाय dedicated groups prefer करें। |
+| **Platform Administration Bootstrap Users (optional)** | नहीं | Bootstrap या recovery users, यदि procedure में required हो। | Entra groups पूरी तरह operational न हों तो first access secure करने में useful। List minimum और controlled रखें। |
+| **Allow Azure RBAC admin recovery** | नहीं | Azure RBAC के through administrator recovery allow करने वाला checkbox। | यदि operating model authorized Azure administrator को platform access recover करने देता है तो enabled रखें। Strict documented separation required हो तभी disable करें। |
+| **LLM Provider** | Recommended | Initial AI provider family: Azure OpenAI, OpenAI, OpenRouter या OpenAI-compatible, available choices के अनुसार। | यह initial deployment intent है। इससे provider operational होना साबित नहीं होता। Installation के बाद **Platform Administration > AI Provider Settings** में **Save**, **Validate**, **Test**, फिर **Activate** करें। |
+| **CORS Allowed Origins** | Scenario पर निर्भर | Additional allowed web origins, जैसे `https://portal.contoso.com`। | Additional origin required न हो तो खाली छोड़ें। बहुत broad wildcards avoid करें। Values complete origins होनी चाहिए, `https://`, domain और जरूरत हो तो port के साथ। |
+| **Enable alerting (Azure Monitor)** | नहीं | Environment के लिए Azure Monitor alerts enable या disable करता है। | Production में recommended ताकि incidents detect हों। बाद में Azure Monitor में recipients, action rules और cost rules verify करें। |
+| **Enable debug logging** | नहीं | More detailed logs enable करता है। | Production में disabled रखें जब तक support diagnosis की जरूरत न हो। Debug log volume बढ़ा सकता है और authorized administrators को ज्यादा technical detail दिखा सकता है। |
+| **Password** | हाँ | Deployment form द्वारा मांगा गया initial password। | Strong password generate करें और approved vault या secret manager में store करें। Email, chat या unsecured ticket से न भेजें। |
+| **Confirm password** | हाँ | **Password** जैसा ही value। | Azure verify करता है कि दोनों fields match करें। Error हो तो secure source से दोनों values फिर enter करें। |
+| **VNet CIDR** | हाँ | Deployment के लिए reserved private network range, जैसे `10.0.0.0/16`। | ऐसा range चुनें जो existing networks, peerings, VPNs या planned ranges से overlap न करे। Creation से पहले network team से validate कराएं क्योंकि बाद में बदलना कठिन है। |
+| **Previous** | नहीं | **Basics** tab पर वापस जाता है। | Final validation से पहले subscription, group, region या names fix करने के लिए useful। |
+| **Next** | नहीं | अगले form step पर जाता है। | Validation से पहले tab order follow करना हो तो use करें। |
+| **Review + create** | नहीं | सभी parameters की final validation चलाता है। | Azure resources तब तक create नहीं करता जब तक validation के बाद creation confirm न करें। Start करने से पहले सभी errors fix करें। |
+
+## LLM Provider चुनना
+
+**LLM Provider** field वह AI family चुनता है जिसे environment पहले use करेगा। यह AI configuration का end नहीं है।
+
+| Choice | कब चुनें | Installation के बाद अभी भी जरूरी |
+| --- | --- | --- |
+| **Azure OpenAI** | Organization Azure, Entra और Microsoft governance ecosystem में रहना चाहती है। | Endpoint, region या available model, Azure OpenAI settings, tests और activation confirm करें। |
+| **OpenAI** | Organization सीधे OpenAI APIs use करती है। | URL, model, key या secret reference enter करें, फिर **Save**, **Validate**, **Test**, **Activate** चलाएँ। |
+| **OpenRouter** | Organization एक entry point से multiple models access करना चाहती है। | Base URL, key या secret reference, default model enter करें, फिर validate और activate करें। |
+| **OpenAI-compatible** | Organization OpenAI-compatible gateway या endpoint use करती है। | Exact endpoint, authentication mode, expected model या deployment enter करें, फिर actual compatibility test करें। |
+
+Simple rule: deployment AI provider को **select** करता है; ProPM Agent administration उसे **operational** बनाती है।
+
+## Review + create से पहले validation
+
+Creation start करने से पहले ये checks करें।
+
+| Check | Expected result |
 | --- | --- |
-| Save | दर्ज की गई कॉन्फ़िगरेशन सहेजता है |
-| Validate | अपेक्षित फ़ील्ड संगत हैं या नहीं जाँचता है |
-| Test | वास्तविक प्रदाता के साथ कनेक्टिविटी जाँचता है |
-| Activate | प्रदाता को अंतिम उपयोगकर्ताओं के लिए सक्रिय करता है |
+| Subscription और resource group | Target environment और governance rules से match करते हैं |
+| Region | Data residency, availability और network strategy respect करती है |
+| Application Name | Name clear, stable और non-confidential है |
+| Managed Resource Group | Name unique और recognizable है |
+| Entra Group Object IDs | IDs platform administration groups के हैं |
+| Bootstrap Users | List empty है या expected accounts तक strictly limited है |
+| RBAC recovery | Choice administrator recovery procedure से aligned है |
+| LLM Provider | Initial provider AI strategy से consistent है |
+| CORS | केवल required origins allowed हैं |
+| Alerting | Monitoring required environments के लिए enabled है |
+| Debug logging | Controlled diagnosis के अलावा disabled है |
+| Password | Vault में stored है और clear text में share नहीं होता |
+| VNet CIDR | Network team द्वारा validated है और known overlap नहीं है |
 
-## **Vérifier + créer** से पहले जाँच
+## Deployment के बाद
 
-निर्माण शुरू करने से पहले:
+1. Azure provisioning पूरा होने तक wait करें।
+2. Published ProPM Agent URL खोलें।
+3. Entra groups या bootstrap procedure द्वारा authorized account से sign in करें।
+4. **Platform Administration** access verify करें।
+5. AI provider settings खोलें।
+6. Selected provider के लिए **Save**, **Validate**, **Test**, फिर **Activate** चलाएँ।
+7. Licenses और Marketplace plan verify करें।
+8. Standard user से पहला functional test करें।
+9. Run के बाद [AI Log](./journal-ia.md) देखें ताकि actual provider confirm हो सके।
 
-1. सब्सक्रिप्शन, क्षेत्र और रिसोर्स ग्रुप की जाँच करें;
-2. Entra समूह और संभावित बूटस्ट्रैप उपयोगकर्ताओं को पुनः पढ़ें;
-3. चुने हुए AI प्रदाता की पुष्टि करें;
-4. यदि **Azure OpenAI** चुना गया है, तो स्पष्ट रूप से पहचानें कि कौन **LLM deployment name** को इंस्टॉलेशन के बाद अंतिम रूप देगा;
-5. नेटवर्क, निगरानी और पासवर्ड सेटिंग्स की जाँच करें।
+## Common blockers
 
-## तैनाती के बाद
-
-### न्यूनतम तकनीकी जाँच
-
-1. वास्तविक प्रकाशित **वेब URL** नोट करें;
-2. **API URL** जाँचें;
-3. `/runtime-config.json` की उपलब्धता सत्यापित करें;
-4. प्रकाशित URL और Entra **redirect URIs** के बीच संगति की पुष्टि करें;
-5. **प्लेटफ़ॉर्म प्रशासन > AI प्रदाता सेटिंग्स** खोलें और पुष्टि करें कि चुना गया प्रदाता तैयार है;
-6. फिर जाँचें कि अपेक्षित स्थिति **Configuration → Validation → Test → Operational** से गुजरती है।
-
-### Marketplace पर वापस जाए बिना installation के बाद updates
-
-Environment install होने के बाद regular application updates **Platform Administration > Deployment & Updates** से की जाती हैं। यह operation existing Container Apps की images update करता है और पहले से मौजूद resources पर नई revisions बनाता है।
-
-यह flow Azure Marketplace offer फिर से नहीं चलाता, नया resource group नहीं बनाता और deployment resources recreate नहीं करता। इसका उपयोग approved ACR images apply करने, candidate services check करने, environment allow करे तो mutable tags refresh करने और references available हों तो rollback से previous image पर लौटने के लिए होता है।
-
-इसे उपयोग करने से पहले पुष्टि करें कि runtime identity Azure Resource Manager के माध्यम से Container Apps read और patch कर सकती है, `AZURE_SUBSCRIPTION_ID` और `AZURE_RESOURCE_GROUP_ID`, `AZURE_RESOURCE_GROUP` या `AZURE_RESOURCE_GROUP_NAME` में से कोई resource group variable configured है, और target images update manifest, target-image configuration या authorized application tag से आती हैं।
-
-दो steps अलग रखें: Marketplace initial environment install करता है; **Deployment & Updates** existing installation maintain करता है। Database schema migrations और architecture changes इस administration button के scope में नहीं आते।
-
-### Entra प्रमाणीकरण
-
-आपके तैनाती मोड के अनुसार, Entra एप्लिकेशन पंजीकरण को अंतिम रूप दें:
-
-- `clientId`;
-- `authority` या tenant;
-- `scopes`;
-- `redirectUri` और `postLogoutRedirectUri`;
-- यदि आवश्यक हो, API एक्सपोज़्ड और उसके scopes।
-
-### पहला कार्यात्मक परीक्षण
-
-प्रकाशन के बाद, कम से कम करें:
-
-- एक मानक उपयोगकर्ता खाते से कनेक्ट करें;
-- अपेक्षित प्रशासनिक खाते से कनेक्ट करें;
-- **प्रोजेक्ट** खोलें;
-- **डैशबोर्ड** खोलें;
-- **प्लेटफ़ॉर्म प्रशासन > AI प्रदाता सेटिंग्स** खोलें;
-- चुने हुए प्रदाता पर **Save → Validate → Test → Activate** चलाएँ यदि अभी तक नहीं किया गया;
-- **Journal IA** की जाँच करें ताकि वास्तविक उपयोग किए गए प्रदाता और मॉडल परिवार की पुष्टि हो सके।
-
-## ग्राहक टीम को भेजी जाने वाली जानकारी
-
-प्लेटफ़ॉर्म को तकनीकी रूप से मान्य करने के बाद, कम से कम निम्नलिखित भेजें:
-
-1. वास्तविक उपयोग योग्य **प्रकाशित URL**;
-2. अपेक्षित **tenant** और यदि आवश्यक हो तो **guest** खातों के लिए आमंत्रण नियम;
-3. पहला परीक्षण खाता या समूह;
-4. वास्तव में उपयोग के लिए तैयार AI प्रदाता;
-5. पहली कनेक्शन के लिए [प्रारम्भ](./demarrage.md) पृष्ठ का पालन करें।
-
-## तैनाती के बाद उपयोगी जाँच बिंदु
-
-| जाँच बिंदु | क्यों महत्वपूर्ण है |
-| --- | --- |
-| प्रकाशित URL और Entra **redirect URIs** | सफल तैनाती के बावजूद प्रारंभिक पहुँच को रोकता है |
-| प्रशासनिक समूह और बूटस्ट्रैप उपयोगकर्ता | प्रारंभिक प्रशासन प्रवेश सुनिश्चित करता है |
-| चुना गया AI प्रदाता | केवल घोषित प्रदाता और वास्तव में ऑपरेशनल प्रदाता के बीच भ्रम से बचता है |
-| Validate और Test | पुष्टि करता है कि कॉन्फ़िगरेशन केवल सहेजा नहीं गया बल्कि उपयोग योग्य है |
-| Journal IA | वास्तविक रन पर उपयोग किए गए प्रदाता की पुष्टि करता है |
-| Azure Monitor | अनुरोधित अवलोकनीयता सक्रिय है यह सुनिश्चित करता है |
+| Symptom | Likely cause | Recommended action |
+| --- | --- | --- |
+| Azure next step पर नहीं जाता | Required field empty या invalid है | `*` वाले सभी fields और field messages review करें |
+| Administrator Platform Administration नहीं देखता | Wrong Entra Object ID या group membership propagate नहीं हुई | Group Object ID और account membership verify करें |
+| Validation में network conflict | VNet CIDR already used या overlapping है | Network team के साथ दूसरा range चुनें |
+| Creation के बाद AI provider usable नहीं | Deployment ने केवल AI provider family select की है | Administration में **Save**, **Validate**, **Test**, **Activate** complete करें |
+| Logs बहुत ज्यादा या unexpected costs | Debug logging या alerting governance के बिना enabled | Azure Monitor settings adjust करें और diagnosis के बाहर debug disable करें |
 
 ## आगे
 
-- [प्रारम्भ](./demarrage.md)
-- [पोर्टफोलियो और तकनीकी प्रशासन](./portefeuille-et-administration-technique.md)
-- [रखरखाव, समर्थन और अक्सर पूछे जाने वाले प्रश्न](./maintenance-support-faq.md)
+- Entra access final करने के लिए [Azure और Entra administration](./admin-deploiement-marketplace-et-entra.md) खोलें।
+- AI provider configure करने के लिए [AI provider](./admin-fournisseur-ia.md) खोलें।
+- Licenses, plans और updates verify करने के लिए [Licenses, plans and updates](./admin-licences-plans-et-mises-a-jour.md) खोलें।
+- Users invite करने के लिए [शुरुआत](./demarrage.md) भेजें।
